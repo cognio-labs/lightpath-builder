@@ -9,8 +9,218 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YogaRouteImport } from './routes/yoga'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
+import { Route as StressRouteImport } from './routes/stress'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as ScienceOfJoyfulLivingRouteImport } from './routes/science-of-joyful-living'
+import { Route as SanjeevniKriyaRouteImport } from './routes/sanjeevni-kriya'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as PositiveThinkingRouteImport } from './routes/positive-thinking'
+import { Route as ParentingRouteImport } from './routes/parenting'
+import { Route as OverthinkingRouteImport } from './routes/overthinking'
+import { Route as MyAccountRouteImport } from './routes/my-account'
+import { Route as MindfulnessRouteImport } from './routes/mindfulness'
+import { Route as MindPowerMeditationRouteImport } from './routes/mind-power-meditation'
+import { Route as MeditationRouteImport } from './routes/meditation'
+import { Route as ManifestationRouteImport } from './routes/manifestation'
+import { Route as InitiativesRouteImport } from './routes/initiatives'
+import { Route as HarGharShikshaRouteImport } from './routes/har-ghar-shiksha'
+import { Route as GratitudeRouteImport } from './routes/gratitude'
+import { Route as GetSolutionsForRouteImport } from './routes/get-solutions-for'
+import { Route as FindingPurposeRouteImport } from './routes/finding-purpose'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as DesignYourDestinyRouteImport } from './routes/design-your-destiny'
+import { Route as DepressionRouteImport } from './routes/depression'
+import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
+import { Route as BookSessionRouteImport } from './routes/book-session'
+import { Route as AnxietyRouteImport } from './routes/anxiety'
+import { Route as AddictionsRouteImport } from './routes/addictions'
+import { Route as AboutSakshiShreeRouteImport } from './routes/about-sakshi-shree'
+import { Route as AboutMovementRouteImport } from './routes/about-movement'
 import { Route as IndexRouteImport } from './routes/index'
 
+const YogaRoute = YogaRouteImport.update({
+  id: '/yoga',
+  path: '/yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StressRoute = StressRouteImport.update({
+  id: '/stress',
+  path: '/stress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScienceOfJoyfulLivingRoute = ScienceOfJoyfulLivingRouteImport.update({
+  id: '/science-of-joyful-living',
+  path: '/science-of-joyful-living',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SanjeevniKriyaRoute = SanjeevniKriyaRouteImport.update({
+  id: '/sanjeevni-kriya',
+  path: '/sanjeevni-kriya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PositiveThinkingRoute = PositiveThinkingRouteImport.update({
+  id: '/positive-thinking',
+  path: '/positive-thinking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentingRoute = ParentingRouteImport.update({
+  id: '/parenting',
+  path: '/parenting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverthinkingRoute = OverthinkingRouteImport.update({
+  id: '/overthinking',
+  path: '/overthinking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyAccountRoute = MyAccountRouteImport.update({
+  id: '/my-account',
+  path: '/my-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MindfulnessRoute = MindfulnessRouteImport.update({
+  id: '/mindfulness',
+  path: '/mindfulness',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MindPowerMeditationRoute = MindPowerMeditationRouteImport.update({
+  id: '/mind-power-meditation',
+  path: '/mind-power-meditation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeditationRoute = MeditationRouteImport.update({
+  id: '/meditation',
+  path: '/meditation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManifestationRoute = ManifestationRouteImport.update({
+  id: '/manifestation',
+  path: '/manifestation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InitiativesRoute = InitiativesRouteImport.update({
+  id: '/initiatives',
+  path: '/initiatives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HarGharShikshaRoute = HarGharShikshaRouteImport.update({
+  id: '/har-ghar-shiksha',
+  path: '/har-ghar-shiksha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GratitudeRoute = GratitudeRouteImport.update({
+  id: '/gratitude',
+  path: '/gratitude',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetSolutionsForRoute = GetSolutionsForRouteImport.update({
+  id: '/get-solutions-for',
+  path: '/get-solutions-for',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindingPurposeRoute = FindingPurposeRouteImport.update({
+  id: '/finding-purpose',
+  path: '/finding-purpose',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignYourDestinyRoute = DesignYourDestinyRouteImport.update({
+  id: '/design-your-destiny',
+  path: '/design-your-destiny',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepressionRoute = DepressionRouteImport.update({
+  id: '/depression',
+  path: '/depression',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancellationPolicyRoute = CancellationPolicyRouteImport.update({
+  id: '/cancellation-policy',
+  path: '/cancellation-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookSessionRoute = BookSessionRouteImport.update({
+  id: '/book-session',
+  path: '/book-session',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnxietyRoute = AnxietyRouteImport.update({
+  id: '/anxiety',
+  path: '/anxiety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AddictionsRoute = AddictionsRouteImport.update({
+  id: '/addictions',
+  path: '/addictions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutSakshiShreeRoute = AboutSakshiShreeRouteImport.update({
+  id: '/about-sakshi-shree',
+  path: '/about-sakshi-shree',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutMovementRoute = AboutMovementRouteImport.update({
+  id: '/about-movement',
+  path: '/about-movement',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +229,522 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-movement': typeof AboutMovementRoute
+  '/about-sakshi-shree': typeof AboutSakshiShreeRoute
+  '/addictions': typeof AddictionsRoute
+  '/anxiety': typeof AnxietyRoute
+  '/book-session': typeof BookSessionRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
+  '/depression': typeof DepressionRoute
+  '/design-your-destiny': typeof DesignYourDestinyRoute
+  '/events': typeof EventsRoute
+  '/finding-purpose': typeof FindingPurposeRoute
+  '/get-solutions-for': typeof GetSolutionsForRoute
+  '/gratitude': typeof GratitudeRoute
+  '/har-ghar-shiksha': typeof HarGharShikshaRoute
+  '/initiatives': typeof InitiativesRoute
+  '/manifestation': typeof ManifestationRoute
+  '/meditation': typeof MeditationRoute
+  '/mind-power-meditation': typeof MindPowerMeditationRoute
+  '/mindfulness': typeof MindfulnessRoute
+  '/my-account': typeof MyAccountRoute
+  '/overthinking': typeof OverthinkingRoute
+  '/parenting': typeof ParentingRoute
+  '/positive-thinking': typeof PositiveThinkingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sanjeevni-kriya': typeof SanjeevniKriyaRoute
+  '/science-of-joyful-living': typeof ScienceOfJoyfulLivingRoute
+  '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stress': typeof StressRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/yoga': typeof YogaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-movement': typeof AboutMovementRoute
+  '/about-sakshi-shree': typeof AboutSakshiShreeRoute
+  '/addictions': typeof AddictionsRoute
+  '/anxiety': typeof AnxietyRoute
+  '/book-session': typeof BookSessionRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
+  '/depression': typeof DepressionRoute
+  '/design-your-destiny': typeof DesignYourDestinyRoute
+  '/events': typeof EventsRoute
+  '/finding-purpose': typeof FindingPurposeRoute
+  '/get-solutions-for': typeof GetSolutionsForRoute
+  '/gratitude': typeof GratitudeRoute
+  '/har-ghar-shiksha': typeof HarGharShikshaRoute
+  '/initiatives': typeof InitiativesRoute
+  '/manifestation': typeof ManifestationRoute
+  '/meditation': typeof MeditationRoute
+  '/mind-power-meditation': typeof MindPowerMeditationRoute
+  '/mindfulness': typeof MindfulnessRoute
+  '/my-account': typeof MyAccountRoute
+  '/overthinking': typeof OverthinkingRoute
+  '/parenting': typeof ParentingRoute
+  '/positive-thinking': typeof PositiveThinkingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sanjeevni-kriya': typeof SanjeevniKriyaRoute
+  '/science-of-joyful-living': typeof ScienceOfJoyfulLivingRoute
+  '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stress': typeof StressRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/yoga': typeof YogaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-movement': typeof AboutMovementRoute
+  '/about-sakshi-shree': typeof AboutSakshiShreeRoute
+  '/addictions': typeof AddictionsRoute
+  '/anxiety': typeof AnxietyRoute
+  '/book-session': typeof BookSessionRoute
+  '/cancellation-policy': typeof CancellationPolicyRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/courses': typeof CoursesRoute
+  '/depression': typeof DepressionRoute
+  '/design-your-destiny': typeof DesignYourDestinyRoute
+  '/events': typeof EventsRoute
+  '/finding-purpose': typeof FindingPurposeRoute
+  '/get-solutions-for': typeof GetSolutionsForRoute
+  '/gratitude': typeof GratitudeRoute
+  '/har-ghar-shiksha': typeof HarGharShikshaRoute
+  '/initiatives': typeof InitiativesRoute
+  '/manifestation': typeof ManifestationRoute
+  '/meditation': typeof MeditationRoute
+  '/mind-power-meditation': typeof MindPowerMeditationRoute
+  '/mindfulness': typeof MindfulnessRoute
+  '/my-account': typeof MyAccountRoute
+  '/overthinking': typeof OverthinkingRoute
+  '/parenting': typeof ParentingRoute
+  '/positive-thinking': typeof PositiveThinkingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sanjeevni-kriya': typeof SanjeevniKriyaRoute
+  '/science-of-joyful-living': typeof ScienceOfJoyfulLivingRoute
+  '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stress': typeof StressRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/yoga': typeof YogaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-movement'
+    | '/about-sakshi-shree'
+    | '/addictions'
+    | '/anxiety'
+    | '/book-session'
+    | '/cancellation-policy'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/courses'
+    | '/depression'
+    | '/design-your-destiny'
+    | '/events'
+    | '/finding-purpose'
+    | '/get-solutions-for'
+    | '/gratitude'
+    | '/har-ghar-shiksha'
+    | '/initiatives'
+    | '/manifestation'
+    | '/meditation'
+    | '/mind-power-meditation'
+    | '/mindfulness'
+    | '/my-account'
+    | '/overthinking'
+    | '/parenting'
+    | '/positive-thinking'
+    | '/privacy-policy'
+    | '/sanjeevni-kriya'
+    | '/science-of-joyful-living'
+    | '/shop'
+    | '/sitemap.xml'
+    | '/stress'
+    | '/terms-conditions'
+    | '/testimonials'
+    | '/yoga'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about-movement'
+    | '/about-sakshi-shree'
+    | '/addictions'
+    | '/anxiety'
+    | '/book-session'
+    | '/cancellation-policy'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/courses'
+    | '/depression'
+    | '/design-your-destiny'
+    | '/events'
+    | '/finding-purpose'
+    | '/get-solutions-for'
+    | '/gratitude'
+    | '/har-ghar-shiksha'
+    | '/initiatives'
+    | '/manifestation'
+    | '/meditation'
+    | '/mind-power-meditation'
+    | '/mindfulness'
+    | '/my-account'
+    | '/overthinking'
+    | '/parenting'
+    | '/positive-thinking'
+    | '/privacy-policy'
+    | '/sanjeevni-kriya'
+    | '/science-of-joyful-living'
+    | '/shop'
+    | '/sitemap.xml'
+    | '/stress'
+    | '/terms-conditions'
+    | '/testimonials'
+    | '/yoga'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-movement'
+    | '/about-sakshi-shree'
+    | '/addictions'
+    | '/anxiety'
+    | '/book-session'
+    | '/cancellation-policy'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/courses'
+    | '/depression'
+    | '/design-your-destiny'
+    | '/events'
+    | '/finding-purpose'
+    | '/get-solutions-for'
+    | '/gratitude'
+    | '/har-ghar-shiksha'
+    | '/initiatives'
+    | '/manifestation'
+    | '/meditation'
+    | '/mind-power-meditation'
+    | '/mindfulness'
+    | '/my-account'
+    | '/overthinking'
+    | '/parenting'
+    | '/positive-thinking'
+    | '/privacy-policy'
+    | '/sanjeevni-kriya'
+    | '/science-of-joyful-living'
+    | '/shop'
+    | '/sitemap.xml'
+    | '/stress'
+    | '/terms-conditions'
+    | '/testimonials'
+    | '/yoga'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutMovementRoute: typeof AboutMovementRoute
+  AboutSakshiShreeRoute: typeof AboutSakshiShreeRoute
+  AddictionsRoute: typeof AddictionsRoute
+  AnxietyRoute: typeof AnxietyRoute
+  BookSessionRoute: typeof BookSessionRoute
+  CancellationPolicyRoute: typeof CancellationPolicyRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
+  CoursesRoute: typeof CoursesRoute
+  DepressionRoute: typeof DepressionRoute
+  DesignYourDestinyRoute: typeof DesignYourDestinyRoute
+  EventsRoute: typeof EventsRoute
+  FindingPurposeRoute: typeof FindingPurposeRoute
+  GetSolutionsForRoute: typeof GetSolutionsForRoute
+  GratitudeRoute: typeof GratitudeRoute
+  HarGharShikshaRoute: typeof HarGharShikshaRoute
+  InitiativesRoute: typeof InitiativesRoute
+  ManifestationRoute: typeof ManifestationRoute
+  MeditationRoute: typeof MeditationRoute
+  MindPowerMeditationRoute: typeof MindPowerMeditationRoute
+  MindfulnessRoute: typeof MindfulnessRoute
+  MyAccountRoute: typeof MyAccountRoute
+  OverthinkingRoute: typeof OverthinkingRoute
+  ParentingRoute: typeof ParentingRoute
+  PositiveThinkingRoute: typeof PositiveThinkingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SanjeevniKriyaRoute: typeof SanjeevniKriyaRoute
+  ScienceOfJoyfulLivingRoute: typeof ScienceOfJoyfulLivingRoute
+  ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StressRoute: typeof StressRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
+  YogaRoute: typeof YogaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yoga': {
+      id: '/yoga'
+      path: '/yoga'
+      fullPath: '/yoga'
+      preLoaderRoute: typeof YogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stress': {
+      id: '/stress'
+      path: '/stress'
+      fullPath: '/stress'
+      preLoaderRoute: typeof StressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/science-of-joyful-living': {
+      id: '/science-of-joyful-living'
+      path: '/science-of-joyful-living'
+      fullPath: '/science-of-joyful-living'
+      preLoaderRoute: typeof ScienceOfJoyfulLivingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sanjeevni-kriya': {
+      id: '/sanjeevni-kriya'
+      path: '/sanjeevni-kriya'
+      fullPath: '/sanjeevni-kriya'
+      preLoaderRoute: typeof SanjeevniKriyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/positive-thinking': {
+      id: '/positive-thinking'
+      path: '/positive-thinking'
+      fullPath: '/positive-thinking'
+      preLoaderRoute: typeof PositiveThinkingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parenting': {
+      id: '/parenting'
+      path: '/parenting'
+      fullPath: '/parenting'
+      preLoaderRoute: typeof ParentingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/overthinking': {
+      id: '/overthinking'
+      path: '/overthinking'
+      fullPath: '/overthinking'
+      preLoaderRoute: typeof OverthinkingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account': {
+      id: '/my-account'
+      path: '/my-account'
+      fullPath: '/my-account'
+      preLoaderRoute: typeof MyAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mindfulness': {
+      id: '/mindfulness'
+      path: '/mindfulness'
+      fullPath: '/mindfulness'
+      preLoaderRoute: typeof MindfulnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mind-power-meditation': {
+      id: '/mind-power-meditation'
+      path: '/mind-power-meditation'
+      fullPath: '/mind-power-meditation'
+      preLoaderRoute: typeof MindPowerMeditationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meditation': {
+      id: '/meditation'
+      path: '/meditation'
+      fullPath: '/meditation'
+      preLoaderRoute: typeof MeditationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manifestation': {
+      id: '/manifestation'
+      path: '/manifestation'
+      fullPath: '/manifestation'
+      preLoaderRoute: typeof ManifestationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/initiatives': {
+      id: '/initiatives'
+      path: '/initiatives'
+      fullPath: '/initiatives'
+      preLoaderRoute: typeof InitiativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/har-ghar-shiksha': {
+      id: '/har-ghar-shiksha'
+      path: '/har-ghar-shiksha'
+      fullPath: '/har-ghar-shiksha'
+      preLoaderRoute: typeof HarGharShikshaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gratitude': {
+      id: '/gratitude'
+      path: '/gratitude'
+      fullPath: '/gratitude'
+      preLoaderRoute: typeof GratitudeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-solutions-for': {
+      id: '/get-solutions-for'
+      path: '/get-solutions-for'
+      fullPath: '/get-solutions-for'
+      preLoaderRoute: typeof GetSolutionsForRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finding-purpose': {
+      id: '/finding-purpose'
+      path: '/finding-purpose'
+      fullPath: '/finding-purpose'
+      preLoaderRoute: typeof FindingPurposeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design-your-destiny': {
+      id: '/design-your-destiny'
+      path: '/design-your-destiny'
+      fullPath: '/design-your-destiny'
+      preLoaderRoute: typeof DesignYourDestinyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/depression': {
+      id: '/depression'
+      path: '/depression'
+      fullPath: '/depression'
+      preLoaderRoute: typeof DepressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancellation-policy': {
+      id: '/cancellation-policy'
+      path: '/cancellation-policy'
+      fullPath: '/cancellation-policy'
+      preLoaderRoute: typeof CancellationPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-session': {
+      id: '/book-session'
+      path: '/book-session'
+      fullPath: '/book-session'
+      preLoaderRoute: typeof BookSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anxiety': {
+      id: '/anxiety'
+      path: '/anxiety'
+      fullPath: '/anxiety'
+      preLoaderRoute: typeof AnxietyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/addictions': {
+      id: '/addictions'
+      path: '/addictions'
+      fullPath: '/addictions'
+      preLoaderRoute: typeof AddictionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-sakshi-shree': {
+      id: '/about-sakshi-shree'
+      path: '/about-sakshi-shree'
+      fullPath: '/about-sakshi-shree'
+      preLoaderRoute: typeof AboutSakshiShreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-movement': {
+      id: '/about-movement'
+      path: '/about-movement'
+      fullPath: '/about-movement'
+      preLoaderRoute: typeof AboutMovementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +757,42 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutMovementRoute: AboutMovementRoute,
+  AboutSakshiShreeRoute: AboutSakshiShreeRoute,
+  AddictionsRoute: AddictionsRoute,
+  AnxietyRoute: AnxietyRoute,
+  BookSessionRoute: BookSessionRoute,
+  CancellationPolicyRoute: CancellationPolicyRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
+  CoursesRoute: CoursesRoute,
+  DepressionRoute: DepressionRoute,
+  DesignYourDestinyRoute: DesignYourDestinyRoute,
+  EventsRoute: EventsRoute,
+  FindingPurposeRoute: FindingPurposeRoute,
+  GetSolutionsForRoute: GetSolutionsForRoute,
+  GratitudeRoute: GratitudeRoute,
+  HarGharShikshaRoute: HarGharShikshaRoute,
+  InitiativesRoute: InitiativesRoute,
+  ManifestationRoute: ManifestationRoute,
+  MeditationRoute: MeditationRoute,
+  MindPowerMeditationRoute: MindPowerMeditationRoute,
+  MindfulnessRoute: MindfulnessRoute,
+  MyAccountRoute: MyAccountRoute,
+  OverthinkingRoute: OverthinkingRoute,
+  ParentingRoute: ParentingRoute,
+  PositiveThinkingRoute: PositiveThinkingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SanjeevniKriyaRoute: SanjeevniKriyaRoute,
+  ScienceOfJoyfulLivingRoute: ScienceOfJoyfulLivingRoute,
+  ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StressRoute: StressRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
+  TestimonialsRoute: TestimonialsRoute,
+  YogaRoute: YogaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
