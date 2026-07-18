@@ -1,6 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { submitForm } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

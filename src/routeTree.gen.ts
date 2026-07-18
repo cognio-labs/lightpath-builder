@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YogaRouteImport } from './routes/yoga'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as StressRouteImport } from './routes/stress'
@@ -52,6 +53,11 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
   path: '/yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
@@ -281,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/stress': typeof StressRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
   '/yoga': typeof YogaRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
@@ -321,6 +328,7 @@ export interface FileRoutesByTo {
   '/stress': typeof StressRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
   '/yoga': typeof YogaRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
@@ -363,6 +371,7 @@ export interface FileRoutesById {
   '/stress': typeof StressRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
   '/yoga': typeof YogaRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
 }
@@ -405,6 +414,7 @@ export interface FileRouteTypes {
     | '/stress'
     | '/terms-conditions'
     | '/testimonials'
+    | '/thank-you'
     | '/yoga'
     | '/admin'
   fileRoutesByTo: FileRoutesByTo
@@ -445,6 +455,7 @@ export interface FileRouteTypes {
     | '/stress'
     | '/terms-conditions'
     | '/testimonials'
+    | '/thank-you'
     | '/yoga'
     | '/admin'
   id:
@@ -486,6 +497,7 @@ export interface FileRouteTypes {
     | '/stress'
     | '/terms-conditions'
     | '/testimonials'
+    | '/thank-you'
     | '/yoga'
     | '/_authenticated/admin'
   fileRoutesById: FileRoutesById
@@ -528,6 +540,7 @@ export interface RootRouteChildren {
   StressRoute: typeof StressRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  ThankYouRoute: typeof ThankYouRoute
   YogaRoute: typeof YogaRoute
 }
 
@@ -538,6 +551,13 @@ declare module '@tanstack/react-router' {
       path: '/yoga'
       fullPath: '/yoga'
       preLoaderRoute: typeof YogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/testimonials': {
@@ -858,6 +878,7 @@ const rootRouteChildren: RootRouteChildren = {
   StressRoute: StressRoute,
   TermsConditionsRoute: TermsConditionsRoute,
   TestimonialsRoute: TestimonialsRoute,
+  ThankYouRoute: ThankYouRoute,
   YogaRoute: YogaRoute,
 }
 export const routeTree = rootRouteImport
