@@ -161,7 +161,7 @@ function Home() {
           HERO — Master Premium Redesign
       ════════════════════════════════════ */}
       <section style={{
-        background: "#FCF8F1",
+        background: "linear-gradient(110deg, #FCF8F1 0%, #FCF8F1 40%, #FDF3DC 55%, #FCECC4 70%, #F9E0A2 85%, #F5D078 100%)",
         position: "relative",
         overflow: "hidden",
         minHeight: "100vh",
@@ -232,35 +232,55 @@ function Home() {
           }
         `}</style>
 
-        {/* Ambient background glows */}
+        {/* ─── BACKGROUND LAYER 1: Left-side soft ivory radial glow ─── */}
         <div style={{
-          position: "absolute", top: "-10%", left: "-5%",
-          width: "700px", height: "700px",
-          background: "radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", bottom: "-10%", right: "40%",
-          width: "600px", height: "600px",
-          background: "radial-gradient(circle, rgba(46,139,87,0.09) 0%, transparent 70%)",
+          position: "absolute", top: "-20%", left: "-15%",
+          width: "900px", height: "900px",
+          background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 65%)",
           pointerEvents: "none",
         }} />
 
-        {/* Lotus subtle watermark overlay */}
+        {/* ─── BACKGROUND LAYER 2: Right golden sunrise mega-glow ─── */}
+        <div style={{
+          position: "absolute", top: "-30%", right: "-15%",
+          width: "1100px", height: "1100px",
+          background: "radial-gradient(circle at 50% 50%, rgba(245,205,80,0.55) 0%, rgba(235,175,40,0.35) 30%, rgba(212,150,30,0.12) 60%, transparent 80%)",
+          pointerEvents: "none",
+        }} />
+
+        {/* ─── BACKGROUND LAYER 3: Warm amber floor glow ─── */}
+        <div style={{
+          position: "absolute", bottom: "-20%", right: "0",
+          width: "800px", height: "500px",
+          background: "radial-gradient(ellipse at 60% 100%, rgba(220,150,30,0.25) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+
+        {/* ─── BACKGROUND LAYER 4: Golden diagonal light ray ─── */}
+        <div style={{
+          position: "absolute", top: 0, right: "10%",
+          width: "3px", height: "100%",
+          background: "linear-gradient(to bottom, transparent, rgba(212,175,55,0.12) 20%, rgba(212,175,55,0.20) 50%, rgba(212,175,55,0.12) 80%, transparent)",
+          transform: "rotate(-15deg) scaleX(40)",
+          transformOrigin: "top right",
+          pointerEvents: "none", opacity: 0.6,
+        }} />
+
+        {/* ─── BACKGROUND LAYER 5: Dot grid subtle pattern ─── */}
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "radial-gradient(rgba(212,175,55,0.02) 1.5px, transparent 1.5px)",
-          backgroundSize: "24px 24px",
+          backgroundImage: "radial-gradient(rgba(180,130,20,0.04) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
           pointerEvents: "none",
         }} />
 
-        {/* Floating particles */}
-        {[{s:8,l:"12%",b:"15%",d:"7s",del:"0s"},{s:6,l:"22%",b:"35%",d:"9s",del:"1s"},{s:9,l:"7%",b:"55%",d:"8s",del:"2s"},{s:5,l:"28%",b:"25%",d:"10s",del:"3s"}].map((p,i)=>(
+        {/* ─── Left side floating particles ─── */}
+        {[{s:8,l:"8%",b:"15%",d:"7s",del:"0s"},{s:5,l:"18%",b:"40%",d:"9s",del:"1s"},{s:7,l:"4%",b:"60%",d:"8s",del:"2s"},{s:4,l:"25%",b:"22%",d:"10s",del:"3s"},{s:6,l:"35%",b:"70%",d:"11s",del:"1.5s"}].map((p,i)=>(
           <div key={i} className="hm-particle" style={{
             width: `${p.s}px`, height: `${p.s}px`,
             left: p.l, bottom: p.b,
             animationDuration: p.d, animationDelay: p.del,
-            opacity: 0.5,
+            opacity: 0.45,
           }} />
         ))}
 
@@ -339,66 +359,114 @@ function Home() {
               </div>
             </div>
 
-            {/* Right Composition with Halo, Mandala & Blend mode screen */}
-            <div className="hm-fade-img order-1 md:order-2 flex justify-center relative" style={{ minHeight: "480px" }}>
-              {/* Outer Pulsing Golden glow */}
+            {/* Right Composition — Premium Golden Mandala Portrait */}
+            <div className="hm-fade-img order-1 md:order-2 flex justify-center items-center relative" style={{ minHeight: "580px" }}>
+
+              {/* ── BIG golden sunrise mega-orb ── */}
               <div style={{
-                position: "absolute", inset: "0", margin: "auto",
-                width: "90%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(212,175,55,0.32) 0%, rgba(212,175,55,0.12) 55%, transparent 75%)",
-                animation: "homePulse 4s ease-in-out infinite",
-                pointerEvents: "none", zIndex: 1
+                position: "absolute",
+                width: "110%", aspectRatio: "1",
+                top: "50%", left: "50%",
+                transform: "translate(-50%, -50%)",
+                borderRadius: "50%",
+                background: "radial-gradient(circle at 50% 45%, rgba(255,225,100,0.75) 0%, rgba(240,190,50,0.50) 22%, rgba(220,160,30,0.28) 45%, rgba(212,140,20,0.10) 65%, transparent 80%)",
+                animation: "homePulse 5s ease-in-out infinite",
+                pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Glowing Golden Mandala outline (Rotating) */}
+              {/* ── Outer mandala ring ── */}
               <div style={{
-                position: "absolute", inset: "0", margin: "auto",
-                width: "75%", aspectRatio: "1", borderRadius: "50%",
+                position: "absolute",
+                width: "88%", aspectRatio: "1",
+                top: "50%", left: "50%",
+                transform: "translate(-50%, -50%)",
+                borderRadius: "50%",
+                border: "2px solid rgba(212,175,55,0.35)",
+                boxShadow: "0 0 60px rgba(212,175,55,0.25), inset 0 0 60px rgba(212,175,55,0.10)",
+                animation: "homePulse 6s 0.5s ease-in-out infinite",
+                pointerEvents: "none", zIndex: 0,
+              }} />
+
+              {/* ── Inner mandala ring ── */}
+              <div style={{
+                position: "absolute",
+                width: "68%", aspectRatio: "1",
+                top: "50%", left: "50%",
+                transform: "translate(-50%, -50%)",
+                borderRadius: "50%",
                 border: "1.5px solid rgba(212,175,55,0.22)",
-                boxShadow: "0 0 50px rgba(212,175,55,0.18), inset 0 0 50px rgba(212,175,55,0.08)",
-                animation: "homePulse 5s 1s ease-in-out infinite",
-                pointerEvents: "none", zIndex: 1
+                boxShadow: "0 0 40px rgba(212,175,55,0.18), inset 0 0 40px rgba(255,220,80,0.12)",
+                animation: "homePulse 7s 1s ease-in-out infinite",
+                pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Inner Halo */}
+              {/* ── Divine halo glow ── */}
               <div style={{
-                position: "absolute", inset: "0", margin: "auto",
-                width: "55%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(255,242,185,0.65) 0%, transparent 70%)",
-                pointerEvents: "none", zIndex: 1
+                position: "absolute",
+                width: "48%", aspectRatio: "1",
+                top: "30%", left: "50%",
+                transform: "translateX(-50%)",
+                borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(255,248,200,0.85) 0%, rgba(255,235,130,0.45) 40%, transparent 70%)",
+                pointerEvents: "none", zIndex: 1,
               }} />
 
-              {/* Soft clouds overlay at bottom of Guru Ji portrait */}
+              {/* ── SVG Mandala decorative lines ── */}
+              <svg style={{ position:"absolute", width:"92%", height:"92%", top:"4%", left:"4%", opacity:0.18, pointerEvents:"none", zIndex:1, animation:"homeRotate 60s linear infinite" }} viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="195" fill="none" stroke="#D4AF37" strokeWidth="0.8" strokeDasharray="4 8" />
+                <circle cx="200" cy="200" r="155" fill="none" stroke="#D4AF37" strokeWidth="0.5" strokeDasharray="2 6" />
+                <circle cx="200" cy="200" r="115" fill="none" stroke="#D4AF37" strokeWidth="0.5" />
+                {[0,30,60,90,120,150,180,210,240,270,300,330].map(a=>(
+                  <line key={a}
+                    x1="200" y1="5"
+                    x2="200" y2="395"
+                    stroke="#D4AF37" strokeWidth="0.4" opacity="0.6"
+                    transform={`rotate(${a} 200 200)`}
+                  />
+                ))}
+                {[0,45,90,135,180,225,270,315].map(a=>(
+                  <ellipse key={a} cx="200" cy="200" rx="80" ry="30" fill="none" stroke="#D4AF37" strokeWidth="0.4" opacity="0.5" transform={`rotate(${a} 200 200)`} />
+                ))}
+              </svg>
+
+              {/* ── Soft gold cloud at bottom ── */}
               <div style={{
-                position: "absolute", bottom: "-20px", left: "5%", right: "5%", height: "120px",
-                background: "linear-gradient(to top, #FCF8F1 20%, rgba(252,248,241,0.9) 50%, transparent 100%)",
-                zIndex: 3, pointerEvents: "none"
+                position: "absolute", bottom: "-10px", left: 0, right: 0, height: "130px",
+                background: "linear-gradient(to top, rgba(249,224,162,0.8) 0%, rgba(252,243,220,0.55) 40%, transparent 100%)",
+                zIndex: 2, pointerEvents: "none",
               }} />
 
-              {/* Guru portrait — uses mixBlendMode: 'screen' to merge black background into mandala glows */}
+              {/* ── Guru Ji portrait (mixBlendMode screen dissolves black bg) ── */}
               <img
                 src="https://sciencedivine.org/wp-content/uploads/2025/02/7.webp"
                 alt="Enlightened Spiritual Master Guru Sakshi Shree in Meditation"
-                className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain"
+                className="relative w-full max-w-sm md:max-w-md lg:max-w-xl object-contain"
                 style={{
-                  maxHeight: "560px",
-                  mixBlendMode: "screen",
-                  filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.15))",
+                  maxHeight: "600px",
+                  mixBlendMode: "multiply",
+                  filter: "drop-shadow(0 30px 50px rgba(160,110,0,0.20)) brightness(1.04) saturate(1.1)",
                   animation: "homeFloat 6s ease-in-out infinite",
                   position: "relative",
-                  zIndex: 2,
+                  zIndex: 3,
                 }}
               />
 
-              {/* Floating particles around portrait */}
-              {[{t:"15%",r:"8%",s:10,d:"5s",del:"0s"},{t:"55%",r:"3%",s:7,d:"7s",del:"1.5s"},{t:"80%",r:"12%",s:5,d:"6s",del:"3s"},{t:"25%",l:"5%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
+              {/* ── Floating gold particles around portrait ── */}
+              {[
+                {t:"12%",r:"5%",s:10,d:"5s",del:"0s"},
+                {t:"50%",r:"2%",s:7,d:"7s",del:"1.5s"},
+                {t:"78%",r:"10%",s:5,d:"6s",del:"3s"},
+                {t:"22%",l:"3%",s:9,d:"8s",del:"2s"},
+                {t:"65%",l:"6%",s:6,d:"9s",del:"0.8s"},
+                {t:"38%",r:"14%",s:5,d:"10s",del:"2.5s"},
+              ].map((p,i)=>(
                 <div key={i} className="hm-particle" style={{
                   width: `${p.s}px`, height: `${p.s}px`,
                   top: p.t,
                   ...('right' in p ? { right: p.r } : {}),
                   ...('left' in p ? { left: p.l } : {}),
                   animationDuration: p.d, animationDelay: p.del,
-                  opacity: 0.7, zIndex: 3
+                  opacity: 0.75, zIndex: 4
                 }} />
               ))}
             </div>
