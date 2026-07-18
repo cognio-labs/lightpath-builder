@@ -199,6 +199,286 @@ const TICKER_ICONS = [
   "https://sciencedivine.org/wp-content/uploads/2025/02/financial-freedom.png",
 ];
 
+/* ─── Shared photo-card CSS injected once ─── */
+const PHOTO_CARD_CSS = `
+  @keyframes pcFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes pcShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+  @keyframes pcCount { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+  .pc-card {
+    background:#fff;
+    border:1px solid #ECECEC;
+    border-radius:28px;
+    overflow:hidden;
+    transition:transform 400ms cubic-bezier(.22,.61,.36,1), box-shadow 400ms cubic-bezier(.22,.61,.36,1);
+    cursor:pointer;
+    position:relative;
+  }
+  .pc-card:hover { transform:translateY(-10px) scale(1.01); box-shadow:0 28px 70px rgba(22,163,74,.16),0 6px 24px rgba(0,0,0,.09); }
+  .pc-card:hover .pc-img { transform:scale(1.06); }
+  .pc-card:hover .pc-badge { box-shadow:0 12px 32px rgba(22,163,74,.28); }
+  .pc-card:hover .pc-glow { opacity:1; animation:pcShimmer 2s linear infinite; }
+
+  .pc-img { width:100%; object-fit:cover; display:block; transition:transform 600ms cubic-bezier(.22,.61,.36,1); }
+
+  .pc-badge {
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%) translateY(-50%);
+    width:80px; height:80px;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.95);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+    transition:box-shadow 400ms ease;
+    z-index:3;
+    animation:pcFloat 3s ease-in-out infinite;
+  }
+
+  .pc-glow {
+    position:absolute; bottom:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,#16A34A,#22C55E,#86EFAC,#22C55E,#16A34A);
+    background-size:200% auto;
+    opacity:0; transition:opacity 400ms ease;
+    border-radius:0 0 28px 28px;
+  }
+
+  .stat-card {
+    position:relative; border-radius:24px; overflow:hidden;
+    height:480px;
+    transition:transform 300ms cubic-bezier(.22,.61,.36,1), box-shadow 300ms;
+    cursor:pointer;
+  }
+  .stat-card:hover { transform:scale(1.03) translateY(-6px); box-shadow:0 24px 64px rgba(0,0,0,.35); }
+  .stat-card:hover .stat-img { transform:scale(1.07); }
+  .stat-num { animation:pcCount .6s ease both; }
+`;
+
+/* ─── PurposeSection ─── */
+function PurposeSection() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [visible, setVisible] = useState<boolean[]>([false, false, false]);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const obs: IntersectionObserver[] = [];
+    refs.current.forEach((el, i) => {
+      if (!el) return;
+      const o = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          setTimeout(() => setVisible(p => { const n=[...p]; n[i]=true; return n; }), i * 130);
+          o.disconnect();
+        }
+      }, { threshold: 0.15 });
+      o.observe(el); obs.push(o);
+    });
+    return () => obs.forEach(o => o.disconnect());
+  }, []);
+
+  return (
+    <section id="about" style={{ background: "#FFFFFF", padding: "100px 0 110px" }}>
+      <style>{PHOTO_CARD_CSS}</style>
+      <div className="container-page">
+        {/* Header */}
+        <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 72px" }}>
+          <span style={{ color: "#2E8B57", fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.25em", display: "block", marginBottom: "14px" }}>Our Vision</span>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(36px,5vw,60px)", fontWeight: 700, color: "#081A36", lineHeight: 1.12, margin: "0 0 20px" }}>Our Purpose</h2>
+          <p style={{ color: "#5C677D", fontSize: "1.05rem", lineHeight: 1.75, margin: 0 }}>
+            We awaken human potential through meditation and education. Our goal is to create conscious individuals who live joyfully and break cycles of poverty.
+          </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginTop: "20px" }}>
+            <div style={{ flex: 1, maxWidth: "70px", height: "1px", background: "linear-gradient(to right, transparent, #2E8B57)" }} />
+            <span style={{ fontSize: "1.3rem" }}>🌿</span>
+            <div style={{ flex: 1, maxWidth: "70px", height: "1px", background: "linear-gradient(to left, transparent, #2E8B57)" }} />
+          </div>
+        </div>
+
+        {/* Cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: "36px" }}>
+          {PURPOSE_CARDS.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={i}
+                ref={el => { refs.current[i] = el; }}
+                className="pc-card"
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                style={{
+                  opacity: visible[i] ? 1 : 0,
+                  transform: visible[i] ? (hovered === i ? "translateY(-10px) scale(1.01)" : "translateY(0)") : "translateY(36px) scale(0.97)",
+                  transition: visible[i] ? "opacity 600ms ease, transform 400ms cubic-bezier(.22,.61,.36,1), box-shadow 400ms" : "none",
+                  boxShadow: hovered === i ? "0 28px 70px rgba(22,163,74,.16),0 6px 24px rgba(0,0,0,.09)" : "0 4px 20px rgba(0,0,0,.06)",
+                }}
+              >
+                <div style={{ overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
+                  <img src={card.img} alt={card.title} className="pc-img" style={{ height: "210px" }} />
+                </div>
+                <div style={{ position: "relative", height: "40px" }}>
+                  <div className="pc-badge"><Icon size={30} color={card.color} strokeWidth={1.5} /></div>
+                </div>
+                <div style={{ padding: "4px 28px 36px", textAlign: "center" }}>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "#081A36", margin: "0 0 12px" }}>{card.title}</h3>
+                  <p style={{ color: "#5C677D", fontSize: "1rem", lineHeight: 1.8, margin: 0 }}>{card.desc}</p>
+                </div>
+                <div className="pc-glow" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── StatsSection ─── */
+function StatsSection() {
+  const [visible, setVisible] = useState<boolean[]>(STATS.map(() => false));
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const obs: IntersectionObserver[] = [];
+    refs.current.forEach((el, i) => {
+      if (!el) return;
+      const o = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          setTimeout(() => setVisible(p => { const n=[...p]; n[i]=true; return n; }), i * 100);
+          o.disconnect();
+        }
+      }, { threshold: 0.1 });
+      o.observe(el); obs.push(o);
+    });
+    return () => obs.forEach(o => o.disconnect());
+  }, []);
+
+  return (
+    <section style={{ background: "#F8F9FA", padding: "100px 0 110px" }}>
+      <div className="container-page">
+        <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 64px" }}>
+          <span style={{ color: "#2E8B57", fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.25em", display: "block", marginBottom: "14px" }}>Science Divine Foundation</span>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px,4vw,52px)", fontWeight: 700, color: "#081A36", lineHeight: 1.15, margin: 0 }}>Guiding Light in Meditation &amp; Education</h2>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: "28px" }}>
+          {STATS.map((s, i) => (
+            <div
+              key={i}
+              ref={el => { refs.current[i] = el; }}
+              className="stat-card"
+              style={{
+                opacity: visible[i] ? 1 : 0,
+                transform: visible[i] ? "translateY(0)" : "translateY(36px) scale(0.96)",
+                transition: "opacity 700ms ease, transform 500ms cubic-bezier(.22,.61,.36,1)",
+              }}
+            >
+              {/* Background photo */}
+              <img src={s.img} alt={s.label} className="stat-img" style={{
+                position: "absolute", inset: 0, width: "100%", height: "100%",
+                objectFit: "cover", display: "block",
+                transition: "transform 600ms cubic-bezier(.22,.61,.36,1)",
+              }} />
+              {/* Gradient overlay */}
+              <div style={{
+                position: "absolute", inset: 0,
+                background: "linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.08) 100%)",
+                borderRadius: "24px",
+              }} />
+              {/* Text */}
+              <div style={{
+                position: "absolute", bottom: 0, left: 0, right: 0,
+                padding: "32px 28px",
+              }}>
+                {visible[i] && (
+                  <div className="stat-num" style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "clamp(48px,5vw,68px)",
+                    fontWeight: 800,
+                    color: "#D4AF37",
+                    lineHeight: 1,
+                    marginBottom: "10px",
+                  }}>{s.value}</div>
+                )}
+                <div style={{ fontSize: "1.15rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "6px" }}>{s.label}</div>
+                <div style={{ fontSize: "0.9rem", color: "rgba(255,255,255,.72)", lineHeight: 1.5 }}>{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── TransformSection ─── */
+function TransformSection() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [visible, setVisible] = useState<boolean[]>([false, false, false]);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const obs: IntersectionObserver[] = [];
+    refs.current.forEach((el, i) => {
+      if (!el) return;
+      const o = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) {
+          setTimeout(() => setVisible(p => { const n=[...p]; n[i]=true; return n; }), i * 130);
+          o.disconnect();
+        }
+      }, { threshold: 0.15 });
+      o.observe(el); obs.push(o);
+    });
+    return () => obs.forEach(o => o.disconnect());
+  }, []);
+
+  return (
+    <section style={{ background: "#FFFFFF", padding: "100px 0 110px" }}>
+      <div className="container-page">
+        <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 72px" }}>
+          <span style={{ color: "#2E8B57", fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.25em", display: "block", marginBottom: "14px" }}>Personal Growth</span>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(36px,5vw,72px)", fontWeight: 700, color: "#081A36", lineHeight: 1.1, margin: "0 0 20px" }}>Transform Your Life</h2>
+          <div style={{ width: "48px", height: "3px", background: "linear-gradient(90deg,#16A34A,#22C55E)", borderRadius: "2px", margin: "0 auto" }} />
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: "40px" }}>
+          {PROBLEMS.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={i}
+                ref={el => { refs.current[i] = el; }}
+                className="pc-card"
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                style={{
+                  opacity: visible[i] ? 1 : 0,
+                  transform: visible[i] ? (hovered === i ? "translateY(-10px) scale(1.01)" : "translateY(0)") : "translateY(36px) scale(0.97)",
+                  transition: visible[i] ? "opacity 600ms ease, transform 400ms cubic-bezier(.22,.61,.36,1), box-shadow 400ms" : "none",
+                  boxShadow: hovered === i ? "0 28px 70px rgba(22,163,74,.16),0 6px 24px rgba(0,0,0,.09)" : "0 4px 20px rgba(0,0,0,.06)",
+                }}
+              >
+                <div style={{ overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
+                  <img src={p.img} alt={p.title} className="pc-img" style={{ height: "320px" }} />
+                </div>
+                <div style={{ position: "relative", height: "40px" }}>
+                  <div className="pc-badge"><Icon size={30} color={p.color} strokeWidth={1.5} /></div>
+                </div>
+                <div style={{ padding: "4px 28px 36px", textAlign: "center" }}>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "#081A36", margin: "0 0 12px" }}>{p.title}</h3>
+                  <p style={{ color: "#5C677D", fontSize: "1rem", lineHeight: 1.8, margin: 0 }}>{p.desc}</p>
+                </div>
+                <div className="pc-glow" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── How We Work Premium Component ─── */
 function HowWeWorkSection() {
   const [hovered, setHovered] = useState<number | null>(null);
