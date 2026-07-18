@@ -155,10 +155,10 @@ export const adminUpsert = createServerFn({ method: "POST" })
     const { table, row } = data;
     const { id, ...rest } = row;
     if (id) {
-      const { error } = await context.supabase.from(table).update(rest).eq("id", id);
+      const { error } = await context.supabase.from(table).update(rest as any).eq("id", id);
       if (error) throw new Error(error.message);
     } else {
-      const { error } = await context.supabase.from(table).insert(rest);
+      const { error } = await context.supabase.from(table).insert(rest as any);
       if (error) throw new Error(error.message);
     }
     return { ok: true };
