@@ -44,8 +44,8 @@ function AuthPage() {
         if (error) throw error;
       }
       navigate({ to: "/admin" });
-    } catch (e: any) {
-      setErr(e.message ?? "Something went wrong");
+    } catch (e: unknown) {
+      setErr(e instanceof Error ? e.message : "Something went wrong");
     } finally {
       setBusy(false);
     }
@@ -54,22 +54,52 @@ function AuthPage() {
   return (
     <div className="min-h-[calc(100dvh-160px)] grid place-items-center px-4 py-16">
       <div className="glass-card rounded-3xl p-8 w-full max-w-md">
-        <h1 className="font-display text-2xl font-bold mb-1">{mode === "signin" ? "Admin sign in" : "Create admin account"}</h1>
+        <h1 className="font-display text-2xl font-bold mb-1">
+          {mode === "signin" ? "Admin sign in" : "Create admin account"}
+        </h1>
         <p className="text-sm text-muted-foreground mb-6">
-          {mode === "signin" ? "Access the Science Divine admin panel." : "The first account created becomes the primary admin."}
+          {mode === "signin"
+            ? "Access the Science Divine admin panel."
+            : "The first account created becomes the primary admin."}
         </p>
         <form onSubmit={onSubmit} className="space-y-3">
-          <input required type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-          <input required type="password" placeholder="Password" minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
+          <input
+            required
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm"
+          />
+          <input
+            required
+            type="password"
+            placeholder="Password"
+            minLength={6}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm"
+          />
           {err && <p className="text-sm text-destructive">{err}</p>}
-          <button disabled={busy} className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full disabled:opacity-60">
+          <button
+            disabled={busy}
+            className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full disabled:opacity-60"
+          >
             {busy ? "…" : mode === "signin" ? "Sign in" : "Create account"}
           </button>
         </form>
-        <button onClick={() => setMode(mode === "signin" ? "signup" : "signin")} className="mt-4 text-sm text-muted-foreground hover:text-foreground w-full text-center">
+        <button
+          onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
+          className="mt-4 text-sm text-muted-foreground hover:text-foreground w-full text-center"
+        >
           {mode === "signin" ? "Need an account? Sign up" : "Have an account? Sign in"}
         </button>
-        <Link to="/" className="block mt-6 text-xs text-center text-muted-foreground hover:text-foreground">← Back to site</Link>
+        <Link
+          to="/"
+          className="block mt-6 text-xs text-center text-muted-foreground hover:text-foreground"
+        >
+          ← Back to site
+        </Link>
       </div>
     </div>
   );

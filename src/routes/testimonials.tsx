@@ -7,7 +7,11 @@ export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
       { title: "Testimonials — Science Divine" },
-      { name: "description", content: "Video testimonials from seekers who met Sakshi Shree and transformed their lives." },
+      {
+        name: "description",
+        content:
+          "Video testimonials from seekers who met Sakshi Shree and transformed their lives.",
+      },
       { property: "og:title", content: "Testimonials" },
       { property: "og:url", content: "/testimonials" },
     ],
@@ -15,11 +19,17 @@ export const Route = createFileRoute("/testimonials")({
   }),
   component: () => (
     <>
-      <PageHero eyebrow="Voices" title="Testimonials" subtitle="Real people. Real transformations. In their own words." />
+      <PageHero
+        eyebrow="Voices"
+        title="Testimonials"
+        subtitle="Real people. Real transformations. In their own words."
+      />
       <section className="section-pad">
         <div className="container-page">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TESTIMONIAL_VIDEOS.map(v => <YouTubeThumb key={v.id} id={v.id} title={v.title} />)}
+            {TESTIMONIAL_VIDEOS.map((v) => (
+              <YouTubeThumb key={v.id} id={v.id} title={v.title} />
+            ))}
           </div>
         </div>
       </section>

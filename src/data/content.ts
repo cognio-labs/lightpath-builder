@@ -1,47 +1,179 @@
 export const SOLUTION_TOPICS = [
-  { slug: "stress", title: "Stress", tagline: "Boost Your Energy and Tackle Tasks Easily", intro: "Stress is a natural response, but chronic stress drains your vitality. Learn ancient techniques adapted for modern life to release tension, restore energy, and meet each day with steadiness." },
-  { slug: "anxiety", title: "Anxiety", tagline: "Beating Anxiety Together: Simple Steps to Calm", intro: "Anxiety clouds clarity and steals presence. Discover breath, meditation, and mindset practices to soothe the nervous system and return to calm." },
-  { slug: "depression", title: "Depression", tagline: "Step by Step: Beating Depression", intro: "Depression is not a life sentence. Through consistent practice, guided wisdom, and community, light returns — one conscious step at a time." },
-  { slug: "parenting", title: "Parenting", tagline: "Sakshi Shree's Guide to Parenting Through the Ages", intro: "Raise conscious, resilient children with wisdom rooted in ancient values and modern understanding of the child's mind." },
-  { slug: "addictions", title: "Addictions", tagline: "Find Your Freedom: Overcoming Addiction", intro: "Addictions are patterns the mind runs on autopilot. Meditation restores choice — freedom is available in every present moment." },
-  { slug: "overthinking", title: "Overthinking", tagline: "Overthinking No More: Techniques for Clarity", intro: "The mind loops when it lacks direction. Learn to witness thoughts without being consumed by them, and reclaim mental space." },
-  { slug: "meditation", title: "Meditation", tagline: "Start Meditating Today: A Guide to Health and Happiness", intro: "Meditation is not escape — it is the direct path to knowing yourself. Begin today with time-tested techniques." },
-  { slug: "manifestation", title: "Manifestation", tagline: "Manifest Your Success: Unleash Your Potential", intro: "Consciousness shapes reality. When intention, emotion, and action align, the universe conspires to deliver." },
-  { slug: "finding-purpose", title: "Finding Purpose", tagline: "Finding Your Purpose: A Journey to Self-Discovery", intro: "Purpose is discovered, not decided. Turn inward and let your true calling emerge naturally." },
-  { slug: "yoga", title: "Yoga", tagline: "Easy Yoga for Everyday Peace", intro: "Yoga is union — of body, breath, and being. Simple asanas practiced daily transform how you inhabit your life." },
-  { slug: "gratitude", title: "Gratitude", tagline: "Finding Light in the Storm: The Transformative Power of Gratitude", intro: "Gratitude rewires perception. It shifts you from what's missing to what's already miraculous." },
-  { slug: "mindfulness", title: "Mindfulness", tagline: "Unlock the Mind's True Potential", intro: "Mindfulness is presence — the art of being fully here. It is the doorway to everything spirituality promises." },
-  { slug: "positive-thinking", title: "Positive Thinking", tagline: "The Power of Positive Thinking", intro: "Positive thinking is not denial — it's the disciplined choice to focus on what serves your highest good." },
+  {
+    slug: "stress",
+    title: "Stress",
+    tagline: "Boost Your Energy and Tackle Tasks Easily",
+    intro:
+      "Stress is a natural response, but chronic stress drains your vitality. Learn ancient techniques adapted for modern life to release tension, restore energy, and meet each day with steadiness.",
+  },
+  {
+    slug: "anxiety",
+    title: "Anxiety",
+    tagline: "Beating Anxiety Together: Simple Steps to Calm",
+    intro:
+      "Anxiety clouds clarity and steals presence. Discover breath, meditation, and mindset practices to soothe the nervous system and return to calm.",
+  },
+  {
+    slug: "depression",
+    title: "Depression",
+    tagline: "Step by Step: Beating Depression",
+    intro:
+      "Depression is not a life sentence. Through consistent practice, guided wisdom, and community, light returns — one conscious step at a time.",
+  },
+  {
+    slug: "parenting",
+    title: "Parenting",
+    tagline: "Sakshi Shree's Guide to Parenting Through the Ages",
+    intro:
+      "Raise conscious, resilient children with wisdom rooted in ancient values and modern understanding of the child's mind.",
+  },
+  {
+    slug: "addictions",
+    title: "Addictions",
+    tagline: "Find Your Freedom: Overcoming Addiction",
+    intro:
+      "Addictions are patterns the mind runs on autopilot. Meditation restores choice — freedom is available in every present moment.",
+  },
+  {
+    slug: "overthinking",
+    title: "Overthinking",
+    tagline: "Overthinking No More: Techniques for Clarity",
+    intro:
+      "The mind loops when it lacks direction. Learn to witness thoughts without being consumed by them, and reclaim mental space.",
+  },
+  {
+    slug: "meditation",
+    title: "Meditation",
+    tagline: "Start Meditating Today: A Guide to Health and Happiness",
+    intro:
+      "Meditation is not escape — it is the direct path to knowing yourself. Begin today with time-tested techniques.",
+  },
+  {
+    slug: "manifestation",
+    title: "Manifestation",
+    tagline: "Manifest Your Success: Unleash Your Potential",
+    intro:
+      "Consciousness shapes reality. When intention, emotion, and action align, the universe conspires to deliver.",
+  },
+  {
+    slug: "finding-purpose",
+    title: "Finding Purpose",
+    tagline: "Finding Your Purpose: A Journey to Self-Discovery",
+    intro:
+      "Purpose is discovered, not decided. Turn inward and let your true calling emerge naturally.",
+  },
+  {
+    slug: "yoga",
+    title: "Yoga",
+    tagline: "Easy Yoga for Everyday Peace",
+    intro:
+      "Yoga is union — of body, breath, and being. Simple asanas practiced daily transform how you inhabit your life.",
+  },
+  {
+    slug: "gratitude",
+    title: "Gratitude",
+    tagline: "Finding Light in the Storm: The Transformative Power of Gratitude",
+    intro:
+      "Gratitude rewires perception. It shifts you from what's missing to what's already miraculous.",
+  },
+  {
+    slug: "mindfulness",
+    title: "Mindfulness",
+    tagline: "Unlock the Mind's True Potential",
+    intro:
+      "Mindfulness is presence — the art of being fully here. It is the doorway to everything spirituality promises.",
+  },
+  {
+    slug: "positive-thinking",
+    title: "Positive Thinking",
+    tagline: "The Power of Positive Thinking",
+    intro:
+      "Positive thinking is not denial — it's the disciplined choice to focus on what serves your highest good.",
+  },
 ] as const;
 
-export type SolutionSlug = typeof SOLUTION_TOPICS[number]["slug"];
+export type SolutionSlug = (typeof SOLUTION_TOPICS)[number]["slug"];
 
 export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: string }[]> = {
   stress: [
-    { title: "Master Stress Management: A Meditative Path to Calm", excerpt: "How silence resets the nervous system and restores baseline calm." },
-    { title: "Mastering Calm: 7 Effective Ways to Relieve Stress", excerpt: "Practical daily techniques you can begin using right now." },
-    { title: "Unlock Deep Sleep with Meditation", excerpt: "Guided practices to fall asleep faster and stay asleep longer." },
-    { title: "Simple Guide to the 7 Chakras", excerpt: "Understand the body's energy centers and their role in wellbeing." },
-    { title: "What is Meditation, Really?", excerpt: "Beyond the mystique — meditation demystified for modern seekers." },
-    { title: "Yoga Nidra: The Sleep of the Sages", excerpt: "Deep conscious rest that restores in minutes what sleep takes hours to do." },
-    { title: "Yoga & Mindfulness: A Powerful Pair", excerpt: "How movement and awareness together transform daily life." },
-    { title: "Easy Asana for Blood Pressure", excerpt: "Gentle postures proven to support cardiovascular health." },
-    { title: "Benefits of Yoga for Hypertension", excerpt: "The evidence behind yoga's ability to lower blood pressure naturally." },
+    {
+      title: "Master Stress Management: A Meditative Path to Calm",
+      excerpt: "How silence resets the nervous system and restores baseline calm.",
+    },
+    {
+      title: "Mastering Calm: 7 Effective Ways to Relieve Stress",
+      excerpt: "Practical daily techniques you can begin using right now.",
+    },
+    {
+      title: "Unlock Deep Sleep with Meditation",
+      excerpt: "Guided practices to fall asleep faster and stay asleep longer.",
+    },
+    {
+      title: "Simple Guide to the 7 Chakras",
+      excerpt: "Understand the body's energy centers and their role in wellbeing.",
+    },
+    {
+      title: "What is Meditation, Really?",
+      excerpt: "Beyond the mystique — meditation demystified for modern seekers.",
+    },
+    {
+      title: "Yoga Nidra: The Sleep of the Sages",
+      excerpt: "Deep conscious rest that restores in minutes what sleep takes hours to do.",
+    },
+    {
+      title: "Yoga & Mindfulness: A Powerful Pair",
+      excerpt: "How movement and awareness together transform daily life.",
+    },
+    {
+      title: "Easy Asana for Blood Pressure",
+      excerpt: "Gentle postures proven to support cardiovascular health.",
+    },
+    {
+      title: "Benefits of Yoga for Hypertension",
+      excerpt: "The evidence behind yoga's ability to lower blood pressure naturally.",
+    },
   ],
   anxiety: [
-    { title: "7 Ways to Cultivate an Optimistic Mind", excerpt: "Small daily habits that shift your baseline outlook." },
-    { title: "How to Be Conscious in Everyday Moments", excerpt: "Anchor awareness into ordinary actions." },
-    { title: "How to Feel Calm Under Pressure", excerpt: "Techniques to steady yourself when the world feels chaotic." },
-    { title: "Prioritize Your Mental Health", excerpt: "Why mental fitness deserves the same attention as physical." },
-    { title: "Yoga for Hypertension", excerpt: "Support your cardiovascular system through breath and posture." },
-    { title: "Yoga Nidra for Deep Rest", excerpt: "The most restorative practice you may never have tried." },
+    {
+      title: "7 Ways to Cultivate an Optimistic Mind",
+      excerpt: "Small daily habits that shift your baseline outlook.",
+    },
+    {
+      title: "How to Be Conscious in Everyday Moments",
+      excerpt: "Anchor awareness into ordinary actions.",
+    },
+    {
+      title: "How to Feel Calm Under Pressure",
+      excerpt: "Techniques to steady yourself when the world feels chaotic.",
+    },
+    {
+      title: "Prioritize Your Mental Health",
+      excerpt: "Why mental fitness deserves the same attention as physical.",
+    },
+    {
+      title: "Yoga for Hypertension",
+      excerpt: "Support your cardiovascular system through breath and posture.",
+    },
+    {
+      title: "Yoga Nidra for Deep Rest",
+      excerpt: "The most restorative practice you may never have tried.",
+    },
     { title: "Yoga & Mindfulness Together", excerpt: "A gentle daily protocol for lasting calm." },
     { title: "Meditation for Seniors", excerpt: "Age-appropriate practices that fit any body." },
-    { title: "Harmonizing Mind & Body", excerpt: "Bringing the two into conversation, not conflict." },
+    {
+      title: "Harmonizing Mind & Body",
+      excerpt: "Bringing the two into conversation, not conflict.",
+    },
   ],
   depression: [
-    { title: "Master Stress Management: A Meditative Path to Calm", excerpt: "Techniques to shift out of low-mood spirals." },
-    { title: "Mastering Calm: 7 Effective Ways to Relieve Stress", excerpt: "Practical protocols for hard days." },
+    {
+      title: "Master Stress Management: A Meditative Path to Calm",
+      excerpt: "Techniques to shift out of low-mood spirals.",
+    },
+    {
+      title: "Mastering Calm: 7 Effective Ways to Relieve Stress",
+      excerpt: "Practical protocols for hard days.",
+    },
     { title: "Prioritize Your Mental Health", excerpt: "Make wellbeing non-negotiable." },
     { title: "Prioritize Your Mental Health — Part II", excerpt: "Building sustainable rituals." },
     { title: "How to Be Conscious", excerpt: "Consciousness as the medicine." },
@@ -49,13 +181,19 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
   ],
   parenting: [
     { title: "Understanding Your Child's Inner World", excerpt: "See through your child's eyes." },
-    { title: "The Sacred Duty of Raising Consciousness", excerpt: "Parenting as a spiritual practice." },
+    {
+      title: "The Sacred Duty of Raising Consciousness",
+      excerpt: "Parenting as a spiritual practice.",
+    },
     { title: "Discipline Without Damage", excerpt: "Guidance that guides, not shames." },
     { title: "Values in a Digital Age", excerpt: "Rooting children in something deeper." },
     { title: "When Children Don't Listen", excerpt: "Understanding what obedience really means." },
     { title: "Raising Confident Kids", excerpt: "Confidence built from within." },
     { title: "The Power of Presence", excerpt: "Your attention is their nourishment." },
-    { title: "Meditation for the Whole Family", excerpt: "Practices even young children can enjoy." },
+    {
+      title: "Meditation for the Whole Family",
+      excerpt: "Practices even young children can enjoy.",
+    },
     { title: "Beyond Achievement", excerpt: "Success that includes inner peace." },
   ],
   addictions: [
@@ -65,12 +203,18 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     { title: "How to Feel Calm", excerpt: "Steady the storm from within." },
     { title: "Prioritize Your Mental Health", excerpt: "Recovery is a daily choice." },
     { title: "Yoga Nidra for Recovery", excerpt: "Deep rest that repairs." },
-    { title: "Transformative Health Benefits of Meditation", excerpt: "What consistent practice delivers." },
+    {
+      title: "Transformative Health Benefits of Meditation",
+      excerpt: "What consistent practice delivers.",
+    },
     { title: "A Complete Meditation Guide", excerpt: "Start where you are." },
     { title: "Mastering Meditation at Home", excerpt: "Build your personal sanctuary." },
   ],
   overthinking: [
-    { title: "Understanding Feminine Energy", excerpt: "The receptive intelligence within us all." },
+    {
+      title: "Understanding Feminine Energy",
+      excerpt: "The receptive intelligence within us all.",
+    },
     { title: "7 Ways to Cultivate Optimism", excerpt: "Redirect the mind's tendency." },
     { title: "10 Ways to Release Negative Thoughts", excerpt: "Tools that actually work." },
     { title: "What is Spirituality?", excerpt: "Beyond dogma, into direct experience." },
@@ -89,7 +233,10 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     { title: "Manipura: The Solar Plexus", excerpt: "Personal power and will." },
     { title: "Svadhisthana: The Sacral Chakra", excerpt: "Creativity and flow." },
     { title: "Muladhara: The Root Chakra", excerpt: "Grounding and stability." },
-    { title: "Healing Childhood Trauma Through Spirituality", excerpt: "Roots run deep — so does healing." },
+    {
+      title: "Healing Childhood Trauma Through Spirituality",
+      excerpt: "Roots run deep — so does healing.",
+    },
   ],
   manifestation: [
     { title: "How to Become Spiritual", excerpt: "The foundation of conscious creation." },
@@ -114,7 +261,10 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     { title: "Harmonizing Mind & Body", excerpt: "Alignment reveals direction." },
   ],
   yoga: [
-    { title: "Healing Childhood Trauma Through Spirituality", excerpt: "The body remembers — and can release." },
+    {
+      title: "Healing Childhood Trauma Through Spirituality",
+      excerpt: "The body remembers — and can release.",
+    },
     { title: "Simple Guide to Chakras", excerpt: "Energy anatomy for practitioners." },
     { title: "The 7 Chakras Explained", excerpt: "A map of the subtle body." },
     { title: "Easy Asana for BP", excerpt: "Gentle poses with big impact." },
@@ -136,7 +286,10 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     { title: "Simple Guide to Effective Manifestation", excerpt: "Gratitude is the accelerator." },
   ],
   mindfulness: [
-    { title: "Healing Childhood Trauma Through Spirituality", excerpt: "Presence dissolves the past." },
+    {
+      title: "Healing Childhood Trauma Through Spirituality",
+      excerpt: "Presence dissolves the past.",
+    },
     { title: "What is Consciousness?", excerpt: "The medium of mindful awareness." },
     { title: "Conscious Mind Basics", excerpt: "Foundations of mindful living." },
     { title: "What the Conscious Mind Can Do", excerpt: "Mindfulness applied." },
@@ -280,7 +433,8 @@ export const COURSES = [
     level: "Beginner",
     image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png",
     features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"],
-    description: "A transformative journey through four modules that put you back in the driver's seat of your own life.",
+    description:
+      "A transformative journey through four modules that put you back in the driver's seat of your own life.",
   },
   {
     slug: "science-of-joyful-living",
@@ -292,7 +446,8 @@ export const COURSES = [
     level: "Beginner",
     image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png",
     features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"],
-    description: "Discover why joy is your birthright and how to reclaim it, one practice at a time.",
+    description:
+      "Discover why joy is your birthright and how to reclaim it, one practice at a time.",
   },
   {
     slug: "mind-power-meditation",
@@ -302,9 +457,17 @@ export const COURSES = [
     originalPrice: 5100,
     duration: "2 hours",
     level: "Beginner",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-felipe-borges-964530-2597205-1.png",
-    features: ["Manifest Your Dreams", "Heightened Creativity", "Improved Health", "Enhanced Focus", "Reduced Stress"],
-    description: "Meditation is not passive — done rightly, it becomes the most active force in your life.",
+    image:
+      "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-felipe-borges-964530-2597205-1.png",
+    features: [
+      "Manifest Your Dreams",
+      "Heightened Creativity",
+      "Improved Health",
+      "Enhanced Focus",
+      "Reduced Stress",
+    ],
+    description:
+      "Meditation is not passive — done rightly, it becomes the most active force in your life.",
   },
   {
     slug: "sanjeevani-kriya",
@@ -315,33 +478,123 @@ export const COURSES = [
     duration: "2 hours",
     level: "Beginner",
     image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-min-an-1234035-1-1.png",
-    features: ["Cultivates Inner Peace", "Balances Energy Centers", "Facilitates Self-Realization", "Awakens Heart Chakra"],
-    description: "An ancient kriya awakened for modern seekers — direct experience of your own life force.",
+    features: [
+      "Cultivates Inner Peace",
+      "Balances Energy Centers",
+      "Facilitates Self-Realization",
+      "Awakens Heart Chakra",
+    ],
+    description:
+      "An ancient kriya awakened for modern seekers — direct experience of your own life force.",
   },
 ] as const;
 
 export const EVENTS = [
-  { title: "Shiksha Sewa Sankalp Mahotsav", date: "Dec 14, 2025", time: "10:00 AM", location: "Siddha Sudarshan Sakshi Dhaam, Ghaziabad", status: "Available" as const },
-  { title: "Navvarsh Dhyan Mahotsav", date: "Jan 4, 2026", time: "10:00 AM", location: "Ghaziabad", status: "Available" as const },
-  { title: "Vasant Mahotsav", date: "Feb 1, 2026", time: "9:00 AM", location: "Ghaziabad", status: "Available" as const },
-  { title: "Holi Milan Samaroh", date: "Mar 1, 2026", time: "10:00 AM", location: "Ghaziabad", status: "Available" as const },
-  { title: "Satsang, Meditation & Problem Resolution", date: "Apr 5, 2026", time: "10:00 AM", location: "Ghaziabad", status: "Available" as const },
-  { title: "Beyond Astrology: Meet Sakshi Shree", date: "By Appointment", time: "Personal Session", location: "Online / Ghaziabad", status: "Available" as const },
+  {
+    title: "Shiksha Sewa Sankalp Mahotsav",
+    date: "Dec 14, 2025",
+    time: "10:00 AM",
+    location: "Siddha Sudarshan Sakshi Dhaam, Ghaziabad",
+    status: "Available" as const,
+  },
+  {
+    title: "Navvarsh Dhyan Mahotsav",
+    date: "Jan 4, 2026",
+    time: "10:00 AM",
+    location: "Ghaziabad",
+    status: "Available" as const,
+  },
+  {
+    title: "Vasant Mahotsav",
+    date: "Feb 1, 2026",
+    time: "9:00 AM",
+    location: "Ghaziabad",
+    status: "Available" as const,
+  },
+  {
+    title: "Holi Milan Samaroh",
+    date: "Mar 1, 2026",
+    time: "10:00 AM",
+    location: "Ghaziabad",
+    status: "Available" as const,
+  },
+  {
+    title: "Satsang, Meditation & Problem Resolution",
+    date: "Apr 5, 2026",
+    time: "10:00 AM",
+    location: "Ghaziabad",
+    status: "Available" as const,
+  },
+  {
+    title: "Beyond Astrology: Meet Sakshi Shree",
+    date: "By Appointment",
+    time: "Personal Session",
+    location: "Online / Ghaziabad",
+    status: "Available" as const,
+  },
 ];
 
 export const TESTIMONIALS = [
-  { name: "Sanaya Aggarwal", role: "Student", avatar: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png", quote: "Sakshi Shree's guidance changed how I see my anxiety. I finally feel free." },
-  { name: "Deepak Batra", role: "Entrepreneur", avatar: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png", quote: "Design Your Destiny gave me tools I use every single day. My business and inner life both transformed." },
-  { name: "Radhika Arya", role: "Homemaker", avatar: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png", quote: "The peace I found is unshakeable. My family notices the difference in me every day." },
-  { name: "Rajiv Mehta", role: "Executive", avatar: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png", quote: "I was skeptical. Six weeks in, I understood — this is not belief, it is direct experience." },
-  { name: "Priya Singh", role: "Doctor", avatar: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png", quote: "As a physician I've seen many wellness approaches. This is different. This is real." },
+  {
+    name: "Sanaya Aggarwal",
+    role: "Student",
+    avatar:
+      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png",
+    quote: "Sakshi Shree's guidance changed how I see my anxiety. I finally feel free.",
+  },
+  {
+    name: "Deepak Batra",
+    role: "Entrepreneur",
+    avatar:
+      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png",
+    quote:
+      "Design Your Destiny gave me tools I use every single day. My business and inner life both transformed.",
+  },
+  {
+    name: "Radhika Arya",
+    role: "Homemaker",
+    avatar:
+      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png",
+    quote: "The peace I found is unshakeable. My family notices the difference in me every day.",
+  },
+  {
+    name: "Rajiv Mehta",
+    role: "Executive",
+    avatar:
+      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png",
+    quote:
+      "I was skeptical. Six weeks in, I understood — this is not belief, it is direct experience.",
+  },
+  {
+    name: "Priya Singh",
+    role: "Doctor",
+    avatar:
+      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png",
+    quote: "As a physician I've seen many wellness approaches. This is different. This is real.",
+  },
 ];
 
 export const LEADERS = [
-  { name: "Hon'ble Shri Rajnath Singh", title: "Defence Minister of India", image: "https://sciencedivine.org/wp-content/uploads/2023/06/3-scaled.webp" },
-  { name: "Dr. Vikram Sampat", title: "Historian & Author", image: "https://sciencedivine.org/wp-content/uploads/2023/06/4-scaled.webp" },
-  { name: "Shri Ajay Bhatt", title: "Former Union Minister", image: "https://sciencedivine.org/wp-content/uploads/2023/06/1-scaled.webp" },
-  { name: "Shri Anil Bachoo", title: "Former Health Minister, Mauritius", image: "https://sciencedivine.org/wp-content/uploads/2023/06/2-scaled.webp" },
+  {
+    name: "Hon'ble Shri Rajnath Singh",
+    title: "Defence Minister of India",
+    image: "https://sciencedivine.org/wp-content/uploads/2023/06/3-scaled.webp",
+  },
+  {
+    name: "Dr. Vikram Sampat",
+    title: "Historian & Author",
+    image: "https://sciencedivine.org/wp-content/uploads/2023/06/4-scaled.webp",
+  },
+  {
+    name: "Shri Ajay Bhatt",
+    title: "Former Union Minister",
+    image: "https://sciencedivine.org/wp-content/uploads/2023/06/1-scaled.webp",
+  },
+  {
+    name: "Shri Anil Bachoo",
+    title: "Former Health Minister, Mauritius",
+    image: "https://sciencedivine.org/wp-content/uploads/2023/06/2-scaled.webp",
+  },
 ];
 
 export const TESTIMONIAL_VIDEOS = [
@@ -369,13 +622,41 @@ export const TESTIMONIAL_VIDEOS = [
 ];
 
 export const SOLUTION_HUB_CARDS = [
-  { slug: "overthinking", title: "Overthinking", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Overthinking-1024x683.jpg" },
-  { slug: "addictions", title: "Addictions", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Addictions-1024x512.jpg" },
-  { slug: "parenting", title: "Parenting", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Parenting-1024x683.jpg" },
-  { slug: "stress", title: "Sleeping Disorder", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Sleeping-1024x683.jpg" },
-  { slug: "yoga", title: "Wellness", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Wellness-1024x683.jpg" },
-  { slug: "anxiety", title: "Anxiety", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Anxiety-1024x683.jpg" },
-  { slug: "depression", title: "Depression", image: "https://sciencedivine.org/wp-content/uploads/2024/03/Depression.jpg" },
+  {
+    slug: "overthinking",
+    title: "Overthinking",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Overthinking-1024x683.jpg",
+  },
+  {
+    slug: "addictions",
+    title: "Addictions",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Addictions-1024x512.jpg",
+  },
+  {
+    slug: "parenting",
+    title: "Parenting",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Parenting-1024x683.jpg",
+  },
+  {
+    slug: "stress",
+    title: "Sleeping Disorder",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Sleeping-1024x683.jpg",
+  },
+  {
+    slug: "yoga",
+    title: "Wellness",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Wellness-1024x683.jpg",
+  },
+  {
+    slug: "anxiety",
+    title: "Anxiety",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Anxiety-1024x683.jpg",
+  },
+  {
+    slug: "depression",
+    title: "Depression",
+    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Depression.jpg",
+  },
 ];
 
 export const SOCIALS = {

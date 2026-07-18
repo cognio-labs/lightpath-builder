@@ -74,20 +74,29 @@
   --ring: oklch(0.55 0.18 300);
 
   /* Brand */
-  --gold: oklch(0.78 0.16 75);            /* #F59E0B */
+  --gold: oklch(0.78 0.16 75); /* #F59E0B */
   --gold-foreground: oklch(0.2 0.05 60);
-  --teal: oklch(0.72 0.13 190);           /* #14B8A6 */
-  --rose: oklch(0.68 0.22 15);            /* #F43F5E */
+  --teal: oklch(0.72 0.13 190); /* #14B8A6 */
+  --rose: oklch(0.68 0.22 15); /* #F43F5E */
 
   --purple-deep: oklch(0.42 0.19 300);
   --purple-glow: oklch(0.62 0.22 300);
-  --ink: oklch(0.12 0.03 290);            /* near-black purple #0F0F1A */
+  --ink: oklch(0.12 0.03 290); /* near-black purple #0F0F1A */
 
   --gradient-primary: linear-gradient(135deg, oklch(0.42 0.19 300) 0%, oklch(0.78 0.16 75) 100%);
-  --gradient-ethereal: linear-gradient(135deg, oklch(0.28 0.14 300) 0%, oklch(0.35 0.18 320) 50%, oklch(0.5 0.15 30) 100%);
+  --gradient-ethereal: linear-gradient(
+    135deg,
+    oklch(0.28 0.14 300) 0%,
+    oklch(0.35 0.18 320) 50%,
+    oklch(0.5 0.15 30) 100%
+  );
   --gradient-teal-rose: linear-gradient(135deg, oklch(0.72 0.13 190) 0%, oklch(0.68 0.22 15) 100%);
   --gradient-dark: linear-gradient(180deg, oklch(0.16 0.04 290) 0%, oklch(0.1 0.03 290) 100%);
-  --gradient-radial-glow: radial-gradient(ellipse at top, oklch(0.42 0.19 300 / 0.35), transparent 60%);
+  --gradient-radial-glow: radial-gradient(
+    ellipse at top,
+    oklch(0.42 0.19 300 / 0.35),
+    transparent 60%
+  );
 
   --shadow-glow: 0 20px 60px -20px oklch(0.42 0.19 300 / 0.5);
   --shadow-gold: 0 20px 60px -20px oklch(0.78 0.16 75 / 0.5);
@@ -143,7 +152,12 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -221,26 +235,50 @@
   max-width: 80rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
-  @media (min-width: 768px) { padding-inline: 2rem; }
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
 }
 
 @utility section-pad {
   padding-block: 4rem;
-  @media (min-width: 768px) { padding-block: 6rem; }
+  @media (min-width: 768px) {
+    padding-block: 6rem;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.05); }
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
 }
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}

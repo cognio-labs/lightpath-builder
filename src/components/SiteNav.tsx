@@ -56,15 +56,32 @@ export function SiteNav() {
         <nav className="hidden lg:flex items-center gap-1">
           <NavLink to="/">Home</NavLink>
           <Dropdown label="About" open={aboutOpen} setOpen={setAboutOpen}>
-            {aboutLinks.map(l => (
-              <Link key={l.to} to={l.to} className="block px-4 py-2 text-sm hover:bg-secondary rounded-md">{l.label}</Link>
+            {aboutLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="block px-4 py-2 text-sm hover:bg-secondary rounded-md"
+              >
+                {l.label}
+              </Link>
             ))}
           </Dropdown>
           <Dropdown label="Solutions" open={solOpen} setOpen={setSolOpen} wide>
             <div className="grid grid-cols-2 gap-1 min-w-[420px]">
-              <Link to="/get-solutions-for" className="col-span-2 block px-4 py-2 text-sm font-semibold gradient-text hover:bg-secondary rounded-md">All Solutions →</Link>
-              {SOLUTION_TOPICS.map(t => (
-                <Link key={t.slug} to={`/${t.slug}` as string} className="block px-4 py-2 text-sm hover:bg-secondary rounded-md">{t.title}</Link>
+              <Link
+                to="/get-solutions-for"
+                className="col-span-2 block px-4 py-2 text-sm font-semibold gradient-text hover:bg-secondary rounded-md"
+              >
+                All Solutions →
+              </Link>
+              {SOLUTION_TOPICS.map((t) => (
+                <Link
+                  key={t.slug}
+                  to={`/${t.slug}` as string}
+                  className="block px-4 py-2 text-sm hover:bg-secondary rounded-md"
+                >
+                  {t.title}
+                </Link>
               ))}
             </div>
           </Dropdown>
@@ -82,14 +99,31 @@ export function SiteNav() {
           >
             {dark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <Link to="/initiatives" className="hidden md:inline-flex btn-gold rounded-full px-5 py-2 text-sm font-semibold">Donate</Link>
-          <Link to="/book-session" className="hidden md:inline-flex btn-gradient rounded-full px-5 py-2 text-sm font-semibold">Book Session</Link>
+          <Link
+            to="/initiatives"
+            className="hidden md:inline-flex btn-gold rounded-full px-5 py-2 text-sm font-semibold"
+          >
+            Donate
+          </Link>
+          <Link
+            to="/book-session"
+            className="hidden md:inline-flex btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
+          >
+            Book Session
+          </Link>
           {signedIn && (
-            <Link to="/admin" className="hidden md:inline-flex items-center gap-1 rounded-full border border-border px-4 py-2 text-sm font-semibold">
+            <Link
+              to="/admin"
+              className="hidden md:inline-flex items-center gap-1 rounded-full border border-border px-4 py-2 text-sm font-semibold"
+            >
               <Shield size={14} /> Admin
             </Link>
           )}
-          <button className="lg:hidden rounded-full p-2 hover:bg-secondary" onClick={() => setOpen(!open)} aria-label="Menu">
+          <button
+            className="lg:hidden rounded-full p-2 hover:bg-secondary"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -98,25 +132,67 @@ export function SiteNav() {
       {open && (
         <div className="lg:hidden border-t glass-card animate-fade-in">
           <div className="container-page py-4 flex flex-col gap-1">
-            <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
+            <MobileLink to="/" onClick={() => setOpen(false)}>
+              Home
+            </MobileLink>
             <MobileGroup label="About">
-              {aboutLinks.map(l => (
-                <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className="block px-4 py-2 text-sm hover:bg-secondary rounded-md">{l.label}</Link>
+              {aboutLinks.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 text-sm hover:bg-secondary rounded-md"
+                >
+                  {l.label}
+                </Link>
               ))}
             </MobileGroup>
             <MobileGroup label="Solutions">
-              <Link to="/get-solutions-for" onClick={() => setOpen(false)} className="block px-4 py-2 text-sm font-semibold gradient-text">All Solutions →</Link>
-              {SOLUTION_TOPICS.map(t => (
-                <Link key={t.slug} to={`/${t.slug}` as string} onClick={() => setOpen(false)} className="block px-4 py-2 text-sm hover:bg-secondary rounded-md">{t.title}</Link>
+              <Link
+                to="/get-solutions-for"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2 text-sm font-semibold gradient-text"
+              >
+                All Solutions →
+              </Link>
+              {SOLUTION_TOPICS.map((t) => (
+                <Link
+                  key={t.slug}
+                  to={`/${t.slug}` as string}
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 text-sm hover:bg-secondary rounded-md"
+                >
+                  {t.title}
+                </Link>
               ))}
             </MobileGroup>
-            <MobileLink to="/courses" onClick={() => setOpen(false)}>Courses</MobileLink>
-            <MobileLink to="/events" onClick={() => setOpen(false)}>Events</MobileLink>
-            <MobileLink to="/initiatives" onClick={() => setOpen(false)}>Initiatives</MobileLink>
-            <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
+            <MobileLink to="/courses" onClick={() => setOpen(false)}>
+              Courses
+            </MobileLink>
+            <MobileLink to="/events" onClick={() => setOpen(false)}>
+              Events
+            </MobileLink>
+            <MobileLink to="/initiatives" onClick={() => setOpen(false)}>
+              Initiatives
+            </MobileLink>
+            <MobileLink to="/contact" onClick={() => setOpen(false)}>
+              Contact
+            </MobileLink>
             <div className="flex gap-2 pt-2">
-              <Link to="/initiatives" onClick={() => setOpen(false)} className="flex-1 btn-gold rounded-full px-4 py-2 text-sm font-semibold text-center">Donate</Link>
-              <Link to="/book-session" onClick={() => setOpen(false)} className="flex-1 btn-gradient rounded-full px-4 py-2 text-sm font-semibold text-center">Book Session</Link>
+              <Link
+                to="/initiatives"
+                onClick={() => setOpen(false)}
+                className="flex-1 btn-gold rounded-full px-4 py-2 text-sm font-semibold text-center"
+              >
+                Donate
+              </Link>
+              <Link
+                to="/book-session"
+                onClick={() => setOpen(false)}
+                className="flex-1 btn-gradient rounded-full px-4 py-2 text-sm font-semibold text-center"
+              >
+                Book Session
+              </Link>
             </div>
           </div>
         </div>
@@ -137,11 +213,28 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   );
 }
 
-function Dropdown({ label, open, setOpen, wide, children }: { label: string; open: boolean; setOpen: (v: boolean) => void; wide?: boolean; children: React.ReactNode }) {
+function Dropdown({
+  label,
+  open,
+  setOpen,
+  wide,
+  children,
+}: {
+  label: string;
+  open: boolean;
+  setOpen: (v: boolean) => void;
+  wide?: boolean;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
       <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:text-primary transition-colors">
-        {label} <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+        {label}{" "}
+        <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
         <div className={`absolute top-full left-0 pt-2 ${wide ? "" : "min-w-[220px]"}`}>
@@ -152,9 +245,21 @@ function Dropdown({ label, open, setOpen, wide, children }: { label: string; ope
   );
 }
 
-function MobileLink({ to, onClick, children }: { to: string; onClick: () => void; children: React.ReactNode }) {
+function MobileLink({
+  to,
+  onClick,
+  children,
+}: {
+  to: string;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
   return (
-    <Link to={to} onClick={onClick} className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-secondary">
+    <Link
+      to={to}
+      onClick={onClick}
+      className="block px-3 py-2 rounded-md text-sm font-medium hover:bg-secondary"
+    >
       {children}
     </Link>
   );
@@ -164,8 +269,12 @@ function MobileGroup({ label, children }: { label: string; children: React.React
   const [o, setO] = useState(false);
   return (
     <div>
-      <button onClick={() => setO(!o)} className="w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium hover:bg-secondary">
-        {label} <ChevronDown size={14} className={`transition-transform ${o ? "rotate-180" : ""}`} />
+      <button
+        onClick={() => setO(!o)}
+        className="w-full flex items-center justify-between px-3 py-2 rounded-md text-sm font-medium hover:bg-secondary"
+      >
+        {label}{" "}
+        <ChevronDown size={14} className={`transition-transform ${o ? "rotate-180" : ""}`} />
       </button>
       {o && <div className="pl-3">{children}</div>}
     </div>

@@ -25,7 +25,10 @@ function NotFoundComponent() {
           The path you're seeking isn't here. Return home and continue your journey.
         </p>
         <div className="mt-6">
-          <Link to="/" className="inline-flex items-center justify-center rounded-full btn-gradient px-6 py-3 text-sm font-medium">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-full btn-gradient px-6 py-3 text-sm font-medium"
+          >
             Go home
           </Link>
         </div>
@@ -48,12 +51,18 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">Something went wrong. Try refreshing.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="rounded-full btn-gradient px-6 py-2 text-sm font-medium"
           >
             Try again
           </button>
-          <a href="/" className="rounded-full border border-border bg-background px-6 py-2 text-sm font-medium">
+          <a
+            href="/"
+            className="rounded-full border border-border bg-background px-6 py-2 text-sm font-medium"
+          >
             Go home
           </a>
         </div>
@@ -68,12 +77,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Science Divine Foundation — Sound Body, Sound Mind, Self Realization" },
-      { name: "description", content: "Discover the science of joyful living with Sakshi Shree. Meditation, mindfulness, and transformative courses from Science Divine Foundation." },
+      {
+        name: "description",
+        content:
+          "Discover the science of joyful living with Sakshi Shree. Meditation, mindfulness, and transformative courses from Science Divine Foundation.",
+      },
       { name: "author", content: "Science Divine Foundation" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Science Divine Foundation" },
-      { property: "og:title", content: "Science Divine Foundation — Sound Body, Sound Mind, Self Realization" },
-      { property: "og:description", content: "Meditation, mindfulness, and self-realization with enlightened master Sakshi Shree." },
+      {
+        property: "og:title",
+        content: "Science Divine Foundation — Sound Body, Sound Mind, Self Realization",
+      },
+      {
+        property: "og:description",
+        content:
+          "Meditation, mindfulness, and self-realization with enlightened master Sakshi Shree.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@gurusakshishree" },
     ],
@@ -82,7 +102,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
