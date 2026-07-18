@@ -26,31 +26,36 @@ export const Route = createFileRoute("/har-ghar-shiksha")({
 /* ─── Data ─── */
 const STATS = [
   {
-    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=90&fit=crop",
+    // Mass outdoor meditation — golden sunrise, hundreds of people
+    img: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=900&q=90&fit=crop&crop=center",
     value: "50,000+",
     label: "Lives Changed Through Meditation",
     desc: "Thousands awakened worldwide",
   },
   {
-    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=90&fit=crop",
+    // Happy Indian children in classroom with teacher
+    img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=90&fit=crop&crop=center",
     value: "12,000+",
     label: "Students Educated",
     desc: "Underprivileged children empowered",
   },
   {
-    img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=90&fit=crop",
+    // Solitary person meditating on mountain at sunrise
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=90&fit=crop&crop=center",
     value: "100,000+",
     label: "Lives Enriched",
     desc: "Through meditation & education",
   },
   {
-    img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=900&q=90&fit=crop",
+    // Hands nurturing a young plant in golden sunlight
+    img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=90&fit=crop&crop=center",
     value: "20+",
     label: "Years in Operation",
     desc: "Decades of trusted service",
   },
   {
-    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&q=90&fit=crop",
+    // Young girls happily studying with books and smiling
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&q=90&fit=crop&crop=center",
     value: "45%",
     label: "Girls' Education",
     desc: "Empowering young women for a brighter future",
@@ -59,21 +64,24 @@ const STATS = [
 
 const PURPOSE_CARDS = [
   {
-    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=90&fit=crop",
+    // Diverse smiling people celebrating, learning together — community & purpose
+    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=90&fit=crop&crop=center",
     title: "Our Goal",
     desc: "To create conscious individuals who live joyfully and meaningfully, breaking cycles of poverty through inner transformation.",
     icon: Heart,
     color: "#16A34A",
   },
   {
-    img: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=90&fit=crop",
+    // Person meditating peacefully toward a sunrise / peaceful landscape
+    img: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=90&fit=crop&crop=center",
     title: "Our Vision",
     desc: "To provide quality education and meditation practices to those who need it most, awakening human potential worldwide.",
     icon: Flower2,
     color: "#0E9F6E",
   },
   {
-    img: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=800&q=90&fit=crop",
+    // Spiritual teacher guiding a meditation session / peaceful gathering
+    img: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=800&q=90&fit=crop&crop=center",
     title: "Our Approach",
     desc: "Guided by the wisdom of Sakshi Shree, we blend ancient meditation wisdom with modern education to create positive change.",
     icon: Sprout,
@@ -83,21 +91,24 @@ const PURPOSE_CARDS = [
 
 const PROBLEMS = [
   {
-    img: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=90&fit=crop",
+    // Woman meditating in lush forest — spiritual growth, inner peace
+    img: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=90&fit=crop&crop=center",
     title: "Spiritual Growth",
     desc: "Discover your inner divinity and connect with your true self through guided meditation practices.",
     icon: Flower2,
     color: "#16A34A",
   },
   {
-    img: "https://images.unsplash.com/photo-1474540412665-1cdae210ae6b?w=800&q=90&fit=crop",
+    // Person journaling by sunny window with plants — mindfulness and clarity
+    img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=90&fit=crop&crop=center",
     title: "Mental Clarity",
     desc: "Achieve peace of mind and enhanced focus through regular meditation and mindfulness practices.",
     icon: Brain,
     color: "#0E9F6E",
   },
   {
-    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=90&fit=crop",
+    // Graduation — student with diploma, sunrise, mountain — knowledge & wisdom
+    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=90&fit=crop&crop=center",
     title: "Knowledge for All",
     desc: "Access spiritual wisdom and practical knowledge that transforms daily life.",
     icon: GraduationCap,
@@ -110,7 +121,8 @@ const HOW_WE_WORK = [
     num: "01",
     title: "Community Outreach",
     desc: "Our volunteers bring meditation, awareness, and hope directly to communities, creating meaningful social transformation.",
-    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=90&fit=crop",
+    // Volunteer warmly interacting with happy children and families
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=90&fit=crop&crop=center",
     icon: Sprout,
     color: "#16A34A",
   },
@@ -118,7 +130,8 @@ const HOW_WE_WORK = [
     num: "02",
     title: "Educational Access",
     desc: "Providing free education and learning opportunities for underprivileged children and adults to build brighter futures.",
-    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=90&fit=crop",
+    // Bright classroom: teacher helping happy students with books
+    img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=90&fit=crop&crop=center",
     icon: GraduationCap,
     color: "#0E9F6E",
   },
@@ -126,7 +139,8 @@ const HOW_WE_WORK = [
     num: "03",
     title: "Meditation For All",
     desc: "Accessible meditation sessions that promote inner peace, emotional balance, and well-being for everyone.",
-    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=90&fit=crop",
+    // Group meditation in nature during golden sunrise
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=90&fit=crop&crop=center",
     icon: Flower2,
     color: "#059669",
   },
@@ -134,7 +148,8 @@ const HOW_WE_WORK = [
     num: "04",
     title: "Creative Growth",
     desc: "Creative learning experiences that nurture confidence, imagination, life skills, and personal growth.",
-    img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=90&fit=crop",
+    // Children joyfully painting and creating art
+    img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=90&fit=crop&crop=center",
     icon: Palette,
     color: "#10B981",
   },
