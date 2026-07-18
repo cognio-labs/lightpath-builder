@@ -98,51 +98,147 @@ function Page() {
 
       {/* Courses Cards Grid */}
       <section className="section-pad" style={{ background: "#FAF9F6" }}>
+        <style>{`
+          .course-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(.22,.61,.36,1), box-shadow 0.3s;
+          }
+          .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(212,175,55,0.16), 0 4px 16px rgba(0,0,0,0.07);
+          }
+          .course-card:hover .course-img {
+            transform: scale(1.05);
+          }
+          .course-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            transition: transform 0.5s cubic-bezier(.22,.61,.36,1);
+          }
+          .course-start-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(135deg, #F59E0B, #D4AF37);
+            color: #1a0e00;
+            padding: 13px 20px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: background-position 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 16px rgba(212,175,55,0.3);
+          }
+          .course-start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212,175,55,0.45);
+          }
+          @media (max-width: 900px) {
+            .courses-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
+          @media (max-width: 580px) {
+            .courses-grid { grid-template-columns: 1fr !important; }
+          }
+        `}</style>
         <div className="container-page">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "22px" }}>
+          <div className="courses-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "24px" }}>
             {COURSES_DATA.map((c, i) => (
-              <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0", boxShadow: "0 10px 30px rgba(0,0,0,0.02)", display: "flex", flexDirection: "column", transition: "transform 0.25s, box-shadow 0.25s" }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 45px rgba(212,175,55,0.12)"; }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 10px 30px rgba(0,0,0,0.02)"; }}
-              >
-                <div style={{ position: "relative", height: "210px", overflow: "hidden" }}>
-                  <img src={c.image} alt={c.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                  <div style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(15,23,42,0.75)", color: "#FFFFFF", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: 700, backdropFilter: "blur(4px)", display: "flex", alignItems: "center", gap: "6px" }}>
-                    <ShieldCheck size={12} style={{ color: "#D4AF37" }} />
+              <div key={i} className="course-card">
+                {/* Image */}
+                <div style={{ position: "relative", height: "220px", overflow: "hidden", flexShrink: 0 }}>
+                  <img src={c.image} alt={c.title} className="course-img" />
+                  {/* Level badge */}
+                  <div style={{
+                    position: "absolute", top: "14px", left: "14px",
+                    background: "rgba(15,23,42,0.78)",
+                    color: "#FFFFFF", padding: "5px 12px",
+                    borderRadius: "100px", fontSize: "10px", fontWeight: 700,
+                    backdropFilter: "blur(6px)", display: "flex", alignItems: "center", gap: "5px",
+                  }}>
+                    <ShieldCheck size={11} style={{ color: "#D4AF37" }} />
                     {c.level}
                   </div>
+                  {/* Duration badge */}
+                  <div style={{
+                    position: "absolute", top: "14px", right: "14px",
+                    background: "rgba(212,175,55,0.92)",
+                    color: "#1a0e00", padding: "5px 10px",
+                    borderRadius: "100px", fontSize: "10px", fontWeight: 700,
+                    display: "flex", alignItems: "center", gap: "4px",
+                  }}>
+                    <Clock size={10} />
+                    {c.duration}
+                  </div>
                 </div>
-                <div style={{ padding: "24px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                  <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", textTransform: "uppercase", fontSize: "11px", fontWeight: 700, color: "#94A3B8", marginBottom: "8px" }}>
-                      <Clock size={12} /> {c.duration} Duration
-                    </div>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.28rem", fontWeight: 700, color: "#0F172A", marginBottom: "4px" }}>{c.title}</h3>
-                    <p style={{ color: "#D4AF37", fontSize: "0.85rem", fontWeight: 600, fontStyle: "italic", marginBottom: "16px" }}>{c.tagline}</p>
-                    <p style={{ color: "#64748B", fontSize: "0.84rem", lineHeight: 1.6, marginBottom: "20px" }}>{c.desc}</p>
+
+                {/* Content */}
+                <div style={{ padding: "22px 22px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
+                  <h3 style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "1.18rem", fontWeight: 700,
+                    color: "#0F172A", marginBottom: "5px", lineHeight: 1.3,
+                  }}>{c.title}</h3>
+                  <p style={{
+                    color: "#D4AF37", fontSize: "0.82rem",
+                    fontWeight: 600, fontStyle: "italic", marginBottom: "12px",
+                  }}>{c.tagline}</p>
+                  <p style={{
+                    color: "#64748B", fontSize: "0.82rem",
+                    lineHeight: 1.65, marginBottom: "16px", flex: 1,
+                  }}>{c.desc}</p>
+
+                  {/* Feature tags */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "20px" }}>
+                    {c.features.map((f, fi) => (
+                      <span key={fi} style={{
+                        background: "#FFF8ED", border: "1px solid #FDDFA0",
+                        color: "#92580A", fontSize: "10px", fontWeight: 600,
+                        padding: "3px 9px", borderRadius: "100px",
+                      }}>{f}</span>
+                    ))}
                   </div>
-                  <div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "20px" }}>
-                      {c.features.map((f, fi) => (
-                        <span key={fi} style={{ background: "#FAF9F6", border: "1px solid #E2E8F0", color: "#475569", fontSize: "11px", fontWeight: 600, padding: "4px 10px", borderRadius: "100px" }}>{f}</span>
-                      ))}
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      <div>
-                        <span style={{ fontSize: "1.5rem", fontWeight: 900, color: "#B45309" }}>₹{c.price}</span>
-                        <span style={{ textDecoration: "line-through", color: "#94A3B8", fontSize: "0.9rem", marginLeft: "6px" }}>₹{c.originalPrice}</span>
-                      </div>
-                      <Link to={`/${c.slug}` as any} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "10px 18px", borderRadius: "100px", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none" }}>
-                        Start Course <ArrowRight size={14} />
-                      </Link>
-                    </div>
+
+                  {/* Price row */}
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "14px" }}>
+                    <span style={{ fontSize: "1.55rem", fontWeight: 900, color: "#B45309", lineHeight: 1 }}>
+                      ₹{c.price}
+                    </span>
+                    <span style={{
+                      textDecoration: "line-through", color: "#94A3B8",
+                      fontSize: "0.88rem",
+                    }}>₹{c.originalPrice}</span>
+                    <span style={{
+                      marginLeft: "auto", background: "#FEF3C7",
+                      color: "#92400E", fontSize: "10px", fontWeight: 700,
+                      padding: "3px 8px", borderRadius: "6px",
+                    }}>
+                      {Math.round((1 - c.price / c.originalPrice) * 100)}% OFF
+                    </span>
                   </div>
+
+                  {/* CTA button — full width, own row */}
+                  <Link to={`/${c.slug}` as any} className="course-start-btn">
+                    Start Course <ArrowRight size={15} />
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* Testimonials */}
       <section className="section-pad" style={{ background: "#FFFFFF" }}>
