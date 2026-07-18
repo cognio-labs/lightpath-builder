@@ -170,8 +170,8 @@ function Home() {
       }}>
         <style>{`
           @keyframes homeFadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-          @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-          @keyframes homePulse { 0%,100%{opacity:.35} 50%{opacity:.6} }
+          @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+          @keyframes homePulse { 0%,100%{opacity:.3} 50%{opacity:.65} }
           @keyframes homeRotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
           @keyframes homeParticle {
             0%{transform:translateY(0) translateX(0);opacity:0}
@@ -195,15 +195,14 @@ function Home() {
             font-weight: 700; font-size: 1rem; text-decoration: none;
             box-shadow: 0 10px 30px rgba(212,175,55,0.35);
             transition: background-position 0.4s, box-shadow 0.4s, transform 0.2s;
+            white-space: nowrap;
           }
           .btn-hero-primary:hover {
             background-position: right center;
             box-shadow: 0 14px 40px rgba(212,175,55,0.5);
             transform: translateY(-2px);
           }
-          .btn-hero-primary:hover .btn-arrow {
-            transform: translateX(4px);
-          }
+          .btn-hero-primary:hover .btn-arrow { transform: translateX(4px); }
           .btn-arrow { transition: transform 0.3s; }
 
           .btn-hero-secondary {
@@ -214,6 +213,7 @@ function Home() {
             font-weight: 600; font-size: 1rem; text-decoration: none;
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             transition: background 0.4s, border-color 0.4s, transform 0.2s;
+            white-space: nowrap;
           }
           .btn-hero-secondary:hover {
             background: rgba(212,175,55,0.08);
@@ -221,14 +221,58 @@ function Home() {
             transform: translateY(-2px);
           }
 
-          .hm-stat-sep {
-            width: 1px; height: 40px; background: rgba(8,26,54,0.15);
-          }
+          .hm-stat-sep { width: 1px; height: 40px; background: rgba(8,26,54,0.15); }
           .hm-particle {
             position: absolute; border-radius: 50%;
             background: radial-gradient(circle, #D4AF37, rgba(212,175,55,0));
             animation: homeParticle linear infinite;
             pointer-events: none;
+          }
+
+          /* ── Hero Grid Layout ── */
+          .hm-inner {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 80px;
+            position: relative;
+            z-index: 10;
+          }
+          .hm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+            min-height: 100vh;
+            padding: 100px 0 80px;
+          }
+          .hm-left { max-width: 700px; }
+          .hm-left p { max-width: 620px; }
+          .hm-left .hm-btns { display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px; align-items: center; }
+          .hm-left .hm-stats { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 32px; }
+          .hm-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+          }
+
+          /* Responsive */
+          @media (max-width: 1100px) {
+            .hm-inner { padding: 0 40px; }
+            .hm-grid { gap: 48px; }
+          }
+          @media (max-width: 800px) {
+            .hm-inner { padding: 0 24px; }
+            .hm-grid {
+              grid-template-columns: 1fr;
+              min-height: auto;
+              padding: 100px 0 60px;
+              gap: 40px;
+            }
+            .hm-left { max-width: 100%; order: 2; }
+            .hm-right { order: 1; min-height: 400px; }
           }
         `}</style>
 
@@ -272,19 +316,20 @@ function Home() {
           }} />
         ))}
 
-        <div className="container-page relative z-10 w-100" style={{ padding: "120px 24px 80px" }}>
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center" style={{ maxWidth: "1450px", margin: "0 auto" }}>
-            
-            {/* Left Content */}
-            <div className="space-y-8 order-2 md:order-1">
-              {/* Eyebrow pill */}
-              <div className="hm-fade-1" style={{
+        <div className="hm-inner">
+          <div className="hm-grid">
+
+            {/* ── LEFT COLUMN ── */}
+            <div className="hm-left hm-fade-1">
+
+              {/* Badge */}
+              <div style={{
                 display: "inline-flex", alignItems: "center", gap: "10px",
                 background: "rgba(255,255,255,0.85)",
                 border: "1.5px solid rgba(212,175,55,0.45)",
                 borderRadius: "100px", padding: "8px 22px",
                 backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
-                transition: "all 0.3s ease",
+                marginBottom: "28px",
               }}>
                 <span style={{ fontSize: "0.95rem" }}>🪷</span>
                 <span style={{
@@ -295,26 +340,27 @@ function Home() {
                 </span>
               </div>
 
-              {/* Title */}
-              <h1 className="font-display leading-[1.05] font-bold text-gray-900" style={{ margin: "0 0 24px" }}>
+              {/* Heading */}
+              <h1 style={{ margin: "0 0 24px", fontFamily: "'Playfair Display', serif", lineHeight: 1.05, fontWeight: 700 }}>
                 <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", color: "#081A36" }}>Awaken Your</span>
                 <span className="hm-fade-2" style={{
                   display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", fontStyle: "italic",
                   background: "linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #E6C84A 60%, #C9910B 100%)",
-                  WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent"
+                  WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
+                  paddingTop: "0.15em", marginTop: "-0.15em", paddingRight: "0.1em"
                 }}>True Potential</span>
                 <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", color: "#081A36" }}>with Science Divine</span>
                 <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", color: "#081A36" }}>Movement</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="hm-fade-4 text-gray-500 leading-relaxed" style={{ fontSize: "1.1rem", maxWidth: "600px" }}>
+              <p className="hm-fade-4" style={{ fontSize: "1.1rem", color: "#5C677D", lineHeight: 1.7, marginBottom: "36px", maxWidth: "620px" }}>
                 Begin a journey of meditation, wisdom, and conscious living under the guidance of enlightened master{" "}
                 <strong style={{ color: "#D4AF37", fontWeight: 700 }}>Sakshi Shree</strong>. Discover inner peace, unlock your true potential, and transform every aspect of your life.
               </p>
 
               {/* Buttons */}
-              <div className="hm-fade-5 flex flex-wrap gap-4 pt-2">
+              <div className="hm-fade-5 hm-btns" style={{ marginBottom: "40px" }}>
                 <Link to="/book-session" className="btn-hero-primary">
                   Meet Sakshi Shree <ArrowRight size={18} className="btn-arrow" />
                 </Link>
@@ -324,7 +370,7 @@ function Home() {
               </div>
 
               {/* Stats */}
-              <div className="hm-fade-6 flex flex-wrap items-center gap-8 pt-6">
+              <div className="hm-fade-6 hm-stats">
                 {[
                   { num: "5M+", label: "Lives Impacted" },
                   { num: "40+", label: "Years of Wisdom" },
@@ -347,60 +393,61 @@ function Home() {
               </div>
             </div>
 
-            {/* Right Composition — Guru Ji with Mandala Halo */}
-            <div className="hm-fade-img order-1 md:order-2 flex justify-center relative" style={{ minHeight: "480px" }}>
+            {/* ── RIGHT COLUMN ── */}
+            <div className="hm-right hm-fade-img">
 
               {/* Outer pulsing golden glow */}
               <div style={{
-                position: "absolute", inset: "0", margin: "auto",
-                width: "90%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(212,175,55,0.32) 0%, rgba(212,175,55,0.12) 55%, transparent 75%)",
+                position: "absolute", inset: 0, margin: "auto",
+                width: "88%", aspectRatio: "1", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(212,175,55,0.30) 0%, rgba(212,175,55,0.10) 55%, transparent 75%)",
                 animation: "homePulse 4s ease-in-out infinite",
-                pointerEvents: "none", zIndex: 1,
+                pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Glowing mandala ring */}
+              {/* Mandala ring */}
               <div style={{
-                position: "absolute", inset: "0", margin: "auto",
-                width: "75%", aspectRatio: "1", borderRadius: "50%",
+                position: "absolute", inset: 0, margin: "auto",
+                width: "72%", aspectRatio: "1", borderRadius: "50%",
                 border: "1.5px solid rgba(212,175,55,0.28)",
-                boxShadow: "0 0 55px rgba(212,175,55,0.22), inset 0 0 55px rgba(212,175,55,0.10)",
+                boxShadow: "0 0 60px rgba(212,175,55,0.22), inset 0 0 60px rgba(212,175,55,0.10)",
                 animation: "homePulse 5s 1s ease-in-out infinite",
-                pointerEvents: "none", zIndex: 1,
+                pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Inner divine halo */}
+              {/* Inner halo */}
               <div style={{
-                position: "absolute", inset: "0", margin: "auto",
-                width: "55%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(255,245,190,0.70) 0%, transparent 70%)",
-                pointerEvents: "none", zIndex: 1,
+                position: "absolute", inset: 0, margin: "auto",
+                width: "52%", aspectRatio: "1", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(255,245,190,0.65) 0%, transparent 70%)",
+                pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Ivory cloud fade at bottom (matches ivory background) */}
+              {/* Ivory fade at bottom */}
               <div style={{
-                position: "absolute", bottom: "-20px", left: "5%", right: "5%", height: "120px",
-                background: "linear-gradient(to top, #FCF8F1 20%, rgba(252,248,241,0.9) 50%, transparent 100%)",
-                zIndex: 3, pointerEvents: "none",
+                position: "absolute", bottom: 0, left: 0, right: 0, height: "100px",
+                background: "linear-gradient(to top, #FCF8F1 15%, rgba(252,248,241,0.8) 50%, transparent 100%)",
+                zIndex: 2, pointerEvents: "none",
               }} />
 
-              {/* Guru Ji — screen blend removes black background */}
+              {/* Guru Ji portrait */}
               <img
-                src="https://sciencedivine.org/wp-content/uploads/2025/02/7.webp"
-                alt="Enlightened Spiritual Master Guru Sakshi Shree in Meditation"
-                className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain"
+                src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
+                alt="Sakshi Shree — Enlightened Spiritual Master in Meditation"
                 style={{
-                  maxHeight: "560px",
-                  mixBlendMode: "screen",
-                  filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.12))",
+                  position: "relative", zIndex: 1,
+                  width: "100%",
+                  maxWidth: "520px",
+                  height: "700px",
+                  objectFit: "contain",
+                  objectPosition: "center bottom",
                   animation: "homeFloat 6s ease-in-out infinite",
-                  position: "relative",
-                  zIndex: 2,
+                  filter: "drop-shadow(0 24px 48px rgba(150,100,0,0.18))",
                 }}
               />
 
               {/* Floating gold particles */}
-              {[{t:"15%",r:"8%",s:10,d:"5s",del:"0s"},{t:"55%",r:"3%",s:7,d:"7s",del:"1.5s"},{t:"80%",r:"12%",s:5,d:"6s",del:"3s"},{t:"25%",l:"5%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
+              {[{t:"12%",r:"6%",s:10,d:"5s",del:"0s"},{t:"52%",r:"2%",s:7,d:"7s",del:"1.5s"},{t:"78%",r:"10%",s:5,d:"6s",del:"3s"},{t:"22%",l:"4%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
                 <div key={i} className="hm-particle" style={{
                   width: `${p.s}px`, height: `${p.s}px`,
                   top: p.t,
@@ -561,30 +608,6 @@ function Home() {
                   <p className="font-display font-bold text-gray-900">Sakshi Shree</p>
                   <p className="text-sm text-gray-500">Enlightened Spiritual Master</p>
                 </div>
-              </div>
-              <div className="flex gap-3">
-                {[
-                  { href: SOCIALS.facebook, Icon: Facebook, label: "Facebook" },
-                  { href: SOCIALS.instagram, Icon: Instagram, label: "Instagram" },
-                  { href: SOCIALS.youtube, Icon: Youtube, label: "YouTube" },
-                  { href: SOCIALS.linkedin, Icon: Linkedin, label: "LinkedIn" },
-                ].map(({ href, Icon, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={label}
-                    className="w-10 h-10 rounded-full grid place-items-center transition-colors"
-                    style={{ background: "rgba(212,175,55,0.15)", color: "#92700A" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.background = "#D4AF37")}
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.background = "rgba(212,175,55,0.15)")
-                    }
-                  >
-                    <Icon size={16} />
-                  </a>
-                ))}
               </div>
             </div>
           </div>
