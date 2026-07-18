@@ -1,26 +1,235 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SolutionPageLayout } from "@/components/SolutionPageLayout";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SectionHeading } from "@/components/PageHero";
+import { useState } from "react";
+import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Sparkles, Heart, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/manifestation")({
   head: () => ({
     meta: [
-      { title: "Manifestation — Science Divine Foundation" },
-      {
-        name: "description",
-        content:
-          "Manifest Your Success: Unleash Your Potential — articles, videos, and guided practices from Sakshi Shree.",
-      },
+      { title: "Manifestation Techniques & Teachings | Science Divine Foundation" },
+      { name: "description", content: "Manifest Your Success: Unleash Your Potential with Sakshi Shree’s Powerful Techniques. Align your thoughts and goals to manifest success." },
       { property: "og:title", content: "Manifestation — Science Divine" },
       { property: "og:url", content: "/manifestation" },
     ],
     links: [{ rel: "canonical", href: "/manifestation" }],
   }),
-  component: () => (
-    <SolutionPageLayout
-      slug="manifestation"
-      title="Manifestation"
-      tagline={`Manifest Your Success: Unleash Your Potential`}
-      intro={`When intention, emotion, and action align, the universe conspires to deliver.`}
-    />
-  ),
+  component: Page,
 });
+
+type Tab = "articles" | "quotes" | "videos" | "podcasts";
+
+const ARTICLES = [
+  { title: "How to become a spiritual person?", href: "https://sciencedivine.org/what-is-spiritual/", tag: "Spirituality", readTime: "8 min", desc: "Understanding the spiritual foundations required to manifest a balanced, fulfilling, and authentic life." },
+  { title: "7 Ways to Foster an Optimistic Mind", href: "https://sciencedivine.org/optimistic-mind/", tag: "Mindset", readTime: "7 min", desc: "How optimism acts as a energetic frequency alignment for attracting positive experiences." },
+  { title: "What are the 7 Chakras & How They Affect Your Life", href: "https://sciencedivine.org/7-chakras-of-body/", tag: "Chakra", readTime: "11 min", desc: "How balancing your body's energy centers clears blockages to align with your desires." },
+  { title: "What is Vishuddha Chakra & How to Activate it", href: "https://sciencedivine.org/vishuddha-chakra/", tag: "Chakra", readTime: "9 min", desc: "Activating the Throat Chakra to project your intent, speak your truth, and manifest dreams." },
+  { title: "What is Consciousness: A Beginner’s Guide", href: "https://sciencedivine.org/what-is-consciousness/", tag: "Consciousness", readTime: "8 min", desc: "Understanding consciousness as the core canvas upon which all realities are manifested." },
+  { title: "The Simple Guide to Effective Manifestation", href: "https://sciencedivine.org/what-is-manifestation/", tag: "Manifestation", readTime: "7 min", desc: "Demystifying the Law of Attraction with simple, actionable spiritual steps for daily life." },
+  { title: "Silent Retreats Unveiled: Embrace the Power of Meditation and Solitude", href: "https://sciencedivine.org/silent-retreats-unveiled/", tag: "Retreat", readTime: "10 min", desc: "How stepping away from the noise of the world supercharges your intention and manifestation power." },
+  { title: "Chakra Meditation for Balancing Energy and Enhancing Well-being", href: "https://sciencedivine.org/unlocking-harmony/", tag: "Meditation", readTime: "9 min", desc: "Cultivating energetic harmony to allow the natural flow of abundance and success." },
+  { title: "The Magic of Gomti Chakra: How It Can Change Your Life", href: "https://sciencedivine.org/gomti-chakra/", tag: "Spiritual Tools", readTime: "8 min", desc: "Exploring the history and spiritual properties of the sacred Gomti Chakra symbol." },
+];
+
+const VIDEOS = [
+  { id: "KVZpqoomuBk", title: "How to get in the receiving mode to manifest your dreams faster @SakshiShree", lang: "English" },
+  { id: "e0gXlkBq6hM", title: "The Secret: Dare to Dream #sakshishree #vikramsampath #guru #spirituality", lang: "English" },
+  { id: "i4Y50zEG8XM", title: "Manifest Your Desires || अब आपका हर सपना साकार होगा || Law Of Attraction 2021", lang: "Hindi" },
+  { id: "dRZ0QjWCx8M", title: "सिद्ध कामना क्रिया || Mind Power Manifestation || Third Eye Meditation || साक्षी श्री", lang: "Hindi" },
+  { id: "3SyhC_MBn_g", title: "कैसे मिले मनचाही चीजें || How to get desired things? - by #sakshishree", lang: "Hindi" },
+  { id: "pAbmY2WfuIQ", title: "आप अस्तित्व से हर चीज़ पा सकते हो, जाने वह कुंजी। Manifest your desires I Sadhguru Sakshi Shree", lang: "Hindi" },
+  { id: "k1klaWgPiY8", title: "जो चाहोगे, तुरंत मिलेगा बस इतना याद रखो! || Law of attraction || Sakshi Shree", lang: "Hindi" },
+  { id: "8wkM5uiBC54", title: "आपकी हर मनोकामना पूरी करने का तरीका || How To Manifest What You Really Want", lang: "Hindi" },
+  { id: "Gf-DGN_bH1o", title: "जीवन में बहुत सारा पैसा आएगा, अगर || Manifest Money with Gratitude in Life || साक्षी श्री", lang: "Hindi" },
+];
+
+const QUOTES = Array.from({ length: 9 }, (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`);
+
+const TESTIMONIALS = [
+  { id: "QLmL230dApk", name: "Swaparna Testimonial" },
+  { id: "EiFMTSo8Yws", name: "Helen Testimonial" },
+  { id: "6bkJdkmAt20", name: "Pooja Pagaddinnimath Testimonial" },
+  { id: "5KmsxqJXACM", name: "Patty Testimonial" },
+];
+
+const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
+  { id: "articles", label: "Articles", icon: <BookOpen size={17} /> },
+  { id: "quotes", label: "Quotes", icon: <Quote size={17} /> },
+  { id: "videos", label: "Videos", icon: <PlayCircle size={17} /> },
+  { id: "podcasts", label: "Podcasts", icon: <Mic size={17} /> },
+];
+
+const LANG_COLORS: Record<string, { bg: string; text: string }> = {
+  English: { bg: "rgba(59,130,246,0.1)", text: "#2563EB" },
+  Hindi: { bg: "rgba(212,175,55,0.12)", text: "#B45309" },
+};
+
+function Page() {
+  const [tab, setTab] = useState<Tab>("articles");
+
+  return (
+    <>
+      {/* Hero */}
+      <section style={{ background: "linear-gradient(135deg, #1C1917 0%, #44403C 50%, #1C1917 100%)", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(217,119,6,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
+          <div style={{ maxWidth: "800px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
+              <Sparkles size={14} style={{ color: "#D4AF37" }} />
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Manifestation</span>
+            </div>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
+              Manifest Your Success:{" "}
+              <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                Unleash Your Potential
+              </span>
+            </h1>
+            <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "660px", marginBottom: "40px" }}>
+              Cultivate positivity, emphasize strengths, and align your beliefs with your highest potential. Sakshi Shree’s teachings offer powerful, actionable techniques to clear self-doubt and align your thoughts directly with your goals.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
+                Book a Session <ArrowRight size={16} />
+              </Link>
+              <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
+                Explore Resources <ChevronRight size={16} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tabs */}
+      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+        <div className="container-page">
+          <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
+            {TABS.map(t => (
+              <button key={t.id} onClick={() => setTab(t.id)} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "16px 24px", border: "none", borderBottom: tab === t.id ? "3px solid #D4AF37" : "3px solid transparent", background: "transparent", color: tab === t.id ? "#D4AF37" : "#6B7280", fontWeight: tab === t.id ? 700 : 500, fontSize: "0.9rem", cursor: "pointer", whiteSpace: "nowrap", transition: "color 0.2s, border-color 0.2s" }}>
+                {t.icon} {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tab Content */}
+      <section className="section-pad bg-white">
+        <div className="container-page">
+
+          {tab === "articles" && (
+            <div>
+              <SectionHeading eyebrow="Read & Align" title="Articles on Law of Attraction & Mind Power" subtitle="Unlocking the spiritual laws and energy dynamics behind conscious creation." />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
+                {ARTICLES.map((a, i) => (
+                  <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "20px", padding: "28px", textDecoration: "none", boxShadow: "0 2px 12px rgba(0,0,0,0.04)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(217,119,6,0.12)"; el.style.borderColor = "#D97706"; }}
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; el.style.borderColor = "#E5E7EB"; }}
+                  >
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #D97706, #D4AF37)", borderRadius: "20px 20px 0 0" }} />
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
+                      <span style={{ background: "rgba(217,119,6,0.1)", color: "#D97706", fontSize: "11px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{a.tag}</span>
+                      <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
+                    </div>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#111827", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
+                    <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
+                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#D97706", fontWeight: 700, fontSize: "0.875rem" }}>Read Article <ArrowRight size={14} /></div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {tab === "quotes" && (
+            <div>
+              <SectionHeading eyebrow="Words of Wisdom" title="Inspirational Quotes" subtitle="Inspirational mantras from Sakshi Shree on thoughts, intention, and belief." />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px", marginTop: "40px" }}>
+                {QUOTES.map((src, i) => (
+                  <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", transition: "transform 0.3s, box-shadow 0.3s" }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px) scale(1.01)"; el.style.boxShadow = "0 16px 40px rgba(217,119,6,0.18)"; }}
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0) scale(1)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
+                  >
+                    <img src={src} alt={`Manifestation Quote ${i + 1}`} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {tab === "videos" && (
+            <div>
+              <SectionHeading eyebrow="Watch & Learn" title="Videos on the Law of Attraction & Sidh Kamna Kriya" subtitle="9 detailed teachings from Sakshi Shree on entering the receiving mode and manifesting desires." />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: "28px", marginTop: "40px" }}>
+                {VIDEOS.map((v, i) => (
+                  <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)"; }}
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+                  >
+                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                      <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                    </div>
+                    <div style={{ padding: "20px" }}>
+                      <span style={{ background: LANG_COLORS[v.lang]?.bg, color: LANG_COLORS[v.lang]?.text, fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "100px", display: "inline-block", marginBottom: "8px" }}>{v.lang}</span>
+                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.95rem", fontWeight: 700, color: "#111827", lineHeight: 1.5 }}>{v.title}</h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {tab === "podcasts" && (
+            <div>
+              <SectionHeading eyebrow="Real Transformation" title="Testimonials of Success & Health" subtitle="Watch how others aligned their goals, applied Sakshi Shree's techniques, and manifested miracles." />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
+                {TESTIMONIALS.map((t, i) => (
+                  <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(217,119,6,0.12)"; }}
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+                  >
+                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                      <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                    </div>
+                    <div style={{ padding: "20px" }}>
+                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}</div>
+                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", fontWeight: 700, color: "#111827" }}>{t.name}</h3>
+                      <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>Science Divine Community Member</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ textAlign: "center", marginTop: "48px" }}>
+                <Link to="/latest-testimonials-videos" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.3)" }}>
+                  Watch All Testimonials <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ background: "linear-gradient(135deg, #1C1917 0%, #44403C 100%)", padding: "80px 0", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div className="container-page" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, color: "#FFFFFF", marginBottom: "16px" }}>
+            Unleash Your{" "}
+            <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+              Potential
+            </span>
+          </h2>
+          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.05rem", maxWidth: "540px", margin: "0 auto 36px", lineHeight: 1.75 }}>
+            Learn the exact techniques of alignment and receiving. Connect with Sakshi Shree in a personal session to transform your career and life.
+          </p>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.4)" }}>
+              Book Personal Session <ArrowRight size={16} />
+            </Link>
+            <Link to="/contact" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "16px 36px", borderRadius: "100px", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

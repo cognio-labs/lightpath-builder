@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, SectionHeading } from "@/components/PageHero";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about-movement")({
   head: () => ({
     meta: [
-      { title: "About the Movement — Science Divine Foundation" },
+      { title: "About the Movement | Science Divine Foundation" },
       {
         name: "description",
         content:
@@ -46,11 +47,25 @@ function Page() {
     <>
       <PageHero
         eyebrow="Our Story"
-        title="Science Divine Movement"
+        title={
+          <>
+            Science Divine{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Movement
+            </span>
+          </>
+        }
         subtitle="Sound Body · Sound Mind · Self Realization"
       />
 
-      <section className="section-pad">
+      <section className="section-pad bg-white">
         <div className="container-page grid md:grid-cols-2 gap-12 items-center">
           <div>
             <SectionHeading
@@ -60,26 +75,26 @@ function Page() {
             />
             <Link
               to="/book-session"
-              className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm inline-block"
+              className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2"
             >
-              Meet Sakshi Shree
+              Meet Sakshi Shree <ArrowRight size={15} />
             </Link>
           </div>
           <img
             src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
             alt="Sakshi Shree"
-            className="rounded-3xl shadow-2xl w-full object-cover"
+            className="rounded-3xl shadow-xl w-full object-cover"
             loading="lazy"
           />
         </div>
       </section>
 
-      <section className="section-pad bg-secondary/40">
+      <section className="section-pad" style={{ background: "#FAFAFA" }}>
         <div className="container-page grid md:grid-cols-2 gap-12 items-center">
           <img
-            src="https://sciencedivine.org/wp-content/uploads/2025/03/digital-composite-image-businessman-writing-vision-text-office-l-scaled.webp"
+            src="https://sciencedivine.org/wp-content/uploads/2024/06/DJI_0169-scaled.jpg"
             alt="Vision"
-            className="rounded-3xl shadow-2xl w-full object-cover order-2 md:order-1"
+            className="rounded-3xl shadow-xl w-full object-cover order-2 md:order-1"
             loading="lazy"
           />
           <div className="order-1 md:order-2">
@@ -92,26 +107,26 @@ function Page() {
         </div>
       </section>
 
-      <section className="section-pad">
+      <section className="section-pad bg-white">
         <div className="container-page">
           <SectionHeading center eyebrow="Our Journey" title="A 25-year timeline" />
           <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 gradient-bg" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5" style={{ background: "linear-gradient(180deg, #F59E0B, #D4AF37)" }} />
             {TIMELINE.map((t, i) => (
               <div
                 key={i}
                 className={`relative mb-10 md:grid md:grid-cols-2 md:gap-8 ${i % 2 ? "md:text-left" : "md:text-right"}`}
               >
                 <div className={`pl-12 md:pl-0 ${i % 2 ? "md:col-start-2" : ""}`}>
-                  <div className="glass-card rounded-2xl p-6 inline-block max-w-md">
-                    <div className="text-xs font-bold uppercase tracking-widest gradient-text mb-1">
+                  <div className="card-premium rounded-2xl p-6 inline-block max-w-md bg-white">
+                    <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
                       {t.date}
                     </div>
-                    <h3 className="font-display text-xl font-bold mb-2">{t.title}</h3>
-                    <p className="text-sm text-muted-foreground">{t.desc}</p>
+                    <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{t.title}</h3>
+                    <p className="text-sm text-gray-500">{t.desc}</p>
                   </div>
                 </div>
-                <div className="absolute left-2 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full gradient-bg ring-4 ring-background" />
+                <div className="absolute left-2 md:left-1/2 top-4 -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white shadow" style={{ background: "#D4AF37" }} />
               </div>
             ))}
           </div>

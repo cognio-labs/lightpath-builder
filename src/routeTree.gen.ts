@@ -13,10 +13,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutMovementRouteImport } from './routes/about-movement'
 import { Route as AboutSakshiShreeRouteImport } from './routes/about-sakshi-shree'
+import { Route as AboutScienceDivineMovementRouteImport } from './routes/about-science-divine-movement'
 import { Route as AddictionsRouteImport } from './routes/addictions'
+import { Route as AnnapurnaSewaRouteImport } from './routes/annapurna-sewa'
 import { Route as AnxietyRouteImport } from './routes/anxiety'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BirthdayEventRouteImport } from './routes/birthday-event'
 import { Route as BookSessionRouteImport } from './routes/book-session'
+import { Route as CancellationAndRefundPolicyRouteImport } from './routes/cancellation-and-refund-policy'
 import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
@@ -24,29 +28,53 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as DepressionRouteImport } from './routes/depression'
 import { Route as DesignYourDestinyRouteImport } from './routes/design-your-destiny'
+import { Route as DesignYourDestiny2RouteImport } from './routes/design-your-destiny-2'
+import { Route as DesignyourdestinyRouteImport } from './routes/designyourdestiny'
+import { Route as DhyanSewaRouteImport } from './routes/dhyan-sewa'
+import { Route as EducationSewaRouteImport } from './routes/education-sewa'
+import { Route as EventNewRouteImport } from './routes/event-new'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as EventsGalleryRouteImport } from './routes/events-gallery'
 import { Route as FindingPurposeRouteImport } from './routes/finding-purpose'
 import { Route as GetSolutionsForRouteImport } from './routes/get-solutions-for'
+import { Route as GetStartedWithRouteImport } from './routes/get-started-with'
 import { Route as GratitudeRouteImport } from './routes/gratitude'
 import { Route as HarGharShikshaRouteImport } from './routes/har-ghar-shiksha'
+import { Route as HarGharShikshaVolunteersRouteImport } from './routes/har-ghar-shiksha-volunteers'
 import { Route as InitiativesRouteImport } from './routes/initiatives'
+import { Route as LatestTestimonialsVideosRouteImport } from './routes/latest-testimonials-videos'
 import { Route as ManifestationRouteImport } from './routes/manifestation'
 import { Route as MeditationRouteImport } from './routes/meditation'
 import { Route as MindPowerMeditationRouteImport } from './routes/mind-power-meditation'
 import { Route as MindfulnessRouteImport } from './routes/mindfulness'
 import { Route as MyAccountRouteImport } from './routes/my-account'
+import { Route as NirmanSewaRouteImport } from './routes/nirman-sewa'
 import { Route as OverthinkingRouteImport } from './routes/overthinking'
 import { Route as ParentingRouteImport } from './routes/parenting'
+import { Route as PersonalSessionRouteImport } from './routes/personal-session'
 import { Route as PositiveThinkingRouteImport } from './routes/positive-thinking'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RelationshipRouteImport } from './routes/relationship'
 import { Route as SanjeevniKriyaRouteImport } from './routes/sanjeevni-kriya'
+import { Route as SanjeevniKriya2RouteImport } from './routes/sanjeevni-kriya-2'
 import { Route as ScienceOfJoyfulLivingRouteImport } from './routes/science-of-joyful-living'
+import { Route as ScienceOfJoyfulLivingMarchRouteImport } from './routes/science-of-joyful-living-march'
+import { Route as ShikshaSewaRouteImport } from './routes/shiksha-sewa'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SleepingDisorderRouteImport } from './routes/sleeping-disorder'
 import { Route as StressRouteImport } from './routes/stress'
+import { Route as SundayEvent1FebruaryRouteImport } from './routes/sunday-event-1-february'
+import { Route as SundayEvent1MarchRouteImport } from './routes/sunday-event-1-march'
+import { Route as SundayEvent3MayRouteImport } from './routes/sunday-event-3-may'
+import { Route as SundayEvent4JanuaryRouteImport } from './routes/sunday-event-4-january'
+import { Route as SundayEvent5AprilRouteImport } from './routes/sunday-event-5-april'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as UsPersonalSessionRouteImport } from './routes/us-personal-session'
+import { Route as WellnessRouteImport } from './routes/wellness'
 import { Route as YogaRouteImport } from './routes/yoga'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
@@ -69,9 +97,20 @@ const AboutSakshiShreeRoute = AboutSakshiShreeRouteImport.update({
   path: '/about-sakshi-shree',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutScienceDivineMovementRoute =
+  AboutScienceDivineMovementRouteImport.update({
+    id: '/about-science-divine-movement',
+    path: '/about-science-divine-movement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AddictionsRoute = AddictionsRouteImport.update({
   id: '/addictions',
   path: '/addictions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnnapurnaSewaRoute = AnnapurnaSewaRouteImport.update({
+  id: '/annapurna-sewa',
+  path: '/annapurna-sewa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnxietyRoute = AnxietyRouteImport.update({
@@ -84,11 +123,22 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BirthdayEventRoute = BirthdayEventRouteImport.update({
+  id: '/birthday-event',
+  path: '/birthday-event',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookSessionRoute = BookSessionRouteImport.update({
   id: '/book-session',
   path: '/book-session',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CancellationAndRefundPolicyRoute =
+  CancellationAndRefundPolicyRouteImport.update({
+    id: '/cancellation-and-refund-policy',
+    path: '/cancellation-and-refund-policy',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CancellationPolicyRoute = CancellationPolicyRouteImport.update({
   id: '/cancellation-policy',
   path: '/cancellation-policy',
@@ -124,9 +174,39 @@ const DesignYourDestinyRoute = DesignYourDestinyRouteImport.update({
   path: '/design-your-destiny',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignYourDestiny2Route = DesignYourDestiny2RouteImport.update({
+  id: '/design-your-destiny-2',
+  path: '/design-your-destiny-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignyourdestinyRoute = DesignyourdestinyRouteImport.update({
+  id: '/designyourdestiny',
+  path: '/designyourdestiny',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DhyanSewaRoute = DhyanSewaRouteImport.update({
+  id: '/dhyan-sewa',
+  path: '/dhyan-sewa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EducationSewaRoute = EducationSewaRouteImport.update({
+  id: '/education-sewa',
+  path: '/education-sewa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventNewRoute = EventNewRouteImport.update({
+  id: '/event-new',
+  path: '/event-new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsGalleryRoute = EventsGalleryRouteImport.update({
+  id: '/events-gallery',
+  path: '/events-gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FindingPurposeRoute = FindingPurposeRouteImport.update({
@@ -139,6 +219,11 @@ const GetSolutionsForRoute = GetSolutionsForRouteImport.update({
   path: '/get-solutions-for',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GetStartedWithRoute = GetStartedWithRouteImport.update({
+  id: '/get-started-with',
+  path: '/get-started-with',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GratitudeRoute = GratitudeRouteImport.update({
   id: '/gratitude',
   path: '/gratitude',
@@ -149,11 +234,23 @@ const HarGharShikshaRoute = HarGharShikshaRouteImport.update({
   path: '/har-ghar-shiksha',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HarGharShikshaVolunteersRoute =
+  HarGharShikshaVolunteersRouteImport.update({
+    id: '/har-ghar-shiksha-volunteers',
+    path: '/har-ghar-shiksha-volunteers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const InitiativesRoute = InitiativesRouteImport.update({
   id: '/initiatives',
   path: '/initiatives',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LatestTestimonialsVideosRoute =
+  LatestTestimonialsVideosRouteImport.update({
+    id: '/latest-testimonials-videos',
+    path: '/latest-testimonials-videos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ManifestationRoute = ManifestationRouteImport.update({
   id: '/manifestation',
   path: '/manifestation',
@@ -179,6 +276,11 @@ const MyAccountRoute = MyAccountRouteImport.update({
   path: '/my-account',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NirmanSewaRoute = NirmanSewaRouteImport.update({
+  id: '/nirman-sewa',
+  path: '/nirman-sewa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OverthinkingRoute = OverthinkingRouteImport.update({
   id: '/overthinking',
   path: '/overthinking',
@@ -187,6 +289,11 @@ const OverthinkingRoute = OverthinkingRouteImport.update({
 const ParentingRoute = ParentingRouteImport.update({
   id: '/parenting',
   path: '/parenting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalSessionRoute = PersonalSessionRouteImport.update({
+  id: '/personal-session',
+  path: '/personal-session',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PositiveThinkingRoute = PositiveThinkingRouteImport.update({
@@ -199,14 +306,35 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RelationshipRoute = RelationshipRouteImport.update({
+  id: '/relationship',
+  path: '/relationship',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SanjeevniKriyaRoute = SanjeevniKriyaRouteImport.update({
   id: '/sanjeevni-kriya',
   path: '/sanjeevni-kriya',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SanjeevniKriya2Route = SanjeevniKriya2RouteImport.update({
+  id: '/sanjeevni-kriya-2',
+  path: '/sanjeevni-kriya-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ScienceOfJoyfulLivingRoute = ScienceOfJoyfulLivingRouteImport.update({
   id: '/science-of-joyful-living',
   path: '/science-of-joyful-living',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScienceOfJoyfulLivingMarchRoute =
+  ScienceOfJoyfulLivingMarchRouteImport.update({
+    id: '/science-of-joyful-living-march',
+    path: '/science-of-joyful-living-march',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ShikshaSewaRoute = ShikshaSewaRouteImport.update({
+  id: '/shiksha-sewa',
+  path: '/shiksha-sewa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -219,9 +347,44 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SleepingDisorderRoute = SleepingDisorderRouteImport.update({
+  id: '/sleeping-disorder',
+  path: '/sleeping-disorder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StressRoute = StressRouteImport.update({
   id: '/stress',
   path: '/stress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SundayEvent1FebruaryRoute = SundayEvent1FebruaryRouteImport.update({
+  id: '/sunday-event-1-february',
+  path: '/sunday-event-1-february',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SundayEvent1MarchRoute = SundayEvent1MarchRouteImport.update({
+  id: '/sunday-event-1-march',
+  path: '/sunday-event-1-march',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SundayEvent3MayRoute = SundayEvent3MayRouteImport.update({
+  id: '/sunday-event-3-may',
+  path: '/sunday-event-3-may',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SundayEvent4JanuaryRoute = SundayEvent4JanuaryRouteImport.update({
+  id: '/sunday-event-4-january',
+  path: '/sunday-event-4-january',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SundayEvent5AprilRoute = SundayEvent5AprilRouteImport.update({
+  id: '/sunday-event-5-april',
+  path: '/sunday-event-5-april',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsConditionsRoute = TermsConditionsRouteImport.update({
@@ -239,6 +402,16 @@ const ThankYouRoute = ThankYouRouteImport.update({
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UsPersonalSessionRoute = UsPersonalSessionRouteImport.update({
+  id: '/us-personal-session',
+  path: '/us-personal-session',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WellnessRoute = WellnessRouteImport.update({
+  id: '/wellness',
+  path: '/wellness',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
   path: '/yoga',
@@ -254,10 +427,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-movement': typeof AboutMovementRoute
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
+  '/about-science-divine-movement': typeof AboutScienceDivineMovementRoute
   '/addictions': typeof AddictionsRoute
+  '/annapurna-sewa': typeof AnnapurnaSewaRoute
   '/anxiety': typeof AnxietyRoute
   '/auth': typeof AuthRoute
+  '/birthday-event': typeof BirthdayEventRoute
   '/book-session': typeof BookSessionRoute
+  '/cancellation-and-refund-policy': typeof CancellationAndRefundPolicyRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
@@ -265,29 +442,53 @@ export interface FileRoutesByFullPath {
   '/courses': typeof CoursesRoute
   '/depression': typeof DepressionRoute
   '/design-your-destiny': typeof DesignYourDestinyRoute
+  '/design-your-destiny-2': typeof DesignYourDestiny2Route
+  '/designyourdestiny': typeof DesignyourdestinyRoute
+  '/dhyan-sewa': typeof DhyanSewaRoute
+  '/education-sewa': typeof EducationSewaRoute
+  '/event-new': typeof EventNewRoute
   '/events': typeof EventsRoute
+  '/events-gallery': typeof EventsGalleryRoute
   '/finding-purpose': typeof FindingPurposeRoute
   '/get-solutions-for': typeof GetSolutionsForRoute
+  '/get-started-with': typeof GetStartedWithRoute
   '/gratitude': typeof GratitudeRoute
   '/har-ghar-shiksha': typeof HarGharShikshaRoute
+  '/har-ghar-shiksha-volunteers': typeof HarGharShikshaVolunteersRoute
   '/initiatives': typeof InitiativesRoute
+  '/latest-testimonials-videos': typeof LatestTestimonialsVideosRoute
   '/manifestation': typeof ManifestationRoute
   '/meditation': typeof MeditationRoute
   '/mind-power-meditation': typeof MindPowerMeditationRoute
   '/mindfulness': typeof MindfulnessRoute
   '/my-account': typeof MyAccountRoute
+  '/nirman-sewa': typeof NirmanSewaRoute
   '/overthinking': typeof OverthinkingRoute
   '/parenting': typeof ParentingRoute
+  '/personal-session': typeof PersonalSessionRoute
   '/positive-thinking': typeof PositiveThinkingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/relationship': typeof RelationshipRoute
   '/sanjeevni-kriya': typeof SanjeevniKriyaRoute
+  '/sanjeevni-kriya-2': typeof SanjeevniKriya2Route
   '/science-of-joyful-living': typeof ScienceOfJoyfulLivingRoute
+  '/science-of-joyful-living-march': typeof ScienceOfJoyfulLivingMarchRoute
+  '/shiksha-sewa': typeof ShikshaSewaRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sleeping-disorder': typeof SleepingDisorderRoute
   '/stress': typeof StressRoute
+  '/sunday-event-1-february': typeof SundayEvent1FebruaryRoute
+  '/sunday-event-1-march': typeof SundayEvent1MarchRoute
+  '/sunday-event-3-may': typeof SundayEvent3MayRoute
+  '/sunday-event-4-january': typeof SundayEvent4JanuaryRoute
+  '/sunday-event-5-april': typeof SundayEvent5AprilRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/thank-you': typeof ThankYouRoute
+  '/us-personal-session': typeof UsPersonalSessionRoute
+  '/wellness': typeof WellnessRoute
   '/yoga': typeof YogaRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
@@ -295,10 +496,14 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-movement': typeof AboutMovementRoute
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
+  '/about-science-divine-movement': typeof AboutScienceDivineMovementRoute
   '/addictions': typeof AddictionsRoute
+  '/annapurna-sewa': typeof AnnapurnaSewaRoute
   '/anxiety': typeof AnxietyRoute
   '/auth': typeof AuthRoute
+  '/birthday-event': typeof BirthdayEventRoute
   '/book-session': typeof BookSessionRoute
+  '/cancellation-and-refund-policy': typeof CancellationAndRefundPolicyRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
@@ -306,29 +511,53 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesRoute
   '/depression': typeof DepressionRoute
   '/design-your-destiny': typeof DesignYourDestinyRoute
+  '/design-your-destiny-2': typeof DesignYourDestiny2Route
+  '/designyourdestiny': typeof DesignyourdestinyRoute
+  '/dhyan-sewa': typeof DhyanSewaRoute
+  '/education-sewa': typeof EducationSewaRoute
+  '/event-new': typeof EventNewRoute
   '/events': typeof EventsRoute
+  '/events-gallery': typeof EventsGalleryRoute
   '/finding-purpose': typeof FindingPurposeRoute
   '/get-solutions-for': typeof GetSolutionsForRoute
+  '/get-started-with': typeof GetStartedWithRoute
   '/gratitude': typeof GratitudeRoute
   '/har-ghar-shiksha': typeof HarGharShikshaRoute
+  '/har-ghar-shiksha-volunteers': typeof HarGharShikshaVolunteersRoute
   '/initiatives': typeof InitiativesRoute
+  '/latest-testimonials-videos': typeof LatestTestimonialsVideosRoute
   '/manifestation': typeof ManifestationRoute
   '/meditation': typeof MeditationRoute
   '/mind-power-meditation': typeof MindPowerMeditationRoute
   '/mindfulness': typeof MindfulnessRoute
   '/my-account': typeof MyAccountRoute
+  '/nirman-sewa': typeof NirmanSewaRoute
   '/overthinking': typeof OverthinkingRoute
   '/parenting': typeof ParentingRoute
+  '/personal-session': typeof PersonalSessionRoute
   '/positive-thinking': typeof PositiveThinkingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/relationship': typeof RelationshipRoute
   '/sanjeevni-kriya': typeof SanjeevniKriyaRoute
+  '/sanjeevni-kriya-2': typeof SanjeevniKriya2Route
   '/science-of-joyful-living': typeof ScienceOfJoyfulLivingRoute
+  '/science-of-joyful-living-march': typeof ScienceOfJoyfulLivingMarchRoute
+  '/shiksha-sewa': typeof ShikshaSewaRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sleeping-disorder': typeof SleepingDisorderRoute
   '/stress': typeof StressRoute
+  '/sunday-event-1-february': typeof SundayEvent1FebruaryRoute
+  '/sunday-event-1-march': typeof SundayEvent1MarchRoute
+  '/sunday-event-3-may': typeof SundayEvent3MayRoute
+  '/sunday-event-4-january': typeof SundayEvent4JanuaryRoute
+  '/sunday-event-5-april': typeof SundayEvent5AprilRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/thank-you': typeof ThankYouRoute
+  '/us-personal-session': typeof UsPersonalSessionRoute
+  '/wellness': typeof WellnessRoute
   '/yoga': typeof YogaRoute
   '/admin': typeof AuthenticatedAdminRoute
 }
@@ -338,10 +567,14 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about-movement': typeof AboutMovementRoute
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
+  '/about-science-divine-movement': typeof AboutScienceDivineMovementRoute
   '/addictions': typeof AddictionsRoute
+  '/annapurna-sewa': typeof AnnapurnaSewaRoute
   '/anxiety': typeof AnxietyRoute
   '/auth': typeof AuthRoute
+  '/birthday-event': typeof BirthdayEventRoute
   '/book-session': typeof BookSessionRoute
+  '/cancellation-and-refund-policy': typeof CancellationAndRefundPolicyRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
@@ -349,29 +582,53 @@ export interface FileRoutesById {
   '/courses': typeof CoursesRoute
   '/depression': typeof DepressionRoute
   '/design-your-destiny': typeof DesignYourDestinyRoute
+  '/design-your-destiny-2': typeof DesignYourDestiny2Route
+  '/designyourdestiny': typeof DesignyourdestinyRoute
+  '/dhyan-sewa': typeof DhyanSewaRoute
+  '/education-sewa': typeof EducationSewaRoute
+  '/event-new': typeof EventNewRoute
   '/events': typeof EventsRoute
+  '/events-gallery': typeof EventsGalleryRoute
   '/finding-purpose': typeof FindingPurposeRoute
   '/get-solutions-for': typeof GetSolutionsForRoute
+  '/get-started-with': typeof GetStartedWithRoute
   '/gratitude': typeof GratitudeRoute
   '/har-ghar-shiksha': typeof HarGharShikshaRoute
+  '/har-ghar-shiksha-volunteers': typeof HarGharShikshaVolunteersRoute
   '/initiatives': typeof InitiativesRoute
+  '/latest-testimonials-videos': typeof LatestTestimonialsVideosRoute
   '/manifestation': typeof ManifestationRoute
   '/meditation': typeof MeditationRoute
   '/mind-power-meditation': typeof MindPowerMeditationRoute
   '/mindfulness': typeof MindfulnessRoute
   '/my-account': typeof MyAccountRoute
+  '/nirman-sewa': typeof NirmanSewaRoute
   '/overthinking': typeof OverthinkingRoute
   '/parenting': typeof ParentingRoute
+  '/personal-session': typeof PersonalSessionRoute
   '/positive-thinking': typeof PositiveThinkingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/relationship': typeof RelationshipRoute
   '/sanjeevni-kriya': typeof SanjeevniKriyaRoute
+  '/sanjeevni-kriya-2': typeof SanjeevniKriya2Route
   '/science-of-joyful-living': typeof ScienceOfJoyfulLivingRoute
+  '/science-of-joyful-living-march': typeof ScienceOfJoyfulLivingMarchRoute
+  '/shiksha-sewa': typeof ShikshaSewaRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sleeping-disorder': typeof SleepingDisorderRoute
   '/stress': typeof StressRoute
+  '/sunday-event-1-february': typeof SundayEvent1FebruaryRoute
+  '/sunday-event-1-march': typeof SundayEvent1MarchRoute
+  '/sunday-event-3-may': typeof SundayEvent3MayRoute
+  '/sunday-event-4-january': typeof SundayEvent4JanuaryRoute
+  '/sunday-event-5-april': typeof SundayEvent5AprilRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/thank-you': typeof ThankYouRoute
+  '/us-personal-session': typeof UsPersonalSessionRoute
+  '/wellness': typeof WellnessRoute
   '/yoga': typeof YogaRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
 }
@@ -381,10 +638,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about-movement'
     | '/about-sakshi-shree'
+    | '/about-science-divine-movement'
     | '/addictions'
+    | '/annapurna-sewa'
     | '/anxiety'
     | '/auth'
+    | '/birthday-event'
     | '/book-session'
+    | '/cancellation-and-refund-policy'
     | '/cancellation-policy'
     | '/cart'
     | '/checkout'
@@ -392,29 +653,53 @@ export interface FileRouteTypes {
     | '/courses'
     | '/depression'
     | '/design-your-destiny'
+    | '/design-your-destiny-2'
+    | '/designyourdestiny'
+    | '/dhyan-sewa'
+    | '/education-sewa'
+    | '/event-new'
     | '/events'
+    | '/events-gallery'
     | '/finding-purpose'
     | '/get-solutions-for'
+    | '/get-started-with'
     | '/gratitude'
     | '/har-ghar-shiksha'
+    | '/har-ghar-shiksha-volunteers'
     | '/initiatives'
+    | '/latest-testimonials-videos'
     | '/manifestation'
     | '/meditation'
     | '/mind-power-meditation'
     | '/mindfulness'
     | '/my-account'
+    | '/nirman-sewa'
     | '/overthinking'
     | '/parenting'
+    | '/personal-session'
     | '/positive-thinking'
     | '/privacy-policy'
+    | '/relationship'
     | '/sanjeevni-kriya'
+    | '/sanjeevni-kriya-2'
     | '/science-of-joyful-living'
+    | '/science-of-joyful-living-march'
+    | '/shiksha-sewa'
     | '/shop'
     | '/sitemap.xml'
+    | '/sleeping-disorder'
     | '/stress'
+    | '/sunday-event-1-february'
+    | '/sunday-event-1-march'
+    | '/sunday-event-3-may'
+    | '/sunday-event-4-january'
+    | '/sunday-event-5-april'
+    | '/terms-and-conditions'
     | '/terms-conditions'
     | '/testimonials'
     | '/thank-you'
+    | '/us-personal-session'
+    | '/wellness'
     | '/yoga'
     | '/admin'
   fileRoutesByTo: FileRoutesByTo
@@ -422,10 +707,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about-movement'
     | '/about-sakshi-shree'
+    | '/about-science-divine-movement'
     | '/addictions'
+    | '/annapurna-sewa'
     | '/anxiety'
     | '/auth'
+    | '/birthday-event'
     | '/book-session'
+    | '/cancellation-and-refund-policy'
     | '/cancellation-policy'
     | '/cart'
     | '/checkout'
@@ -433,29 +722,53 @@ export interface FileRouteTypes {
     | '/courses'
     | '/depression'
     | '/design-your-destiny'
+    | '/design-your-destiny-2'
+    | '/designyourdestiny'
+    | '/dhyan-sewa'
+    | '/education-sewa'
+    | '/event-new'
     | '/events'
+    | '/events-gallery'
     | '/finding-purpose'
     | '/get-solutions-for'
+    | '/get-started-with'
     | '/gratitude'
     | '/har-ghar-shiksha'
+    | '/har-ghar-shiksha-volunteers'
     | '/initiatives'
+    | '/latest-testimonials-videos'
     | '/manifestation'
     | '/meditation'
     | '/mind-power-meditation'
     | '/mindfulness'
     | '/my-account'
+    | '/nirman-sewa'
     | '/overthinking'
     | '/parenting'
+    | '/personal-session'
     | '/positive-thinking'
     | '/privacy-policy'
+    | '/relationship'
     | '/sanjeevni-kriya'
+    | '/sanjeevni-kriya-2'
     | '/science-of-joyful-living'
+    | '/science-of-joyful-living-march'
+    | '/shiksha-sewa'
     | '/shop'
     | '/sitemap.xml'
+    | '/sleeping-disorder'
     | '/stress'
+    | '/sunday-event-1-february'
+    | '/sunday-event-1-march'
+    | '/sunday-event-3-may'
+    | '/sunday-event-4-january'
+    | '/sunday-event-5-april'
+    | '/terms-and-conditions'
     | '/terms-conditions'
     | '/testimonials'
     | '/thank-you'
+    | '/us-personal-session'
+    | '/wellness'
     | '/yoga'
     | '/admin'
   id:
@@ -464,10 +777,14 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/about-movement'
     | '/about-sakshi-shree'
+    | '/about-science-divine-movement'
     | '/addictions'
+    | '/annapurna-sewa'
     | '/anxiety'
     | '/auth'
+    | '/birthday-event'
     | '/book-session'
+    | '/cancellation-and-refund-policy'
     | '/cancellation-policy'
     | '/cart'
     | '/checkout'
@@ -475,29 +792,53 @@ export interface FileRouteTypes {
     | '/courses'
     | '/depression'
     | '/design-your-destiny'
+    | '/design-your-destiny-2'
+    | '/designyourdestiny'
+    | '/dhyan-sewa'
+    | '/education-sewa'
+    | '/event-new'
     | '/events'
+    | '/events-gallery'
     | '/finding-purpose'
     | '/get-solutions-for'
+    | '/get-started-with'
     | '/gratitude'
     | '/har-ghar-shiksha'
+    | '/har-ghar-shiksha-volunteers'
     | '/initiatives'
+    | '/latest-testimonials-videos'
     | '/manifestation'
     | '/meditation'
     | '/mind-power-meditation'
     | '/mindfulness'
     | '/my-account'
+    | '/nirman-sewa'
     | '/overthinking'
     | '/parenting'
+    | '/personal-session'
     | '/positive-thinking'
     | '/privacy-policy'
+    | '/relationship'
     | '/sanjeevni-kriya'
+    | '/sanjeevni-kriya-2'
     | '/science-of-joyful-living'
+    | '/science-of-joyful-living-march'
+    | '/shiksha-sewa'
     | '/shop'
     | '/sitemap.xml'
+    | '/sleeping-disorder'
     | '/stress'
+    | '/sunday-event-1-february'
+    | '/sunday-event-1-march'
+    | '/sunday-event-3-may'
+    | '/sunday-event-4-january'
+    | '/sunday-event-5-april'
+    | '/terms-and-conditions'
     | '/terms-conditions'
     | '/testimonials'
     | '/thank-you'
+    | '/us-personal-session'
+    | '/wellness'
     | '/yoga'
     | '/_authenticated/admin'
   fileRoutesById: FileRoutesById
@@ -507,10 +848,14 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutMovementRoute: typeof AboutMovementRoute
   AboutSakshiShreeRoute: typeof AboutSakshiShreeRoute
+  AboutScienceDivineMovementRoute: typeof AboutScienceDivineMovementRoute
   AddictionsRoute: typeof AddictionsRoute
+  AnnapurnaSewaRoute: typeof AnnapurnaSewaRoute
   AnxietyRoute: typeof AnxietyRoute
   AuthRoute: typeof AuthRoute
+  BirthdayEventRoute: typeof BirthdayEventRoute
   BookSessionRoute: typeof BookSessionRoute
+  CancellationAndRefundPolicyRoute: typeof CancellationAndRefundPolicyRoute
   CancellationPolicyRoute: typeof CancellationPolicyRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
@@ -518,29 +863,53 @@ export interface RootRouteChildren {
   CoursesRoute: typeof CoursesRoute
   DepressionRoute: typeof DepressionRoute
   DesignYourDestinyRoute: typeof DesignYourDestinyRoute
+  DesignYourDestiny2Route: typeof DesignYourDestiny2Route
+  DesignyourdestinyRoute: typeof DesignyourdestinyRoute
+  DhyanSewaRoute: typeof DhyanSewaRoute
+  EducationSewaRoute: typeof EducationSewaRoute
+  EventNewRoute: typeof EventNewRoute
   EventsRoute: typeof EventsRoute
+  EventsGalleryRoute: typeof EventsGalleryRoute
   FindingPurposeRoute: typeof FindingPurposeRoute
   GetSolutionsForRoute: typeof GetSolutionsForRoute
+  GetStartedWithRoute: typeof GetStartedWithRoute
   GratitudeRoute: typeof GratitudeRoute
   HarGharShikshaRoute: typeof HarGharShikshaRoute
+  HarGharShikshaVolunteersRoute: typeof HarGharShikshaVolunteersRoute
   InitiativesRoute: typeof InitiativesRoute
+  LatestTestimonialsVideosRoute: typeof LatestTestimonialsVideosRoute
   ManifestationRoute: typeof ManifestationRoute
   MeditationRoute: typeof MeditationRoute
   MindPowerMeditationRoute: typeof MindPowerMeditationRoute
   MindfulnessRoute: typeof MindfulnessRoute
   MyAccountRoute: typeof MyAccountRoute
+  NirmanSewaRoute: typeof NirmanSewaRoute
   OverthinkingRoute: typeof OverthinkingRoute
   ParentingRoute: typeof ParentingRoute
+  PersonalSessionRoute: typeof PersonalSessionRoute
   PositiveThinkingRoute: typeof PositiveThinkingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RelationshipRoute: typeof RelationshipRoute
   SanjeevniKriyaRoute: typeof SanjeevniKriyaRoute
+  SanjeevniKriya2Route: typeof SanjeevniKriya2Route
   ScienceOfJoyfulLivingRoute: typeof ScienceOfJoyfulLivingRoute
+  ScienceOfJoyfulLivingMarchRoute: typeof ScienceOfJoyfulLivingMarchRoute
+  ShikshaSewaRoute: typeof ShikshaSewaRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SleepingDisorderRoute: typeof SleepingDisorderRoute
   StressRoute: typeof StressRoute
+  SundayEvent1FebruaryRoute: typeof SundayEvent1FebruaryRoute
+  SundayEvent1MarchRoute: typeof SundayEvent1MarchRoute
+  SundayEvent3MayRoute: typeof SundayEvent3MayRoute
+  SundayEvent4JanuaryRoute: typeof SundayEvent4JanuaryRoute
+  SundayEvent5AprilRoute: typeof SundayEvent5AprilRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   ThankYouRoute: typeof ThankYouRoute
+  UsPersonalSessionRoute: typeof UsPersonalSessionRoute
+  WellnessRoute: typeof WellnessRoute
   YogaRoute: typeof YogaRoute
 }
 
@@ -574,11 +943,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutSakshiShreeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about-science-divine-movement': {
+      id: '/about-science-divine-movement'
+      path: '/about-science-divine-movement'
+      fullPath: '/about-science-divine-movement'
+      preLoaderRoute: typeof AboutScienceDivineMovementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/addictions': {
       id: '/addictions'
       path: '/addictions'
       fullPath: '/addictions'
       preLoaderRoute: typeof AddictionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/annapurna-sewa': {
+      id: '/annapurna-sewa'
+      path: '/annapurna-sewa'
+      fullPath: '/annapurna-sewa'
+      preLoaderRoute: typeof AnnapurnaSewaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/anxiety': {
@@ -595,11 +978,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/birthday-event': {
+      id: '/birthday-event'
+      path: '/birthday-event'
+      fullPath: '/birthday-event'
+      preLoaderRoute: typeof BirthdayEventRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book-session': {
       id: '/book-session'
       path: '/book-session'
       fullPath: '/book-session'
       preLoaderRoute: typeof BookSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancellation-and-refund-policy': {
+      id: '/cancellation-and-refund-policy'
+      path: '/cancellation-and-refund-policy'
+      fullPath: '/cancellation-and-refund-policy'
+      preLoaderRoute: typeof CancellationAndRefundPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cancellation-policy': {
@@ -651,11 +1048,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignYourDestinyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design-your-destiny-2': {
+      id: '/design-your-destiny-2'
+      path: '/design-your-destiny-2'
+      fullPath: '/design-your-destiny-2'
+      preLoaderRoute: typeof DesignYourDestiny2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/designyourdestiny': {
+      id: '/designyourdestiny'
+      path: '/designyourdestiny'
+      fullPath: '/designyourdestiny'
+      preLoaderRoute: typeof DesignyourdestinyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dhyan-sewa': {
+      id: '/dhyan-sewa'
+      path: '/dhyan-sewa'
+      fullPath: '/dhyan-sewa'
+      preLoaderRoute: typeof DhyanSewaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/education-sewa': {
+      id: '/education-sewa'
+      path: '/education-sewa'
+      fullPath: '/education-sewa'
+      preLoaderRoute: typeof EducationSewaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event-new': {
+      id: '/event-new'
+      path: '/event-new'
+      fullPath: '/event-new'
+      preLoaderRoute: typeof EventNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events': {
       id: '/events'
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events-gallery': {
+      id: '/events-gallery'
+      path: '/events-gallery'
+      fullPath: '/events-gallery'
+      preLoaderRoute: typeof EventsGalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/finding-purpose': {
@@ -672,6 +1111,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GetSolutionsForRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/get-started-with': {
+      id: '/get-started-with'
+      path: '/get-started-with'
+      fullPath: '/get-started-with'
+      preLoaderRoute: typeof GetStartedWithRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gratitude': {
       id: '/gratitude'
       path: '/gratitude'
@@ -686,11 +1132,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HarGharShikshaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/har-ghar-shiksha-volunteers': {
+      id: '/har-ghar-shiksha-volunteers'
+      path: '/har-ghar-shiksha-volunteers'
+      fullPath: '/har-ghar-shiksha-volunteers'
+      preLoaderRoute: typeof HarGharShikshaVolunteersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/initiatives': {
       id: '/initiatives'
       path: '/initiatives'
       fullPath: '/initiatives'
       preLoaderRoute: typeof InitiativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/latest-testimonials-videos': {
+      id: '/latest-testimonials-videos'
+      path: '/latest-testimonials-videos'
+      fullPath: '/latest-testimonials-videos'
+      preLoaderRoute: typeof LatestTestimonialsVideosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/manifestation': {
@@ -728,6 +1188,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MyAccountRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nirman-sewa': {
+      id: '/nirman-sewa'
+      path: '/nirman-sewa'
+      fullPath: '/nirman-sewa'
+      preLoaderRoute: typeof NirmanSewaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/overthinking': {
       id: '/overthinking'
       path: '/overthinking'
@@ -740,6 +1207,13 @@ declare module '@tanstack/react-router' {
       path: '/parenting'
       fullPath: '/parenting'
       preLoaderRoute: typeof ParentingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personal-session': {
+      id: '/personal-session'
+      path: '/personal-session'
+      fullPath: '/personal-session'
+      preLoaderRoute: typeof PersonalSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/positive-thinking': {
@@ -756,6 +1230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/relationship': {
+      id: '/relationship'
+      path: '/relationship'
+      fullPath: '/relationship'
+      preLoaderRoute: typeof RelationshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sanjeevni-kriya': {
       id: '/sanjeevni-kriya'
       path: '/sanjeevni-kriya'
@@ -763,11 +1244,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SanjeevniKriyaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sanjeevni-kriya-2': {
+      id: '/sanjeevni-kriya-2'
+      path: '/sanjeevni-kriya-2'
+      fullPath: '/sanjeevni-kriya-2'
+      preLoaderRoute: typeof SanjeevniKriya2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/science-of-joyful-living': {
       id: '/science-of-joyful-living'
       path: '/science-of-joyful-living'
       fullPath: '/science-of-joyful-living'
       preLoaderRoute: typeof ScienceOfJoyfulLivingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/science-of-joyful-living-march': {
+      id: '/science-of-joyful-living-march'
+      path: '/science-of-joyful-living-march'
+      fullPath: '/science-of-joyful-living-march'
+      preLoaderRoute: typeof ScienceOfJoyfulLivingMarchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shiksha-sewa': {
+      id: '/shiksha-sewa'
+      path: '/shiksha-sewa'
+      fullPath: '/shiksha-sewa'
+      preLoaderRoute: typeof ShikshaSewaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -784,11 +1286,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sleeping-disorder': {
+      id: '/sleeping-disorder'
+      path: '/sleeping-disorder'
+      fullPath: '/sleeping-disorder'
+      preLoaderRoute: typeof SleepingDisorderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stress': {
       id: '/stress'
       path: '/stress'
       fullPath: '/stress'
       preLoaderRoute: typeof StressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sunday-event-1-february': {
+      id: '/sunday-event-1-february'
+      path: '/sunday-event-1-february'
+      fullPath: '/sunday-event-1-february'
+      preLoaderRoute: typeof SundayEvent1FebruaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sunday-event-1-march': {
+      id: '/sunday-event-1-march'
+      path: '/sunday-event-1-march'
+      fullPath: '/sunday-event-1-march'
+      preLoaderRoute: typeof SundayEvent1MarchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sunday-event-3-may': {
+      id: '/sunday-event-3-may'
+      path: '/sunday-event-3-may'
+      fullPath: '/sunday-event-3-may'
+      preLoaderRoute: typeof SundayEvent3MayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sunday-event-4-january': {
+      id: '/sunday-event-4-january'
+      path: '/sunday-event-4-january'
+      fullPath: '/sunday-event-4-january'
+      preLoaderRoute: typeof SundayEvent4JanuaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sunday-event-5-april': {
+      id: '/sunday-event-5-april'
+      path: '/sunday-event-5-april'
+      fullPath: '/sunday-event-5-april'
+      preLoaderRoute: typeof SundayEvent5AprilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms-conditions': {
@@ -810,6 +1361,20 @@ declare module '@tanstack/react-router' {
       path: '/thank-you'
       fullPath: '/thank-you'
       preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/us-personal-session': {
+      id: '/us-personal-session'
+      path: '/us-personal-session'
+      fullPath: '/us-personal-session'
+      preLoaderRoute: typeof UsPersonalSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wellness': {
+      id: '/wellness'
+      path: '/wellness'
+      fullPath: '/wellness'
+      preLoaderRoute: typeof WellnessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/yoga': {
@@ -845,10 +1410,14 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutMovementRoute: AboutMovementRoute,
   AboutSakshiShreeRoute: AboutSakshiShreeRoute,
+  AboutScienceDivineMovementRoute: AboutScienceDivineMovementRoute,
   AddictionsRoute: AddictionsRoute,
+  AnnapurnaSewaRoute: AnnapurnaSewaRoute,
   AnxietyRoute: AnxietyRoute,
   AuthRoute: AuthRoute,
+  BirthdayEventRoute: BirthdayEventRoute,
   BookSessionRoute: BookSessionRoute,
+  CancellationAndRefundPolicyRoute: CancellationAndRefundPolicyRoute,
   CancellationPolicyRoute: CancellationPolicyRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
@@ -856,29 +1425,53 @@ const rootRouteChildren: RootRouteChildren = {
   CoursesRoute: CoursesRoute,
   DepressionRoute: DepressionRoute,
   DesignYourDestinyRoute: DesignYourDestinyRoute,
+  DesignYourDestiny2Route: DesignYourDestiny2Route,
+  DesignyourdestinyRoute: DesignyourdestinyRoute,
+  DhyanSewaRoute: DhyanSewaRoute,
+  EducationSewaRoute: EducationSewaRoute,
+  EventNewRoute: EventNewRoute,
   EventsRoute: EventsRoute,
+  EventsGalleryRoute: EventsGalleryRoute,
   FindingPurposeRoute: FindingPurposeRoute,
   GetSolutionsForRoute: GetSolutionsForRoute,
+  GetStartedWithRoute: GetStartedWithRoute,
   GratitudeRoute: GratitudeRoute,
   HarGharShikshaRoute: HarGharShikshaRoute,
+  HarGharShikshaVolunteersRoute: HarGharShikshaVolunteersRoute,
   InitiativesRoute: InitiativesRoute,
+  LatestTestimonialsVideosRoute: LatestTestimonialsVideosRoute,
   ManifestationRoute: ManifestationRoute,
   MeditationRoute: MeditationRoute,
   MindPowerMeditationRoute: MindPowerMeditationRoute,
   MindfulnessRoute: MindfulnessRoute,
   MyAccountRoute: MyAccountRoute,
+  NirmanSewaRoute: NirmanSewaRoute,
   OverthinkingRoute: OverthinkingRoute,
   ParentingRoute: ParentingRoute,
+  PersonalSessionRoute: PersonalSessionRoute,
   PositiveThinkingRoute: PositiveThinkingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RelationshipRoute: RelationshipRoute,
   SanjeevniKriyaRoute: SanjeevniKriyaRoute,
+  SanjeevniKriya2Route: SanjeevniKriya2Route,
   ScienceOfJoyfulLivingRoute: ScienceOfJoyfulLivingRoute,
+  ScienceOfJoyfulLivingMarchRoute: ScienceOfJoyfulLivingMarchRoute,
+  ShikshaSewaRoute: ShikshaSewaRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SleepingDisorderRoute: SleepingDisorderRoute,
   StressRoute: StressRoute,
+  SundayEvent1FebruaryRoute: SundayEvent1FebruaryRoute,
+  SundayEvent1MarchRoute: SundayEvent1MarchRoute,
+  SundayEvent3MayRoute: SundayEvent3MayRoute,
+  SundayEvent4JanuaryRoute: SundayEvent4JanuaryRoute,
+  SundayEvent5AprilRoute: SundayEvent5AprilRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   TermsConditionsRoute: TermsConditionsRoute,
   TestimonialsRoute: TestimonialsRoute,
   ThankYouRoute: ThankYouRoute,
+  UsPersonalSessionRoute: UsPersonalSessionRoute,
+  WellnessRoute: WellnessRoute,
   YogaRoute: YogaRoute,
 }
 export const routeTree = rootRouteImport

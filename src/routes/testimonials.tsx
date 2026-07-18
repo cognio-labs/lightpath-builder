@@ -6,7 +6,7 @@ import { TESTIMONIAL_VIDEOS } from "@/data/content";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Testimonials — Science Divine" },
+      { title: "Testimonials | Science Divine Foundation" },
       {
         name: "description",
         content:
@@ -21,10 +21,24 @@ export const Route = createFileRoute("/testimonials")({
     <>
       <PageHero
         eyebrow="Voices"
-        title="Testimonials"
+        title={
+          <>
+            Seeker{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Testimonials
+            </span>
+          </>
+        }
         subtitle="Real people. Real transformations. In their own words."
       />
-      <section className="section-pad">
+      <section className="section-pad bg-white">
         <div className="container-page">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TESTIMONIAL_VIDEOS.map((v) => (

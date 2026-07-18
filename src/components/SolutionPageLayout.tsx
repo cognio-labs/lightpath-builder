@@ -3,7 +3,7 @@ import { PageHero, SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { ARTICLES_BY_TOPIC, VIDEOS_BY_TOPIC, type SolutionSlug } from "@/data/content";
 import { useState } from "react";
-import { BookOpen, Quote, PlayCircle, Mic } from "lucide-react";
+import { BookOpen, Quote, PlayCircle, Mic, ArrowRight } from "lucide-react";
 
 type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
@@ -30,52 +30,47 @@ export function SolutionPageLayout({
   return (
     <>
       <PageHero eyebrow="Solutions Hub" title={tagline} subtitle={intro}>
-        <Link
-          to="/book-session"
-          className="btn-gradient rounded-full px-6 py-3 text-sm font-semibold"
-        >
-          Book Personal Session
+        <Link to="/book-session" className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2">
+          Book Personal Session <ArrowRight size={15} />
         </Link>
-        <Link
-          to="/courses"
-          className="glass-dark rounded-full px-6 py-3 text-sm font-semibold text-white border border-white/20"
-        >
+        <Link to="/courses" className="btn-outline-gold rounded-full px-7 py-3.5 text-sm font-semibold">
           Explore Courses
         </Link>
       </PageHero>
 
-      <section className="section-pad">
+      <section className="section-pad bg-white">
         <div className="container-page">
-          <div className="flex flex-wrap gap-2 justify-center mb-10 glass-card rounded-full p-1.5 w-fit mx-auto">
-            <TabButton
-              active={tab === "articles"}
-              onClick={() => setTab("articles")}
-              icon={BookOpen}
-            >
-              Articles
-            </TabButton>
-            <TabButton active={tab === "quotes"} onClick={() => setTab("quotes")} icon={Quote}>
-              Quotes
-            </TabButton>
-            <TabButton active={tab === "videos"} onClick={() => setTab("videos")} icon={PlayCircle}>
-              Videos
-            </TabButton>
-            <TabButton active={tab === "podcasts"} onClick={() => setTab("podcasts")} icon={Mic}>
-              Podcasts
-            </TabButton>
+          {/* Tab bar */}
+          <div className="flex flex-wrap gap-2 justify-center mb-12">
+            <div className="flex flex-wrap gap-1 p-1.5 rounded-full bg-gray-100 shadow-inner">
+              <TabButton active={tab === "articles"} onClick={() => setTab("articles")} icon={BookOpen}>
+                Articles
+              </TabButton>
+              <TabButton active={tab === "quotes"} onClick={() => setTab("quotes")} icon={Quote}>
+                Quotes
+              </TabButton>
+              <TabButton active={tab === "videos"} onClick={() => setTab("videos")} icon={PlayCircle}>
+                Videos
+              </TabButton>
+              <TabButton active={tab === "podcasts"} onClick={() => setTab("podcasts")} icon={Mic}>
+                Podcasts
+              </TabButton>
+            </div>
           </div>
 
           {tab === "articles" && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
               {articles.map((a, i) => (
-                <article key={i} className="glass-card rounded-2xl p-6 hover-lift">
-                  <div className="text-xs font-semibold uppercase tracking-wider gradient-text mb-2">
+                <article key={i} className="card-premium rounded-2xl p-6 group">
+                  <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
                     {title}
                   </div>
-                  <h3 className="font-display text-lg font-bold mb-3 leading-snug">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{a.excerpt}</p>
-                  <button className="text-sm font-semibold text-primary hover:underline">
-                    Read More →
+                  <div className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
+                    style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
+                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug">{a.title}</h3>
+                  <p className="text-sm text-gray-500 mb-4 leading-relaxed">{a.excerpt}</p>
+                  <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
+                    Read More <ArrowRight size={12} />
                   </button>
                 </article>
               ))}
@@ -85,19 +80,10 @@ export function SolutionPageLayout({
           {tab === "quotes" && (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 animate-fade-in">
               {quoteImages.map((src, i) => (
-                <a
-                  key={i}
-                  href={src}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl overflow-hidden hover-lift block"
-                >
-                  <img
-                    src={src}
-                    alt={`${title} quote ${i + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-square"
-                  />
+                <a key={i} href={src} target="_blank" rel="noreferrer"
+                  className="rounded-2xl overflow-hidden hover-lift block">
+                  <img src={src} alt={`${title} quote ${i + 1}`} loading="lazy"
+                    className="w-full h-full object-cover aspect-square" />
                 </a>
               ))}
             </div>
@@ -114,24 +100,24 @@ export function SolutionPageLayout({
           {tab === "podcasts" && (
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="glass-card rounded-2xl p-6">
+                <div key={i} className="card-premium rounded-2xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-xl gradient-bg grid place-items-center text-white">
+                    <div className="w-14 h-14 rounded-xl grid place-items-center text-white flex-shrink-0"
+                      style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)" }}>
                       <Mic size={22} />
                     </div>
                     <div>
-                      <div className="text-xs font-semibold uppercase tracking-wider gradient-text">
+                      <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
                         Podcast Episode {i}
                       </div>
-                      <h3 className="font-display font-bold">Sakshi Shree on {title}</h3>
+                      <h3 className="font-display font-bold text-gray-900">Sakshi Shree on {title}</h3>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Deep-dive conversation exploring {title.toLowerCase()} — its roots, its
-                    patterns, and the path through.
+                  <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                    Deep-dive conversation exploring {title.toLowerCase()} — its roots, its patterns, and the path through.
                   </p>
-                  <button className="text-sm font-semibold text-primary hover:underline">
-                    Listen →
+                  <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
+                    Listen <ArrowRight size={12} />
                   </button>
                 </div>
               ))}
@@ -140,22 +126,20 @@ export function SolutionPageLayout({
         </div>
       </section>
 
-      <section className="section-pad bg-secondary/40">
-        <div className="container-page">
+      {/* CTA */}
+      <section className="section-pad" style={{ background: "linear-gradient(135deg, #FFFBF0, #FFF3D0)" }}>
+        <div className="container-page text-center">
           <SectionHeading
             center
             eyebrow="Take the Next Step"
             title="Ready for personal guidance?"
             subtitle="Book a personal session with Sakshi Shree — one hour that can change everything."
           />
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/book-session" className="btn-gradient rounded-full px-8 py-3 font-semibold">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/book-session" className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm">
               Book Personal Session
             </Link>
-            <Link
-              to="/get-solutions-for"
-              className="btn-outline-glow rounded-full px-8 py-3 font-semibold"
-            >
+            <Link to="/get-solutions-for" className="btn-outline-gold rounded-full px-8 py-3.5 font-semibold text-sm">
               Explore Other Solutions
             </Link>
           </div>
@@ -179,11 +163,13 @@ function TabButton({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center gap-2 rounded-full px-4 md:px-5 py-2 text-sm font-semibold transition-all ${
-        active ? "btn-gradient" : "hover:bg-secondary"
-      }`}
+      className="inline-flex items-center gap-2 rounded-full px-4 md:px-5 py-2 text-sm font-semibold transition-all"
+      style={active
+        ? { background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#1a1000", boxShadow: "0 4px 12px rgba(212,175,55,0.35)" }
+        : { color: "#6B7280", background: "transparent" }
+      }
     >
-      <Icon size={16} /> {children}
+      <Icon size={15} /> {children}
     </button>
   );
 }

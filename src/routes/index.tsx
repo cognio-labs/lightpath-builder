@@ -1,32 +1,42 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHero, SectionHeading } from "@/components/PageHero";
+import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { Counter } from "@/lib/useCounter";
-import { COURSES, EVENTS, TESTIMONIALS, TESTIMONIAL_VIDEOS, SOCIALS } from "@/data/content";
 import {
-  Sparkles,
-  Brain,
-  Sunrise,
+  COURSES,
+  EVENTS,
+  TESTIMONIALS,
+  TESTIMONIAL_VIDEOS,
+  SOCIALS,
+  LEADERS,
+} from "@/data/content";
+import {
+  ArrowRight,
   Calendar,
   MapPin,
   Clock,
-  ArrowRight,
-  Smartphone,
+  Facebook,
+  Youtube,
+  Instagram,
+  Linkedin,
+  Heart,
+  BookOpen,
+  Droplets,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Science Divine Foundation — Sound Body, Sound Mind, Self Realization" },
+      { title: "Science Divine Foundation | Sound Body, Sound Mind, Self Realization" },
       {
         name: "description",
         content:
-          "Silence isn't empty, it's full of answers. Discover the science of joyful living with enlightened master Sakshi Shree.",
+          "Awaken your true potential with Science Divine Movement. Sound Body, Sound Mind, Self-Realization through meditation and spiritual guidance by Sakshi Shree.",
       },
       { property: "og:title", content: "Science Divine Foundation" },
       {
         property: "og:description",
-        content: "Discover the science of joyful living with Sakshi Shree.",
+        content: "Awaken your true potential with Science Divine Movement by enlightened master Sakshi Shree.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -34,84 +44,411 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+/* ─────────────── SOLUTION TOPICS ─────────────── */
+const SOLUTION_ITEMS = [
+  { slug: "depression", label: "Depression", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/child-150x150.png" },
+  { slug: "anxiety", label: "Anxiety", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/headache-150x150.png" },
+  { slug: "sleeping-disorder", label: "Sleeping Disorder", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/sleeping-150x150.png" },
+  { slug: "overthinking", label: "Overthinking", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/overthinking-150x150.png" },
+  { slug: "parenting", label: "Parenting", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/family-150x150.png" },
+  { slug: "wellness", label: "Wellness", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/yoga-150x150.png" },
+  { slug: "relationship", label: "Relationships", icon: "https://sciencedivine.org/wp-content/uploads/2025/01/couple-150x150.png" },
+];
+
+const BLOG_POSTS = [
+  {
+    title: "Does Spirituality Require Renouncement of Materialism?",
+    href: "https://sciencedivine.org/spirituality-and-materialism/",
+    excerpt: "Exploring the balance between material life and spiritual awakening.",
+  },
+  {
+    title: "Spiritual Enlightenment: The Science of Breathing",
+    href: "https://sciencedivine.org/the-science-of-breathing/",
+    excerpt: "Ancient breath techniques that transform body and mind.",
+  },
+  {
+    title: "Is the Law of Attraction a Myth?",
+    href: "https://sciencedivine.org/power-of-law-of-attraction/",
+    excerpt: "A scientific and spiritual look at manifestation and intention.",
+  },
+  {
+    title: "Power Of Spirituality In Self Discovery",
+    href: "https://sciencedivine.org/power-of-spirituality-in-self-discovery/",
+    excerpt: "How spiritual practices unlock your deepest potential.",
+  },
+  {
+    title: "Master Your Own Fate",
+    href: "https://sciencedivine.org/master-your-own-fate/",
+    excerpt: "Taking conscious control of your destiny through awareness.",
+  },
+  {
+    title: "Easy Habits That Can Change Your Life In a Month",
+    href: "https://sciencedivine.org/habits-that-can-change-your-life/",
+    excerpt: "Simple daily practices for lasting transformation.",
+  },
+];
+
+const YogiAvatar = () => (
+  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="36" cy="22" r="7" fill="#EAB308" stroke="#1E293B" strokeWidth="2.5" />
+    <circle cx="36" cy="13" r="3.5" fill="#EAB308" stroke="#1E293B" strokeWidth="2.5" />
+    <path d="M36 29C28 29 24 38 24 45H48C48 38 44 29 36 29Z" fill="#06B6D4" stroke="#1E293B" strokeWidth="2.5" strokeLinejoin="round" />
+    <path d="M24 45C22 41 22 36 26 34C28.5 32.7 32 35 34 39" stroke="#1E293B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M48 45C50 41 50 36 46 34C43.5 32.7 40 35 38 39" stroke="#1E293B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M34 39C35 36.5 37 36.5 38 39" stroke="#1E293B" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+    <path d="M33 28.5V31H39V28.5" stroke="#1E293B" strokeWidth="2.5" fill="#FDE047" />
+    <path d="M16 54C16 48 24 46 36 46C48 46 56 48 56 54C56 58 48 59 36 59C24 59 16 58 16 54Z" fill="#FDE047" stroke="#1E293B" strokeWidth="2.5" strokeLinejoin="round" />
+    <circle cx="21" cy="53" r="4" fill="#F59E0B" stroke="#1E293B" strokeWidth="2" />
+    <circle cx="51" cy="53" r="4" fill="#F59E0B" stroke="#1E293B" strokeWidth="2" />
+  </svg>
+);
+
+const BrainAvatar = () => (
+  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M36 50C25 50 18 42 18 33C18 24 25 18 35 18C36 18 36.5 19 37 19.5" stroke="#1E293B" strokeWidth="2.5" fill="#FDA4AF" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M36 50C47 50 54 42 54 33C54 24 47 18 37 18C36 18 35.5 19 35 19.5" stroke="#1E293B" strokeWidth="2.5" fill="#F43F5E" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M24 33C24 38 29 40 33 37" stroke="#1E293B" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M28 26C31 29 29 33 34 32" stroke="#1E293B" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M48 33C48 38 43 40 39 37" stroke="#1E293B" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M44 26C41 29 43 33 38 32" stroke="#1E293B" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M33 49V55C33 57 39 57 39 55V49" stroke="#1E293B" strokeWidth="2.5" fill="#FB7185" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const StarsAvatar = () => (
+  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M36 14L40 27L53 31L40 35L36 48L32 35L19 31L32 27L36 14Z" fill="#FBBF24" stroke="#1E293B" strokeWidth="2.5" strokeLinejoin="round" />
+    <path d="M20 22L22 28L28 30L22 32L20 38L18 32L12 30L18 28L20 22Z" fill="#22D3EE" stroke="#1E293B" strokeWidth="2" strokeLinejoin="round" />
+    <path d="M52 38L54 44L60 46L54 48L52 54L50 48L44 46L50 44L52 38Z" fill="#EC4899" stroke="#1E293B" strokeWidth="2" strokeLinejoin="round" />
+    <circle cx="28" cy="18" r="1.5" fill="#1E293B" />
+    <circle cx="48" cy="24" r="1.5" fill="#1E293B" />
+    <circle cx="28" cy="46" r="2" fill="#1E293B" />
+    <circle cx="44" cy="50" r="1" fill="#1E293B" />
+  </svg>
+);
+
 function Home() {
   return (
     <>
-      <PageHero
-        eyebrow="Sound Body · Sound Mind · Self Realization"
-        title={
-          <>
-            Silence isn't empty,
-            <br />
-            <span
-              className="text-transparent bg-clip-text"
-              style={{
-                backgroundImage: "linear-gradient(90deg, oklch(0.85 0.16 75), oklch(0.95 0.12 75))",
-              }}
-            >
-              it's full of answers.
-            </span>
-          </>
-        }
-        subtitle="Discover the science of joyful living with Sakshi Shree — a 40-year journey shared with 5 million+ seekers worldwide."
-      >
-        <Link to="/courses" className="btn-gold rounded-full px-7 py-3 font-semibold text-sm">
-          Explore Courses
-        </Link>
-        <Link
-          to="/book-session"
-          className="glass-dark rounded-full px-7 py-3 font-semibold text-sm text-white border border-white/20"
-        >
-          Book a Session
-        </Link>
-      </PageHero>
+      {/* ════════════════════════════════════
+          HERO — Split Layout with Guru Ji
+      ════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-white">
+        {/* Warm gold background gradient */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 45%, #FFFFFF 100%)" }}
+        />
+        {/* Gold orb top-right */}
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)" }}
+        />
+        {/* Gold orb bottom-left */}
+        <div
+          className="absolute bottom-0 left-0 w-96 h-96 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)" }}
+        />
 
-      {/* Mission */}
-      <section className="section-pad">
-        <div className="container-page">
-          <SectionHeading
-            center
-            eyebrow="Our Mission"
-            title="Three pillars, one awakening"
-            subtitle="Ancient wisdom made practical for the modern seeker."
-          />
-          <div className="grid md:grid-cols-3 gap-6">
-            <MissionCard
-              icon={Sunrise}
-              title="Sound Body"
-              desc="Physical vitality through yoga, breath, and conscious movement. Your body is the temple of transformation."
-              accent="oklch(0.78 0.16 75)"
-            />
-            <MissionCard
-              icon={Brain}
-              title="Sound Mind"
-              desc="Mental clarity through meditation and mindfulness. Rise above the noise; find the signal within."
-              accent="oklch(0.72 0.13 190)"
-            />
-            <MissionCard
-              icon={Sparkles}
-              title="Self Realization"
-              desc="Spiritual awakening under Sakshi Shree's direct guidance. Not belief — direct knowing."
-              accent="oklch(0.62 0.22 300)"
-            />
+        <div className="container-page relative py-16 md:py-24 lg:py-28">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+            {/* Left — Text content */}
+            <div className="space-y-6 order-2 md:order-1">
+              {/* Eyebrow pill */}
+              <div className="inline-flex items-center gap-3 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest border"
+                style={{ borderColor: "rgba(212,175,55,0.4)", color: "#92700A", background: "rgba(254,243,199,0.6)" }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                Sound Body · Sound Mind · Self Realization
+              </div>
+
+              <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-gray-900 leading-[1.1]">
+                Awaken Your{" "}
+                <span
+                  className="italic"
+                  style={{
+                    background: "linear-gradient(90deg, #F59E0B, #D4AF37, #B8860B)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  True Potential
+                </span>{" "}
+                with Science Divine Movement
+              </h1>
+
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-xl">
+                Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization
+                — guided by enlightened master Sakshi Shree.
+              </p>
+
+              <div className="flex flex-wrap gap-3 pt-1">
+                <Link
+                  to="/book-session"
+                  className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2"
+                >
+                  Meet Sakshi Shree <ArrowRight size={16} />
+                </Link>
+                <Link
+                  to="/events"
+                  className="btn-outline-gold rounded-full px-7 py-3.5 text-sm font-semibold"
+                >
+                  Join Our Next Event
+                </Link>
+              </div>
+
+              {/* Social proof mini stat row */}
+              <div className="flex flex-wrap items-center gap-6 pt-2">
+                {[
+                  { val: "5M+", label: "Lives Impacted" },
+                  { val: "40+", label: "Years of Wisdom" },
+                  { val: "1000+", label: "Events Held" },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <div className="font-display text-xl font-bold" style={{ color: "#D4AF37" }}>{s.val}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — Guru Ji Image */}
+            <div className="order-1 md:order-2 flex justify-center md:justify-end relative">
+              {/* Gold glow behind image */}
+              <div
+                className="absolute inset-0 m-auto w-4/5 h-4/5 rounded-full animate-glow-pulse"
+                style={{ background: "radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 70%)" }}
+              />
+              <img
+                src="/guruji-meditation.jpg"
+                alt="Sakshi Shree — Spiritual Master in Meditation"
+                className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain"
+                style={{ mixBlendMode: "multiply", maxHeight: "580px" }}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Courses */}
-      <section className="section-pad bg-secondary/40">
+      {/* ════════════════════════════════════
+          SCIENCE DIVINE MOVEMENT
+      ════════════════════════════════════ */}
+      <section className="section-pad" style={{ background: "#FAFAFA" }}>
+        <div className="container-page">
+          <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
+            <div>
+              <SectionHeading
+                eyebrow="Our Mission"
+                title="Science Divine Movement"
+              />
+              <p className="text-gray-600 leading-relaxed">
+                The Science Divine Movement is a global initiative helping people realize their optimum potential
+                through definite scientific techniques for sound body, sound mind, and self-realization.
+                Founded by enlightened spiritual master Sakshi Shree, it simplifies spirituality to become
+                an integral part of everyday life.
+              </p>
+            </div>
+            <div>
+              <p className="text-gray-500 leading-relaxed mb-6 italic font-quote text-xl text-amber-700">
+                "Bheetar se sanyaas, bahar se sansaar" — total participation in worldly life while enjoying complete inner renunciation.
+              </p>
+              <Link
+                to="/about-movement"
+                className="btn-outline-gold rounded-full px-6 py-3 text-sm font-semibold inline-flex items-center gap-2"
+              >
+                Learn More <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { 
+                avatar: <YogiAvatar />, 
+                title: "Sound Body", 
+                desc: "Physical vitality through yoga, breath, and conscious movement." 
+              },
+              { 
+                avatar: <BrainAvatar />, 
+                title: "Sound Mind", 
+                desc: "Mental clarity through meditation and mindfulness practice." 
+              },
+              { 
+                avatar: <StarsAvatar />, 
+                title: "Self Realization", 
+                desc: "Spiritual awakening under Sakshi Shree's direct guidance." 
+              },
+            ].map((p) => (
+              <div 
+                key={p.title} 
+                className="card-premium p-8 md:p-10 text-center rounded-3xl flex flex-col items-center justify-center bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+              >
+                <div className="mb-6 flex justify-center items-center h-20">{p.avatar}</div>
+                <h3 className="font-display font-bold text-gray-900 text-xl mb-3">{p.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed px-2">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          FIND SOLUTIONS FOR
+      ════════════════════════════════════ */}
+      <section className="section-pad bg-white">
+        <div className="container-page">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Solutions icon grid */}
+            <div>
+              <SectionHeading eyebrow="Guidance" title="Find Solutions For :" />
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                Explore Sakshi Shree's teachings centered around overcoming common struggles such as
+                depression, anxiety, anger, and more. Find practical guidance to navigate life's
+                challenges and enhance your well-being.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {SOLUTION_ITEMS.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/${item.slug}` as string}
+                    className="card-premium p-4 rounded-2xl text-center hover:border-amber-300 group"
+                  >
+                    <img
+                      src={item.icon}
+                      alt={item.label}
+                      className="w-12 h-12 object-contain mx-auto mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <p className="text-xs font-semibold text-gray-700">{item.label}</p>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-6">
+                <Link to="/get-solutions-for" className="btn-gold rounded-full px-6 py-3 text-sm font-semibold inline-flex items-center gap-2">
+                  All Solutions <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right image */}
+            <div className="flex justify-center">
+              <img
+                src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
+                alt="Meditation and inner peace"
+                className="rounded-3xl shadow-xl w-full max-w-sm object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          SAKSHI SHREE QUOTE SECTION
+      ════════════════════════════════════ */}
+      <section className="section-pad" style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF3D0 100%)" }}>
+        <div className="container-page">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center">
+              <div className="relative">
+                <div
+                  className="absolute inset-0 rounded-full m-4 animate-glow-pulse"
+                  style={{ background: "radial-gradient(circle, rgba(212,175,55,0.2), transparent 70%)" }}
+                />
+                <img
+                  src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
+                  alt="Sakshi Shree"
+                  className="relative z-10 w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4"
+                  style={{ borderColor: "#D4AF37", boxShadow: "0 0 40px rgba(212,175,55,0.3)" }}
+                />
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="text-5xl font-quote text-amber-300">"</div>
+              <blockquote className="font-quote text-2xl md:text-3xl text-gray-800 leading-relaxed -mt-4">
+                Your thoughts create your reality. Choose them wisely, for they hold the power to design your destiny.
+              </blockquote>
+              <div className="flex items-center gap-4">
+                <div className="h-px flex-1 max-w-12" style={{ background: "#D4AF37" }} />
+                <div>
+                  <p className="font-display font-bold text-gray-900">Sakshi Shree</p>
+                  <p className="text-sm text-gray-500">Enlightened Spiritual Master</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                {[
+                  { href: SOCIALS.facebook, Icon: Facebook, label: "Facebook" },
+                  { href: SOCIALS.instagram, Icon: Instagram, label: "Instagram" },
+                  { href: SOCIALS.youtube, Icon: Youtube, label: "YouTube" },
+                  { href: SOCIALS.linkedin, Icon: Linkedin, label: "LinkedIn" },
+                ].map(({ href, Icon, label }) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
+                    className="w-10 h-10 rounded-full grid place-items-center transition-colors"
+                    style={{ background: "rgba(212,175,55,0.15)", color: "#92700A" }}
+                    onMouseEnter={e => (e.currentTarget.style.background = "#D4AF37")}
+                    onMouseLeave={e => (e.currentTarget.style.background = "rgba(212,175,55,0.15)")}
+                  >
+                    <Icon size={16} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          RECOGNIZED BY LEADERS & MEDIA
+      ════════════════════════════════════ */}
+      <section className="section-pad bg-white">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Featured Courses"
-            title="Transformative journeys, curated."
-            subtitle="Four foundational programs that thousands have used to reshape their inner life."
+            center
+            eyebrow="Recognition"
+            title="Recognized by Top Leaders & Media"
+            subtitle="Sakshi Shree has shared his wisdom with heads of state, ministers, scholars, and leaders across the globe."
           />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {LEADERS.map((l) => (
+              <div key={l.name} className="card-premium rounded-2xl overflow-hidden group">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={l.image}
+                    alt={l.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 border-t" style={{ borderColor: "rgba(212,175,55,0.2)" }}>
+                  <h3 className="font-display font-bold text-gray-900 text-sm leading-tight mb-1">{l.name}</h3>
+                  <p className="text-xs text-gray-500">{l.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          COURSES
+      ════════════════════════════════════ */}
+      <section className="section-pad" style={{ background: "#FAFAFA" }}>
+        <div className="container-page">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-12">
+            <SectionHeading
+              eyebrow="Transformative Programs"
+              title="Courses by Sakshi Shree"
+              subtitle="Four foundational programs that thousands have used to reshape their inner life."
+            />
+            <Link to="/courses" className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap shrink-0">
+              All Courses <ArrowRight size={14} className="inline ml-1" />
+            </Link>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {COURSES.map((c) => (
               <Link
                 key={c.slug}
                 to={`/${c.slug}` as string}
-                className="glass-card rounded-2xl overflow-hidden hover-lift group"
+                className="card-premium rounded-2xl overflow-hidden group"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -122,24 +459,17 @@ function Home() {
                   />
                 </div>
                 <div className="p-5">
-                  <div className="text-[10px] font-bold uppercase tracking-widest gradient-text mb-2">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-2">
                     {c.level} · {c.duration}
                   </div>
-                  <h3 className="font-display font-bold text-lg mb-2">{c.title}</h3>
-                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2">{c.description}</p>
+                  <h3 className="font-display font-bold text-gray-900 text-base mb-2 leading-tight">{c.title}</h3>
+                  <p className="text-xs text-gray-500 mb-4 line-clamp-2">{c.description}</p>
                   <div className="flex items-baseline justify-between">
                     <div>
-                      <span className="font-display text-2xl font-bold text-primary">
-                        ₹{c.price}
-                      </span>
-                      <span className="text-xs text-muted-foreground line-through ml-2">
-                        ₹{c.originalPrice.toLocaleString()}
-                      </span>
+                      <span className="font-display text-xl font-bold" style={{ color: "#D4AF37" }}>₹{c.price}</span>
+                      <span className="text-xs text-gray-400 line-through ml-2">₹{c.originalPrice.toLocaleString()}</span>
                     </div>
-                    <ArrowRight
-                      size={18}
-                      className="text-primary group-hover:translate-x-1 transition-transform"
-                    />
+                    <ArrowRight size={16} className="text-amber-500 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </Link>
@@ -148,34 +478,251 @@ function Home() {
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      <section className="section-pad">
+      {/* ════════════════════════════════════
+          STATS BANNER
+      ════════════════════════════════════ */}
+      <section className="py-16" style={{ background: "#0F172A" }}>
+        <div className="container-page">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+            {[
+              { val: <Counter to={5000000} suffix="+" />, label: "Lives Impacted" },
+              { val: <Counter to={1000} suffix="+" />, label: "Meditation Events" },
+              { val: <Counter to={10000} suffix="+" />, label: "Students Educated" },
+              { val: "9/10", label: "Experience Inner Peace" },
+              { val: <Counter to={40} suffix="+" />, label: "Years of Guidance" },
+            ].map((s, i) => (
+              <div key={i} className="space-y-2">
+                <div className="font-display text-3xl md:text-4xl font-bold"
+                  style={{ color: "#D4AF37" }}>{s.val}</div>
+                <div className="text-xs text-white/60 uppercase tracking-wider">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          TESTIMONIALS
+      ════════════════════════════════════ */}
+      <section className="section-pad bg-white">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Coming Up"
-            title="Upcoming events & retreats"
-            subtitle="Gather in person or online. Every event is designed to shift something."
+            eyebrow="Voices"
+            title="Empowering millions through conscious living."
+            subtitle="Real stories from real people whose lives have transformed."
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {EVENTS.slice(0, 6).map((e, i) => (
-              <div key={i} className="glass-card rounded-2xl p-6 hover-lift">
-                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest mb-3">
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {TESTIMONIALS.slice(0, 3).map((t) => (
+              <div key={t.name} className="card-premium rounded-2xl p-6 relative">
+                <div className="text-4xl font-quote text-amber-200 absolute top-4 right-5">"</div>
+                <p className="font-quote text-lg text-gray-700 leading-relaxed mb-5 italic">{t.quote}</p>
+                <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: "#F3E5AB" }}>
+                  <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
+                  <div>
+                    <div className="font-semibold text-sm text-gray-900">{t.name}</div>
+                    <div className="text-xs text-gray-500">{t.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Video testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {TESTIMONIAL_VIDEOS.slice(0, 3).map((v) => (
+              <YouTubeThumb key={v.id} id={v.id} title={v.title} />
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              to="/testimonials"
+              className="btn-outline-gold rounded-full px-7 py-3 text-sm font-semibold inline-flex items-center gap-2"
+            >
+              See All Testimonials <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          INITIATIVES
+      ════════════════════════════════════ */}
+      <section className="section-pad" style={{ background: "#FAFAFA" }}>
+        <div className="container-page">
+          <div className="text-center mb-12">
+            <SectionHeading
+              center
+              eyebrow="Science Divine Foundation"
+              title="Our Initiatives"
+              subtitle="Enriching Lives Through Compassionate Initiatives — Empowering Education, Nourishing Communities, and Ensuring Health Equity."
+            />
+            <Link to="/initiatives" className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold inline-flex items-center gap-2">
+              Know More <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-10">
+            {/* Shiksha Sewa */}
+            <div className="card-premium rounded-2xl overflow-hidden">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src="https://sciencedivine.org/wp-content/uploads/elementor/thumbs/IMG_1317-scaled-qycnje1x5jro0x3zk3hzanf2tn181d8a1m064pjdls.webp"
+                  alt="Shiksha Sewa — Free Education for Underprivileged Children"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg grid place-items-center" style={{ background: "rgba(212,175,55,0.15)" }}>
+                    <BookOpen size={16} className="text-amber-600" />
+                  </div>
+                  <h3 className="font-display font-bold text-gray-900">Shiksha Sewa</h3>
+                </div>
+                <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">Har Ghar Shiksha, Har Ghar Dhyan</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                  Science Divine provides free schooling for underprivileged children, aiming to shape brighter futures and break the cycle of poverty through quality education.
+                </p>
+                <a href="https://rzp.io/rzp/XtVLpqil" target="_blank" rel="noreferrer"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block">
+                  Donate Now
+                </a>
+              </div>
+            </div>
+
+            {/* Annapurna Sewa */}
+            <div className="card-premium rounded-2xl overflow-hidden">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src="https://sciencedivine.org/wp-content/uploads/2024/04/IMG-20200818-WA0055.jpg"
+                  alt="Annapurna Sewa — Free Meals for the Needy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg grid place-items-center" style={{ background: "rgba(212,175,55,0.15)" }}>
+                    <Heart size={16} className="text-amber-600" />
+                  </div>
+                  <h3 className="font-display font-bold text-gray-900">Annapurna Sewa</h3>
+                </div>
+                <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">Feeding hearts, one meal at a time</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                  Annapurna Bhog initiative offers free meals to ensure no one goes hungry, fostering unity and compassion within communities.
+                </p>
+                <a href="https://rzp.io/rzp/XtVLpqil" target="_blank" rel="noreferrer"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block">
+                  Donate Now
+                </a>
+              </div>
+            </div>
+
+            {/* Swastha Sewa */}
+            <div className="card-premium rounded-2xl overflow-hidden">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src="https://sciencedivine.org/wp-content/uploads/elementor/thumbs/gospelforasia-RT18-03070-qvla74wkzfu03jfb5e7plwpddk8afeo1uqh0978hb4.jpeg"
+                  alt="Swastha Sewa — Free Healthcare"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg grid place-items-center" style={{ background: "rgba(212,175,55,0.15)" }}>
+                    <Droplets size={16} className="text-amber-600" />
+                  </div>
+                  <h3 className="font-display font-bold text-gray-900">Swastha Sewa</h3>
+                </div>
+                <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">Healthcare for all, no exceptions</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                  Through Swastha Sewa, Science Divine provides free healthcare services, promoting well-being and ensuring access to essential medical care for all.
+                </p>
+                <a href="https://rzp.io/rzp/XtVLpqil" target="_blank" rel="noreferrer"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block">
+                  Donate Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          HAR GHAR SHIKSHA BANNER
+      ════════════════════════════════════ */}
+      <section className="relative overflow-hidden py-24" style={{ background: "#0B132B" }}>
+        <div
+          className="absolute inset-0"
+          style={{ 
+            backgroundImage: "url(https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp)", 
+            backgroundSize: "cover", 
+            backgroundPosition: "center",
+            opacity: 0.55
+          }}
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.8) 100%)" }} />
+        <div className="container-page relative text-center text-white">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border"
+            style={{ borderColor: "rgba(212,175,55,0.4)", color: "#D4AF37", background: "rgba(212,175,55,0.1)" }}>
+            Campaign
+          </div>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4" style={{ textShadow: "0 4px 12px rgba(0,0,0,0.6)" }}>
+            Har Ghar Shiksha,{" "}
+            <span style={{
+              background: "linear-gradient(90deg, #FBBF24, #F59E0B)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent"
+            }}>
+              Har Ghar Dhyan
+            </span>
+          </h2>
+          <p className="text-white/70 max-w-2xl mx-auto mb-8 text-base leading-relaxed">
+            Empowering futures through education. Science Divine provides free schooling for underprivileged children,
+            aiming to shape brighter futures and break the cycle of poverty through quality education.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://rzp.io/rzp/XtVLpqil"
+              target="_blank" rel="noreferrer"
+              className="btn-gold rounded-full px-8 py-3.5 text-sm font-semibold"
+            >
+              Donate Now
+            </a>
+            <Link to="/har-ghar-shiksha" className="rounded-full px-8 py-3.5 text-sm font-semibold border border-white/30 text-white hover:bg-white/10 transition-colors">
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════
+          UPCOMING EVENTS
+      ════════════════════════════════════ */}
+      <section className="section-pad bg-white">
+        <div className="container-page">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-12">
+            <SectionHeading eyebrow="Coming Up" title="Upcoming Events & Retreats" />
+            <Link to="/events" className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap shrink-0">
+              View All Events <ArrowRight size={14} className="inline ml-1" />
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {EVENTS.slice(0, 3).map((e, i) => (
+              <div key={i} className="card-premium rounded-2xl p-6">
+                <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4"
+                  style={{
+                    background: (e.status as string) === "Completed" ? "#F3F4F6" : "rgba(212,175,55,0.15)",
+                    color: (e.status as string) === "Completed" ? "#6B7280" : "#92700A"
+                  }}>
                   {e.status}
                 </div>
-                <h3 className="font-display font-bold text-lg mb-3 leading-tight">{e.title}</h3>
-                <div className="space-y-1.5 text-sm text-muted-foreground mb-4">
-                  <div className="flex items-center gap-2">
-                    <Calendar size={14} /> {e.date}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock size={14} /> {e.time}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin size={14} /> {e.location}
-                  </div>
+                <h3 className="font-display font-bold text-gray-900 text-lg mb-4 leading-tight">{e.title}</h3>
+                <div className="space-y-2 text-sm text-gray-500 mb-5">
+                  <div className="flex items-center gap-2"><Calendar size={13} className="text-amber-500" /> {e.date}</div>
+                  <div className="flex items-center gap-2"><Clock size={13} className="text-amber-500" /> {e.time}</div>
+                  <div className="flex items-center gap-2"><MapPin size={13} className="text-amber-500" /> {e.location}</div>
                 </div>
-                <Link to="/events" className="text-sm font-semibold text-primary hover:underline">
-                  Register →
+                <Link to="/events" className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
+                  Register <ArrowRight size={13} />
                 </Link>
               </div>
             ))}
@@ -183,154 +730,79 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section-pad ethereal-bg text-white relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{ background: "var(--gradient-radial-glow)" }}
-        />
-        <div className="container-page relative">
+      {/* ════════════════════════════════════
+          SAKSHI WISDOM — BLOGS
+      ════════════════════════════════════ */}
+      <section className="section-pad" style={{ background: "#FAFAFA" }}>
+        <div className="container-page">
           <SectionHeading
             center
-            eyebrow="Impact"
-            title={<span className="text-white">A movement, measured.</span>}
+            eyebrow="Sakshi Wisdom"
+            title="From the Pen of Sakshi Shree"
+            subtitle="Delve into profound insights and teachings. Explore mindfulness, personal growth, and spiritual enlightenment."
           />
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            <StatCard value={<Counter to={5000000} suffix="+" />} label="Lives Impacted" />
-            <StatCard value={<Counter to={1000} suffix="+" />} label="Meditation Events" />
-            <StatCard value={<Counter to={10000} suffix="+" />} label="Students Educated" />
-            <StatCard value="9/10" label="Experience Inner Peace" />
-            <StatCard value={<Counter to={40} suffix="+" />} label="Years of Guidance" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {BLOG_POSTS.map((post) => (
+              <a
+                key={post.title}
+                href={post.href}
+                target="_blank"
+                rel="noreferrer"
+                className="card-premium rounded-2xl p-6 group"
+              >
+                <div className="w-8 h-0.5 mb-4 transition-all group-hover:w-12"
+                  style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
+                <h3 className="font-display font-bold text-gray-900 mb-3 leading-tight group-hover:text-amber-700 transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{post.excerpt}</p>
+                <span className="text-xs font-semibold text-amber-600 inline-flex items-center gap-1">
+                  Read More <ArrowRight size={12} />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section-pad">
+      {/* ════════════════════════════════════
+          JOIN COMMUNITY — NEWSLETTER
+      ════════════════════════════════════ */}
+      <section className="section-pad bg-white">
         <div className="container-page">
-          <SectionHeading eyebrow="Voices" title="Real people. Real shifts." />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-            {TESTIMONIALS.slice(0, 3).map((t) => (
-              <div key={t.name} className="glass-card rounded-2xl p-6">
-                <p className="font-display text-lg italic leading-snug mb-4">"{t.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="font-semibold text-sm">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
-                  </div>
-                </div>
+          <div className="rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
+            style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF3D0 100%)", border: "1px solid rgba(212,175,55,0.3)" }}>
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-30"
+              style={{ background: "radial-gradient(circle, rgba(212,175,55,0.4), transparent 70%)" }} />
+            <div className="relative">
+              <div className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border"
+                style={{ borderColor: "rgba(212,175,55,0.5)", color: "#92700A", background: "rgba(212,175,55,0.1)" }}>
+                Join the Community
               </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {TESTIMONIAL_VIDEOS.slice(0, 4).map((v) => (
-              <YouTubeThumb key={v.id} id={v.id} title={v.title} />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              to="/testimonials"
-              className="btn-outline-glow rounded-full px-6 py-3 font-semibold text-sm inline-flex items-center gap-2"
-            >
-              See All Testimonials <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* App CTA */}
-      <section className="section-pad">
-        <div className="container-page">
-          <div className="relative overflow-hidden rounded-3xl ethereal-bg text-white p-10 md:p-16">
-            <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-gold/20 blur-3xl" />
-            <div className="relative grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 glass-dark rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider mb-4">
-                  <Smartphone size={14} /> Available on Play Store
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Get Access to Exclusive Content
+              </h2>
+              <p className="text-gray-600 max-w-xl mx-auto mb-8">
+                Get access to exclusive audios, videos, blogs, newsletters, and more! Subscribe now to access
+                a world of unique content, deep insights, and insider knowledge.
+              </p>
+              <form className="max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid sm:grid-cols-2 gap-3 mb-3">
+                  <input type="text" placeholder="Your Name" className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400" style={{ borderColor: "#E5E7EB" }} />
+                  <input type="email" placeholder="Your Email" className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400" style={{ borderColor: "#E5E7EB" }} />
                 </div>
-                <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4">
-                  Carry your practice, everywhere.
-                </h2>
-                <p className="text-white/85 mb-6">
-                  Guided meditations, live events, courses, and a global community — in your pocket.
-                </p>
-                <a
-                  href={SOCIALS.playstore}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block"
-                >
-                  <img
-                    src="https://sciencedivine.org/wp-content/uploads/2023/08/image-16.png"
-                    alt="Get it on Google Play"
-                    className="h-14"
-                  />
-                </a>
-              </div>
-              <ul className="space-y-3 text-sm">
-                {[
-                  "Global sadhak community",
-                  "Live event streaming",
-                  "Full course library",
-                  "Daily guided meditations",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-full bg-white/20 grid place-items-center text-xs">
-                      ✓
-                    </span>{" "}
-                    {f}
-                  </li>
-                ))}
-              </ul>
+                <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                  <input type="tel" placeholder="Phone Number" className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400" style={{ borderColor: "#E5E7EB" }} />
+                  <input type="text" placeholder="Message (optional)" className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400" style={{ borderColor: "#E5E7EB" }} />
+                </div>
+                <button type="submit" className="btn-gold rounded-full px-10 py-3.5 text-sm font-semibold w-full sm:w-auto">
+                  Submit Now
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </section>
     </>
-  );
-}
-
-function MissionCard({
-  icon: Icon,
-  title,
-  desc,
-  accent,
-}: {
-  icon: React.ComponentType<{ size?: number }>;
-  title: string;
-  desc: string;
-  accent: string;
-}) {
-  return (
-    <div className="glass-card rounded-2xl p-8 hover-lift relative overflow-hidden">
-      <div
-        className="absolute -top-10 -right-10 w-40 h-40 rounded-full blur-3xl opacity-30"
-        style={{ background: accent }}
-      />
-      <div className="relative">
-        <div
-          className="w-14 h-14 rounded-2xl grid place-items-center mb-5 text-white"
-          style={{ background: accent }}
-        >
-          <Icon size={24} />
-        </div>
-        <h3 className="font-display text-2xl font-bold mb-3">{title}</h3>
-        <p className="text-muted-foreground leading-relaxed">{desc}</p>
-      </div>
-    </div>
-  );
-}
-
-function StatCard({ value, label }: { value: React.ReactNode; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="font-display text-3xl md:text-5xl font-bold mb-2 gradient-text">{value}</div>
-      <div className="text-xs md:text-sm text-white/80 uppercase tracking-wider">{label}</div>
-    </div>
   );
 }
