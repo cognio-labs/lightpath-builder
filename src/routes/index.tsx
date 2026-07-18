@@ -477,13 +477,6 @@ function Home() {
                 pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Ivory fade at bottom */}
-              <div style={{
-                position: "absolute", bottom: 0, left: 0, right: 0, height: "100px",
-                background: "linear-gradient(to top, #FCF8F1 15%, rgba(252,248,241,0.8) 50%, transparent 100%)",
-                zIndex: 2, pointerEvents: "none",
-              }} />
-
               {/* Guru Ji portrait */}
               <img
                 src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
