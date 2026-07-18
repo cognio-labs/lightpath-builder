@@ -1,9 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { LEADERS, TESTIMONIAL_VIDEOS } from "@/data/content";
 import { Sparkles, Compass, HeartHandshake, Check, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { submitForm } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/book-session")({
   head: () => ({
