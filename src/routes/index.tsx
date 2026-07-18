@@ -118,144 +118,26 @@ const BLOG_POSTS = [
   },
 ];
 
-const YogiAvatar = () => (
-  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="36" cy="22" r="7" fill="#EAB308" stroke="#1E293B" strokeWidth="2.5" />
-    <circle cx="36" cy="13" r="3.5" fill="#EAB308" stroke="#1E293B" strokeWidth="2.5" />
-    <path
-      d="M36 29C28 29 24 38 24 45H48C48 38 44 29 36 29Z"
-      fill="#06B6D4"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M24 45C22 41 22 36 26 34C28.5 32.7 32 35 34 39"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <path
-      d="M48 45C50 41 50 36 46 34C43.5 32.7 40 35 38 39"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <path
-      d="M34 39C35 36.5 37 36.5 38 39"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-    <path d="M33 28.5V31H39V28.5" stroke="#1E293B" strokeWidth="2.5" fill="#FDE047" />
-    <path
-      d="M16 54C16 48 24 46 36 46C48 46 56 48 56 54C56 58 48 59 36 59C24 59 16 58 16 54Z"
-      fill="#FDE047"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      strokeLinejoin="round"
-    />
-    <circle cx="21" cy="53" r="4" fill="#F59E0B" stroke="#1E293B" strokeWidth="2" />
-    <circle cx="51" cy="53" r="4" fill="#F59E0B" stroke="#1E293B" strokeWidth="2" />
-  </svg>
-);
-
-const BrainAvatar = () => (
-  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M36 50C25 50 18 42 18 33C18 24 25 18 35 18C36 18 36.5 19 37 19.5"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="#FDA4AF"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M36 50C47 50 54 42 54 33C54 24 47 18 37 18C36 18 35.5 19 35 19.5"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="#F43F5E"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M24 33C24 38 29 40 33 37"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M28 26C31 29 29 33 34 32"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M48 33C48 38 43 40 39 37"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M44 26C41 29 43 33 38 32"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M33 49V55C33 57 39 57 39 55V49"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      fill="#FB7185"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const StarsAvatar = () => (
-  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M36 14L40 27L53 31L40 35L36 48L32 35L19 31L32 27L36 14Z"
-      fill="#FBBF24"
-      stroke="#1E293B"
-      strokeWidth="2.5"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M20 22L22 28L28 30L22 32L20 38L18 32L12 30L18 28L20 22Z"
-      fill="#22D3EE"
-      stroke="#1E293B"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M52 38L54 44L60 46L54 48L52 54L50 48L44 46L50 44L52 38Z"
-      fill="#EC4899"
-      stroke="#1E293B"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
-    <circle cx="28" cy="18" r="1.5" fill="#1E293B" />
-    <circle cx="48" cy="24" r="1.5" fill="#1E293B" />
-    <circle cx="28" cy="46" r="2" fill="#1E293B" />
-    <circle cx="44" cy="50" r="1" fill="#1E293B" />
-  </svg>
-);
-
+const FEATURE_CARDS = [
+  {
+    title: "Sound Body",
+    desc: "Physical vitality through yoga, breath, and conscious movement.",
+    image: "/feature-cards/sound-body.png",
+    alt: "Person practicing sunrise meditation in nature for physical wellness",
+  },
+  {
+    title: "Sound Mind",
+    desc: "Mental clarity through meditation and mindfulness practice.",
+    image: "/feature-cards/sound-mind.png",
+    alt: "Person meditating peacefully over mountain scenery for mental clarity",
+  },
+  {
+    title: "Self Realization",
+    desc: "Spiritual awakening under Sakshi Shree's direct guidance.",
+    image: "/feature-cards/self-realization.png",
+    alt: "Meditation surrounded by divine golden light and lotus flowers",
+  },
+];
 function LensImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
     <Lens className="h-full w-full rounded-2xl" lensSize={140} zoomFactor={1.7}>
@@ -416,32 +298,26 @@ function Home() {
               </Link>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                avatar: <YogiAvatar />,
-                title: "Sound Body",
-                desc: "Physical vitality through yoga, breath, and conscious movement.",
-              },
-              {
-                avatar: <BrainAvatar />,
-                title: "Sound Mind",
-                desc: "Mental clarity through meditation and mindfulness practice.",
-              },
-              {
-                avatar: <StarsAvatar />,
-                title: "Self Realization",
-                desc: "Spiritual awakening under Sakshi Shree's direct guidance.",
-              },
-            ].map((p) => (
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {FEATURE_CARDS.map((p) => (
               <div
                 key={p.title}
-                className="card-premium p-8 md:p-10 text-center rounded-3xl flex flex-col items-center justify-center bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+                className="group flex h-full flex-col rounded-[20px] border border-[#EAEAEA] bg-white p-6 shadow-[0_12px_36px_rgba(17,24,39,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_56px_rgba(17,24,39,0.12)] md:p-7"
               >
-                <div className="mb-6 flex justify-center items-center h-20">{p.avatar}</div>
-                <h3 className="font-display font-bold text-gray-900 text-xl mb-3">{p.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed px-2">{p.desc}</p>
+                <div className="h-[220px] w-full overflow-hidden rounded-[18px] bg-gray-100">
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col px-1 pb-1 pt-7 text-center">
+                  <h3 className="font-display text-2xl font-bold leading-tight text-gray-900">
+                    {p.title}
+                  </h3>
+                  <p className="mx-auto mt-4 max-w-xs text-sm leading-7 text-gray-500">{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
