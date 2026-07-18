@@ -63,17 +63,17 @@ const STATS = [
 
 const SOLUTIONS = [
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/sprit.png",
+    img: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=900&q=90&fit=crop&crop=center",
     title: "Spiritual Growth",
     desc: "Discover your inner divinity and connect with your true self through guided meditation practices.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2025/01/Untitled-design-5.webp",
+    img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=900&q=90&fit=crop&crop=center",
     title: "Mental Clarity",
     desc: "Achieve peace of mind and enhanced focus through regular meditation practice.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2023/06/Screen-Shot-2023-05-07-at-9.16.25-PM.png",
+    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=90&fit=crop&crop=center",
     title: "Knowledge for All",
     desc: "Access spiritual wisdom and practical knowledge that transforms daily life.",
   },
@@ -359,13 +359,13 @@ function Page() {
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>Our Events</h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "20px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "22px" }}>
             {EVENTS.map((ev, i) => (
-              <div key={i} style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.03)", border: "1px solid #E2E8F0" }}>
-                <img src={ev.img} alt={ev.title} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+              <div key={i} style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", boxShadow: "0 10px 28px rgba(15,23,42,0.06)", border: "1px solid #E2E8F0", minHeight: "340px" }}>
+                <img src={ev.img} alt={ev.title} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
                 <div style={{ padding: "16px" }}>
                   <div style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>{ev.title}</div>
-                  <div style={{ color: "#64748B", fontSize: "0.8rem", marginTop: "4px" }}>{ev.desc}</div>
+                  <div style={{ color: "#64748B", fontSize: "0.82rem", marginTop: "6px", lineHeight: 1.65 }}>{ev.desc}</div>
                 </div>
               </div>
             ))}
@@ -428,7 +428,7 @@ function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", marginBottom: "40px" }}>
             {LEADER_IMGS.map((img, i) => (
               <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
-                <img src={img} alt={`Leader ${i + 1}`} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+                <img src={img} alt={`Leader ${i + 1}`} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
               </div>
             ))}
           </div>
@@ -440,7 +440,7 @@ function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
             {MEDIA_IMGS.map((img, i) => (
               <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
-                <img src={img} alt={`Media coverage ${i + 1}`} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+                <img src={img} alt={`Media coverage ${i + 1}`} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
               </div>
             ))}
           </div>
@@ -528,4 +528,6 @@ function Page() {
     </div>
   );
 }
+
+
 

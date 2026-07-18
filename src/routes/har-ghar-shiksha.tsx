@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Heart, BookOpen, Brain, Users, Sprout, GraduationCap, Flower2, Palette } from "lucide-react";
+import { ArrowRight, Heart, BookOpen, Brain, Users, Sprout, GraduationCap, Flower2, Palette, Mountain, Route as RouteIcon, TrendingUp, HandCoins, Target, Trophy } from "lucide-react";
 
 export const Route = createFileRoute("/har-ghar-shiksha")({
   head: () => ({
@@ -108,7 +108,7 @@ const PROBLEMS = [
   },
   {
     // Graduation — student with diploma, sunrise, mountain — knowledge & wisdom
-    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=90&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=90&fit=crop&crop=center",
     title: "Knowledge for All",
     desc: "Access spiritual wisdom and practical knowledge that transforms daily life.",
     icon: GraduationCap,
@@ -206,12 +206,12 @@ const TESTIMONIALS = [
 ];
 
 const TICKER_ICONS = [
-  "https://sciencedivine.org/wp-content/uploads/2025/02/goal.png",
-  "https://sciencedivine.org/wp-content/uploads/2025/02/mission-accomplished.png",
-  "https://sciencedivine.org/wp-content/uploads/2025/02/mountain.png",
-  "https://sciencedivine.org/wp-content/uploads/2025/02/mission.png",
-  "https://sciencedivine.org/wp-content/uploads/2025/02/leadership.png",
-  "https://sciencedivine.org/wp-content/uploads/2025/02/financial-freedom.png",
+  Mountain,
+  RouteIcon,
+  TrendingUp,
+  HandCoins,
+  Target,
+  Trophy,
 ];
 
 /* ─── Shared photo-card CSS injected once ─── */
@@ -252,6 +252,8 @@ const PHOTO_CARD_CSS = `
     z-index:3;
     animation:pcFloat 3s ease-in-out infinite;
   }
+
+  .pc-content { padding:14px 28px 36px; text-align:center; }
 
   .pc-glow {
     position:absolute; bottom:0; left:0; right:0; height:3px;
@@ -332,10 +334,10 @@ function PurposeSection() {
                 <div style={{ overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
                   <img src={card.img} alt={card.title} className="pc-img" style={{ height: "210px" }} />
                 </div>
-                <div style={{ position: "relative", height: "40px" }}>
+                <div style={{ position: "relative", height: "56px" }}>
                   <div className="pc-badge"><Icon size={30} color={card.color} strokeWidth={1.5} /></div>
                 </div>
-                <div style={{ padding: "4px 28px 36px", textAlign: "center" }}>
+                <div className="pc-content">
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "#081A36", margin: "0 0 12px" }}>{card.title}</h3>
                   <p style={{ color: "#5C677D", fontSize: "1rem", lineHeight: 1.8, margin: 0 }}>{card.desc}</p>
                 </div>
@@ -377,7 +379,7 @@ function StatsSection() {
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px,4vw,52px)", fontWeight: 700, color: "#081A36", lineHeight: 1.15, margin: 0 }}>Guiding Light in Meditation &amp; Education</h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: "28px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: "18px" }}>
           {STATS.map((s, i) => (
             <div
               key={i}
@@ -399,25 +401,25 @@ function StatsSection() {
               <div style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.08) 100%)",
-                borderRadius: "24px",
+                borderRadius: "20px",
               }} />
               {/* Text */}
               <div style={{
                 position: "absolute", bottom: 0, left: 0, right: 0,
-                padding: "32px 28px",
+                padding: "24px 20px",
               }}>
                 {visible[i] && (
                   <div className="stat-num" style={{
                     fontFamily: "'Playfair Display', serif",
-                    fontSize: "clamp(48px,5vw,68px)",
+                    fontSize: "clamp(2.35rem,3.7vw,3.7rem)",
                     fontWeight: 800,
                     color: "#D4AF37",
                     lineHeight: 1,
-                    marginBottom: "10px",
+                    marginBottom: "8px",
                   }}>{s.value}</div>
                 )}
-                <div style={{ fontSize: "1.15rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "6px" }}>{s.label}</div>
-                <div style={{ fontSize: "0.9rem", color: "rgba(255,255,255,.72)", lineHeight: 1.5 }}>{s.desc}</div>
+                <div style={{ fontSize: "0.95rem", fontWeight: 800, color: "#FFFFFF", marginBottom: "6px", lineHeight: 1.25 }}>{s.label}</div>
+                <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,.78)", lineHeight: 1.45 }}>{s.desc}</div>
               </div>
             </div>
           ))}
@@ -477,10 +479,10 @@ function TransformSection() {
                 <div style={{ overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
                   <img src={p.img} alt={p.title} className="pc-img" style={{ height: "320px" }} />
                 </div>
-                <div style={{ position: "relative", height: "40px" }}>
+                <div style={{ position: "relative", height: "56px" }}>
                   <div className="pc-badge"><Icon size={30} color={p.color} strokeWidth={1.5} /></div>
                 </div>
-                <div style={{ padding: "4px 28px 36px", textAlign: "center" }}>
+                <div className="pc-content">
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "#081A36", margin: "0 0 12px" }}>{p.title}</h3>
                   <p style={{ color: "#5C677D", fontSize: "1rem", lineHeight: 1.8, margin: 0 }}>{p.desc}</p>
                 </div>
@@ -695,15 +697,15 @@ function HowWeWorkSection() {
                   }} />
                 </div>
 
-                {/* Floating icon badge — sits between image and content */}
-                <div style={{ position: "relative", height: "36px" }}>
+                {/* Floating icon badge - sits between image and content */}
+                <div style={{ position: "relative", height: "56px" }}>
                   <div className="how-icon-badge">
                     <Icon size={28} color={step.color} strokeWidth={1.5} />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: "8px 28px 36px", textAlign: "center" }}>
+                <div style={{ padding: "10px 28px 36px", textAlign: "center" }}>
                   <h3 style={{
                     fontFamily: "'Playfair Display', serif",
                     fontSize: "1.45rem",
@@ -776,7 +778,7 @@ function Page() {
               </div>
             </div>
             <div style={{ position: "relative" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp" alt="Movement Hero" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }} />
+              <img src="https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp" alt="Movement Hero" style={{ width: "100%", height: "auto", borderRadius: "20px", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }} />
             </div>
           </div>
         </div>
@@ -805,8 +807,25 @@ function Page() {
       {/* ═══ ANIMATED ICON TICKER ═══ */}
       <div style={{ background: "#F0FDF4", padding: "28px 0", overflow: "hidden", borderTop: "1px solid #DCFCE7", borderBottom: "1px solid #DCFCE7" }}>
         <div style={{ display: "flex", gap: "48px", animation: "ticker 20s linear infinite", width: "max-content" }}>
-          {[...TICKER_ICONS, ...TICKER_ICONS, ...TICKER_ICONS].map((src, i) => (
-            <img key={i} src={src} alt="" style={{ width: "52px", height: "52px", objectFit: "contain", opacity: 0.7 }} />
+          {[...TICKER_ICONS, ...TICKER_ICONS, ...TICKER_ICONS].map((Icon, i) => (
+            <span
+              key={i}
+              aria-hidden="true"
+              style={{
+                width: "56px",
+                height: "56px",
+                borderRadius: "18px",
+                background: "#FFFFFF",
+                border: "1px solid #BBF7D0",
+                boxShadow: "0 8px 22px rgba(22,163,74,0.10)",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#15803D",
+              }}
+            >
+              <Icon size={28} strokeWidth={1.8} />
+            </span>
           ))}
         </div>
         <style>{`@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }`}</style>
@@ -884,7 +903,7 @@ function Page() {
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>Transformative Experiences</h2>
           </div>
 
-          <div style={{ background: "#F0FDF4", border: "1px solid #DCFCE7", borderRadius: "24px", padding: "40px", marginBottom: "24px" }}>
+          <div style={{ background: "#F0FDF4", border: "1px solid #DCFCE7", borderRadius: "20px", padding: "40px", marginBottom: "24px" }}>
             <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", color: "#1E293B", lineHeight: 1.75, marginBottom: "24px", fontStyle: "italic" }}>
               "{TESTIMONIALS[activeTestimonial].quote}"
             </p>
@@ -919,7 +938,7 @@ function Page() {
               <p style={{ color: "#64748B", marginTop: "8px" }}>We will get back to you soon.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "24px", padding: "40px", display: "flex", flexDirection: "column", gap: "16px", boxShadow: "0 10px 30px rgba(0,0,0,0.02)" }}>
+            <form onSubmit={handleSubmit} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "40px", display: "flex", flexDirection: "column", gap: "16px", boxShadow: "0 10px 30px rgba(0,0,0,0.02)" }}>
               {[
                 { key: "name", label: "Name", placeholder: "Your Name", type: "text" },
                 { key: "phone", label: "Phone Number", placeholder: "+91 99999 99999", type: "tel" },
@@ -944,3 +963,7 @@ function Page() {
     </div>
   );
 }
+
+
+
+
