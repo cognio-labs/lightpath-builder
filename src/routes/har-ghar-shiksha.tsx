@@ -205,18 +205,23 @@ const TESTIMONIALS = [
   },
 ];
 
-const TICKER_ICONS = [
-  Mountain,
-  RouteIcon,
-  TrendingUp,
-  HandCoins,
-  Target,
-  Trophy,
+/* Premium text ticker phrases */
+const TICKER_PHRASES = [
+  "Sound Body",
+  "Sound Mind",
+  "Self Realization",
+  "Meditation For All",
+  "Education For Every Child",
+  "Inner Transformation",
+  "Conscious Living",
+  "Har Ghar Shiksha",
+  "Har Ghar Dhyan",
+  "Awaken Your Potential",
 ];
 
 /* ─── Shared photo-card CSS injected once ─── */
 const PHOTO_CARD_CSS = `
-  @keyframes pcFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes pcFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
   @keyframes pcShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
   @keyframes pcCount { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
@@ -228,32 +233,36 @@ const PHOTO_CARD_CSS = `
     transition:transform 400ms cubic-bezier(.22,.61,.36,1), box-shadow 400ms cubic-bezier(.22,.61,.36,1);
     cursor:pointer;
     position:relative;
+    display:flex;
+    flex-direction:column;
   }
   .pc-card:hover { transform:translateY(-10px) scale(1.01); box-shadow:0 28px 70px rgba(22,163,74,.16),0 6px 24px rgba(0,0,0,.09); }
   .pc-card:hover .pc-img { transform:scale(1.06); }
-  .pc-card:hover .pc-badge { box-shadow:0 12px 32px rgba(22,163,74,.28); }
+  .pc-card:hover .pc-badge { transform:scale(1.1); box-shadow:0 12px 32px rgba(22,163,74,.35); }
   .pc-card:hover .pc-glow { opacity:1; animation:pcShimmer 2s linear infinite; }
 
+  .pc-img-wrap { overflow:hidden; border-radius:28px 28px 0 0; position:relative; flex-shrink:0; }
   .pc-img { width:100%; object-fit:cover; display:block; transition:transform 600ms cubic-bezier(.22,.61,.36,1); }
 
+  /* Badge sits inside image — bottom-right corner — never overlaps text */
   .pc-badge {
     position:absolute;
-    left:50%;
-    transform:translateX(-50%) translateY(-50%);
-    width:80px; height:80px;
+    bottom:14px;
+    right:14px;
+    width:58px; height:58px;
     border-radius:50%;
-    background:rgba(255,255,255,.9);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.95);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1.5px solid rgba(255,255,255,1);
     display:flex; align-items:center; justify-content:center;
-    box-shadow:0 8px 24px rgba(0,0,0,.12);
-    transition:box-shadow 400ms ease;
+    box-shadow:0 6px 20px rgba(0,0,0,.15);
+    transition:transform 350ms ease, box-shadow 350ms ease;
     z-index:3;
-    animation:pcFloat 3s ease-in-out infinite;
+    animation:pcFloat 3.5s ease-in-out infinite;
   }
 
-  .pc-content { padding:14px 28px 36px; text-align:center; }
+  .pc-content { padding:24px 28px 36px; text-align:center; flex:1; }
 
   .pc-glow {
     position:absolute; bottom:0; left:0; right:0; height:3px;
@@ -264,8 +273,8 @@ const PHOTO_CARD_CSS = `
   }
 
   .stat-card {
-    position:relative; border-radius:24px; overflow:hidden;
-    height:480px;
+    position:relative; border-radius:20px; overflow:hidden;
+    height:270px;
     transition:transform 300ms cubic-bezier(.22,.61,.36,1), box-shadow 300ms;
     cursor:pointer;
   }
@@ -331,11 +340,9 @@ function PurposeSection() {
                   boxShadow: hovered === i ? "0 28px 70px rgba(22,163,74,.16),0 6px 24px rgba(0,0,0,.09)" : "0 4px 20px rgba(0,0,0,.06)",
                 }}
               >
-                <div style={{ overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
+                <div className="pc-img-wrap">
                   <img src={card.img} alt={card.title} className="pc-img" style={{ height: "210px" }} />
-                </div>
-                <div style={{ position: "relative", height: "56px" }}>
-                  <div className="pc-badge"><Icon size={30} color={card.color} strokeWidth={1.5} /></div>
+                  <div className="pc-badge"><Icon size={26} color={card.color} strokeWidth={1.6} /></div>
                 </div>
                 <div className="pc-content">
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "#081A36", margin: "0 0 12px" }}>{card.title}</h3>
@@ -476,11 +483,9 @@ function TransformSection() {
                   boxShadow: hovered === i ? "0 28px 70px rgba(22,163,74,.16),0 6px 24px rgba(0,0,0,.09)" : "0 4px 20px rgba(0,0,0,.06)",
                 }}
               >
-                <div style={{ overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
+                <div className="pc-img-wrap">
                   <img src={p.img} alt={p.title} className="pc-img" style={{ height: "320px" }} />
-                </div>
-                <div style={{ position: "relative", height: "56px" }}>
-                  <div className="pc-badge"><Icon size={30} color={p.color} strokeWidth={1.5} /></div>
+                  <div className="pc-badge"><Icon size={26} color={p.color} strokeWidth={1.6} /></div>
                 </div>
                 <div className="pc-content">
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem", fontWeight: 700, color: "#081A36", margin: "0 0 12px" }}>{p.title}</h3>
@@ -748,40 +753,228 @@ function Page() {
     <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif" }}>
 
       {/* ═══ HERO ═══ */}
-      <section style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E3A2A 50%, #0F172A 100%)", paddingTop: "140px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <section style={{
+        background: "#FCF8F1",
+        position: "relative",
+        overflow: "hidden",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+      }}>
+        <style>{`
+          @keyframes heroFadeUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+          @keyframes heroFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+          @keyframes mandalaRotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+          @keyframes particleFloat {
+            0%{transform:translateY(0) translateX(0);opacity:0}
+            30%{opacity:.7}
+            70%{opacity:.4}
+            100%{transform:translateY(-120px) translateX(20px);opacity:0}
+          }
+          @keyframes heroPulse { 0%,100%{opacity:.35} 50%{opacity:.55} }
+          @keyframes typewriter { from{opacity:0;letter-spacing:.3em} to{opacity:1;letter-spacing:-.02em} }
+          .hero-line-1{animation:heroFadeUp .8s .1s both}
+          .hero-line-2{animation:typewriter 1.2s .4s both}
+          .hero-line-3{animation:heroFadeUp .8s .7s both}
+          .hero-sub{animation:heroFadeUp .8s .9s both}
+          .hero-btns{animation:heroFadeUp .8s 1.1s both}
+          .hero-stats{animation:heroFadeUp .8s 1.3s both}
+          .hero-img-wrap{animation:heroFadeUp 1s .3s both}
+          .hero-btn-primary{
+            display:inline-flex;align-items:center;gap:10px;
+            background:linear-gradient(135deg,#C9910B,#D4AF37,#E6C84A,#C9910B);
+            background-size:200% auto;
+            color:#fff;padding:16px 36px;border-radius:100px;
+            font-weight:700;font-size:1rem;text-decoration:none;
+            box-shadow:0 10px 32px rgba(212,175,55,.40);
+            transition:background-position .4s,box-shadow .4s,transform .2s;
+          }
+          .hero-btn-primary:hover{background-position:right center;box-shadow:0 14px 40px rgba(212,175,55,.55);transform:translateY(-2px)}
+          .hero-btn-primary:hover .hero-arrow{transform:translateX(4px)}
+          .hero-arrow{transition:transform .3s}
+          .hero-btn-secondary{
+            display:inline-flex;align-items:center;gap:10px;
+            background:rgba(255,255,255,.7);
+            border:1.5px solid rgba(212,175,55,.5);
+            color:#081A36;padding:16px 36px;border-radius:100px;
+            font-weight:600;font-size:1rem;text-decoration:none;
+            backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+            transition:background .4s,border-color .4s,transform .2s;
+          }
+          .hero-btn-secondary:hover{background:rgba(212,175,55,.1);border-color:#D4AF37;transform:translateY(-2px)}
+          .hero-stat-sep{width:1px;height:40px;background:rgba(8,26,54,.15)}
+          .particle{
+            position:absolute;
+            border-radius:50%;
+            background:radial-gradient(circle,#D4AF37,rgba(212,175,55,0));
+            animation:particleFloat linear infinite;
+            pointer-events:none;
+          }
+        `}</style>
 
-        <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
+        {/* ── Ambient golden radial glow top-left ── */}
+        <div style={{
+          position:"absolute",top:"-10%",left:"-5%",
+          width:"600px",height:"600px",
+          background:"radial-gradient(circle,rgba(212,175,55,.13) 0%,transparent 70%)",
+          borderRadius:"50%",pointerEvents:"none",
+        }}/>
+        {/* ── Ambient glow bottom-right ── */}
+        <div style={{
+          position:"absolute",bottom:"-10%",right:"45%",
+          width:"500px",height:"500px",
+          background:"radial-gradient(circle,rgba(46,139,87,.09) 0%,transparent 70%)",
+          borderRadius:"50%",pointerEvents:"none",
+        }}/>
+
+        {/* ── Floating particles ── */}
+        {[{s:8,l:"15%",b:"20%",d:"6s",del:"0s"},{s:6,l:"20%",b:"40%",d:"8s",del:"1s"},{s:10,l:"8%",b:"60%",d:"7s",del:"2s"},{s:5,l:"30%",b:"15%",d:"9s",del:"3s"}].map((p,i)=>(
+          <div key={i} className="particle" style={{width:`${p.s}px`,height:`${p.s}px`,left:p.l,bottom:p.b,animationDuration:p.d,animationDelay:p.del,opacity:.6}}/>
+        ))}
+
+        <div className="container-page" style={{ position:"relative",zIndex:1,width:"100%",padding:"120px 24px 80px" }}>
+          <div style={{
+            display:"grid",
+            gridTemplateColumns:"1fr 1fr",
+            gap:"64px",
+            alignItems:"center",
+            maxWidth:"1400px",
+            margin:"0 auto",
+          }}>
+
+            {/* ── LEFT: Content ── */}
             <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(34,197,94,0.15)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
-                <Heart size={14} style={{ color: "#22C55E" }} />
-                <span style={{ color: "#22C55E", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>A National Movement</span>
+              {/* Pill badge */}
+              <div className="hero-line-1" style={{
+                display:"inline-flex",alignItems:"center",gap:"10px",
+                background:"rgba(255,255,255,.80)",
+                border:"1.5px solid rgba(212,175,55,.5)",
+                borderRadius:"100px",padding:"8px 20px",
+                marginBottom:"32px",
+                backdropFilter:"blur(12px)",WebkitBackdropFilter:"blur(12px)",
+              }}>
+                <span style={{fontSize:"1rem"}}>🪷</span>
+                <span style={{color:"#8B6914",fontSize:"11px",fontWeight:700,letterSpacing:"0.2em",textTransform:"uppercase" as const}}>
+                  Sound Body &bull; Sound Mind &bull; Self Realization
+                </span>
               </div>
-              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 5vw, 3.8rem)", fontWeight: 800, color: "#FFFFFF", lineHeight: 1.1, marginBottom: "16px" }}>
-                Har Ghar Shiksha,<br />
-                <span style={{ background: "linear-gradient(90deg, #22C55E, #4ADE80)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Har Ghar Dhyan</span>
+
+              {/* Headline */}
+              <h1 style={{fontFamily:"'Playfair Display',serif",lineHeight:1.06,fontWeight:700,margin:"0 0 20px"}}>
+                <span className="hero-line-1" style={{display:"block",fontSize:"clamp(42px,5.5vw,82px)",color:"#081A36"}}>Awaken Your</span>
+                <span className="hero-line-2" style={{
+                  display:"block",
+                  fontSize:"clamp(42px,5.5vw,82px)",
+                  fontStyle:"italic",
+                  background:"linear-gradient(135deg,#B8860B 0%,#D4AF37 40%,#E6C84A 60%,#C9910B 100%)",
+                  WebkitBackgroundClip:"text",backgroundClip:"text",color:"transparent",
+                }}>True Potential</span>
+                <span className="hero-line-3" style={{display:"block",fontSize:"clamp(42px,5.5vw,82px)",color:"#081A36"}}>with Science Divine</span>
+                <span className="hero-line-3" style={{display:"block",fontSize:"clamp(42px,5.5vw,82px)",color:"#081A36"}}>Movement</span>
               </h1>
-              <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.85)", fontWeight: 600, marginBottom: "8px" }}>
-                Education and Meditation in Every Home.
+
+              {/* Lotus divider */}
+              <div className="hero-sub" style={{display:"flex",alignItems:"center",gap:"12px",margin:"0 0 24px"}}>
+                <div style={{flex:1,maxWidth:"80px",height:"1px",background:"linear-gradient(to right,transparent,#D4AF37)"}}/>
+                <span style={{fontSize:"1.1rem"}}>🪷</span>
+                <div style={{flex:1,maxWidth:"80px",height:"1px",background:"linear-gradient(to left,transparent,#D4AF37)"}}/>
+              </div>
+
+              {/* Subtitle */}
+              <p className="hero-sub" style={{fontSize:"1.1rem",color:"#5C677D",lineHeight:1.8,maxWidth:"580px",margin:"0 0 40px"}}>
+                Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization — guided by enlightened master{" "}
+                <strong style={{color:"#D4AF37",fontWeight:700}}>Sakshi Shree</strong>.
               </p>
-              <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "8px" }}>A massive movement for education and meditation.</p>
-              <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "36px" }}>A commitment to the birth of a new humanity.</p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
-                <a href="#donate" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #22C55E, #16A34A)", color: "#FFFFFF", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(34,197,94,0.3)" }}>
-                  Join the Movement <ArrowRight size={16} />
+
+              {/* Buttons */}
+              <div className="hero-btns" style={{display:"flex",flexWrap:"wrap" as const,gap:"16px",marginBottom:"52px"}}>
+                <a href="/about" className="hero-btn-primary">
+                  Meet Sakshi Shree <ArrowRight size={18} className="hero-arrow" />
                 </a>
-                <a href="#about" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none" }}>
-                  Learn More
+                <a href="/programs" className="hero-btn-secondary">
+                  Explore Programs
                 </a>
+              </div>
+
+              {/* Stats */}
+              <div className="hero-stats" style={{display:"flex",alignItems:"center",gap:"32px",flexWrap:"wrap" as const}}>
+                {[
+                  {num:"5M+",label:"Lives Impacted"},
+                  {num:"40+",label:"Years of Wisdom"},
+                  {num:"1000+",label:"Meditation Programs"},
+                ].map((s,i)=>(
+                  <>
+                    {i>0 && <div key={`sep-${i}`} className="hero-stat-sep"/>}
+                    <div key={i} style={{textAlign:"center"}}>
+                      <div style={{fontFamily:"'Playfair Display',serif",fontSize:"1.8rem",fontWeight:800,color:"#D4AF37",lineHeight:1}}>{s.num}</div>
+                      <div style={{fontSize:"0.78rem",color:"#5C677D",marginTop:"4px",fontWeight:500,letterSpacing:"0.06em",textTransform:"uppercase" as const}}>{s.label}</div>
+                    </div>
+                  </>
+                ))}
               </div>
             </div>
-            <div style={{ position: "relative" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp" alt="Movement Hero" style={{ width: "100%", height: "auto", borderRadius: "20px", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }} />
+
+            {/* ── RIGHT: Guru Portrait with golden mandala ── */}
+            <div className="hero-img-wrap" style={{position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}>
+              {/* Outer golden glow ring — slow rotate */}
+              <div style={{
+                position:"absolute",
+                width:"90%",aspectRatio:"1",
+                borderRadius:"50%",
+                background:"radial-gradient(circle,rgba(212,175,55,.30) 0%,rgba(212,175,55,.12) 40%,transparent 70%)",
+                animation:"heroPulse 4s ease-in-out infinite",
+                pointerEvents:"none",
+              }}/>
+              {/* Mandala ring */}
+              <div style={{
+                position:"absolute",
+                width:"75%",aspectRatio:"1",
+                borderRadius:"50%",
+                border:"1.5px solid rgba(212,175,55,.25)",
+                boxShadow:"0 0 60px rgba(212,175,55,.20), inset 0 0 60px rgba(212,175,55,.08)",
+                animation:"heroPulse 5s 1s ease-in-out infinite",
+                pointerEvents:"none",
+              }}/>
+              {/* Inner halo */}
+              <div style={{
+                position:"absolute",
+                width:"55%",aspectRatio:"1",
+                borderRadius:"50%",
+                background:"radial-gradient(circle,rgba(255,240,180,.55) 0%,rgba(252,248,241,.0) 70%)",
+                pointerEvents:"none",
+              }}/>
+              {/* Guru image — floating */}
+              <img
+                src="https://sciencedivine.org/wp-content/uploads/2025/02/7.webp"
+                alt="Guru Sakshi Shree"
+                style={{
+                  position:"relative",zIndex:2,
+                  width:"100%",maxWidth:"560px",
+                  height:"auto",
+                  objectFit:"contain",
+                  filter:"drop-shadow(0 30px 60px rgba(0,0,0,.18))",
+                  animation:"heroFloat 6s ease-in-out infinite",
+                }}
+              />
+              {/* Floating particles around portrait */}
+              {[{t:"15%",r:"8%",s:10,d:"5s",del:"0s"},{t:"55%",r:"3%",s:7,d:"7s",del:"1.5s"},{t:"80%",r:"12%",s:5,d:"6s",del:"3s"},{t:"25%",l:"5%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
+                <div key={i} className="particle" style={{
+                  width:`${p.s}px`,height:`${p.s}px`,
+                  top:p.t,'right' in p ? {right:p.r} as any : undefined,'left' in p ? {left:p.l} as any : undefined,
+                  animationDuration:p.d,animationDelay:p.del,opacity:.7,zIndex:3,
+                }}/>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Responsive override */}
+        <style>{`
+          @media (max-width:900px){
+            .hero-grid{grid-template-columns:1fr!important}
+            .hero-img-wrap{margin-top:40px}
+          }
+        `}</style>
       </section>
 
       {/* ═══ COMMITMENT ═══ */}
@@ -804,28 +997,31 @@ function Page() {
         </div>
       </section>
 
-      {/* ═══ ANIMATED ICON TICKER ═══ */}
-      <div style={{ background: "#F0FDF4", padding: "28px 0", overflow: "hidden", borderTop: "1px solid #DCFCE7", borderBottom: "1px solid #DCFCE7" }}>
-        <div style={{ display: "flex", gap: "48px", animation: "ticker 20s linear infinite", width: "max-content" }}>
-          {[...TICKER_ICONS, ...TICKER_ICONS, ...TICKER_ICONS].map((Icon, i) => (
-            <span
-              key={i}
-              aria-hidden="true"
-              style={{
-                width: "56px",
-                height: "56px",
-                borderRadius: "18px",
-                background: "#FFFFFF",
-                border: "1px solid #BBF7D0",
-                boxShadow: "0 8px 22px rgba(22,163,74,0.10)",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#15803D",
-              }}
-            >
-              <Icon size={28} strokeWidth={1.8} />
-            </span>
+      {/* ═══ ANIMATED TEXT TICKER ═══ */}
+      <div style={{
+        background:"linear-gradient(90deg,#FCF8F1,#FFF9EE,#FCF8F1)",
+        padding:"22px 0",overflow:"hidden",
+        borderTop:"1px solid rgba(212,175,55,.2)",
+        borderBottom:"1px solid rgba(212,175,55,.2)",
+      }}>
+        <div style={{display:"flex",gap:"0",animation:"ticker 30s linear infinite",width:"max-content",alignItems:"center"}}>
+          {[...TICKER_PHRASES,...TICKER_PHRASES,...TICKER_PHRASES].map((phrase,i)=>(
+            <>
+              <span
+                key={`phrase-${i}`}
+                style={{
+                  display:"inline-block",
+                  fontFamily:"'Playfair Display',serif",
+                  fontSize:"0.95rem",
+                  fontWeight:600,
+                  color:"#4A3506",
+                  letterSpacing:"0.04em",
+                  padding:"0 24px",
+                  whiteSpace:"nowrap" as const,
+                }}
+              >{phrase}</span>
+              <span key={`dot-${i}`} style={{color:"#D4AF37",fontSize:"1.1rem",flexShrink:0}}>🪷</span>
+            </>
           ))}
         </div>
         <style>{`@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }`}</style>
@@ -963,6 +1159,7 @@ function Page() {
     </div>
   );
 }
+
 
 
 
