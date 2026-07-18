@@ -262,9 +262,9 @@ function Home() {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            gap: 60px;
-            min-height: calc(100vh - 90px);
-            padding: 50px 0 30px;
+            gap: 40px;
+            min-height: calc(100vh - 120px);
+            padding: 20px 0 10px;
           }
           .hm-left { max-width: 700px; }
           .hm-left p { max-width: 620px; }
@@ -275,7 +275,7 @@ function Home() {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 550px;
+            min-height: 500px;
           }
 
           /* Responsive */
@@ -349,7 +349,7 @@ function Home() {
                 border: "1.5px solid rgba(212,175,55,0.45)",
                 borderRadius: "100px", padding: "8px 22px",
                 backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
-                marginBottom: "28px",
+                marginBottom: "20px",
               }}>
                 <Sparkles size={16} color="#D4AF37" />
                 <span style={{
@@ -361,26 +361,26 @@ function Home() {
               </div>
 
               {/* Heading */}
-              <h1 style={{ margin: "0 0 20px", fontFamily: "'Playfair Display', serif", lineHeight: 1.05, fontWeight: 700 }}>
-                <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(32px, 4.4vw, 68px)", color: "#081A36" }}>Awaken Your</span>
+              <h1 style={{ margin: "0 0 16px", fontFamily: "'Playfair Display', serif", lineHeight: 1.05, fontWeight: 700 }}>
+                <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(28px, 4vw, 60px)", color: "#081A36" }}>Awaken Your</span>
                 <span className="hm-fade-2" style={{
-                  display: "block", fontSize: "clamp(32px, 4.4vw, 68px)", fontStyle: "italic",
+                  display: "block", fontSize: "clamp(28px, 4vw, 60px)", fontStyle: "italic",
                   background: "linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #E6C84A 60%, #C9910B 100%)",
                   WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
                   paddingTop: "0.15em", marginTop: "-0.15em", paddingRight: "0.1em"
                 }}>True Potential</span>
-                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(32px, 4.4vw, 68px)", color: "#081A36" }}>with Science Divine</span>
-                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(32px, 4.4vw, 68px)", color: "#081A36" }}>Movement</span>
+                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(28px, 4vw, 60px)", color: "#081A36" }}>with Science Divine</span>
+                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(28px, 4vw, 60px)", color: "#081A36" }}>Movement</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="hm-fade-4" style={{ fontSize: "1.05rem", color: "#5C677D", lineHeight: 1.6, marginBottom: "28px", maxWidth: "620px" }}>
+              <p className="hm-fade-4" style={{ fontSize: "1.05rem", color: "#5C677D", lineHeight: 1.6, marginBottom: "24px", maxWidth: "620px" }}>
                 Begin a journey of meditation, wisdom, and conscious living under the guidance of enlightened master{" "}
                 <strong style={{ color: "#D4AF37", fontWeight: 700 }}>Sakshi Shree</strong>. Discover inner peace, unlock your true potential, and transform every aspect of your life.
               </p>
 
               {/* Buttons */}
-              <div className="hm-fade-5 hm-btns" style={{ marginBottom: "32px" }}>
+              <div className="hm-fade-5 hm-btns" style={{ marginBottom: "24px" }}>
                 <Link to="/book-session" className="btn-hero-primary">
                   Meet Sakshi Shree <ArrowRight size={18} className="btn-arrow" />
                 </Link>
@@ -492,7 +492,7 @@ function Home() {
                   position: "relative", zIndex: 1,
                   width: "100%",
                   maxWidth: "520px",
-                  height: "600px",
+                  height: "500px",
                   objectFit: "contain",
                   objectPosition: "center bottom",
                   animation: "homeFloat 6s ease-in-out infinite",
