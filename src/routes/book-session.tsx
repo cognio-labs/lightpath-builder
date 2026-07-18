@@ -152,12 +152,8 @@ function Page() {
               <div>📞 +91 93159 44774</div>
             </div>
           </div>
-          <form onSubmit={(e) => { e.preventDefault(); alert("Thank you — we'll call soon."); }} className="glass-card rounded-2xl p-6 space-y-3">
-            <input required placeholder="Name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-            <input required type="email" placeholder="Email" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-            <input required placeholder="Phone" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-            <button className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full">Request Callback</button>
-          </form>
+          <CallbackForm />
+
         </div>
       </section>
     </>
