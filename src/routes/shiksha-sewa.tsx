@@ -96,17 +96,17 @@ const EVENTS = [
     desc: "Students practice discipline, writing, reading, and mindful concentration with guidance from caring mentors.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2025/02/4-1.png",
+    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=90&fit=crop&crop=center",
     title: "Skill Building Sessions",
     desc: "Learning through craft, games, and group work helps children develop creativity and practical life skills.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2023/06/IMG_9938-copy.webp",
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&q=90&fit=crop&crop=center",
     title: "Nutrition and Care Drive",
     desc: "Seva activities combine food, compassion, and dignity so children feel supported inside and outside the classroom.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2024/05/IMG_20240420_134241288-scaled.jpg",
+    img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&q=90&fit=crop&crop=center",
     title: "Outreach With Children",
     desc: "Volunteers connect with families and young learners to expand access to education, care, and meditation awareness.",
   },
@@ -528,6 +528,7 @@ function Page() {
     </div>
   );
 }
+
 
 
 
