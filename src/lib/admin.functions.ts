@@ -76,7 +76,7 @@ export const submitForm = createServerFn({ method: "POST" })
       email: data.email ?? null,
       phone: data.phone ?? null,
       message: data.message ?? null,
-      meta: data.meta ?? null,
+      meta: (data.meta as any) ?? null,
     });
     if (error) throw new Error(error.message);
     return { ok: true };
