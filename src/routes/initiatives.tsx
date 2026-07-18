@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { GraduationCap, Brain, UtensilsCrossed, Building2, Sparkles, Heart } from "lucide-react";
+import { GraduationCap, Brain, UtensilsCrossed, Building2, Heart } from "lucide-react";
 
 export const Route = createFileRoute("/initiatives")({
   head: () => ({
@@ -27,7 +27,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
     knowMoreSlug: "education-sewa",
-    image: "https://sciencedivine.org/wp-content/uploads/2025/03/image-10.webp",
+    image: "https://sciencedivine.org/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-04-at-1.02.45-PM.jpeg",
     desc: "Every child deserves the light of knowledge. Through Shiksha Sewa, we nurture young minds and shape brighter futures.",
     bulletPoints: [
       "Free education and books for underprivileged children",
@@ -42,7 +42,7 @@ const INITIATIVES = [
     subtitle: "Spreading the Gift of Meditation",
     achieved: 500000,
     goal: 1000000,
-    donateUrl: "https://rzp.io/rzp/gAfqVkYJ",
+    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
     knowMoreSlug: "dhyan-sewa",
     image: "https://sciencedivine.org/wp-content/uploads/2023/06/young-img1.jpg",
     desc: "Meditation is the path to inner peace and harmony. Dhyan Sewa helps seekers reconnect with their true self.",
@@ -59,7 +59,7 @@ const INITIATIVES = [
     subtitle: "Feeding hearts, one meal at a time",
     achieved: 350000,
     goal: 1000000,
-    donateUrl: "https://rzp.io/rzp/QQTFn4O",
+    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
     knowMoreSlug: "annapurna-sewa",
     image: "https://sciencedivine.org/wp-content/uploads/2024/04/gospelforasia-RT18-03070.jpeg",
     desc: "No one should sleep hungry. Annapurna Sewa ensures that meals reach those in need with dignity and care.",
@@ -76,9 +76,9 @@ const INITIATIVES = [
     subtitle: "Spiritual Retreat & Wellness Center",
     achieved: 700000,
     goal: 1000000,
-    donateUrl: "https://rzp.io/rzp/RnUeuKZ1",
+    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
     knowMoreSlug: "nirman-sewa",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Self-Conscious.jpeg",
+    image: "https://sciencedivine.org/wp-content/uploads/2023/06/2.jpg",
     desc: "Nirman Sewa is dedicated to building serene spiritual spaces where seekers can heal, meditate, and transform their lives. Your support helps us create retreat centres and wellness spaces.",
     bulletPoints: [
       "Building and maintaining spiritual retreat centres",
@@ -122,22 +122,15 @@ function Page() {
 
       {/* Intro Context */}
       <section className="section-pad" style={{ background: "#FFFDF9" }}>
-        <div className="container-page">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", top: "-10px", left: "-10px", width: "100%", height: "100%", border: "2px solid #D4AF37", borderRadius: "24px", opacity: 0.15 }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/03/AAP_0044-1-1.webp" alt="Sakshi Shree Ji guidance" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
-            </div>
-            <div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.85rem", fontWeight: 700, color: "#0F172A", marginBottom: "20px" }}>Have you experienced the guidance of Sakshi Shree?</h2>
-              <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.75, marginBottom: "20px" }}>
-                Do you wish his divine wisdom to touch millions and billions of hearts around the world?
-              </p>
-              <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.75 }}>
-                He walks this path for you. The blessings, the teachings, the light—they reach you because of his unwavering efforts. Now, this mission can only grow with your support. Your contribution ensures that Sakshi Shree’s voice spreads further, changing lives everywhere.
-              </p>
-            </div>
-          </div>
+        <div className="container-page" style={{ maxWidth: "860px", textAlign: "center" }}>
+          <span style={{ color: "#D4AF37", fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>A Living Movement</span>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#0F172A", marginTop: "10px", marginBottom: "20px" }}>Have you experienced the guidance of Sakshi Shree?</h2>
+          <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.8, marginBottom: "18px" }}>
+            Do you wish his divine wisdom to touch millions and billions of hearts around the world?
+          </p>
+          <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.8 }}>
+            He walks this path for you. The blessings, the teachings, the light—they reach you because of his unwavering efforts. Now, this mission can only grow with your support. Your contribution ensures that Sakshi Shree’s voice spreads further, changing lives everywhere.
+          </p>
         </div>
       </section>
 
@@ -155,7 +148,7 @@ function Page() {
       {/* Initiatives Cards Grid */}
       <section className="section-pad" style={{ background: "#FAF9F6" }}>
         <div className="container-page">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "36px" }}>
+          <div className="grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
             {INITIATIVES.map((init, idx) => {
               const percent = Math.min(100, Math.round((init.achieved / init.goal) * 100));
               return (
@@ -220,3 +213,4 @@ function Page() {
     </div>
   );
 }
+

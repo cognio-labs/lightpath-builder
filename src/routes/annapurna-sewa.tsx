@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Compass, Sparkles, ArrowRight, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, Sprout, UtensilsCrossed } from "lucide-react";
 
 export const Route = createFileRoute("/annapurna-sewa")({
   head: () => ({
@@ -74,7 +74,7 @@ function Page() {
       {/* The Sacred Offering Quote */}
       <section className="section-pad" style={{ background: "#FFFDF9" }}>
         <div className="container-page" style={{ maxWidth: "800px", textAlign: "center" }}>
-          <div style={{ fontSize: "2rem", marginBottom: "20px" }}>🌾</div>
+          <div style={{ width: "56px", height: "56px", borderRadius: "999px", margin: "0 auto 22px", display: "grid", placeItems: "center", background: "linear-gradient(135deg, #FEF3C7, #D4AF37)", boxShadow: "0 10px 28px rgba(212,175,55,0.28)" }}><Sprout size={28} color="#1E1B4B" strokeWidth={2.2} /></div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 700, color: "#1E1B4B", lineHeight: 1.5, marginBottom: "24px" }}>
             "Food is not merely nourishment here; it is <span style={{ color: "#D4AF37" }}>prasad</span> — a sacred offering. Each meal is served with folded hands, reminding us that in feeding another, we honor the Divine within them."
           </h2>
@@ -197,3 +197,4 @@ function Page() {
     </div>
   );
 }
+

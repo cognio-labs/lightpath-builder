@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, GraduationCap, Brain, Sparkles, Users, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Counter } from "@/lib/useCounter";
 
 export const Route = createFileRoute("/shiksha-sewa")({
   head: () => ({
@@ -37,27 +38,27 @@ const ABOUT_CARDS = [
 
 const PURPOSE_IMAGES = [
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2025/02/goal.png",
+    src: "/purpose-cards/our-goal.png",
     title: "Our Goal",
     desc: "To create conscious individuals who live joyfully and meaningfully.",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2025/02/mission.png",
+    src: "/purpose-cards/our-vision.png",
     title: "Our Vision",
     desc: "To provide quality education and meditation practices to those who need it most.",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2025/02/leadership.png",
+    src: "/purpose-cards/our-approach.png",
     title: "Our Approach",
     desc: "Guided by the wisdom and vision of Sakshi Shree to create positive change.",
   },
 ];
 
 const STATS = [
-  { value: "50,000+", label: "Lives Changed Worldwide Through Meditation" },
-  { value: "12,000+", label: "Students Educated — Empowering through quality education" },
-  { value: "20+", label: "Years in Operation — Dedicated educational service" },
-  { value: "45%", label: "Female Students Educated — Fostering gender-balanced education" },
+  { to: 50000, suffix: "+", label: "Lives Changed Worldwide Through Meditation" },
+  { to: 12000, suffix: "+", label: "Students Educated — Empowering through quality education" },
+  { to: 20, suffix: "+", label: "Years in Operation — Dedicated educational service" },
+  { to: 45, suffix: "%", label: "Female Students Educated — Fostering gender-balanced education" },
 ];
 
 const SOLUTIONS = [
@@ -79,12 +80,36 @@ const SOLUTIONS = [
 ];
 
 const EVENTS = [
-  { img: "https://sciencedivine.org/wp-content/uploads/2025/04/IMG_6954-1-scaled.webp", title: "Event 1", desc: "Transforming lives through meditation" },
-  { img: "https://sciencedivine.org/wp-content/uploads/2025/04/IMG_1319-1-1-1-scaled.webp", title: "Event 2", desc: "Transforming lives through meditation" },
-  { img: "https://sciencedivine.org/wp-content/uploads/2025/02/1-1.png", title: "Event 3", desc: "Transforming lives through meditation" },
-  { img: "https://sciencedivine.org/wp-content/uploads/2025/02/4-1.png", title: "Event 4", desc: "Transforming lives through meditation" },
-  { img: "https://sciencedivine.org/wp-content/uploads/2023/06/IMG_9938-copy.webp", title: "Event 5", desc: "Transforming lives through meditation" },
-  { img: "https://sciencedivine.org/wp-content/uploads/2024/05/IMG_20240420_134241288-scaled.jpg", title: "Event 6", desc: "Transforming lives through meditation" },
+  {
+    img: "https://sciencedivine.org/wp-content/uploads/2025/04/IMG_6954-1-scaled.webp",
+    title: "Community Learning Circle",
+    desc: "Children receive values-based education, meditation exposure, and personal attention in a safe learning space.",
+  },
+  {
+    img: "https://sciencedivine.org/wp-content/uploads/2025/04/IMG_1319-1-1-1-scaled.webp",
+    title: "Creative Education Workshop",
+    desc: "Hands-on activities build confidence, curiosity, teamwork, and joyful participation beyond regular classroom study.",
+  },
+  {
+    img: "https://sciencedivine.org/wp-content/uploads/2025/02/1-1.png",
+    title: "Focused Study Support",
+    desc: "Students practice discipline, writing, reading, and mindful concentration with guidance from caring mentors.",
+  },
+  {
+    img: "https://sciencedivine.org/wp-content/uploads/2025/02/4-1.png",
+    title: "Skill Building Sessions",
+    desc: "Learning through craft, games, and group work helps children develop creativity and practical life skills.",
+  },
+  {
+    img: "https://sciencedivine.org/wp-content/uploads/2023/06/IMG_9938-copy.webp",
+    title: "Nutrition and Care Drive",
+    desc: "Seva activities combine food, compassion, and dignity so children feel supported inside and outside the classroom.",
+  },
+  {
+    img: "https://sciencedivine.org/wp-content/uploads/2024/05/IMG_20240420_134241288-scaled.jpg",
+    title: "Outreach With Children",
+    desc: "Volunteers connect with families and young learners to expand access to education, care, and meditation awareness.",
+  },
 ];
 
 const VOLUNTEERS = [
@@ -255,12 +280,21 @@ function Page() {
             <p style={{ color: "#64748B", marginTop: "12px", lineHeight: 1.7 }}>We awaken human potential through meditation and education. Our goal is to create conscious individuals who live joyfully and break cycles of poverty.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px" }}>
             {PURPOSE_IMAGES.map((p, i) => (
-              <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "32px 20px", textAlign: "center" }}>
-                <img src={p.src} alt={p.title} style={{ width: "60px", height: "60px", objectFit: "contain", margin: "0 auto 16px", display: "block" }} />
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{p.title}</h3>
-                <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5 }}>{p.desc}</p>
+              <div
+                key={i}
+                style={{ background: "#FFFFFF", border: "1px solid #EAEAEA", borderRadius: "24px", padding: "24px", boxShadow: "0 12px 34px rgba(15,23,42,0.06)", display: "flex", flexDirection: "column", transition: "transform 0.3s ease, box-shadow 0.3s ease" }}
+                onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 22px 50px rgba(15,23,42,0.12)"; }}
+                onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 12px 34px rgba(15,23,42,0.06)"; }}
+              >
+                <div style={{ height: "210px", width: "100%", overflow: "hidden", borderRadius: "20px", background: "#F8FAFC" }}>
+                  <img src={p.src} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.5s ease" }} onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")} onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
+                </div>
+                <div style={{ padding: "24px 6px 4px", textAlign: "center", flex: 1 }}>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.35rem", fontWeight: 700, color: "#0F172A", marginBottom: "10px" }}>{p.title}</h3>
+                  <p style={{ color: "#64748B", fontSize: "0.9rem", lineHeight: 1.65 }}>{p.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -281,7 +315,7 @@ function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
             {STATS.map((s, i) => (
               <div key={i} style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "16px", padding: "28px 16px", textAlign: "center" }}>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 800, color: "#F59E0B" }}>{s.value}</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 800, color: "#F59E0B" }}><Counter to={s.to} suffix={s.suffix} /></div>
                 <div style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.825rem", marginTop: "8px", lineHeight: 1.4 }}>{s.label}</div>
               </div>
             ))}
@@ -494,3 +528,4 @@ function Page() {
     </div>
   );
 }
+

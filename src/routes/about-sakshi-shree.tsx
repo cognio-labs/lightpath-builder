@@ -115,12 +115,6 @@ function Page() {
               className="rounded-3xl shadow-xl w-full object-cover"
               loading="lazy"
             />
-            <img
-              src="https://sciencedivine.org/wp-content/uploads/2024/06/DJI_0169-scaled.jpg"
-              alt="Sakshi Shree with a wider perspective"
-              className="rounded-3xl shadow-md w-full object-cover"
-              loading="lazy"
-            />
           </div>
           <div className="md:col-span-3 space-y-6">
             <SectionHeading eyebrow="Biography" title="Discover Inner Serenity, Embrace Outer Reality" />
@@ -280,3 +274,4 @@ function Page() {
     </>
   );
 }
+
