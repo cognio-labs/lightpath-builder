@@ -240,12 +240,12 @@ function Home() {
             left: 50%;
             width: 800px;
             height: 800px;
-            opacity: 0.28;
+            opacity: 0.65;
             pointer-events: none;
             animation: rotateMandala 80s linear infinite;
             will-change: transform;
             transform: translate(-50%, -50%) translateZ(0);
-            filter: drop-shadow(0 0 60px rgba(255, 220, 150, 0.4));
+            filter: drop-shadow(0 0 40px rgba(212,175,55,0.4));
             z-index: 0;
           }
 
@@ -433,38 +433,38 @@ function Home() {
 
               {/* Rotating Sacred Chakra Mandala */}
               <svg className="hero-mandala" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#E7C66A" fill="none" strokeWidth="1.2" style={{ mixBlendMode: 'screen' }}>
+                <g stroke="#D4AF37" fill="none" strokeWidth="1.5">
                   {/* Outer Rings */}
-                  <circle cx="400" cy="400" r="390" strokeWidth="0.8" opacity="0.3" strokeDasharray="4 8" />
-                  <circle cx="400" cy="400" r="375" strokeWidth="1.5" opacity="0.5" />
-                  <circle cx="400" cy="400" r="365" strokeWidth="0.5" opacity="0.3" />
+                  <circle cx="400" cy="400" r="390" strokeWidth="1" opacity="0.5" strokeDasharray="4 8" />
+                  <circle cx="400" cy="400" r="375" strokeWidth="2" opacity="0.8" />
+                  <circle cx="400" cy="400" r="365" strokeWidth="1" opacity="0.5" />
                   
                   {/* Geometry / Lotus Petals Layer 1 */}
                   {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
                     <g key={deg} transform={`rotate(${deg} 400 400)`}>
-                      <path d="M400,35 Q445,200 400,365 Q355,200 400,35" opacity="0.45" />
-                      <circle cx="400" cy="65" r="3.5" fill="#F8E9B5" opacity="0.8" />
+                      <path d="M400,35 Q445,200 400,365 Q355,200 400,35" opacity="0.6" strokeWidth="1.5" />
+                      <circle cx="400" cy="65" r="4" fill="#D4AF37" opacity="0.9" />
                       {/* Geometric connecting lines */}
-                      <line x1="400" y1="35" x2="400" y2="365" opacity="0.25" />
+                      <line x1="400" y1="35" x2="400" y2="365" opacity="0.3" />
                     </g>
                   ))}
                   
                   {/* Lotus Petals Layer 2 (Offset) */}
                   {[15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345].map(deg => (
                     <g key={deg} transform={`rotate(${deg} 400 400)`}>
-                      <path d="M400,80 Q430,225 400,365 Q370,225 400,80" opacity="0.35" stroke="#FFF7E5" />
-                      <circle cx="400" cy="115" r="2.5" fill="#E7C66A" opacity="0.6" />
+                      <path d="M400,80 Q430,225 400,365 Q370,225 400,80" opacity="0.5" stroke="#B8860B" strokeWidth="1.5" />
+                      <circle cx="400" cy="115" r="3" fill="#B8860B" opacity="0.8" />
                     </g>
                   ))}
 
                   {/* Inner Rings */}
-                  <circle cx="400" cy="400" r="280" strokeWidth="0.8" opacity="0.6" />
-                  <circle cx="400" cy="400" r="260" strokeWidth="1.5" opacity="0.4" strokeDasharray="2 12" />
-                  <circle cx="400" cy="400" r="200" strokeWidth="0.8" opacity="0.7" />
+                  <circle cx="400" cy="400" r="280" strokeWidth="1.5" opacity="0.7" />
+                  <circle cx="400" cy="400" r="260" strokeWidth="2" opacity="0.5" strokeDasharray="2 12" />
+                  <circle cx="400" cy="400" r="200" strokeWidth="1" opacity="0.8" />
                   
                   {/* Sun Rays Core */}
                   {[...Array(36)].map((_, i) => (
-                    <line key={i} x1="400" y1="225" x2="400" y2="365" opacity="0.3" strokeWidth="0.8" transform={`rotate(${i * 10} 400 400)`} />
+                    <line key={i} x1="400" y1="225" x2="400" y2="365" opacity="0.4" strokeWidth="1" transform={`rotate(${i * 10} 400 400)`} />
                   ))}
                 </g>
               </svg>
@@ -496,7 +496,6 @@ function Home() {
                   objectFit: "contain",
                   objectPosition: "center bottom",
                   animation: "homeFloat 6s ease-in-out infinite",
-                  filter: "drop-shadow(0 24px 48px rgba(150,100,0,0.18))",
                 }}
               />
 
