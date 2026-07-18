@@ -24,6 +24,7 @@ import {
   Heart,
   BookOpen,
   Droplets,
+  Sparkles,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -331,7 +332,7 @@ function Home() {
                 backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
                 marginBottom: "28px",
               }}>
-                <span style={{ fontSize: "0.95rem" }}>🪷</span>
+                <Sparkles size={16} color="#D4AF37" />
                 <span style={{
                   color: "#8B6914", fontSize: "11px", fontWeight: 700,
                   letterSpacing: "0.22em", textTransform: "uppercase" as const
@@ -380,9 +381,15 @@ function Home() {
                     {i > 0 && <div className="hm-stat-sep" />}
                     <div>
                       <div style={{
-                        fontFamily: "'Playfair Display', serif", fontSize: "2rem",
-                        fontWeight: 800, color: "#D4AF37", lineHeight: 1
-                      }}>{s.num}</div>
+                        fontFamily: "'Playfair Display', serif", fontSize: "2.5rem",
+                        fontWeight: 800, color: "#D4AF37", lineHeight: 1,
+                        display: "flex", alignItems: "baseline"
+                      }}>
+                        {s.num.replace(/\D/g, '')}
+                        <span style={{ fontSize: "1.75rem", fontWeight: 600, marginLeft: "2px" }}>
+                          {s.num.replace(/\d/g, '')}
+                        </span>
+                      </div>
                       <div style={{
                         fontSize: "0.78rem", color: "#5C677D", marginTop: "6px",
                         fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" as const
