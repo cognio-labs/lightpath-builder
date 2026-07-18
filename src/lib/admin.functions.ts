@@ -114,7 +114,7 @@ export const adminUpdateSubmission = createServerFn({ method: "POST" })
     const patch: Record<string, unknown> = {};
     if (data.status) patch.status = data.status;
     if (data.admin_notes !== undefined) patch.admin_notes = data.admin_notes;
-    const { error } = await context.supabase.from("form_submissions").update(patch).eq("id", data.id);
+    const { error } = await context.supabase.from("form_submissions").update(patch as any).eq("id", data.id);
     if (error) throw new Error(error.message);
     return { ok: true };
   });
