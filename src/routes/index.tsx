@@ -174,6 +174,10 @@ function Home() {
           @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
           @keyframes homePulse { 0%,100%{opacity:.3} 50%{opacity:.65} }
           @keyframes homeRotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+          @keyframes rotateMandala {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+          }
           @keyframes homeParticle {
             0%{transform:translateY(0) translateX(0);opacity:0}
             30%{opacity:.6}
@@ -228,6 +232,21 @@ function Home() {
             background: radial-gradient(circle, #D4AF37, rgba(212,175,55,0));
             animation: homeParticle linear infinite;
             pointer-events: none;
+          }
+          
+          .hero-mandala {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            opacity: 0.28;
+            pointer-events: none;
+            animation: rotateMandala 80s linear infinite;
+            will-change: transform;
+            transform: translate(-50%, -50%) translateZ(0);
+            filter: drop-shadow(0 0 60px rgba(255, 220, 150, 0.4));
+            z-index: 0;
           }
 
           /* ── Hero Grid Layout ── */
@@ -403,30 +422,58 @@ function Home() {
             {/* ── RIGHT COLUMN ── */}
             <div className="hm-right hm-fade-img">
 
-              {/* Outer pulsing golden glow */}
+              {/* Background ambient radial glow */}
               <div style={{
                 position: "absolute", inset: 0, margin: "auto",
-                width: "88%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(212,175,55,0.30) 0%, rgba(212,175,55,0.10) 55%, transparent 75%)",
+                width: "90%", aspectRatio: "1", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.08) 55%, transparent 75%)",
                 animation: "homePulse 4s ease-in-out infinite",
                 pointerEvents: "none", zIndex: 0,
               }} />
 
-              {/* Mandala ring */}
-              <div style={{
-                position: "absolute", inset: 0, margin: "auto",
-                width: "72%", aspectRatio: "1", borderRadius: "50%",
-                border: "1.5px solid rgba(212,175,55,0.28)",
-                boxShadow: "0 0 60px rgba(212,175,55,0.22), inset 0 0 60px rgba(212,175,55,0.10)",
-                animation: "homePulse 5s 1s ease-in-out infinite",
-                pointerEvents: "none", zIndex: 0,
-              }} />
+              {/* Rotating Sacred Chakra Mandala */}
+              <svg className="hero-mandala" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#E7C66A" fill="none" strokeWidth="1.2" style={{ mixBlendMode: 'screen' }}>
+                  {/* Outer Rings */}
+                  <circle cx="400" cy="400" r="390" strokeWidth="0.8" opacity="0.3" strokeDasharray="4 8" />
+                  <circle cx="400" cy="400" r="375" strokeWidth="1.5" opacity="0.5" />
+                  <circle cx="400" cy="400" r="365" strokeWidth="0.5" opacity="0.3" />
+                  
+                  {/* Geometry / Lotus Petals Layer 1 */}
+                  {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
+                    <g key={deg} transform={`rotate(${deg} 400 400)`}>
+                      <path d="M400,35 Q445,200 400,365 Q355,200 400,35" opacity="0.45" />
+                      <circle cx="400" cy="65" r="3.5" fill="#F8E9B5" opacity="0.8" />
+                      {/* Geometric connecting lines */}
+                      <line x1="400" y1="35" x2="400" y2="365" opacity="0.25" />
+                    </g>
+                  ))}
+                  
+                  {/* Lotus Petals Layer 2 (Offset) */}
+                  {[15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345].map(deg => (
+                    <g key={deg} transform={`rotate(${deg} 400 400)`}>
+                      <path d="M400,80 Q430,225 400,365 Q370,225 400,80" opacity="0.35" stroke="#FFF7E5" />
+                      <circle cx="400" cy="115" r="2.5" fill="#E7C66A" opacity="0.6" />
+                    </g>
+                  ))}
 
-              {/* Inner halo */}
+                  {/* Inner Rings */}
+                  <circle cx="400" cy="400" r="280" strokeWidth="0.8" opacity="0.6" />
+                  <circle cx="400" cy="400" r="260" strokeWidth="1.5" opacity="0.4" strokeDasharray="2 12" />
+                  <circle cx="400" cy="400" r="200" strokeWidth="0.8" opacity="0.7" />
+                  
+                  {/* Sun Rays Core */}
+                  {[...Array(36)].map((_, i) => (
+                    <line key={i} x1="400" y1="225" x2="400" y2="365" opacity="0.3" strokeWidth="0.8" transform={`rotate(${i * 10} 400 400)`} />
+                  ))}
+                </g>
+              </svg>
+
+              {/* Inner divine halo directly behind head */}
               <div style={{
                 position: "absolute", inset: 0, margin: "auto",
-                width: "52%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(255,245,190,0.65) 0%, transparent 70%)",
+                width: "45%", aspectRatio: "1", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(255,245,190,0.60) 0%, rgba(255,230,170,0.35) 40%, transparent 70%)",
                 pointerEvents: "none", zIndex: 0,
               }} />
 
