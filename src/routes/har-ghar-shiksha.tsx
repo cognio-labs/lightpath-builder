@@ -960,7 +960,9 @@ function Page() {
               {[{t:"15%",r:"8%",s:10,d:"5s",del:"0s"},{t:"55%",r:"3%",s:7,d:"7s",del:"1.5s"},{t:"80%",r:"12%",s:5,d:"6s",del:"3s"},{t:"25%",l:"5%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
                 <div key={i} className="particle" style={{
                   width:`${p.s}px`,height:`${p.s}px`,
-                  top:p.t,'right' in p ? {right:p.r} as any : undefined,'left' in p ? {left:p.l} as any : undefined,
+                  top:p.t,
+                  ...('right' in p ? {right:p.r} : {}),
+                  ...('left' in p ? {left:p.l} : {}),
                   animationDuration:p.d,animationDelay:p.del,opacity:.7,zIndex:3,
                 }}/>
               ))}
