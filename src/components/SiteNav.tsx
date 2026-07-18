@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown, Moon, Sun, Shield } from "lucide-react";
 import { LOGO_URL, SOLUTION_TOPICS } from "@/data/content";
+import { supabase } from "@/integrations/supabase/client";
 
 const aboutLinks = [
   { to: "/about-movement", label: "About Movement" },
