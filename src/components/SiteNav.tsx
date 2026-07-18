@@ -84,6 +84,11 @@ export function SiteNav() {
           </button>
           <Link to="/initiatives" className="hidden md:inline-flex btn-gold rounded-full px-5 py-2 text-sm font-semibold">Donate</Link>
           <Link to="/book-session" className="hidden md:inline-flex btn-gradient rounded-full px-5 py-2 text-sm font-semibold">Book Session</Link>
+          {signedIn && (
+            <Link to="/admin" className="hidden md:inline-flex items-center gap-1 rounded-full border border-border px-4 py-2 text-sm font-semibold">
+              <Shield size={14} /> Admin
+            </Link>
+          )}
           <button className="lg:hidden rounded-full p-2 hover:bg-secondary" onClick={() => setOpen(!open)} aria-label="Menu">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
