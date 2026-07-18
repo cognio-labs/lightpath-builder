@@ -154,6 +154,9 @@ function LensImage({ src, alt, className }: { src: string; alt: string; classNam
     </Lens>
   );
 }
+function Home() {
+  return (
+    <>
       {/* ════════════════════════════════════
           HERO — Master Premium Redesign
       ════════════════════════════════════ */}
