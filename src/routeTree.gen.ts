@@ -45,7 +45,9 @@ import { Route as AnxietyRouteImport } from './routes/anxiety'
 import { Route as AddictionsRouteImport } from './routes/addictions'
 import { Route as AboutSakshiShreeRouteImport } from './routes/about-sakshi-shree'
 import { Route as AboutMovementRouteImport } from './routes/about-movement'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
@@ -227,10 +229,19 @@ const AboutMovementRoute = AboutMovementRouteImport.update({
   path: '/about-movement',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -271,6 +282,7 @@ export interface FileRoutesByFullPath {
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/yoga': typeof YogaRoute
+  '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -310,10 +322,12 @@ export interface FileRoutesByTo {
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/yoga': typeof YogaRoute
+  '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about-movement': typeof AboutMovementRoute
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
@@ -350,6 +364,7 @@ export interface FileRoutesById {
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
   '/yoga': typeof YogaRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -391,6 +406,7 @@ export interface FileRouteTypes {
     | '/terms-conditions'
     | '/testimonials'
     | '/yoga'
+    | '/admin'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -430,9 +446,11 @@ export interface FileRouteTypes {
     | '/terms-conditions'
     | '/testimonials'
     | '/yoga'
+    | '/admin'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about-movement'
     | '/about-sakshi-shree'
     | '/addictions'
@@ -469,10 +487,12 @@ export interface FileRouteTypes {
     | '/terms-conditions'
     | '/testimonials'
     | '/yoga'
+    | '/_authenticated/admin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutMovementRoute: typeof AboutMovementRoute
   AboutSakshiShreeRoute: typeof AboutSakshiShreeRoute
   AddictionsRoute: typeof AddictionsRoute
@@ -765,6 +785,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutMovementRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -772,11 +799,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutMovementRoute: AboutMovementRoute,
   AboutSakshiShreeRoute: AboutSakshiShreeRoute,
   AddictionsRoute: AddictionsRoute,
