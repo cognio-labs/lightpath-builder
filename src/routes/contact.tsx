@@ -1,6 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { submitForm } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -16,19 +19,43 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Page() {
+  const navigate = useNavigate();
+  const submit = useServerFn(submitForm);
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setBusy(true); setErr(null);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await submit({ data: {
+        type: "contact",
+        name: String(fd.get("name") ?? ""),
+        email: String(fd.get("email") ?? ""),
+        phone: String(fd.get("phone") ?? ""),
+        message: String(fd.get("message") ?? ""),
+      }});
+      navigate({ to: "/thank-you" });
+    } catch (e: any) {
+      setErr(e.message ?? "Failed to submit"); setBusy(false);
+    }
+  }
+
   return (
     <>
       <PageHero eyebrow="Get in Touch" title="We'd love to hear from you" subtitle="Questions, collaboration, volunteering, or booking Sakshi Shree — start here." />
 
       <section className="section-pad">
         <div className="container-page grid lg:grid-cols-2 gap-10">
-          <form onSubmit={(e) => { e.preventDefault(); alert("Thank you — we'll be in touch."); }} className="glass-card rounded-3xl p-8 space-y-4">
+          <form onSubmit={onSubmit} className="glass-card rounded-3xl p-8 space-y-4">
             <SectionHeading eyebrow="Send Message" title="Contact Form" />
-            <input required placeholder="Full Name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
-            <input required type="email" placeholder="Email Address" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
-            <input placeholder="Phone" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
-            <textarea required placeholder="Your message" rows={5} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
-            <button className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full">Submit</button>
+            <input required name="name" placeholder="Full Name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+            <input required name="email" type="email" placeholder="Email Address" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+            <input name="phone" placeholder="Phone" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+            <textarea required name="message" placeholder="Your message" rows={5} className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30" />
+            {err && <p className="text-sm text-destructive">{err}</p>}
+            <button disabled={busy} className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full disabled:opacity-60">{busy ? "Sending…" : "Submit"}</button>
           </form>
 
           <div className="space-y-6">

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YogaRouteImport } from './routes/yoga'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as StressRouteImport } from './routes/stress'
@@ -40,15 +41,23 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
 import { Route as BookSessionRouteImport } from './routes/book-session'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AnxietyRouteImport } from './routes/anxiety'
 import { Route as AddictionsRouteImport } from './routes/addictions'
 import { Route as AboutSakshiShreeRouteImport } from './routes/about-sakshi-shree'
 import { Route as AboutMovementRouteImport } from './routes/about-movement'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const YogaRoute = YogaRouteImport.update({
   id: '/yoga',
   path: '/yoga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
@@ -201,6 +210,11 @@ const BookSessionRoute = BookSessionRouteImport.update({
   path: '/book-session',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnxietyRoute = AnxietyRouteImport.update({
   id: '/anxiety',
   path: '/anxiety',
@@ -221,10 +235,19 @@ const AboutMovementRoute = AboutMovementRouteImport.update({
   path: '/about-movement',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -233,6 +256,7 @@ export interface FileRoutesByFullPath {
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
   '/anxiety': typeof AnxietyRoute
+  '/auth': typeof AuthRoute
   '/book-session': typeof BookSessionRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
@@ -263,7 +287,9 @@ export interface FileRoutesByFullPath {
   '/stress': typeof StressRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
   '/yoga': typeof YogaRoute
+  '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -271,6 +297,7 @@ export interface FileRoutesByTo {
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
   '/anxiety': typeof AnxietyRoute
+  '/auth': typeof AuthRoute
   '/book-session': typeof BookSessionRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
@@ -301,15 +328,19 @@ export interface FileRoutesByTo {
   '/stress': typeof StressRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
   '/yoga': typeof YogaRoute
+  '/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about-movement': typeof AboutMovementRoute
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
   '/anxiety': typeof AnxietyRoute
+  '/auth': typeof AuthRoute
   '/book-session': typeof BookSessionRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
@@ -340,7 +371,9 @@ export interface FileRoutesById {
   '/stress': typeof StressRoute
   '/terms-conditions': typeof TermsConditionsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
   '/yoga': typeof YogaRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -350,6 +383,7 @@ export interface FileRouteTypes {
     | '/about-sakshi-shree'
     | '/addictions'
     | '/anxiety'
+    | '/auth'
     | '/book-session'
     | '/cancellation-policy'
     | '/cart'
@@ -380,7 +414,9 @@ export interface FileRouteTypes {
     | '/stress'
     | '/terms-conditions'
     | '/testimonials'
+    | '/thank-you'
     | '/yoga'
+    | '/admin'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -388,6 +424,7 @@ export interface FileRouteTypes {
     | '/about-sakshi-shree'
     | '/addictions'
     | '/anxiety'
+    | '/auth'
     | '/book-session'
     | '/cancellation-policy'
     | '/cart'
@@ -418,14 +455,18 @@ export interface FileRouteTypes {
     | '/stress'
     | '/terms-conditions'
     | '/testimonials'
+    | '/thank-you'
     | '/yoga'
+    | '/admin'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about-movement'
     | '/about-sakshi-shree'
     | '/addictions'
     | '/anxiety'
+    | '/auth'
     | '/book-session'
     | '/cancellation-policy'
     | '/cart'
@@ -456,15 +497,19 @@ export interface FileRouteTypes {
     | '/stress'
     | '/terms-conditions'
     | '/testimonials'
+    | '/thank-you'
     | '/yoga'
+    | '/_authenticated/admin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutMovementRoute: typeof AboutMovementRoute
   AboutSakshiShreeRoute: typeof AboutSakshiShreeRoute
   AddictionsRoute: typeof AddictionsRoute
   AnxietyRoute: typeof AnxietyRoute
+  AuthRoute: typeof AuthRoute
   BookSessionRoute: typeof BookSessionRoute
   CancellationPolicyRoute: typeof CancellationPolicyRoute
   CartRoute: typeof CartRoute
@@ -495,6 +540,7 @@ export interface RootRouteChildren {
   StressRoute: typeof StressRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  ThankYouRoute: typeof ThankYouRoute
   YogaRoute: typeof YogaRoute
 }
 
@@ -505,6 +551,13 @@ declare module '@tanstack/react-router' {
       path: '/yoga'
       fullPath: '/yoga'
       preLoaderRoute: typeof YogaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/testimonials': {
@@ -717,6 +770,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/anxiety': {
       id: '/anxiety'
       path: '/anxiety'
@@ -745,6 +805,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutMovementRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -752,15 +819,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutMovementRoute: AboutMovementRoute,
   AboutSakshiShreeRoute: AboutSakshiShreeRoute,
   AddictionsRoute: AddictionsRoute,
   AnxietyRoute: AnxietyRoute,
+  AuthRoute: AuthRoute,
   BookSessionRoute: BookSessionRoute,
   CancellationPolicyRoute: CancellationPolicyRoute,
   CartRoute: CartRoute,
@@ -791,18 +878,9 @@ const rootRouteChildren: RootRouteChildren = {
   StressRoute: StressRoute,
   TermsConditionsRoute: TermsConditionsRoute,
   TestimonialsRoute: TestimonialsRoute,
+  ThankYouRoute: ThankYouRoute,
   YogaRoute: YogaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

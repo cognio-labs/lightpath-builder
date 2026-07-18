@@ -1,9 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { LEADERS, TESTIMONIAL_VIDEOS } from "@/data/content";
 import { Sparkles, Compass, HeartHandshake, Check, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { submitForm } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/book-session")({
   head: () => ({
@@ -150,12 +152,8 @@ function Page() {
               <div>📞 +91 93159 44774</div>
             </div>
           </div>
-          <form onSubmit={(e) => { e.preventDefault(); alert("Thank you — we'll call soon."); }} className="glass-card rounded-2xl p-6 space-y-3">
-            <input required placeholder="Name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-            <input required type="email" placeholder="Email" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-            <input required placeholder="Phone" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
-            <button className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full">Request Callback</button>
-          </form>
+          <CallbackForm />
+
         </div>
       </section>
     </>
@@ -174,3 +172,35 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     </div>
   );
 }
+
+function CallbackForm() {
+  const navigate = useNavigate();
+  const submit = useServerFn(submitForm);
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setBusy(true); setErr(null);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await submit({ data: {
+        type: "book_session",
+        name: String(fd.get("name") ?? ""),
+        email: String(fd.get("email") ?? ""),
+        phone: String(fd.get("phone") ?? ""),
+        message: "Callback request from Book Session page",
+      }});
+      navigate({ to: "/thank-you" });
+    } catch (e: any) { setErr(e.message ?? "Failed"); setBusy(false); }
+  }
+  return (
+    <form onSubmit={onSubmit} className="glass-card rounded-2xl p-6 space-y-3">
+      <input required name="name" placeholder="Name" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
+      <input required name="email" type="email" placeholder="Email" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
+      <input required name="phone" placeholder="Phone" className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm" />
+      {err && <p className="text-sm text-destructive">{err}</p>}
+      <button disabled={busy} className="btn-gradient rounded-full px-6 py-3 font-semibold text-sm w-full disabled:opacity-60">{busy ? "Sending…" : "Request Callback"}</button>
+    </form>
+  );
+}
+
