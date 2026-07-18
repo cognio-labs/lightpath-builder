@@ -37,7 +37,7 @@ const COURSES_DATA = [
     duration: "2 hours",
     price: 459,
     originalPrice: 5100,
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=90&fit=crop&crop=center",
     features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"]
   },
   {
@@ -181,4 +181,5 @@ function Page() {
     </div>
   );
 }
+
 
