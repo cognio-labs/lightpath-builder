@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { ArrowRight, Heart, BookOpen, Brain, Users } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowRight, Heart, BookOpen, Brain, Users, Sprout, GraduationCap, Flower2, Palette } from "lucide-react";
 
 export const Route = createFileRoute("/har-ghar-shiksha")({
   head: () => ({
@@ -26,52 +26,82 @@ export const Route = createFileRoute("/har-ghar-shiksha")({
 /* ─── Data ─── */
 const STATS = [
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/meditation-1.png",
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=90&fit=crop",
     value: "50,000+",
-    label: "Lives",
-    desc: "Changed Worldwide Through Meditation",
+    label: "Lives Changed Through Meditation",
+    desc: "Thousands awakened worldwide",
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/countries.png",
+    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=90&fit=crop",
     value: "12,000+",
     label: "Students Educated",
-    desc: "Empowering 12,000+ students through quality education",
+    desc: "Underprivileged children empowered",
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/teamwork.png",
+    img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=90&fit=crop",
     value: "100,000+",
     label: "Lives Enriched",
-    desc: "With Meditation and Education",
+    desc: "Through meditation & education",
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/public-library.png",
+    img: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=900&q=90&fit=crop",
     value: "20+",
     label: "Years in Operation",
-    desc: "20+ years of dedicated educational service",
+    desc: "Decades of trusted service",
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/programmer.png",
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&q=90&fit=crop",
     value: "45%",
     label: "Girls' Education",
-    desc: "Fostering education, with 45% female students educated.",
+    desc: "Empowering young women for a brighter future",
+  },
+];
+
+const PURPOSE_CARDS = [
+  {
+    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=90&fit=crop",
+    title: "Our Goal",
+    desc: "To create conscious individuals who live joyfully and meaningfully, breaking cycles of poverty through inner transformation.",
+    icon: Heart,
+    color: "#16A34A",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=90&fit=crop",
+    title: "Our Vision",
+    desc: "To provide quality education and meditation practices to those who need it most, awakening human potential worldwide.",
+    icon: Flower2,
+    color: "#0E9F6E",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=800&q=90&fit=crop",
+    title: "Our Approach",
+    desc: "Guided by the wisdom of Sakshi Shree, we blend ancient meditation wisdom with modern education to create positive change.",
+    icon: Sprout,
+    color: "#059669",
   },
 ];
 
 const PROBLEMS = [
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/equanimity.png",
+    img: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=90&fit=crop",
     title: "Spiritual Growth",
     desc: "Discover your inner divinity and connect with your true self through guided meditation practices.",
+    icon: Flower2,
+    color: "#16A34A",
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/growth-mindset.png",
+    img: "https://images.unsplash.com/photo-1474540412665-1cdae210ae6b?w=800&q=90&fit=crop",
     title: "Mental Clarity",
-    desc: "Achieve peace of mind and enhanced focus through regular meditation practice.",
+    desc: "Achieve peace of mind and enhanced focus through regular meditation and mindfulness practices.",
+    icon: Brain,
+    color: "#0E9F6E",
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/02/graduation-cap.png",
+    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=90&fit=crop",
     title: "Knowledge for All",
     desc: "Access spiritual wisdom and practical knowledge that transforms daily life.",
+    icon: GraduationCap,
+    color: "#059669",
   },
 ];
 
@@ -79,26 +109,34 @@ const HOW_WE_WORK = [
   {
     num: "01",
     title: "Community Outreach",
-    desc: "Dedicated volunteers, experienced in meditation practices, reach out to communities",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/02/participation-1.png",
+    desc: "Our volunteers bring meditation, awareness, and hope directly to communities, creating meaningful social transformation.",
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=90&fit=crop",
+    icon: Sprout,
+    color: "#16A34A",
   },
   {
     num: "02",
     title: "Educational Access",
-    desc: "Free educational programs for underprivileged children and adults",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/02/online-education.png",
+    desc: "Providing free education and learning opportunities for underprivileged children and adults to build brighter futures.",
+    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=90&fit=crop",
+    icon: GraduationCap,
+    color: "#0E9F6E",
   },
   {
     num: "03",
     title: "Meditation For All",
-    desc: "Complimentary meditation sessions designed for all age groups",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/02/yoga-pose.png",
+    desc: "Accessible meditation sessions that promote inner peace, emotional balance, and well-being for everyone.",
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=90&fit=crop",
+    icon: Flower2,
+    color: "#059669",
   },
   {
     num: "04",
     title: "Creative Growth",
-    desc: "Extracurricular activities that nurture creativity and life skills",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/02/self-improvement.png",
+    desc: "Creative learning experiences that nurture confidence, imagination, life skills, and personal growth.",
+    img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=90&fit=crop",
+    icon: Palette,
+    color: "#10B981",
   },
 ];
 
@@ -160,6 +198,243 @@ const TICKER_ICONS = [
   "https://sciencedivine.org/wp-content/uploads/2025/02/leadership.png",
   "https://sciencedivine.org/wp-content/uploads/2025/02/financial-freedom.png",
 ];
+
+/* ─── How We Work Premium Component ─── */
+function HowWeWorkSection() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [visible, setVisible] = useState<boolean[]>([false, false, false, false]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    cardRefs.current.forEach((ref, i) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisible((prev) => {
+                const next = [...prev];
+                next[i] = true;
+                return next;
+              });
+            }, i * 120);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.12 }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  return (
+    <section style={{ background: "#FFFFFF", padding: "100px 0 120px", overflow: "hidden" }}>
+      <style>{`
+        @keyframes howFloatBadge {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-6px); }
+        }
+        @keyframes howShimmer {
+          0% { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
+        .how-card {
+          background: #FFFFFF;
+          border: 1px solid #ECECEC;
+          border-radius: 28px;
+          overflow: hidden;
+          transition: transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1);
+          cursor: pointer;
+          position: relative;
+        }
+        .how-card:hover {
+          transform: translateY(-14px) scale(1.01);
+          box-shadow: 0 32px 80px rgba(22,163,74,0.18), 0 8px 32px rgba(0,0,0,0.10);
+        }
+        .how-card:hover .how-img {
+          transform: scale(1.08);
+        }
+        .how-card:hover .how-step-badge {
+          transform: scale(1.12);
+        }
+        .how-card:hover .how-icon-badge {
+          box-shadow: 0 12px 36px rgba(22,163,74,0.25);
+        }
+        .how-img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          display: block;
+          transition: transform 650ms cubic-bezier(.22,1,.36,1);
+        }
+        .how-step-badge {
+          position: absolute;
+          top: 18px;
+          left: 18px;
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #16A34A, #22C55E);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 1.15rem;
+          font-weight: 800;
+          font-family: 'Inter', sans-serif;
+          letter-spacing: -0.02em;
+          box-shadow: 0 6px 20px rgba(22,163,74,0.4);
+          transition: transform 450ms cubic-bezier(.22,1,.36,1);
+          z-index: 2;
+        }
+        .how-icon-badge {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.88);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255,255,255,0.9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+          transition: box-shadow 450ms ease;
+          z-index: 3;
+          animation: howFloatBadge 3s ease-in-out infinite;
+        }
+        .how-glow {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #16A34A, #22C55E, #86EFAC, #22C55E, #16A34A);
+          background-size: 200% auto;
+          opacity: 0;
+          transition: opacity 450ms ease;
+          border-radius: 0 0 28px 28px;
+        }
+        .how-card:hover .how-glow {
+          opacity: 1;
+          animation: howShimmer 2s linear infinite;
+        }
+      `}</style>
+
+      <div className="container-page">
+        {/* Header */}
+        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 72px" }}>
+          <span style={{
+            color: "#2E8B57",
+            fontSize: "11px",
+            fontWeight: 700,
+            textTransform: "uppercase" as const,
+            letterSpacing: "0.3em",
+            display: "block",
+            marginBottom: "16px",
+          }}>How We Work</span>
+
+          <h2 style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: "clamp(38px, 5vw, 72px)",
+            fontWeight: 700,
+            color: "#081A36",
+            lineHeight: 1.12,
+            margin: "0 0 28px",
+          }}>Our Process,<br />Your Transformation</h2>
+
+          {/* Lotus divider */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+            <div style={{ flex: 1, maxWidth: "80px", height: "1px", background: "linear-gradient(to right, transparent, #2E8B57)" }} />
+            <span style={{ fontSize: "1.5rem", lineHeight: 1 }}>🪷</span>
+            <div style={{ flex: 1, maxWidth: "80px", height: "1px", background: "linear-gradient(to left, transparent, #2E8B57)" }} />
+          </div>
+        </div>
+
+        {/* Cards Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: "32px",
+        }}>
+          {HOW_WE_WORK.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={i}
+                ref={(el) => { cardRefs.current[i] = el; }}
+                className="how-card"
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                style={{
+                  opacity: visible[i] ? 1 : 0,
+                  transform: visible[i]
+                    ? hovered === i ? "translateY(-14px) scale(1.01)" : "translateY(0) scale(1)"
+                    : "translateY(40px) scale(0.97)",
+                  transition: visible[i]
+                    ? "opacity 600ms ease, transform 450ms cubic-bezier(.22,1,.36,1), box-shadow 450ms cubic-bezier(.22,1,.36,1)"
+                    : "none",
+                  boxShadow: hovered === i
+                    ? `0 32px 80px rgba(22,163,74,0.18), 0 8px 32px rgba(0,0,0,0.10)`
+                    : "0 4px 24px rgba(0,0,0,0.06)",
+                }}
+              >
+                {/* Image area */}
+                <div style={{ position: "relative", overflow: "hidden", borderRadius: "28px 28px 0 0" }}>
+                  <img
+                    src={step.img}
+                    alt={step.title}
+                    className="how-img"
+                  />
+                  {/* Step badge */}
+                  <div className="how-step-badge">{step.num}</div>
+                  {/* Soft overlay */}
+                  <div style={{
+                    position: "absolute", inset: 0,
+                    background: "linear-gradient(to top, rgba(8,26,54,0.30) 0%, transparent 55%)",
+                    pointerEvents: "none"
+                  }} />
+                </div>
+
+                {/* Floating icon badge — sits between image and content */}
+                <div style={{ position: "relative", height: "36px" }}>
+                  <div className="how-icon-badge">
+                    <Icon size={28} color={step.color} strokeWidth={1.5} />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div style={{ padding: "8px 28px 36px", textAlign: "center" }}>
+                  <h3 style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "1.45rem",
+                    fontWeight: 700,
+                    color: "#081A36",
+                    margin: "0 0 14px",
+                    lineHeight: 1.25,
+                  }}>{step.title}</h3>
+                  <p style={{
+                    color: "#5C677D",
+                    fontSize: "1rem",
+                    lineHeight: 1.8,
+                    margin: 0,
+                  }}>{step.desc}</p>
+                </div>
+
+                {/* Bottom glow on hover */}
+                <div className="how-glow" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ─── Component ─── */
 function Page() {
@@ -243,78 +518,16 @@ function Page() {
       </div>
 
       {/* ═══ OUR PURPOSE ═══ */}
-      <section id="about" style={{ background: "#FFFFFF", padding: "80px 0" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 48px" }}>
-            <span style={{ color: "#22C55E", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em" }}>What</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "16px" }}>Our Purpose</h2>
-            <p style={{ color: "#64748B", fontSize: "1rem", lineHeight: 1.7 }}>
-              We awaken human potential through meditation and education. Our goal is to create conscious individuals who live joyfully and break cycles of poverty by providing inner transformation through Sanjeevani Kriya and quality education to underprivileged children.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PurposeSection />
 
       {/* ═══ STATS ═══ */}
-      <section style={{ background: "linear-gradient(135deg, #0F172A, #1E3A2A)", padding: "80px 0" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <span style={{ color: "#22C55E", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em" }}>Science Divine Foundation</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#FFFFFF", marginTop: "8px" }}>Guiding Light in Meditation & Education</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "28px" }}>
-            {STATS.map((s, i) => (
-              <div key={i} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "20px", padding: "28px 20px", textAlign: "center" }}>
-                <img src={s.icon} alt={s.label} style={{ width: "48px", height: "48px", objectFit: "contain", margin: "0 auto 12px", display: "block" }} />
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 800, color: "#22C55E" }}>{s.value}</div>
-                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#FFFFFF", marginTop: "4px" }}>{s.label}</div>
-                <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.6)", marginTop: "6px", lineHeight: 1.4 }}>{s.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsSection />
 
       {/* ═══ SOLVE REAL PROBLEMS ═══ */}
-      <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 48px" }}>
-            <span style={{ color: "#22C55E", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em" }}>We Solve Real Problems</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>Transform Your Life</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "28px" }}>
-            {PROBLEMS.map((p, i) => (
-              <div key={i} style={{ background: "#F0FDF4", border: "1px solid #DCFCE7", borderRadius: "20px", padding: "32px 24px", textAlign: "center" }}>
-                <img src={p.icon} alt={p.title} style={{ width: "64px", height: "64px", objectFit: "contain", margin: "0 auto 16px", display: "block" }} />
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 700, color: "#0F172A", marginBottom: "10px" }}>{p.title}</h3>
-                <p style={{ color: "#64748B", fontSize: "0.9rem", lineHeight: 1.6 }}>{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TransformSection />
 
       {/* ═══ HOW WE WORK ═══ */}
-      <section style={{ background: "#FAF9F6", padding: "80px 0" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 48px" }}>
-            <span style={{ color: "#22C55E", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em" }}>How We Work</span>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "24px" }}>
-            {HOW_WE_WORK.map((step, i) => (
-              <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "32px 20px", textAlign: "center", position: "relative" }}>
-                <div style={{ position: "absolute", top: "16px", left: "16px", fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "rgba(34,197,94,0.1)" }}>{step.num}.</div>
-                <img src={step.img} alt={step.title} style={{ width: "64px", height: "64px", objectFit: "contain", margin: "0 auto 16px", display: "block" }} />
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{step.title}</h3>
-                <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.6 }}>{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowWeWorkSection />
 
       {/* ═══ EVENTS GALLERY ═══ */}
       <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
