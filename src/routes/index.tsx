@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import * as React from "react";
 import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { Lens } from "@/components/ui/lens";
@@ -153,119 +154,252 @@ function LensImage({ src, alt, className }: { src: string; alt: string; classNam
     </Lens>
   );
 }
-function Home() {
-  return (
-    <>
       {/* ════════════════════════════════════
-          HERO — Split Layout with Guru Ji
+          HERO — Master Premium Redesign
       ════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white">
-        {/* Warm gold background gradient */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 45%, #FFFFFF 100%)" }}
-        />
-        {/* Gold orb top-right */}
-        <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)",
-          }}
-        />
-        {/* Gold orb bottom-left */}
-        <div
-          className="absolute bottom-0 left-0 w-96 h-96 rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)",
-          }}
-        />
+      <section style={{
+        background: "#FCF8F1",
+        position: "relative",
+        overflow: "hidden",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+      }}>
+        <style>{`
+          @keyframes homeFadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+          @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+          @keyframes homePulse { 0%,100%{opacity:.35} 50%{opacity:.6} }
+          @keyframes homeRotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+          @keyframes homeParticle {
+            0%{transform:translateY(0) translateX(0);opacity:0}
+            30%{opacity:.6}
+            70%{opacity:.4}
+            100%{transform:translateY(-140px) translateX(25px);opacity:0}
+          }
+          .hm-fade-1 { animation: homeFadeUp 0.8s 0.1s both; }
+          .hm-fade-2 { animation: homeFadeUp 0.8s 0.3s both; }
+          .hm-fade-3 { animation: homeFadeUp 0.8s 0.5s both; }
+          .hm-fade-4 { animation: homeFadeUp 0.8s 0.7s both; }
+          .hm-fade-5 { animation: homeFadeUp 0.8s 0.9s both; }
+          .hm-fade-6 { animation: homeFadeUp 0.8s 1.1s both; }
+          .hm-fade-img { animation: homeFadeUp 1s 0.4s both; }
 
-        <div className="container-page relative py-16 md:py-24 lg:py-28">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Left — Text content */}
-            <div className="space-y-6 order-2 md:order-1">
+          .btn-hero-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, #C9910B, #D4AF37, #E6C84A, #C9910B);
+            background-size: 200% auto;
+            color: #FFFFFF; padding: 16px 36px; border-radius: 100px;
+            font-weight: 700; font-size: 1rem; text-decoration: none;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.35);
+            transition: background-position 0.4s, box-shadow 0.4s, transform 0.2s;
+          }
+          .btn-hero-primary:hover {
+            background-position: right center;
+            box-shadow: 0 14px 40px rgba(212,175,55,0.5);
+            transform: translateY(-2px);
+          }
+          .btn-hero-primary:hover .btn-arrow {
+            transform: translateX(4px);
+          }
+          .btn-arrow { transition: transform 0.3s; }
+
+          .btn-hero-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(255,255,255,0.75);
+            border: 1.5px solid rgba(212,175,55,0.45);
+            color: #081A36; padding: 16px 36px; border-radius: 100px;
+            font-weight: 600; font-size: 1rem; text-decoration: none;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            transition: background 0.4s, border-color 0.4s, transform 0.2s;
+          }
+          .btn-hero-secondary:hover {
+            background: rgba(212,175,55,0.08);
+            border-color: #D4AF37;
+            transform: translateY(-2px);
+          }
+
+          .hm-stat-sep {
+            width: 1px; height: 40px; background: rgba(8,26,54,0.15);
+          }
+          .hm-particle {
+            position: absolute; border-radius: 50%;
+            background: radial-gradient(circle, #D4AF37, rgba(212,175,55,0));
+            animation: homeParticle linear infinite;
+            pointer-events: none;
+          }
+        `}</style>
+
+        {/* Ambient background glows */}
+        <div style={{
+          position: "absolute", top: "-10%", left: "-5%",
+          width: "700px", height: "700px",
+          background: "radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{
+          position: "absolute", bottom: "-10%", right: "40%",
+          width: "600px", height: "600px",
+          background: "radial-gradient(circle, rgba(46,139,87,0.09) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+
+        {/* Lotus subtle watermark overlay */}
+        <div style={{
+          position: "absolute", inset: 0,
+          backgroundImage: "radial-gradient(rgba(212,175,55,0.02) 1.5px, transparent 1.5px)",
+          backgroundSize: "24px 24px",
+          pointerEvents: "none",
+        }} />
+
+        {/* Floating particles */}
+        {[{s:8,l:"12%",b:"15%",d:"7s",del:"0s"},{s:6,l:"22%",b:"35%",d:"9s",del:"1s"},{s:9,l:"7%",b:"55%",d:"8s",del:"2s"},{s:5,l:"28%",b:"25%",d:"10s",del:"3s"}].map((p,i)=>(
+          <div key={i} className="hm-particle" style={{
+            width: `${p.s}px`, height: `${p.s}px`,
+            left: p.l, bottom: p.b,
+            animationDuration: p.d, animationDelay: p.del,
+            opacity: 0.5,
+          }} />
+        ))}
+
+        <div className="container-page relative z-10 w-100" style={{ padding: "120px 24px 80px" }}>
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center" style={{ maxWidth: "1450px", margin: "0 auto" }}>
+            
+            {/* Left Content */}
+            <div className="space-y-8 order-2 md:order-1">
               {/* Eyebrow pill */}
-              <div
-                className="inline-flex items-center gap-3 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest border"
-                style={{
-                  borderColor: "rgba(212,175,55,0.4)",
-                  color: "#92700A",
-                  background: "rgba(254,243,199,0.6)",
-                }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                Sound Body · Sound Mind · Self Realization
+              <div className="hm-fade-1" style={{
+                display: "inline-flex", alignItems: "center", gap: "10px",
+                background: "rgba(255,255,255,0.85)",
+                border: "1.5px solid rgba(212,175,55,0.45)",
+                borderRadius: "100px", padding: "8px 22px",
+                backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+                transition: "all 0.3s ease",
+              }}>
+                <span style={{ fontSize: "0.95rem" }}>🪷</span>
+                <span style={{
+                  color: "#8B6914", fontSize: "11px", fontWeight: 700,
+                  letterSpacing: "0.22em", textTransform: "uppercase" as const
+                }}>
+                  Sound Body &bull; Sound Mind &bull; Self Realization
+                </span>
               </div>
 
-              <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-gray-900 leading-[1.1]">
-                Awaken Your{" "}
-                <span
-                  className="typewriter-gold italic"
-                  style={{
-                    background: "linear-gradient(90deg, #F59E0B, #D4AF37, #B8860B)",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  True Potential
-                </span>{" "}
-                with Science Divine Movement
+              {/* Title */}
+              <h1 className="font-display leading-[1.05] font-bold text-gray-900" style={{ margin: "0 0 24px" }}>
+                <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", color: "#081A36" }}>Awaken Your</span>
+                <span className="hm-fade-2" style={{
+                  display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", fontStyle: "italic",
+                  background: "linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #E6C84A 60%, #C9910B 100%)",
+                  WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent"
+                }}>True Potential</span>
+                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", color: "#081A36" }}>with Science Divine</span>
+                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(38px, 5.2vw, 80px)", color: "#081A36" }}>Movement</span>
               </h1>
 
-              <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-xl">
-                Journey towards conscious living through Sound Body, Sound Mind, and
-                Self-Realization — guided by enlightened master Sakshi Shree.
+              {/* Subtitle */}
+              <p className="hm-fade-4 text-gray-500 leading-relaxed" style={{ fontSize: "1.1rem", maxWidth: "600px" }}>
+                Begin a journey of meditation, wisdom, and conscious living under the guidance of enlightened master{" "}
+                <strong style={{ color: "#D4AF37", fontWeight: 700 }}>Sakshi Shree</strong>. Discover inner peace, unlock your true potential, and transform every aspect of your life.
               </p>
 
-              <div className="flex flex-wrap gap-3 pt-1">
-                <Link
-                  to="/book-session"
-                  className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2"
-                >
-                  Meet Sakshi Shree <ArrowRight size={16} />
+              {/* Buttons */}
+              <div className="hm-fade-5 flex flex-wrap gap-4 pt-2">
+                <Link to="/book-session" className="btn-hero-primary">
+                  Meet Sakshi Shree <ArrowRight size={18} className="btn-arrow" />
                 </Link>
-                <Link
-                  to="/events"
-                  className="btn-outline-gold rounded-full px-7 py-3.5 text-sm font-semibold"
-                >
-                  Join Our Next Event
+                <Link to="/courses" className="btn-hero-secondary">
+                  Explore Programs
                 </Link>
               </div>
 
-              {/* Social proof mini stat row */}
-              <div className="flex flex-wrap items-center gap-6 pt-2">
+              {/* Stats */}
+              <div className="hm-fade-6 flex flex-wrap items-center gap-8 pt-6">
                 {[
-                  { val: "5M+", label: "Lives Impacted" },
-                  { val: "40+", label: "Years of Wisdom" },
-                  { val: "1000+", label: "Events Held" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <div className="font-display text-xl font-bold" style={{ color: "#D4AF37" }}>
-                      {s.val}
+                  { num: "5M+", label: "Lives Impacted" },
+                  { num: "40+", label: "Years of Wisdom" },
+                  { num: "1000+", label: "Meditation Programs" }
+                ].map((s, i) => (
+                  <React.Fragment key={i}>
+                    {i > 0 && <div className="hm-stat-sep" />}
+                    <div>
+                      <div style={{
+                        fontFamily: "'Playfair Display', serif", fontSize: "2rem",
+                        fontWeight: 800, color: "#D4AF37", lineHeight: 1
+                      }}>{s.num}</div>
+                      <div style={{
+                        fontSize: "0.78rem", color: "#5C677D", marginTop: "6px",
+                        fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" as const
+                      }}>{s.label}</div>
                     </div>
-                    <div className="text-xs text-gray-500 mt-0.5">{s.label}</div>
-                  </div>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
 
-            {/* Right — Guru Ji Image */}
-            <div className="order-1 md:order-2 flex justify-center md:justify-end relative">
-              {/* Gold glow behind image */}
-              <div
-                className="absolute inset-0 m-auto w-4/5 h-4/5 rounded-full animate-glow-pulse"
+            {/* Right Composition with Halo, Mandala & Blend mode screen */}
+            <div className="hm-fade-img order-1 md:order-2 flex justify-center relative" style={{ minHeight: "480px" }}>
+              {/* Outer Pulsing Golden glow */}
+              <div style={{
+                position: "absolute", inset: "0", margin: "auto",
+                width: "90%", aspectRatio: "1", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(212,175,55,0.32) 0%, rgba(212,175,55,0.12) 55%, transparent 75%)",
+                animation: "homePulse 4s ease-in-out infinite",
+                pointerEvents: "none", zIndex: 1
+              }} />
+
+              {/* Glowing Golden Mandala outline (Rotating) */}
+              <div style={{
+                position: "absolute", inset: "0", margin: "auto",
+                width: "75%", aspectRatio: "1", borderRadius: "50%",
+                border: "1.5px solid rgba(212,175,55,0.22)",
+                boxShadow: "0 0 50px rgba(212,175,55,0.18), inset 0 0 50px rgba(212,175,55,0.08)",
+                animation: "homePulse 5s 1s ease-in-out infinite",
+                pointerEvents: "none", zIndex: 1
+              }} />
+
+              {/* Inner Halo */}
+              <div style={{
+                position: "absolute", inset: "0", margin: "auto",
+                width: "55%", aspectRatio: "1", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(255,242,185,0.65) 0%, transparent 70%)",
+                pointerEvents: "none", zIndex: 1
+              }} />
+
+              {/* Soft clouds overlay at bottom of Guru Ji portrait */}
+              <div style={{
+                position: "absolute", bottom: "-20px", left: "5%", right: "5%", height: "120px",
+                background: "linear-gradient(to top, #FCF8F1 20%, rgba(252,248,241,0.9) 50%, transparent 100%)",
+                zIndex: 3, pointerEvents: "none"
+              }} />
+
+              {/* Guru portrait — uses mixBlendMode: 'screen' to merge black background into mandala glows */}
+              <img
+                src="https://sciencedivine.org/wp-content/uploads/2025/02/7.webp"
+                alt="Enlightened Spiritual Master Guru Sakshi Shree in Meditation"
+                className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain"
                 style={{
-                  background: "radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 70%)",
+                  maxHeight: "560px",
+                  mixBlendMode: "screen",
+                  filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.15))",
+                  animation: "homeFloat 6s ease-in-out infinite",
+                  position: "relative",
+                  zIndex: 2,
                 }}
               />
-              <img
-                src="/guruji-meditation.jpg"
-                alt="Sakshi Shree — Spiritual Master in Meditation"
-                className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg object-contain"
-                style={{ mixBlendMode: "multiply", maxHeight: "580px" }}
-              />
+
+              {/* Floating particles around portrait */}
+              {[{t:"15%",r:"8%",s:10,d:"5s",del:"0s"},{t:"55%",r:"3%",s:7,d:"7s",del:"1.5s"},{t:"80%",r:"12%",s:5,d:"6s",del:"3s"},{t:"25%",l:"5%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
+                <div key={i} className="hm-particle" style={{
+                  width: `${p.s}px`, height: `${p.s}px`,
+                  top: p.t,
+                  ...('right' in p ? { right: p.r } : {}),
+                  ...('left' in p ? { left: p.l } : {}),
+                  animationDuration: p.d, animationDelay: p.del,
+                  opacity: 0.7, zIndex: 3
+                }} />
+              ))}
             </div>
+
           </div>
         </div>
       </section>
