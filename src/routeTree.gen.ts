@@ -40,6 +40,7 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CancellationPolicyRouteImport } from './routes/cancellation-policy'
 import { Route as BookSessionRouteImport } from './routes/book-session'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AnxietyRouteImport } from './routes/anxiety'
 import { Route as AddictionsRouteImport } from './routes/addictions'
 import { Route as AboutSakshiShreeRouteImport } from './routes/about-sakshi-shree'
@@ -201,6 +202,11 @@ const BookSessionRoute = BookSessionRouteImport.update({
   path: '/book-session',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnxietyRoute = AnxietyRouteImport.update({
   id: '/anxiety',
   path: '/anxiety',
@@ -233,6 +239,7 @@ export interface FileRoutesByFullPath {
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
   '/anxiety': typeof AnxietyRoute
+  '/auth': typeof AuthRoute
   '/book-session': typeof BookSessionRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
@@ -271,6 +278,7 @@ export interface FileRoutesByTo {
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
   '/anxiety': typeof AnxietyRoute
+  '/auth': typeof AuthRoute
   '/book-session': typeof BookSessionRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
@@ -310,6 +318,7 @@ export interface FileRoutesById {
   '/about-sakshi-shree': typeof AboutSakshiShreeRoute
   '/addictions': typeof AddictionsRoute
   '/anxiety': typeof AnxietyRoute
+  '/auth': typeof AuthRoute
   '/book-session': typeof BookSessionRoute
   '/cancellation-policy': typeof CancellationPolicyRoute
   '/cart': typeof CartRoute
@@ -350,6 +359,7 @@ export interface FileRouteTypes {
     | '/about-sakshi-shree'
     | '/addictions'
     | '/anxiety'
+    | '/auth'
     | '/book-session'
     | '/cancellation-policy'
     | '/cart'
@@ -388,6 +398,7 @@ export interface FileRouteTypes {
     | '/about-sakshi-shree'
     | '/addictions'
     | '/anxiety'
+    | '/auth'
     | '/book-session'
     | '/cancellation-policy'
     | '/cart'
@@ -426,6 +437,7 @@ export interface FileRouteTypes {
     | '/about-sakshi-shree'
     | '/addictions'
     | '/anxiety'
+    | '/auth'
     | '/book-session'
     | '/cancellation-policy'
     | '/cart'
@@ -465,6 +477,7 @@ export interface RootRouteChildren {
   AboutSakshiShreeRoute: typeof AboutSakshiShreeRoute
   AddictionsRoute: typeof AddictionsRoute
   AnxietyRoute: typeof AnxietyRoute
+  AuthRoute: typeof AuthRoute
   BookSessionRoute: typeof BookSessionRoute
   CancellationPolicyRoute: typeof CancellationPolicyRoute
   CartRoute: typeof CartRoute
@@ -717,6 +730,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookSessionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/anxiety': {
       id: '/anxiety'
       path: '/anxiety'
@@ -761,6 +781,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutSakshiShreeRoute: AboutSakshiShreeRoute,
   AddictionsRoute: AddictionsRoute,
   AnxietyRoute: AnxietyRoute,
+  AuthRoute: AuthRoute,
   BookSessionRoute: BookSessionRoute,
   CancellationPolicyRoute: CancellationPolicyRoute,
   CartRoute: CartRoute,
