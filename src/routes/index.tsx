@@ -1044,7 +1044,7 @@ function Home() {
             backgroundImage:
               "url(https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp)",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center 20%",
             opacity: 0.55,
           }}
         />

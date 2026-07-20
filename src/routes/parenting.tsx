@@ -74,27 +74,40 @@ function Page() {
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-100px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(99,179,237,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ maxWidth: "800px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
-              <Heart size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Parenting</span>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "center" }}>
+            <div style={{ maxWidth: "660px" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
+                <Heart size={14} style={{ color: "#D4AF37" }} />
+                <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions · Parenting</span>
+              </div>
+              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
+                Guide to{" "}
+                <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                  Parenting Through the Ages
+                </span>
+              </h1>
+              <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "560px", marginBottom: "40px" }}>
+                Parenting is a rollercoaster filled with love, laughter, and its fair share of challenges. From sleepless nights to navigating adolescence, join Sakshi Shree on an incredible journey — forging deeper connections with our children and ourselves along the way.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
+                  Book a Session <ArrowRight size={16} />
+                </Link>
+                <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
+                  Explore Resources <ChevronRight size={16} />
+                </a>
+              </div>
             </div>
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
-              Guide to{" "}
-              <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
-                Parenting Through the Ages
-              </span>
-            </h1>
-            <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "660px", marginBottom: "40px" }}>
-              Parenting is a rollercoaster filled with love, laughter, and its fair share of challenges. From sleepless nights to navigating adolescence, join Sakshi Shree on an incredible journey ,  forging deeper connections with our children and ourselves along the way.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
-                Book a Session <ArrowRight size={16} />
-              </Link>
-              <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
-                Explore Resources <ChevronRight size={16} />
-              </a>
+            {/* Hero Image */}
+            <div style={{ display: "flex", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ position: "relative", width: "340px", height: "420px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 0 60px rgba(99,179,237,0.15), 0 30px 60px rgba(0,0,0,0.4)" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=700&q=85&fit=crop&crop=faces,center"
+                  alt="Parent and child connection - conscious parenting"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(13,33,55,0.6) 0%, transparent 50%)" }} />
+              </div>
             </div>
           </div>
         </div>

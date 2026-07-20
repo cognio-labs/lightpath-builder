@@ -58,7 +58,9 @@ function Page() {
       <PageHero
         eyebrow="Solutions Hub"
         title="Anxiety"
-        subtitle="If feeling anxious about what lies ahead or overwhelmed by constant worry makes you feel lonely, then know that you are not alone. Under Sakshi Shree’s guidance, explore practical solutions and age-old wisdom to help calm your mind and ease your worries."
+        subtitle="If feeling anxious about what lies ahead or overwhelmed by constant worry makes you feel lonely, then know that you are not alone. Under Sakshi Shree's guidance, explore practical solutions and age-old wisdom to help calm your mind and ease your worries."
+        image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=85&fit=crop&crop=faces,center"
+        imageSide="right"
       >
         <Link to="/book-session" className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2">
           Book Personal Session <ArrowRight size={15} />

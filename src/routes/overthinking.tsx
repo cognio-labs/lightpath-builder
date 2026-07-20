@@ -72,28 +72,41 @@ function Page() {
         <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(74,222,128,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ maxWidth: "800px" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
-              <Brain size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Overthinking</span>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "center" }}>
+            <div style={{ maxWidth: "660px" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
+                <Brain size={14} style={{ color: "#D4AF37" }} />
+                <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions · Overthinking</span>
+              </div>
+              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
+                Overthinking{" "}
+                <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                  No More
+                </span>
+                : Clarity &amp; Calm
+              </h1>
+              <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "560px", marginBottom: "40px" }}>
+                Replaying scenarios and imagining worst-case outcomes? Overthinking drains mental energy, leaving us exhausted, anxious, and unable to focus. At Science Divine, discover techniques to quiet the mind's chatter, find clarity, and nurture inner peace through mindfulness and self-awareness.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
+                  Book a Session <ArrowRight size={16} />
+                </Link>
+                <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
+                  Explore Resources <ChevronRight size={16} />
+                </a>
+              </div>
             </div>
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
-              Overthinking{" "}
-              <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
-                No More
-              </span>
-              : Clarity & Calm
-            </h1>
-            <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "660px", marginBottom: "40px" }}>
-              Replaying scenarios and imagining worst-case outcomes? Overthinking drains mental energy, leaving us exhausted, anxious, and unable to focus. At Science Divine, discover techniques to quiet the mind's chatter, find clarity, and nurture inner peace through mindfulness and self-awareness.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
-                Book a Session <ArrowRight size={16} />
-              </Link>
-              <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
-                Explore Resources <ChevronRight size={16} />
-              </a>
+            {/* Hero Image */}
+            <div style={{ display: "flex", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ position: "relative", width: "340px", height: "420px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 0 60px rgba(74,222,128,0.15), 0 30px 60px rgba(0,0,0,0.4)" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=700&q=85&fit=crop&crop=faces,center"
+                  alt="Person achieving mental clarity through meditation"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,46,22,0.6) 0%, transparent 50%)" }} />
+              </div>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ function Page() {
       title="Sleeping Disorder"
       tagline="Restore Deep, Restful Sleep Naturally"
       intro="Sleep is the body's greatest healer. Learn powerful meditation and relaxation techniques that naturally restore healthy sleep patterns without medication."
+      heroImage="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=85&fit=crop&crop=faces,center"
     />
   );
 }

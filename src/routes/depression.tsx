@@ -138,111 +138,124 @@ function Page() {
         />
 
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ maxWidth: "800px" }}>
-            {/* Eyebrow badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "rgba(212,175,55,0.15)",
-                border: "1px solid rgba(212,175,55,0.3)",
-                borderRadius: "100px",
-                padding: "6px 16px",
-                marginBottom: "24px",
-              }}
-            >
-              <Heart size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Solutions ,  Depression
-              </span>
-            </div>
-
-            <h1
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                fontWeight: 700,
-                color: "#FFFFFF",
-                lineHeight: 1.15,
-                marginBottom: "24px",
-              }}
-            >
-              Step by Step:{" "}
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                Beating Depression
-              </span>
-            </h1>
-
-            <p
-              style={{
-                fontSize: "1.125rem",
-                color: "rgba(255,255,255,0.75)",
-                lineHeight: 1.8,
-                maxWidth: "660px",
-                marginBottom: "40px",
-              }}
-            >
-              Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. You're not alone ,  we are here to support you every step of the way.
-            </p>
-
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <Link
-                to="/book-session"
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "center" }}>
+            <div style={{ maxWidth: "660px" }}>
+              {/* Eyebrow badge */}
+              <div
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
-                  color: "#0F172A",
-                  padding: "14px 28px",
+                  background: "rgba(212,175,55,0.15)",
+                  border: "1px solid rgba(212,175,55,0.3)",
                   borderRadius: "100px",
+                  padding: "6px 16px",
+                  marginBottom: "24px",
+                }}
+              >
+                <Heart size={14} style={{ color: "#D4AF37" }} />
+                <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  Solutions · Depression
+                </span>
+              </div>
+
+              <h1
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
                   fontWeight: 700,
-                  fontSize: "0.9rem",
-                  textDecoration: "none",
-                  boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 30px rgba(212,175,55,0.5)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(212,175,55,0.35)";
-                }}
-              >
-                Book a Session <ArrowRight size={16} />
-              </Link>
-              <a
-                href="#explore"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.2)",
                   color: "#FFFFFF",
-                  padding: "14px 28px",
-                  borderRadius: "100px",
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                  textDecoration: "none",
-                  backdropFilter: "blur(10px)",
-                  transition: "background 0.2s",
+                  lineHeight: 1.15,
+                  marginBottom: "24px",
                 }}
-                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.14)")}
-                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)")}
               >
-                Explore Resources <ChevronRight size={16} />
-              </a>
+                Step by Step:{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  Beating Depression
+                </span>
+              </h1>
+
+              <p
+                style={{
+                  fontSize: "1.125rem",
+                  color: "rgba(255,255,255,0.75)",
+                  lineHeight: 1.8,
+                  maxWidth: "560px",
+                  marginBottom: "40px",
+                }}
+              >
+                Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. You're not alone — we are here to support you every step of the way.
+              </p>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                <Link
+                  to="/book-session"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                    color: "#0F172A",
+                    padding: "14px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
+                    transition: "transform 0.2s, box-shadow 0.2s",
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 30px rgba(212,175,55,0.5)";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(212,175,55,0.35)";
+                  }}
+                >
+                  Book a Session <ArrowRight size={16} />
+                </Link>
+                <a
+                  href="#explore"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "#FFFFFF",
+                    padding: "14px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 600,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    backdropFilter: "blur(10px)",
+                    transition: "background 0.2s",
+                  }}
+                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.14)")}
+                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)")}
+                >
+                  Explore Resources <ChevronRight size={16} />
+                </a>
+              </div>
+            </div>
+            {/* Hero Image */}
+            <div style={{ display: "flex", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ position: "relative", width: "340px", height: "420px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 0 60px rgba(212,175,55,0.2), 0 30px 60px rgba(0,0,0,0.4)" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=700&q=85&fit=crop&crop=faces,center"
+                  alt="Person finding hope and healing from depression"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(15,23,42,0.6) 0%, transparent 50%)" }} />
+              </div>
             </div>
           </div>
         </div>

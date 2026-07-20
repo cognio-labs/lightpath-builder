@@ -12,11 +12,13 @@ export function SolutionPageLayout({
   title,
   tagline,
   intro,
+  heroImage,
 }: {
   slug: SolutionSlug;
   title: string;
   tagline: string;
   intro: string;
+  heroImage?: string;
 }) {
   const [tab, setTab] = useState<Tab>("articles");
   const articles = ARTICLES_BY_TOPIC[slug];
@@ -29,7 +31,7 @@ export function SolutionPageLayout({
 
   return (
     <>
-      <PageHero eyebrow="Solutions Hub" title={tagline} subtitle={intro}>
+      <PageHero eyebrow="Solutions Hub" title={tagline} subtitle={intro} image={heroImage} imageSide="right">
         <Link to="/book-session" className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2">
           Book Personal Session <ArrowRight size={15} />
         </Link>
