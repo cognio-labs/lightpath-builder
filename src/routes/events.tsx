@@ -49,7 +49,7 @@ function Page() {
             </span>
           </>
         }
-        subtitle="From intimate satsangs to mahotsavs — join the sangha in person or online."
+        subtitle="From intimate satsangs to mahotsavs ,  join the sangha in person or online."
       />
 
       <section className="section-pad bg-white">

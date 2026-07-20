@@ -12,7 +12,7 @@ export const Route = createFileRoute("/depression")({
         content:
           "Step by Step: Beating Depression with Sakshi Shree. Spiritual tools and techniques rooted in ancient wisdom to guide you through darkness towards healing and inner peace.",
       },
-      { property: "og:title", content: "Overcome Depression — Science Divine" },
+      { property: "og:title", content: "Overcome Depression ,  Science Divine" },
       { property: "og:url", content: "/depression" },
     ],
     links: [{ rel: "canonical", href: "/depression" }],
@@ -68,7 +68,7 @@ const ARTICLES = [
 ];
 
 const VIDEOS = [
-  { id: "ePg4GtxzWa4", title: "I am Stressed in College Life!! — Sakshi Shree", lang: "English" },
+  { id: "ePg4GtxzWa4", title: "I am Stressed in College Life!! ,  Sakshi Shree", lang: "English" },
   { id: "Rsn5FX-mO9g", title: "How to find your true nature? | True Nature | Sakshi Shree English", lang: "English" },
   { id: "ZcH73i7Blz4", title: "युवाओं के लिए डिप्रेशन से मुक्ति का आसान उपाय | साक्षी श्री", lang: "Hindi" },
   { id: "En0wjpQXRtU", title: "असफलता का भय और निराशा से बचने का सरलतम उपाय | Easiest way to avoid depression & fear of failure", lang: "Hindi" },
@@ -154,7 +154,7 @@ function Page() {
             >
               <Heart size={14} style={{ color: "#D4AF37" }} />
               <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Solutions — Depression
+                Solutions ,  Depression
               </span>
             </div>
 
@@ -190,7 +190,7 @@ function Page() {
                 marginBottom: "40px",
               }}
             >
-              Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. You're not alone — we are here to support you every step of the way.
+              Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. You're not alone ,  we are here to support you every step of the way.
             </p>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
@@ -540,7 +540,7 @@ function Page() {
             <div>
               <SectionHeading
                 eyebrow="Real Transformation"
-                title="Testimonials — Real Stories of Healing"
+                title="Testimonials ,  Real Stories of Healing"
                 subtitle="Watch how Sakshi Shree's teachings have helped real people overcome depression and find joy."
               />
               <div

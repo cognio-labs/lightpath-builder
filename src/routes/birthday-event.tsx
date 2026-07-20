@@ -93,7 +93,7 @@ function Page() {
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontStyle: "italic", color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: "12px" }}>
               "The deepest joy lies not in what you receive, but in the peace you discover when you choose to give."
             </div>
-            <div style={{ color: G, fontSize: "0.8rem", fontWeight: 700 }}>— A Message from Guruji</div>
+            <div style={{ color: G, fontSize: "0.8rem", fontWeight: 700 }}>,  A Message from Guruji</div>
           </div>
         </div>
       </section>

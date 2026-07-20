@@ -8,7 +8,7 @@ export const Route = createFileRoute("/manifestation")({
     meta: [
       { title: "Manifestation Techniques & Teachings | Science Divine Foundation" },
       { name: "description", content: "Manifest Your Success: Unleash Your Potential with Sakshi Shree’s Powerful Techniques. Align your thoughts and goals to manifest success." },
-      { property: "og:title", content: "Manifestation — Science Divine" },
+      { property: "og:title", content: "Manifestation ,  Science Divine" },
       { property: "og:url", content: "/manifestation" },
     ],
     links: [{ rel: "canonical", href: "/manifestation" }],
@@ -76,7 +76,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Sparkles size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Manifestation</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Manifestation</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Manifest Your Success:{" "}

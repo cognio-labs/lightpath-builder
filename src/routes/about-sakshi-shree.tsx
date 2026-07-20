@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about-sakshi-shree")({
       {
         name: "description",
         content:
-          "Sakshi Shree — enlightened spiritual master, former civil servant, founder of Science Divine Foundation. 40+ years of guiding seekers towards self-realization.",
+          "Sakshi Shree ,  enlightened spiritual master, former civil servant, founder of Science Divine Foundation. 40+ years of guiding seekers towards self-realization.",
       },
       { property: "og:title", content: "About Sakshi Shree | Science Divine Foundation" },
       {
@@ -85,7 +85,7 @@ function Page() {
         eyebrow="Guru Profile"
         title={
           <>
-            Sakshi Shree —{" "}
+            Sakshi Shree , {" "}
             <span
               style={{
                 background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
@@ -98,7 +98,7 @@ function Page() {
             </span>
           </>
         }
-        subtitle="In the supermarket of spirituality, Sakshi Shree guides with specific spiritual processes and meditations best suited to your unique intrinsic nature — because your stories, struggles and scars are very personal."
+        subtitle="In the supermarket of spirituality, Sakshi Shree guides with specific spiritual processes and meditations best suited to your unique intrinsic nature ,  because your stories, struggles and scars are very personal."
       >
         <Link to="/book-session" className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2">
           Meet Sakshi Shree <ArrowRight size={15} />
@@ -128,7 +128,7 @@ function Page() {
               his life to rescuing people from their drudgeries through meditation and spirituality.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Sakshi Shree walked two worlds — the corridors of Indian civil service and the silent chambers
+              Sakshi Shree walked two worlds ,  the corridors of Indian civil service and the silent chambers
               of deep meditation. Under his guidance, more than 5 million people across India and the world
               have discovered peace, purpose, and self-knowledge.
             </p>
@@ -146,7 +146,7 @@ function Page() {
         </div>
       </section>
 
-      {/* Speaker At — scrolling logos */}
+      {/* Speaker At ,  scrolling logos */}
       <section className="py-16 overflow-hidden" style={{ background: "#FAFAFA" }}>
         <div className="container-page mb-10">
           <SectionHeading center eyebrow="Speaker At" title="Institutions & Organizations" />

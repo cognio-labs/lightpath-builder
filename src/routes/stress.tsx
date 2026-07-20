@@ -161,7 +161,7 @@ function Page() {
             center
             eyebrow="Take the Next Step"
             title="Overcome stress & live joyfully"
-            subtitle="Book a personal session with Sakshi Shree — one hour that can change everything."
+            subtitle="Book a personal session with Sakshi Shree ,  one hour that can change everything."
           />
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/book-session" className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm">

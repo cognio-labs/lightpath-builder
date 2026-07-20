@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about-science-divine-movement")({
       {
         name: "description",
         content:
-          "Science Divine Movement — Sound Body, Sound Mind, Self Realisation. A 25-year transformative journey of inner awakening, education, and service by Sakshi Shree.",
+          "Science Divine Movement ,  Sound Body, Sound Mind, Self Realisation. A 25-year transformative journey of inner awakening, education, and service by Sakshi Shree.",
       },
       { property: "og:title", content: "About Science Divine Movement" },
       { property: "og:url", content: "/about-science-divine-movement" },
@@ -40,7 +40,7 @@ const TIMELINE = [
     date: "Aug 2017",
     year: "2017",
     title: "Sakshi Dham International, Vrindavan",
-    desc: "The monumental event of August 2017 witnessed the laying of the foundation stone for Sakshi Dham International in Vrindavan — a sacred sanctuary to inspire spiritual seekers and promote unity, peace, and harmony.",
+    desc: "The monumental event of August 2017 witnessed the laying of the foundation stone for Sakshi Dham International in Vrindavan ,  a sacred sanctuary to inspire spiritual seekers and promote unity, peace, and harmony.",
     icon: <Globe size={20} />,
     color: "#8B5CF6",
   },
@@ -203,7 +203,7 @@ function Page() {
                   marginBottom: "40px",
                 }}
               >
-                Conceptualized by the enlightened master and divine messenger Sakshi Shree, the Science Divine Movement takes the message of love, awareness, and meditation to the world. Inspired by his rendezvous with spirituality, Sakshi Shree guides the movement — allowing the commoner to experience spirituality and self-realization without renouncing the material comforts of life.
+                Conceptualized by the enlightened master and divine messenger Sakshi Shree, the Science Divine Movement takes the message of love, awareness, and meditation to the world. Inspired by his rendezvous with spirituality, Sakshi Shree guides the movement ,  allowing the commoner to experience spirituality and self-realization without renouncing the material comforts of life.
               </p>
 
               <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
@@ -417,7 +417,7 @@ function Page() {
             <div style={{ position: "relative" }}>
               <img
                 src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
-                alt="Sakshi Shree — Mission"
+                alt="Sakshi Shree ,  Mission"
                 loading="lazy"
                 style={{
                   width: "100%",
@@ -490,7 +490,7 @@ function Page() {
                   "Every individual possesses a unique spark of divinity."
                 </p>
                 <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgba(15,23,42,0.7)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                  — Sakshi Shree
+                  ,  Sakshi Shree
                 </p>
               </div>
             </div>
@@ -619,7 +619,7 @@ function Page() {
             center
             eyebrow="Our Journey"
             title="25 Years of Transformation"
-            subtitle="From a single seed of intention in 1999 to a global movement touching millions of lives — this is our story."
+            subtitle="From a single seed of intention in 1999 to a global movement touching millions of lives ,  this is our story."
           />
 
           <div

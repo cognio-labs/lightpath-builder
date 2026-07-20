@@ -6,13 +6,13 @@ import { Counter } from "@/lib/useCounter";
 export const Route = createFileRoute("/shiksha-sewa")({
   head: () => ({
     meta: [
-      { title: "Har Ghar Shiksha, Har Ghar Dhyan — Shiksha Sewa | Science Divine Foundation" },
+      { title: "Har Ghar Shiksha, Har Ghar Dhyan ,  Shiksha Sewa | Science Divine Foundation" },
       {
         name: "description",
         content:
           "Bringing education and meditation to the doorsteps of India and its forgotten children. Sponsor a child. Join the Movement.",
       },
-      { property: "og:title", content: "Shiksha Sewa — Science Divine Foundation" },
+      { property: "og:title", content: "Shiksha Sewa ,  Science Divine Foundation" },
       { property: "og:url", content: "/shiksha-sewa" },
     ],
     links: [{ rel: "canonical", href: "/shiksha-sewa" }],
@@ -56,9 +56,9 @@ const PURPOSE_IMAGES = [
 
 const STATS = [
   { to: 50000, suffix: "+", label: "Lives Changed Worldwide Through Meditation" },
-  { to: 12000, suffix: "+", label: "Students Educated — Empowering through quality education" },
-  { to: 20, suffix: "+", label: "Years in Operation — Dedicated educational service" },
-  { to: 45, suffix: "%", label: "Female Students Educated — Fostering gender-balanced education" },
+  { to: 12000, suffix: "+", label: "Students Educated ,  Empowering through quality education" },
+  { to: 20, suffix: "+", label: "Years in Operation ,  Dedicated educational service" },
+  { to: 45, suffix: "%", label: "Female Students Educated ,  Fostering gender-balanced education" },
 ];
 
 const SOLUTIONS = [
@@ -144,7 +144,7 @@ const STORIES = [
 const TESTIMONIALS = [
   {
     name: "Piyush Pasbola",
-    quote: "Growing up in Dehradun, I searched for spiritual truth in ashrams and books, but something essential was always missing. The day I met Guruji, that missing piece was revealed—not through words but through presence.",
+    quote: "Growing up in Dehradun, I searched for spiritual truth in ashrams and books, but something essential was always missing. The day I met Guruji, that missing piece was revealed, not through words but through presence.",
     img: "https://sciencedivine.org/wp-content/uploads/2025/09/guruji.jpg",
   },
   {
@@ -397,7 +397,7 @@ function Page() {
           <div style={{ textAlign: "center", marginBottom: "16px" }}>
             <span style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em" }}>Success Stories</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>Stories of Transformation</h2>
-            <p style={{ color: "#64748B", marginTop: "8px" }}>We're not just changing lives. We're building a new India — child by child, soul by soul.</p>
+            <p style={{ color: "#64748B", marginTop: "8px" }}>We're not just changing lives. We're building a new India ,  child by child, soul by soul.</p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px", marginTop: "40px" }}>
@@ -474,7 +474,7 @@ function Page() {
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "28px", display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                   <img src={t.img} alt={t.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover", flexShrink: 0 }} />
-                  <div style={{ fontWeight: 700, color: "#B45309", fontSize: "0.85rem" }}>— {t.name}</div>
+                  <div style={{ fontWeight: 700, color: "#B45309", fontSize: "0.85rem" }}>,  {t.name}</div>
                 </div>
                 <p style={{ color: "#475569", fontSize: "0.875rem", lineHeight: 1.65, fontStyle: "italic" }}>"{t.quote}"</p>
               </div>

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/mindfulness")({
     meta: [
       { title: "Mindfulness and Present Moment Living | Science Divine Foundation" },
       { name: "description", content: "Unlock the Mind's True Potential: The Transformative Power of Mindfulness with Sakshi Shree. Learn to quiet internal chaos and live in the present." },
-      { property: "og:title", content: "Mindfulness — Science Divine" },
+      { property: "og:title", content: "Mindfulness ,  Science Divine" },
       { property: "og:url", content: "/mindfulness" },
     ],
     links: [{ rel: "canonical", href: "/mindfulness" }],
@@ -20,7 +20,7 @@ type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
 const ARTICLES = [
   { title: "Spirituality’s Role in Healing Childhood Trauma", href: "https://sciencedivine.org/spiritualitys-role-in-healing-childhood-trauma/", tag: "Healing", readTime: "12 min", desc: "Understanding the healing power of yoga and spiritual reflection in clearing old emotional trauma." },
-  { title: "What is Consciousness: A Beginner’s Guide", href: "https://sciencedivine.org/what-is-consciousness/", tag: "Consciousness", readTime: "8 min", desc: "An accessible introduction to the witness state — the awareness that watches thoughts without being swept away." },
+  { title: "What is Consciousness: A Beginner’s Guide", href: "https://sciencedivine.org/what-is-consciousness/", tag: "Consciousness", readTime: "8 min", desc: "An accessible introduction to the witness state ,  the awareness that watches thoughts without being swept away." },
   { title: "The Basics of Conscious mind and Subconscious mind", href: "https://sciencedivine.org/conscious-mind-and-subconscious-mind/", tag: "Psychology", readTime: "8 min", desc: "Exploring the subconscious patterns that block mindfulness and how to dissolve them." },
   { title: "What Your Conscious Mind Can Do: Simple Explained", href: "https://sciencedivine.org/what-is-conscious-mind/", tag: "Conscious Mind", readTime: "7 min", desc: "How the conscious mind directs focus and intention to establish a state of mindfulness." },
   { title: "How to Feel Calm: Easy Ways to Find Peace of Mind", href: "https://sciencedivine.org/what-is-peace-of-mind/", tag: "Inner Peace", readTime: "6 min", desc: "Quiet the mind's constant demands to uncover natural mindfulness and peace." },
@@ -75,7 +75,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Eye size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Mindfulness</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Mindfulness</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Unlock the Mind’s{" "}

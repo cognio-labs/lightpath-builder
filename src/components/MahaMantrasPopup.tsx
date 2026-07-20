@@ -19,7 +19,7 @@ export function MahaMantrasPopup() {
   if (!open) return null;
   return (
     <div className="fixed bottom-4 right-4 z-40 max-w-sm animate-fade-in">
-      <div className="glass-card rounded-2xl p-4 pr-10 shadow-xl border-primary/20 relative">
+      <div className="bg-white rounded-2xl p-4 pr-10 shadow-2xl border border-primary/20 relative">
         <button
           onClick={close}
           className="absolute top-2 right-2 p-1 rounded-full hover:bg-secondary"

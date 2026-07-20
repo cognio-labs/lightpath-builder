@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 export const Route = createFileRoute("/my-account")({
   head: () => ({
     meta: [
-      { title: "My Account — Science Divine" },
+      { title: "My Account ,  Science Divine" },
       { name: "description", content: "Sign in to your Science Divine account." },
       { property: "og:url", content: "/my-account" },
     ],

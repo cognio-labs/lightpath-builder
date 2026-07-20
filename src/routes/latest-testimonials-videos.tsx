@@ -6,7 +6,7 @@ export const Route = createFileRoute("/latest-testimonials-videos")({
     meta: [
       { title: "All Testimonials & Seeker Videos | Science Divine Foundation" },
       { name: "description", content: "Watch the latest video testimonials and transformational stories from seekers of Science Divine Foundation." },
-      { property: "og:title", content: "All Testimonials — Science Divine" },
+      { property: "og:title", content: "All Testimonials ,  Science Divine" },
       { property: "og:url", content: "/latest-testimonials-videos" },
     ],
     links: [{ rel: "canonical", href: "/latest-testimonials-videos" }],

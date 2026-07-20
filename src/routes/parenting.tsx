@@ -7,8 +7,8 @@ export const Route = createFileRoute("/parenting")({
   head: () => ({
     meta: [
       { title: "Parenting Guidance | Science Divine Foundation" },
-      { name: "description", content: "Sakshi Shree's Guide to Parenting Through the Ages — spiritual wisdom to navigate the joys and challenges of raising conscious children." },
-      { property: "og:title", content: "Parenting — Science Divine" },
+      { name: "description", content: "Sakshi Shree's Guide to Parenting Through the Ages ,  spiritual wisdom to navigate the joys and challenges of raising conscious children." },
+      { property: "og:title", content: "Parenting ,  Science Divine" },
       { property: "og:url", content: "/parenting" },
     ],
     links: [{ rel: "canonical", href: "/parenting" }],
@@ -23,7 +23,7 @@ const ARTICLES = [
   { title: "How to Be Conscious: Wake Up Your Mind Every Day", href: "https://sciencedivine.org/conscious/", tag: "Awareness", readTime: "9 min", desc: "Step-by-step guide to awakening mindful presence as the foundation of conscious parenting." },
   { title: "How to Feel Calm: Easy Ways to Find Peace of Mind", href: "https://sciencedivine.org/what-is-peace-of-mind/", tag: "Peace", readTime: "6 min", desc: "Simple practices to cultivate inner calm so parents can respond rather than react in challenging moments." },
   { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "Understanding how a parent's mental wellness directly shapes the emotional landscape of their children." },
-  { title: "Benefits of Yoga for Hypertension Management", href: "https://sciencedivine.org/yoga-for-hypertension/", tag: "Wellness", readTime: "8 min", desc: "How gentle asana practice supports nervous system regulation — essential for patient, grounded parenting." },
+  { title: "Benefits of Yoga for Hypertension Management", href: "https://sciencedivine.org/yoga-for-hypertension/", tag: "Wellness", readTime: "8 min", desc: "How gentle asana practice supports nervous system regulation ,  essential for patient, grounded parenting." },
   { title: "Yoga Nidra: Mastering the Art of Conscious Relaxation", href: "https://sciencedivine.org/yoga-nidra/", tag: "Sleep", readTime: "10 min", desc: "Restore deep energy after sleepless parenting nights with the science of yogic sleep." },
   { title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation", href: "https://sciencedivine.org/unveiling-the-harmony/", tag: "Mindfulness", readTime: "8 min", desc: "Bridging physical practice and quiet mental observation for a holistic parenting lifestyle." },
   { title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging", href: "https://sciencedivine.org/meditation-for-seniors/", tag: "Aging", readTime: "7 min", desc: "Wisdom for grandparents on maintaining presence and connection through the generations." },
@@ -31,14 +31,14 @@ const ARTICLES = [
 ];
 
 const VIDEOS = [
-  { id: "MPIOJ_POKi0", title: "Parenting tips & Spirituality — Sadhguru Sakshi Shri", lang: "Hindi" },
+  { id: "MPIOJ_POKi0", title: "Parenting tips & Spirituality ,  Sadhguru Sakshi Shri", lang: "Hindi" },
   { id: "5g4pqByHHUU", title: "बच्चे कहना ना मानें तो ऐसा करें | Parenting Tips | Sakshi Shree", lang: "Hindi" },
   { id: "pM5E2sKZoX8", title: "बच्चों के साथ कैसा व्यवहार करें | Parenting in Hindi | Sadhguru", lang: "Hindi" },
   { id: "lwGzIH3504s", title: "Powerful Tips To Raise Your Children | Parenting Advice", lang: "English" },
   { id: "KNbWWcyp7kQ", title: "बच्चों को कैसी शिक्षा दें? How to teach good manners to kids", lang: "Hindi" },
   { id: "zyhwVR7m5O8", title: "Why no one understands you? | आपको कोई क्यों नहीं समझता? | Sakshi Shree", lang: "Bilingual" },
   { id: "Q3HIZe4hsbE", title: "Youth and Values and Sanskar | Sakshi Shree", lang: "English" },
-  { id: "hR_8-XOo0zY", title: "Follow these parenting tips, your child can create miracle — SakshiShreeEnglish", lang: "English" },
+  { id: "hR_8-XOo0zY", title: "Follow these parenting tips, your child can create miracle ,  SakshiShreeEnglish", lang: "English" },
   { id: "xlx8bDuMLVo", title: "Disobeying Parents is not a sin! | Virtues of Disobeying Your Parents | Sakshi Shree", lang: "English" },
 ];
 
@@ -77,7 +77,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Heart size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Parenting</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Parenting</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Guide to{" "}
@@ -86,7 +86,7 @@ function Page() {
               </span>
             </h1>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "660px", marginBottom: "40px" }}>
-              Parenting is a rollercoaster filled with love, laughter, and its fair share of challenges. From sleepless nights to navigating adolescence, join Sakshi Shree on an incredible journey — forging deeper connections with our children and ourselves along the way.
+              Parenting is a rollercoaster filled with love, laughter, and its fair share of challenges. From sleepless nights to navigating adolescence, join Sakshi Shree on an incredible journey ,  forging deeper connections with our children and ourselves along the way.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
@@ -185,7 +185,7 @@ function Page() {
 
           {tab === "podcasts" && (
             <div>
-              <SectionHeading eyebrow="Real Transformation" title="Testimonials — Stories of Change" subtitle="Real people sharing how Sakshi Shree's guidance transformed their families and relationships." />
+              <SectionHeading eyebrow="Real Transformation" title="Testimonials ,  Stories of Change" subtitle="Real people sharing how Sakshi Shree's guidance transformed their families and relationships." />
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
                 {TESTIMONIALS.map((t, i) => (
                   <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}

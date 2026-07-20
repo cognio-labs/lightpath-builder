@@ -8,7 +8,7 @@ export const Route = createFileRoute("/yoga")({
     meta: [
       { title: "Easy Yoga for Everyday Peace | Science Divine Foundation" },
       { name: "description", content: "Easy Yoga for Everyday Peace by Science Divine. Connecting mind, body, and spirit. Guided poses, breathing techniques, and transformational practices with Sakshi Shree." },
-      { property: "og:title", content: "Yoga — Science Divine" },
+      { property: "og:title", content: "Yoga ,  Science Divine" },
       { property: "og:url", content: "/yoga" },
     ],
     links: [{ rel: "canonical", href: "/yoga" }],
@@ -73,7 +73,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Heart size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Practices — Yoga</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Practices ,  Yoga</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Easy Yoga for{"  "}
@@ -82,7 +82,7 @@ function Page() {
               </span>
             </h1>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "660px", marginBottom: "40px" }}>
-              Yoga is a timeless guide to finding balance. It's not just about touching your toes, it's about connecting mind, body, and spirit. Under the guidance of Sakshi Shree, yoga becomes a journey of transformation — offering poses, meditation, and breathwork to unlock your inner potential and cultivate wellness.
+              Yoga is a timeless guide to finding balance. It's not just about touching your toes, it's about connecting mind, body, and spirit. Under the guidance of Sakshi Shree, yoga becomes a journey of transformation ,  offering poses, meditation, and breathwork to unlock your inner potential and cultivate wellness.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>

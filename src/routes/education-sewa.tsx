@@ -4,13 +4,13 @@ import { Sparkles, ArrowRight, GraduationCap, BookOpen, Heart, Award } from "luc
 export const Route = createFileRoute("/education-sewa")({
   head: () => ({
     meta: [
-      { title: "Shiksha Sewa — Illuminating Young Minds | Science Divine Foundation" },
+      { title: "Shiksha Sewa ,  Illuminating Young Minds | Science Divine Foundation" },
       {
         name: "description",
         content:
           "Guided by Guru Sakshi Shree, Shiksha Seva reaches forgotten children, making every classroom a temple of learning.",
       },
-      { property: "og:title", content: "Shiksha Sewa — Science Divine Foundation" },
+      { property: "og:title", content: "Shiksha Sewa ,  Science Divine Foundation" },
       { property: "og:url", content: "/education-sewa" },
     ],
     links: [{ rel: "canonical", href: "/education-sewa" }],
@@ -29,7 +29,7 @@ const METRICS = [
     icon: "📚",
     value: "Distribution",
     label: "Books & School Kits",
-    desc: "Annual distribution of essential materials—a symbol of light and opportunity.",
+    desc: "Annual distribution of essential materials, a symbol of light and opportunity.",
   },
   {
     icon: "🎓",
@@ -49,7 +49,7 @@ const PATHS = [
   {
     num: "1.",
     title: "Free & Subsidized Schooling",
-    desc: "For children whose dreams deserve no price tag—education that uplifts, enlightens, and empowers.",
+    desc: "For children whose dreams deserve no price tag, education that uplifts, enlightens, and empowers.",
   },
   {
     num: "2.",
@@ -135,7 +135,7 @@ function Page() {
             Education as Enlightenment 📖
           </h2>
           <p style={{ color: "#475569", fontSize: "1.1rem", lineHeight: 1.8, fontStyle: "italic" }}>
-            "Guided by the compassionate teachings of <span style={{ color: "#B45309", fontWeight: 700 }}>Guru Sakshi Shree</span>, <span style={{ fontWeight: 700 }}>Shiksha Seva</span> reaches the hearts of children who have long been forgotten by fortune—making every classroom a <span style={{ color: "#B45309", fontWeight: 700 }}>temple of learning</span>, every lesson a <span style={{ color: "#B45309", fontWeight: 700 }}>path toward self-realization</span>."
+            "Guided by the compassionate teachings of <span style={{ color: "#B45309", fontWeight: 700 }}>Guru Sakshi Shree</span>, <span style={{ fontWeight: 700 }}>Shiksha Seva</span> reaches the hearts of children who have long been forgotten by fortune, making every classroom a <span style={{ color: "#B45309", fontWeight: 700 }}>temple of learning</span>, every lesson a <span style={{ color: "#B45309", fontWeight: 700 }}>path toward self-realization</span>."
           </p>
         </div>
       </section>
@@ -184,9 +184,9 @@ function Page() {
               <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Voices of Transformation ⭐</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "24px" }}>Seeker Stories</h2>
               <blockquote style={{ borderLeft: "4px solid #D4AF37", paddingLeft: "20px", color: "#475569", fontStyle: "italic", fontSize: "1.1rem", lineHeight: 1.7, marginBottom: "20px" }}>
-                "Before Shiksha Seva, my path was dark. Today, I carry the lamp of learning—and I dream to become a teacher who lights the way for others."
+                "Before Shiksha Seva, my path was dark. Today, I carry the lamp of learning, and I dream to become a teacher who lights the way for others."
               </blockquote>
-              <div style={{ fontWeight: 800, color: "#0F172A" }}>— Pooja, Age 14</div>
+              <div style={{ fontWeight: 800, color: "#0F172A" }}>,  Pooja, Age 14</div>
             </div>
             <div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>

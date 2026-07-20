@@ -81,7 +81,7 @@ function Page() {
               <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", color: "rgba(255,255,255,0.85)", fontSize: "1rem", lineHeight: 1.7, marginBottom: "10px" }}>
                 "The institution provides definite scientific techniques and spiritual practices that will be offered to the members for sound enlightenment, and for the sincere members, it will serve as a center for spiritual upliftment and enlightenment."
               </p>
-              <div style={{ color: G, fontWeight: 700, fontSize: "0.85rem" }}>— Sadguru Sakshi Shree</div>
+              <div style={{ color: G, fontWeight: 700, fontSize: "0.85rem" }}>,  Sadguru Sakshi Shree</div>
             </div>
           </div>
         </div>

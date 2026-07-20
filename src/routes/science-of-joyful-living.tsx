@@ -5,11 +5,11 @@ import { COURSES } from "@/data/content";
 export const Route = createFileRoute("/science-of-joyful-living")({
   head: () => ({
     meta: [
-      { title: "Science of Joyful Living — Course by Sakshi Shree" },
+      { title: "Science of Joyful Living ,  Course by Sakshi Shree" },
       {
         name: "description",
         content:
-          "Transformative course by Sakshi Shree. Science of Joyful Living — practical wisdom for real life.",
+          "Transformative course by Sakshi Shree. Science of Joyful Living ,  practical wisdom for real life.",
       },
       { property: "og:title", content: "Science of Joyful Living" },
       {

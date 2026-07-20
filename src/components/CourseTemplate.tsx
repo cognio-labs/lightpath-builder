@@ -22,7 +22,7 @@ export function CourseTemplate({
         subtitle={course.tagline}
       >
         <a href="#enroll" className="btn-gold rounded-full px-7 py-3 font-semibold text-sm">
-          Buy Now — ₹{course.price}
+          Buy Now, ₹{course.price}
         </a>
       </PageHero>
 

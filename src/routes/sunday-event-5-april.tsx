@@ -11,7 +11,7 @@ export const Route = createFileRoute("/sunday-event-5-april")({
         content:
           "Join Sakshi Shree for a free masterclass on 5 April 2026 to find peace, clarity and joy. Register now.",
       },
-      { property: "og:title", content: "FREE Meditation Masterclass — Science Divine Foundation" },
+      { property: "og:title", content: "FREE Meditation Masterclass ,  Science Divine Foundation" },
       { property: "og:url", content: "/sunday-event-5-april" },
     ],
     links: [{ rel: "canonical", href: "/sunday-event-5-april" }],
@@ -44,7 +44,7 @@ const STORIES = [
 const LEARN_POINTS = [
   {
     title: "Strengthen Your Intuition",
-    desc: "Your intuition is more than a feeling—it’s your inner compass. Learn how to connect with this powerful inner guide and gain clarity, and confidence in every decision you make.",
+    desc: "Your intuition is more than a feeling, it’s your inner compass. Learn how to connect with this powerful inner guide and gain clarity, and confidence in every decision you make.",
   },
   {
     title: "Say Goodbye to Stress in Minutes",
@@ -103,7 +103,7 @@ const INCLUDED = [
   {
     title: "Science of Joyful Living",
     prob: "Happiness tied to life events leaves us vulnerable to life’s chaos.",
-    sol: "Inner cleansing meditation teaches unconditional joy as a Sakshi—an observer of life.",
+    sol: "Inner cleansing meditation teaches unconditional joy as a Sakshi, an observer of life.",
     benefit: "Flush out negativity, nurture inner peace, and find happiness that never leaves you.",
   },
   {
@@ -117,15 +117,15 @@ const INCLUDED = [
 const FAQS = [
   {
     q: "How is this workshop different from other meditation programs?",
-    a: "This workshop is designed to make meditation accessible and affordable for everyone. Unlike typical programs, it offers a blend of online and in-person sessions along with personalized guidance —all designed to create lasting transformation.",
+    a: "This workshop is designed to make meditation accessible and affordable for everyone. Unlike typical programs, it offers a blend of online and in-person sessions along with personalized guidance , all designed to create lasting transformation.",
   },
   {
     q: "Do I need any prior experience with meditation before I take these sessions?",
-    a: "No, these sessions are designed for everyone—beginners and experienced meditators alike.",
+    a: "No, these sessions are designed for everyone, beginners and experienced meditators alike.",
   },
   {
     q: "I've tried meditation before and it didn't work, is this workshop for me?",
-    a: "Absolutely! Many participants who struggled with meditation before have found profound success through these sessions. Give it a try—you may be surprised at the transformation!",
+    a: "Absolutely! Many participants who struggled with meditation before have found profound success through these sessions. Give it a try, you may be surprised at the transformation!",
   },
   {
     q: "How soon can I expect results after joining the workshop?",
@@ -142,7 +142,7 @@ const FAQS = [
 ];
 
 const VIDEOS = [
-  { id: "jEiClzy2ZhY", title: "Guruji Read my Mind & wrote in his Diary — Pulkit Jain" },
+  { id: "jEiClzy2ZhY", title: "Guruji Read my Mind & wrote in his Diary ,  Pulkit Jain" },
   { id: "4XbvVT7yK2U", title: "Bobby Mann Testimonial | Sakshi Shree" },
   { id: "XaOeGL4Mp2E", title: "IITian Dheeraj Madaan from IIT Roorkee sharing experience" },
   { id: "60_cJkCAc5I", title: "Magic of Meeting Sakshi Shree | Gaurav Pratap" },
@@ -263,7 +263,7 @@ function Page() {
               <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Masterclass Agenda</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "4px", marginBottom: "20px" }}>What you’ll learn</h2>
               <p style={{ color: "#64748B", fontSize: "1rem", lineHeight: 1.7, marginBottom: "28px" }}>
-                What if your mind held the key to creating the life you’ve always wanted? Learn how to transform every area of your life—health, wealth, love, and happiness.
+                What if your mind held the key to creating the life you’ve always wanted? Learn how to transform every area of your life, health, wealth, love, and happiness.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {LEARN_POINTS.map((lp, i) => (

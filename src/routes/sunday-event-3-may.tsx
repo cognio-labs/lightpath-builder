@@ -22,7 +22,7 @@ const STORIES = [
 ];
 
 const LEARN_POINTS = [
-  { icon: "🧭", title: "Strengthen Your Intuition", desc: "Your intuition is more than a feeling—it's your inner compass. Learn how to connect with this powerful inner guide and gain clarity, and confidence in every decision you make." },
+  { icon: "🧭", title: "Strengthen Your Intuition", desc: "Your intuition is more than a feeling, it's your inner compass. Learn how to connect with this powerful inner guide and gain clarity, and confidence in every decision you make." },
   { icon: "🌿", title: "Say Goodbye to Stress in Minutes", desc: "In just 15 minutes, learn how to release negativity and experience immediate calm and balance." },
   { icon: "⚡", title: "Boost Your Health and Energy Naturally", desc: "Feel recharged and rejuvenated with meditation's physical benefits. Sleep better, reduce blood pressure, and energize your body to take on life with renewed vitality." },
 ];
@@ -45,21 +45,21 @@ const GALLERY = [
 const INCLUDED = [
   { title: "Science of Mind Power", emoji: "🧠", prob: "Struggling with negativity while trying to stay positive and manifest your dreams? Quick motivational boosts often fade when reality hits.", sol: "Mind power meditation. This proven practice rewires your mind into a positivity powerhouse.", benefit: "From glowing skin to dream careers or finding love, unlock your potential and make your goals a reality." },
   { title: "Science of No Mind", emoji: "🌌", prob: "Can't calm your mind? Mental chatter and burnout leave no room for peace, even during sleep.", sol: "Sanjeevani Kriya, a 30-minute meditation, resets your overworked brain.", benefit: "Instantly reduce stress, sleep deeply, and recharge your energy." },
-  { title: "Science of Joyful Living", emoji: "☀️", prob: "Happiness tied to life events leaves us vulnerable to life's chaos.", sol: "Inner cleansing meditation teaches unconditional joy as a Sakshi—an observer of life.", benefit: "Flush out negativity, nurture inner peace, and find happiness that never leaves you." },
+  { title: "Science of Joyful Living", emoji: "☀️", prob: "Happiness tied to life events leaves us vulnerable to life's chaos.", sol: "Inner cleansing meditation teaches unconditional joy as a Sakshi, an observer of life.", benefit: "Flush out negativity, nurture inner peace, and find happiness that never leaves you." },
   { title: "Exclusive Community Network", emoji: "🤝", prob: "Many people feel isolated and disconnected in their journey of self-discovery and personal growth.", sol: "Our in-person masterclass provides an exclusive network to connect with like-minded individuals.", benefit: "Build lifelong friendships, gain support, and accelerate your personal growth." },
 ];
 
 const FAQS = [
-  { q: "How is this workshop different from other meditation programs?", a: "This workshop is designed to make meditation accessible and affordable for everyone. Unlike typical programs, it offers a blend of online and in-person sessions along with personalized guidance—all designed to create lasting transformation." },
-  { q: "Do I need any prior experience with meditation before I take these sessions?", a: "No, these sessions are designed for everyone—beginners and experienced meditators alike." },
-  { q: "I've tried meditation before and it didn't work, is this workshop for me?", a: "Absolutely! Many participants who struggled with meditation before have found profound success through these sessions. Give it a try—you may be surprised at the transformation!" },
+  { q: "How is this workshop different from other meditation programs?", a: "This workshop is designed to make meditation accessible and affordable for everyone. Unlike typical programs, it offers a blend of online and in-person sessions along with personalized guidance, all designed to create lasting transformation." },
+  { q: "Do I need any prior experience with meditation before I take these sessions?", a: "No, these sessions are designed for everyone, beginners and experienced meditators alike." },
+  { q: "I've tried meditation before and it didn't work, is this workshop for me?", a: "Absolutely! Many participants who struggled with meditation before have found profound success through these sessions. Give it a try, you may be surprised at the transformation!" },
   { q: "How soon can I expect results after joining the workshop?", a: "9/10 participants notice a sense of calm, clarity, and reduced stress after just one session. With consistent practice for 21 days, deeper transformations follow." },
   { q: "How do I join the workshops after registering?", a: "Once you register, you can join the WhatsApp group, the link for which will be shown after you submit your registration. The WhatsApp group will have all the information for the session." },
   { q: "What if I miss a workshop? Will there be recordings available?", a: "Yes, we will provide the recording link in the WhatsApp group. You can join the group through the link provided after you submit your registration." },
 ];
 
 const VIDEOS = [
-  { id: "jEiClzy2ZhY", title: "Guruji Read my Mind and wrote in his Diary — Pulkit Jain" },
+  { id: "jEiClzy2ZhY", title: "Guruji Read my Mind and wrote in his Diary ,  Pulkit Jain" },
   { id: "4XbvVT7yK2U", title: "Bobby Mann Testimonial | Sakshi Shree" },
   { id: "XaOeGL4Mp2E", title: "IITian Dheeraj Madaan from IIT Roorkee sharing experience" },
   { id: "60_cJkCAc5I", title: "Magic of Meeting Sakshi Shree | Gaurav Pratap" },
@@ -194,7 +194,7 @@ function Page() {
             <div>
               <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Masterclass Agenda</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: T, marginTop: "6px", marginBottom: "20px" }}>What you will learn</h2>
-              <p style={{ color: TL, fontSize: "1rem", lineHeight: 1.7, marginBottom: "32px" }}>What if your mind held the key to creating the life you have always wanted? Learn how to transform every area of your life—health, wealth, love, and happiness.</p>
+              <p style={{ color: TL, fontSize: "1rem", lineHeight: 1.7, marginBottom: "32px" }}>What if your mind held the key to creating the life you have always wanted? Learn how to transform every area of your life, health, wealth, love, and happiness.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 {LEARN_POINTS.map((lp, i) => (
                   <div key={i} style={{ display: "flex", gap: "16px", background: BG, border: `1px solid ${BrG}`, borderRadius: "16px", padding: "20px" }}>

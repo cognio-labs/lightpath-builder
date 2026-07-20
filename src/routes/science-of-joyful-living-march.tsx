@@ -221,7 +221,7 @@ function Page() {
               <blockquote style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.65rem", fontStyle: "italic", fontWeight: 600, color: "#0F172A", lineHeight: 1.45, margin: "16px 0 24px 0", position: "relative" }}>
                 “Staying motivated can be hard sometimes. I made my life mission to give you that first push of motivation.”
               </blockquote>
-              <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#D4AF37" }}>— Sakshi Shree</h4>
+              <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#D4AF37" }}>,  Sakshi Shree</h4>
               <p style={{ color: "#64748B", fontSize: "0.9rem", marginTop: "4px" }}>Enlightened Spiritual Master & Divine Messenger</p>
             </div>
           </div>

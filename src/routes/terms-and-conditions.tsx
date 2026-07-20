@@ -34,7 +34,7 @@ export const Route = createFileRoute("/terms-and-conditions")({
             Intellectual Property
           </h2>
           <p>
-            All content on Science Divine platforms — text, video, audio, images — is the property
+            All content on Science Divine platforms ,  text, video, audio, images ,  is the property
             of Rama Intellectual and Research Pvt Ltd and its licensors.
           </p>
           <h2 className="font-display text-xl font-bold text-gray-900 pt-4" style={{ borderBottom: "1px solid rgba(212,175,55,0.2)", paddingBottom: "0.5rem" }}>Links</h2>

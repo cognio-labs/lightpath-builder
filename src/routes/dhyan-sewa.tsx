@@ -4,13 +4,13 @@ import { Sparkles, ArrowRight, Brain, Heart, Info, MapPin } from "lucide-react";
 export const Route = createFileRoute("/dhyan-sewa")({
   head: () => ({
     meta: [
-      { title: "Dhyan & Gyan Sewa — Spreading the Light | Science Divine Foundation" },
+      { title: "Dhyan & Gyan Sewa ,  Spreading the Light | Science Divine Foundation" },
       {
         name: "description",
         content:
           "Meditation is not an escape; it is a homecoming. Support the Dhyan Sewa mission of spreading inner peace.",
       },
-      { property: "og:title", content: "Dhyan & Gyan Sewa — Science Divine Foundation" },
+      { property: "og:title", content: "Dhyan & Gyan Sewa ,  Science Divine Foundation" },
       { property: "og:url", content: "/dhyan-sewa" },
     ],
     links: [{ rel: "canonical", href: "/dhyan-sewa" }],
@@ -76,12 +76,12 @@ function Page() {
         <div className="container-page" style={{ maxWidth: "800px", textAlign: "center" }}>
           <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Spreading the Light of Inner Peace</span>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 700, color: "#1E1B4B", lineHeight: 1.5, marginTop: "12px", marginBottom: "24px" }}>
-            "In a world that never stops talking, Dhyan Sewa invites you to listen — not to the noise outside, but to the silence within."
+            "In a world that never stops talking, Dhyan Sewa invites you to listen ,  not to the noise outside, but to the silence within."
           </h2>
           <blockquote style={{ color: "#475569", fontSize: "1.1rem", fontStyle: "italic", marginBottom: "16px" }}>
             "Meditation is not an escape; it is a homecoming."
           </blockquote>
-          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem" }}>— Sadhguru Sakshi Shree</p>
+          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem" }}>,  Sadhguru Sakshi Shree</p>
         </div>
       </section>
 
@@ -103,14 +103,14 @@ function Page() {
               <div style={{ marginBottom: "32px" }}>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginBottom: "12px" }}>The Transformative Power</h3>
                 <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
-                  In these gatherings, laughter replaces stress, tears turn into release, and silence becomes strength. It's not about renouncing life—it's about rediscovering it, deeply, consciously, joyfully.
+                  In these gatherings, laughter replaces stress, tears turn into release, and silence becomes strength. It's not about renouncing life, it's about rediscovering it, deeply, consciously, joyfully.
                 </p>
               </div>
 
               <div>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginBottom: "12px" }}>Mission of Dhyan Sewa</h3>
                 <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
-                  The purpose is simple yet profound—to make meditation accessible, practical, and transformative for all. Every shivir is conducted as an act of compassion, ensuring no soul is denied the path to peace.
+                  The purpose is simple yet profound, to make meditation accessible, practical, and transformative for all. Every shivir is conducted as an act of compassion, ensuring no soul is denied the path to peace.
                 </p>
               </div>
             </div>
@@ -124,7 +124,7 @@ function Page() {
           <p style={{ color: "#E0E7FF", fontSize: "1.25rem", fontStyle: "italic", lineHeight: 1.6, marginBottom: "16px" }}>
             "From the outside, we look for peace. From the inside, we realize we are peace."
           </p>
-          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.05em" }}>— Sadhguru Sakshi Shree</p>
+          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.05em" }}>,  Sadhguru Sakshi Shree</p>
         </div>
       </section>
 

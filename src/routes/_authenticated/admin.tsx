@@ -30,7 +30,7 @@ type SubmissionRow = AdminRow & {
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
-    meta: [{ title: "Admin — Science Divine" }, { name: "robots", content: "noindex" }],
+    meta: [{ title: "Admin ,  Science Divine" }, { name: "robots", content: "noindex" }],
   }),
   component: AdminPage,
 });

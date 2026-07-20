@@ -5,11 +5,11 @@ import { COURSES } from "@/data/content";
 export const Route = createFileRoute("/sanjeevni-kriya")({
   head: () => ({
     meta: [
-      { title: "Sanjeevani Kriya — Course by Sakshi Shree" },
+      { title: "Sanjeevani Kriya ,  Course by Sakshi Shree" },
       {
         name: "description",
         content:
-          "Transformative course by Sakshi Shree. Sanjeevani Kriya — practical wisdom for real life.",
+          "Transformative course by Sakshi Shree. Sanjeevani Kriya ,  practical wisdom for real life.",
       },
       { property: "og:title", content: "Sanjeevani Kriya" },
       {

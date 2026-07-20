@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *), .dark&);
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -104,7 +104,142 @@
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── No dark mode — site is white-only ─────────── */
+/* ── Dark Mode custom variables ── */
+.dark {
+  --background: #0a0f1e;
+  --foreground: #f1f5f9;
+  --card: #111827;
+  --card-foreground: #f1f5f9;
+  --popover: #111827;
+  --popover-foreground: #f1f5f9;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #1e2d45;
+  --input: #1e2d45;
+  --shadow-card: 0 4px 20px -6px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.25);
+}
+
+/* ── Dark Mode — apply .dark on <html> for full page ── */
+html.dark {
+  background-color: #0a0f1e;
+  color: #f1f5f9;
+}
+
+/* All sections & main containers go dark */
+html.dark section,
+html.dark main,
+html.dark header,
+html.dark [class*="bg-white"],
+html.dark [class*="bg-gray-50"],
+html.dark [class*="bg-gray-100"],
+html.dark [class*="bg-\[#FAFAFA\]"],
+html.dark [class*="surface-alt"] {
+  background-color: #0a0f1e !important;
+  color: #f1f5f9;
+}
+
+/* Cards go dark */
+html.dark .card-premium,
+html.dark [class*="card-premium"] {
+  background: #111827 !important;
+  border-color: #1e2d45 !important;
+}
+
+/* Text overrides */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f1f5f9 !important;
+}
+
+html.dark p,
+html.dark span:not([style*="background"]) {
+  color: inherit;
+}
+
+/* Tailwind text-gray-* overrides */
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700 { color: #f1f5f9 !important; }
+html.dark .text-gray-600,
+html.dark .text-gray-500 { color: #94a3b8 !important; }
+html.dark .text-gray-400 { color: #64748b !important; }
+
+/* Feature cards */
+html.dark .group.flex.h-full.flex-col {
+  background: #111827 !important;
+  border-color: #1e2d45 !important;
+}
+
+/* Borders */
+html.dark .border-gray-100,
+html.dark .border-gray-200 { border-color: #1e2d45 !important; }
+
+/* Navbar — keep it dark-adapted */
+html.dark [class*="bg-white\/"] {
+  background-color: rgba(10, 15, 30, 0.95) !important;
+}
+
+/* Dropdowns */
+html.dark .bg-white.rounded-xl {
+  background-color: #111827 !important;
+}
+
+/* Dark bg sections keep their background */
+html.dark [style*="background: #0F172A"],
+html.dark [style*="background:#0F172A"],
+html.dark .dark-bg {
+  background-color: #050810 !important;
+}
+
+/* Inline light backgrounds */
+html.dark [style*="background: #FAFAFA"],
+html.dark [style*="background:#FAFAFA"],
+html.dark [style*="background: #fafafa"],
+html.dark [style*="background-color: #ffffff"],
+html.dark [style*="background:#ffffff"],
+html.dark [style*="background: white"] {
+  background-color: #0a0f1e !important;
+}
+
+/* Hero pill badges */
+html.dark [style*="background: rgba(255, 255, 255, 0.9)"],
+html.dark [style*="background: rgba(255,255,255,0.9)"] {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Inputs */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1e2d45 !important;
+  color: #f1f5f9 !important;
+  border-color: #1e2d45 !important;
+}
+
+/* Buttons outline */
+html.dark .btn-outline-gold {
+  color: #d4af37 !important;
+  border-color: #d4af37 !important;
+}
+
+/* Mobile menu */
+html.dark [class*="fixed"][class*="bg-white"] {
+  background-color: #0a0f1e !important;
+}
+
+/* Footer stays extra dark */
+html.dark footer {
+  background-color: #050810 !important;
+}
+
 
 @layer base {
   * {
@@ -113,13 +248,31 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: #ffffff;
-    color: #111827;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    line-height: 1.7;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.65;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  /* High definition text clarity */
+  p, span, h1, h2, h3, h4, h5, h6, a, button, input, label {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  /* Ensure dark class on html propagates to entire page */
+  html.dark body,
+  html.dark {
+    background-color: #0a0f1e;
+    color: #f1f5f9;
   }
   h1,
   h2,
@@ -279,6 +432,11 @@
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-4px);
   }
+  .dark & {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
 }
 
 /* ── Ornament divider ───────────────────────────── */
@@ -397,13 +555,187 @@
   font-weight: 300;
 }
 
-/* ── Section gold accent bar ────────────────────── */
-.section-gold-bar::before {
-  content: "";
-  display: block;
-  width: 3rem;
-  height: 3px;
-  background: var(--gradient-gold);
-  border-radius: 999px;
-  margin-bottom: 1rem;
+
+
+/* ── Hero Luxury Background ──────────────────────── */
+.hero-luxury-bg {
+  background: linear-gradient(135deg, #FCF7EE 0%, #F8ECD6 50%, #FDF4E5 100%);
+  transition: background 0.4s ease;
+}
+.dark .hero-luxury-bg {
+  background: linear-gradient(135deg, #050810 0%, #0a0f1e 50%, #050810 100%) !important;
+}
+
+/* ── Quote / Sakshi Shree Section Background ─────── */
+.quote-section-bg {
+  background: linear-gradient(135deg, #FFFBF0 0%, #FFF3D0 100%);
+  transition: background 0.4s ease;
+}
+.dark .quote-section-bg {
+  background: linear-gradient(135deg, #0a0f1e 0%, #111827 100%) !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   COMPREHENSIVE DARK MODE OVERRIDES
+   These rules ensure EVERY page, card, section,
+   text, button, and border responds to dark mode.
+═══════════════════════════════════════════════════ */
+
+/* All section backgrounds go dark */
+.dark main,
+.dark .section-pad {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Tailwind bg-white / bg-gray utility classes override */
+.dark .bg-white {
+  background-color: var(--background) !important;
+}
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .surface-alt {
+  background-color: var(--secondary) !important;
+}
+.dark .bg-\[\#FAFAFA\] {
+  background-color: var(--secondary) !important;
+}
+
+/* Every card goes dark */
+.dark .card-premium,
+.dark [class*="card-"],
+.dark .glass-card {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+/* Fix inline bg-white divs (feature cards, solution icons etc.) */
+.dark div[style*="background:#fff"],
+.dark div[style*="background: #fff"],
+.dark div[style*="background-color:#fff"],
+.dark div[style*="background-color: #fff"],
+.dark div[style*="background:#ffffff"],
+.dark div[style*="background: #ffffff"],
+.dark div[style*="background-color:#ffffff"],
+.dark div[style*="background-color: #ffffff"] {
+  background-color: var(--card) !important;
+}
+
+/* Feature cards (hardcoded bg-white + border) */
+.dark .group.flex.h-full.flex-col {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+/* All body text colors */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: var(--foreground) !important;
+}
+.dark p {
+  color: var(--muted-foreground) !important;
+}
+.dark [class*="text-gray-900"],
+.dark [class*="text-gray-800"],
+.dark [class*="text-gray-700"] {
+  color: var(--foreground) !important;
+}
+.dark [class*="text-gray-600"],
+.dark [class*="text-gray-500"],
+.dark [class*="text-gray-400"] {
+  color: var(--muted-foreground) !important;
+}
+
+/* All borders */
+.dark [class*="border-gray"],
+.dark [class*="border-[#E"],
+.dark [class*="border-[rgba"] {
+  border-color: var(--border) !important;
+}
+
+/* Footer & dark bg sections — keep them dark */
+.dark .dark-bg,
+.dark footer,
+.dark [class*="bg-slate-900"],
+.dark [class*="bg-slate-950"],
+.dark [class*="bg-[#0F172A]"] {
+  background-color: #050810 !important;
+}
+
+/* Solution icon cards */
+.dark a[class*="rounded"][class*="border"],
+.dark div[class*="rounded"][class*="border-gray"] {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+/* Mobile menu background */
+.dark [class*="fixed"] {
+  background-color: #0a0f1e !important;
+}
+
+/* Dropdown menus */
+.dark [class*="bg-white"][class*="rounded-xl"][class*="shadow"] {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+/* Stats banner — already dark, just make it deeper */
+.dark [style*="background: #0F172A"],
+.dark [style*="background:#0F172A"] {
+  background: #050810 !important;
+}
+
+/* Input fields and forms */
+.dark input, .dark textarea, .dark select {
+  background-color: var(--input) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+/* Inline style overrides for section backgrounds */
+.dark [style*="background: #FAFAFA"],
+.dark [style*="background:#FAFAFA"],
+.dark [style*="background: #fafafa"],
+.dark [style*="background: white"],
+.dark [style*="background:white"],
+.dark [style*="background-color: white"],
+.dark [style*="background-color:white"] {
+  background-color: var(--background) !important;
+}
+
+/* Hero section badge / pills */
+.dark [style*="background: rgba(255, 255, 255"],
+.dark [style*="background:rgba(255,255,255"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Testimonial card area */
+.dark [class*="bg-[#FAFAFA]"] {
+  background: var(--background) !important;
+}
+
+/* Image overlays remain visible */
+.dark img {
+  opacity: 0.95;
+}
+
+/* Buttons — gold stays gold, outline adapts */
+.dark .btn-outline-gold {
+  color: #d4af37 !important;
+  border-color: #d4af37 !important;
+}
+.dark .btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.15) !important;
+}
+
+/* Text that uses amber is fine, no override needed */
+/* Gold gradient text stays visible on dark */
+
+/* Ensure smooth transitions on all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }

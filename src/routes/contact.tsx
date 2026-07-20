@@ -49,7 +49,7 @@ function Page() {
       <section className="section-pad bg-white">
         <div className="container-page grid lg:grid-cols-5 gap-12">
 
-          {/* Contact Form — 3 cols */}
+          {/* Contact Form ,  3 cols */}
           <div className="lg:col-span-3">
             <div className="card-premium rounded-3xl p-8 md:p-10">
               <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Send a Message</h2>
@@ -112,7 +112,7 @@ function Page() {
             </div>
           </div>
 
-          {/* Contact Details — 2 cols */}
+          {/* Contact Details ,  2 cols */}
           <div className="lg:col-span-2 space-y-6">
 
             {/* Address */}

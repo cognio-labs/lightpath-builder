@@ -16,7 +16,7 @@ export const Route = createFileRoute("/book-session")({
         content:
           "Unlock the life you truly desire. ₹6,100 donation. Sakshi Shree reads your past, present, and future like an open book.",
       },
-      { property: "og:title", content: "Book Personal Session — Sakshi Shree" },
+      { property: "og:title", content: "Book Personal Session ,  Sakshi Shree" },
       {
         property: "og:image",
         content: "https://sciencedivine.org/wp-content/uploads/2024/12/AAP_0178-1-1-1.webp",
@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: "What can I expect?",
-    a: "Personalized insights delivered without you needing to speak — the reading comes through direct energy sensing.",
+    a: "Personalized insights delivered without you needing to speak ,  the reading comes through direct energy sensing.",
   },
 ];
 
@@ -54,7 +54,7 @@ function Page() {
       <PageHero
         eyebrow="Personal Session · ₹6,100 Donation"
         title="Unlock the Life You Truly Desire"
-        subtitle="Sakshi Shree reads your energy like an open book. Your contribution supports the Jhuggi Jhopdi Shiksha Sewa Mission — free education for slum children."
+        subtitle="Sakshi Shree reads your energy like an open book. Your contribution supports the Jhuggi Jhopdi Shiksha Sewa Mission ,  free education for slum children."
       >
         <a href="#book" className="btn-gold rounded-full px-8 py-3.5 text-sm font-semibold">
           Reserve Your Session
@@ -67,7 +67,7 @@ function Page() {
             {
               icon: Sparkles,
               title: "Instant Life Reading & Clarity",
-              desc: "See where you are and where you're going — with unprecedented precision.",
+              desc: "See where you are and where you're going ,  with unprecedented precision.",
             },
             {
               icon: Compass,

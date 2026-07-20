@@ -8,7 +8,7 @@ export const Route = createFileRoute("/gratitude")({
     meta: [
       { title: "Transformative Power of Gratitude | Science Divine Foundation" },
       { name: "description", content: "Finding Light in the Storm: The Transformative Power of Gratitude with Sakshi Shree. Learn techniques, read articles, and watch videos on gratitude." },
-      { property: "og:title", content: "Gratitude — Science Divine" },
+      { property: "og:title", content: "Gratitude ,  Science Divine" },
       { property: "og:url", content: "/gratitude" },
     ],
     links: [{ rel: "canonical", href: "/gratitude" }],
@@ -76,7 +76,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Heart size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Gratitude</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Gratitude</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Finding Light in the Storm:{" "}

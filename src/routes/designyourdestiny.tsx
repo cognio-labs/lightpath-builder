@@ -5,7 +5,7 @@ export const Route = createFileRoute("/designyourdestiny")({
   head: () => ({
     meta: [
       { title: "Design Your Destiny - Transform Your Life with Sakshi Shree | Science Divine Foundation" },
-      { name: "description", content: "Unlock your true potential with Design Your Destiny — a life-transforming program by Sakshi Shree. Ancient wisdom meets modern practices. Enroll today." },
+      { name: "description", content: "Unlock your true potential with Design Your Destiny ,  a life-transforming program by Sakshi Shree. Ancient wisdom meets modern practices. Enroll today." },
       { property: "og:title", content: "Design Your Destiny - A Life-Transforming Program by Sakshi Shree" },
     ],
     links: [{ rel: "canonical", href: "/designyourdestiny" }],

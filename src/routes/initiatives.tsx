@@ -4,13 +4,13 @@ import { GraduationCap, Brain, UtensilsCrossed, Building2, Heart } from "lucide-
 export const Route = createFileRoute("/initiatives")({
   head: () => ({
     meta: [
-      { title: "Initiatives — Science Divine Foundation" },
+      { title: "Initiatives ,  Science Divine Foundation" },
       {
         name: "description",
         content:
-          "SAVE HUMANITY — support Shiksha Sewa, Dhyan Sewa, Annapurna Sewa, Nirman Sewa. Every donation transforms lives.",
+          "SAVE HUMANITY ,  support Shiksha Sewa, Dhyan Sewa, Annapurna Sewa, Nirman Sewa. Every donation transforms lives.",
       },
-      { property: "og:title", content: "Save Humanity — Science Divine Initiatives" },
+      { property: "og:title", content: "Save Humanity ,  Science Divine Initiatives" },
       { property: "og:url", content: "/initiatives" },
     ],
     links: [{ rel: "canonical", href: "/initiatives" }],
@@ -129,7 +129,7 @@ function Page() {
             Do you wish his divine wisdom to touch millions and billions of hearts around the world?
           </p>
           <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.8 }}>
-            He walks this path for you. The blessings, the teachings, the light—they reach you because of his unwavering efforts. Now, this mission can only grow with your support. Your contribution ensures that Sakshi Shree’s voice spreads further, changing lives everywhere.
+            He walks this path for you. The blessings, the teachings, the light, they reach you because of his unwavering efforts. Now, this mission can only grow with your support. Your contribution ensures that Sakshi Shree’s voice spreads further, changing lives everywhere.
           </p>
         </div>
       </section>

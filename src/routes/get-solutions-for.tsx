@@ -10,7 +10,7 @@ export const Route = createFileRoute("/get-solutions-for")({
         content:
           "Find targeted spiritual and mental wellness solutions for overthinking, addictions, parenting, sleeping disorder, wellness, anxiety, and depression with Sakshi Shree.",
       },
-      { property: "og:title", content: "Solutions Hub — Science Divine" },
+      { property: "og:title", content: "Solutions Hub ,  Science Divine" },
       { property: "og:url", content: "/get-solutions-for" },
     ],
     links: [{ rel: "canonical", href: "/get-solutions-for" }],
@@ -78,7 +78,7 @@ function Page() {
             Get Solutions For Your Challenges
           </h1>
           <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
-            Whatever you're working through, Sakshi Shree's ancient wisdom has a doorway. Choose your challenge — we'll meet you there.
+            Whatever you're working through, Sakshi Shree's ancient wisdom has a doorway. Choose your challenge ,  we'll meet you there.
           </p>
         </div>
       </section>

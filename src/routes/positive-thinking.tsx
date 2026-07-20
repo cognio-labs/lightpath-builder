@@ -8,7 +8,7 @@ export const Route = createFileRoute("/positive-thinking")({
     meta: [
       { title: "Power of Positive Thinking | Science Divine Foundation" },
       { name: "description", content: "The Power of Positive Thinking with Sakshi Shree. Align thoughts, foster optimism, eliminate negative spirals, and manifest success." },
-      { property: "og:title", content: "Positive Thinking — Science Divine" },
+      { property: "og:title", content: "Positive Thinking ,  Science Divine" },
       { property: "og:url", content: "/positive-thinking" },
     ],
     links: [{ rel: "canonical", href: "/positive-thinking" }],
@@ -74,7 +74,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(251,191,36,0.15)", border: "1px solid rgba(251,191,36,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Sun size={14} style={{ color: "#FBBF24" }} />
-              <span style={{ color: "#FBBF24", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Positive Thinking</span>
+              <span style={{ color: "#FBBF24", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Positive Thinking</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               The Power of{" "}

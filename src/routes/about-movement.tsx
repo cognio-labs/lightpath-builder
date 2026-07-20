@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about-movement")({
       {
         name: "description",
         content:
-          "Science Divine Movement — Sound Body, Sound Mind, Self Realization. A 25-year journey of transformation.",
+          "Science Divine Movement ,  Sound Body, Sound Mind, Self Realization. A 25-year journey of transformation.",
       },
       { property: "og:title", content: "About Science Divine Movement" },
       { property: "og:url", content: "/about-movement" },
@@ -101,7 +101,7 @@ function Page() {
             <SectionHeading
               eyebrow="Our Vision"
               title="A conscious humanity."
-              subtitle="A world where every home has education, every heart has meditation, and every life knows its purpose. This is not utopia — it is a decision, made daily, by ordinary people committed to their own awakening and the awakening of others."
+              subtitle="A world where every home has education, every heart has meditation, and every life knows its purpose. This is not utopia ,  it is a decision, made daily, by ordinary people committed to their own awakening and the awakening of others."
             />
           </div>
         </div>

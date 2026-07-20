@@ -83,7 +83,7 @@ const FAQS = [
 ];
 
 const VIDEOS = [
-  { id: "jEiClzy2ZhY", title: "Guruji Read my Mind & wrote in his Diary — Pulkit Jain" },
+  { id: "jEiClzy2ZhY", title: "Guruji Read my Mind & wrote in his Diary ,  Pulkit Jain" },
   { id: "4XbvVT7yK2U", title: "Bobby Mann Testimonial | Sakshi Shree" },
   { id: "XaOeGL4Mp2E", title: "IITian Dheeraj Madaan from IIT Roorkee sharing experience" },
   { id: "60_cJkCAc5I", title: "Magic of Meeting Sakshi Shree | Gaurav Pratap" }

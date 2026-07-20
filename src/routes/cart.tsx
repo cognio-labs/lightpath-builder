@@ -5,7 +5,7 @@ import { ShoppingBag } from "lucide-react";
 export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
-      { title: "Cart — Science Divine" },
+      { title: "Cart ,  Science Divine" },
       { name: "description", content: "Your shopping cart." },
       { property: "og:url", content: "/cart" },
     ],

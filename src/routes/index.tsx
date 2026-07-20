@@ -4,6 +4,9 @@ import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { Lens } from "@/components/ui/lens";
 import { Counter } from "@/lib/useCounter";
+import TextType from "@/components/ui/TextType";
+import GlareHover from "@/components/ui/GlareHover";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import {
   COURSES,
   EVENTS,
@@ -25,6 +28,8 @@ import {
   BookOpen,
   Droplets,
   Sparkles,
+  Users,
+  User,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -155,14 +160,23 @@ function LensImage({ src, alt, className }: { src: string; alt: string; classNam
     </Lens>
   );
 }
+function LotusIcon({ size = 20, color = "#C9910B", className = "" }: { size?: number; color?: string; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M12 3C12 3 8 8 8 13C8 17.4183 9.79086 21 12 21C14.2091 21 16 17.4183 16 13C16 8 12 3 12 3Z" />
+      <path d="M12 21C7.5 21 3 18.5 3 14C3 10.5 7 8 10 9.5" />
+      <path d="M12 21C16.5 21 21 18.5 21 14C21 10.5 17 8 14 9.5" />
+    </svg>
+  );
+}
+
 function Home() {
   return (
     <>
       {/* ════════════════════════════════════
-          HERO — Master Premium Redesign
+          HERO SECTION ,  LUXURY SPIRITUAL REDESIGN
       ════════════════════════════════════ */}
-      <section style={{
-        background: "#FCF8F1",
+      <section className="hero-luxury-bg" style={{
         position: "relative",
         overflow: "hidden",
         minHeight: "100vh",
@@ -171,9 +185,8 @@ function Home() {
       }}>
         <style>{`
           @keyframes homeFadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-          @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-          @keyframes homePulse { 0%,100%{opacity:.3} 50%{opacity:.65} }
-          @keyframes homeRotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+          @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+          @keyframes homePulse { 0%,100%{opacity:.3} 50%{opacity:.7} }
           @keyframes rotateMandala {
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -193,225 +206,280 @@ function Home() {
           .hm-fade-img { animation: homeFadeUp 1s 0.4s both; }
 
           .btn-hero-primary {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: linear-gradient(135deg, #C9910B, #D4AF37, #E6C84A, #C9910B);
+            display: inline-flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, #B8860B 0%, #C79A2E 50%, #D4AF37 100%);
             background-size: 200% auto;
-            color: #FFFFFF; padding: 16px 36px; border-radius: 100px;
+            color: #FFFFFF; padding: 16px 38px; border-radius: 100px;
             font-weight: 700; font-size: 1rem; text-decoration: none;
-            box-shadow: 0 10px 30px rgba(212,175,55,0.35);
-            transition: background-position 0.4s, box-shadow 0.4s, transform 0.2s;
+            box-shadow: 0 12px 32px rgba(199,154,46,0.35);
+            transition: background-position 0.4s, box-shadow 0.4s, transform 0.25s;
             white-space: nowrap;
           }
           .btn-hero-primary:hover {
             background-position: right center;
-            box-shadow: 0 14px 40px rgba(212,175,55,0.5);
-            transform: translateY(-2px);
+            box-shadow: 0 16px 42px rgba(199,154,46,0.5);
+            transform: translateY(-3px);
           }
-          .btn-hero-primary:hover .btn-arrow { transform: translateX(4px); }
+          .btn-hero-primary:hover .btn-arrow { transform: translateX(5px); }
           .btn-arrow { transition: transform 0.3s; }
 
           .btn-hero-secondary {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(255,255,255,0.75);
-            border: 1.5px solid rgba(212,175,55,0.45);
-            color: #081A36; padding: 16px 36px; border-radius: 100px;
+            display: inline-flex; align-items: center; gap: 12px;
+            background: #FFFDF9;
+            border: 1.5px solid rgba(199,154,46,0.5);
+            color: #16233D; padding: 16px 38px; border-radius: 100px;
             font-weight: 600; font-size: 1rem; text-decoration: none;
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            transition: background 0.4s, border-color 0.4s, transform 0.2s;
+            box-shadow: 0 4px 18px rgba(199,154,46,0.08);
+            transition: background 0.4s, border-color 0.4s, transform 0.25s, box-shadow 0.4s;
             white-space: nowrap;
           }
           .btn-hero-secondary:hover {
-            background: rgba(212,175,55,0.08);
-            border-color: #D4AF37;
-            transform: translateY(-2px);
+            background: rgba(199,154,46,0.1);
+            border-color: #C79A2E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(199,154,46,0.22);
           }
 
-          .hm-stat-sep { width: 1px; height: 40px; background: rgba(8,26,54,0.15); }
+          .hm-stat-sep { width: 1px; height: 48px; background: rgba(199,154,46,0.3); }
+          .hm-stat-card {
+            transition: transform 0.3s ease;
+          }
+          .hm-stat-card:hover {
+            transform: translateY(-3px);
+          }
+
           .hm-particle {
             position: absolute; border-radius: 50%;
-            background: radial-gradient(circle, #D4AF37, rgba(212,175,55,0));
+            background: radial-gradient(circle, #C79A2E, rgba(199,154,46,0));
             animation: homeParticle linear infinite;
             pointer-events: none;
           }
-          
-          .hero-mandala {
+
+          /* Sacred 580px Golden Lotus Mandala Rotation */
+          .hero-mandala-580 {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 800px;
-            height: 800px;
-            opacity: 0.65;
+            width: 580px;
+            height: 580px;
+            opacity: 0.5;
             pointer-events: none;
             animation: rotateMandala 80s linear infinite;
             will-change: transform;
             transform: translate(-50%, -50%) translateZ(0);
-            filter: drop-shadow(0 0 40px rgba(212,175,55,0.4));
             z-index: 0;
           }
 
-          /* ── Hero Grid Layout ── */
+          /* ── Hero Container & Grid Layout ── */
           .hm-inner {
             max-width: 1440px;
             width: 100%;
             margin: 0 auto;
-            padding: 0 80px;
+            padding: 0 60px;
             position: relative;
             z-index: 10;
           }
           .hm-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.05fr 0.95fr;
             align-items: center;
             gap: 40px;
-            min-height: calc(100vh - 120px);
-            padding: 20px 0 10px;
+            min-height: calc(100vh - 80px);
+            padding: 40px 0 30px;
           }
-          .hm-left { max-width: 700px; }
-          .hm-left p { max-width: 620px; }
+          .hm-left { max-width: 650px; }
+          .hm-left p { max-width: 580px; }
           .hm-left .hm-btns { display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px; align-items: center; }
           .hm-left .hm-stats { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 32px; }
+          
           .hm-right {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 500px;
+            height: 100%;
+            min-height: 550px;
           }
 
-          /* Responsive */
-          @media (max-width: 1100px) {
-            .hm-inner { padding: 0 40px; }
-            .hm-grid { gap: 48px; }
+          /* Responsive Breakpoints */
+          @media (max-width: 1200px) {
+            .hm-inner { padding: 0 32px; }
+            .hm-grid { gap: 30px; }
+            .hero-mandala-580 { width: 480px; height: 480px; }
           }
-          @media (max-width: 800px) {
-            .hm-inner { padding: 0 24px; }
+          @media (max-width: 900px) {
+            .hm-inner { padding: 0 20px; }
             .hm-grid {
               grid-template-columns: 1fr;
               min-height: auto;
-              padding: 100px 0 60px;
-              gap: 40px;
+              padding: 40px 0 30px;
+              gap: 30px;
             }
-            .hm-left { max-width: 100%; order: 2; }
-            .hm-right { order: 1; min-height: 400px; }
+            .hm-left { max-width: 100%; order: 2; text-align: center; }
+            .hm-left p { margin-left: auto; margin-right: auto; }
+            .hm-left .hm-btns { justify-content: center; }
+            .hm-left .hm-stats { justify-content: center; }
+            .hm-right { order: 1; min-height: 360px; margin-bottom: 10px; }
+            .hero-mandala-580 { width: 340px; height: 340px; }
+            .hero-guru-cutout { max-width: 310px !important; }
+          }
+          @media (max-width: 600px) {
+            .hm-grid { padding: 24px 0 30px; gap: 24px; }
+            .hm-left .hm-btns { flex-direction: column; width: 100%; gap: 12px; }
+            .btn-hero-primary, .btn-hero-secondary { width: 100%; justify-content: center; padding: 14px 20px; font-size: 0.95rem; }
+            .hm-left .hm-stats {
+              display: grid !important;
+              grid-template-columns: repeat(3, 1fr) !important;
+              gap: 8px !important;
+              width: 100% !important;
+              justify-items: center !important;
+              align-items: flex-start !important;
+            }
+            .hm-stat-card {
+              align-items: center !important;
+              text-align: center !important;
+              width: 100% !important;
+            }
+            .hm-stat-sep { display: none !important; }
+            .hm-right { order: 1; min-height: 290px; margin-bottom: 0px; }
+            .hero-mandala-580 { width: 280px; height: 280px; }
+            .hero-guru-cutout { max-width: 250px !important; }
           }
         `}</style>
 
-        {/* Ambient background glows */}
+        {/* Ambient background subtle lighting */}
         <div style={{
           position: "absolute", top: "-10%", left: "-5%",
-          width: "700px", height: "700px",
-          background: "radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%)",
+          width: "650px", height: "650px",
+          background: "radial-gradient(circle, rgba(199,154,46,0.12) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
         <div style={{
-          position: "absolute", bottom: "-10%", right: "40%",
-          width: "600px", height: "600px",
-          background: "radial-gradient(circle, rgba(46,139,87,0.09) 0%, transparent 70%)",
+          position: "absolute", bottom: "-5%", right: "-5%",
+          width: "750px", height: "750px",
+          background: "radial-gradient(circle, rgba(199,154,46,0.1) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
 
-        {/* Right side golden glow behind guru */}
-        <div style={{
-          position: "absolute", top: "-20%", right: "-10%",
-          width: "900px", height: "900px",
-          background: "radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(245,200,60,0.10) 40%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-
-        {/* Lotus subtle watermark overlay */}
+        {/* Luxury paper texture pattern overlay */}
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "radial-gradient(rgba(212,175,55,0.025) 1.5px, transparent 1.5px)",
-          backgroundSize: "24px 24px",
+          backgroundImage: "radial-gradient(rgba(199,154,46,0.035) 1.5px, transparent 1.5px)",
+          backgroundSize: "28px 28px",
           pointerEvents: "none",
         }} />
 
-        {/* Floating particles */}
-        {[{s:8,l:"12%",b:"15%",d:"7s",del:"0s"},{s:6,l:"22%",b:"35%",d:"9s",del:"1s"},{s:9,l:"7%",b:"55%",d:"8s",del:"2s"},{s:5,l:"28%",b:"25%",d:"10s",del:"3s"}].map((p,i)=>(
+        {/* Floating dust & sparkle particles */}
+        {[{s:8,l:"12%",b:"15%",d:"12s",del:"0s"},{s:6,l:"22%",b:"35%",d:"15s",del:"1s"},{s:9,l:"7%",b:"55%",d:"14s",del:"2s"},{s:5,l:"28%",b:"25%",d:"18s",del:"3s"},{s:7,l:"85%",b:"40%",d:"16s",del:"1.5s"}].map((p,i)=>(
           <div key={i} className="hm-particle" style={{
             width: `${p.s}px`, height: `${p.s}px`,
             left: p.l, bottom: p.b,
             animationDuration: p.d, animationDelay: p.del,
-            opacity: 0.5,
+            opacity: 0.4,
           }} />
         ))}
 
         <div className="hm-inner">
           <div className="hm-grid">
 
-            {/* ── LEFT COLUMN ── */}
+            {/* ── LEFT COLUMN CONTENT ── */}
             <div className="hm-left hm-fade-1">
 
-              {/* Badge */}
+              {/* Small Premium Badge */}
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: "10px",
-                background: "rgba(255,255,255,0.85)",
-                border: "1.5px solid rgba(212,175,55,0.45)",
+                background: "rgba(255, 253, 249, 0.9)",
+                border: "1.5px solid rgba(199, 154, 46, 0.45)",
                 borderRadius: "100px", padding: "8px 22px",
                 backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
                 marginBottom: "20px",
+                boxShadow: "0 4px 18px rgba(199,154,46,0.08)"
               }}>
-                <Sparkles size={16} color="#D4AF37" />
+                <LotusIcon size={18} color="#C79A2E" />
                 <span style={{
                   color: "#8B6914", fontSize: "11px", fontWeight: 700,
-                  letterSpacing: "0.22em", textTransform: "uppercase" as const
+                  letterSpacing: "0.2em", textTransform: "uppercase" as const
                 }}>
                   Sound Body &bull; Sound Mind &bull; Self Realization
                 </span>
               </div>
 
-              {/* Heading */}
-              <h1 style={{ margin: "0 0 16px", fontFamily: "'Playfair Display', serif", lineHeight: 1.05, fontWeight: 700 }}>
-                <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(28px, 4vw, 60px)", color: "#081A36" }}>Awaken Your</span>
+              {/* Editorial Heading */}
+              <h1 style={{ margin: "0 0 18px", fontFamily: "'Playfair Display', serif", lineHeight: 1.02, fontWeight: 700 }}>
+                <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(30px, 3.8vw, 56px)", color: "var(--foreground)", letterSpacing: "-0.015em" }}>
+                  Awaken Your
+                </span>
                 <span className="hm-fade-2" style={{
-                  display: "block", fontSize: "clamp(28px, 4vw, 60px)", fontStyle: "italic",
-                  background: "linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #E6C84A 60%, #C9910B 100%)",
-                  WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
-                  paddingTop: "0.15em", marginTop: "-0.15em", paddingRight: "0.1em"
-                }}>True Potential</span>
-                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(28px, 4vw, 60px)", color: "#081A36" }}>with Science Divine</span>
-                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(28px, 4vw, 60px)", color: "#081A36" }}>Movement</span>
+                  display: "block", fontSize: "clamp(32px, 4.2vw, 60px)", fontStyle: "italic", fontWeight: 700,
+                  backgroundImage: "linear-gradient(135deg, #B8860B 0%, #C79A2E 50%, #E6C84A 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  color: "transparent",
+                  paddingTop: "0.08em", marginTop: "-0.05em", paddingRight: "0.1em"
+                }}>
+                  <TextType 
+                    text={["True Potential", "Sound Body", "Sound Mind", "Self Realization"]}
+                    typingSpeed={75}
+                    pauseDuration={1800}
+                    showCursor
+                    cursorCharacter="_"
+                    deletingSpeed={50}
+                    variableSpeedEnabled={false}
+                    cursorBlinkDuration={0.5}
+                  />
+                </span>
+                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(30px, 3.8vw, 56px)", color: "var(--foreground)", letterSpacing: "-0.015em", marginTop: "-0.05em" }}>
+                  with Science Divine
+                </span>
+                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(30px, 3.8vw, 56px)", color: "var(--foreground)", letterSpacing: "-0.015em" }}>
+                  Movement
+                </span>
               </h1>
 
-              {/* Subtitle */}
-              <p className="hm-fade-4" style={{ fontSize: "1.05rem", color: "#5C677D", lineHeight: 1.6, marginBottom: "24px", maxWidth: "620px" }}>
-                Begin a journey of meditation, wisdom, and conscious living under the guidance of enlightened master{" "}
-                <strong style={{ color: "#D4AF37", fontWeight: 700 }}>Sakshi Shree</strong>. Discover inner peace, unlock your true potential, and transform every aspect of your life.
+
+              {/* Description */}
+              <p className="hm-fade-4" style={{ fontSize: "1.05rem", color: "var(--foreground)", opacity: 0.8, lineHeight: 1.65, marginBottom: "28px", maxWidth: "580px" }}>
+                Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization, guided by enlightened master{" "}
+                <strong style={{ color: "#C79A2E", fontWeight: 700 }}>Sakshi Shree</strong>.
               </p>
 
-              {/* Buttons */}
-              <div className="hm-fade-5 hm-btns" style={{ marginBottom: "24px" }}>
+              {/* CTA Buttons */}
+              <div className="hm-fade-5 hm-btns" style={{ marginBottom: "36px" }}>
                 <Link to="/book-session" className="btn-hero-primary">
+                  <User size={18} />
                   Meet Sakshi Shree <ArrowRight size={18} className="btn-arrow" />
                 </Link>
-                <Link to="/courses" className="btn-hero-secondary">
-                  Explore Programs
+                <Link to="/events" className="btn-hero-secondary">
+                  <Calendar size={18} style={{ color: "#C79A2E" }} />
+                  Join Our Next Event
                 </Link>
               </div>
 
-              {/* Stats */}
+              {/* Statistics */}
               <div className="hm-fade-6 hm-stats">
                 {[
-                  { num: "5M+", label: "Lives Impacted" },
-                  { num: "40+", label: "Years of Wisdom" },
-                  { num: "1000+", label: "Meditation Programs" }
+                  { icon: <Users size={22} color="#C79A2E" />, num: "5M+", label: "Lives Impacted" },
+                  { icon: <LotusIcon size={22} color="#C79A2E" />, num: "40+", label: "Years of Wisdom" },
+                  { icon: <Calendar size={22} color="#C79A2E" />, num: "1000+", label: "Events Held" }
                 ].map((s, i) => (
                   <React.Fragment key={i}>
                     {i > 0 && <div className="hm-stat-sep" />}
-                    <div>
+                    <div className="hm-stat-card" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      <div style={{ marginBottom: "6px" }}>{s.icon}</div>
                       <div style={{
-                        fontFamily: "'Playfair Display', serif", fontSize: "2.5rem",
-                        fontWeight: 800, color: "#D4AF37", lineHeight: 1,
+                        fontFamily: "'Playfair Display', serif", fontSize: "2.2rem",
+                        fontWeight: 800, color: "var(--foreground)", lineHeight: 1,
                         display: "flex", alignItems: "baseline"
                       }}>
                         {s.num.replace(/\D/g, '')}
-                        <span style={{ fontSize: "1.75rem", fontWeight: 600, marginLeft: "2px" }}>
+                        <span style={{ fontSize: "1.6rem", fontWeight: 700, marginLeft: "2px", color: "#C79A2E" }}>
                           {s.num.replace(/\d/g, '')}
                         </span>
                       </div>
                       <div style={{
-                        fontSize: "0.78rem", color: "#5C677D", marginTop: "6px",
-                        fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" as const
+                        fontSize: "0.78rem", color: "var(--foreground)", opacity: 0.7, marginTop: "6px",
+                        fontWeight: 600, letterSpacing: "0.02em"
                       }}>{s.label}</div>
                     </div>
                   </React.Fragment>
@@ -419,80 +487,65 @@ function Home() {
               </div>
             </div>
 
-            {/* ── RIGHT COLUMN ── */}
+            {/* ── RIGHT COLUMN ,  GURU JI & ROTATING CHAKRA ── */}
             <div className="hm-right hm-fade-img">
 
-              {/* Background ambient radial glow */}
-              <div style={{
-                position: "absolute", inset: 0, margin: "auto",
-                width: "90%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.08) 55%, transparent 75%)",
-                animation: "homePulse 4s ease-in-out infinite",
-                pointerEvents: "none", zIndex: 0,
-              }} />
-
-              {/* Rotating Sacred Chakra Mandala */}
-              <svg className="hero-mandala" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#D4AF37" fill="none" strokeWidth="1.5">
-                  {/* Outer Rings */}
-                  <circle cx="400" cy="400" r="390" strokeWidth="1" opacity="0.5" strokeDasharray="4 8" />
-                  <circle cx="400" cy="400" r="375" strokeWidth="2" opacity="0.8" />
-                  <circle cx="400" cy="400" r="365" strokeWidth="1" opacity="0.5" />
+              {/* DIVINE CHAKRA ,  580px Sacred Lotus Mandala (80s Slow Rotation, Perfectly Framing Guru Ji) */}
+              <svg className="hero-mandala-580" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#C79A2E" fill="none" strokeWidth="1.5">
+                  {/* Outer Sacred Geometry Rings */}
+                  <circle cx="300" cy="300" r="290" strokeWidth="1" opacity="0.45" strokeDasharray="4 8" />
+                  <circle cx="300" cy="300" r="280" strokeWidth="2" opacity="0.85" />
+                  <circle cx="300" cy="300" r="270" strokeWidth="1" opacity="0.5" />
                   
-                  {/* Geometry / Lotus Petals Layer 1 */}
+                  {/* Sacred Lotus Petals ,  Outer Layer (12 Petals) */}
                   {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
-                    <g key={deg} transform={`rotate(${deg} 400 400)`}>
-                      <path d="M400,35 Q445,200 400,365 Q355,200 400,35" opacity="0.6" strokeWidth="1.5" />
-                      <circle cx="400" cy="65" r="4" fill="#D4AF37" opacity="0.9" />
-                      {/* Geometric connecting lines */}
-                      <line x1="400" y1="35" x2="400" y2="365" opacity="0.3" />
+                    <g key={deg} transform={`rotate(${deg} 300 300)`}>
+                      <path d="M300,25 Q335,150 300,275 Q265,150 300,25" opacity="0.7" strokeWidth="1.5" />
+                      <circle cx="300" cy="45" r="3.5" fill="#C79A2E" opacity="0.95" />
+                      <line x1="300" y1="25" x2="300" y2="275" opacity="0.35" />
                     </g>
                   ))}
                   
-                  {/* Lotus Petals Layer 2 (Offset) */}
+                  {/* Sacred Lotus Petals ,  Inner Layer (12 Offset Petals) */}
                   {[15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345].map(deg => (
-                    <g key={deg} transform={`rotate(${deg} 400 400)`}>
-                      <path d="M400,80 Q430,225 400,365 Q370,225 400,80" opacity="0.5" stroke="#B8860B" strokeWidth="1.5" />
-                      <circle cx="400" cy="115" r="3" fill="#B8860B" opacity="0.8" />
+                    <g key={deg} transform={`rotate(${deg} 300 300)`}>
+                      <path d="M300,60 Q325,170 300,275 Q275,170 300,60" opacity="0.6" stroke="#B8860B" strokeWidth="1.5" />
+                      <circle cx="300" cy="85" r="3" fill="#B8860B" opacity="0.85" />
                     </g>
                   ))}
 
-                  {/* Inner Rings */}
-                  <circle cx="400" cy="400" r="280" strokeWidth="1.5" opacity="0.7" />
-                  <circle cx="400" cy="400" r="260" strokeWidth="2" opacity="0.5" strokeDasharray="2 12" />
-                  <circle cx="400" cy="400" r="200" strokeWidth="1" opacity="0.8" />
+                  {/* Inner Concentric Rings & Geometry */}
+                  <circle cx="300" cy="300" r="210" strokeWidth="1.5" opacity="0.75" />
+                  <circle cx="300" cy="300" r="195" strokeWidth="2" opacity="0.5" strokeDasharray="3 10" />
+                  <circle cx="300" cy="300" r="150" strokeWidth="1.2" opacity="0.8" />
                   
-                  {/* Sun Rays Core */}
+                  {/* Sunburst Rays Core */}
                   {[...Array(36)].map((_, i) => (
-                    <line key={i} x1="400" y1="225" x2="400" y2="365" opacity="0.4" strokeWidth="1" transform={`rotate(${i * 10} 400 400)`} />
+                    <line key={i} x1="300" y1="170" x2="300" y2="275" opacity="0.45" strokeWidth="1" transform={`rotate(${i * 10} 300 300)`} />
                   ))}
                 </g>
               </svg>
 
-              {/* Inner divine halo directly behind head */}
-              <div style={{
-                position: "absolute", inset: 0, margin: "auto",
-                width: "45%", aspectRatio: "1", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(255,245,190,0.60) 0%, rgba(255,230,170,0.35) 40%, transparent 70%)",
-                pointerEvents: "none", zIndex: 0,
-              }} />
-
-              {/* Guru Ji portrait */}
+              {/* Main Static Guru Ji Portrait (Clean Fit, Zero Overflow) */}
               <img
                 src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
-                alt="Sakshi Shree — Enlightened Spiritual Master in Meditation"
+                alt="Sakshi Shree ,  Enlightened Spiritual Master in Meditation"
+                className="hero-guru-cutout"
                 style={{
-                  position: "relative", zIndex: 1,
+                  position: "relative", zIndex: 2,
                   width: "100%",
-                  maxWidth: "520px",
-                  height: "500px",
+                  maxWidth: "500px",
+                  height: "auto",
+                  maxHeight: "560px",
                   objectFit: "contain",
-                  objectPosition: "center bottom",
                   animation: "homeFloat 6s ease-in-out infinite",
+                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%)",
                 }}
               />
 
-              {/* Floating gold particles */}
+              {/* Floating gold sparkle particles */}
               {[{t:"12%",r:"6%",s:10,d:"5s",del:"0s"},{t:"52%",r:"2%",s:7,d:"7s",del:"1.5s"},{t:"78%",r:"10%",s:5,d:"6s",del:"3s"},{t:"22%",l:"4%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
                 <div key={i} className="hm-particle" style={{
                   width: `${p.s}px`, height: `${p.s}px`,
@@ -507,12 +560,34 @@ function Home() {
 
           </div>
         </div>
+
+        {/* Soft Cloud Mist Fade at Bottom */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "120px",
+          background: "linear-gradient(to top, #FCF8F2 20%, transparent 100%)",
+          pointerEvents: "none", zIndex: 5,
+        }} />
+
+        {/* Bottom Golden Flowing Wave Accent Line */}
+        <svg style={{
+          position: "absolute", bottom: 0, left: 0, width: "100%", height: "40px",
+          pointerEvents: "none", zIndex: 6, opacity: 0.4
+        }} viewBox="0 0 1440 40" fill="none" preserveAspectRatio="none">
+          <path d="M0 25 Q 360 5, 720 20 T 1440 15 V 40 H 0 Z" fill="url(#goldWaveGrad)" />
+          <defs>
+            <linearGradient id="goldWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(199, 154, 46, 0.05)" />
+              <stop offset="50%" stopColor="rgba(199, 154, 46, 0.25)" />
+              <stop offset="100%" stopColor="rgba(199, 154, 46, 0.05)" />
+            </linearGradient>
+          </defs>
+        </svg>
       </section>
 
       {/* ════════════════════════════════════
           SCIENCE DIVINE MOVEMENT
       ════════════════════════════════════ */}
-      <section className="section-pad" style={{ background: "#FAFAFA" }}>
+      <section className="section-pad bg-[#FAFAFA] dark:bg-slate-900/40 border-t border-b border-gray-100 dark:border-slate-800">
         <div className="container-page">
           <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
             <div>
@@ -525,8 +600,8 @@ function Home() {
               </p>
             </div>
             <div>
-              <p className="text-gray-500 leading-relaxed mb-6 italic font-quote text-xl text-amber-700">
-                "Bheetar se sanyaas, bahar se sansaar" — total participation in worldly life while
+              <p className="text-slate-800 dark:text-slate-100 font-semibold leading-relaxed mb-6 italic font-quote text-lg md:text-xl">
+                "Bheetar se sanyaas, bahar se sansaar", total participation in worldly life while
                 enjoying complete inner renunciation.
               </p>
               <Link
@@ -539,25 +614,34 @@ function Home() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {FEATURE_CARDS.map((p) => (
-              <div
+              <GlareHover
                 key={p.title}
-                className="group flex h-full flex-col rounded-[20px] border border-[#EAEAEA] bg-white p-6 shadow-[0_12px_36px_rgba(17,24,39,0.07)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_56px_rgba(17,24,39,0.12)] md:p-7"
+                glareColor="#ffffff"
+                glareOpacity={0.35}
+                glareAngle={-30}
+                glareSize={320}
+                transitionDuration={800}
+                playOnce={false}
+                className="h-full rounded-[20px]"
               >
-                <div className="h-[220px] w-full overflow-hidden rounded-[18px] bg-gray-100">
-                  <img
-                    src={p.image}
-                    alt={p.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                <div
+                  className="group flex h-full flex-col rounded-[20px] border border-[#EAEAEA] dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-[0_12px_36px_rgba(17,24,39,0.07)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_56px_rgba(17,24,39,0.12)] md:p-7"
+                >
+                  <div className="h-[220px] w-full overflow-hidden rounded-[18px] bg-gray-100">
+                    <LensImage
+                      src={p.image}
+                      alt={p.alt}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col px-1 pb-1 pt-7 text-center">
+                    <h3 className="font-display text-2xl font-bold leading-tight text-gray-900">
+                      {p.title}
+                    </h3>
+                    <p className="mx-auto mt-4 max-w-xs text-sm leading-7 text-gray-500">{p.desc}</p>
+                  </div>
                 </div>
-                <div className="flex flex-1 flex-col px-1 pb-1 pt-7 text-center">
-                  <h3 className="font-display text-2xl font-bold leading-tight text-gray-900">
-                    {p.title}
-                  </h3>
-                  <p className="mx-auto mt-4 max-w-xs text-sm leading-7 text-gray-500">{p.desc}</p>
-                </div>
-              </div>
+              </GlareHover>
             ))}
           </div>
         </div>
@@ -566,7 +650,7 @@ function Home() {
       {/* ════════════════════════════════════
           FIND SOLUTIONS FOR
       ════════════════════════════════════ */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-white dark:bg-slate-950">
         <div className="container-page">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Solutions icon grid */}
@@ -589,7 +673,7 @@ function Home() {
                       alt={item.label}
                       className="w-12 h-12 object-contain mx-auto mb-2 group-hover:scale-110 transition-transform"
                     />
-                    <p className="text-xs font-semibold text-gray-700">{item.label}</p>
+                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-200">{item.label}</p>
                   </Link>
                 ))}
               </div>
@@ -621,8 +705,7 @@ function Home() {
           SAKSHI SHREE QUOTE SECTION
       ════════════════════════════════════ */}
       <section
-        className="section-pad"
-        style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF3D0 100%)" }}
+        className="section-pad quote-section-bg"
       >
         <div className="container-page">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -644,12 +727,11 @@ function Home() {
             </div>
             <div className="space-y-6">
               <div className="text-5xl font-quote text-amber-300">"</div>
-              <blockquote className="font-quote text-2xl md:text-3xl text-gray-800 leading-relaxed -mt-4">
+              <blockquote className="font-quote text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-relaxed -mt-4">
                 Your thoughts create your reality. Choose them wisely, for they hold the power to
                 design your destiny.
               </blockquote>
               <div className="flex items-center gap-4">
-                <div className="h-px flex-1 max-w-12" style={{ background: "#D4AF37" }} />
                 <div>
                   <p className="font-display font-bold text-gray-900">Sakshi Shree</p>
                   <p className="text-sm text-gray-500">Enlightened Spiritual Master</p>
@@ -663,7 +745,7 @@ function Home() {
       {/* ════════════════════════════════════
           RECOGNIZED BY LEADERS & MEDIA
       ════════════════════════════════════ */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-white dark:bg-slate-950">
         <div className="container-page">
           <SectionHeading
             center
@@ -692,7 +774,7 @@ function Home() {
       {/* ════════════════════════════════════
           COURSES
       ════════════════════════════════════ */}
-      <section className="section-pad" style={{ background: "#FAFAFA" }}>
+      <section className="section-pad bg-[#FAFAFA] dark:bg-slate-900/40 border-t border-b border-gray-100 dark:border-slate-800">
         <div className="container-page">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-12">
             <SectionHeading
@@ -709,38 +791,48 @@ function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {COURSES.map((c) => (
-              <Link
+              <GlareHover
                 key={c.slug}
-                to={`/${c.slug}` as string}
-                className="card-premium rounded-2xl overflow-hidden group"
+                glareColor="#ffffff"
+                glareOpacity={0.3}
+                glareAngle={-30}
+                glareSize={300}
+                transitionDuration={800}
+                playOnce={false}
+                className="rounded-2xl h-full"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <LensImage src={c.image} alt={c.title} />
-                </div>
-                <div className="p-5">
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-2">
-                    {c.level} · {c.duration}
+                <Link
+                  to={`/${c.slug}` as string}
+                  className="card-premium rounded-2xl overflow-hidden group block h-full"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <LensImage src={c.image} alt={c.title} />
                   </div>
-                  <h3 className="font-display font-bold text-gray-900 text-base mb-2 leading-tight">
-                    {c.title}
-                  </h3>
-                  <p className="text-xs text-gray-500 mb-4 line-clamp-2">{c.description}</p>
-                  <div className="flex items-baseline justify-between">
-                    <div>
-                      <span className="font-display text-xl font-bold" style={{ color: "#D4AF37" }}>
-                        ₹{c.price}
-                      </span>
-                      <span className="text-xs text-gray-400 line-through ml-2">
-                        ₹{c.originalPrice.toLocaleString()}
-                      </span>
+                  <div className="p-5">
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-2">
+                      {c.level} · {c.duration}
                     </div>
-                    <ArrowRight
-                      size={16}
-                      className="text-amber-500 group-hover:translate-x-1 transition-transform"
-                    />
+                    <h3 className="font-display font-bold text-gray-900 text-base mb-2 leading-tight">
+                      {c.title}
+                    </h3>
+                    <p className="text-xs text-gray-500 mb-4 line-clamp-2">{c.description}</p>
+                    <div className="flex items-baseline justify-between">
+                      <div>
+                        <span className="font-display text-xl font-bold" style={{ color: "#D4AF37" }}>
+                          ₹{c.price}
+                        </span>
+                        <span className="text-xs text-gray-400 line-through ml-2">
+                          ₹{c.originalPrice.toLocaleString()}
+                        </span>
+                      </div>
+                      <ArrowRight
+                        size={16}
+                        className="text-amber-500 group-hover:translate-x-1 transition-transform"
+                      />
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </GlareHover>
             ))}
           </div>
         </div>
@@ -776,36 +868,22 @@ function Home() {
       {/* ════════════════════════════════════
           TESTIMONIALS
       ════════════════════════════════════ */}
-      <section className="section-pad bg-white">
+      <section className="section-pad bg-white dark:bg-slate-950">
         <div className="container-page">
           <SectionHeading
             eyebrow="Voices"
             title="Empowering millions through conscious living."
             subtitle="Real stories from real people whose lives have transformed."
           />
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            {TESTIMONIALS.slice(0, 3).map((t) => (
-              <div key={t.name} className="card-premium rounded-2xl p-6 relative">
-                <div className="text-4xl font-quote text-amber-200 absolute top-4 right-5">"</div>
-                <p className="font-quote text-lg text-gray-700 leading-relaxed mb-5 italic">
-                  {t.quote}
-                </p>
-                <div
-                  className="flex items-center gap-3 pt-4 border-t"
-                  style={{ borderColor: "#F3E5AB" }}
-                >
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="font-semibold text-sm text-gray-900">{t.name}</div>
-                    <div className="text-xs text-gray-500">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="mb-10">
+            <AnimatedTestimonials
+              testimonials={TESTIMONIALS.map((t) => ({
+                quote: t.quote,
+                name: t.name,
+                designation: t.role,
+                src: t.avatar,
+              }))}
+            />
           </div>
           {/* Video testimonials */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -834,7 +912,7 @@ function Home() {
               center
               eyebrow="Science Divine Foundation"
               title="Our Initiatives"
-              subtitle="Enriching Lives Through Compassionate Initiatives — Empowering Education, Nourishing Communities, and Ensuring Health Equity."
+              subtitle="Enriching Lives Through Compassionate Initiatives ,  Empowering Education, Nourishing Communities, and Ensuring Health Equity."
             />
             <Link
               to="/initiatives"
@@ -1082,7 +1160,7 @@ function Home() {
       </section>
 
       {/* ════════════════════════════════════
-          SAKSHI WISDOM — BLOGS
+          SAKSHI WISDOM ,  BLOGS
       ════════════════════════════════════ */}
       <section className="section-pad" style={{ background: "#FAFAFA" }}>
         <div className="container-page">
@@ -1119,7 +1197,7 @@ function Home() {
       </section>
 
       {/* ════════════════════════════════════
-          JOIN COMMUNITY — NEWSLETTER
+          JOIN COMMUNITY ,  NEWSLETTER
       ════════════════════════════════════ */}
       <section className="section-pad bg-white">
         <div className="container-page">

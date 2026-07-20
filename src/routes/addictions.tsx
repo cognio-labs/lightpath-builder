@@ -7,8 +7,8 @@ export const Route = createFileRoute("/addictions")({
   head: () => ({
     meta: [
       { title: "Overcome Addictions | Science Divine Foundation" },
-      { name: "description", content: "Find Your Freedom: Overcoming Addiction with Help and Hope — spiritual tools and meditation techniques by Sakshi Shree to break free and reclaim your life." },
-      { property: "og:title", content: "Addictions — Science Divine" },
+      { name: "description", content: "Find Your Freedom: Overcoming Addiction with Help and Hope ,  spiritual tools and meditation techniques by Sakshi Shree to break free and reclaim your life." },
+      { property: "og:title", content: "Addictions ,  Science Divine" },
       { property: "og:url", content: "/addictions" },
     ],
     links: [{ rel: "canonical", href: "/addictions" }],
@@ -26,7 +26,7 @@ const ARTICLES = [
   { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "Reconnecting with your mental wellness as the foundation for lasting freedom from addictive cycles." },
   { title: "Yoga Nidra: Mastering the Art of Conscious Relaxation", href: "https://sciencedivine.org/yoga-nidra/", tag: "Relaxation", readTime: "10 min", desc: "The deep relaxation state of Yoga Nidra naturally satisfies the need for escape that drives addiction." },
   { title: "The Transformative Health Benefits of Regular Yoga Practice", href: "https://sciencedivine.org/unlocking-wellness/", tag: "Wellness", readTime: "9 min", desc: "Evidence-based look at how consistent yoga practice rebuilds physical and mental health after addiction." },
-  { title: "The Ultimate Guide to Meditation for Better Sleep", href: "https://sciencedivine.org/unlock-restful-nights/", tag: "Sleep", readTime: "8 min", desc: "Healing disrupted sleep patterns — a key factor in addiction recovery and long-term sobriety." },
+  { title: "The Ultimate Guide to Meditation for Better Sleep", href: "https://sciencedivine.org/unlock-restful-nights/", tag: "Sleep", readTime: "8 min", desc: "Healing disrupted sleep patterns ,  a key factor in addiction recovery and long-term sobriety." },
   { title: "Mastering Meditation at Home: A Step-by-Step Guide to Inner Peace", href: "https://sciencedivine.org/meditation-at-home/", tag: "Meditation", readTime: "9 min", desc: "Build a sustainable home meditation practice that becomes your anchor during challenging moments." },
 ];
 
@@ -71,7 +71,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Shield size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Addictions</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Addictions</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Find Your{" "}
@@ -80,7 +80,7 @@ function Page() {
               : Overcoming Addiction
             </h1>
             <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, maxWidth: "660px", marginBottom: "40px" }}>
-              Addiction can happen for many reasons — often as a way to cope with difficult emotions. With compassion, understanding, and under Sakshi Shree's guidance, we offer a helping hand. Break free from the grip of addiction and reclaim control of your life.
+              Addiction can happen for many reasons ,  often as a way to cope with difficult emotions. With compassion, understanding, and under Sakshi Shree's guidance, we offer a helping hand. Break free from the grip of addiction and reclaim control of your life.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
@@ -174,7 +174,7 @@ function Page() {
 
           {tab === "podcasts" && (
             <div>
-              <SectionHeading eyebrow="Real Stories" title="Testimonials — Real Freedom" subtitle="Watch how Sakshi Shree's teachings have helped real people overcome addiction and find lasting peace." />
+              <SectionHeading eyebrow="Real Stories" title="Testimonials ,  Real Freedom" subtitle="Watch how Sakshi Shree's teachings have helped real people overcome addiction and find lasting peace." />
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
                 {TESTIMONIALS.map((t, i) => (
                   <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}

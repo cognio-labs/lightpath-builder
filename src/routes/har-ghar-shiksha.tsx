@@ -5,7 +5,7 @@ import { ArrowRight, Heart, BookOpen, Brain, Users, Sprout, GraduationCap, Flowe
 export const Route = createFileRoute("/har-ghar-shiksha")({
   head: () => ({
     meta: [
-      { title: "Har Ghar Shiksha, Har Ghar Dhyan — Science Divine Foundation" },
+      { title: "Har Ghar Shiksha, Har Ghar Dhyan ,  Science Divine Foundation" },
       {
         name: "description",
         content:
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/har-ghar-shiksha")({
 /* ─── Data ─── */
 const STATS = [
   {
-    // Mass outdoor meditation — golden sunrise, hundreds of people
+    // Mass outdoor meditation ,  golden sunrise, hundreds of people
     img: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=900&q=90&fit=crop&crop=center",
     value: "50,000+",
     label: "Lives Changed Through Meditation",
@@ -64,7 +64,7 @@ const STATS = [
 
 const PURPOSE_CARDS = [
   {
-    // Diverse smiling people celebrating, learning together — community & purpose
+    // Diverse smiling people celebrating, learning together ,  community & purpose
     img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=90&fit=crop&crop=center",
     title: "Our Goal",
     desc: "To create conscious individuals who live joyfully and meaningfully, breaking cycles of poverty through inner transformation.",
@@ -91,7 +91,7 @@ const PURPOSE_CARDS = [
 
 const PROBLEMS = [
   {
-    // Woman meditating in lush forest — spiritual growth, inner peace
+    // Woman meditating in lush forest ,  spiritual growth, inner peace
     img: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=90&fit=crop&crop=center",
     title: "Spiritual Growth",
     desc: "Discover your inner divinity and connect with your true self through guided meditation practices.",
@@ -99,7 +99,7 @@ const PROBLEMS = [
     color: "#16A34A",
   },
   {
-    // Person journaling by sunny window with plants — mindfulness and clarity
+    // Person journaling by sunny window with plants ,  mindfulness and clarity
     img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=90&fit=crop&crop=center",
     title: "Mental Clarity",
     desc: "Achieve peace of mind and enhanced focus through regular meditation and mindfulness practices.",
@@ -107,7 +107,7 @@ const PROBLEMS = [
     color: "#0E9F6E",
   },
   {
-    // Graduation — student with diploma, sunrise, mountain — knowledge & wisdom
+    // Graduation ,  student with diploma, sunrise, mountain ,  knowledge & wisdom
     img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=90&fit=crop&crop=center",
     title: "Knowledge for All",
     desc: "Access spiritual wisdom and practical knowledge that transforms daily life.",
@@ -187,7 +187,7 @@ const VOLUNTEERS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Growing up in Dehradun, I searched for spiritual truth in ashrams and books, but something essential was always missing. The day I met Guruji, that missing piece was revealed—not through words but through presence. In meditation, I experienced unconditional divine love not as a concept but as a living reality within me.",
+      "Growing up in Dehradun, I searched for spiritual truth in ashrams and books, but something essential was always missing. The day I met Guruji, that missing piece was revealed, not through words but through presence. In meditation, I experienced unconditional divine love not as a concept but as a living reality within me.",
     name: "Piyush Pasbola",
     img: "https://sciencedivine.org/wp-content/uploads/2025/02/oreso8osvo2c0seqonq9.webp",
   },
@@ -244,7 +244,7 @@ const PHOTO_CARD_CSS = `
   .pc-img-wrap { overflow:hidden; border-radius:28px 28px 0 0; position:relative; flex-shrink:0; }
   .pc-img { width:100%; object-fit:cover; display:block; transition:transform 600ms cubic-bezier(.22,.61,.36,1); }
 
-  /* Badge sits inside image — bottom-right corner — never overlaps text */
+  /* Badge sits inside image ,  bottom-right corner ,  never overlaps text */
   .pc-badge {
     position:absolute;
     bottom:14px;
@@ -386,13 +386,17 @@ function StatsSection() {
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px,4vw,52px)", fontWeight: 700, color: "#081A36", lineHeight: 1.15, margin: 0 }}>Guiding Light in Meditation &amp; Education</h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: "18px" }}>
+        <div className="stat-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, minmax(0, 1fr))", gap: "18px" }}>
           {STATS.map((s, i) => (
             <div
               key={i}
               ref={el => { refs.current[i] = el; }}
               className="stat-card"
               style={{
+                position: "relative",
+                height: "360px",
+                borderRadius: "24px",
+                overflow: "hidden",
                 opacity: visible[i] ? 1 : 0,
                 transform: visible[i] ? "translateY(0)" : "translateY(36px) scale(0.96)",
                 transition: "opacity 700ms ease, transform 500ms cubic-bezier(.22,.61,.36,1)",
@@ -882,7 +886,7 @@ function Page() {
 
               {/* Subtitle */}
               <p className="hero-sub" style={{fontSize:"1.1rem",color:"#5C677D",lineHeight:1.8,maxWidth:"580px",margin:"0 0 40px"}}>
-                Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization — guided by enlightened master{" "}
+                Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization ,  guided by enlightened master{" "}
                 <strong style={{color:"#D4AF37",fontWeight:700}}>Sakshi Shree</strong>.
               </p>
 
@@ -916,7 +920,7 @@ function Page() {
 
             {/* ── RIGHT: Guru Portrait with golden mandala ── */}
             <div className="hero-img-wrap" style={{position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}>
-              {/* Outer golden glow ring — slow rotate */}
+              {/* Outer golden glow ring ,  slow rotate */}
               <div style={{
                 position:"absolute",
                 width:"90%",aspectRatio:"1",
@@ -943,13 +947,13 @@ function Page() {
                 background:"radial-gradient(circle,rgba(255,240,180,.55) 0%,rgba(252,248,241,.0) 70%)",
                 pointerEvents:"none",
               }}/>
-              {/* Guru image — floating */}
+              {/* Guru image ,  floating */}
               <img
-                src="https://sciencedivine.org/wp-content/uploads/2025/02/7.webp"
+                src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
                 alt="Guru Sakshi Shree"
                 style={{
                   position:"relative",zIndex:2,
-                  width:"100%",maxWidth:"560px",
+                  width:"100%",maxWidth:"480px",
                   height:"auto",
                   objectFit:"contain",
                   filter:"drop-shadow(0 30px 60px rgba(0,0,0,.18))",
@@ -973,8 +977,14 @@ function Page() {
         {/* Responsive override */}
         <style>{`
           @media (max-width:900px){
-            .hero-grid{grid-template-columns:1fr!important}
-            .hero-img-wrap{margin-top:40px}
+            .hero-grid{grid-template-columns:1fr!important; gap: 24px !important;}
+            .hero-img-wrap{order:1!important; margin-top:0px; max-width:280px; margin-left:auto; margin-right:auto;}
+            .hero-btns{flex-direction:column!important; width:100%!important;}
+            .hero-btns a{width:100%!important; text-align:center!important; justify-content:center!important;}
+            .stat-cards-grid{grid-template-columns:1fr!important; gap:16px!important;}
+          }
+          @media (max-width:1100px) and (min-width:901px){
+            .stat-cards-grid{grid-template-columns:repeat(3,1fr)!important;}
           }
         `}</style>
       </section>
@@ -984,7 +994,7 @@ function Page() {
         <div className="container-page">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
             <div style={{ textAlign: "center", position: "relative" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/02/6.png" alt="Sakshi Shree commitment" style={{ width: "100%", maxWidth: "400px", height: "auto", margin: "0 auto", display: "block" }} />
+              <img src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg" alt="Sakshi Shree commitment" style={{ width: "100%", maxWidth: "380px", height: "auto", margin: "0 auto", display: "block", borderRadius: "24px", boxShadow: "0 12px 36px rgba(0,0,0,0.1)" }} />
             </div>
             <div>
               <span style={{ color: "#22C55E", fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em" }}>Sakshi Shree's Commitment</span>
@@ -1108,7 +1118,7 @@ function Page() {
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <img src={TESTIMONIALS[activeTestimonial].img} alt={TESTIMONIALS[activeTestimonial].name} style={{ width: "48px", height: "48px", borderRadius: "100px", objectFit: "cover" }} />
               <div>
-                <div style={{ fontWeight: 700, color: "#0F172A" }}>— {TESTIMONIALS[activeTestimonial].name}</div>
+                <div style={{ fontWeight: 700, color: "#0F172A" }}>,  {TESTIMONIALS[activeTestimonial].name}</div>
               </div>
             </div>
           </div>

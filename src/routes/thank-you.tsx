@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/thank-you")({
   head: () => ({
     meta: [
-      { title: "Thank you — Science Divine Foundation" },
+      { title: "Thank you ,  Science Divine Foundation" },
       {
         name: "description",
         content: "Your message has been received. Our team will be in touch shortly.",

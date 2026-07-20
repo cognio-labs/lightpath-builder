@@ -71,26 +71,24 @@ const TESTIMONIALS = [
   { id: "EiFMTSo8Yws", name: "Helen Testimonial" },
   { id: "6bkJdkmAt20", name: "Pooja Pagaddinnimath Testimonial" },
   { id: "5KmsxqJXACM", name: "Patty Testimonial" },
-];
-
-function Page() {
+];function Page() {
   return (
-    <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif", overflowX: "hidden" }}>
       {/* Hero Section */}
-      <section style={{ background: "linear-gradient(135deg, #FAF8FF 0%, #FFFDF5 50%, #FAF8FF 100%)", paddingTop: "140px", paddingBottom: "80px", borderBottom: "1px solid #E2E8F0", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "linear-gradient(135deg, #FAF8FF 0%, #FFFDF5 50%, #FAF8FF 100%)", paddingTop: "100px", paddingBottom: "50px", borderBottom: "1px solid #E2E8F0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: "800px" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.12)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
-            <Sparkles size={14} style={{ color: "#D4AF37" }} />
-            <span style={{ color: "#B45309", fontSize: "11px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Transformative Growth Courses</span>
+        <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: "800px", paddingLeft: "16px", paddingRight: "16px" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.12)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "16px", maxWidth: "100%" }}>
+            <Sparkles size={14} style={{ color: "#D4AF37", flexShrink: 0 }} />
+            <span style={{ color: "#B45309", fontSize: "10px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Transformative Growth Courses</span>
           </div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.3rem, 5vw, 3.8rem)", fontWeight: 800, color: "#0F172A", lineHeight: 1.15, marginBottom: "16px" }}>
-            Explore Our Courses for <br />
-            <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.65rem, 5.5vw, 3.8rem)", fontWeight: 800, color: "#0F172A", lineHeight: 1.2, marginBottom: "16px", wordBreak: "break-word", overflowWrap: "break-word" }}>
+            Explore Our Courses for <br className="hidden sm:inline" />
+            <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", display: "inline-block" }}>
               Personal Growth & Wellness
             </span>
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "#64748B", lineHeight: 1.7, maxWidth: "600px", margin: "0 auto 32px" }}>
+          <p style={{ fontSize: "1rem", color: "#64748B", lineHeight: 1.65, maxWidth: "600px", margin: "0 auto 24px", paddingLeft: "8px", paddingRight: "8px" }}>
             Discover a range of transformative courses designed to enhance personal growth, promote well-being, and empower you on your journey towards a fulfilling life.
           </p>
         </div>
@@ -145,14 +143,14 @@ function Page() {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(212,175,55,0.45);
           }
-          @media (max-width: 900px) {
+          @media (max-width: 1024px) {
             .courses-grid { grid-template-columns: repeat(2, 1fr) !important; }
           }
-          @media (max-width: 580px) {
+          @media (max-width: 640px) {
             .courses-grid { grid-template-columns: 1fr !important; }
           }
         `}</style>
-        <div className="container-page">
+        <div className="container-page" style={{ paddingLeft: "16px", paddingRight: "16px" }}>
           <div className="courses-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "24px" }}>
             {COURSES_DATA.map((c, i) => (
               <div key={i} className="course-card">
@@ -184,10 +182,10 @@ function Page() {
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: "22px 22px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
+                <div style={{ padding: "20px 18px 22px", flex: 1, display: "flex", flexDirection: "column" }}>
                   <h3 style={{
                     fontFamily: "'Playfair Display', serif",
-                    fontSize: "1.18rem", fontWeight: 700,
+                    fontSize: "1.2rem", fontWeight: 700,
                     color: "#0F172A", marginBottom: "5px", lineHeight: 1.3,
                   }}>{c.title}</h3>
                   <p style={{
@@ -195,7 +193,7 @@ function Page() {
                     fontWeight: 600, fontStyle: "italic", marginBottom: "12px",
                   }}>{c.tagline}</p>
                   <p style={{
-                    color: "#64748B", fontSize: "0.82rem",
+                    color: "#64748B", fontSize: "0.84rem",
                     lineHeight: 1.65, marginBottom: "16px", flex: 1,
                   }}>{c.desc}</p>
 
@@ -228,7 +226,7 @@ function Page() {
                     </span>
                   </div>
 
-                  {/* CTA button — full width, own row */}
+                  {/* CTA button ,  full width, own row */}
                   <Link to={`/${c.slug}` as any} className="course-start-btn">
                     Start Course <ArrowRight size={15} />
                   </Link>
@@ -242,14 +240,14 @@ function Page() {
 
       {/* Testimonials */}
       <section className="section-pad" style={{ background: "#FFFFFF" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+        <div className="container-page" style={{ paddingLeft: "16px", paddingRight: "16px" }}>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
             <span style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Graduates speak</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>10,000+ Lives Changed</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>10,000+ Lives Changed</h2>
             <p style={{ color: "#64748B", fontSize: "1rem", marginTop: "8px" }}>Real stories from real people whose lives shifted after taking a Science Divine course.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "28px", marginTop: "40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginTop: "30px" }}>
             {TESTIMONIALS.map((t, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.12)"; }}

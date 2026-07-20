@@ -8,7 +8,7 @@ export const Route = createFileRoute("/meditation")({
     meta: [
       { title: "Meditation Guides & Practices | Science Divine Foundation" },
       { name: "description", content: "Start Meditating Today: A Guide to Health and Happiness by Sakshi Shree. Discover guided techniques, articles, videos, and wisdom on meditation." },
-      { property: "og:title", content: "Meditation — Science Divine" },
+      { property: "og:title", content: "Meditation ,  Science Divine" },
       { property: "og:url", content: "/meditation" },
     ],
     links: [{ rel: "canonical", href: "/meditation" }],
@@ -76,7 +76,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Compass size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Practices — Meditation</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Practices ,  Meditation</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Start Meditating Today:{" "}

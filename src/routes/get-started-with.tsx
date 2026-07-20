@@ -27,7 +27,7 @@ function Page() {
       <PageHero
         eyebrow="Your Journey Begins Here"
         title="Get Started with Science Divine"
-        subtitle="Choose the path that resonates with you. Every journey towards awakening is unique — find yours."
+        subtitle="Choose the path that resonates with you. Every journey towards awakening is unique ,  find yours."
       />
       <section className="section-pad bg-white">
         <div className="container-page grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

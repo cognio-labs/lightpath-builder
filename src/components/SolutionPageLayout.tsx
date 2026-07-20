@@ -114,7 +114,7 @@ export function SolutionPageLayout({
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-                    Deep-dive conversation exploring {title.toLowerCase()} — its roots, its patterns, and the path through.
+                    Deep-dive conversation exploring {title.toLowerCase()}, its roots, its patterns, and the path through.
                   </p>
                   <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
                     Listen <ArrowRight size={12} />
@@ -133,7 +133,7 @@ export function SolutionPageLayout({
             center
             eyebrow="Take the Next Step"
             title="Ready for personal guidance?"
-            subtitle="Book a personal session with Sakshi Shree — one hour that can change everything."
+            subtitle="Book a personal session with Sakshi Shree, one hour that can change everything."
           />
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/book-session" className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm">

@@ -5,7 +5,7 @@ import { CreditCard } from "lucide-react";
 export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
-      { title: "Checkout — Science Divine" },
+      { title: "Checkout ,  Science Divine" },
       { name: "description", content: "Checkout." },
       { property: "og:url", content: "/checkout" },
     ],

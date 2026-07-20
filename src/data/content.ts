@@ -18,7 +18,7 @@ export const SOLUTION_TOPICS = [
     title: "Depression",
     tagline: "Step by Step: Beating Depression",
     intro:
-      "Depression is not a life sentence. Through consistent practice, guided wisdom, and community, light returns — one conscious step at a time.",
+      "Depression is not a life sentence. Through consistent practice, guided wisdom, and community, light returns, one conscious step at a time.",
   },
   {
     slug: "parenting",
@@ -32,7 +32,7 @@ export const SOLUTION_TOPICS = [
     title: "Addictions",
     tagline: "Find Your Freedom: Overcoming Addiction",
     intro:
-      "Addictions are patterns the mind runs on autopilot. Meditation restores choice — freedom is available in every present moment.",
+      "Addictions are patterns the mind runs on autopilot. Meditation restores choice, freedom is available in every present moment.",
   },
   {
     slug: "overthinking",
@@ -46,7 +46,7 @@ export const SOLUTION_TOPICS = [
     title: "Meditation",
     tagline: "Start Meditating Today: A Guide to Health and Happiness",
     intro:
-      "Meditation is not escape — it is the direct path to knowing yourself. Begin today with time-tested techniques.",
+      "Meditation is not escape, it is the direct path to knowing yourself. Begin today with time-tested techniques.",
   },
   {
     slug: "manifestation",
@@ -67,7 +67,7 @@ export const SOLUTION_TOPICS = [
     title: "Yoga",
     tagline: "Easy Yoga for Everyday Peace",
     intro:
-      "Yoga is union — of body, breath, and being. Simple asanas practiced daily transform how you inhabit your life.",
+      "Yoga is union, of body, breath, and being. Simple asanas practiced daily transform how you inhabit your life.",
   },
   {
     slug: "gratitude",
@@ -81,14 +81,14 @@ export const SOLUTION_TOPICS = [
     title: "Mindfulness",
     tagline: "Unlock the Mind's True Potential",
     intro:
-      "Mindfulness is presence — the art of being fully here. It is the doorway to everything spirituality promises.",
+      "Mindfulness is presence, the art of being fully here. It is the doorway to everything spirituality promises.",
   },
   {
     slug: "positive-thinking",
     title: "Positive Thinking",
     tagline: "The Power of Positive Thinking",
     intro:
-      "Positive thinking is not denial — it's the disciplined choice to focus on what serves your highest good.",
+      "Positive thinking is not denial, it's the disciplined choice to focus on what serves your highest good.",
   },
 ] as const;
 
@@ -114,7 +114,7 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     },
     {
       title: "What is Meditation, Really?",
-      excerpt: "Beyond the mystique — meditation demystified for modern seekers.",
+      excerpt: "Beyond the mystique, meditation demystified for modern seekers.",
     },
     {
       title: "Yoga Nidra: The Sleep of the Sages",
@@ -175,7 +175,7 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
       excerpt: "Practical protocols for hard days.",
     },
     { title: "Prioritize Your Mental Health", excerpt: "Make wellbeing non-negotiable." },
-    { title: "Prioritize Your Mental Health — Part II", excerpt: "Building sustainable rituals." },
+    { title: "Prioritize Your Mental Health, Part II", excerpt: "Building sustainable rituals." },
     { title: "How to Be Conscious", excerpt: "Consciousness as the medicine." },
     { title: "7 Ways to Cultivate Optimism", excerpt: "Small shifts, large returns." },
   ],
@@ -235,7 +235,7 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     { title: "Muladhara: The Root Chakra", excerpt: "Grounding and stability." },
     {
       title: "Healing Childhood Trauma Through Spirituality",
-      excerpt: "Roots run deep — so does healing.",
+      excerpt: "Roots run deep, so does healing.",
     },
   ],
   manifestation: [
@@ -244,7 +244,7 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
     { title: "Understanding the 7 Chakras", excerpt: "Energy alignment for manifestation." },
     { title: "Vishuddha: Authentic Expression", excerpt: "Speak your reality into being." },
     { title: "What is Consciousness?", excerpt: "The medium in which creation occurs." },
-    { title: "Simple Guide to Effective Manifestation", excerpt: "Beyond wishing — into knowing." },
+    { title: "Simple Guide to Effective Manifestation", excerpt: "Beyond wishing, into knowing." },
     { title: "The Power of Silent Retreats", excerpt: "Where clarity is born." },
     { title: "Chakra Meditation for Manifestation", excerpt: "Align to attract." },
     { title: "The Magic of Gomti Chakra", excerpt: "Ancient tools for abundance." },
@@ -263,7 +263,7 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
   yoga: [
     {
       title: "Healing Childhood Trauma Through Spirituality",
-      excerpt: "The body remembers — and can release.",
+      excerpt: "The body remembers, and can release.",
     },
     { title: "Simple Guide to Chakras", excerpt: "Energy anatomy for practitioners." },
     { title: "The 7 Chakras Explained", excerpt: "A map of the subtle body." },
@@ -323,8 +323,8 @@ export const VIDEOS_BY_TOPIC: Record<SolutionSlug, { id: string; title: string }
   ],
   anxiety: [
     { id: "okTnWaUrrcc", title: "Anxiety कैसे ठीक करें" },
-    { id: "rBEYkNe1wIo", title: "How to Fight Fear & Anxiety — Part 2" },
-    { id: "BPBGUq-7DwM", title: "How to Fight Fear & Anxiety — Part 1" },
+    { id: "rBEYkNe1wIo", title: "How to Fight Fear & Anxiety, Part 2" },
+    { id: "BPBGUq-7DwM", title: "How to Fight Fear & Anxiety, Part 1" },
     { id: "WuexPS1a9DM", title: "एक बड़ी समस्या भय, चिंता और तनाव से तुरंत मुक्ति" },
     { id: "UwitMvjhZWU", title: "चिंता, तनाव एवं भय से तत्काल मुक्ति" },
     { id: "paffCWKd720", title: "चिंता तनाव और भय से मुक्ति की तकनीक" },
@@ -348,14 +348,14 @@ export const VIDEOS_BY_TOPIC: Record<SolutionSlug, { id: string; title: string }
   addictions: [
     { id: "iYdRUPD7qZs", title: "बुरी आदतों से छुटकारा" },
     { id: "qy5gyXNujhM", title: "नशा करना गलत क्यों है" },
-    { id: "Qpq9DGgJ2j4", title: "Drug Addiction and Meditation — Podcast Ep 11" },
-    { id: "IWvSd-uNgGI", title: "Emotions, Relationships and Addictions — Podcast Ep 12" },
+    { id: "Qpq9DGgJ2j4", title: "Drug Addiction and Meditation, Podcast Ep 11" },
+    { id: "IWvSd-uNgGI", title: "Emotions, Relationships and Addictions, Podcast Ep 12" },
   ],
   overthinking: [
     { id: "V6N--wsi2PA", title: "Overthinking का चक्र कैसे तोड़ें" },
     { id: "K8GXgnAchBY", title: "रुक जायेगा विचारों का ये तूफ़ान" },
     { id: "zbHTL4AIbjQ", title: "How to Always Think Positive" },
-    { id: "qZRAoRzMwmM", title: "Heart or Mind — whom to follow" },
+    { id: "qZRAoRzMwmM", title: "Heart or Mind, whom to follow" },
     { id: "mnLKvGNvlFc", title: "मन के जाल से मुक्ति" },
     { id: "H_gHAxWkMzQ", title: "Power of thoughtless mind" },
   ],
@@ -409,7 +409,7 @@ export const VIDEOS_BY_TOPIC: Record<SolutionSlug, { id: string; title: string }
   mindfulness: [
     { id: "wB3X-CSKi-0", title: "Just Sitting Doing Nothing" },
     { id: "Rsn5FX-mO9g", title: "How to find your true nature" },
-    { id: "qZRAoRzMwmM", title: "Heart or Mind — whom to follow" },
+    { id: "qZRAoRzMwmM", title: "Heart or Mind, whom to follow" },
     { id: "H_gHAxWkMzQ", title: "Power of thoughtless mind" },
     { id: "lKKsSYvsGHg", title: "ध्यान का सही समय" },
   ],
@@ -439,12 +439,12 @@ export const COURSES = [
   {
     slug: "science-of-joyful-living",
     title: "Science of Joyful Living",
-    tagline: "Joy is a science — learn its laws",
+    tagline: "Joy is a science, learn its laws",
     price: 499,
     originalPrice: 5100,
     duration: "2 hours",
     level: "Beginner",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png",
+    image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=900&q=90&fit=crop",
     features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"],
     description:
       "Discover why joy is your birthright and how to reclaim it, one practice at a time.",
@@ -467,7 +467,7 @@ export const COURSES = [
       "Reduced Stress",
     ],
     description:
-      "Meditation is not passive — done rightly, it becomes the most active force in your life.",
+      "Meditation is not passive, done rightly, it becomes the most active force in your life.",
   },
   {
     slug: "sanjeevani-kriya",
@@ -485,7 +485,7 @@ export const COURSES = [
       "Awakens Heart Chakra",
     ],
     description:
-      "An ancient kriya awakened for modern seekers — direct experience of your own life force.",
+      "An ancient kriya awakened for modern seekers, direct experience of your own life force.",
   },
 ] as const;
 
@@ -538,39 +538,62 @@ export const TESTIMONIALS = [
   {
     name: "Sanaya Aggarwal",
     role: "Student",
-    avatar:
-      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
     quote: "Sakshi Shree's guidance changed how I see my anxiety. I finally feel free.",
   },
   {
     name: "Deepak Batra",
     role: "Entrepreneur",
-    avatar:
-      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png",
-    quote:
-      "Design Your Destiny gave me tools I use every single day. My business and inner life both transformed.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
+    quote: "Design Your Destiny gave me tools I use every single day. My business and inner life both transformed.",
   },
   {
     name: "Radhika Arya",
     role: "Homemaker",
-    avatar:
-      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop",
     quote: "The peace I found is unshakeable. My family notices the difference in me every day.",
   },
   {
     name: "Rajiv Mehta",
     role: "Executive",
-    avatar:
-      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png",
-    quote:
-      "I was skeptical. Six weeks in, I understood — this is not belief, it is direct experience.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop",
+    quote: "I was skeptical. Six weeks in, I understood, this is not belief, it is direct experience.",
   },
   {
     name: "Priya Singh",
     role: "Doctor",
-    avatar:
-      "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
     quote: "As a physician I've seen many wellness approaches. This is different. This is real.",
+  },
+  {
+    name: "Amit Sharma",
+    role: "Software Engineer",
+    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop",
+    quote: "Overthinking used to keep me up at night. The mindfulness practices here brought deep, peaceful sleep.",
+  },
+  {
+    name: "Sunita Rao",
+    role: "Teacher",
+    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=600&auto=format&fit=crop",
+    quote: "Incorporating meditation into my daily routine has completely changed how I connect with my students.",
+  },
+  {
+    name: "Vikram Malhotra",
+    role: "Business Consultant",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop",
+    quote: "Sanjeevani Kriya revitalized my physical health. I feel 10 years younger and full of energy.",
+  },
+  {
+    name: "Kiran Deshmukh",
+    role: "Artist",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    quote: "My creativity now flows effortlessly. Spiritual grounding cleared the mental clutter completely.",
+  },
+  {
+    name: "Rohan Joshi",
+    role: "Fitness Coach",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=600&auto=format&fit=crop",
+    quote: "Sound Body and Sound Mind are two sides of the same coin. This movement shows you how to achieve both.",
   },
 ];
 
@@ -604,8 +627,8 @@ export const TESTIMONIAL_VIDEOS = [
   { id: "5KmsxqJXACM", title: "Patty Testimonial" },
   { id: "LiILI9iLK0U", title: "Magic of Meeting Sakshi Shree" },
   { id: "FERuXT0Z8JE", title: "Rishabh Testimonial" },
-  { id: "wjPponfjB_g", title: "Dr. M D Ojha — Rishikesh Shivir" },
-  { id: "LV74UV9AUNE", title: "Shweta Singh — Rishikesh Shivir" },
+  { id: "wjPponfjB_g", title: "Dr. M D Ojha, Rishikesh Shivir" },
+  { id: "LV74UV9AUNE", title: "Shweta Singh, Rishikesh Shivir" },
   { id: "60_cJkCAc5I", title: "Gaurav Pratap Singh Testimonial" },
   { id: "jEiClzy2ZhY", title: "Pulkit Jain Testimonial" },
   { id: "4XbvVT7yK2U", title: "Bobby Mann Testimonial" },
@@ -613,12 +636,12 @@ export const TESTIMONIAL_VIDEOS = [
   { id: "6PiX_XQcPFE", title: "Sunil Yadav (Delhi BJP VP)" },
   { id: "XaOeGL4Mp2E", title: "Dheeraj Madaan (IIT Roorkee)" },
   { id: "6c3XtzTbu80", title: "Sunil Khajoriya Testimonial" },
-  { id: "zYBYARtrr94", title: "Rajiv Gupta — Rishikesh Shivir" },
-  { id: "W3bfSZkEaDg", title: "Ranjana Sharma — Rishikesh Shivir" },
-  { id: "XSkmVjlvXd4", title: "Preeti's Life Change — Sanjeevani Kriya" },
-  { id: "2P6i7tnydMI", title: "Sakshi Hema — Rishikesh Shivir" },
+  { id: "zYBYARtrr94", title: "Rajiv Gupta, Rishikesh Shivir" },
+  { id: "W3bfSZkEaDg", title: "Ranjana Sharma, Rishikesh Shivir" },
+  { id: "XSkmVjlvXd4", title: "Preeti's Life Change, Sanjeevani Kriya" },
+  { id: "2P6i7tnydMI", title: "Sakshi Hema, Rishikesh Shivir" },
   { id: "7AMCDdnCjuI", title: "Piyush's Transformation" },
-  { id: "PSwaCSEjPLM", title: "Shiv Kumar — Rishikesh Shivir" },
+  { id: "PSwaCSEjPLM", title: "Shiv Kumar, Rishikesh Shivir" },
 ];
 
 export const SOLUTION_HUB_CARDS = [

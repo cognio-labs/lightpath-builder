@@ -6,7 +6,7 @@ export const Route = createFileRoute("/design-your-destiny-2")({
   head: () => ({
     meta: [
       { title: "Design Your Destiny | Science Divine Foundation" },
-      { name: "description", content: "Transformative course by Sakshi Shree. Design Your Destiny — practical wisdom for real life." },
+      { name: "description", content: "Transformative course by Sakshi Shree. Design Your Destiny ,  practical wisdom for real life." },
     ],
   }),
   component: () => (

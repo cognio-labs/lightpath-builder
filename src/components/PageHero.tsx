@@ -111,9 +111,7 @@ export function SectionHeading({
     <div className={`mb-10 md:mb-14 ${center ? "text-center max-w-3xl mx-auto" : ""}`}>
       {eyebrow && (
         <div className={`flex items-center gap-2 mb-4 ${center ? "justify-center" : ""}`}>
-          <div className="w-6 h-0.5" style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
           <span className="text-xs font-bold uppercase tracking-widest text-amber-700">{eyebrow}</span>
-          {center && <div className="w-6 h-0.5" style={{ background: "linear-gradient(90deg, #D4AF37, #F59E0B)" }} />}
         </div>
       )}
       <h2 className="font-display text-3xl md:text-5xl font-bold text-gray-900 leading-tight">{title}</h2>
@@ -123,11 +121,5 @@ export function SectionHeading({
 }
 
 export function GoldDivider() {
-  return (
-    <div className="flex items-center justify-center gap-3 my-4">
-      <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, #D4AF37)" }} />
-      <div className="w-2 h-2 rounded-full" style={{ background: "#D4AF37" }} />
-      <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, #D4AF37, transparent)" }} />
-    </div>
-  );
+  return null;
 }

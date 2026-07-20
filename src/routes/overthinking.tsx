@@ -8,7 +8,7 @@ export const Route = createFileRoute("/overthinking")({
     meta: [
       { title: "Overcome Overthinking | Science Divine Foundation" },
       { name: "description", content: "Overthinking No More: Techniques for Clarity and Calm by Sakshi Shree. Break free from the relentless whirlwind of doubt and reclaim mental peace." },
-      { property: "og:title", content: "Overthinking — Science Divine" },
+      { property: "og:title", content: "Overthinking ,  Science Divine" },
       { property: "og:url", content: "/overthinking" },
     ],
     links: [{ rel: "canonical", href: "/overthinking" }],
@@ -23,8 +23,8 @@ const ARTICLES = [
   { title: "7 Ways to Foster an Optimistic Mind", href: "https://sciencedivine.org/optimistic-mind/", tag: "Mindset", readTime: "7 min", desc: "Practical daily habits for shifting from catastrophic thinking loops to a solution-oriented, positive mindset." },
   { title: "10 Ways to Overcome Negative Thoughts", href: "https://sciencedivine.org/stop-negative-thinking/", tag: "Negativity", readTime: "8 min", desc: "Evidence-based spiritual techniques for interrupting negative thought spirals before they gain momentum." },
   { title: "What is Spirituality & How to Grow it?", href: "https://sciencedivine.org/what-is-spirituality/", tag: "Spirituality", readTime: "10 min", desc: "Understanding how spiritual depth creates the inner spaciousness that makes overthinking simply fall away." },
-  { title: "What is Consciousness: A Beginner's Guide", href: "https://sciencedivine.org/what-is-consciousness/", tag: "Consciousness", readTime: "8 min", desc: "An accessible introduction to the witness state — the awareness that watches thoughts without being swept away." },
-  { title: "The Basics of Conscious Mind and Subconscious Mind", href: "https://sciencedivine.org/conscious-mind-and-subconscious-mind/", tag: "Mind", readTime: "8 min", desc: "Understanding why the subconscious mind runs repetitive thought loops — and how to reprogram them." },
+  { title: "What is Consciousness: A Beginner's Guide", href: "https://sciencedivine.org/what-is-consciousness/", tag: "Consciousness", readTime: "8 min", desc: "An accessible introduction to the witness state ,  the awareness that watches thoughts without being swept away." },
+  { title: "The Basics of Conscious Mind and Subconscious Mind", href: "https://sciencedivine.org/conscious-mind-and-subconscious-mind/", tag: "Mind", readTime: "8 min", desc: "Understanding why the subconscious mind runs repetitive thought loops ,  and how to reprogram them." },
   { title: "What Your Conscious Mind Can Do: Simply Explained", href: "https://sciencedivine.org/what-is-conscious-mind/", tag: "Awareness", readTime: "7 min", desc: "Harnessing the directing power of the conscious mind to steer mental energy toward clarity and action." },
   { title: "How to Be Conscious: Wake Up Your Mind Every Day", href: "https://sciencedivine.org/conscious/", tag: "Daily Practice", readTime: "9 min", desc: "A morning-to-evening protocol for maintaining present-moment awareness and preventing thought spiraling." },
   { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "How daily mental wellness practices directly reduce the cognitive load that triggers overthinking." },
@@ -75,7 +75,7 @@ function Page() {
           <div style={{ maxWidth: "800px" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "24px" }}>
               <Brain size={14} style={{ color: "#D4AF37" }} />
-              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions — Overthinking</span>
+              <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions ,  Overthinking</span>
             </div>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "24px" }}>
               Overthinking{" "}
@@ -179,7 +179,7 @@ function Page() {
 
           {tab === "podcasts" && (
             <div>
-              <SectionHeading eyebrow="Real Transformation" title="Testimonials — From Chaos to Calm" subtitle="Real people sharing how Sakshi Shree's teachings stopped the overthinking spiral." />
+              <SectionHeading eyebrow="Real Transformation" title="Testimonials ,  From Chaos to Calm" subtitle="Real people sharing how Sakshi Shree's teachings stopped the overthinking spiral." />
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
                 {TESTIMONIALS.map((t, i) => (
                   <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}

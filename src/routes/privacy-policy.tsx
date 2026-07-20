@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Science Divine" },
+      { title: "Privacy Policy ,  Science Divine" },
       {
         name: "description",
         content:

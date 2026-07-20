@@ -4,13 +4,13 @@ import { ArrowRight, Sprout, UtensilsCrossed } from "lucide-react";
 export const Route = createFileRoute("/annapurna-sewa")({
   head: () => ({
     meta: [
-      { title: "Annapurna Sewa — Feeding Hearts, Nourishing Souls | Science Divine Foundation" },
+      { title: "Annapurna Sewa ,  Feeding Hearts, Nourishing Souls | Science Divine Foundation" },
       {
         name: "description",
         content:
-          "Food is not merely nourishment here; it is prasad — a sacred offering. Support the Annapurna Sewa mission of selfless service.",
+          "Food is not merely nourishment here; it is prasad ,  a sacred offering. Support the Annapurna Sewa mission of selfless service.",
       },
-      { property: "og:title", content: "Annapurna Sewa — Science Divine Foundation" },
+      { property: "og:title", content: "Annapurna Sewa ,  Science Divine Foundation" },
       { property: "og:url", content: "/annapurna-sewa" },
     ],
     links: [{ rel: "canonical", href: "/annapurna-sewa" }],
@@ -76,7 +76,7 @@ function Page() {
         <div className="container-page" style={{ maxWidth: "800px", textAlign: "center" }}>
           <div style={{ width: "56px", height: "56px", borderRadius: "999px", margin: "0 auto 22px", display: "grid", placeItems: "center", background: "linear-gradient(135deg, #FEF3C7, #D4AF37)", boxShadow: "0 10px 28px rgba(212,175,55,0.28)" }}><Sprout size={28} color="#1E1B4B" strokeWidth={2.2} /></div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 700, color: "#1E1B4B", lineHeight: 1.5, marginBottom: "24px" }}>
-            "Food is not merely nourishment here; it is <span style={{ color: "#D4AF37" }}>prasad</span> — a sacred offering. Each meal is served with folded hands, reminding us that in feeding another, we honor the Divine within them."
+            "Food is not merely nourishment here; it is <span style={{ color: "#D4AF37" }}>prasad</span> ,  a sacred offering. Each meal is served with folded hands, reminding us that in feeding another, we honor the Divine within them."
           </h2>
           <div style={{ width: "60px", height: "3px", background: "linear-gradient(90deg, #F59E0B, #D4AF37)", margin: "0 auto" }} />
         </div>
@@ -102,7 +102,7 @@ function Page() {
                 <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Welcome Without Distinction</span>
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginTop: "4px", marginBottom: "12px" }}>Universal Compassion</h3>
                 <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
-                  From seekers attending meditation shivirs to villagers passing by, from elders to children — everyone is welcomed without question or distinction. The service is universal, reflecting unconditional compassion.
+                  From seekers attending meditation shivirs to villagers passing by, from elders to children ,  everyone is welcomed without question or distinction. The service is universal, reflecting unconditional compassion.
                 </p>
               </div>
             </div>
@@ -116,7 +116,7 @@ function Page() {
           <p style={{ color: "#E0E7FF", fontSize: "1.25rem", fontStyle: "italic", lineHeight: 1.6, marginBottom: "16px" }}>
             "Serving food is serving the Divine in its most humble form."
           </p>
-          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>— Sadhguru Sakshi Shree</p>
+          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>,  Sadhguru Sakshi Shree</p>
         </div>
       </section>
 
@@ -128,7 +128,7 @@ function Page() {
               <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Affirmation of Humanity</span>
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 700, color: "#0F172A", marginTop: "4px", marginBottom: "16px" }}>Impact, Dignity, and Soul Nourishment 💖</h3>
               <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "20px" }}>
-                Through Annapurna Sewa, hunger is not just cured — hearts are nourished, dignity is restored, and humanity is reaffirmed. It is a transformation that begins with a simple meal and extends to the soul.
+                Through Annapurna Sewa, hunger is not just cured ,  hearts are nourished, dignity is restored, and humanity is reaffirmed. It is a transformation that begins with a simple meal and extends to the soul.
               </p>
               <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
                 This initiative runs entirely on love, faith, and the contributions of generous souls who believe that no act of kindness is too small when done with pure intention. Your support ensures the continuous, selfless service of this sacred mission.
