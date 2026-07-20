@@ -3,25 +3,39 @@ import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { ARTICLES_BY_TOPIC, VIDEOS_BY_TOPIC, type SolutionSlug } from "@/data/content";
 import { useState } from "react";
-import { 
-  BookOpen, Quote, PlayCircle, Mic, ArrowRight, Heart, 
-  Moon, Compass, Flower2, Sun, Flame, Users, LucideIcon 
+import {
+  BookOpen,
+  Quote,
+  PlayCircle,
+  Mic,
+  ArrowRight,
+  Heart,
+  Moon,
+  Compass,
+  Flower2,
+  Sun,
+  Flame,
+  Users,
+  LucideIcon,
 } from "lucide-react";
 
 type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
-const SOLUTION_METAS: Record<string, {
-  themeColor: string;
-  lightBgColor: string;
-  badgeText: string;
-  image: string;
-  bottomText: string;
-  cards: {
-    title: string;
-    desc: string;
-    icon: LucideIcon;
-  }[];
-}> = {
+const SOLUTION_METAS: Record<
+  string,
+  {
+    themeColor: string;
+    lightBgColor: string;
+    badgeText: string;
+    image: string;
+    bottomText: string;
+    cards: {
+      title: string;
+      desc: string;
+      icon: LucideIcon;
+    }[];
+  }
+> = {
   "Sleeping Disorder": {
     themeColor: "#15803D", // Green
     lightBgColor: "rgba(21, 128, 61, 0.08)",
@@ -29,38 +43,86 @@ const SOLUTION_METAS: Record<string, {
     image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80",
     bottomText: "A calm mind leads to a peaceful sleep and a beautiful life.",
     cards: [
-      { title: "Better Sleep", desc: "Fall asleep faster and experience deeper, undisturbed sleep.", icon: Moon },
-      { title: "Relax & Unwind", desc: "Release stress and calm your mind before bedtime.", icon: Compass },
-      { title: "Natural Healing", desc: "Support your body's natural rhythm for restorative sleep.", icon: Flower2 },
-      { title: "Wake Refreshed", desc: "Wake up energized, refreshed and ready for a new day.", icon: Sun }
-    ]
+      {
+        title: "Better Sleep",
+        desc: "Fall asleep faster and experience deeper, undisturbed sleep.",
+        icon: Moon,
+      },
+      {
+        title: "Relax & Unwind",
+        desc: "Release stress and calm your mind before bedtime.",
+        icon: Compass,
+      },
+      {
+        title: "Natural Healing",
+        desc: "Support your body's natural rhythm for restorative sleep.",
+        icon: Flower2,
+      },
+      {
+        title: "Wake Refreshed",
+        desc: "Wake up energized, refreshed and ready for a new day.",
+        icon: Sun,
+      },
+    ],
   },
-  "Wellness": {
+  Wellness: {
     themeColor: "#BE123C", // Rose
     lightBgColor: "rgba(190, 18, 60, 0.08)",
     badgeText: "SOLUTIONS • WELLNESS",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80",
     bottomText: "Harmonizing Body, Mind, and Spirit",
     cards: [
-      { title: "Vital Body", desc: "Nurture physical health through aligned movements and nutrition.", icon: Flame },
-      { title: "Sound Mind", desc: "Quiet mental stress to unlock your body's natural healing power.", icon: Heart },
-      { title: "Energy Balance", desc: "Align your biological energy paths for daily vitality.", icon: Compass },
-      { title: "Self-Realization", desc: "Discover the peace that comes from knowing your true nature.", icon: Sun }
-    ]
+      {
+        title: "Vital Body",
+        desc: "Nurture physical health through aligned movements and nutrition.",
+        icon: Flame,
+      },
+      {
+        title: "Sound Mind",
+        desc: "Quiet mental stress to unlock your body's natural healing power.",
+        icon: Heart,
+      },
+      {
+        title: "Energy Balance",
+        desc: "Align your biological energy paths for daily vitality.",
+        icon: Compass,
+      },
+      {
+        title: "Self-Realization",
+        desc: "Discover the peace that comes from knowing your true nature.",
+        icon: Sun,
+      },
+    ],
   },
-  "Relationships": {
+  Relationships: {
     themeColor: "#B91C1C", // Crimson/Red
     lightBgColor: "rgba(185, 28, 28, 0.08)",
     badgeText: "SOLUTIONS • RELATIONSHIPS",
     image: "https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?w=1000&q=80",
     bottomText: "Conscious Hearts, Sacred Connections",
     cards: [
-      { title: "Empathic Listening", desc: "Understand others deeply by listening with full presence.", icon: Users },
-      { title: "Heart Connection", desc: "Resolve conflicts from a space of love and mutual respect.", icon: Heart },
-      { title: "Conscious Loving", desc: "Release expectations and love with freedom and acceptance.", icon: Flower2 },
-      { title: "Mirror Principle", desc: "Understand how your relationships mirror your inner state.", icon: Compass }
-    ]
-  }
+      {
+        title: "Empathic Listening",
+        desc: "Understand others deeply by listening with full presence.",
+        icon: Users,
+      },
+      {
+        title: "Heart Connection",
+        desc: "Resolve conflicts from a space of love and mutual respect.",
+        icon: Heart,
+      },
+      {
+        title: "Conscious Loving",
+        desc: "Release expectations and love with freedom and acceptance.",
+        icon: Flower2,
+      },
+      {
+        title: "Mirror Principle",
+        desc: "Understand how your relationships mirror your inner state.",
+        icon: Compass,
+      },
+    ],
+  },
 };
 
 export function SolutionPageLayout({
@@ -89,24 +151,19 @@ export function SolutionPageLayout({
 
   return (
     <>
-      {/* Wavy Mask SVG Defs */}
-      <svg width="0" height="0" style={{ position: "absolute", zIndex: -1 }}>
-        <defs>
-          <clipPath id="wavy-mask" clipPathUnits="objectBoundingBox">
-            <path d="M 0.55,0 C 0.4,0.15 0.35,0.35 0.5,0.5 C 0.65,0.65 0.6,0.8 0.42,1 L 1,1 L 1,0 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
-      <section 
+      <section
         className="relative overflow-hidden pt-28 pb-16"
         style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
       >
         {/* Decorative gold orbs */}
-        <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }} />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }} />
+        <div
+          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
+        />
 
         <div className="container-page relative z-10">
           {/* Top Row: Content & Image */}
@@ -129,10 +186,7 @@ export function SolutionPageLayout({
                 {tagline.split(":")[0]}
                 {tagline.includes(":") && (
                   <>
-                    :{" "}
-                    <span style={{ color: meta.themeColor }}>
-                      {tagline.split(":")[1]}
-                    </span>
+                    : <span style={{ color: meta.themeColor }}>{tagline.split(":")[1]}</span>
                   </>
                 )}
                 {!tagline.includes(":") && (
@@ -140,9 +194,7 @@ export function SolutionPageLayout({
                 )}
               </h1>
 
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
-                {intro}
-              </p>
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">{intro}</p>
 
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link
@@ -166,52 +218,25 @@ export function SolutionPageLayout({
                 </Link>
               </div>
             </div>
-
-            {/* Right side wavy image */}
-            <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[420px] h-[450px]">
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ clipPath: "url(#wavy-mask)" }}
-                >
-                  <img
-                    src={heroImage || meta.image}
-                    alt={title}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                {/* Wavy Stroke overlay */}
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                  style={{ zIndex: 20 }}
-                >
-                  <path
-                    d="M 55,0 C 40,15 35,35 50,50 C 65,65 60,80 42,100"
-                    fill="none"
-                    stroke={meta.themeColor}
-                    strokeWidth="1.5"
-                    opacity="0.85"
-                  />
-                </svg>
-              </div>
-            </div>
+            {/* Right side image */}
+            <SolutionHeroImage
+              src={heroImage || meta.image}
+              alt={title}
+              themeColor={meta.themeColor}
+            />
           </div>
 
           {/* Second Row: Grid of 4 Cards */}
-          <div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
             {meta.cards.map((card, idx) => {
               const CardIcon = card.icon;
               return (
                 <div key={idx} className="flex gap-4 items-start group">
-                  <div 
+                  <div
                     className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{
                       background: `${meta.themeColor}15`,
-                      color: meta.themeColor
+                      color: meta.themeColor,
                     }}
                   >
                     <CardIcon size={20} />
@@ -220,9 +245,7 @@ export function SolutionPageLayout({
                     <h3 className="font-semibold text-gray-900 text-sm md:text-base">
                       {card.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
-                      {card.desc}
-                    </p>
+                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
                   </div>
                 </div>
               );
@@ -245,13 +268,21 @@ export function SolutionPageLayout({
           {/* Tab bar */}
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             <div className="flex flex-wrap gap-1 p-1.5 rounded-full bg-gray-100 shadow-inner">
-              <TabButton active={tab === "articles"} onClick={() => setTab("articles")} icon={BookOpen}>
+              <TabButton
+                active={tab === "articles"}
+                onClick={() => setTab("articles")}
+                icon={BookOpen}
+              >
                 Articles
               </TabButton>
               <TabButton active={tab === "quotes"} onClick={() => setTab("quotes")} icon={Quote}>
                 Quotes
               </TabButton>
-              <TabButton active={tab === "videos"} onClick={() => setTab("videos")} icon={PlayCircle}>
+              <TabButton
+                active={tab === "videos"}
+                onClick={() => setTab("videos")}
+                icon={PlayCircle}
+              >
                 Videos
               </TabButton>
               <TabButton active={tab === "podcasts"} onClick={() => setTab("podcasts")} icon={Mic}>
@@ -267,9 +298,13 @@ export function SolutionPageLayout({
                   <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
                     {title}
                   </div>
-                  <div className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
-                    style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
-                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug">{a.title}</h3>
+                  <div
+                    className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
+                    style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }}
+                  />
+                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug">
+                    {a.title}
+                  </h3>
                   <p className="text-sm text-gray-500 mb-4 leading-relaxed">{a.excerpt}</p>
                   <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
                     Read More <ArrowRight size={12} />
@@ -282,10 +317,19 @@ export function SolutionPageLayout({
           {tab === "quotes" && (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 animate-fade-in">
               {quoteImages.map((src, i) => (
-                <a key={i} href={src} target="_blank" rel="noreferrer"
-                  className="rounded-2xl overflow-hidden hover-lift block">
-                  <img src={src} alt={`${title} quote ${i + 1}`} loading="lazy"
-                    className="w-full h-full object-cover aspect-square" />
+                <a
+                  key={i}
+                  href={src}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-2xl overflow-hidden hover-lift block"
+                >
+                  <img
+                    src={src}
+                    alt={`${title} quote ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover aspect-square"
+                  />
                 </a>
               ))}
             </div>
@@ -304,19 +348,24 @@ export function SolutionPageLayout({
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="card-premium rounded-2xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-xl grid place-items-center text-white flex-shrink-0"
-                      style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)" }}>
+                    <div
+                      className="w-14 h-14 rounded-xl grid place-items-center text-white flex-shrink-0"
+                      style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)" }}
+                    >
                       <Mic size={22} />
                     </div>
                     <div>
                       <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">
                         Podcast Episode {i}
                       </div>
-                      <h3 className="font-display font-bold text-gray-900">Sakshi Shree on {title}</h3>
+                      <h3 className="font-display font-bold text-gray-900">
+                        Sakshi Shree on {title}
+                      </h3>
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-                    Deep-dive conversation exploring {title.toLowerCase()}, its roots, its patterns, and the path through.
+                    Deep-dive conversation exploring {title.toLowerCase()}, its roots, its patterns,
+                    and the path through.
                   </p>
                   <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
                     Listen <ArrowRight size={12} />
@@ -329,7 +378,10 @@ export function SolutionPageLayout({
       </section>
 
       {/* CTA */}
-      <section className="section-pad" style={{ background: "linear-gradient(135deg, #FFFBF0, #FFF3D0)" }}>
+      <section
+        className="section-pad"
+        style={{ background: "linear-gradient(135deg, #FFFBF0, #FFF3D0)" }}
+      >
         <div className="container-page text-center">
           <SectionHeading
             center
@@ -338,10 +390,16 @@ export function SolutionPageLayout({
             subtitle="Book a personal session with Sakshi Shree, one hour that can change everything."
           />
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/book-session" className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm">
+            <Link
+              to="/book-session"
+              className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm"
+            >
               Book Personal Session
             </Link>
-            <Link to="/get-solutions-for" className="btn-outline-gold rounded-full px-8 py-3.5 font-semibold text-sm">
+            <Link
+              to="/get-solutions-for"
+              className="btn-outline-gold rounded-full px-8 py-3.5 font-semibold text-sm"
+            >
               Explore Other Solutions
             </Link>
           </div>
@@ -351,6 +409,62 @@ export function SolutionPageLayout({
   );
 }
 
+export function SolutionHeroImage({
+  src,
+  alt,
+  themeColor,
+}: {
+  src: string;
+  alt: string;
+  themeColor: string;
+}) {
+  return (
+    <div className="lg:col-span-5 flex justify-center relative">
+      <div className="relative w-full max-w-[520px] aspect-[1.16] min-h-[320px] overflow-hidden rounded-[34px] bg-white shadow-2xl shadow-amber-900/10 ring-1 ring-white/80">
+        <img
+          src={src}
+          alt={alt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-white/10" />
+        <svg
+          className="absolute inset-0 h-full w-full pointer-events-none"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 0 0 H 17 C 8 11 7 25 15 36 C 26 50 25 64 13 77 C 5 86 2 94 5 100 H 0 Z"
+            fill="#FFFBF0"
+            opacity="0.95"
+          />
+          <path
+            d="M 17 0 C 8 11 7 25 15 36 C 26 50 25 64 13 77 C 5 86 2 94 5 100"
+            fill="none"
+            stroke={themeColor}
+            strokeWidth="0.75"
+            opacity="0.9"
+          />
+          <path
+            d="M 11 4 C 34 -2 63 9 100 -5"
+            fill="none"
+            stroke={themeColor}
+            strokeWidth="0.45"
+            opacity="0.55"
+          />
+          <path
+            d="M 14 7 C 37 1 66 12 100 -1"
+            fill="none"
+            stroke={themeColor}
+            strokeWidth="0.3"
+            opacity="0.35"
+          />
+        </svg>
+        <div className="absolute left-[42%] top-[12%] h-28 w-28 rounded-full border border-white/35 opacity-40" />
+      </div>
+    </div>
+  );
+}
 function TabButton({
   active,
   onClick,
@@ -366,9 +480,14 @@ function TabButton({
     <button
       onClick={onClick}
       className="inline-flex items-center gap-2 rounded-full px-4 md:px-5 py-2 text-sm font-semibold transition-all"
-      style={active
-        ? { background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#1a1000", boxShadow: "0 4px 12px rgba(212,175,55,0.35)" }
-        : { color: "#6B7280", background: "transparent" }
+      style={
+        active
+          ? {
+              background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+              color: "#1a1000",
+              boxShadow: "0 4px 12px rgba(212,175,55,0.35)",
+            }
+          : { color: "#6B7280", background: "transparent" }
       }
     >
       <Icon size={15} /> {children}

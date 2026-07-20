@@ -1,13 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionHeading } from "@/components/PageHero";
+import { SolutionHeroImage } from "@/components/SolutionPageLayout";
 import { useState } from "react";
-import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Heart, ChevronRight, Compass, Flower2, Sun, Moon } from "lucide-react";
+import {
+  BookOpen,
+  Quote,
+  PlayCircle,
+  Mic,
+  ArrowRight,
+  Star,
+  Heart,
+  ChevronRight,
+  Compass,
+  Flower2,
+  Sun,
+  Moon,
+} from "lucide-react";
 
 export const Route = createFileRoute("/parenting")({
   head: () => ({
     meta: [
       { title: "Parenting Guidance | Science Divine Foundation" },
-      { name: "description", content: "Sakshi Shree's Guide to Parenting Through the Ages ,  spiritual wisdom to navigate the joys and challenges of raising conscious children." },
+      {
+        name: "description",
+        content:
+          "Sakshi Shree's Guide to Parenting Through the Ages ,  spiritual wisdom to navigate the joys and challenges of raising conscious children.",
+      },
       { property: "og:title", content: "Parenting ,  Science Divine" },
       { property: "og:url", content: "/parenting" },
     ],
@@ -19,30 +37,119 @@ export const Route = createFileRoute("/parenting")({
 type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
 const ARTICLES = [
-  { title: "7 Ways to Foster an Optimistic Mind", href: "https://sciencedivine.org/optimistic-mind/", tag: "Mindset", readTime: "7 min", desc: "Practical wisdom for cultivating a positive outlook in children and parents alike through conscious daily habits." },
-  { title: "How to Be Conscious: Wake Up Your Mind Every Day", href: "https://sciencedivine.org/conscious/", tag: "Awareness", readTime: "9 min", desc: "Step-by-step guide to awakening mindful presence as the foundation of conscious parenting." },
-  { title: "How to Feel Calm: Easy Ways to Find Peace of Mind", href: "https://sciencedivine.org/what-is-peace-of-mind/", tag: "Peace", readTime: "6 min", desc: "Simple practices to cultivate inner calm so parents can respond rather than react in challenging moments." },
-  { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "Understanding how a parent's mental wellness directly shapes the emotional landscape of their children." },
-  { title: "Benefits of Yoga for Hypertension Management", href: "https://sciencedivine.org/yoga-for-hypertension/", tag: "Wellness", readTime: "8 min", desc: "How gentle asana practice supports nervous system regulation ,  essential for patient, grounded parenting." },
-  { title: "Yoga Nidra: Mastering the Art of Conscious Relaxation", href: "https://sciencedivine.org/yoga-nidra/", tag: "Sleep", readTime: "10 min", desc: "Restore deep energy after sleepless parenting nights with the science of yogic sleep." },
-  { title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation", href: "https://sciencedivine.org/unveiling-the-harmony/", tag: "Mindfulness", readTime: "8 min", desc: "Bridging physical practice and quiet mental observation for a holistic parenting lifestyle." },
-  { title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging", href: "https://sciencedivine.org/meditation-for-seniors/", tag: "Aging", readTime: "7 min", desc: "Wisdom for grandparents on maintaining presence and connection through the generations." },
-  { title: "Harmonizing Mind and Body: The Transformative Power of Yoga and Meditation", href: "https://sciencedivine.org/harmonizing-mind-and-body/", tag: "Harmony", readTime: "9 min", desc: "How integrated mind-body practices create the inner stability needed for conscious parenting." },
+  {
+    title: "7 Ways to Foster an Optimistic Mind",
+    href: "https://sciencedivine.org/optimistic-mind/",
+    tag: "Mindset",
+    readTime: "7 min",
+    desc: "Practical wisdom for cultivating a positive outlook in children and parents alike through conscious daily habits.",
+  },
+  {
+    title: "How to Be Conscious: Wake Up Your Mind Every Day",
+    href: "https://sciencedivine.org/conscious/",
+    tag: "Awareness",
+    readTime: "9 min",
+    desc: "Step-by-step guide to awakening mindful presence as the foundation of conscious parenting.",
+  },
+  {
+    title: "How to Feel Calm: Easy Ways to Find Peace of Mind",
+    href: "https://sciencedivine.org/what-is-peace-of-mind/",
+    tag: "Peace",
+    readTime: "6 min",
+    desc: "Simple practices to cultivate inner calm so parents can respond rather than react in challenging moments.",
+  },
+  {
+    title: "Why Should You Prioritize Your Mental Health Every Day?",
+    href: "https://sciencedivine.org/what-is-mental-health/",
+    tag: "Mental Health",
+    readTime: "6 min",
+    desc: "Understanding how a parent's mental wellness directly shapes the emotional landscape of their children.",
+  },
+  {
+    title: "Benefits of Yoga for Hypertension Management",
+    href: "https://sciencedivine.org/yoga-for-hypertension/",
+    tag: "Wellness",
+    readTime: "8 min",
+    desc: "How gentle asana practice supports nervous system regulation ,  essential for patient, grounded parenting.",
+  },
+  {
+    title: "Yoga Nidra: Mastering the Art of Conscious Relaxation",
+    href: "https://sciencedivine.org/yoga-nidra/",
+    tag: "Sleep",
+    readTime: "10 min",
+    desc: "Restore deep energy after sleepless parenting nights with the science of yogic sleep.",
+  },
+  {
+    title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation",
+    href: "https://sciencedivine.org/unveiling-the-harmony/",
+    tag: "Mindfulness",
+    readTime: "8 min",
+    desc: "Bridging physical practice and quiet mental observation for a holistic parenting lifestyle.",
+  },
+  {
+    title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging",
+    href: "https://sciencedivine.org/meditation-for-seniors/",
+    tag: "Aging",
+    readTime: "7 min",
+    desc: "Wisdom for grandparents on maintaining presence and connection through the generations.",
+  },
+  {
+    title: "Harmonizing Mind and Body: The Transformative Power of Yoga and Meditation",
+    href: "https://sciencedivine.org/harmonizing-mind-and-body/",
+    tag: "Harmony",
+    readTime: "9 min",
+    desc: "How integrated mind-body practices create the inner stability needed for conscious parenting.",
+  },
 ];
 
 const VIDEOS = [
-  { id: "MPIOJ_POKi0", title: "Parenting tips & Spirituality ,  Sadhguru Sakshi Shri", lang: "Hindi" },
-  { id: "5g4pqByHHUU", title: "बच्चे कहना ना मानें तो ऐसा करें | Parenting Tips | Sakshi Shree", lang: "Hindi" },
-  { id: "pM5E2sKZoX8", title: "बच्चों के साथ कैसा व्यवहार करें | Parenting in Hindi | Sadhguru", lang: "Hindi" },
-  { id: "lwGzIH3504s", title: "Powerful Tips To Raise Your Children | Parenting Advice", lang: "English" },
-  { id: "KNbWWcyp7kQ", title: "बच्चों को कैसी शिक्षा दें? How to teach good manners to kids", lang: "Hindi" },
-  { id: "zyhwVR7m5O8", title: "Why no one understands you? | आपको कोई क्यों नहीं समझता? | Sakshi Shree", lang: "Bilingual" },
+  {
+    id: "MPIOJ_POKi0",
+    title: "Parenting tips & Spirituality ,  Sadhguru Sakshi Shri",
+    lang: "Hindi",
+  },
+  {
+    id: "5g4pqByHHUU",
+    title: "बच्चे कहना ना मानें तो ऐसा करें | Parenting Tips | Sakshi Shree",
+    lang: "Hindi",
+  },
+  {
+    id: "pM5E2sKZoX8",
+    title: "बच्चों के साथ कैसा व्यवहार करें | Parenting in Hindi | Sadhguru",
+    lang: "Hindi",
+  },
+  {
+    id: "lwGzIH3504s",
+    title: "Powerful Tips To Raise Your Children | Parenting Advice",
+    lang: "English",
+  },
+  {
+    id: "KNbWWcyp7kQ",
+    title: "बच्चों को कैसी शिक्षा दें? How to teach good manners to kids",
+    lang: "Hindi",
+  },
+  {
+    id: "zyhwVR7m5O8",
+    title: "Why no one understands you? | आपको कोई क्यों नहीं समझता? | Sakshi Shree",
+    lang: "Bilingual",
+  },
   { id: "Q3HIZe4hsbE", title: "Youth and Values and Sanskar | Sakshi Shree", lang: "English" },
-  { id: "hR_8-XOo0zY", title: "Follow these parenting tips, your child can create miracle ,  SakshiShreeEnglish", lang: "English" },
-  { id: "xlx8bDuMLVo", title: "Disobeying Parents is not a sin! | Virtues of Disobeying Your Parents | Sakshi Shree", lang: "English" },
+  {
+    id: "hR_8-XOo0zY",
+    title: "Follow these parenting tips, your child can create miracle ,  SakshiShreeEnglish",
+    lang: "English",
+  },
+  {
+    id: "xlx8bDuMLVo",
+    title: "Disobeying Parents is not a sin! | Virtues of Disobeying Your Parents | Sakshi Shree",
+    lang: "English",
+  },
 ];
 
-const QUOTES = Array.from({ length: 9 }, (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`);
+const QUOTES = Array.from(
+  { length: 9 },
+  (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`,
+);
 
 const TESTIMONIALS = [
   { id: "QLmL230dApk", name: "Swaparna Testimonial" },
@@ -69,24 +176,19 @@ function Page() {
 
   return (
     <>
-      {/* Wavy Mask SVG Defs */}
-      <svg width="0" height="0" style={{ position: "absolute", zIndex: -1 }}>
-        <defs>
-          <clipPath id="wavy-mask" clipPathUnits="objectBoundingBox">
-            <path d="M 0.55,0 C 0.4,0.15 0.35,0.35 0.5,0.5 C 0.65,0.65 0.6,0.8 0.42,1 L 1,1 L 1,0 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
-      <section 
+      <section
         className="relative overflow-hidden pt-28 pb-16"
         style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
       >
         {/* Decorative gold orbs */}
-        <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }} />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }} />
+        <div
+          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
+        />
 
         <div className="container-page relative z-10">
           {/* Top Row: Content & Image */}
@@ -106,14 +208,14 @@ function Page() {
               </div>
 
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
-                Guide to{" "}
-                <span style={{ color: "#B45309" }}>
-                  Parenting Through the Ages
-                </span>
+                Guide to <span style={{ color: "#B45309" }}>Parenting Through the Ages</span>
               </h1>
 
               <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
-                Parenting is a rollercoaster filled with love, laughter, and its fair share of challenges. From sleepless nights to navigating adolescence, join Sakshi Shree on an incredible journey — forging deeper connections with our children and ourselves along the way.
+                Parenting is a rollercoaster filled with love, laughter, and its fair share of
+                challenges. From sleepless nights to navigating adolescence, join Sakshi Shree on an
+                incredible journey — forging deeper connections with our children and ourselves
+                along the way.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -138,57 +240,46 @@ function Page() {
                 </a>
               </div>
             </div>
-
-            {/* Right side wavy image */}
-            <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[420px] h-[450px]">
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ clipPath: "url(#wavy-mask)" }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=1000&q=80"
-                    alt="Parenting Through the Ages"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                {/* Wavy Stroke overlay */}
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                  style={{ zIndex: 20 }}
-                >
-                  <path
-                    d="M 55,0 C 40,15 35,35 50,50 C 65,65 60,80 42,100"
-                    fill="none"
-                    stroke="#B45309"
-                    strokeWidth="1.5"
-                    opacity="0.85"
-                  />
-                </svg>
-              </div>
-            </div>
+            {/* Right side image */}
+            <SolutionHeroImage
+              src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1400&q=90&auto=format&fit=crop"
+              alt="Conscious parenting family"
+              themeColor="#B45309"
+            />
           </div>
 
           {/* Second Row: Grid of 4 Cards */}
-          <div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
             {[
-              { title: "Conscious Connection", desc: "Build deeper relationships with your children through presence.", icon: Heart },
-              { title: "Emotional Safety", desc: "Create a peaceful home environment where kids feel heard.", icon: Compass },
-              { title: "Mindful Response", desc: "Learn to respond consciously rather than reacting in tense moments.", icon: Flower2 },
-              { title: "Generational Healing", desc: "Break old cycles and establish supportive family patterns.", icon: Sun }
+              {
+                title: "Conscious Connection",
+                desc: "Build deeper relationships with your children through presence.",
+                icon: Heart,
+              },
+              {
+                title: "Emotional Safety",
+                desc: "Create a peaceful home environment where kids feel heard.",
+                icon: Compass,
+              },
+              {
+                title: "Mindful Response",
+                desc: "Learn to respond consciously rather than reacting in tense moments.",
+                icon: Flower2,
+              },
+              {
+                title: "Generational Healing",
+                desc: "Break old cycles and establish supportive family patterns.",
+                icon: Sun,
+              },
             ].map((card, idx) => {
               const CardIcon = card.icon;
               return (
                 <div key={idx} className="flex gap-4 items-start group">
-                  <div 
+                  <div
                     className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{
                       background: "rgba(180, 83, 9, 0.08)",
-                      color: "#B45309"
+                      color: "#B45309",
                     }}
                   >
                     <CardIcon size={20} />
@@ -197,9 +288,7 @@ function Page() {
                     <h3 className="font-semibold text-gray-900 text-sm md:text-base">
                       {card.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
-                      {card.desc}
-                    </p>
+                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
                   </div>
                 </div>
               );
@@ -221,8 +310,26 @@ function Page() {
       <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
-            {TABS.map(t => (
-              <button key={t.id} onClick={() => setTab(t.id)} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "16px 24px", border: "none", borderBottom: tab === t.id ? "3px solid #D4AF37" : "3px solid transparent", background: "transparent", color: tab === t.id ? "#D4AF37" : "#6B7280", fontWeight: tab === t.id ? 700 : 500, fontSize: "0.9rem", cursor: "pointer", whiteSpace: "nowrap", transition: "color 0.2s, border-color 0.2s" }}>
+            {TABS.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "16px 24px",
+                  border: "none",
+                  borderBottom: tab === t.id ? "3px solid #D4AF37" : "3px solid transparent",
+                  background: "transparent",
+                  color: tab === t.id ? "#D4AF37" : "#6B7280",
+                  fontWeight: tab === t.id ? 700 : 500,
+                  fontSize: "0.9rem",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  transition: "color 0.2s, border-color 0.2s",
+                }}
+              >
                 {t.icon} {t.label}
               </button>
             ))}
@@ -233,29 +340,145 @@ function Page() {
       {/* Tab Content */}
       <section className="section-pad bg-white">
         <div className="container-page">
-
           {tab === "articles" && (
             <div>
-              <SectionHeading eyebrow="Read & Learn" title="Parenting Wisdom from Sakshi Shree" subtitle="Curated articles to help you raise conscious, resilient children through spiritual wisdom." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
+              <SectionHeading
+                eyebrow="Read & Learn"
+                title="Parenting Wisdom from Sakshi Shree"
+                subtitle="Curated articles to help you raise conscious, resilient children through spiritual wisdom."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+                  gap: "24px",
+                  marginTop: "40px",
+                }}
+              >
                 {ARTICLES.map((a, i) => (
-                  <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "20px", padding: "28px", textDecoration: "none", boxShadow: "0 2px 12px rgba(0,0,0,0.04)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.14)"; el.style.borderColor = "#D4AF37"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; el.style.borderColor = "#E5E7EB"; }}
+                  <a
+                    key={i}
+                    href={a.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      background: "#FFFFFF",
+                      border: "1px solid #E5E7EB",
+                      borderRadius: "20px",
+                      padding: "28px",
+                      textDecoration: "none",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                      transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.14)";
+                      el.style.borderColor = "#D4AF37";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
+                      el.style.borderColor = "#E5E7EB";
+                    }}
                   >
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #F59E0B, #D4AF37)", borderRadius: "20px 20px 0 0" }} />
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-                      <span style={{ background: "rgba(212,175,55,0.12)", color: "#B45309", fontSize: "11px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{a.tag}</span>
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "3px",
+                        background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                        borderRadius: "20px 20px 0 0",
+                      }}
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        marginBottom: "14px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          background: "rgba(212,175,55,0.12)",
+                          color: "#B45309",
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "4px 10px",
+                          borderRadius: "100px",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                        }}
+                      >
+                        {a.tag}
+                      </span>
                       <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
                     </div>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#111827", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
-                    <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#D4AF37", fontWeight: 700, fontSize: "0.875rem" }}>Read Article <ArrowRight size={14} /></div>
+                    <h3
+                      style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: "1.05rem",
+                        fontWeight: 700,
+                        color: "#111827",
+                        lineHeight: 1.45,
+                        marginBottom: "12px",
+                        flex: 1,
+                      }}
+                    >
+                      {a.title}
+                    </h3>
+                    <p
+                      style={{
+                        color: "#6B7280",
+                        fontSize: "0.875rem",
+                        lineHeight: 1.7,
+                        marginBottom: "20px",
+                      }}
+                    >
+                      {a.desc}
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        color: "#D4AF37",
+                        fontWeight: 700,
+                        fontSize: "0.875rem",
+                      }}
+                    >
+                      Read Article <ArrowRight size={14} />
+                    </div>
                   </a>
                 ))}
               </div>
               <div style={{ textAlign: "center", marginTop: "40px" }}>
-                <a href="https://sciencedivine.org/category/anxiety/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)", color: "#B45309", padding: "12px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none" }}>
+                <a
+                  href="https://sciencedivine.org/category/anxiety/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "rgba(212,175,55,0.1)",
+                    border: "1px solid rgba(212,175,55,0.3)",
+                    color: "#B45309",
+                    padding: "12px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                  }}
+                >
                   Read More Articles <ArrowRight size={15} />
                 </a>
               </div>
@@ -264,14 +487,45 @@ function Page() {
 
           {tab === "quotes" && (
             <div>
-              <SectionHeading eyebrow="Words of Wisdom" title="Inspirational Quotes" subtitle="Let these sacred words from Sakshi Shree guide your parenting journey." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px", marginTop: "40px" }}>
+              <SectionHeading
+                eyebrow="Words of Wisdom"
+                title="Inspirational Quotes"
+                subtitle="Let these sacred words from Sakshi Shree guide your parenting journey."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                  gap: "20px",
+                  marginTop: "40px",
+                }}
+              >
                 {QUOTES.map((src, i) => (
-                  <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", transition: "transform 0.3s, box-shadow 0.3s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px) scale(1.01)"; el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.2)"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0) scale(1)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
+                  <div
+                    key={i}
+                    style={{
+                      borderRadius: "16px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                      transition: "transform 0.3s, box-shadow 0.3s",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px) scale(1.01)";
+                      el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0) scale(1)";
+                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
+                    }}
                   >
-                    <img src={src} alt={`Parenting Quote ${i + 1}`} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
+                    <img
+                      src={src}
+                      alt={`Parenting Quote ${i + 1}`}
+                      loading="lazy"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
                   </div>
                 ))}
               </div>
@@ -280,19 +534,83 @@ function Page() {
 
           {tab === "videos" && (
             <div>
-              <SectionHeading eyebrow="Watch & Learn" title="Parenting Video Teachings" subtitle="Powerful sessions from Sakshi Shree on raising children with love, wisdom, and values." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: "28px", marginTop: "40px" }}>
+              <SectionHeading
+                eyebrow="Watch & Learn"
+                title="Parenting Video Teachings"
+                subtitle="Powerful sessions from Sakshi Shree on raising children with love, wisdom, and values."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))",
+                  gap: "28px",
+                  marginTop: "40px",
+                }}
+              >
                 {VIDEOS.map((v, i) => (
-                  <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+                  <div
+                    key={i}
+                    style={{
+                      background: "#FFFFFF",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                      border: "1px solid #E5E7EB",
+                      transition: "transform 0.25s, box-shadow 0.25s",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
+                    }}
                   >
                     <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                      <iframe
+                        src={`https://www.youtube.com/embed/${v.id}`}
+                        title={v.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          width: "100%",
+                          height: "100%",
+                          border: 0,
+                        }}
+                      />
                     </div>
                     <div style={{ padding: "20px" }}>
-                      <span style={{ background: LANG_COLORS[v.lang]?.bg, color: LANG_COLORS[v.lang]?.text, fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "100px", display: "inline-block", marginBottom: "8px" }}>{v.lang}</span>
-                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.95rem", fontWeight: 700, color: "#111827", lineHeight: 1.5 }}>{v.title}</h3>
+                      <span
+                        style={{
+                          background: LANG_COLORS[v.lang]?.bg,
+                          color: LANG_COLORS[v.lang]?.text,
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "3px 10px",
+                          borderRadius: "100px",
+                          display: "inline-block",
+                          marginBottom: "8px",
+                        }}
+                      >
+                        {v.lang}
+                      </span>
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "0.95rem",
+                          fontWeight: 700,
+                          color: "#111827",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {v.title}
+                      </h3>
                     </div>
                   </div>
                 ))}
@@ -302,26 +620,97 @@ function Page() {
 
           {tab === "podcasts" && (
             <div>
-              <SectionHeading eyebrow="Real Transformation" title="Testimonials ,  Stories of Change" subtitle="Real people sharing how Sakshi Shree's guidance transformed their families and relationships." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
+              <SectionHeading
+                eyebrow="Real Transformation"
+                title="Testimonials ,  Stories of Change"
+                subtitle="Real people sharing how Sakshi Shree's guidance transformed their families and relationships."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
+                  gap: "28px",
+                  marginTop: "40px",
+                }}
+              >
                 {TESTIMONIALS.map((t, i) => (
-                  <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.12)"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+                  <div
+                    key={i}
+                    style={{
+                      background: "#FFFFFF",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                      border: "1px solid #E5E7EB",
+                      transition: "transform 0.25s, box-shadow 0.25s",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
+                    }}
                   >
                     <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                      <iframe
+                        src={`https://www.youtube.com/embed/${t.id}`}
+                        title={t.name}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          width: "100%",
+                          height: "100%",
+                          border: 0,
+                        }}
+                      />
                     </div>
                     <div style={{ padding: "20px" }}>
-                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}</div>
-                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", fontWeight: 700, color: "#111827" }}>{t.name}</h3>
-                      <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>Science Divine Community Member</p>
+                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>
+                        {Array.from({ length: 5 }).map((_, si) => (
+                          <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />
+                        ))}
+                      </div>
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "1rem",
+                          fontWeight: 700,
+                          color: "#111827",
+                        }}
+                      >
+                        {t.name}
+                      </h3>
+                      <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>
+                        Science Divine Community Member
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
               <div style={{ textAlign: "center", marginTop: "48px" }}>
-                <Link to="/latest-testimonials-videos" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.3)" }}>
+                <Link
+                  to="/latest-testimonials-videos"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                    color: "#0F172A",
+                    padding: "14px 32px",
+                    borderRadius: "100px",
+                    fontWeight: 700,
+                    fontSize: "0.95rem",
+                    textDecoration: "none",
+                    boxShadow: "0 4px 20px rgba(212,175,55,0.3)",
+                  }}
+                >
                   Watch All Testimonials <ArrowRight size={16} />
                 </Link>
               </div>
@@ -331,23 +720,99 @@ function Page() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "linear-gradient(135deg, #0D2137 0%, #1B3A5C 100%)", padding: "80px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div className="container-page" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, color: "#FFFFFF", marginBottom: "16px" }}>
+      <section
+        style={{
+          background: "linear-gradient(135deg, #0D2137 0%, #1B3A5C 100%)",
+          padding: "80px 0",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "600px",
+            height: "600px",
+            background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          className="container-page"
+          style={{ textAlign: "center", position: "relative", zIndex: 1 }}
+        >
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "16px",
+            }}
+          >
             Raise{" "}
-            <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+            <span
+              style={{
+                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               Conscious Children
             </span>
           </h2>
-          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.05rem", maxWidth: "540px", margin: "0 auto 36px", lineHeight: 1.75 }}>
-            Connect with Sakshi Shree for personalised parenting guidance rooted in ancient wisdom and modern understanding.
+          <p
+            style={{
+              color: "rgba(255,255,255,0.65)",
+              fontSize: "1.05rem",
+              maxWidth: "540px",
+              margin: "0 auto 36px",
+              lineHeight: 1.75,
+            }}
+          >
+            Connect with Sakshi Shree for personalised parenting guidance rooted in ancient wisdom
+            and modern understanding.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link to="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.4)" }}>
+            <Link
+              to="/book-session"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                color: "#0F172A",
+                padding: "16px 36px",
+                borderRadius: "100px",
+                fontWeight: 700,
+                fontSize: "1rem",
+                textDecoration: "none",
+                boxShadow: "0 8px 30px rgba(212,175,55,0.4)",
+              }}
+            >
               Book Personal Session <ArrowRight size={16} />
             </Link>
-            <Link to="/contact" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "16px 36px", borderRadius: "100px", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>
+            <Link
+              to="/contact"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                color: "#FFFFFF",
+                padding: "16px 36px",
+                borderRadius: "100px",
+                fontWeight: 600,
+                fontSize: "1rem",
+                textDecoration: "none",
+              }}
+            >
               Contact Us
             </Link>
           </div>

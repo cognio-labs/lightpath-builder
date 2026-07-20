@@ -1,7 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, SectionHeading } from "@/components/PageHero";
+import { SolutionHeroImage } from "@/components/SolutionPageLayout";
 import { useState } from "react";
-import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Heart, Star, ChevronRight, Flower2, Compass, Sun, Moon } from "lucide-react";
+import {
+  BookOpen,
+  Quote,
+  PlayCircle,
+  Mic,
+  ArrowRight,
+  Heart,
+  Star,
+  ChevronRight,
+  Flower2,
+  Compass,
+  Sun,
+  Moon,
+} from "lucide-react";
 
 export const Route = createFileRoute("/depression")({
   head: () => ({
@@ -69,17 +83,44 @@ const ARTICLES = [
 
 const VIDEOS = [
   { id: "ePg4GtxzWa4", title: "I am Stressed in College Life!! ,  Sakshi Shree", lang: "English" },
-  { id: "Rsn5FX-mO9g", title: "How to find your true nature? | True Nature | Sakshi Shree English", lang: "English" },
-  { id: "ZcH73i7Blz4", title: "युवाओं के लिए डिप्रेशन से मुक्ति का आसान उपाय | साक्षी श्री", lang: "Hindi" },
-  { id: "En0wjpQXRtU", title: "असफलता का भय और निराशा से बचने का सरलतम उपाय | Easiest way to avoid depression & fear of failure", lang: "Hindi" },
-  { id: "UwitMvjhZWU", title: "चिंता, तनाव एवं भय से तत्काल मुक्त होने का महाउपाय। Immediate freedom from anxiety, stress & fear", lang: "Hindi" },
-  { id: "FyduZS4Ce9A", title: "आत्म हत्या करने के विचार से मुक्त होने का सबसे अच्छा तरीका | Sadhguru Sakshi Shree", lang: "Hindi" },
-  { id: "WuexPS1a9DM", title: "एक बड़ी समस्या भय, चिंता और तनाव से तुरंत मुक्त होने का 1 सरल महासूत्र | Sadhguru Sakshi Shree", lang: "Hindi" },
+  {
+    id: "Rsn5FX-mO9g",
+    title: "How to find your true nature? | True Nature | Sakshi Shree English",
+    lang: "English",
+  },
+  {
+    id: "ZcH73i7Blz4",
+    title: "युवाओं के लिए डिप्रेशन से मुक्ति का आसान उपाय | साक्षी श्री",
+    lang: "Hindi",
+  },
+  {
+    id: "En0wjpQXRtU",
+    title:
+      "असफलता का भय और निराशा से बचने का सरलतम उपाय | Easiest way to avoid depression & fear of failure",
+    lang: "Hindi",
+  },
+  {
+    id: "UwitMvjhZWU",
+    title:
+      "चिंता, तनाव एवं भय से तत्काल मुक्त होने का महाउपाय। Immediate freedom from anxiety, stress & fear",
+    lang: "Hindi",
+  },
+  {
+    id: "FyduZS4Ce9A",
+    title: "आत्म हत्या करने के विचार से मुक्त होने का सबसे अच्छा तरीका | Sadhguru Sakshi Shree",
+    lang: "Hindi",
+  },
+  {
+    id: "WuexPS1a9DM",
+    title:
+      "एक बड़ी समस्या भय, चिंता और तनाव से तुरंत मुक्त होने का 1 सरल महासूत्र | Sadhguru Sakshi Shree",
+    lang: "Hindi",
+  },
 ];
 
 const QUOTES = Array.from(
   { length: 9 },
-  (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`
+  (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`,
 );
 
 const TESTIMONIALS = [
@@ -102,24 +143,19 @@ function Page() {
   return (
     <>
       {/* ─── Hero ─────────────────────────────────────────────── */}
-      {/* Wavy Mask SVG Defs */}
-      <svg width="0" height="0" style={{ position: "absolute", zIndex: -1 }}>
-        <defs>
-          <clipPath id="wavy-mask" clipPathUnits="objectBoundingBox">
-            <path d="M 0.55,0 C 0.4,0.15 0.35,0.35 0.5,0.5 C 0.65,0.65 0.6,0.8 0.42,1 L 1,1 L 1,0 Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
-      <section 
+      <section
         className="relative overflow-hidden pt-28 pb-16"
         style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
       >
         {/* Decorative gold orbs */}
-        <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }} />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }} />
+        <div
+          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
+        />
 
         <div className="container-page relative z-10">
           {/* Top Row: Content & Image */}
@@ -139,14 +175,14 @@ function Page() {
               </div>
 
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
-                Step by Step:{" "}
-                <span style={{ color: "#7E22CE" }}>
-                  Beating Depression
-                </span>
+                Step by Step: <span style={{ color: "#7E22CE" }}>Beating Depression</span>
               </h1>
 
               <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
-                Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. We are here to support you every step of the way.
+                Feeling the weight of depression can be like drowning in an ocean of darkness, where
+                each day feels like an uphill battle. With Sakshi Shree's spiritual tools and
+                techniques, rooted in ancient wisdom, there lies a pathway to healing and inner
+                peace. We are here to support you every step of the way.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -171,57 +207,46 @@ function Page() {
                 </a>
               </div>
             </div>
-
-            {/* Right side wavy image */}
-            <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[420px] h-[450px]">
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ clipPath: "url(#wavy-mask)" }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1000&q=80"
-                    alt="Beating Depression"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                {/* Wavy Stroke overlay */}
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                  style={{ zIndex: 20 }}
-                >
-                  <path
-                    d="M 55,0 C 40,15 35,35 50,50 C 65,65 60,80 42,100"
-                    fill="none"
-                    stroke="#7E22CE"
-                    strokeWidth="1.5"
-                    opacity="0.85"
-                  />
-                </svg>
-              </div>
-            </div>
+            {/* Right side image */}
+            <SolutionHeroImage
+              src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1400&q=90&auto=format&fit=crop"
+              alt="Healing from depression"
+              themeColor="#7E22CE"
+            />
           </div>
 
           {/* Second Row: Grid of 4 Cards */}
-          <div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
             {[
-              { title: "Spiritual Healing", desc: "Ancient techniques to heal your mind, body and soul.", icon: Flower2 },
-              { title: "Inner Peace", desc: "Find calmness and clarity through guided spiritual practices.", icon: Compass },
-              { title: "Emotional Support", desc: "Compassionate guidance to help you overcome life's challenges.", icon: Heart },
-              { title: "Holistic Approach", desc: "A complete path to mental, emotional and spiritual well-being.", icon: Sun }
+              {
+                title: "Spiritual Healing",
+                desc: "Ancient techniques to heal your mind, body and soul.",
+                icon: Flower2,
+              },
+              {
+                title: "Inner Peace",
+                desc: "Find calmness and clarity through guided spiritual practices.",
+                icon: Compass,
+              },
+              {
+                title: "Emotional Support",
+                desc: "Compassionate guidance to help you overcome life's challenges.",
+                icon: Heart,
+              },
+              {
+                title: "Holistic Approach",
+                desc: "A complete path to mental, emotional and spiritual well-being.",
+                icon: Sun,
+              },
             ].map((card, idx) => {
               const CardIcon = card.icon;
               return (
                 <div key={idx} className="flex gap-4 items-start group">
-                  <div 
+                  <div
                     className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{
                       background: "rgba(126, 34, 206, 0.08)",
-                      color: "#7E22CE"
+                      color: "#7E22CE",
                     }}
                   >
                     <CardIcon size={20} />
@@ -230,9 +255,7 @@ function Page() {
                     <h3 className="font-semibold text-gray-900 text-sm md:text-base">
                       {card.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
-                      {card.desc}
-                    </p>
+                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
                   </div>
                 </div>
               );
@@ -285,7 +308,6 @@ function Page() {
       {/* ─── Tab Content ──────────────────────────────────────── */}
       <section className="section-pad bg-white">
         <div className="container-page">
-
           {/* ── Articles ── */}
           {tab === "articles" && (
             <div>
@@ -321,13 +343,13 @@ function Page() {
                       position: "relative",
                       overflow: "hidden",
                     }}
-                    onMouseEnter={e => {
+                    onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(-6px)";
                       el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.14)";
                       el.style.borderColor = "#D4AF37";
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(0)";
                       el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
@@ -347,7 +369,14 @@ function Page() {
                       }}
                     />
 
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        marginBottom: "14px",
+                      }}
+                    >
                       <span
                         style={{
                           background: "rgba(212,175,55,0.12)",
@@ -379,7 +408,14 @@ function Page() {
                       {a.title}
                     </h3>
 
-                    <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>
+                    <p
+                      style={{
+                        color: "#6B7280",
+                        fontSize: "0.875rem",
+                        lineHeight: 1.7,
+                        marginBottom: "20px",
+                      }}
+                    >
                       {a.desc}
                     </p>
 
@@ -427,12 +463,12 @@ function Page() {
                       transition: "transform 0.3s, box-shadow 0.3s",
                       background: "#F8F7F4",
                     }}
-                    onMouseEnter={e => {
+                    onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(-6px) scale(1.01)";
                       el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.2)";
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(0) scale(1)";
                       el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
@@ -477,12 +513,12 @@ function Page() {
                       border: "1px solid #E5E7EB",
                       transition: "transform 0.25s, box-shadow 0.25s",
                     }}
-                    onMouseEnter={e => {
+                    onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(-6px)";
                       el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)";
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(0)";
                       el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
@@ -505,10 +541,20 @@ function Page() {
                       />
                     </div>
                     <div style={{ padding: "20px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          marginBottom: "8px",
+                        }}
+                      >
                         <span
                           style={{
-                            background: v.lang === "English" ? "rgba(59,130,246,0.1)" : "rgba(212,175,55,0.1)",
+                            background:
+                              v.lang === "English"
+                                ? "rgba(59,130,246,0.1)"
+                                : "rgba(212,175,55,0.1)",
                             color: v.lang === "English" ? "#2563EB" : "#B45309",
                             fontSize: "11px",
                             fontWeight: 700,
@@ -564,12 +610,12 @@ function Page() {
                       border: "1px solid #E5E7EB",
                       transition: "transform 0.25s, box-shadow 0.25s",
                     }}
-                    onMouseEnter={e => {
+                    onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(-6px)";
                       el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.12)";
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(0)";
                       el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
@@ -592,9 +638,7 @@ function Page() {
                       />
                     </div>
                     <div style={{ padding: "20px" }}>
-                      <div
-                        style={{ display: "flex", gap: "3px", marginBottom: "8px" }}
-                      >
+                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>
                         {Array.from({ length: 5 }).map((_, si) => (
                           <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />
                         ))}
@@ -664,7 +708,10 @@ function Page() {
             pointerEvents: "none",
           }}
         />
-        <div className="container-page" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div
+          className="container-page"
+          style={{ textAlign: "center", position: "relative", zIndex: 1 }}
+        >
           <div
             style={{
               display: "inline-flex",
@@ -678,7 +725,15 @@ function Page() {
             }}
           >
             <Heart size={14} style={{ color: "#D4AF37" }} />
-            <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <span
+              style={{
+                color: "#D4AF37",
+                fontSize: "12px",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
               You Are Not Alone
             </span>
           </div>
@@ -712,7 +767,8 @@ function Page() {
               lineHeight: 1.75,
             }}
           >
-            Connect with Sakshi Shree in a personal one-on-one session and begin your journey from darkness to light.
+            Connect with Sakshi Shree in a personal one-on-one session and begin your journey from
+            darkness to light.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
