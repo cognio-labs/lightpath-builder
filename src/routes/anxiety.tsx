@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { useState } from "react";
-import { BookOpen, Quote, PlayCircle, Mic, ArrowRight } from "lucide-react";
+import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Heart, Compass, Flower2, Sun, Moon } from "lucide-react";
 
 export const Route = createFileRoute("/anxiety")({
   head: () => ({
@@ -55,17 +55,153 @@ function Page() {
   const [tab, setTab] = useState<Tab>("articles");
   return (
     <>
-      <PageHero
-        eyebrow="Solutions Hub"
-        title="Anxiety"
-        subtitle="If feeling anxious about what lies ahead or overwhelmed by constant worry makes you feel lonely, then know that you are not alone. Under Sakshi Shree's guidance, explore practical solutions and age-old wisdom to help calm your mind and ease your worries."
-        image="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=85&fit=crop&crop=faces,center"
-        imageSide="right"
+      {/* Wavy Mask SVG Defs */}
+      <svg width="0" height="0" style={{ position: "absolute", zIndex: -1 }}>
+        <defs>
+          <clipPath id="wavy-mask" clipPathUnits="objectBoundingBox">
+            <path d="M 0.55,0 C 0.4,0.15 0.35,0.35 0.5,0.5 C 0.65,0.65 0.6,0.8 0.42,1 L 1,1 L 1,0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <section 
+        className="relative overflow-hidden pt-28 pb-16"
+        style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
       >
-        <Link to="/book-session" className="btn-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2">
-          Book Personal Session <ArrowRight size={15} />
-        </Link>
-      </PageHero>
+        {/* Decorative gold orbs */}
+        <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }} />
+        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }} />
+
+        <div className="container-page relative z-10">
+          {/* Top Row: Content & Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+            <div className="lg:col-span-7 space-y-6">
+              {/* Eyebrow badge */}
+              <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
+                style={{
+                  borderColor: "rgba(3, 105, 161, 0.2)",
+                  color: "#0369A1",
+                  background: "rgba(3, 105, 161, 0.08)",
+                }}
+              >
+                <Heart size={14} />
+                <span>SOLUTIONS · ANXIETY</span>
+              </div>
+
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
+                Calming the Mind:{" "}
+                <span style={{ color: "#0369A1" }}>
+                  Overcoming Anxiety
+                </span>
+              </h1>
+
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
+                If feeling anxious about what lies ahead or overwhelmed by constant worry makes you feel lonely, then know that you are not alone. Under Sakshi Shree's guidance, explore practical solutions and age-old wisdom to help calm your mind and ease your worries.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  to="/book-session"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
+                  style={{
+                    background: "linear-gradient(135deg, #0369A1, #D4AF37)",
+                  }}
+                >
+                  Book Personal Session <ArrowRight size={15} />
+                </Link>
+                <a
+                  href="#explore"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all inline-flex items-center"
+                  style={{
+                    borderColor: "rgba(3, 105, 161, 0.3)",
+                    color: "#0369A1",
+                  }}
+                >
+                  Explore Resources
+                </a>
+              </div>
+            </div>
+
+            {/* Right side wavy image */}
+            <div className="lg:col-span-5 flex justify-center relative">
+              <div className="relative w-full max-w-[420px] h-[450px]">
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ clipPath: "url(#wavy-mask)" }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1000&q=80"
+                    alt="Overcoming Anxiety"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                {/* Wavy Stroke overlay */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  style={{ zIndex: 20 }}
+                >
+                  <path
+                    d="M 55,0 C 40,15 35,35 50,50 C 65,65 60,80 42,100"
+                    fill="none"
+                    stroke="#0369A1"
+                    strokeWidth="1.5"
+                    opacity="0.85"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Second Row: Grid of 4 Cards */}
+          <div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8"
+          >
+            {[
+              { title: "Mindful Breathing", desc: "Somatic practices to immediately regulate your nervous system.", icon: Heart },
+              { title: "Cognitive Calm", desc: "Break free from the loops of worry and future-oriented fear.", icon: Compass },
+              { title: "Present Awareness", desc: "Anchor yourself in the now to quiet anxious thoughts.", icon: Flower2 },
+              { title: "Emotional Release", desc: "Safe guidance to process and release stored physical tension.", icon: Sun }
+            ].map((card, idx) => {
+              const CardIcon = card.icon;
+              return (
+                <div key={idx} className="flex gap-4 items-start group">
+                  <div 
+                    className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
+                    style={{
+                      background: "rgba(3, 105, 161, 0.08)",
+                      color: "#0369A1"
+                    }}
+                  >
+                    <CardIcon size={20} />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                      {card.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Third Row: Bottom Quote */}
+          <div className="flex items-center justify-center gap-2 py-4">
+            <Flower2 size={16} style={{ color: "#D4AF37" }} />
+            <span className="font-display text-sm md:text-base italic text-amber-800/80 font-medium text-center">
+              Breathe In Peace, Breathe Out Worry
+            </span>
+            <Flower2 size={16} style={{ color: "#D4AF37" }} />
+          </div>
+        </div>
+      </section>
 
       <section className="section-pad bg-white">
         <div className="container-page">

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { useState } from "react";
-import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Heart, Star, ChevronRight } from "lucide-react";
+import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Heart, Star, ChevronRight, Flower2, Compass, Sun, Moon } from "lucide-react";
 
 export const Route = createFileRoute("/depression")({
   head: () => ({
@@ -102,161 +102,150 @@ function Page() {
   return (
     <>
       {/* ─── Hero ─────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: "linear-gradient(135deg, #0F172A 0%, #1E293B 40%, #0F2027 100%)",
-          position: "relative",
-          overflow: "hidden",
-          paddingTop: "120px",
-          paddingBottom: "80px",
-        }}
-      >
-        {/* Decorative glows */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "500px",
-            height: "500px",
-            background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)",
-            borderRadius: "50%",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-80px",
-            left: "-80px",
-            width: "400px",
-            height: "400px",
-            background: "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)",
-            borderRadius: "50%",
-            pointerEvents: "none",
-          }}
-        />
+      {/* Wavy Mask SVG Defs */}
+      <svg width="0" height="0" style={{ position: "absolute", zIndex: -1 }}>
+        <defs>
+          <clipPath id="wavy-mask" clipPathUnits="objectBoundingBox">
+            <path d="M 0.55,0 C 0.4,0.15 0.35,0.35 0.5,0.5 C 0.65,0.65 0.6,0.8 0.42,1 L 1,1 L 1,0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
 
-        <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "center" }}>
-            <div style={{ maxWidth: "660px" }}>
+      <section 
+        className="relative overflow-hidden pt-28 pb-16"
+        style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
+      >
+        {/* Decorative gold orbs */}
+        <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }} />
+        <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
+          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }} />
+
+        <div className="container-page relative z-10">
+          {/* Top Row: Content & Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+            <div className="lg:col-span-7 space-y-6">
               {/* Eyebrow badge */}
               <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  background: "rgba(212,175,55,0.15)",
-                  border: "1px solid rgba(212,175,55,0.3)",
-                  borderRadius: "100px",
-                  padding: "6px 16px",
-                  marginBottom: "24px",
+                  borderColor: "rgba(126, 34, 206, 0.2)",
+                  color: "#7E22CE",
+                  background: "rgba(126, 34, 206, 0.08)",
                 }}
               >
-                <Heart size={14} style={{ color: "#D4AF37" }} />
-                <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                  Solutions · Depression
-                </span>
+                <Heart size={14} />
+                <span>SOLUTIONS · DEPRESSION</span>
               </div>
 
-              <h1
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                  fontWeight: 700,
-                  color: "#FFFFFF",
-                  lineHeight: 1.15,
-                  marginBottom: "24px",
-                }}
-              >
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
                 Step by Step:{" "}
-                <span
-                  style={{
-                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
+                <span style={{ color: "#7E22CE" }}>
                   Beating Depression
                 </span>
               </h1>
 
-              <p
-                style={{
-                  fontSize: "1.125rem",
-                  color: "rgba(255,255,255,0.75)",
-                  lineHeight: 1.8,
-                  maxWidth: "560px",
-                  marginBottom: "40px",
-                }}
-              >
-                Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. You're not alone — we are here to support you every step of the way.
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
+                Feeling the weight of depression can be like drowning in an ocean of darkness, where each day feels like an uphill battle. With Sakshi Shree's spiritual tools and techniques, rooted in ancient wisdom, there lies a pathway to healing and inner peace. We are here to support you every step of the way.
               </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <div className="flex flex-wrap gap-4 pt-2">
                 <Link
                   to="/book-session"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
-                    color: "#0F172A",
-                    padding: "14px 28px",
-                    borderRadius: "100px",
-                    fontWeight: 700,
-                    fontSize: "0.9rem",
-                    textDecoration: "none",
-                    boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
-                    transition: "transform 0.2s, box-shadow 0.2s",
-                  }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                    (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 30px rgba(212,175,55,0.5)";
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                    (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(212,175,55,0.35)";
+                    background: "linear-gradient(135deg, #7E22CE, #D4AF37)",
                   }}
                 >
-                  Book a Session <ArrowRight size={16} />
+                  Book a Session <ArrowRight size={15} />
                 </Link>
                 <a
                   href="#explore"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all inline-flex items-center"
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    color: "#FFFFFF",
-                    padding: "14px 28px",
-                    borderRadius: "100px",
-                    fontWeight: 600,
-                    fontSize: "0.9rem",
-                    textDecoration: "none",
-                    backdropFilter: "blur(10px)",
-                    transition: "background 0.2s",
+                    borderColor: "rgba(126, 34, 206, 0.3)",
+                    color: "#7E22CE",
                   }}
-                  onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.14)")}
-                  onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)")}
                 >
-                  Explore Resources <ChevronRight size={16} />
+                  Explore Resources
                 </a>
               </div>
             </div>
-            {/* Hero Image */}
-            <div style={{ display: "flex", justifyContent: "center", flexShrink: 0 }}>
-              <div style={{ position: "relative", width: "340px", height: "420px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 0 60px rgba(212,175,55,0.2), 0 30px 60px rgba(0,0,0,0.4)" }}>
-                <img
-                  src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=700&q=85&fit=crop&crop=faces,center"
-                  alt="Person finding hope and healing from depression"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(15,23,42,0.6) 0%, transparent 50%)" }} />
+
+            {/* Right side wavy image */}
+            <div className="lg:col-span-5 flex justify-center relative">
+              <div className="relative w-full max-w-[420px] h-[450px]">
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ clipPath: "url(#wavy-mask)" }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1000&q=80"
+                    alt="Beating Depression"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                {/* Wavy Stroke overlay */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  style={{ zIndex: 20 }}
+                >
+                  <path
+                    d="M 55,0 C 40,15 35,35 50,50 C 65,65 60,80 42,100"
+                    fill="none"
+                    stroke="#7E22CE"
+                    strokeWidth="1.5"
+                    opacity="0.85"
+                  />
+                </svg>
               </div>
             </div>
+          </div>
+
+          {/* Second Row: Grid of 4 Cards */}
+          <div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8"
+          >
+            {[
+              { title: "Spiritual Healing", desc: "Ancient techniques to heal your mind, body and soul.", icon: Flower2 },
+              { title: "Inner Peace", desc: "Find calmness and clarity through guided spiritual practices.", icon: Compass },
+              { title: "Emotional Support", desc: "Compassionate guidance to help you overcome life's challenges.", icon: Heart },
+              { title: "Holistic Approach", desc: "A complete path to mental, emotional and spiritual well-being.", icon: Sun }
+            ].map((card, idx) => {
+              const CardIcon = card.icon;
+              return (
+                <div key={idx} className="flex gap-4 items-start group">
+                  <div 
+                    className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
+                    style={{
+                      background: "rgba(126, 34, 206, 0.08)",
+                      color: "#7E22CE"
+                    }}
+                  >
+                    <CardIcon size={20} />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                      {card.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Third Row: Bottom Quote */}
+          <div className="flex items-center justify-center gap-2 py-4">
+            <Flower2 size={16} style={{ color: "#D4AF37" }} />
+            <span className="font-display text-sm md:text-base italic text-amber-800/80 font-medium text-center">
+              Healing Today, Peace Forever
+            </span>
+            <Flower2 size={16} style={{ color: "#D4AF37" }} />
           </div>
         </div>
       </section>
