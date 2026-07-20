@@ -22,7 +22,7 @@ const SOLUTIONS = [
   {
     title: "Overthinking",
     subtitle: "Overthinking No More: Techniques for Clarity and Calm by Sakshi Shree",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Overthinking-1024x683.jpg",
+    img: "/premium-heroes/overthinking-hero.png",
     slug: "overthinking",
   },
   {
@@ -34,32 +34,38 @@ const SOLUTIONS = [
   {
     title: "Parenting",
     subtitle: "Sakshi Shree's Guide to Parenting Through the Ages",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Parenting-1024x683.jpg",
+    img: "/premium-heroes/parenting-hero.png",
     slug: "parenting",
   },
   {
     title: "Sleeping Disorder",
     subtitle: "Sleep Better Every Night: Simple Steps to Beat Sleep Problems with Sakshi Shree",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Sleeping-Disorder-1024x683.jpg",
+    img: "/premium-heroes/sleeping-disorder-hero.png",
     slug: "sleeping-disorder",
   },
   {
     title: "Wellness",
     subtitle: "Living Well: Mind, Body, and Soul with Sakshi Shree",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Wellness-1024x683.jpg",
+    img: "/premium-heroes/wellness-hero.png",
     slug: "wellness",
   },
   {
     title: "Anxiety",
     subtitle: "Beating Anxiety Together: Simple Steps to Calm with Sakshi Shree",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Anxiety-1024x683.jpg",
+    img: "/premium-heroes/anxiety-hero.png",
     slug: "anxiety",
   },
   {
     title: "Depression",
     subtitle: "Step by Step: Beating Depression with Sakshi Shree",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Depression.jpg",
+    img: "/premium-heroes/depression-hero.png",
     slug: "depression",
+  },
+  {
+    title: "Relationships",
+    subtitle: "Conscious Hearts, Sacred Connections",
+    img: "/premium-heroes/relationships-hero.png",
+    slug: "relationship",
   },
 ];
 

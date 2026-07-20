@@ -40,7 +40,7 @@ const SOLUTION_METAS: Record<
     themeColor: "#15803D", // Green
     lightBgColor: "rgba(21, 128, 61, 0.08)",
     badgeText: "SOLUTIONS HUB",
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80",
+    image: "/premium-heroes/sleeping-disorder-hero.png",
     bottomText: "A calm mind leads to a peaceful sleep and a beautiful life.",
     cards: [
       {
@@ -69,7 +69,7 @@ const SOLUTION_METAS: Record<
     themeColor: "#BE123C", // Rose
     lightBgColor: "rgba(190, 18, 60, 0.08)",
     badgeText: "SOLUTIONS • WELLNESS",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80",
+    image: "/premium-heroes/wellness-hero.png",
     bottomText: "Harmonizing Body, Mind, and Spirit",
     cards: [
       {
@@ -98,7 +98,7 @@ const SOLUTION_METAS: Record<
     themeColor: "#B91C1C", // Crimson/Red
     lightBgColor: "rgba(185, 28, 28, 0.08)",
     badgeText: "SOLUTIONS • RELATIONSHIPS",
-    image: "https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?w=1000&q=80",
+    image: "/premium-heroes/relationships-hero.png",
     bottomText: "Conscious Hearts, Sacred Connections",
     cards: [
       {

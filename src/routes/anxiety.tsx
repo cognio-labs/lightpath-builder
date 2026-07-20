@@ -195,7 +195,7 @@ function Page() {
             </div>
             {/* Right side image */}
             <SolutionHeroImage
-              src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=1400&q=90&auto=format&fit=crop"
+              src="/premium-heroes/anxiety-hero.png"
               alt="Overcoming anxiety"
               themeColor="#0369A1"
             />

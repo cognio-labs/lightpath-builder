@@ -22,7 +22,7 @@ function Page() {
       title="Relationships"
       tagline="Heal & Strengthen Your Relationships"
       intro="Relationships mirror our inner world. Learn how conscious presence, empathy, and spiritual wisdom can transform every relationship in your life."
-      heroImage="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=90&auto=format&fit=crop"
+      heroImage="/premium-heroes/relationships-hero.png"
     />
   );
 }

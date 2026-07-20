@@ -209,7 +209,7 @@ function Page() {
             </div>
             {/* Right side image */}
             <SolutionHeroImage
-              src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1400&q=90&auto=format&fit=crop"
+              src="/premium-heroes/depression-hero.png"
               alt="Healing from depression"
               themeColor="#7E22CE"
             />

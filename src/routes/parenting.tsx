@@ -242,7 +242,7 @@ function Page() {
             </div>
             {/* Right side image */}
             <SolutionHeroImage
-              src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1400&q=90&auto=format&fit=crop"
+              src="/premium-heroes/parenting-hero.png"
               alt="Conscious parenting family"
               themeColor="#B45309"
             />

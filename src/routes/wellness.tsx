@@ -22,7 +22,7 @@ function Page() {
       title="Wellness"
       tagline="Your Path to Complete Holistic Wellness"
       intro="True wellness encompasses body, mind, and spirit. Discover ancient techniques made practical for modern life to achieve lasting health and vitality."
-      heroImage="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1400&q=90&auto=format&fit=crop"
+      heroImage="/premium-heroes/wellness-hero.png"
     />
   );
 }

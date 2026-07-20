@@ -235,7 +235,7 @@ function Page() {
             </div>
             {/* Right side image */}
             <SolutionHeroImage
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=90&auto=format&fit=crop"
+              src="/premium-heroes/overthinking-hero.png"
               alt="Finding clarity from overthinking"
               themeColor="#4338CA"
             />
