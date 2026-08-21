@@ -1,0 +1,514 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Science Divine Foundation" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - button "About" [ref=e10]
+        - button "Solutions" [ref=e14]
+        - button "Practices" [ref=e18]
+        - link "Courses" [ref=e21] [cursor=pointer]:
+          - /url: /courses
+        - link "Events" [ref=e22] [cursor=pointer]:
+          - /url: /events
+        - button "Initiatives" [ref=e24]
+        - link "Contact" [ref=e27] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e28]:
+        - link "Donate" [ref=e29] [cursor=pointer]:
+          - /url: /initiatives
+        - link "Book Session" [ref=e30] [cursor=pointer]:
+          - /url: /book-session
+  - main [ref=e31]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: Sound Body • Sound Mind • Self Realization
+        - heading "Awaken Your _ with Science Divine Movement" [level=1] [ref=e42]:
+          - generic [ref=e43]: Awaken Your
+          - generic [ref=e44]: _
+          - generic [ref=e47]: with Science Divine
+          - generic [ref=e48]: Movement
+        - paragraph [ref=e49]:
+          - text: Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization, guided by enlightened master
+          - strong [ref=e50]: Sakshi Shree
+          - text: .
+        - generic [ref=e51]:
+          - link "Meet Sakshi Shree" [ref=e52] [cursor=pointer]:
+            - /url: /book-session
+          - link "Join Our Next Event" [ref=e58] [cursor=pointer]:
+            - /url: /events
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e69]:
+              - text: "5"
+              - generic [ref=e70]: M+
+            - generic [ref=e71]: Lives Impacted
+          - generic [ref=e73]:
+            - generic [ref=e79]:
+              - text: "40"
+              - generic [ref=e80]: +
+            - generic [ref=e81]: Years of Wisdom
+          - generic [ref=e83]:
+            - generic [ref=e87]:
+              - text: "1000"
+              - generic [ref=e88]: +
+            - generic [ref=e89]: Events Held
+      - img "Sakshi Shree ── Enlightened Spiritual Master in Meditation" [ref=e91]
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]: Our Mission
+            - heading "Science Divine Movement" [level=2] [ref=e99]
+          - paragraph [ref=e100]: The Science Divine Movement is a global initiative helping people realize their optimum potential through definite scientific techniques for sound body, sound mind, and self-realization. Founded by enlightened spiritual master Sakshi Shree, it simplifies spirituality to become an integral part of everyday life.
+        - generic [ref=e101]:
+          - blockquote [ref=e102]: "\"Bheetar se sanyaas, bahar se sansaar\", total participation in worldly life while enjoying complete inner renunciation."
+          - link "Learn More" [ref=e103] [cursor=pointer]:
+            - /url: /about-movement
+      - generic [ref=e106]:
+        - generic [ref=e109]:
+          - img "Person practicing sunrise meditation in nature for physical wellness" [ref=e113]
+          - generic [ref=e114]:
+            - heading "Sound Body" [level=3] [ref=e115]
+            - paragraph [ref=e116]: Physical vitality through yoga, breath, and conscious movement.
+        - generic [ref=e119]:
+          - img "Person meditating peacefully over mountain scenery for mental clarity" [ref=e123]
+          - generic [ref=e124]:
+            - heading "Sound Mind" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Mental clarity through meditation and mindfulness practice.
+        - generic [ref=e129]:
+          - img "Meditation surrounded by divine golden light and lotus flowers" [ref=e133]
+          - generic [ref=e134]:
+            - heading "Self Realization" [level=3] [ref=e135]
+            - paragraph [ref=e136]: Spiritual awakening under Sakshi Shree's direct guidance.
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - generic [ref=e142]: Guidance
+          - heading "Find Solutions For :" [level=2] [ref=e144]
+        - paragraph [ref=e145]: Explore Sakshi Shree's teachings centered around overcoming common struggles such as depression, anxiety, anger, and more. Find practical guidance to navigate life's challenges and enhance your well-being.
+        - generic [ref=e146]:
+          - link [ref=e147] [cursor=pointer]:
+            - /url: /depression
+            - img "Depression" [ref=e148]
+            - paragraph [ref=e149]: Depression
+          - link [ref=e150] [cursor=pointer]:
+            - /url: /anxiety
+            - img "Anxiety" [ref=e151]
+            - paragraph [ref=e152]: Anxiety
+          - link [ref=e153] [cursor=pointer]:
+            - /url: /sleeping-disorder
+            - img "Sleeping Disorder" [ref=e154]
+            - paragraph [ref=e155]: Sleeping Disorder
+          - link [ref=e156] [cursor=pointer]:
+            - /url: /overthinking
+            - img "Overthinking" [ref=e157]
+            - paragraph [ref=e158]: Overthinking
+          - link [ref=e159] [cursor=pointer]:
+            - /url: /parenting
+            - img "Parenting" [ref=e160]
+            - paragraph [ref=e161]: Parenting
+          - link [ref=e162] [cursor=pointer]:
+            - /url: /wellness
+            - img "Wellness" [ref=e163]
+            - paragraph [ref=e164]: Wellness
+          - link [ref=e165] [cursor=pointer]:
+            - /url: /relationship
+            - img "Relationships" [ref=e166]
+            - paragraph [ref=e167]: Relationships
+        - link "All Solutions" [ref=e169] [cursor=pointer]:
+          - /url: /get-solutions-for
+      - img "Meditation and inner peace" [ref=e176]
+    - generic [ref=e179]:
+      - img "Sakshi Shree" [ref=e183]
+      - generic [ref=e184]:
+        - generic [ref=e185]: "\""
+        - blockquote [ref=e186]: Your thoughts create your reality. Choose them wisely, for they hold the power to design your destiny.
+        - generic [ref=e188]:
+          - paragraph [ref=e189]: Sakshi Shree
+          - paragraph [ref=e190]: Enlightened Spiritual Master
+    - generic [ref=e192]:
+      - generic [ref=e193]:
+        - generic [ref=e194]: Recognition
+        - heading "Recognized by Top Leaders & Media" [level=2] [ref=e196]
+        - paragraph [ref=e197]: Sakshi Shree has shared his wisdom with heads of state, ministers, scholars, and leaders across the globe.
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - img "Hon'ble Shri Rajnath Singh" [ref=e203]
+          - generic [ref=e204]:
+            - heading "Hon'ble Shri Rajnath Singh" [level=3] [ref=e205]
+            - paragraph [ref=e206]: Defence Minister of India
+        - generic [ref=e207]:
+          - img "Dr. Vikram Sampat" [ref=e211]
+          - generic [ref=e212]:
+            - heading "Dr. Vikram Sampat" [level=3] [ref=e213]
+            - paragraph [ref=e214]: Historian & Author
+        - generic [ref=e215]:
+          - img "Shri Ajay Bhatt" [ref=e219]
+          - generic [ref=e220]:
+            - heading "Shri Ajay Bhatt" [level=3] [ref=e221]
+            - paragraph [ref=e222]: Former Union Minister
+        - generic [ref=e223]:
+          - img "Shri Anil Bachoo" [ref=e227]
+          - generic [ref=e228]:
+            - heading "Shri Anil Bachoo" [level=3] [ref=e229]
+            - paragraph [ref=e230]: Former Health Minister, Mauritius
+    - generic [ref=e232]:
+      - generic [ref=e233]:
+        - generic [ref=e234]:
+          - generic [ref=e235]: Transformative Programs
+          - heading "Courses by Sakshi Shree" [level=2] [ref=e237]
+          - paragraph [ref=e238]: Four foundational programs that thousands have used to reshape their inner life.
+        - link "All Courses" [ref=e239] [cursor=pointer]:
+          - /url: /courses
+      - generic [ref=e242]:
+        - link "Design Your Destiny Beginner · 2 hours Design Your Destiny A transformative journey through four modules that put you back in the driver's seat of your own life. ₹499₹5,100" [ref=e245] [cursor=pointer]:
+          - /url: /design-your-destiny
+          - img "Design Your Destiny" [ref=e249]
+          - generic [ref=e250]:
+            - generic [ref=e251]: Beginner · 2 hours
+            - heading "Design Your Destiny" [level=3] [ref=e252]
+            - paragraph [ref=e253]: A transformative journey through four modules that put you back in the driver's seat of your own life.
+            - generic [ref=e255]:
+              - generic [ref=e256]: ₹499
+              - generic [ref=e257]: ₹5,100
+        - link "Science of Joyful Living Beginner · 2 hours Science of Joyful Living Discover why joy is your birthright and how to reclaim it, one practice at a time. ₹499₹5,100" [ref=e262] [cursor=pointer]:
+          - /url: /science-of-joyful-living
+          - img "Science of Joyful Living" [ref=e266]
+          - generic [ref=e267]:
+            - generic [ref=e268]: Beginner · 2 hours
+            - heading "Science of Joyful Living" [level=3] [ref=e269]
+            - paragraph [ref=e270]: Discover why joy is your birthright and how to reclaim it, one practice at a time.
+            - generic [ref=e272]:
+              - generic [ref=e273]: ₹499
+              - generic [ref=e274]: ₹5,100
+        - link "Mind Power Meditation Beginner · 2 hours Mind Power Meditation Meditation is not passive, done rightly, it becomes the most active force in your life. ₹999₹5,100" [ref=e279] [cursor=pointer]:
+          - /url: /mind-power-meditation
+          - img "Mind Power Meditation" [ref=e283]
+          - generic [ref=e284]:
+            - generic [ref=e285]: Beginner · 2 hours
+            - heading "Mind Power Meditation" [level=3] [ref=e286]
+            - paragraph [ref=e287]: Meditation is not passive, done rightly, it becomes the most active force in your life.
+            - generic [ref=e289]:
+              - generic [ref=e290]: ₹999
+              - generic [ref=e291]: ₹5,100
+        - link "Sanjeevani Kriya Beginner · 2 hours Sanjeevani Kriya An ancient kriya awakened for modern seekers, direct experience of your own life force. ₹999₹5,100" [ref=e296] [cursor=pointer]:
+          - /url: /sanjeevani-kriya
+          - img "Sanjeevani Kriya" [ref=e300]
+          - generic [ref=e301]:
+            - generic [ref=e302]: Beginner · 2 hours
+            - heading "Sanjeevani Kriya" [level=3] [ref=e303]
+            - paragraph [ref=e304]: An ancient kriya awakened for modern seekers, direct experience of your own life force.
+            - generic [ref=e306]:
+              - generic [ref=e307]: ₹999
+              - generic [ref=e308]: ₹5,100
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]: 0+
+        - generic [ref=e317]: Lives Impacted
+      - generic [ref=e318]:
+        - generic [ref=e319]: 0+
+        - generic [ref=e321]: Meditation Events
+      - generic [ref=e322]:
+        - generic [ref=e323]: 0+
+        - generic [ref=e325]: Students Educated
+      - generic [ref=e326]:
+        - generic [ref=e327]: 9/10
+        - generic [ref=e328]: Experience Inner Peace
+      - generic [ref=e329]:
+        - generic [ref=e330]: 0+
+        - generic [ref=e332]: Years of Guidance
+    - generic [ref=e334]:
+      - generic [ref=e335]:
+        - generic [ref=e336]: Voices
+        - heading "Empowering millions through conscious living." [level=2] [ref=e338]
+        - paragraph [ref=e339]: Real stories from real people whose lives have transformed.
+      - generic [ref=e342]:
+        - generic [ref=e344]:
+          - img "Sanaya Aggarwal" [ref=e346]
+          - img "Deepak Batra" [ref=e348]
+          - img "Radhika Arya" [ref=e350]
+          - img "Rajiv Mehta" [ref=e352]
+          - img "Priya Singh" [ref=e354]
+          - img "Amit Sharma" [ref=e356]
+          - img "Sunita Rao" [ref=e358]
+          - img "Vikram Malhotra" [ref=e360]
+          - img "Kiran Deshmukh" [ref=e362]
+          - img "Rohan Joshi" [ref=e364]
+        - generic [ref=e365]:
+          - generic [ref=e366]:
+            - heading "Sanaya Aggarwal" [level=3] [ref=e367]
+            - paragraph [ref=e368]: Student
+            - paragraph [ref=e369]:
+              - generic [ref=e370]: Sakshi
+              - generic [ref=e371]: Shree's
+              - generic [ref=e372]: guidance
+              - generic [ref=e373]: changed
+              - generic [ref=e374]: how
+              - generic [ref=e375]: I
+              - generic [ref=e376]: see
+              - generic [ref=e377]: my
+              - generic [ref=e378]: anxiety.
+              - generic [ref=e379]: I
+              - generic [ref=e380]: finally
+              - generic [ref=e381]: feel
+              - generic [ref=e382]: free.
+          - generic [ref=e383]:
+            - button [ref=e384]
+            - button [ref=e387]
+      - generic [ref=e390]:
+        - link [ref=e392] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=QLmL230dApk
+          - img "Swaparna Testimonial" [ref=e393]
+          - paragraph [ref=e400]: Swaparna Testimonial
+        - link [ref=e402] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=EiFMTSo8Yws
+          - img "Helen Testimonial" [ref=e403]
+          - paragraph [ref=e410]: Helen Testimonial
+        - link [ref=e412] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=6bkJdkmAt20
+          - img "Pooja Pagaddinnimath Testimonial" [ref=e413]
+          - paragraph [ref=e420]: Pooja Pagaddinnimath Testimonial
+      - link "See All Testimonials" [ref=e422] [cursor=pointer]:
+        - /url: /testimonials
+    - generic [ref=e426]:
+      - generic [ref=e427]:
+        - generic [ref=e428]:
+          - generic [ref=e429]: Science Divine Foundation
+          - heading "Our Initiatives" [level=2] [ref=e431]
+          - paragraph [ref=e432]: Enriching Lives Through Compassionate Initiatives , Empowering Education, Nourishing Communities, and Ensuring Health Equity.
+        - link "Know More" [ref=e433] [cursor=pointer]:
+          - /url: /initiatives
+      - generic [ref=e436]:
+        - generic [ref=e437]:
+          - img "Shiksha Sewa - Free Education for Underprivileged Children" [ref=e441]
+          - generic [ref=e442]:
+            - heading "Shiksha Sewa" [level=3] [ref=e447]
+            - paragraph [ref=e448]: Har Ghar Shiksha, Har Ghar Dhyan
+            - paragraph [ref=e449]: Science Divine provides free schooling for underprivileged children, aiming to shape brighter futures and break the cycle of poverty through quality education.
+            - link "Donate Now" [ref=e450] [cursor=pointer]:
+              - /url: https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view
+        - generic [ref=e451]:
+          - img "Annapurna Sewa - Free Meals for the Needy" [ref=e455]
+          - generic [ref=e456]:
+            - heading "Annapurna Sewa" [level=3] [ref=e461]
+            - paragraph [ref=e462]: Feeding hearts, one meal at a time
+            - paragraph [ref=e463]: Annapurna Bhog initiative offers free meals to ensure no one goes hungry, fostering unity and compassion within communities.
+            - link "Donate Now" [ref=e464] [cursor=pointer]:
+              - /url: https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view
+        - generic [ref=e465]:
+          - img "Swastha Sewa - Free Healthcare" [ref=e469]
+          - generic [ref=e470]:
+            - heading "Swastha Sewa" [level=3] [ref=e476]
+            - paragraph [ref=e477]: Healthcare for all, no exceptions
+            - paragraph [ref=e478]: Through Swastha Sewa, Science Divine provides free healthcare services, promoting well-being and ensuring access to essential medical care for all.
+            - link "Donate Now" [ref=e479] [cursor=pointer]:
+              - /url: https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view
+    - generic [ref=e483]:
+      - generic [ref=e484]: Campaign
+      - heading "Har Ghar Shiksha, Har Ghar Dhyan" [level=2] [ref=e485]
+      - paragraph [ref=e486]: Empowering futures through education. Science Divine provides free schooling for underprivileged children, aiming to shape brighter futures and break the cycle of poverty through quality education.
+      - generic [ref=e487]:
+        - link "Donate Now" [ref=e488] [cursor=pointer]:
+          - /url: https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view
+        - link "Learn More" [ref=e489] [cursor=pointer]:
+          - /url: /har-ghar-shiksha
+    - generic [ref=e491]:
+      - generic [ref=e492]:
+        - generic [ref=e493]:
+          - generic [ref=e494]: Coming Up
+          - heading "Upcoming Events & Retreats" [level=2] [ref=e496]
+        - link "View All Events" [ref=e497] [cursor=pointer]:
+          - /url: /events
+      - generic [ref=e500]:
+        - generic [ref=e501]:
+          - generic [ref=e502]: Available
+          - heading "Shiksha Sewa Sankalp Mahotsav" [level=3] [ref=e503]
+          - generic [ref=e504]:
+            - generic [ref=e505]: Dec 14, 2025
+            - generic [ref=e508]: 10:00 AM
+            - generic [ref=e512]: Siddha Sudarshan Sakshi Dhaam, Ghaziabad
+          - link "Register" [ref=e516] [cursor=pointer]:
+            - /url: /events
+        - generic [ref=e519]:
+          - generic [ref=e520]: Available
+          - heading "Navvarsh Dhyan Mahotsav" [level=3] [ref=e521]
+          - generic [ref=e522]:
+            - generic [ref=e523]: Jan 4, 2026
+            - generic [ref=e526]: 10:00 AM
+            - generic [ref=e530]: Ghaziabad
+          - link "Register" [ref=e534] [cursor=pointer]:
+            - /url: /events
+        - generic [ref=e537]:
+          - generic [ref=e538]: Available
+          - heading "Vasant Mahotsav" [level=3] [ref=e539]
+          - generic [ref=e540]:
+            - generic [ref=e541]: Feb 1, 2026
+            - generic [ref=e544]: 9:00 AM
+            - generic [ref=e548]: Ghaziabad
+          - link "Register" [ref=e552] [cursor=pointer]:
+            - /url: /events
+    - generic [ref=e556]:
+      - generic [ref=e557]:
+        - generic [ref=e558]: Sakshi Wisdom
+        - heading "From the Pen of Sakshi Shree" [level=2] [ref=e560]
+        - paragraph [ref=e561]: Delve into profound insights and teachings. Explore mindfulness, personal growth, and spiritual enlightenment.
+      - generic [ref=e562]:
+        - link [ref=e563] [cursor=pointer]:
+          - /url: https://sciencedivine.org/spirituality-and-materialism/
+          - heading "Does Spirituality Require Renouncement of Materialism?" [level=3] [ref=e565]
+          - paragraph [ref=e566]: Exploring the balance between material life and spiritual awakening.
+          - generic [ref=e567]: Read More
+        - link [ref=e570] [cursor=pointer]:
+          - /url: https://sciencedivine.org/the-science-of-breathing/
+          - 'heading "Spiritual Enlightenment: The Science of Breathing" [level=3] [ref=e572]'
+          - paragraph [ref=e573]: Ancient breath techniques that transform body and mind.
+          - generic [ref=e574]: Read More
+        - link [ref=e577] [cursor=pointer]:
+          - /url: https://sciencedivine.org/power-of-law-of-attraction/
+          - heading "Is the Law of Attraction a Myth?" [level=3] [ref=e579]
+          - paragraph [ref=e580]: A scientific and spiritual look at manifestation and intention.
+          - generic [ref=e581]: Read More
+        - link [ref=e584] [cursor=pointer]:
+          - /url: https://sciencedivine.org/power-of-spirituality-in-self-discovery/
+          - heading "Power Of Spirituality In Self Discovery" [level=3] [ref=e586]
+          - paragraph [ref=e587]: How spiritual practices unlock your deepest potential.
+          - generic [ref=e588]: Read More
+        - link [ref=e591] [cursor=pointer]:
+          - /url: https://sciencedivine.org/master-your-own-fate/
+          - heading "Master Your Own Fate" [level=3] [ref=e593]
+          - paragraph [ref=e594]: Taking conscious control of your destiny through awareness.
+          - generic [ref=e595]: Read More
+        - link [ref=e598] [cursor=pointer]:
+          - /url: https://sciencedivine.org/habits-that-can-change-your-life/
+          - heading "Easy Habits That Can Change Your Life In a Month" [level=3] [ref=e600]
+          - paragraph [ref=e601]: Simple daily practices for lasting transformation.
+          - generic [ref=e602]: Read More
+    - generic [ref=e609]:
+      - generic [ref=e610]: Join the Community
+      - heading "Get Access to Exclusive Content" [level=2] [ref=e611]
+      - paragraph [ref=e612]: Get access to exclusive audios, videos, blogs, newsletters, and more! Subscribe now to access a world of unique content, deep insights, and insider knowledge.
+      - generic [ref=e613]:
+        - generic [ref=e614]:
+          - textbox "Your Name" [ref=e615]
+          - textbox "Your Email" [ref=e616]
+        - generic [ref=e617]:
+          - textbox "Phone Number" [ref=e618]
+          - textbox "Message (optional)" [ref=e619]
+        - button "Submit Now" [ref=e620]
+  - contentinfo [ref=e621]:
+    - generic [ref=e622]:
+      - generic [ref=e623]:
+        - paragraph [ref=e624]: Conceptualized by the enlightened master and divine messenger Sakshi Shree, The Science Divine Movement takes the message of love, awareness, and meditation to the world.
+        - generic [ref=e625]:
+          - link "Facebook" [ref=e626] [cursor=pointer]:
+            - /url: https://www.facebook.com/OfficialSakshishree/
+          - link "YouTube" [ref=e629] [cursor=pointer]:
+            - /url: https://www.youtube.com/@SakshiShree
+          - link "Instagram" [ref=e633] [cursor=pointer]:
+            - /url: https://www.instagram.com/sakshishreeofficial/
+          - link "LinkedIn" [ref=e637] [cursor=pointer]:
+            - /url: https://in.linkedin.com/company/science-divine-foundation
+          - link "Twitter" [ref=e642] [cursor=pointer]:
+            - /url: https://twitter.com/gurusakshishree
+      - generic [ref=e645]:
+        - heading "Quick Links" [level=4] [ref=e646]
+        - list [ref=e647]:
+          - listitem [ref=e648]:
+            - link "About Us" [ref=e649] [cursor=pointer]:
+              - /url: /about-movement
+          - listitem [ref=e650]:
+            - link "About Sakshi Shree" [ref=e651] [cursor=pointer]:
+              - /url: /about-sakshi-shree
+          - listitem [ref=e652]:
+            - link "Contact" [ref=e653] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e654]:
+            - link "Young Mind Movement" [ref=e655] [cursor=pointer]:
+              - /url: /har-ghar-shiksha
+          - listitem [ref=e656]:
+            - link "Project Shiksha Sewa" [ref=e657] [cursor=pointer]:
+              - /url: /shiksha-sewa
+          - listitem [ref=e658]:
+            - link "Events" [ref=e659] [cursor=pointer]:
+              - /url: /events
+          - listitem [ref=e660]:
+            - link "Courses" [ref=e661] [cursor=pointer]:
+              - /url: /courses
+          - listitem [ref=e662]:
+            - link "Donate" [ref=e663] [cursor=pointer]:
+              - /url: /initiatives
+          - listitem [ref=e664]:
+            - link "Book Personal Session" [ref=e665] [cursor=pointer]:
+              - /url: /book-session
+          - listitem [ref=e666]:
+            - link "Shop" [ref=e667] [cursor=pointer]:
+              - /url: /shop
+      - generic [ref=e668]:
+        - heading "Courses" [level=4] [ref=e669]
+        - list [ref=e670]:
+          - listitem [ref=e671]:
+            - link "Design Your Destiny" [ref=e672] [cursor=pointer]:
+              - /url: /design-your-destiny
+          - listitem [ref=e673]:
+            - link "Science of Joyful Living" [ref=e674] [cursor=pointer]:
+              - /url: /science-of-joyful-living
+          - listitem [ref=e675]:
+            - link "Mind Power Meditation" [ref=e676] [cursor=pointer]:
+              - /url: /mind-power-meditation
+          - listitem [ref=e677]:
+            - link "Sanjeevani Kriya" [ref=e678] [cursor=pointer]:
+              - /url: /sanjeevani-kriya
+        - heading "Solutions" [level=4] [ref=e679]
+        - list [ref=e680]:
+          - listitem [ref=e681]:
+            - link "Stress" [ref=e682] [cursor=pointer]:
+              - /url: /stress
+          - listitem [ref=e683]:
+            - link "Anxiety" [ref=e684] [cursor=pointer]:
+              - /url: /anxiety
+          - listitem [ref=e685]:
+            - link "Depression" [ref=e686] [cursor=pointer]:
+              - /url: /depression
+          - listitem [ref=e687]:
+            - link "Meditation" [ref=e688] [cursor=pointer]:
+              - /url: /meditation
+          - listitem [ref=e689]:
+            - link "Yoga" [ref=e690] [cursor=pointer]:
+              - /url: /yoga
+      - generic [ref=e691]:
+        - heading "Contact" [level=4] [ref=e692]
+        - list [ref=e693]:
+          - listitem [ref=e694]:
+            - paragraph [ref=e695]: Siddh Sudarshan Sakshi Dham
+            - generic [ref=e696]: 8, Avantika Road, Chiranjiv Vihar, Shastri Nagar, Ghaziabad, Uttar Pradesh 201001
+          - listitem [ref=e701]:
+            - paragraph [ref=e702]: Sakshi Dham International
+            - generic [ref=e703]: Omaxe Eternity, Chhatikara Road, Vrindavan, Uttar Pradesh 281121
+          - listitem [ref=e708]:
+            - link "+91 93159 44774" [ref=e711] [cursor=pointer]:
+              - /url: tel:+919315944774
+          - listitem [ref=e712]:
+            - link "info@sciencedivine.org" [ref=e716] [cursor=pointer]:
+              - /url: mailto:info@sciencedivine.org
+        - generic [ref=e717]:
+          - paragraph [ref=e718]: Subscribe to newsletter
+          - generic [ref=e719]:
+            - textbox "Your email" [ref=e720]
+            - button "Go" [ref=e721]
+    - generic [ref=e723]:
+      - paragraph [ref=e724]: © 2025 Science Divine Foundation. All Rights Reserved.
+      - generic [ref=e725]:
+        - link "Cancellation and Refund Policy" [ref=e726] [cursor=pointer]:
+          - /url: /cancellation-policy
+        - link "Privacy Policy" [ref=e727] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Terms and Conditions" [ref=e728] [cursor=pointer]:
+          - /url: /terms-conditions
+  - generic [ref=e729]:
+    - generic [ref=e730]: Ask AI Guide
+    - button "Open Divine AI Assistant" [ref=e735]:
+      - img "Science Divine Logo" [ref=e737]
