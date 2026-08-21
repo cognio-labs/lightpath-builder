@@ -40,6 +40,9 @@ export function DivineAIChatWidget() {
 
   const recognitionRef = useRef<any>(null);
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+  const isVoiceModeRef = useRef(false);
+  const voiceStatusRef = useRef<"idle" | "listening" | "thinking" | "speaking">("idle");
+  const isRecognitionRunningRef = useRef(false);
 
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -67,8 +70,18 @@ export function DivineAIChatWidget() {
     }
   }, [messages, isTyping, isOpen, isVoiceMode]);
 
-  // Initialize Web Speech Recognition
   useEffect(() => {
+    isVoiceModeRef.current = isVoiceMode;
+  }, [isVoiceMode]);
+
+  useEffect(() => {
+    voiceStatusRef.current = voiceStatus;
+  }, [voiceStatus]);
+
+  // Initialize Web Speech Recognition once. Chrome/Edge support this best.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const SpeechRecognition =
       (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
@@ -76,9 +89,10 @@ export function DivineAIChatWidget() {
       const recognition = new SpeechRecognition();
       recognition.continuous = false;
       recognition.interimResults = true;
-      recognition.lang = "en-IN"; // Supports English, Hinglish, Hindi
+      recognition.lang = "hi-IN";
 
       recognition.onstart = () => {
+        isRecognitionRunningRef.current = true;
         setVoiceStatus("listening");
         setLiveTranscript("Sun raha hoon...");
       };
@@ -101,28 +115,46 @@ export function DivineAIChatWidget() {
         }
 
         if (finalTranscript) {
-          setLiveTranscript(`"${finalTranscript}"`);
-          handleSend(finalTranscript, true);
+          const spokenText = finalTranscript.trim();
+          setLiveTranscript(`"${spokenText}"`);
+          if (spokenText) {
+            try {
+              recognition.stop();
+            } catch (err) {
+              console.warn("Recognition stop after result issue:", err);
+            }
+            handleSend(spokenText, true);
+          }
         }
       };
 
       recognition.onerror = (e: any) => {
         console.warn("Voice recognition error:", e);
-        if (isVoiceMode) {
+        isRecognitionRunningRef.current = false;
+        if (isVoiceModeRef.current) {
+          const message =
+            e?.error === "not-allowed"
+              ? "Mic permission allow kijiye."
+              : e?.error === "no-speech"
+              ? "Awaaz clear nahi aayi. Dobara mic dabayein."
+              : "Mic dabayein aur boliye.";
           setVoiceStatus("idle");
-          setLiveTranscript("Mic dabayein ya bole...");
+          setLiveTranscript(message);
         }
       };
 
       recognition.onend = () => {
-        if (isVoiceMode && voiceStatus === "listening") {
+        isRecognitionRunningRef.current = false;
+        if (isVoiceModeRef.current && voiceStatusRef.current === "listening") {
           setVoiceStatus("idle");
         }
       };
 
       recognitionRef.current = recognition;
+    } else {
+      setLiveTranscript("Voice input is browser mein supported nahi hai. Chrome/Edge use karein.");
     }
-  }, [isVoiceMode, voiceStatus]);
+  }, []);
 
   // Clean TTS function (ElevenLabs with Web Speech fallback)
   const speakText = async (text: string, msgId?: string, continueListeningInVoiceMode = false) => {
@@ -141,6 +173,7 @@ export function DivineAIChatWidget() {
       .replace(/[#_`~]/g, "")
       .replace(/- /g, ", ")
       .replace(/🙏|✨|🌸|🌿|🤝|📅|🌟|💡|🧘|📚|🔴/g, "");
+    setLiveTranscript("Bol raha hoon...");
 
     const apiKey = (import.meta as any).env?.VITE_ELEVENLABS_API_KEY;
 
@@ -175,8 +208,9 @@ export function DivineAIChatWidget() {
           audio.onended = () => {
             setSpeakingMsgId(null);
             setVoiceStatus("idle");
+            setLiveTranscript("Bolein, main sun raha hoon...");
             URL.revokeObjectURL(audioUrl);
-            if (continueListeningInVoiceMode && isVoiceMode) {
+            if (continueListeningInVoiceMode && isVoiceModeRef.current) {
               startListening();
             }
           };
@@ -184,6 +218,7 @@ export function DivineAIChatWidget() {
           audio.onerror = () => {
             setSpeakingMsgId(null);
             setVoiceStatus("idle");
+            setLiveTranscript("Voice play nahi ho payi. Text response dekh sakte hain.");
           };
 
           await audio.play();
@@ -198,13 +233,27 @@ export function DivineAIChatWidget() {
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(clean);
-      utterance.rate = 0.95;
-      utterance.pitch = 1.0;
+      const voices = window.speechSynthesis.getVoices();
+      const preferredVoice =
+        voices.find((voice) => /hi-IN/i.test(voice.lang)) ||
+        voices.find((voice) => /en-IN/i.test(voice.lang)) ||
+        voices.find((voice) => /Google|Microsoft|Natural|Heera|Kalpana|Neerja/i.test(voice.name));
+
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+        utterance.lang = preferredVoice.lang;
+      } else {
+        utterance.lang = "hi-IN";
+      }
+      utterance.rate = 0.9;
+      utterance.pitch = 1.05;
+      utterance.volume = 1;
 
       utterance.onend = () => {
         setSpeakingMsgId(null);
         setVoiceStatus("idle");
-        if (continueListeningInVoiceMode && isVoiceMode) {
+        setLiveTranscript("Bolein, main sun raha hoon...");
+        if (continueListeningInVoiceMode && isVoiceModeRef.current) {
           startListening();
         }
       };
@@ -212,6 +261,7 @@ export function DivineAIChatWidget() {
       utterance.onerror = () => {
         setSpeakingMsgId(null);
         setVoiceStatus("idle");
+        setLiveTranscript("Voice play nahi ho payi. Text response dekh sakte hain.");
       };
 
       window.speechSynthesis.speak(utterance);
@@ -235,11 +285,17 @@ export function DivineAIChatWidget() {
     stopCurrentAudio();
     if (recognitionRef.current) {
       try {
+        if (isRecognitionRunningRef.current) return;
+        setLiveTranscript("Sun raha hoon...");
         recognitionRef.current.start();
         setVoiceStatus("listening");
       } catch (err) {
         console.warn("Recognition start issue:", err);
+        setLiveTranscript("Mic start nahi hua. Permission/browser check karein.");
+        setVoiceStatus("idle");
       }
+    } else {
+      setLiveTranscript("Voice input unsupported hai. Chrome/Edge browser use karein.");
     }
   };
 
@@ -247,6 +303,7 @@ export function DivineAIChatWidget() {
     if (recognitionRef.current) {
       try {
         recognitionRef.current.stop();
+        isRecognitionRunningRef.current = false;
         setVoiceStatus("idle");
       } catch (err) {
         console.warn("Recognition stop issue:", err);
@@ -257,7 +314,6 @@ export function DivineAIChatWidget() {
   const toggleChatGPTVoiceMode = () => {
     if (!isVoiceMode) {
       setIsVoiceMode(true);
-      setIsMinimized(false);
       setLiveTranscript("Bolein, main sun raha hoon...");
       setTimeout(() => {
         startListening();

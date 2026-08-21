@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitForm } from "@/lib/admin.functions";
+import { RAZORPAY_PERSONAL_SESSION_LINK } from "@/lib/payment-links";
 import { Sparkles, Compass, Heart, Check, X, ChevronDown, ArrowRight, Phone, Mail, MapPin, ShieldCheck, Video, Users, Calendar, Award } from "lucide-react";
 import { LEADERS } from "@/data/content";
 
@@ -308,7 +309,7 @@ function Page() {
               Contribution for Jhuggi Jhopdi Shiksha Sewa Mission <br />
               <span style={{ color: "#10B981" }}>*Tax Exemption is applicable for all donations under Section 80G</span>
             </p>
-            <a href="https://pages.razorpay.com/pl_PTV1eNFrJvhJGF/view" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
+            <a href={RAZORPAY_PERSONAL_SESSION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
               Book Your Slot
             </a>
           </div>

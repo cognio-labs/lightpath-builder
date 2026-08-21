@@ -1,3 +1,5 @@
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+
 export interface QuickSuggestion {
   label: string;
   query: string;
@@ -223,7 +225,7 @@ export function generateBotResponse(userInput: string): BotResponse {
       links: [
         { label: "Sewa Initiatives", url: "/initiatives" },
         { label: "Har Ghar Shiksha", url: "/har-ghar-shiksha" },
-        { label: "Donate Now", url: "https://rzp.io/rzp/XtVLpqil" },
+        { label: "Donate Now", url: RAZORPAY_DONATION_LINK },
       ],
       suggestions: ["Personal session", "Upcoming Events", "About Guru Ji"],
     };

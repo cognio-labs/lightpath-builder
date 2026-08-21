@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { GraduationCap, Brain, UtensilsCrossed, Building2, Heart } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 export const Route = createFileRoute("/initiatives")({
   head: () => ({
@@ -25,7 +26,7 @@ const INITIATIVES = [
     subtitle: "Empowering futures through education",
     achieved: 300000,
     goal: 1000000,
-    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
+    donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "education-sewa",
     image: "https://sciencedivine.org/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-04-at-1.02.45-PM.jpeg",
     imagePosition: "center 25%",
@@ -43,7 +44,7 @@ const INITIATIVES = [
     subtitle: "Spreading the Gift of Meditation",
     achieved: 500000,
     goal: 1000000,
-    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
+    donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "dhyan-sewa",
     image: "https://sciencedivine.org/wp-content/uploads/2023/06/young-img1.jpg",
     imagePosition: "center 15%",
@@ -61,7 +62,7 @@ const INITIATIVES = [
     subtitle: "Feeding hearts, one meal at a time",
     achieved: 350000,
     goal: 1000000,
-    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
+    donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "annapurna-sewa",
     image: "https://sciencedivine.org/wp-content/uploads/2024/04/gospelforasia-RT18-03070.jpeg",
     imagePosition: "center 20%",
@@ -79,7 +80,7 @@ const INITIATIVES = [
     subtitle: "Spiritual Retreat & Wellness Center",
     achieved: 700000,
     goal: 1000000,
-    donateUrl: "https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view",
+    donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "nirman-sewa",
     image: "https://sciencedivine.org/wp-content/uploads/2023/06/2.jpg",
     imagePosition: "center center",

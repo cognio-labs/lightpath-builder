@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { Lens } from "@/components/ui/lens";
 import { Counter } from "@/lib/useCounter";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 import TextType from "@/components/ui/TextType";
 import GlareHover from "@/components/ui/GlareHover";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
@@ -1004,7 +1005,7 @@ function Home() {
                   shape brighter futures and break the cycle of poverty through quality education.
                 </p>
                 <a
-                  href="https://rzp.io/rzp/XtVLpqil"
+                  href={RAZORPAY_DONATION_LINK}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block"
@@ -1040,7 +1041,7 @@ function Home() {
                   fostering unity and compassion within communities.
                 </p>
                 <a
-                  href="https://rzp.io/rzp/XtVLpqil"
+                  href={RAZORPAY_DONATION_LINK}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block"
@@ -1076,7 +1077,7 @@ function Home() {
                   well-being and ensuring access to essential medical care for all.
                 </p>
                 <a
-                  href="https://rzp.io/rzp/XtVLpqil"
+                  href={RAZORPAY_DONATION_LINK}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block"
@@ -1144,7 +1145,7 @@ function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://rzp.io/rzp/XtVLpqil"
+              href={RAZORPAY_DONATION_LINK}
               target="_blank"
               rel="noreferrer"
               className="btn-gold rounded-full px-8 py-3.5 text-sm font-semibold"

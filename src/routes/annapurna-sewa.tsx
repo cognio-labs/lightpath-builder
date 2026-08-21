@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sprout, UtensilsCrossed } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 export const Route = createFileRoute("/annapurna-sewa")({
   head: () => ({
@@ -23,21 +24,21 @@ const DONATIONS = [
     amount: "₹500",
     title: "Meal Seva",
     desc: "Sponsor basic ingredients for a day of community meals.",
-    link: "https://rzp.io/rzp/QQTFn4O",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Essential Support",
   },
   {
     amount: "₹2,500",
     title: "Kitchen Sustainer",
     desc: "Contribute to the daily running costs of the Annapurna kitchen.",
-    link: "https://rzp.io/rzp/JdLseB7w",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Sustainer",
   },
   {
     amount: "₹5,000",
     title: "PRASAD SPONSOR",
     desc: "Sponsor all the food and resources for one full day of sacred offering.",
-    link: "https://rzp.io/rzp/qoEmiF7M",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Most Impact",
     highlight: true,
   },
@@ -45,7 +46,7 @@ const DONATIONS = [
     amount: "Custom",
     title: "Divine Abundance",
     desc: "Support the long-term growth of Annapurna Sewa initiatives.",
-    link: "https://rzp.io/rzp/1a0W5Y6",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Growth Fund",
   },
 ];

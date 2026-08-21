@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Sparkles, ArrowRight, Brain, Heart, Info, MapPin } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 export const Route = createFileRoute("/dhyan-sewa")({
   head: () => ({
@@ -23,21 +24,21 @@ const DONATIONS = [
     amount: "₹500",
     title: "Seva Contributor",
     desc: "Supports the logistics for one seeker to attend a day-long shivir.",
-    link: "https://rzp.io/rzp/gAfqVkYJ",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Seeker Support",
   },
   {
     amount: "₹2,500",
     title: "Wisdom Sustainer",
     desc: "Helps publish and distribute 50 copies of insightful Gyan Sewa books.",
-    link: "https://rzp.io/rzp/gqtqIKGC",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Knowledge",
   },
   {
     amount: "₹5,000",
     title: "SHIVIR SPONSOR",
     desc: "Sponsor the space and resources needed for a full day of teaching and practice.",
-    link: "https://rzp.io/rzp/d43om0wy",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Most Impact",
     highlight: true,
   },
@@ -45,7 +46,7 @@ const DONATIONS = [
     amount: "Custom",
     title: "Global Expansion",
     desc: "Supports the long-term establishment of new Dhyan centers worldwide.",
-    link: "https://rzp.io/rzp/umjZDU0c",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Global Growth",
   },
 ];

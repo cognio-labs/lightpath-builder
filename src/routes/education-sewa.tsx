@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Sparkles, ArrowRight, GraduationCap, BookOpen, Heart, Award } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 export const Route = createFileRoute("/education-sewa")({
   head: () => ({
@@ -73,21 +74,21 @@ const DONATIONS = [
     amount: "₹500",
     title: "Book Sponsor",
     desc: "Sponsor annual supplies for one child (books and stationary).",
-    link: "https://rzp.io/rzp/6mv20lwu",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Basic Kit",
   },
   {
     amount: "₹2,500",
     title: "Uniform Sponsor",
     desc: "Provides a full school kit including uniform, shoes, and bag for one student.",
-    link: "https://rzp.io/rzp/gG9hHpYs",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Full Kit",
   },
   {
     amount: "₹5,000",
     title: "EDUCATION SPONSOR",
     desc: "Sponsors the entire tuition and resources for one child for a whole year.",
-    link: "https://rzp.io/rzp/Pn6K97ab",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Most Impact",
     highlight: true,
   },
@@ -95,7 +96,7 @@ const DONATIONS = [
     amount: "Custom",
     title: "Scholarship Fund",
     desc: "Contributes to the higher education scholarship fund for deserving students.",
-    link: "https://rzp.io/rzp/zWjHwq49",
+    link: RAZORPAY_DONATION_LINK,
     badge: "Future Leader",
   },
 ];

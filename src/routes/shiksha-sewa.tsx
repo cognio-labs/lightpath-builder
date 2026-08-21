@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Counter } from "@/lib/useCounter";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 export const Route = createFileRoute("/shiksha-sewa")({
   head: () => ({
@@ -454,7 +455,7 @@ function Page() {
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "1rem", lineHeight: 1.7, marginBottom: "32px" }}>
             Together, we can bring the light of education to every underprivileged child and the peace of meditation to every troubled mind.
           </p>
-          <a href="https://pages.razorpay.com/pl_RdFnZzHa9b4WmZ/view" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 40px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+          <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 40px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
             Join Us Now <ArrowRight size={16} />
           </a>
         </div>
