@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -142,21 +142,6 @@ function Page() {
               </div>
             </div>
 
-            {/* Podcast contact */}
-            <div className="card-premium rounded-2xl p-6">
-              <h3 className="font-display font-bold text-gray-900 mb-4 text-sm">Contact for Podcast</h3>
-              <div className="space-y-3 text-sm text-gray-600">
-                <div>
-                  <p className="font-semibold text-gray-800">Arjun Lal</p>
-                  <p>📞 9315944774 · 📧 info@sciencedivine.org</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800">Tushar Chaudhary</p>
-                  <p>📞 9540072189 · 📧 info@sciencedivine.org</p>
-                </div>
-              </div>
-            </div>
-
             {/* College events */}
             <div className="card-premium rounded-2xl p-6">
               <h3 className="font-display font-bold text-gray-900 mb-4 text-sm">Contact for College Events</h3>
@@ -169,29 +154,6 @@ function Page() {
                   <p className="font-semibold text-gray-800">Tushar Chaudhary</p>
                   <p>📞 9540072189 · 📧 info@sciencedivine.org</p>
                 </div>
-              </div>
-            </div>
-
-            {/* Social */}
-            <div className="card-premium rounded-2xl p-6">
-              <h3 className="font-display font-bold text-gray-900 mb-4 text-sm">Follow Us</h3>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { href: "https://www.facebook.com/OfficialSakshishree/", Icon: Facebook, label: "Facebook" },
-                  { href: "https://www.instagram.com/sakshishreeofficial/", Icon: Instagram, label: "Instagram" },
-                  { href: "https://www.youtube.com/@SakshiShree", Icon: Youtube, label: "YouTube" },
-                  { href: "https://twitter.com/gurusakshishree", Icon: Twitter, label: "Twitter" },
-                  { href: "https://www.linkedin.com/in/sakshishree/", Icon: Linkedin, label: "LinkedIn" },
-                ].map(({ href, Icon, label }) => (
-                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
-                    className="w-10 h-10 rounded-full grid place-items-center transition-colors"
-                    style={{ background: "rgba(212,175,55,0.12)", color: "#92700A" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "#D4AF37"; e.currentTarget.style.color = "#1a1000"; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(212,175,55,0.12)"; e.currentTarget.style.color = "#92700A"; }}
-                  >
-                    <Icon size={16} />
-                  </a>
-                ))}
               </div>
             </div>
           </div>

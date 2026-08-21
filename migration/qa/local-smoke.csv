@@ -1,0 +1,8 @@
+Legacy URL,Normalised URL,New URL,Required response: 200/301/308/404/410,Priority: P0/P1/P2/P3
+https://sciencedivine.org/,https://sciencedivine.org/,https://sciencedivine.org/,200,P0
+https://sciencedivine.org/personal-session/,https://sciencedivine.org/personal-session/,https://sciencedivine.org/personal-session/,200,P1
+https://sciencedivine.org/donation/,https://sciencedivine.org/donation/,https://sciencedivine.org/donation/,200,P0
+https://sciencedivine.org/spirituality-and-materialism/,https://sciencedivine.org/spirituality-and-materialism/,https://sciencedivine.org/spirituality-and-materialism/,200,P1
+https://sciencedivine.org/public/dominoqq/,https://sciencedivine.org/public/dominoqq/,,410,P0
+https://sciencedivine.org/not-a-real-page-qa/,https://sciencedivine.org/not-a-real-page-qa/,,404,P1
+

@@ -74,18 +74,34 @@ function Page() {
     <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif" }}>
 
       {/* Hero */}
-      <section style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 60%, #0F172A 100%)", paddingTop: "140px", paddingBottom: "70px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: "750px" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.12)", border: "1px solid rgba(212,175,55,0.25)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
-            <span style={{ color: "#D4AF37", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>Solutions Hub</span>
+      <section style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E293B 60%, #0F172A 100%)", paddingTop: "130px", paddingBottom: "70px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.12)", border: "1px solid rgba(212,175,55,0.25)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
+                <span style={{ color: "#D4AF37", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>Solutions Hub</span>
+              </div>
+              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 800, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "16px" }}>
+                Get Solutions For Your Challenges
+              </h1>
+              <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.7, maxWidth: "600px" }}>
+                Whatever you're working through, Sakshi Shree's ancient wisdom has a doorway. Choose your challenge — we'll meet you there.
+              </p>
+            </div>
+
+            {/* Right side topic image */}
+            <div className="lg:col-span-5 flex justify-center relative">
+              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
+                <img
+                  src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
+                  alt="Get Solutions For Your Challenges"
+                  className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
           </div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 5vw, 3.5rem)", fontWeight: 800, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "16px" }}>
-            Get Solutions For Your Challenges
-          </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
-            Whatever you're working through, Sakshi Shree's ancient wisdom has a doorway. Choose your challenge ,  we'll meet you there.
-          </p>
         </div>
       </section>
 

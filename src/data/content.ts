@@ -686,7 +686,7 @@ export const SOCIALS = {
   facebook: "https://www.facebook.com/OfficialSakshishree/",
   youtube: "https://www.youtube.com/@SakshiShree",
   instagram: "https://www.instagram.com/sakshishreeofficial/",
-  linkedin: "https://www.linkedin.com/in/sakshishree/",
+  linkedin: "https://in.linkedin.com/company/science-divine-foundation",
   twitter: "https://twitter.com/gurusakshishree",
   playstore: "https://play.google.com/store/apps/details?id=com.sakshishree.learners",
 };

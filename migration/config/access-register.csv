@@ -1,0 +1,17 @@
+System,Required role/access,Secure delivery method,Owner,Status,Verification evidence,Blocker
+WordPress administrator,Administrator or least-privilege export/security role,Role-based invitation,Site owner,NOT PROVIDED,,Blocks backups/security/database exports
+WordPress hosting/file manager,Read/export plus approved remediation access,Named SSH/SFTP or hosting role,Site owner,NOT PROVIDED,,Blocks filesystem/security/config audit
+WordPress database,Read/export and backup restore access,Secure hosting/database role,Site owner,NOT PROVIDED,,Blocks complete inventory and rollback proof
+DNS/Cloudflare,DNS editor plus audit-log visibility,Cloudflare role invitation,Domain owner,NOT PROVIDED,,Blocks DNS baseline and cutover
+Vercel project,Developer for staging; owner/admin for domains,Team/project invitation,Project owner,NOT PROVIDED,,Blocks deployment/domain/rollback verification
+Source repository,Write branch/PR access,Repository invitation,Engineering owner,LOCAL WORKSPACE ONLY,Repository is TanStack Start; branch/remotes unverified,Blocks controlled production change workflow
+Google Search Console,Full user,Property invitation,SEO owner,NOT PROVIDED,,Blocks 2934-row export/security/manual action checks
+GA4,Analyst or Editor,Property invitation,Analytics owner,NOT PROVIDED,,Blocks baseline and event verification
+Google Tag Manager,Edit plus Publish/Approve as appropriate,Container invitation,Analytics owner,NOT PROVIDED,,Blocks tag migration and preview verification
+Google Ads,Standard access,Account invitation,Paid media owner,NOT PROVIDED,,Blocks active landing-page and conversion verification
+Meta Business/Events Manager,Employee/partner role,Meta business invitation,Paid media owner,NOT PROVIDED,,Blocks Pixel/CAPI/ad verification
+Razorpay,Developer/read plus controlled test access,Team role invitation,Payments owner,NOT PROVIDED,,Blocks payment/callback verification
+Forms/CRM/email,Read/config/test access,Role-based invitation,CRM owner,NOT PROVIDED,,Blocks lead and notification verification
+Backlink source,Read/export access,Workspace invitation,SEO owner,NOT PROVIDED,,Blocks backlink protection list
+Server/CDN logs,Read/export access,Role-based invitation,Hosting owner,NOT PROVIDED,,Blocks log-derived inventory and Googlebot checks
+

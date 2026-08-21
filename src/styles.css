@@ -414,9 +414,9 @@ html.dark footer {
 }
 
 @utility section-pad {
-  padding-block: 5rem;
+  padding-block: 2.25rem;
   @media (min-width: 768px) {
-    padding-block: 7rem;
+    padding-block: 3.5rem;
   }
 }
 
@@ -552,18 +552,29 @@ html.dark footer {
 .font-quote {
   font-family: var(--font-quote);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  color: #1e293b;
 }
 
 
 
 /* ── Hero Luxury Background ──────────────────────── */
 .hero-luxury-bg {
-  background: linear-gradient(135deg, #FCF7EE 0%, #F8ECD6 50%, #FDF4E5 100%);
+  position: relative;
+  background-color: #0F172A;
+  background-image: url('/hero-amazing-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   transition: background 0.4s ease;
 }
 .dark .hero-luxury-bg {
-  background: linear-gradient(135deg, #050810 0%, #0a0f1e 50%, #050810 100%) !important;
+  background-color: #050810;
+  background-image: linear-gradient(rgba(5, 8, 16, 0.4), rgba(5, 8, 16, 0.5)), url('/hero-amazing-bg.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /* ── Quote / Sakshi Shree Section Background ─────── */
@@ -739,3 +750,28 @@ html.dark footer {
   transition-duration: 0.3s;
   transition-timing-function: ease;
 }
+
+/* Hide scrollbars cleanly */
+.no-scrollbar::-webkit-scrollbar,
+div[style*="scrollbar-width: none"]::-webkit-scrollbar,
+div[style*="scrollbarWidth: none"]::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Chatbot text rendering and word wrapping */
+.chat-message {
+  font-size: 13.5px;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+

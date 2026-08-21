@@ -1,0 +1,10 @@
+Journey,Landing URL,Expected event,GA4,GTM,Google Ads,Meta Pixel,CAPI,CRM/email,Payment/callback,Consent behavior,Owner,Status,Test evidence
+Contact form,/contact/,generate_lead,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,NO-OP FORM,Not applicable,UNVERIFIED,Analytics + CRM,P0 OPEN,Source form only prevents default
+Homepage newsletter,/,sign_up,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,NO-OP FORM,Not applicable,UNVERIFIED,Analytics + CRM,P1 OPEN,Source form only prevents default
+Footer newsletter,sitewide,sign_up,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,NO-OP FORM,Not applicable,UNVERIFIED,Analytics + CRM,P1 OPEN,Source form only prevents default
+Personal-session callback,/personal-session/,generate_lead,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,Supabase insert only,Razorpay link present,UNVERIFIED,Analytics + CRM + payments,P0 OPEN,Server function writes form_submissions; no downstream proof
+Book-session callback,/book-session/,generate_lead,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,Supabase insert only,Not tested,UNVERIFIED,Analytics + CRM,P1 OPEN,Server function writes form_submissions; no downstream proof
+Event registrations,/sunday-event-*/,sign_up,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,NO-OP/SUCCESS UI ONLY,UNVERIFIED,UNVERIFIED,Events + analytics,P0 OPEN,Handlers set local sent=true without submission
+Donation,/donation/,purchase_or_donation,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,UNVERIFIED,Razorpay links exist elsewhere; exact path missing,UNVERIFIED,Payments + analytics,P0 OPEN,New route missing
+Product purchase,/product/science-divine-diamond-diary/,purchase,ABSENT IN REPOSITORY,ABSENT IN REPOSITORY,UNVERIFIED,ABSENT IN REPOSITORY,UNVERIFIED,UNVERIFIED,Product route/payment flow missing,UNVERIFIED,Commerce + analytics,P0 OPEN,New route missing
+

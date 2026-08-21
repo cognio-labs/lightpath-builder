@@ -1,0 +1,9 @@
+URL,Legacy status,New local status,Legacy canonical,New canonical,Legacy indexability,New indexability,Content/route finding,Priority,Result
+https://sciencedivine.org/,200,200,https://sciencedivine.org/,MISSING,Indexable,No noindex,SSR content present but canonical absent,P0,FAIL
+https://sciencedivine.org/personal-session/,200,307 then 200,https://sciencedivine.org/personal-session/,/personal-session,Indexable,No noindex,Temporary slash normalization and relative canonical,P1,FAIL
+https://sciencedivine.org/donation/,200,307 then 404,https://sciencedivine.org/donation/,MISSING,Indexable,Not indexable,Published commercial/donation page missing,P0,FAIL
+https://sciencedivine.org/spirituality-and-materialism/,200,307 then 404,https://sciencedivine.org/spirituality-and-materialism/,MISSING,Indexable,Not indexable,Published blog article missing,P1,FAIL
+https://sciencedivine.org/product/science-divine-diamond-diary/,200,Expected missing from route tree,https://sciencedivine.org/product/science-divine-diamond-diary/,MISSING,Indexable,Not tested,Published product/payment journey absent,P0,FAIL
+https://sciencedivine.org/public/dominoqq/,200,307 then 404,MISSING,MISSING,Indexable by response/no noindex,Not indexable,Suspected hacked URL must be direct 410,P0,FAIL
+https://sciencedivine.org/not-a-real-page-qa/,Not tested,307 then 404,Not applicable,MISSING,Not applicable,Not indexable,Final 404 works but slash request first receives temporary redirect,P1,FAIL
+

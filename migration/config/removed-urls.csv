@@ -1,0 +1,3 @@
+Legacy URL,Required response,Reason,Sitemap exclusion verified,Internal-link exclusion verified,GSC removal/security checked,Owner,Status,QA result,Notes
+https://sciencedivine.org/public/dominoqq/,410,Confirmed suspected hacked/gambling URL,Yes,UNVERIFIED,UNVERIFIED,Security owner,P0 OPEN,FAIL,Live production returned 200 on 2026-08-21; local app returns 307 then 404
+
