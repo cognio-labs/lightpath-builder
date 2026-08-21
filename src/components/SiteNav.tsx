@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Shield } from "lucide-react";
 import { LOGO_URL, SOLUTION_TOPICS } from "@/data/content";
-import { supabase } from "@/integrations/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 
 
 const aboutLinks = [
@@ -38,6 +38,8 @@ export function SiteNav() {
   const [signedIn, setSignedIn] = useState(false);
 
   useEffect(() => {
+    if (!isSupabaseConfigured()) return;
+
     supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session));
     const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => setSignedIn(!!s));
     return () => sub.subscription.unsubscribe();
@@ -54,8 +56,8 @@ export function SiteNav() {
     <header
       className={`sticky top-0 z-[100] w-full transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 shadow-sm"
-          : "bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border-b border-transparent"
+          ? "bg-[#5B1209]/97 backdrop-blur-md border-b border-[#D4AF37]/35 shadow-[0_8px_30px_rgba(49,8,4,0.18)]"
+          : "bg-[#5B1209] border-b border-[#D4AF37]/20"
       }`}
       style={{ height: "72px" }}
     >
@@ -154,24 +156,25 @@ export function SiteNav() {
           </Link>
           <Link
             to="/book-session"
-            className="hidden md:inline-flex btn-outline-gold rounded-full px-5 py-2 text-sm font-semibold"
+            className="hidden md:inline-flex btn-outline-gold rounded-full px-5 py-2 text-sm font-semibold !text-[#F6D978] !border-[#D4AF37] hover:!bg-white/10"
           >
             Book Session
           </Link>
           {signedIn && (
             <Link
               to="/admin"
-              className="hidden md:inline-flex items-center gap-1 rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-50"
+              className="hidden md:inline-flex items-center gap-1 rounded-full border border-[#D4AF37]/45 px-4 py-2 text-sm font-semibold text-[#FFF8E7] hover:border-[#D4AF37] hover:bg-white/10"
             >
               <Shield size={14} /> Admin
             </Link>
           )}
           <button
-            className="lg:hidden rounded-full p-2.5 bg-amber-50 hover:bg-amber-100 text-amber-900 transition-colors border border-amber-200"
+            className="lg:hidden rounded-full p-2.5 bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[#F6D978] transition-colors border border-[#D4AF37]/45"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
-            {open ? <X size={24} className="text-amber-900" /> : <Menu size={24} className="text-amber-900" />}
+            {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -258,8 +261,8 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <Link
       to={to}
-      className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-amber-700 dark:hover:text-amber-500 transition-colors rounded-lg hover:bg-amber-50 dark:hover:bg-slate-800"
-      activeProps={{ className: "text-amber-700 bg-amber-50 dark:bg-slate-800" }}
+      className="px-3 py-2 text-sm font-medium text-[#FFF8E7] hover:text-[#F6D978] transition-colors rounded-lg hover:bg-white/10"
+      activeProps={{ className: "text-[#F6D978] bg-white/10" }}
     >
       {children}
     </Link>
@@ -285,7 +288,10 @@ function Dropdown({
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-amber-700 dark:hover:text-amber-500 transition-colors rounded-lg hover:bg-amber-50 dark:hover:bg-slate-800">
+      <button
+        className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#FFF8E7] hover:text-[#F6D978] transition-colors rounded-lg hover:bg-white/10"
+        aria-expanded={open}
+      >
         {label}{" "}
         <ChevronDown size={14} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
