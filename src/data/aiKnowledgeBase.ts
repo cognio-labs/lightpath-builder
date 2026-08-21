@@ -8,11 +8,9 @@ export interface QuickSuggestion {
 
 export const QUICK_SUGGESTIONS: QuickSuggestion[] = [
   { label: "Guru Ji", query: "Sakshi Shree Guru Ji ke baare mein batao" },
-  { label: "Courses", query: "What courses are available?" },
-  { label: "Anxiety Solution", query: "How to overcome anxiety and stress?" },
-  { label: "English Book", query: "I want the English book link" },
-  { label: "Book Session", query: "How can I book a personal session?" },
-  { label: "Sewa", query: "Tell me about Sewa initiatives" },
+  { label: "Session", query: "Personal session kaise book hota hai?" },
+  { label: "Courses", query: "Kaunse courses available hain?" },
+  { label: "Book", query: "English book ka link chahiye" },
 ];
 
 export interface BotResponse {
@@ -21,7 +19,6 @@ export interface BotResponse {
   suggestions?: string[];
 }
 
-// ─── Conversation Memory ───────────────────────────────────────────────────
 export interface ConversationTurn {
   role: "user" | "bot";
   text: string;
@@ -46,354 +43,257 @@ export function clearHistory() {
 
 function detectUserName(query: string): string | null {
   const nameMatch = query.match(/(?:my name is|i am|i'm|call me|mera naam hai|main hoon)\s+([a-zA-Z]+)/i);
-  if (nameMatch) return nameMatch[1];
-  return null;
+  return nameMatch ? nameMatch[1] : null;
 }
 
 function getGreeting(): string {
-  if (userName) return `🙏 ${userName} Ji, `;
-  return "";
+  return userName ? `🙏 ${userName} Ji, ` : "";
 }
 
 function trackInterest(topic: string) {
   if (!userInterests.includes(topic)) userInterests.push(topic);
 }
 
+function hasAny(query: string, words: string[]) {
+  return words.some((word) => query.includes(word));
+}
+
 export function generateBotResponse(userInput: string): BotResponse {
   const query = userInput.toLowerCase().trim();
 
-  // Detect user name
   const detectedName = detectUserName(userInput);
   if (detectedName) {
     userName = detectedName;
     return {
-      text: `🙏 Swagat hai, **${userName} Ji**! Main aapki kya seva kar sakta hoon? Guru Ji, courses ya session booking ke baare mein poochein.`,
-      suggestions: ["Guru Ji ke baare mein batao", "Courses dekhein", "Personal session book karein"],
+      text: `🙏 Swagat hai, **${userName} Ji**. Main aapki baat pehle samajhunga, phir Guru Ji, session, courses ya website link ka right direction dunga.\n\nSales-bot wali jaldi nahi, pehle clarity. Bas apni situation ek line mein bata dijiye.`,
+      suggestions: ["Guru Ji ke baare mein", "Session kaise hota hai"],
     };
   }
 
-  // ── 1. SAKSHI SHREE / GURU JI ─────────────────────────────────────────
   if (
-    query.includes("sakshi") ||
-    query.includes("guru") ||
-    query.includes("guruji") ||
-    query.includes("guru ji") ||
-    query.includes("master") ||
-    query.includes("founder") ||
-    query.includes("who is") ||
-    query.includes("philosophy") ||
-    query.includes("bheetar") ||
-    query.includes("teachings") ||
+    hasAny(query, [
+      "sakshi",
+      "guru",
+      "guruji",
+      "guru ji",
+      "master",
+      "founder",
+      "who is",
+      "philosophy",
+      "bheetar",
+      "teaching",
+      "teachings",
+    ]) ||
     (query.includes("about") && !query.includes("about website") && !query.includes("about us"))
   ) {
     trackInterest("guru");
     return {
-      text: `${getGreeting()}🙏 **Param Pujya Sakshi Shree Ji** ek prabuddha aatma aur **Science Divine Movement** ke sansthapak hain.\n\n• **Mulmantra:** "Bheetar se sanyaas, bahar se sansaar" — sansaar mein rehkar aatmik shanti.\n• **Scientific Dhyan:** Vyast jeevan mein turant shanti aur urja pane ki vidhiyan.\n• **Har Ghar Shiksha:** Hazaaron zarooratmand bachhon ko muft shiksha aur dhyan.\n\n💛 Unke saath **Personal Session** lena jeevan badalne wala anubhav hota hai!`,
+      text: `${getGreeting()}🙏 **Sakshi Shree Guru Ji** Science Divine Foundation ke margdarshak aur Science Divine Movement ke sansthapak hain.\n\nUnki core teaching simple hai: **andar shanti, bahar zimmedari**. Duniya se bhaagna nahi, duniya ke beech clarity aur sakshi bhaav ke saath jeena.\n\nGuru Ji meditation, sakshi bhaav, sankalp shakti, stress relief aur practical spiritual living sikhate hain. Unka style heavy pravachan jaisa nahi, real-life problems ko seedhi bhaasha mein samjhata hai. Kabhi-kabhi answer itna seedha hota hai ki ego quietly bolta hai: "haan, ye baat mere liye hi thi."\n\nAgar client personal problem, relationship, career direction, stress, spiritual growth ya inner peace ke liye guidance chahta hai, to **personal session** best next step hota hai.`,
       links: [
         { label: "About Sakshi Shree", url: "/about-sakshi-shree" },
         { label: "Book Personal Session", url: "/book-session" },
-        { label: "Science Divine Movement", url: "/about-science-divine-movement" },
       ],
-      suggestions: [
-        "Session kaise book karein?",
-        "Courses ke baare mein batayein",
-        "English Book link",
-      ],
+      suggestions: ["Session kaise hota hai?", "Guru Ji ki philosophy"],
     };
   }
 
-  // ── 2. ENGLISH BOOK ────────────────────────────────────────────────────
   if (
-    query.includes("english book") ||
-    query.includes("book link") ||
-    query.includes("mahamantra") ||
-    query.includes("maha mantra") ||
-    (query.includes("book") && query.includes("english")) ||
-    query.includes("mahamantras")
-  ) {
-    trackInterest("book");
-    return {
-      text: `${getGreeting()}📖 **Sakshi Shree Ji ki English Book — Mahamantras Teachings:**\n\nIs pustak mein shaktishali mahamantras aur jeevan rupantaran ke practical raaz bataye gaye hain.\n\nAbhi niche diye link se book prapt karein:`,
-      links: [
-        { label: "English Book Website", url: "https://mahamantrasbook.s.gy/englishwebsite" },
-        { label: "Explore Courses", url: "/courses" },
-        { label: "Book Session", url: "/book-session" },
-      ],
-      suggestions: ["Courses ke baare mein", "Guru Ji ke baare mein", "Book a session"],
-    };
-  }
-
-  // ── 3. COURSES ─────────────────────────────────────────────────────────
-  if (
-    query.includes("course") ||
-    query.includes("program") ||
-    query.includes("sanjeevani") ||
-    query.includes("sanjeevni") ||
-    query.includes("design your destiny") ||
-    query.includes("joyful living") ||
-    query.includes("mind power") ||
-    query.includes("workshop") ||
-    query.includes("training")
-  ) {
-    trackInterest("courses");
-    return {
-      text: `${getGreeting()}✨ **Science Divine ke 4 Mukhya Courses:**\n\n1. **Sanjeevani Kriya** — Minutes mein stress aur toxins door karein.\n2. **Design Your Destiny** — Apne sankalp aur karm se bhavishya banayein.\n3. **Science of Joyful Living** — Swasthya, prem aur aatmik shanti ka blueprint.\n4. **Mind Power Meditation** — Peak mental focus aur yaadashth badhayein.\n\nIn courses se hazaron logon ka jeevan badla hai!`,
-      links: [
-        { label: "All Courses", url: "/courses" },
-        { label: "Sanjeevani Kriya", url: "/sanjeevni-kriya-2" },
-        { label: "Design Your Destiny", url: "/designyourdestiny" },
-        { label: "Book Personal Session", url: "/book-session" },
-      ],
-      suggestions: ["Session kaise book karein?", "Sanjeevani Kriya kya hai?", "Guru Ji ke baare mein"],
-    };
-  }
-
-  // ── 4. MENTAL HEALTH ───────────────────────────────────────────────────
-  if (
-    query.includes("anxiety") ||
-    query.includes("depression") ||
-    query.includes("overthinking") ||
-    query.includes("stress") ||
-    query.includes("fear") ||
-    query.includes("sleep") ||
-    query.includes("peace") ||
-    query.includes("negative") ||
-    query.includes("tension") ||
-    query.includes("pareshani") ||
-    query.includes("addiction") ||
-    query.includes("parenting") ||
-    query.includes("relationship") ||
-    query.includes("wellness") ||
-    query.includes("solution")
-  ) {
-    trackInterest("mental_health");
-    return {
-      text: `${getGreeting()}🌸 **Anxiety, Depression aur Overthinking se Mukti:**\n\nSakshi Shree Ji ke saral dhyan sutra:\n• **Sakshi Sadhna** — Man ki shanti aur sakshi bhaav.\n• **Mindful Breathing** — Turant relax hone ke liye.\n• **Sanjeevani Kriya** — Gehri shanti aur taazgi ke liye.\n\n💛 Ek personal session se hi man shant aur ashwanvit ho jata hai.`,
-      links: [
-        { label: "Anxiety Solution", url: "/anxiety" },
-        { label: "Overthinking Relief", url: "/overthinking" },
-        { label: "All Solutions", url: "/get-solutions-for" },
-        { label: "Book Session", url: "/book-session" },
-      ],
-      suggestions: ["Personal session book karein", "Sanjeevani Kriya", "Guru Ji ke baare mein"],
-    };
-  }
-
-  // ── 5. YOGA / MEDITATION / PRACTICES ──────────────────────────────────
-  if (
-    query.includes("yoga") ||
-    query.includes("meditation") ||
-    query.includes("mindfulness") ||
-    query.includes("pranayama") ||
-    query.includes("breathing") ||
-    query.includes("gratitude") ||
-    query.includes("positive") ||
-    query.includes("manifestation") ||
-    query.includes("dhyan") ||
-    query.includes("sadhna")
-  ) {
-    trackInterest("practices");
-    return {
-      text: `${getGreeting()}🌿 **Science Divine Daily Practices:**\n\n• **Easy Yoga & Pranayama** — Sharir aur mann ka santulan.\n• **Sakshi Dhyan** — Chintao se pare sakshi bhaav.\n• **Mindfulness & Gratitude** — Har pal mein anand aur santosh.\n\nInse prapt hota hai **Sound Body, Sound Mind**!`,
-      links: [
-        { label: "Easy Yoga", url: "/yoga" },
-        { label: "Meditation Guide", url: "/meditation" },
-        { label: "Mindfulness", url: "/mindfulness" },
-      ],
-      suggestions: ["Courses dekhein", "Book a session", "Guru Ji ke baare mein"],
-    };
-  }
-
-  // ── 6. SEWA INITIATIVES ────────────────────────────────────────────────
-  if (
-    query.includes("sewa") ||
-    query.includes("donate") ||
-    query.includes("donation") ||
-    query.includes("shiksha") ||
-    query.includes("annapurna") ||
-    query.includes("charity") ||
-    query.includes("humanity") ||
-    query.includes("volunteer") ||
-    query.includes("har ghar") ||
-    query.includes("nirman") ||
-    query.includes("dhyan sewa") ||
-    query.includes("swastha")
-  ) {
-    trackInterest("sewa");
-    return {
-      text: `${getGreeting()}🤝 **Science Divine Sewa Prakalp:**\n\n• **Har Ghar Shiksha** — Bachhon ko 100% muft quality education & dhyan.\n• **Annapurna Sewa** — Zarooratmand parivaaron ko poshtik bhojan.\n• **Swastha Sewa** — Free medical camps aur dawa.\n• **Dhyan Sewa** — Samaaj ke liye free meditation sessions.\n\nAapka sahyog seedha zindagiyan sanwarta hai.`,
-      links: [
-        { label: "Sewa Initiatives", url: "/initiatives" },
-        { label: "Har Ghar Shiksha", url: "/har-ghar-shiksha" },
-        { label: "Donate Now", url: RAZORPAY_DONATION_LINK },
-      ],
-      suggestions: ["Personal session", "Upcoming Events", "About Guru Ji"],
-    };
-  }
-
-  // ── 7. EVENTS & RETREATS ───────────────────────────────────────────────
-  if (
-    query.includes("event") ||
-    query.includes("retreat") ||
-    query.includes("mahotsav") ||
-    query.includes("date") ||
-    query.includes("camp") ||
-    query.includes("sunday") ||
-    query.includes("shivir") ||
-    query.includes("upcoming") ||
-    query.includes("gallery")
-  ) {
-    trackInterest("events");
-    return {
-      text: `${getGreeting()}📅 **Upcoming Events & Retreats:**\n\n• **Shiksha Sewa Sankalp Mahotsav** — Ghaziabad Dhaam.\n• **Navvarsh Dhyan Mahotsav** — Mass meditation with Sakshi Shree Ji.\n• **Sunday Satsang & Retreats** — Monthly dhyan gatherings.\n\nIn events mein shamil hokar anand aur aatmik shanti ka anubhav karein!`,
-      links: [
-        { label: "View Events", url: "/events" },
-        { label: "Events Gallery", url: "/events-gallery" },
-        { label: "Book Session", url: "/book-session" },
-      ],
-      suggestions: ["Book a session", "Courses", "Contact & Location"],
-    };
-  }
-
-  // ── 8. CONTACT / SESSION BOOKING ──────────────────────────────────────
-  if (
-    query.includes("contact") ||
-    query.includes("session") ||
-    query.includes("book") ||
-    query.includes("phone") ||
-    query.includes("email") ||
-    query.includes("address") ||
-    query.includes("location") ||
-    query.includes("dhaam") ||
-    query.includes("help") ||
-    query.includes("meet") ||
-    query.includes("linkedin") ||
-    query.includes("appointment") ||
-    query.includes("zoom") ||
-    query.includes("personal") ||
-    query.includes("milna")
+    hasAny(query, [
+      "session",
+      "appointment",
+      "booking",
+      "book",
+      "personal",
+      "meet",
+      "milna",
+      "zoom",
+      "fee",
+      "price",
+      "amount",
+      "payment",
+      "contact",
+      "phone",
+      "email",
+      "address",
+      "location",
+      "dhaam",
+    ])
   ) {
     trackInterest("session");
     return {
-      text: `${getGreeting()}🌟 **Sakshi Shree Ji ke Saath Personal Session:**\n\nEk personal session se jeevan ke bade sankat aur uljhanein sulajh sakti hain.\n\n• **In-Person:** Siddha Sudarshan Sakshi Dhaam, Ghaziabad\n• **Online:** Zoom par (India & International)\n\nNiche diye link se direct appointment book karein:`,
+      text: `${getGreeting()}🌟 **Personal Session with Sakshi Shree Ji** un logon ke liye hai jo generic answer nahi, apni situation ke hisaab se guidance chahte hain.\n\nSession mein aap life confusion, stress, relationships, career direction, inner peace, spiritual growth ya repeated patterns par baat kar sakte hain.\n\n• **Mode:** Ghaziabad Dhaam par in-person ya online Zoom.\n• **Booking:** form/payment ke baad team timing coordinate karti hai.\n• **Best for:** jab YouTube video aur Google ke 50 tabs se zyada personal clarity chahiye.\n\nSeedha bolun? Agar problem baar-baar wahi aa rahi hai, to ek focused session random advice se zyada useful ho sakta hai.`,
       links: [
         { label: "Book Personal Session", url: "/book-session" },
-        { label: "US / Global Session", url: "/us-personal-session" },
         { label: "Contact Us", url: "/contact" },
       ],
-      suggestions: ["Guru Ji ke baare mein", "Courses dekhein", "Sewa Prakalp"],
+      suggestions: ["Guru Ji ke baare mein", "Courses batao"],
     };
   }
 
-  // ── 9. TESTIMONIALS / REVIEWS ─────────────────────────────────────────
   if (
-    query.includes("testimonial") ||
-    query.includes("review") ||
-    query.includes("feedback") ||
-    query.includes("experience") ||
-    query.includes("result") ||
-    query.includes("success") ||
-    query.includes("transform") ||
-    query.includes("anubhav")
+    hasAny(query, [
+      "course",
+      "program",
+      "sanjeevani",
+      "sanjeevni",
+      "design your destiny",
+      "joyful living",
+      "mind power",
+      "workshop",
+      "training",
+    ])
   ) {
+    trackInterest("courses");
+    return {
+      text: `${getGreeting()}✨ Science Divine ke main courses practical transformation ke liye hain:\n\n1. **Sanjeevani Kriya** - stress release aur inner freshness.\n2. **Design Your Destiny** - sankalp, karma aur life direction.\n3. **Science of Joyful Living** - health, love, peace aur daily balance.\n4. **Mind Power Meditation** - focus, memory aur mental clarity.\n\nAgar client confused hai ki kaunsa course best hai, pehle unki current problem samajhna better hai. Spiritual shopping cart bharne ki zaroorat nahi, sahi ek cheez kaafi hoti hai.`,
+      links: [
+        { label: "All Courses", url: "/courses" },
+        { label: "Sanjeevani Kriya", url: "/sanjeevni-kriya-2" },
+      ],
+      suggestions: ["Mere liye course suggest karo", "Session better hai kya?"],
+    };
+  }
+
+  if (
+    hasAny(query, [
+      "anxiety",
+      "depression",
+      "overthinking",
+      "stress",
+      "fear",
+      "sleep",
+      "peace",
+      "negative",
+      "tension",
+      "pareshani",
+      "addiction",
+      "parenting",
+      "relationship",
+      "wellness",
+      "solution",
+    ])
+  ) {
+    trackInterest("solutions");
+    return {
+      text: `${getGreeting()}🌸 Pehle aapki problem ko softly samajhte hain. Anxiety, stress ya overthinking mein mind ko force se chup karana mushkil hota hai; Guru Ji ke path mein **sakshi bhaav** se mind ko observe karna sikhaya jata hai.\n\nEk simple start: 30 seconds ke liye bas saans ko dekhiye. Control nahi, bas notice. Mann bhaage to gently wapas. Mind gym nahi gaya hota, isliye pehle din se six-pack focus expect mat kijiye.\n\nAgar issue deep, personal ya repeated hai, personal session mein situation-specific guidance mil sakti hai.`,
+      links: [
+        { label: "Anxiety Solution", url: "/anxiety" },
+        { label: "Book Session", url: "/book-session" },
+      ],
+      suggestions: ["Session kaise help karega?", "Meditation batao"],
+    };
+  }
+
+  if (hasAny(query, ["yoga", "meditation", "mindfulness", "pranayama", "breathing", "gratitude", "positive", "manifestation", "dhyan", "sadhna"])) {
+    trackInterest("practices");
+    return {
+      text: `${getGreeting()}🌿 Science Divine daily practices ka focus hai **Sound Body, Sound Mind**.\n\n• Easy Yoga aur Pranayama body-mind balance ke liye.\n• Sakshi Dhyan thoughts ko observe karne ke liye.\n• Mindfulness aur gratitude daily life mein lightness lane ke liye.\n\nStart small. 5 minute daily practice, 50 motivational reels se zyada kaam kar sakti hai.`,
+      links: [
+        { label: "Yoga", url: "/yoga" },
+        { label: "Meditation", url: "/meditation" },
+      ],
+      suggestions: ["Guru Ji", "Session"],
+    };
+  }
+
+  if (hasAny(query, ["sewa", "donate", "donation", "shiksha", "annapurna", "charity", "humanity", "volunteer", "har ghar", "nirman", "dhyan sewa", "swastha"])) {
+    trackInterest("sewa");
+    return {
+      text: `${getGreeting()}🤝 **Science Divine Sewa Prakalp** spiritual growth ko real service se jodta hai.\n\n• **Har Ghar Shiksha** - underprivileged children ke liye free education.\n• **Annapurna Sewa** - food support.\n• **Dhyan Sewa** - meditation and awareness programs.\n• **Nirman Sewa** - dhaam and service infrastructure.\n\nDonation ka impact direct sewa projects mein jata hai. Link chahiye to neeche diya hai.`,
+      links: [
+        { label: "Sewa Initiatives", url: "/initiatives" },
+        { label: "Donate Now", url: RAZORPAY_DONATION_LINK },
+      ],
+      suggestions: ["Har Ghar Shiksha", "Guru Ji"],
+    };
+  }
+
+  if (hasAny(query, ["event", "retreat", "mahotsav", "date", "camp", "sunday", "shivir", "upcoming", "gallery"])) {
+    trackInterest("events");
+    return {
+      text: `${getGreeting()}📅 Science Divine events mein satsang, meditation, shivir aur sewa gatherings hote hain.\n\nAgar aap live experience chahte hain, event page dekhna best hai. Online knowledge achhi hai, lekin kabhi-kabhi environment hi aadha kaam kar deta hai.`,
+      links: [
+        { label: "View Events", url: "/events" },
+        { label: "Events Gallery", url: "/events-gallery" },
+      ],
+      suggestions: ["Session", "Guru Ji"],
+    };
+  }
+
+  if (hasAny(query, ["testimonial", "review", "feedback", "experience", "result", "success", "transform", "anubhav"])) {
     trackInterest("testimonials");
     return {
-      text: `${getGreeting()}💛 **Seekers ke Anubhav:**\n\n• *"10 saal ka depression session ke baad khatam ho gaya."*\n• *"Business aur rishton mein adbhut shanti aayi."*\n• *"Pehli baar jeevan mein sachi shanti mili."*\n\nAap bhi apni transformation shuru karein!`,
+      text: `${getGreeting()}💛 Seekers often share that Guru Ji ki guidance se unhe clarity, emotional relief, direction aur inner peace mehsoos hua.\n\nMain miracle guarantee nahi bolunga, kyunki har seeker ka journey alag hota hai. Lekin sincere seeker ke liye right guidance kabhi-kabhi turning point ban jati hai.`,
       links: [
         { label: "Video Testimonials", url: "/latest-testimonials-videos" },
         { label: "Book Session", url: "/book-session" },
       ],
-      suggestions: ["Book session", "Courses", "Guru Ji ke baare mein"],
+      suggestions: ["Book session", "Guru Ji"],
     };
   }
 
-  // ── 10. SCIENCE DIVINE MOVEMENT ────────────────────────────────────────
-  if (
-    query.includes("movement") ||
-    query.includes("science divine") ||
-    query.includes("foundation") ||
-    query.includes("mission") ||
-    query.includes("vision") ||
-    query.includes("organization")
-  ) {
+  if (hasAny(query, ["english book", "book link", "mahamantra", "maha mantra", "mahamantras"]) || (query.includes("book") && query.includes("english"))) {
+    trackInterest("book");
+    return {
+      text: `${getGreeting()}📖 **English Book - Mahamantras Teachings** Sakshi Shree Ji ki practical teachings ko simple English mein samjhati hai.\n\nAgar client English mein spiritual concepts read karna chahta hai, ye link useful hai.`,
+      links: [{ label: "English Book Website", url: "https://mahamantrasbook.s.gy/englishwebsite" }],
+      suggestions: ["Courses batao", "Session batao"],
+    };
+  }
+
+  if (hasAny(query, ["movement", "science divine", "foundation", "mission", "vision", "organization"])) {
     trackInterest("movement");
     return {
-      text: `${getGreeting()}🕉️ **Science Divine Movement:**\n\n• **Mission:** Har ghar mein shanti aur aatmik jagran.\n• **Vision:** Science aur spirituality ka sundar sangam — Sound Body, Sound Mind aur Self-Realization.\n• **Global Reach:** Hazaaron seekers Bharat aur videsh mein jude hain.`,
+      text: `${getGreeting()}🕉️ **Science Divine Foundation** ka mission hai inner peace, meditation, self-realization aur sewa ko practical life tak le jana.\n\nFoundation Guru Ji ki guidance mein courses, personal sessions, events, sewa projects aur spiritual education ke through seekers ko support karti hai.`,
       links: [
         { label: "About Movement", url: "/about-science-divine-movement" },
         { label: "About Guru Ji", url: "/about-sakshi-shree" },
-        { label: "Book Session", url: "/book-session" },
       ],
-      suggestions: ["Courses", "Book session", "Sewa"],
+      suggestions: ["Guru Ji", "Session"],
     };
   }
 
-  // ── 11. SHOP / BOOKS ───────────────────────────────────────────────────
-  if (
-    query.includes("shop") ||
-    query.includes("buy") ||
-    query.includes("purchase") ||
-    query.includes("product") ||
-    query.includes("store")
-  ) {
+  if (hasAny(query, ["shop", "buy", "purchase", "product", "store"])) {
     trackInterest("shop");
     return {
-      text: `${getGreeting()}🛒 **Science Divine Shop:**\n\n• **English Book:** Sakshi Shree Ji ki Mahamantras Book\n• **Spiritual Tools:** Meditation & wellness resources\n\nExplore karein:`,
+      text: `${getGreeting()}🛒 Science Divine shop mein spiritual books aur resources milte hain. Agar aap English book chahte hain, direct book link bhi available hai.`,
       links: [
         { label: "Visit Shop", url: "/shop" },
         { label: "English Book", url: "https://mahamantrasbook.s.gy/englishwebsite" },
       ],
-      suggestions: ["English Book link", "Courses", "Book session"],
+      suggestions: ["Book link", "Guru Ji"],
     };
   }
 
-  // ── 12. GREETINGS ──────────────────────────────────────────────────────
-  if (
-    query.includes("namaste") ||
-    query.includes("namaskar") ||
-    query.includes("hari om") ||
-    query.includes("hello") ||
-    query === "hi" ||
-    query === "hey" ||
-    query.includes("good morning") ||
-    query.includes("good evening") ||
-    query.includes("kaise ho") ||
-    query.includes("how are you")
-  ) {
+  if (hasAny(query, ["link", "url", "website", "page"])) {
     return {
-      text: `🙏 **Hari Om & Namaste!**\n\nMain aapka **Divine AI Guide** hoon. Guru Ji ke baare mein, courses, anxiety solutions, English book, ya session booking — kuch bhi poochein!`,
-      suggestions: ["Guru Ji ke baare mein", "Courses dekhein", "Book session"],
+      text: `${getGreeting()}Bilkul. Ye important website links hain. Aap jis cheez ka link chahte hain us par click kar sakte hain.`,
+      links: [
+        { label: "About Guru Ji", url: "/about-sakshi-shree" },
+        { label: "Book Session", url: "/book-session" },
+        { label: "Courses", url: "/courses" },
+        { label: "Contact", url: "/contact" },
+      ],
+      suggestions: ["Session batao", "Courses batao"],
     };
   }
 
-  // ── 13. GRATITUDE ─────────────────────────────────────────────────────
-  if (
-    query.includes("thank") ||
-    query.includes("thanks") ||
-    query.includes("shukriya") ||
-    query.includes("dhanyavad") ||
-    query.includes("great") ||
-    query.includes("helpful")
-  ) {
+  if (hasAny(query, ["namaste", "namaskar", "hari om", "hello", "hey", "good morning", "good evening", "kaise ho", "how are you"]) || query === "hi") {
     return {
-      text: `${getGreeting()}Aapka shukriya! 🙏 Sakshi Shree Ji ka aashirwaad hamesha aapke saath hai. Kuch aur jaanna chahein toh batayein.`,
-      suggestions: ["Book a session", "Courses", "About Guru Ji"],
+      text: `🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nMain Guru Ji, personal session, courses, meditation, sewa, events, book aur website links ke baare mein bata sakta hoon. Aap apna sawaal boliye. Main jawab simple, useful aur thoda human rakhunga - boring pravachan mode off.`,
+      suggestions: ["Guru Ji", "Session"],
     };
   }
 
-  // ── DEFAULT FALLBACK ────────────────────────────────────────────────────
+  if (hasAny(query, ["thank", "thanks", "shukriya", "dhanyavad", "great", "helpful"])) {
+    return {
+      text: `${getGreeting()}Aapka shukriya 🙏 Sakshi Shree Ji ka aashirwaad hamesha aapke saath rahe. Aur kuch poochna ho to main yahin hoon.`,
+      suggestions: ["Book session", "Guru Ji"],
+    };
+  }
+
   return {
-    text: `${getGreeting()}🙏 **Namaste! Main aapka Divine AI Assistant hoon.**\n\nMain in vishayon mein madad kar sakta hoon:\n• **Sakshi Shree Guru Ji & Philosophy**\n• **4 Transformative Courses**\n• **Anxiety, Stress & Overthinking Solutions**\n• **English Book & Mahamantras**\n• **Personal Session Booking**\n\nBatayein, kya jaanna chahte hain?`,
-    links: [
-      { label: "Courses", url: "/courses" },
-      { label: "Solutions", url: "/get-solutions-for" },
-      { label: "Book Session", url: "/book-session" },
-    ],
-    suggestions: [
-      "Guru Ji ke baare mein batao",
-      "Courses dekhein",
-      "English Book link",
-      "Book personal session",
-    ],
+    text: `${getGreeting()}Main samajhna chahta hoon ki aap exactly kya dhoondh rahe hain.\n\nAap Guru Ji, personal session, meditation, courses, stress/overthinking, sewa, events, book ya contact ke baare mein pooch sakte hain. Agar aap apni situation ek line mein bata dein, main direct sahi direction de dunga.`,
+    suggestions: ["Guru Ji ke baare mein", "Session kaise hota hai"],
   };
 }

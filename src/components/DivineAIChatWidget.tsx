@@ -32,7 +32,7 @@ export function DivineAIChatWidget() {
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  // ChatGPT Voice Mode State
+  // Voice conversation state
   const [isVoiceMode, setIsVoiceMode] = useState(false);
   const [voiceStatus, setVoiceStatus] = useState<"idle" | "listening" | "thinking" | "speaking">("idle");
   const [liveTranscript, setLiveTranscript] = useState("");
@@ -48,15 +48,10 @@ export function DivineAIChatWidget() {
     {
       id: "initial",
       sender: "bot",
-      text: "🙏 **Hari Om & Namaste!** Main hoon aapka **Divine AI Guide** — Science Divine Foundation ka.\n\nSakshi Shree Guru Ji, courses, meditation, ya session booking — kuch bhi poochein!",
-      links: [
-        { label: "Courses", url: "/courses" },
-        { label: "Book Session", url: "/book-session" },
-      ],
+      text: "🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nAap Guru Ji, personal session, courses, meditation, sewa ya book ke baare mein pooch sakte hain. Pehle aapki baat samjhenge, phir sahi raasta batayenge.",
       suggestions: [
-        "Guru Ji ke baare mein batao",
-        "Courses dekhein",
-        "English Book link",
+        "Guru Ji ke baare mein",
+        "Session kaise hota hai",
       ],
       timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
@@ -94,7 +89,7 @@ export function DivineAIChatWidget() {
       recognition.onstart = () => {
         isRecognitionRunningRef.current = true;
         setVoiceStatus("listening");
-        setLiveTranscript("Sun raha hoon...");
+        setLiveTranscript("Main sun raha hoon...");
       };
 
       recognition.onresult = (event: any) => {
@@ -137,7 +132,7 @@ export function DivineAIChatWidget() {
               ? "Mic permission allow kijiye."
               : e?.error === "no-speech"
               ? "Awaaz clear nahi aayi. Dobara mic dabayein."
-              : "Mic dabayein aur boliye.";
+              : "Mic dabaiye aur boliye.";
           setVoiceStatus("idle");
           setLiveTranscript(message);
         }
@@ -152,7 +147,7 @@ export function DivineAIChatWidget() {
 
       recognitionRef.current = recognition;
     } else {
-      setLiveTranscript("Voice input is browser mein supported nahi hai. Chrome/Edge use karein.");
+      setLiveTranscript("Is browser mein voice input supported nahi hai. Chrome/Edge use karein.");
     }
   }, []);
 
@@ -173,7 +168,7 @@ export function DivineAIChatWidget() {
       .replace(/[#_`~]/g, "")
       .replace(/- /g, ", ")
       .replace(/🙏|✨|🌸|🌿|🤝|📅|🌟|💡|🧘|📚|🔴/g, "");
-    setLiveTranscript("Bol raha hoon...");
+    setLiveTranscript("Jawab de raha hoon...");
 
     const apiKey = (import.meta as any).env?.VITE_ELEVENLABS_API_KEY;
 
@@ -192,8 +187,10 @@ export function DivineAIChatWidget() {
               text: clean,
               model_id: "eleven_multilingual_v2",
               voice_settings: {
-                stability: 0.5,
-                similarity_boost: 0.8,
+                stability: 0.38,
+                similarity_boost: 0.86,
+                style: 0.28,
+                use_speaker_boost: true,
               },
             }),
           }
@@ -208,7 +205,7 @@ export function DivineAIChatWidget() {
           audio.onended = () => {
             setSpeakingMsgId(null);
             setVoiceStatus("idle");
-            setLiveTranscript("Bolein, main sun raha hoon...");
+            setLiveTranscript("Boliye, main sun raha hoon...");
             URL.revokeObjectURL(audioUrl);
             if (continueListeningInVoiceMode && isVoiceModeRef.current) {
               startListening();
@@ -252,7 +249,7 @@ export function DivineAIChatWidget() {
       utterance.onend = () => {
         setSpeakingMsgId(null);
         setVoiceStatus("idle");
-        setLiveTranscript("Bolein, main sun raha hoon...");
+        setLiveTranscript("Boliye, main sun raha hoon...");
         if (continueListeningInVoiceMode && isVoiceModeRef.current) {
           startListening();
         }
@@ -286,7 +283,7 @@ export function DivineAIChatWidget() {
     if (recognitionRef.current) {
       try {
         if (isRecognitionRunningRef.current) return;
-        setLiveTranscript("Sun raha hoon...");
+        setLiveTranscript("Main sun raha hoon...");
         recognitionRef.current.start();
         setVoiceStatus("listening");
       } catch (err) {
@@ -314,7 +311,7 @@ export function DivineAIChatWidget() {
   const toggleChatGPTVoiceMode = () => {
     if (!isVoiceMode) {
       setIsVoiceMode(true);
-      setLiveTranscript("Bolein, main sun raha hoon...");
+      setLiveTranscript("Boliye, main sun raha hoon...");
       setTimeout(() => {
         startListening();
       }, 300);
@@ -346,7 +343,7 @@ export function DivineAIChatWidget() {
 
     if (fromVoice || isVoiceMode) {
       setVoiceStatus("thinking");
-      setLiveTranscript("Soch raha hoon...");
+      setLiveTranscript("Samajh raha hoon...");
     }
 
     setTimeout(() => {
@@ -381,15 +378,10 @@ export function DivineAIChatWidget() {
       {
         id: Date.now().toString(),
         sender: "bot",
-        text: "🙏 **Hari Om & Namaste!** Main hoon aapka **Divine AI Guide** — Science Divine Foundation ka.\n\nSakshi Shree Guru Ji, courses, meditation, ya session booking — kuch bhi poochein!",
-        links: [
-          { label: "Courses", url: "/courses" },
-          { label: "Book Session", url: "/book-session" },
-        ],
+        text: "🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nAap Guru Ji, personal session, courses, meditation, sewa ya book ke baare mein pooch sakte hain. Pehle aapki baat samjhenge, phir sahi raasta batayenge.",
         suggestions: [
-          "Guru Ji ke baare mein batao",
-          "Courses dekhein",
-          "English Book link",
+          "Guru Ji ke baare mein",
+          "Session kaise hota hai",
         ],
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       },
@@ -458,7 +450,7 @@ export function DivineAIChatWidget() {
               {/* ChatGPT Style Voice Mode Toggle in Header */}
               <button
                 onClick={toggleChatGPTVoiceMode}
-                title={isVoiceMode ? "Switch to Text Chat" : "Open Voice Mode"}
+                title={isVoiceMode ? "Switch to text chat" : "Talk with voice"}
                 className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 font-bold ${
                   isVoiceMode
                     ? "bg-white text-sky-700 shadow-xs animate-pulse"
@@ -466,7 +458,7 @@ export function DivineAIChatWidget() {
                 }`}
               >
                 <Radio size={13} className={isVoiceMode ? "animate-spin text-sky-500" : ""} />
-                <span className="text-[11px]">{isVoiceMode ? "Active" : "Voice"}</span>
+                <span className="text-[11px]">{isVoiceMode ? "Listening" : "Voice"}</span>
               </button>
 
               {/* Clear chat */}
@@ -494,7 +486,7 @@ export function DivineAIChatWidget() {
             </div>
           </div>
 
-          {/* ChatGPT Style Voice Mode Overlay */}
+          {/* Full-screen voice conversation overlay */}
           {isVoiceMode ? (
             <div className="flex-1 flex flex-col items-center justify-between px-4 py-4 bg-gradient-to-b from-sky-50 via-sky-100 to-white text-slate-800 select-none animate-in fade-in duration-200">
               
@@ -545,7 +537,7 @@ export function DivineAIChatWidget() {
 
               {/* Status / Transcript Text */}
               <p className="text-[13px] font-semibold text-slate-700 text-center leading-snug px-3 min-h-[34px] flex items-center justify-center">
-                {liveTranscript || (voiceStatus === "listening" ? "Sun raha hoon..." : voiceStatus === "thinking" ? "Soch raha hoon..." : "Bolein, main sun raha hoon...")}
+                {liveTranscript || (voiceStatus === "listening" ? "Main sun raha hoon..." : voiceStatus === "thinking" ? "Samajh raha hoon..." : voiceStatus === "speaking" ? "Jawab de raha hoon..." : "Boliye, Guru Ji ke baare mein kya jaanna hai?")}
               </p>
 
               {/* Bottom Control Bar */}
@@ -598,7 +590,7 @@ export function DivineAIChatWidget() {
                   msOverflowStyle: "none",
                 }}
               >
-                {QUICK_SUGGESTIONS.map((item, idx) => (
+                {QUICK_SUGGESTIONS.slice(0, 3).map((item, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSend(item.query)}
@@ -715,7 +707,7 @@ export function DivineAIChatWidget() {
                       {/* Suggested Followups */}
                       {msg.suggestions && msg.suggestions.length > 0 && (
                         <div className="mt-2 pt-1.5 flex flex-wrap gap-1">
-                          {msg.suggestions.map((sug, sIdx) => (
+                          {msg.suggestions.slice(0, 2).map((sug, sIdx) => (
                             <button
                               key={sIdx}
                               onClick={() => handleSend(sug)}
@@ -789,7 +781,7 @@ export function DivineAIChatWidget() {
                   <button
                     type="button"
                     onClick={toggleChatGPTVoiceMode}
-                    title="Open Voice Mode"
+                    title="Talk with voice"
                     className="p-1 rounded text-sky-600 hover:bg-sky-200/60 hover:text-sky-900 transition-all flex items-center"
                   >
                     <Mic size={15} />
@@ -799,7 +791,7 @@ export function DivineAIChatWidget() {
                     type="text"
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
-                    placeholder="Courses, yoga, Sakshi Shree..."
+                    placeholder="Guru Ji, session, meditation..."
                     className="w-full bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none py-0.5"
                   />
 
@@ -818,7 +810,7 @@ export function DivineAIChatWidget() {
                     className="text-sky-600 hover:text-sky-800 flex items-center gap-1 font-semibold transition-colors"
                   >
                     <Radio size={10} className="text-amber-500" />
-                    <span>Voice Mode</span>
+                    <span>Talk with voice</span>
                   </button>
                 </div>
               </div>
