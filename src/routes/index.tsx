@@ -255,20 +255,20 @@ function Home() {
             pointer-events: none;
           }
 
-          /* Sacred 580px Elegant Golden Lotus Chakra Mandala */
+          /* Sacred 580px Golden Lotus Mandala Rotation */
           .hero-mandala-580 {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 580px;
             height: 580px;
-            opacity: 0.88;
+            opacity: 0.95;
             pointer-events: none;
             animation: rotateMandala 80s linear infinite;
             will-change: transform;
             transform: translate(-50%, -50%) translateZ(0);
             z-index: 0;
-            filter: drop-shadow(0 4px 14px rgba(184, 134, 11, 0.22));
+            filter: drop-shadow(0 0 10px rgba(146, 96, 12, 0.35));
           }
 
           /* ── Hero Container & Grid Layout ── */
@@ -499,7 +499,7 @@ function Home() {
                 transform: "translate(-50%, -50%)",
                 width: "500px",
                 height: "500px",
-                background: "radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(184, 134, 11, 0.1) 45%, transparent 70%)",
+                background: "radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(212, 175, 55, 0.2) 45%, transparent 70%)",
                 borderRadius: "50%",
                 filter: "blur(28px)",
                 pointerEvents: "none",
@@ -508,59 +508,39 @@ function Home() {
               }} />
 
               {/* Rotating Sacred Golden Chakra Mandala Layer */}
-              <svg className="hero-mandala-580" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="warmGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#D4AF37" />
-                    <stop offset="50%" stopColor="#C59B27" />
-                    <stop offset="100%" stopColor="#996515" />
-                  </linearGradient>
-                </defs>
-
-                <g stroke="url(#warmGoldGrad)" fill="none" strokeWidth="1.6">
-                  {/* Outer Concentric Sacred Geometry Rings */}
-                  <circle cx="300" cy="300" r="290" stroke="#C59B27" strokeWidth="1.2" opacity="0.6" strokeDasharray="4 6" />
-                  <circle cx="300" cy="300" r="280" stroke="#B8860B" strokeWidth="2" opacity="0.85" />
-                  <circle cx="300" cy="300" r="270" stroke="#C59B27" strokeWidth="1.3" opacity="0.7" />
+              <svg className="hero-mandala-580" style={{ opacity: 0.95 }} viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#92400E" fill="none" strokeWidth="2.2">
+                  {/* Outer Sacred Geometry Rings */}
+                  <circle cx="300" cy="300" r="290" stroke="#78350F" strokeWidth="2" opacity="0.85" strokeDasharray="5 7" />
+                  <circle cx="300" cy="300" r="280" stroke="#854D0E" strokeWidth="3.2" opacity="0.95" />
+                  <circle cx="300" cy="300" r="270" stroke="#9A3412" strokeWidth="1.8" opacity="0.85" />
                   
-                  {/* 12 Outer Pointed Solar Star Rays */}
+                  {/* Sacred Lotus Petals ── Outer Layer */}
                   {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
                     <g key={deg} transform={`rotate(${deg} 300 300)`}>
-                      <path d="M300,24 Q336,150 300,275 Q264,150 300,24" opacity="0.85" stroke="#B8860B" strokeWidth="1.8" />
-                      <line x1="300" y1="24" x2="300" y2="275" opacity="0.5" stroke="#C59B27" strokeWidth="1.2" />
-                      <circle cx="300" cy="42" r="3" fill="#C59B27" opacity="0.8" />
+                      <path d="M300,25 Q335,150 300,275 Q265,150 300,25" opacity="0.95" stroke="#78350F" strokeWidth="2.6" />
+                      <circle cx="300" cy="45" r="4.5" fill="#854D0E" stroke="#78350F" strokeWidth="1.2" opacity="1" />
+                      <line x1="300" y1="25" x2="300" y2="275" opacity="0.65" stroke="#92400E" strokeWidth="1.5" />
                     </g>
                   ))}
                   
-                  {/* 12 Secondary Intersecting Rays */}
+                  {/* Sacred Lotus Petals ── Inner Layer */}
                   {[15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345].map(deg => (
                     <g key={deg} transform={`rotate(${deg} 300 300)`}>
-                      <path d="M300,58 Q325,170 300,275 Q275,170 300,58" opacity="0.75" stroke="#C59B27" strokeWidth="1.5" />
-                      <circle cx="300" cy="80" r="2.5" fill="#B8860B" opacity="0.7" />
-                    </g>
-                  ))}
-
-                  {/* Intersecting Geometry Struts */}
-                  {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
-                    <g key={`strut-${deg}`} transform={`rotate(${deg} 300 300)`}>
-                      <line x1="300" y1="120" x2="335" y2="185" stroke="#C59B27" strokeWidth="1.1" opacity="0.45" />
-                      <line x1="300" y1="120" x2="265" y2="185" stroke="#C59B27" strokeWidth="1.1" opacity="0.45" />
+                      <path d="M300,60 Q325,170 300,275 Q275,170 300,60" opacity="0.9" stroke="#9A3412" strokeWidth="2.4" />
+                      <circle cx="300" cy="85" r="4" fill="#78350F" opacity="0.95" />
                     </g>
                   ))}
 
                   {/* Inner Concentric Rings */}
-                  <circle cx="300" cy="300" r="212" stroke="#B8860B" strokeWidth="2" opacity="0.8" />
-                  <circle cx="300" cy="300" r="198" stroke="#C59B27" strokeWidth="1.3" opacity="0.65" strokeDasharray="3 5" />
-                  <circle cx="300" cy="300" r="150" stroke="#B8860B" strokeWidth="1.5" opacity="0.75" />
+                  <circle cx="300" cy="300" r="210" stroke="#854D0E" strokeWidth="3" opacity="0.95" />
+                  <circle cx="300" cy="300" r="195" stroke="#78350F" strokeWidth="2.5" opacity="0.85" strokeDasharray="4 8" />
+                  <circle cx="300" cy="300" r="150" stroke="#92400E" strokeWidth="2.4" opacity="0.95" />
                   
-                  {/* Central Sunburst Spokes */}
+                  {/* Sunburst Rays Core */}
                   {[...Array(36)].map((_, i) => (
-                    <line key={i} x1="300" y1="168" x2="300" y2="275" opacity="0.5" stroke="#C59B27" strokeWidth="1.2" transform={`rotate(${i * 10} 300 300)`} />
+                    <line key={i} x1="300" y1="170" x2="300" y2="275" opacity="0.75" stroke="#78350F" strokeWidth="1.8" transform={`rotate(${i * 10} 300 300)`} />
                   ))}
-
-                  {/* Center Core Rings */}
-                  <circle cx="300" cy="300" r="95" stroke="#C59B27" strokeWidth="1.5" opacity="0.7" />
-                  <circle cx="300" cy="300" r="90" fill="rgba(212, 175, 55, 0.05)" stroke="#B8860B" strokeWidth="1" opacity="0.6" />
                 </g>
               </svg>
 
