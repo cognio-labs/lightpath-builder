@@ -11,6 +11,7 @@ const speechInputSchema = z.object({
 
 let rateWindowStartedAt = Date.now();
 let requestsInWindow = 0;
+let providerUnavailableUntil = 0;
 
 function checkRateLimit() {
   const now = Date.now();
@@ -34,6 +35,15 @@ export const generateSpeechAudio = createServerFn({ method: "POST" })
       return {
         available: false as const,
         reason: "not-configured" as const,
+      };
+    }
+
+    // Avoid repeatedly calling ElevenLabs while the account has no credits.
+    // The client immediately uses its built-in female browser voice instead.
+    if (Date.now() < providerUnavailableUntil) {
+      return {
+        available: false as const,
+        reason: "temporarily-unavailable" as const,
       };
     }
 
@@ -64,13 +74,20 @@ export const generateSpeechAudio = createServerFn({ method: "POST" })
 
     if (!response.ok) {
       const requestId = response.headers.get("request-id");
-      console.error("ElevenLabs TTS request failed", {
+      if (response.status === 402) {
+        providerUnavailableUntil = Date.now() + 5 * 60_000;
+      } else if (response.status === 429) {
+        providerUnavailableUntil = Date.now() + 60_000;
+      }
+
+      console.warn("ElevenLabs TTS unavailable; browser voice fallback enabled", {
         status: response.status,
         requestId,
       });
       return {
         available: false as const,
-        reason: "provider-error" as const,
+        reason:
+          response.status === 402 ? ("payment-required" as const) : ("provider-error" as const),
       };
     }
 

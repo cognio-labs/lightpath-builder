@@ -176,6 +176,84 @@ export function DivineAIChatWidget() {
       .replace(/🙏|✨|🌸|🌿|🤝|📅|🌟|💡|🧘|📚|🔴/g, "");
     setLiveTranscript("Jawab de raha hoon...");
 
+    const finishSpeaking = () => {
+      utteranceRef.current = null;
+      setSpeakingMsgId(null);
+      setVoiceStatus("idle");
+      setLiveTranscript("Boliye, main sun raha hoon...");
+      if (continueListeningInVoiceMode && isVoiceModeRef.current) {
+        startListening();
+      }
+    };
+
+    const speakWithBrowserFemaleVoice = async () => {
+      if (!("speechSynthesis" in window)) {
+        setSpeakingMsgId(null);
+        setVoiceStatus("idle");
+        setLiveTranscript("Voice is browser mein supported nahi hai.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      // Chrome/Edge frequently populate installed voices after the first read.
+      let voices = window.speechSynthesis.getVoices();
+      if (voices.length === 0) {
+        await new Promise<void>((resolve) => {
+          const timeout = window.setTimeout(resolve, 700);
+          window.speechSynthesis.addEventListener(
+            "voiceschanged",
+            () => {
+              window.clearTimeout(timeout);
+              resolve();
+            },
+            { once: true },
+          );
+        });
+        voices = window.speechSynthesis.getVoices();
+      }
+
+      const femaleVoiceNames =
+        /Swara|Heera|Kalpana|Neerja|Aditi|Veena|Zira|Samantha|Ava|Jenny|Aria|Female|Google हिन्दी/i;
+      const maleVoiceNames = /Ravi|Hemant|Madhur|Male/i;
+      const preferredVoice = [...voices]
+        .map((voice) => {
+          let score = 0;
+          if (/^hi-IN$/i.test(voice.lang)) score += 100;
+          else if (/^en-IN$/i.test(voice.lang)) score += 60;
+          else if (/^hi/i.test(voice.lang)) score += 45;
+          if (femaleVoiceNames.test(voice.name)) score += 80;
+          if (/Natural|Online|Google|Microsoft/i.test(voice.name)) score += 15;
+          if (maleVoiceNames.test(voice.name)) score -= 100;
+          return { voice, score };
+        })
+        .sort((a, b) => b.score - a.score)[0]?.voice;
+
+      const utterance = new SpeechSynthesisUtterance(clean);
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+        utterance.lang = preferredVoice.lang;
+      } else {
+        utterance.lang = "hi-IN";
+      }
+      utterance.rate = 0.9;
+      utterance.pitch = 1.08;
+      utterance.volume = 1;
+      utteranceRef.current = utterance;
+      setLiveTranscript(clean.length > 180 ? `${clean.slice(0, 177)}...` : clean);
+
+      utterance.onend = finishSpeaking;
+      utterance.onerror = () => {
+        utteranceRef.current = null;
+        setSpeakingMsgId(null);
+        setVoiceStatus("idle");
+        setLiveTranscript("Voice play nahi ho payi. Text response dekh sakte hain.");
+      };
+
+      window.speechSynthesis.speak(utterance);
+      window.speechSynthesis.resume();
+    };
+
     // 1. Request ElevenLabs audio through the server so the API key never ships
     // to the browser. If it is unavailable, continue to native browser speech.
     try {
@@ -208,66 +286,29 @@ export function DivineAIChatWidget() {
         };
 
         audio.onerror = () => {
-          setSpeakingMsgId(null);
-          setVoiceStatus("idle");
-          setLiveTranscript("Voice play nahi ho payi. Mic dobara dabaiye.");
           URL.revokeObjectURL(audioUrl);
           currentAudioUrlRef.current = null;
           currentAudioRef.current = null;
+          void speakWithBrowserFemaleVoice();
         };
 
-        await audio.play();
-        return;
+        try {
+          await audio.play();
+          return;
+        } catch (error) {
+          console.warn("ElevenLabs audio playback failed; using browser voice.", error);
+          audio.pause();
+          URL.revokeObjectURL(audioUrl);
+          currentAudioUrlRef.current = null;
+          currentAudioRef.current = null;
+        }
       }
     } catch (err) {
       console.warn("ElevenLabs TTS unavailable; using browser voice.", err);
     }
 
-    // 2. Native Web Speech API fallback
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(clean);
-      const voices = window.speechSynthesis.getVoices();
-      const preferredVoice =
-        voices.find((voice) => /hi-IN/i.test(voice.lang)) ||
-        voices.find((voice) => /en-IN/i.test(voice.lang)) ||
-        voices.find((voice) => /Google|Microsoft|Natural|Heera|Kalpana|Neerja/i.test(voice.name));
-
-      if (preferredVoice) {
-        utterance.voice = preferredVoice;
-        utterance.lang = preferredVoice.lang;
-      } else {
-        utterance.lang = "hi-IN";
-      }
-      utterance.rate = 0.9;
-      utterance.pitch = 1.05;
-      utterance.volume = 1;
-      utteranceRef.current = utterance;
-      setLiveTranscript(clean.length > 180 ? `${clean.slice(0, 177)}...` : clean);
-
-      utterance.onend = () => {
-        utteranceRef.current = null;
-        setSpeakingMsgId(null);
-        setVoiceStatus("idle");
-        setLiveTranscript("Boliye, main sun raha hoon...");
-        if (continueListeningInVoiceMode && isVoiceModeRef.current) {
-          startListening();
-        }
-      };
-
-      utterance.onerror = () => {
-        utteranceRef.current = null;
-        setSpeakingMsgId(null);
-        setVoiceStatus("idle");
-        setLiveTranscript("Voice play nahi ho payi. Text response dekh sakte hain.");
-      };
-
-      window.speechSynthesis.speak(utterance);
-      window.speechSynthesis.resume();
-    } else {
-      setSpeakingMsgId(null);
-      setVoiceStatus("idle");
-    }
+    // 2. Native female browser voice fallback (used automatically for 402).
+    await speakWithBrowserFemaleVoice();
   };
 
   const stopCurrentAudio = () => {
