@@ -42,7 +42,9 @@ export function clearHistory() {
 }
 
 function detectUserName(query: string): string | null {
-  const nameMatch = query.match(/(?:my name is|i am|i'm|call me|mera naam hai|main hoon)\s+([a-zA-Z]+)/i);
+  const nameMatch = query.match(
+    /(?:my name is|i am|i'm|call me|mera naam hai|main hoon|मेरा नाम(?: है)?|मैं हूँ)\s+([\p{L}][\p{L}\p{M}'-]{1,40})/iu,
+  );
   return nameMatch ? nameMatch[1] : null;
 }
 
@@ -83,6 +85,11 @@ export function generateBotResponse(userInput: string): BotResponse {
       "bheetar",
       "teaching",
       "teachings",
+      "गुरु",
+      "गुरुजी",
+      "साक्षी श्री",
+      "साक्षीश्री",
+      "दर्शन",
     ]) ||
     (query.includes("about") && !query.includes("about website") && !query.includes("about us"))
   ) {
@@ -117,6 +124,15 @@ export function generateBotResponse(userInput: string): BotResponse {
       "address",
       "location",
       "dhaam",
+      "सेशन",
+      "मिलना",
+      "बुकिंग",
+      "अपॉइंटमेंट",
+      "फीस",
+      "कीमत",
+      "भुगतान",
+      "संपर्क",
+      "पता",
     ])
   ) {
     trackInterest("session");
@@ -141,6 +157,9 @@ export function generateBotResponse(userInput: string): BotResponse {
       "mind power",
       "workshop",
       "training",
+      "कोर्स",
+      "संजीवनी",
+      "माइंड पावर",
     ])
   ) {
     trackInterest("courses");
@@ -171,6 +190,14 @@ export function generateBotResponse(userInput: string): BotResponse {
       "relationship",
       "wellness",
       "solution",
+      "चिंता",
+      "तनाव",
+      "डर",
+      "नींद",
+      "शांति",
+      "परेशानी",
+      "रिश्ता",
+      "समाधान",
     ])
   ) {
     trackInterest("solutions");
@@ -184,7 +211,26 @@ export function generateBotResponse(userInput: string): BotResponse {
     };
   }
 
-  if (hasAny(query, ["yoga", "meditation", "mindfulness", "pranayama", "breathing", "gratitude", "positive", "manifestation", "dhyan", "sadhna"])) {
+  if (
+    hasAny(query, [
+      "yoga",
+      "meditation",
+      "mindfulness",
+      "pranayama",
+      "breathing",
+      "gratitude",
+      "positive",
+      "manifestation",
+      "dhyan",
+      "sadhna",
+      "योग",
+      "ध्यान",
+      "प्राणायाम",
+      "साधना",
+      "कृतज्ञता",
+      "सांस",
+    ])
+  ) {
     trackInterest("practices");
     return {
       text: `${getGreeting()}🌿 Science Divine daily practices ka focus hai **Sound Body, Sound Mind**.\n\n• Easy Yoga aur Pranayama body-mind balance ke liye.\n• Sakshi Dhyan thoughts ko observe karne ke liye.\n• Mindfulness aur gratitude daily life mein lightness lane ke liye.\n\nStart small. 5 minute daily practice, 50 motivational reels se zyada kaam kar sakti hai.`,
@@ -196,7 +242,27 @@ export function generateBotResponse(userInput: string): BotResponse {
     };
   }
 
-  if (hasAny(query, ["sewa", "donate", "donation", "shiksha", "annapurna", "charity", "humanity", "volunteer", "har ghar", "nirman", "dhyan sewa", "swastha"])) {
+  if (
+    hasAny(query, [
+      "sewa",
+      "donate",
+      "donation",
+      "shiksha",
+      "annapurna",
+      "charity",
+      "humanity",
+      "volunteer",
+      "har ghar",
+      "nirman",
+      "dhyan sewa",
+      "swastha",
+      "सेवा",
+      "दान",
+      "अन्नपूर्णा",
+      "शिक्षा सेवा",
+      "स्वयंसेवक",
+    ])
+  ) {
     trackInterest("sewa");
     return {
       text: `${getGreeting()}🤝 **Science Divine Sewa Prakalp** spiritual growth ko real service se jodta hai.\n\n• **Har Ghar Shiksha** - underprivileged children ke liye free education.\n• **Annapurna Sewa** - food support.\n• **Dhyan Sewa** - meditation and awareness programs.\n• **Nirman Sewa** - dhaam and service infrastructure.\n\nDonation ka impact direct sewa projects mein jata hai. Link chahiye to neeche diya hai.`,
@@ -208,7 +274,25 @@ export function generateBotResponse(userInput: string): BotResponse {
     };
   }
 
-  if (hasAny(query, ["event", "retreat", "mahotsav", "date", "camp", "sunday", "shivir", "upcoming", "gallery"])) {
+  if (
+    hasAny(query, [
+      "event",
+      "retreat",
+      "mahotsav",
+      "date",
+      "camp",
+      "sunday",
+      "shivir",
+      "upcoming",
+      "gallery",
+      "इवेंट",
+      "कार्यक्रम",
+      "सत्संग",
+      "शिविर",
+      "तारीख",
+      "महोत्सव",
+    ])
+  ) {
     trackInterest("events");
     return {
       text: `${getGreeting()}📅 Science Divine events mein satsang, meditation, shivir aur sewa gatherings hote hain.\n\nAgar aap live experience chahte hain, event page dekhna best hai. Online knowledge achhi hai, lekin kabhi-kabhi environment hi aadha kaam kar deta hai.`,
@@ -220,7 +304,18 @@ export function generateBotResponse(userInput: string): BotResponse {
     };
   }
 
-  if (hasAny(query, ["testimonial", "review", "feedback", "experience", "result", "success", "transform", "anubhav"])) {
+  if (
+    hasAny(query, [
+      "testimonial",
+      "review",
+      "feedback",
+      "experience",
+      "result",
+      "success",
+      "transform",
+      "anubhav",
+    ])
+  ) {
     trackInterest("testimonials");
     return {
       text: `${getGreeting()}💛 Seekers often share that Guru Ji ki guidance se unhe clarity, emotional relief, direction aur inner peace mehsoos hua.\n\nMain miracle guarantee nahi bolunga, kyunki har seeker ka journey alag hota hai. Lekin sincere seeker ke liye right guidance kabhi-kabhi turning point ban jati hai.`,
@@ -232,16 +327,43 @@ export function generateBotResponse(userInput: string): BotResponse {
     };
   }
 
-  if (hasAny(query, ["english book", "book link", "mahamantra", "maha mantra", "mahamantras"]) || (query.includes("book") && query.includes("english"))) {
+  if (
+    hasAny(query, [
+      "english book",
+      "book link",
+      "mahamantra",
+      "maha mantra",
+      "mahamantras",
+      "किताब",
+      "पुस्तक",
+      "महामंत्र",
+    ]) ||
+    (query.includes("book") && query.includes("english"))
+  ) {
     trackInterest("book");
     return {
       text: `${getGreeting()}📖 **English Book - Mahamantras Teachings** Sakshi Shree Ji ki practical teachings ko simple English mein samjhati hai.\n\nAgar client English mein spiritual concepts read karna chahta hai, ye link useful hai.`,
-      links: [{ label: "English Book Website", url: "https://mahamantrasbook.s.gy/englishwebsite" }],
+      links: [
+        { label: "English Book Website", url: "https://mahamantrasbook.s.gy/englishwebsite" },
+      ],
       suggestions: ["Courses batao", "Session batao"],
     };
   }
 
-  if (hasAny(query, ["movement", "science divine", "foundation", "mission", "vision", "organization"])) {
+  if (
+    hasAny(query, [
+      "movement",
+      "science divine",
+      "foundation",
+      "mission",
+      "vision",
+      "organization",
+      "फाउंडेशन",
+      "संस्था",
+      "मिशन",
+      "साइंस डिवाइन",
+    ])
+  ) {
     trackInterest("movement");
     return {
       text: `${getGreeting()}🕉️ **Science Divine Foundation** ka mission hai inner peace, meditation, self-realization aur sewa ko practical life tak le jana.\n\nFoundation Guru Ji ki guidance mein courses, personal sessions, events, sewa projects aur spiritual education ke through seekers ko support karti hai.`,
@@ -278,14 +400,42 @@ export function generateBotResponse(userInput: string): BotResponse {
     };
   }
 
-  if (hasAny(query, ["namaste", "namaskar", "hari om", "hello", "hey", "good morning", "good evening", "kaise ho", "how are you"]) || query === "hi") {
+  if (
+    hasAny(query, [
+      "namaste",
+      "namaskar",
+      "hari om",
+      "hello",
+      "hey",
+      "good morning",
+      "good evening",
+      "kaise ho",
+      "how are you",
+      "नमस्ते",
+      "नमस्कार",
+      "हरि ओम",
+      "कैसे हो",
+    ]) ||
+    query === "hi"
+  ) {
     return {
       text: `🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nMain Guru Ji, personal session, courses, meditation, sewa, events, book aur website links ke baare mein bata sakta hoon. Aap apna sawaal boliye. Main jawab simple, useful aur thoda human rakhunga - boring pravachan mode off.`,
       suggestions: ["Guru Ji", "Session"],
     };
   }
 
-  if (hasAny(query, ["thank", "thanks", "shukriya", "dhanyavad", "great", "helpful"])) {
+  if (
+    hasAny(query, [
+      "thank",
+      "thanks",
+      "shukriya",
+      "dhanyavad",
+      "great",
+      "helpful",
+      "शुक्रिया",
+      "धन्यवाद",
+    ])
+  ) {
     return {
       text: `${getGreeting()}Aapka shukriya 🙏 Sakshi Shree Ji ka aashirwaad hamesha aapke saath rahe. Aur kuch poochna ho to main yahin hoon.`,
       suggestions: ["Book session", "Guru Ji"],

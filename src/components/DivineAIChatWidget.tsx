@@ -11,12 +11,17 @@ import {
   Volume2,
   Radio,
   Sparkles,
-  MessageSquare
+  MessageSquare,
 } from "lucide-react";
-import { QUICK_SUGGESTIONS, generateBotResponse, BotResponse, addToHistory, clearHistory } from "@/data/aiKnowledgeBase";
+import {
+  QUICK_SUGGESTIONS,
+  generateBotResponse,
+  BotResponse,
+  addToHistory,
+  clearHistory,
+} from "@/data/aiKnowledgeBase";
 import { LOGO_URL } from "@/data/content";
-
-export const ELEVENLABS_VOICE_ID = "gHu9GtaHOXcSqFTK06ux";
+import { generateSpeechAudio } from "@/lib/voice.functions";
 
 interface ChatMessage {
   id: string;
@@ -34,12 +39,16 @@ export function DivineAIChatWidget() {
 
   // Voice conversation state
   const [isVoiceMode, setIsVoiceMode] = useState(false);
-  const [voiceStatus, setVoiceStatus] = useState<"idle" | "listening" | "thinking" | "speaking">("idle");
+  const [voiceStatus, setVoiceStatus] = useState<"idle" | "listening" | "thinking" | "speaking">(
+    "idle",
+  );
   const [liveTranscript, setLiveTranscript] = useState("");
   const [speakingMsgId, setSpeakingMsgId] = useState<string | null>(null);
 
   const recognitionRef = useRef<any>(null);
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+  const currentAudioUrlRef = useRef<string | null>(null);
+  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isVoiceModeRef = useRef(false);
   const voiceStatusRef = useRef<"idle" | "listening" | "thinking" | "speaking">("idle");
   const isRecognitionRunningRef = useRef(false);
@@ -49,10 +58,7 @@ export function DivineAIChatWidget() {
       id: "initial",
       sender: "bot",
       text: "🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nAap Guru Ji, personal session, courses, meditation, sewa ya book ke baare mein pooch sakte hain. Pehle aapki baat samjhenge, phir sahi raasta batayenge.",
-      suggestions: [
-        "Guru Ji ke baare mein",
-        "Session kaise hota hai",
-      ],
+      suggestions: ["Guru Ji ke baare mein", "Session kaise hota hai"],
       timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
   ]);
@@ -131,8 +137,8 @@ export function DivineAIChatWidget() {
             e?.error === "not-allowed"
               ? "Mic permission allow kijiye."
               : e?.error === "no-speech"
-              ? "Awaaz clear nahi aayi. Dobara mic dabayein."
-              : "Mic dabaiye aur boliye.";
+                ? "Awaaz clear nahi aayi. Dobara mic dabayein."
+                : "Mic dabaiye aur boliye.";
           setVoiceStatus("idle");
           setLiveTranscript(message);
         }
@@ -170,60 +176,51 @@ export function DivineAIChatWidget() {
       .replace(/🙏|✨|🌸|🌿|🤝|📅|🌟|💡|🧘|📚|🔴/g, "");
     setLiveTranscript("Jawab de raha hoon...");
 
-    const apiKey = (import.meta as any).env?.VITE_ELEVENLABS_API_KEY;
+    // 1. Request ElevenLabs audio through the server so the API key never ships
+    // to the browser. If it is unavailable, continue to native browser speech.
+    try {
+      const speech = await generateSpeechAudio({
+        data: { text: clean.slice(0, 1_200) },
+      });
 
-    // 1. Try ElevenLabs API if key exists
-    if (apiKey) {
-      try {
-        const response = await fetch(
-          `https://api.elevenlabs.io/v1/text-to-speech/${ELEVENLABS_VOICE_ID}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "xi-api-key": apiKey,
-            },
-            body: JSON.stringify({
-              text: clean,
-              model_id: "eleven_multilingual_v2",
-              voice_settings: {
-                stability: 0.38,
-                similarity_boost: 0.86,
-                style: 0.28,
-                use_speaker_boost: true,
-              },
-            }),
+      if (speech.available) {
+        const binary = window.atob(speech.audioBase64);
+        const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+        const audioBlob = new Blob([bytes], { type: speech.contentType });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.preload = "auto";
+        currentAudioRef.current = audio;
+        currentAudioUrlRef.current = audioUrl;
+
+        setLiveTranscript(clean.length > 180 ? `${clean.slice(0, 177)}...` : clean);
+
+        audio.onended = () => {
+          setSpeakingMsgId(null);
+          setVoiceStatus("idle");
+          setLiveTranscript("Boliye, main sun raha hoon...");
+          URL.revokeObjectURL(audioUrl);
+          currentAudioUrlRef.current = null;
+          currentAudioRef.current = null;
+          if (continueListeningInVoiceMode && isVoiceModeRef.current) {
+            startListening();
           }
-        );
+        };
 
-        if (response.ok) {
-          const audioBlob = await response.blob();
-          const audioUrl = URL.createObjectURL(audioBlob);
-          const audio = new Audio(audioUrl);
-          currentAudioRef.current = audio;
+        audio.onerror = () => {
+          setSpeakingMsgId(null);
+          setVoiceStatus("idle");
+          setLiveTranscript("Voice play nahi ho payi. Mic dobara dabaiye.");
+          URL.revokeObjectURL(audioUrl);
+          currentAudioUrlRef.current = null;
+          currentAudioRef.current = null;
+        };
 
-          audio.onended = () => {
-            setSpeakingMsgId(null);
-            setVoiceStatus("idle");
-            setLiveTranscript("Boliye, main sun raha hoon...");
-            URL.revokeObjectURL(audioUrl);
-            if (continueListeningInVoiceMode && isVoiceModeRef.current) {
-              startListening();
-            }
-          };
-
-          audio.onerror = () => {
-            setSpeakingMsgId(null);
-            setVoiceStatus("idle");
-            setLiveTranscript("Voice play nahi ho payi. Text response dekh sakte hain.");
-          };
-
-          await audio.play();
-          return;
-        }
-      } catch (err) {
-        console.warn("ElevenLabs TTS fallback:", err);
+        await audio.play();
+        return;
       }
+    } catch (err) {
+      console.warn("ElevenLabs TTS unavailable; using browser voice.", err);
     }
 
     // 2. Native Web Speech API fallback
@@ -245,8 +242,11 @@ export function DivineAIChatWidget() {
       utterance.rate = 0.9;
       utterance.pitch = 1.05;
       utterance.volume = 1;
+      utteranceRef.current = utterance;
+      setLiveTranscript(clean.length > 180 ? `${clean.slice(0, 177)}...` : clean);
 
       utterance.onend = () => {
+        utteranceRef.current = null;
         setSpeakingMsgId(null);
         setVoiceStatus("idle");
         setLiveTranscript("Boliye, main sun raha hoon...");
@@ -256,12 +256,14 @@ export function DivineAIChatWidget() {
       };
 
       utterance.onerror = () => {
+        utteranceRef.current = null;
         setSpeakingMsgId(null);
         setVoiceStatus("idle");
         setLiveTranscript("Voice play nahi ho payi. Text response dekh sakte hain.");
       };
 
       window.speechSynthesis.speak(utterance);
+      window.speechSynthesis.resume();
     } else {
       setSpeakingMsgId(null);
       setVoiceStatus("idle");
@@ -271,10 +273,16 @@ export function DivineAIChatWidget() {
   const stopCurrentAudio = () => {
     if (currentAudioRef.current) {
       currentAudioRef.current.pause();
+      currentAudioRef.current.src = "";
       currentAudioRef.current = null;
+    }
+    if (currentAudioUrlRef.current) {
+      URL.revokeObjectURL(currentAudioUrlRef.current);
+      currentAudioUrlRef.current = null;
     }
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
+      utteranceRef.current = null;
     }
   };
 
@@ -379,10 +387,7 @@ export function DivineAIChatWidget() {
         id: Date.now().toString(),
         sender: "bot",
         text: "🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nAap Guru Ji, personal session, courses, meditation, sewa ya book ke baare mein pooch sakte hain. Pehle aapki baat samjhenge, phir sahi raasta batayenge.",
-        suggestions: [
-          "Guru Ji ke baare mein",
-          "Session kaise hota hai",
-        ],
+        suggestions: ["Guru Ji ke baare mein", "Session kaise hota hai"],
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       },
     ]);
@@ -437,12 +442,18 @@ export function DivineAIChatWidget() {
             <div className="flex items-center gap-2.5">
               <div className="relative">
                 <div className="w-8 h-8 rounded-full bg-white p-0.5 shadow-xs flex items-center justify-center overflow-hidden">
-                  <img src={LOGO_URL} alt="Science Divine Logo" className="w-full h-full object-contain" />
+                  <img
+                    src={LOGO_URL}
+                    alt="Science Divine Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 ring-1 ring-white" />
               </div>
               <div>
-                <h3 className="font-bold text-white text-[14px] leading-tight tracking-wide">Divine AI Guide</h3>
+                <h3 className="font-bold text-white text-[14px] leading-tight tracking-wide">
+                  Divine AI Guide
+                </h3>
               </div>
             </div>
 
@@ -458,7 +469,15 @@ export function DivineAIChatWidget() {
                 }`}
               >
                 <Radio size={13} className={isVoiceMode ? "animate-spin text-sky-500" : ""} />
-                <span className="text-[11px]">{isVoiceMode ? "Listening" : "Voice"}</span>
+                <span className="text-[11px]">
+                  {isVoiceMode
+                    ? voiceStatus === "speaking"
+                      ? "Speaking"
+                      : voiceStatus === "thinking"
+                        ? "Thinking"
+                        : "Listening"
+                    : "Voice"}
+                </span>
               </button>
 
               {/* Clear chat */}
@@ -489,7 +508,6 @@ export function DivineAIChatWidget() {
           {/* Full-screen voice conversation overlay */}
           {isVoiceMode ? (
             <div className="flex-1 flex flex-col items-center justify-between px-4 py-4 bg-gradient-to-b from-sky-50 via-sky-100 to-white text-slate-800 select-none animate-in fade-in duration-200">
-              
               {/* Pill Badge */}
               <div className="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full shadow-2xs border border-sky-100 text-[10px] font-bold text-slate-700 flex items-center gap-1.5">
                 <Sparkles size={12} className="text-sky-500" />
@@ -513,16 +531,21 @@ export function DivineAIChatWidget() {
                     voiceStatus === "speaking"
                       ? "scale-105"
                       : voiceStatus === "listening"
-                      ? "scale-100"
-                      : "scale-95 hover:scale-100"
+                        ? "scale-100"
+                        : "scale-95 hover:scale-100"
                   }`}
                   style={{
-                    background: "linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(186,230,253,0.7) 40%, rgba(125,211,252,0.8) 100%)",
-                    boxShadow: voiceStatus === "speaking"
-                      ? "inset -6px -6px 14px rgba(56,189,248,0.4), inset 6px 6px 14px rgba(255,255,255,0.9), 0 0 40px rgba(56,189,248,0.45)"
-                      : "inset -6px -6px 14px rgba(56,189,248,0.25), inset 6px 6px 14px rgba(255,255,255,0.9), 0 10px 24px rgba(2,132,199,0.18)",
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(186,230,253,0.7) 40%, rgba(125,211,252,0.8) 100%)",
+                    boxShadow:
+                      voiceStatus === "speaking"
+                        ? "inset -6px -6px 14px rgba(56,189,248,0.4), inset 6px 6px 14px rgba(255,255,255,0.9), 0 0 40px rgba(56,189,248,0.45)"
+                        : "inset -6px -6px 14px rgba(56,189,248,0.25), inset 6px 6px 14px rgba(255,255,255,0.9), 0 10px 24px rgba(2,132,199,0.18)",
                     backdropFilter: "blur(10px)",
-                    animation: voiceStatus === "speaking" ? "pulse 0.8s ease-in-out infinite" : "pulse 2.5s ease-in-out infinite",
+                    animation:
+                      voiceStatus === "speaking"
+                        ? "pulse 0.8s ease-in-out infinite"
+                        : "pulse 2.5s ease-in-out infinite",
                   }}
                 >
                   <img
@@ -536,8 +559,15 @@ export function DivineAIChatWidget() {
               </div>
 
               {/* Status / Transcript Text */}
-              <p className="text-[13px] font-semibold text-slate-700 text-center leading-snug px-3 min-h-[34px] flex items-center justify-center">
-                {liveTranscript || (voiceStatus === "listening" ? "Main sun raha hoon..." : voiceStatus === "thinking" ? "Samajh raha hoon..." : voiceStatus === "speaking" ? "Jawab de raha hoon..." : "Boliye, Guru Ji ke baare mein kya jaanna hai?")}
+              <p className="text-[13px] font-semibold text-slate-700 text-center leading-snug px-3 min-h-[34px] max-h-[66px] overflow-hidden flex items-center justify-center">
+                {liveTranscript ||
+                  (voiceStatus === "listening"
+                    ? "Main sun raha hoon..."
+                    : voiceStatus === "thinking"
+                      ? "Samajh raha hoon..."
+                      : voiceStatus === "speaking"
+                        ? "Jawab de raha hoon..."
+                        : "Boliye, Guru Ji ke baare mein kya jaanna hai?")}
               </p>
 
               {/* Bottom Control Bar */}
@@ -642,8 +672,8 @@ export function DivineAIChatWidget() {
                                     isBullet
                                       ? "flex items-start gap-1.5 ml-1 my-0.5"
                                       : lIdx > 0
-                                      ? "mt-1"
-                                      : ""
+                                        ? "mt-1"
+                                        : ""
                                   }
                                 >
                                   {isBullet && (
@@ -699,7 +729,7 @@ export function DivineAIChatWidget() {
                                 <span>{link.label}</span>
                                 <ExternalLink size={10} />
                               </Link>
-                            )
+                            ),
                           )}
                         </div>
                       )}
@@ -726,7 +756,12 @@ export function DivineAIChatWidget() {
                             title="Listen to this response"
                             className="text-[10px] text-sky-600 hover:text-sky-800 flex items-center gap-1 font-semibold transition-colors"
                           >
-                            <Volume2 size={11} className={speakingMsgId === msg.id ? "text-amber-500 animate-pulse" : ""} />
+                            <Volume2
+                              size={11}
+                              className={
+                                speakingMsgId === msg.id ? "text-amber-500 animate-pulse" : ""
+                              }
+                            />
                             <span>{speakingMsgId === msg.id ? "Speaking..." : "Listen"}</span>
                           </button>
                         ) : (
@@ -755,12 +790,25 @@ export function DivineAIChatWidget() {
                 {isTyping && (
                   <div className="flex gap-2 justify-start items-center">
                     <div className="w-6 h-6 rounded-full bg-white border border-sky-200 p-0.5 shadow-2xs flex items-center justify-center shrink-0 overflow-hidden">
-                      <img src={LOGO_URL} alt="Logo" className="w-full h-full object-contain animate-pulse" />
+                      <img
+                        src={LOGO_URL}
+                        alt="Logo"
+                        className="w-full h-full object-contain animate-pulse"
+                      />
                     </div>
                     <div className="bg-white border border-sky-100 rounded-xl rounded-tl-none px-3 py-2 flex items-center gap-1 shadow-2xs">
-                      <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce"
+                        style={{ animationDelay: "0ms" }}
+                      />
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce"
+                        style={{ animationDelay: "150ms" }}
+                      />
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce"
+                        style={{ animationDelay: "300ms" }}
+                      />
                     </div>
                   </div>
                 )}
