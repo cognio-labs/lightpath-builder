@@ -255,20 +255,20 @@ function Home() {
             pointer-events: none;
           }
 
-          /* Sacred 580px Golden Lotus Mandala Rotation */
+          /* Sacred 580px Luminous Golden-Yellow Chakra Mandala */
           .hero-mandala-580 {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 580px;
             height: 580px;
-            opacity: 0.95;
+            opacity: 1;
             pointer-events: none;
-            animation: rotateMandala 80s linear infinite;
+            animation: rotateMandala 70s linear infinite;
             will-change: transform;
             transform: translate(-50%, -50%) translateZ(0);
             z-index: 0;
-            filter: drop-shadow(0 0 10px rgba(146, 96, 12, 0.35));
+            filter: drop-shadow(0 0 16px rgba(250, 204, 21, 0.85)) drop-shadow(0 0 32px rgba(234, 179, 8, 0.5));
           }
 
           /* ── Hero Container & Grid Layout ── */
@@ -491,56 +491,89 @@ function Home() {
             {/* ── RIGHT COLUMN ── GURU JI & ROTATING CHAKRA MANDALA ── */}
             <div className="hm-right hm-fade-img">
 
-              {/* Radiant Golden Backlight Aura */}
+              {/* Radiant Yellow-Gold Backlight Aura */}
               <div style={{
                 position: "absolute",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: "500px",
-                height: "500px",
-                background: "radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(212, 175, 55, 0.2) 45%, transparent 70%)",
+                width: "520px",
+                height: "520px",
+                background: "radial-gradient(circle, rgba(254, 240, 138, 0.45) 0%, rgba(250, 204, 21, 0.3) 35%, rgba(234, 179, 8, 0.15) 55%, transparent 75%)",
                 borderRadius: "50%",
-                filter: "blur(28px)",
+                filter: "blur(32px)",
                 pointerEvents: "none",
                 zIndex: 1,
                 animation: "homePulse 4s ease-in-out infinite",
               }} />
 
-              {/* Rotating Sacred Golden Chakra Mandala Layer */}
-              <svg className="hero-mandala-580" style={{ opacity: 0.95 }} viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#92400E" fill="none" strokeWidth="2.2">
-                  {/* Outer Sacred Geometry Rings */}
-                  <circle cx="300" cy="300" r="290" stroke="#78350F" strokeWidth="2" opacity="0.85" strokeDasharray="5 7" />
-                  <circle cx="300" cy="300" r="280" stroke="#854D0E" strokeWidth="3.2" opacity="0.95" />
-                  <circle cx="300" cy="300" r="270" stroke="#9A3412" strokeWidth="1.8" opacity="0.85" />
+              {/* Rotating Sacred Luminous Yellow Highlight Chakra Mandala Layer */}
+              <svg className="hero-mandala-580" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="yellowChakraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FEF08A" />
+                    <stop offset="50%" stopColor="#FACC15" />
+                    <stop offset="100%" stopColor="#EAB308" />
+                  </linearGradient>
+                  <linearGradient id="yellowHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="40%" stopColor="#FEF08A" />
+                    <stop offset="100%" stopColor="#FACC15" />
+                  </linearGradient>
+                  <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="60%" stopColor="#FEF08A" />
+                    <stop offset="100%" stopColor="#EAB308" />
+                  </radialGradient>
+                </defs>
+
+                <g stroke="url(#yellowChakraGrad)" fill="none" strokeWidth="2.2">
+                  {/* Outer Sacred Geometry Highlight Rings */}
+                  <circle cx="300" cy="300" r="292" stroke="#FEF08A" strokeWidth="1.8" opacity="0.9" strokeDasharray="5 7" />
+                  <circle cx="300" cy="300" r="280" stroke="url(#yellowChakraGrad)" strokeWidth="3.4" opacity="1" />
+                  <circle cx="300" cy="300" r="268" stroke="#FDE047" strokeWidth="2" opacity="0.95" />
                   
-                  {/* Sacred Lotus Petals ── Outer Layer */}
+                  {/* Outer Sacred Pointed Diamond Rays ── 12 Principal Solar Rays */}
                   {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
                     <g key={deg} transform={`rotate(${deg} 300 300)`}>
-                      <path d="M300,25 Q335,150 300,275 Q265,150 300,25" opacity="0.95" stroke="#78350F" strokeWidth="2.6" />
-                      <circle cx="300" cy="45" r="4.5" fill="#854D0E" stroke="#78350F" strokeWidth="1.2" opacity="1" />
-                      <line x1="300" y1="25" x2="300" y2="275" opacity="0.65" stroke="#92400E" strokeWidth="1.5" />
+                      <path d="M300,20 Q338,150 300,275 Q262,150 300,20" opacity="1" stroke="url(#yellowChakraGrad)" strokeWidth="2.8" />
+                      <line x1="300" y1="20" x2="300" y2="275" opacity="0.85" stroke="#FEF08A" strokeWidth="1.8" />
+                      {/* Highlight Node Beads */}
+                      <circle cx="300" cy="40" r="5" fill="url(#nodeGlow)" stroke="#CA8A04" strokeWidth="1.2" />
+                      <circle cx="300" cy="20" r="3" fill="#FFFFFF" />
                     </g>
                   ))}
                   
-                  {/* Sacred Lotus Petals ── Inner Layer */}
+                  {/* Inner Intersecting Star Rays ── 12 Secondary Solar Rays */}
                   {[15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345].map(deg => (
                     <g key={deg} transform={`rotate(${deg} 300 300)`}>
-                      <path d="M300,60 Q325,170 300,275 Q275,170 300,60" opacity="0.9" stroke="#9A3412" strokeWidth="2.4" />
-                      <circle cx="300" cy="85" r="4" fill="#78350F" opacity="0.95" />
+                      <path d="M300,55 Q326,170 300,275 Q274,170 300,55" opacity="0.95" stroke="#FDE047" strokeWidth="2.5" />
+                      <circle cx="300" cy="78" r="4.5" fill="url(#nodeGlow)" stroke="#CA8A04" strokeWidth="1" />
                     </g>
                   ))}
 
-                  {/* Inner Concentric Rings */}
-                  <circle cx="300" cy="300" r="210" stroke="#854D0E" strokeWidth="3" opacity="0.95" />
-                  <circle cx="300" cy="300" r="195" stroke="#78350F" strokeWidth="2.5" opacity="0.85" strokeDasharray="4 8" />
-                  <circle cx="300" cy="300" r="150" stroke="#92400E" strokeWidth="2.4" opacity="0.95" />
-                  
-                  {/* Sunburst Rays Core */}
-                  {[...Array(36)].map((_, i) => (
-                    <line key={i} x1="300" y1="170" x2="300" y2="275" opacity="0.75" stroke="#78350F" strokeWidth="1.8" transform={`rotate(${i * 10} 300 300)`} />
+                  {/* Intersecting Connecting Diagonals */}
+                  {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
+                    <g key={`diag-${deg}`} transform={`rotate(${deg} 300 300)`}>
+                      <line x1="300" y1="120" x2="335" y2="185" stroke="#FEF08A" strokeWidth="1.6" opacity="0.8" />
+                      <line x1="300" y1="120" x2="265" y2="185" stroke="#FEF08A" strokeWidth="1.6" opacity="0.8" />
+                    </g>
                   ))}
+
+                  {/* Inner Concentric Rings with Yellow Highlight */}
+                  <circle cx="300" cy="300" r="215" stroke="url(#yellowChakraGrad)" strokeWidth="3.2" opacity="1" />
+                  <circle cx="300" cy="300" r="200" stroke="#FEF08A" strokeWidth="2.4" opacity="0.95" strokeDasharray="4 6" />
+                  <circle cx="300" cy="300" r="185" stroke="#FACC15" strokeWidth="2" opacity="0.9" />
+                  <circle cx="300" cy="300" r="145" stroke="url(#yellowChakraGrad)" strokeWidth="2.6" opacity="1" />
+                  
+                  {/* Glowing Central Sunburst Rays Core */}
+                  {[...Array(36)].map((_, i) => (
+                    <line key={i} x1="300" y1="165" x2="300" y2="275" opacity="0.85" stroke="#FDE047" strokeWidth="1.9" transform={`rotate(${i * 10} 300 300)`} />
+                  ))}
+
+                  {/* Golden Center Core Ring */}
+                  <circle cx="300" cy="300" r="95" stroke="#FEF08A" strokeWidth="2.5" opacity="0.95" />
+                  <circle cx="300" cy="300" r="90" fill="rgba(254, 240, 138, 0.12)" stroke="#FACC15" strokeWidth="1.5" />
                 </g>
               </svg>
 
