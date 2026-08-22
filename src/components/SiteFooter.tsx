@@ -1,5 +1,7 @@
-import { Link } from "@tanstack/react-router";
-import { Facebook, Youtube, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+"use client";
+import Link from "next/link";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "@/components/SocialIcons";
 import { LOGO_URL, SOCIALS, COURSES } from "@/data/content";
 
 export function SiteFooter() {
@@ -40,7 +42,7 @@ export function SiteFooter() {
               { to: "/shop", label: "Shop" },
             ].map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="hover:text-amber-400 transition-colors">
+                <Link href={l.to} className="hover:text-amber-400 transition-colors">
                   {l.label}
                 </Link>
               </li>
@@ -54,7 +56,7 @@ export function SiteFooter() {
           <ul className="space-y-2.5 text-sm text-white/70">
             {COURSES.map((c) => (
               <li key={c.slug}>
-                <Link to={`/${c.slug}` as string} className="hover:text-amber-400 transition-colors">
+                <Link href={`/${c.slug}` as string} className="hover:text-amber-400 transition-colors">
                   {c.title}
                 </Link>
               </li>
@@ -71,7 +73,7 @@ export function SiteFooter() {
               { to: "/yoga", label: "Yoga" },
             ].map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="hover:text-amber-400 transition-colors">{l.label}</Link>
+                <Link href={l.to} className="hover:text-amber-400 transition-colors">{l.label}</Link>
               </li>
             ))}
           </ul>
@@ -130,13 +132,13 @@ export function SiteFooter() {
         <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>© 2025 Science Divine Foundation. All Rights Reserved.</p>
           <div className="flex gap-5">
-            <Link to="/cancellation-policy" className="hover:text-white transition-colors">
+            <Link href="/cancellation-policy" className="hover:text-white transition-colors">
               Cancellation and Refund Policy
             </Link>
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms-conditions" className="hover:text-white transition-colors">
+            <Link href="/terms-conditions" className="hover:text-white transition-colors">
               Terms and Conditions
             </Link>
           </div>
@@ -170,3 +172,6 @@ function SocialIcon({
     </a>
   );
 }
+
+
+

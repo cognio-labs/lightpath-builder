@@ -1,3 +1,4 @@
+"use client";
 export function PageHero({
   eyebrow,
   title,
@@ -131,3 +132,4 @@ export function SectionHeading({
 export function GoldDivider() {
   return null;
 }
+

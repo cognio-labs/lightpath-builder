@@ -1,5 +1,6 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import {
   X,
   Send,
@@ -21,8 +22,6 @@ import {
   clearHistory,
 } from "@/data/aiKnowledgeBase";
 import { LOGO_URL } from "@/data/content";
-import { generateSpeechAudio } from "@/lib/voice.functions";
-
 interface ChatMessage {
   id: string;
   sender: "bot" | "user";
@@ -764,7 +763,7 @@ export function DivineAIChatWidget() {
                             ) : (
                               <Link
                                 key={lIdx}
-                                to={link.url}
+                                href={link.url}
                                 className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-sky-50 hover:bg-sky-100 text-sky-700 hover:text-sky-900 text-[10.5px] font-semibold border border-sky-200 transition-colors"
                               >
                                 <span>{link.label}</span>
@@ -910,3 +909,7 @@ export function DivineAIChatWidget() {
     </>
   );
 }
+
+
+
+

@@ -1,3 +1,4 @@
+"use client";
 export function YouTubeEmbed({ id, title }: { id: string; title: string }) {
   return (
     <div className="relative aspect-video rounded-xl overflow-hidden bg-black shadow-lg">
@@ -41,3 +42,4 @@ export function YouTubeThumb({ id, title }: { id: string; title: string }) {
     </a>
   );
 }
+

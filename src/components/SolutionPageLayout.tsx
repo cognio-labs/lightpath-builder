@@ -1,4 +1,5 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+import Link from "next/link";
 import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { ARTICLES_BY_TOPIC, VIDEOS_BY_TOPIC, type SolutionSlug } from "@/data/content";
@@ -198,7 +199,7 @@ export function SolutionPageLayout({
 
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link
-                  to="/book-session"
+                  href="/book-session"
                   className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
                   style={{
                     background: `linear-gradient(135deg, ${meta.themeColor}, #D4AF37)`,
@@ -207,7 +208,7 @@ export function SolutionPageLayout({
                   Book Personal Session <ArrowRight size={15} />
                 </Link>
                 <Link
-                  to="/courses"
+                  href="/courses"
                   className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all"
                   style={{
                     borderColor: `${meta.themeColor}55`,
@@ -391,13 +392,13 @@ export function SolutionPageLayout({
           />
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/book-session"
+              href="/book-session"
               className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm"
             >
               Book Personal Session
             </Link>
             <Link
-              to="/get-solutions-for"
+              href="/get-solutions-for"
               className="btn-outline-gold rounded-full px-8 py-3.5 font-semibold text-sm"
             >
               Explore Other Solutions
@@ -494,3 +495,6 @@ function TabButton({
     </button>
   );
 }
+
+
+

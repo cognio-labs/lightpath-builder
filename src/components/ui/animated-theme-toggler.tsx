@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
@@ -63,3 +64,4 @@ export function AnimatedThemeToggler() {
     </button>
   );
 }
+

@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -159,3 +160,4 @@ export const AnimatedTestimonials = ({
     </div>
   );
 };
+

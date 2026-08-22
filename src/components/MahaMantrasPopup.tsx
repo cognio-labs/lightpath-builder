@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { X, ShoppingBag } from "lucide-react";
 
@@ -46,3 +47,4 @@ export function MahaMantrasPopup() {
     </div>
   );
 }
+

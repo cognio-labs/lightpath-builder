@@ -1,0 +1,777 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *), .dark&);
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: "Playfair Display", "Cinzel", Georgia, serif;
+  --font-quote: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-amber: var(--amber);
+  --color-dark-bg: var(--dark-bg);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* ── White luxury background ──────────────────── */
+  --background: #ffffff;
+  --foreground: #111827;
+
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+
+  /* ── Gold accent as primary ───────────────────── */
+  --primary: #d4af37;
+  --primary-foreground: #1a1000;
+
+  --secondary: #fafafa;
+  --secondary-foreground: #374151;
+
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+
+  --accent: #fef3c7;
+  --accent-foreground: #78350f;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #e5e7eb;
+  --input: #f3f4f6;
+  --ring: #d4af37;
+
+  /* ── Brand palette ────────────────────────────── */
+  --gold: #d4af37;
+  --gold-light: #f3e5ab;
+  --gold-foreground: #1a1000;
+  --amber: #f59e0b;
+  --dark-bg: #0f172a;
+  --dark-surface: #1e293b;
+
+  /* ── Gradients ────────────────────────────────── */
+  --gradient-gold: linear-gradient(135deg, #f59e0b 0%, #d4af37 50%, #b8860b 100%);
+  --gradient-gold-light: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  --gradient-dark: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  --gradient-hero: linear-gradient(135deg, #fffbf0 0%, #fff8e7 40%, #ffffff 100%);
+  --gradient-radial-gold: radial-gradient(
+    ellipse at top right,
+    rgba(212, 175, 55, 0.15),
+    transparent 60%
+  );
+  --gradient-text-gold: linear-gradient(90deg, #f59e0b, #d4af37, #b8860b);
+
+  /* ── Shadows ──────────────────────────────────── */
+  --shadow-gold: 0 20px 60px -20px rgba(212, 175, 55, 0.4);
+  --shadow-card: 0 4px 20px -6px rgba(17, 24, 39, 0.08);
+  --shadow-card-hover: 0 20px 40px -12px rgba(17, 24, 39, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.2);
+  --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Dark Mode custom variables ── */
+.dark {
+  --background: #0a0f1e;
+  --foreground: #f1f5f9;
+  --card: #111827;
+  --card-foreground: #f1f5f9;
+  --popover: #111827;
+  --popover-foreground: #f1f5f9;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #1e2d45;
+  --input: #1e2d45;
+  --shadow-card: 0 4px 20px -6px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.25);
+}
+
+/* ── Dark Mode — apply .dark on <html> for full page ── */
+html.dark {
+  background-color: #0a0f1e;
+  color: #f1f5f9;
+}
+
+/* All sections & main containers go dark */
+html.dark section,
+html.dark main,
+html.dark header,
+html.dark [class*="bg-white"],
+html.dark [class*="bg-gray-50"],
+html.dark [class*="bg-gray-100"],
+html.dark [class*="bg-\[#FAFAFA\]"],
+html.dark [class*="surface-alt"] {
+  background-color: #0a0f1e !important;
+  color: #f1f5f9;
+}
+
+/* Cards go dark */
+html.dark .card-premium,
+html.dark [class*="card-premium"] {
+  background: #111827 !important;
+  border-color: #1e2d45 !important;
+}
+
+/* Text overrides */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f1f5f9 !important;
+}
+
+html.dark p,
+html.dark span:not([style*="background"]) {
+  color: inherit;
+}
+
+/* Tailwind text-gray-* overrides */
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700 { color: #f1f5f9 !important; }
+html.dark .text-gray-600,
+html.dark .text-gray-500 { color: #94a3b8 !important; }
+html.dark .text-gray-400 { color: #64748b !important; }
+
+/* Feature cards */
+html.dark .group.flex.h-full.flex-col {
+  background: #111827 !important;
+  border-color: #1e2d45 !important;
+}
+
+/* Borders */
+html.dark .border-gray-100,
+html.dark .border-gray-200 { border-color: #1e2d45 !important; }
+
+/* Navbar — keep it dark-adapted */
+html.dark [class*="bg-white\/"] {
+  background-color: rgba(10, 15, 30, 0.95) !important;
+}
+
+/* Dropdowns */
+html.dark .bg-white.rounded-xl {
+  background-color: #111827 !important;
+}
+
+/* Dark bg sections keep their background */
+html.dark [style*="background: #0F172A"],
+html.dark [style*="background:#0F172A"],
+html.dark .dark-bg {
+  background-color: #050810 !important;
+}
+
+/* Inline light backgrounds */
+html.dark [style*="background: #FAFAFA"],
+html.dark [style*="background:#FAFAFA"],
+html.dark [style*="background: #fafafa"],
+html.dark [style*="background-color: #ffffff"],
+html.dark [style*="background:#ffffff"],
+html.dark [style*="background: white"] {
+  background-color: #0a0f1e !important;
+}
+
+/* Hero pill badges */
+html.dark [style*="background: rgba(255, 255, 255, 0.9)"],
+html.dark [style*="background: rgba(255,255,255,0.9)"] {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Inputs */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1e2d45 !important;
+  color: #f1f5f9 !important;
+  border-color: #1e2d45 !important;
+}
+
+/* Buttons outline */
+html.dark .btn-outline-gold {
+  color: #d4af37 !important;
+  border-color: #d4af37 !important;
+}
+
+/* Mobile menu */
+html.dark [class*="fixed"][class*="bg-white"] {
+  background-color: #0a0f1e !important;
+}
+
+/* Footer stays extra dark */
+html.dark footer {
+  background-color: #050810 !important;
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.65;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  /* High definition text clarity */
+  p, span, h1, h2, h3, h4, h5, h6, a, button, input, label {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  /* Ensure dark class on html propagates to entire page */
+  html.dark body,
+  html.dark {
+    background-color: #0a0f1e;
+    color: #f1f5f9;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  ::selection {
+    background: rgba(212, 175, 55, 0.2);
+    color: #111827;
+  }
+}
+
+/* ── Utility: Glass card (light) ───────────────── */
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Utility: Glass dark (for dark sections) ───── */
+@utility glass-dark {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Utility: Gold gradient text ───────────────── */
+@utility gradient-text {
+  background: var(--gradient-text-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Utility: Gold gradient background ─────────── */
+@utility gradient-bg {
+  background: var(--gradient-gold);
+}
+
+/* ── Utility: Dark footer background ───────────── */
+@utility dark-bg {
+  background: var(--dark-bg);
+}
+
+/* ── Utility: Surface alternate ────────────────── */
+@utility surface-alt {
+  background: #fafafa;
+}
+
+/* ── Utility: Hover lift ────────────────────────── */
+@utility hover-lift {
+  transition: var(--transition-smooth);
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+/* ── Buttons ────────────────────────────────────── */
+@utility btn-gold {
+  background: var(--gradient-gold);
+  color: #1a1000;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-gold);
+    filter: brightness(1.05);
+  }
+}
+
+@utility btn-gradient {
+  background: var(--gradient-gold);
+  color: #1a1000;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-gold);
+    filter: brightness(1.05);
+  }
+}
+
+@utility btn-outline-gold {
+  border: 2px solid #d4af37;
+  color: #92700a;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  background: transparent;
+  &:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: #b8860b;
+    transform: translateY(-2px);
+  }
+}
+
+@utility btn-outline-glow {
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  color: #92700a;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  &:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: #d4af37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
+  }
+}
+
+@utility btn-dark {
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  &:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+  }
+}
+
+/* ── Layout utilities ───────────────────────────── */
+@utility container-page {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility section-pad {
+  padding-block: 2.25rem;
+  @media (min-width: 768px) {
+    padding-block: 3.5rem;
+  }
+}
+
+/* ── Gold border card ───────────────────────────── */
+@utility card-premium {
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+  &:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+  .dark & {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--foreground);
+  }
+}
+
+/* ── Ornament divider ───────────────────────────── */
+@utility gold-divider {
+  height: 2px;
+  background: var(--gradient-gold);
+  border-radius: 999px;
+}
+
+/* ── Eyebrow text ───────────────────────────────── */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #92700a;
+}
+
+/* ── Animations ─────────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.06);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes typewriter-reveal {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 14ch;
+  }
+}
+@keyframes typewriter-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #d4af37;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-fade-in {
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.typewriter-gold {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  border-right: 0.08em solid #d4af37;
+  animation:
+    typewriter-reveal 2.2s steps(14, end) 0.45s forwards,
+    typewriter-caret 0.8s step-end infinite;
+}
+
+/* ── Quote typography ───────────────────────────── */
+.font-quote {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  color: #1e293b;
+}
+
+
+
+/* ── Hero Luxury Background ──────────────────────── */
+.hero-luxury-bg {
+  position: relative;
+  background-color: #0F172A;
+  background-image: url('/hero-amazing-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: background 0.4s ease;
+}
+.dark .hero-luxury-bg {
+  background-color: #050810;
+  background-image: linear-gradient(rgba(5, 8, 16, 0.4), rgba(5, 8, 16, 0.5)), url('/hero-amazing-bg.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* ── Quote / Sakshi Shree Section Background ─────── */
+.quote-section-bg {
+  background: linear-gradient(135deg, #FFFBF0 0%, #FFF3D0 100%);
+  transition: background 0.4s ease;
+}
+.dark .quote-section-bg {
+  background: linear-gradient(135deg, #0a0f1e 0%, #111827 100%) !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   COMPREHENSIVE DARK MODE OVERRIDES
+   These rules ensure EVERY page, card, section,
+   text, button, and border responds to dark mode.
+═══════════════════════════════════════════════════ */
+
+/* All section backgrounds go dark */
+.dark main,
+.dark .section-pad {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Tailwind bg-white / bg-gray utility classes override */
+.dark .bg-white {
+  background-color: var(--background) !important;
+}
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .surface-alt {
+  background-color: var(--secondary) !important;
+}
+.dark .bg-\[\#FAFAFA\] {
+  background-color: var(--secondary) !important;
+}
+
+/* Every card goes dark */
+.dark .card-premium,
+.dark [class*="card-"],
+.dark .glass-card {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+/* Fix inline bg-white divs (feature cards, solution icons etc.) */
+.dark div[style*="background:#fff"],
+.dark div[style*="background: #fff"],
+.dark div[style*="background-color:#fff"],
+.dark div[style*="background-color: #fff"],
+.dark div[style*="background:#ffffff"],
+.dark div[style*="background: #ffffff"],
+.dark div[style*="background-color:#ffffff"],
+.dark div[style*="background-color: #ffffff"] {
+  background-color: var(--card) !important;
+}
+
+/* Feature cards (hardcoded bg-white + border) */
+.dark .group.flex.h-full.flex-col {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+/* All body text colors */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: var(--foreground) !important;
+}
+.dark p {
+  color: var(--muted-foreground) !important;
+}
+.dark [class*="text-gray-900"],
+.dark [class*="text-gray-800"],
+.dark [class*="text-gray-700"] {
+  color: var(--foreground) !important;
+}
+.dark [class*="text-gray-600"],
+.dark [class*="text-gray-500"],
+.dark [class*="text-gray-400"] {
+  color: var(--muted-foreground) !important;
+}
+
+/* All borders */
+.dark [class*="border-gray"],
+.dark [class*="border-[#E"],
+.dark [class*="border-[rgba"] {
+  border-color: var(--border) !important;
+}
+
+/* Footer & dark bg sections — keep them dark */
+.dark .dark-bg,
+.dark footer,
+.dark [class*="bg-slate-900"],
+.dark [class*="bg-slate-950"],
+.dark [class*="bg-[#0F172A]"] {
+  background-color: #050810 !important;
+}
+
+/* Solution icon cards */
+.dark a[class*="rounded"][class*="border"],
+.dark div[class*="rounded"][class*="border-gray"] {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+/* Mobile menu background */
+.dark [class*="fixed"] {
+  background-color: #0a0f1e !important;
+}
+
+/* Dropdown menus */
+.dark [class*="bg-white"][class*="rounded-xl"][class*="shadow"] {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+/* Stats banner — already dark, just make it deeper */
+.dark [style*="background: #0F172A"],
+.dark [style*="background:#0F172A"] {
+  background: #050810 !important;
+}
+
+/* Input fields and forms */
+.dark input, .dark textarea, .dark select {
+  background-color: var(--input) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+/* Inline style overrides for section backgrounds */
+.dark [style*="background: #FAFAFA"],
+.dark [style*="background:#FAFAFA"],
+.dark [style*="background: #fafafa"],
+.dark [style*="background: white"],
+.dark [style*="background:white"],
+.dark [style*="background-color: white"],
+.dark [style*="background-color:white"] {
+  background-color: var(--background) !important;
+}
+
+/* Hero section badge / pills */
+.dark [style*="background: rgba(255, 255, 255"],
+.dark [style*="background:rgba(255,255,255"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Testimonial card area */
+.dark [class*="bg-[#FAFAFA]"] {
+  background: var(--background) !important;
+}
+
+/* Image overlays remain visible */
+.dark img {
+  opacity: 0.95;
+}
+
+/* Buttons — gold stays gold, outline adapts */
+.dark .btn-outline-gold {
+  color: #d4af37 !important;
+  border-color: #d4af37 !important;
+}
+.dark .btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.15) !important;
+}
+
+/* Text that uses amber is fine, no override needed */
+/* Gold gradient text stays visible on dark */
+
+/* Ensure smooth transitions on all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Hide scrollbars cleanly */
+.no-scrollbar::-webkit-scrollbar,
+div[style*="scrollbar-width: none"]::-webkit-scrollbar,
+div[style*="scrollbarWidth: none"]::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Chatbot text rendering and word wrapping */
+.chat-message {
+  font-size: 13.5px;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+

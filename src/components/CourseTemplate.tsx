@@ -1,3 +1,4 @@
+"use client";
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { TESTIMONIAL_VIDEOS, type COURSES } from "@/data/content";
@@ -122,3 +123,4 @@ export function CourseTemplate({
     </>
   );
 }
+

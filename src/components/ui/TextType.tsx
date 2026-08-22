@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 
 interface TextTypeProps {
@@ -103,3 +104,4 @@ export default function TextType({
     </span>
   );
 }
+

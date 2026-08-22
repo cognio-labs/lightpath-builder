@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState, useEffect } from "react";
 
 interface GlareHoverProps {
@@ -96,3 +97,4 @@ export default function GlareHover({
     </div>
   );
 }
+
