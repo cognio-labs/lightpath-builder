@@ -1,4 +1,5 @@
 import { cleanTextForSpeech } from "./text-cleaner";
+import { sanitizeAIResponse } from "@/lib/ai/divine-system-prompt";
 
 export interface TTSOptions {
   onStart?: () => void;
@@ -19,9 +20,12 @@ export class TextToSpeechClient {
   public unlockAudio() {
     if (this.isAudioUnlocked || typeof window === "undefined") return;
     try {
-      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-      if (audioCtx.state === "suspended") {
-        audioCtx.resume();
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      if (AudioCtx) {
+        const audioCtx = new AudioCtx();
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
       }
       const dummy = new Audio();
       dummy.play().catch(() => {});
@@ -31,22 +35,29 @@ export class TextToSpeechClient {
     }
   }
 
-  public async speak(text: string, options: TTSOptions = {}) {
-    this.stop();
+  public async speakText(text: string, options: TTSOptions = {}) {
+    this.stopSpeaking();
     this.isSpeaking = true;
     this.unlockAudio();
 
-    const cleanText = cleanTextForSpeech(text);
-    if (!cleanText) {
+    // Sanitize any reasoning artifacts and strip markdown/URLs
+    const sanitized = sanitizeAIResponse(text);
+    const cleanText = cleanTextForSpeech(sanitized);
+
+    if (!cleanText || cleanText.length < 1) {
       this.isSpeaking = false;
       options.onEnded?.();
       return;
     }
 
+    if (process.env.NODE_ENV === "development") {
+      console.log("[DIVINE TTS] speaking:", cleanText);
+    }
+
     this.currentAbortController = new AbortController();
 
     try {
-      // 1. Try server-side OpenRouter / Fish Audio / ElevenLabs TTS
+      // 1. Try server-side OpenRouter Fish Audio Free TTS
       const res = await fetch("/api/voice/speak", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -61,10 +72,7 @@ export class TextToSpeechClient {
           const audio = new Audio(audioSrc);
           this.currentAudio = audio;
 
-          let started = false;
-
           audio.onplay = () => {
-            started = true;
             this.isSpeaking = true;
             options.onStart?.();
           };
@@ -72,6 +80,9 @@ export class TextToSpeechClient {
           audio.onended = () => {
             this.isSpeaking = false;
             this.currentAudio = null;
+            if (process.env.NODE_ENV === "development") {
+              console.log("[DIVINE TTS] finished");
+            }
             options.onEnded?.();
           };
 
@@ -84,7 +95,7 @@ export class TextToSpeechClient {
             await audio.play();
             return;
           } catch (playErr) {
-            console.warn("audio.play() blocked or failed, using browser synthesis fallback:", playErr);
+            console.warn("audio.play() blocked, using browser synthesis fallback:", playErr);
             this.fallbackBrowserSpeech(cleanText, options);
             return;
           }
@@ -100,6 +111,11 @@ export class TextToSpeechClient {
       console.warn("TTS fetch error, using browser fallback:", err);
       this.fallbackBrowserSpeech(cleanText, options);
     }
+  }
+
+  // Alias for backward compatibility
+  public async speak(text: string, options: TTSOptions = {}) {
+    return this.speakText(text, options);
   }
 
   private fallbackBrowserSpeech(text: string, options: TTSOptions) {
@@ -138,6 +154,9 @@ export class TextToSpeechClient {
         utterance.onend = () => {
           this.isSpeaking = false;
           this.currentUtterance = null;
+          if (process.env.NODE_ENV === "development") {
+            console.log("[DIVINE TTS] browser speech finished");
+          }
           options.onEnded?.();
         };
 
@@ -157,8 +176,7 @@ export class TextToSpeechClient {
         window.speechSynthesis.onvoiceschanged = () => {
           setVoiceAndSpeak();
         };
-        // In case onvoiceschanged does not fire
-        setTimeout(setVoiceAndSpeak, 200);
+        setTimeout(setVoiceAndSpeak, 150);
       }
     } catch (e) {
       console.warn("Failed to trigger browser speech:", e);
@@ -170,7 +188,7 @@ export class TextToSpeechClient {
   /**
    * Immediately stops any ongoing speech playback (Barge-in / Interruption).
    */
-  public stop() {
+  public stopSpeaking() {
     this.isSpeaking = false;
 
     if (this.currentAbortController) {
@@ -196,6 +214,11 @@ export class TextToSpeechClient {
       }
       this.currentUtterance = null;
     }
+  }
+
+  // Alias for backward compatibility
+  public stop() {
+    this.stopSpeaking();
   }
 
   public getIsSpeaking(): boolean {
