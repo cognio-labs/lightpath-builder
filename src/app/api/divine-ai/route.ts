@@ -10,7 +10,7 @@ interface ChatMessage {
 
 interface DivineAIRequestPayload {
   messages?: ChatMessage[];
-  message?: string; // fallback for legacy payload
+  message?: string;
   mode?: "voice" | "chat";
   isVoiceMode?: boolean;
 }
@@ -52,8 +52,7 @@ export async function POST(request: NextRequest) {
       if (lastMsg.role === "user") {
         userText = lastMsg.content?.trim() || "";
       }
-      // Keep up to last 6 messages for context
-      conversationHistory.push(...body.messages.slice(-7, -1));
+      conversationHistory.push(...body.messages.slice(-6, -1));
     } else if (body.message) {
       userText = body.message.trim();
     }
@@ -70,16 +69,21 @@ export async function POST(request: NextRequest) {
       ? { contextText: "", sourceItems: [], primaryLinks: [] }
       : retrieveRelevantKnowledge(userText);
 
-    // 2. OpenRouter Config from Server Environment
+    // 2. OpenRouter Config from Server Environment — 2 SEPARATE DEDICATED MODELS
     const openrouterKey = process.env.OPENROUTER_API_KEY;
-    const primaryModel = process.env.OPENROUTER_CHAT_MODEL || "openrouter/free";
-    const fallbackModel = process.env.OPENROUTER_CHAT_FALLBACK_MODEL || "nvidia/nemotron-3.5-lightning:free";
     const baseUrl = process.env.OPENROUTER_BASE_URL || "https://openrouter.ai/api/v1";
+
+    // 🌟 Voice Model (Ultra-fast, conversational 1-2 line speech) vs Chat Model (Deep, rich wisdom)
+    const voiceModel = process.env.OPENROUTER_VOICE_MODEL || "openrouter/free";
+    const chatModel = process.env.OPENROUTER_CHAT_MODEL || "nvidia/nemotron-3.5-lightning:free";
+
+    const selectedModel = isVoice ? voiceModel : chatModel;
+    const fallbackModel = isVoice ? "google/gemma-4-31b-it:free" : "openrouter/free";
 
     if (openrouterKey) {
       const voiceInstructions = isVoice
-        ? "\n\nVOICE MODE ACTIVE: Keep response strictly to 1-3 short spoken sentences. Never use markdown, bullet points, asterisks, or lists. Talk naturally and warmly."
-        : "";
+        ? "\n\nVOICE MODE ACTIVE: Keep response strictly to 1-2 short spoken sentences for real-time speech. Never use markdown, asterisks, or bullet lists."
+        : "\n\nCHAT MODE ACTIVE: Provide a clear, well-structured, warm response with actionable spiritual guidance.";
 
       const systemPromptWithKnowledge = isGreeting
         ? `${DIVINE_SYSTEM_PROMPT}${voiceInstructions}`
@@ -101,10 +105,10 @@ ${retrieval.contextText}
       ];
 
       const modelsToTry = [
-        primaryModel,
-        "openrouter/free",
+        selectedModel,
         fallbackModel,
-        "google/gemma-4-31b-it:free",
+        "openrouter/free",
+        "nvidia/nemotron-3.5-lightning:free",
       ];
 
       for (const model of modelsToTry) {
@@ -124,8 +128,8 @@ ${retrieval.contextText}
             body: JSON.stringify({
               model,
               messages: messagesForLLM,
-              temperature: 0.7,
-              max_tokens: isVoice ? 120 : 250,
+              temperature: isVoice ? 0.65 : 0.7,
+              max_tokens: isVoice ? 120 : 300,
             }),
           });
 
@@ -138,21 +142,22 @@ ${retrieval.contextText}
 
               return NextResponse.json({
                 answer: sanitizedAnswer,
-                response: sanitizedAnswer, // alias for backwards compatibility
+                response: sanitizedAnswer,
                 spokenText,
                 sources: retrieval.sourceItems,
                 links: retrieval.primaryLinks,
                 modelUsed: model,
+                mode: isVoice ? "voice" : "chat",
               });
             }
           }
         } catch (modelErr) {
-          console.warn(`Call to LLM model ${model} failed:`, modelErr);
+          console.warn(`Call to model ${model} failed:`, modelErr);
         }
       }
     }
 
-    // 3. Fallback Synthesizer if external API unreachable
+    // 3. Fallback Local Synthesizer
     const fallbackAnswer = synthesizeKnowledgeResponse(userText, retrieval);
     const sanitizedFallback = sanitizeAIResponse(fallbackAnswer);
     const spokenText = cleanTextForSpeech(sanitizedFallback);
@@ -164,6 +169,7 @@ ${retrieval.contextText}
       sources: retrieval.sourceItems,
       links: retrieval.primaryLinks,
       modelUsed: "knowledge-engine-local",
+      mode: isVoice ? "voice" : "chat",
     });
   } catch (error: any) {
     console.error("Divine AI API error:", error);
@@ -230,10 +236,8 @@ function synthesizeKnowledgeResponse(
     return "Science Divine offers four core transformational courses: Design Your Destiny, Science of Joyful Living, Mind Power Meditation, and Sanjeevani Kriya.";
   }
 
-  // If specific item retrieved
   if (retrieval.sourceItems.length > 0) {
-    const topItem = retrieval.sourceItems[0];
-    return topItem.content;
+    return retrieval.sourceItems[0].content;
   }
 
   if (isHindi) {
