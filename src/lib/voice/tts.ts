@@ -11,10 +11,30 @@ export class TextToSpeechClient {
   private currentUtterance: SpeechSynthesisUtterance | null = null;
   private isSpeaking = false;
   private currentAbortController: AbortController | null = null;
+  private isAudioUnlocked = false;
+
+  /**
+   * Unlock browser audio playback on first user gesture.
+   */
+  public unlockAudio() {
+    if (this.isAudioUnlocked || typeof window === "undefined") return;
+    try {
+      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+      const dummy = new Audio();
+      dummy.play().catch(() => {});
+      this.isAudioUnlocked = true;
+    } catch (e) {
+      // ignore
+    }
+  }
 
   public async speak(text: string, options: TTSOptions = {}) {
     this.stop();
     this.isSpeaking = true;
+    this.unlockAudio();
 
     const cleanText = cleanTextForSpeech(text);
     if (!cleanText) {
@@ -41,7 +61,11 @@ export class TextToSpeechClient {
           const audio = new Audio(audioSrc);
           this.currentAudio = audio;
 
+          let started = false;
+
           audio.onplay = () => {
+            started = true;
+            this.isSpeaking = true;
             options.onStart?.();
           };
 
@@ -52,12 +76,18 @@ export class TextToSpeechClient {
           };
 
           audio.onerror = (err) => {
-            console.warn("Server audio playback failed, falling back to browser speech synthesis:", err);
+            console.warn("Audio element error, falling back to browser synthesis:", err);
             this.fallbackBrowserSpeech(cleanText, options);
           };
 
-          await audio.play();
-          return;
+          try {
+            await audio.play();
+            return;
+          } catch (playErr) {
+            console.warn("audio.play() blocked or failed, using browser synthesis fallback:", playErr);
+            this.fallbackBrowserSpeech(cleanText, options);
+            return;
+          }
         }
       }
 
@@ -79,40 +109,62 @@ export class TextToSpeechClient {
       return;
     }
 
-    window.speechSynthesis.cancel();
+    try {
+      window.speechSynthesis.cancel();
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    this.currentUtterance = utterance;
+      const utterance = new SpeechSynthesisUtterance(text);
+      this.currentUtterance = utterance;
 
-    const voices = window.speechSynthesis.getVoices();
-    const preferredVoice = voices.find(
-      (v) => v.lang.startsWith("hi") || v.lang.includes("IN") || v.name.includes("India")
-    );
-    if (preferredVoice) {
-      utterance.voice = preferredVoice;
+      const setVoiceAndSpeak = () => {
+        const voices = window.speechSynthesis.getVoices();
+        const preferredVoice =
+          voices.find((v) => v.lang === "hi-IN" || v.lang === "hi_IN") ||
+          voices.find((v) => v.lang.startsWith("hi")) ||
+          voices.find((v) => v.lang.includes("IN") || v.name.includes("India")) ||
+          voices.find((v) => v.lang.startsWith("en"));
+
+        if (preferredVoice) {
+          utterance.voice = preferredVoice;
+        }
+
+        utterance.rate = 0.98;
+        utterance.pitch = 1.0;
+
+        utterance.onstart = () => {
+          this.isSpeaking = true;
+          options.onStart?.();
+        };
+
+        utterance.onend = () => {
+          this.isSpeaking = false;
+          this.currentUtterance = null;
+          options.onEnded?.();
+        };
+
+        utterance.onerror = (e) => {
+          console.warn("Browser SpeechSynthesis error:", e);
+          this.isSpeaking = false;
+          this.currentUtterance = null;
+          options.onEnded?.();
+        };
+
+        window.speechSynthesis.speak(utterance);
+      };
+
+      if (window.speechSynthesis.getVoices().length > 0) {
+        setVoiceAndSpeak();
+      } else {
+        window.speechSynthesis.onvoiceschanged = () => {
+          setVoiceAndSpeak();
+        };
+        // In case onvoiceschanged does not fire
+        setTimeout(setVoiceAndSpeak, 200);
+      }
+    } catch (e) {
+      console.warn("Failed to trigger browser speech:", e);
+      this.isSpeaking = false;
+      options.onEnded?.();
     }
-
-    utterance.rate = 0.95;
-    utterance.pitch = 1.0;
-
-    utterance.onstart = () => {
-      options.onStart?.();
-    };
-
-    utterance.onend = () => {
-      this.isSpeaking = false;
-      this.currentUtterance = null;
-      options.onEnded?.();
-    };
-
-    utterance.onerror = (e) => {
-      this.isSpeaking = false;
-      this.currentUtterance = null;
-      options.onError?.(e);
-      options.onEnded?.();
-    };
-
-    window.speechSynthesis.speak(utterance);
   }
 
   /**

@@ -16,10 +16,9 @@ import {
   MicOff,
   Volume2,
   VolumeX,
-  Radio,
-  StopCircle,
   ArrowLeft,
   AudioLines,
+  PhoneOff,
 } from "lucide-react";
 import { LOGO_URL } from "@/data/content";
 
@@ -41,12 +40,11 @@ export function DivineAIGuide() {
   const [activeMode, setActiveMode] = useState<"chat" | "voice">("chat");
   const [voiceState, setVoiceState] = useState<VoiceState>("idle");
   const [audioLevel, setAudioLevel] = useState(0);
-  const [isContinuousListening, setIsContinuousListening] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
   const [inputText, setInputText] = useState("");
   const [liveTranscript, setLiveTranscript] = useState("");
   const [messages, setMessages] = useState<MessageItem[]>([INITIAL_GREETING]);
   const [isThinking, setIsThinking] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   const vadRef = useRef<VoiceActivityDetector | null>(null);
   const sttRef = useRef<SpeechToTextClient | null>(null);
@@ -54,21 +52,16 @@ export function DivineAIGuide() {
   const chatScrollRef = useRef<HTMLDivElement>(null);
   const conversationIdRef = useRef<string>(`conv-${Date.now()}`);
 
-  const isContinuousRef = useRef(isContinuousListening);
-  const isMutedRef = useRef(isMuted);
   const activeModeRef = useRef(activeMode);
-
-  useEffect(() => {
-    isContinuousRef.current = isContinuousListening;
-  }, [isContinuousListening]);
-
-  useEffect(() => {
-    isMutedRef.current = isMuted;
-  }, [isMuted]);
+  const isMutedRef = useRef(isMuted);
 
   useEffect(() => {
     activeModeRef.current = activeMode;
   }, [activeMode]);
+
+  useEffect(() => {
+    isMutedRef.current = isMuted;
+  }, [isMuted]);
 
   // Scroll to bottom when messages update in chat mode
   useEffect(() => {
@@ -87,7 +80,7 @@ export function DivineAIGuide() {
     };
   }, []);
 
-  // Send message to API
+  // Send message to API and auto-speak in voice mode
   const sendMessage = useCallback(
     async (text: string, isFromVoice = false) => {
       const cleanInput = text.trim();
@@ -145,28 +138,35 @@ export function DivineAIGuide() {
         setMessages((prev) => [...prev, botMsg]);
         setIsThinking(false);
 
-        // Speak response if in Voice mode or unmuted
+        // 🌟 If in Voice Mode: Automatically speak aloud & then resume listening hands-free!
         if (activeModeRef.current === "voice" && !isMutedRef.current) {
           setVoiceState("speaking");
-          await ttsRef.current?.speak(spokenText, {
+          ttsRef.current?.speak(spokenText, {
             onStart: () => {
               setVoiceState("speaking");
             },
             onEnded: () => {
-              setVoiceState("idle");
-              if (isContinuousRef.current && activeModeRef.current === "voice") {
+              // Once bot finishes speaking, immediately resume listening for user's next words!
+              if (activeModeRef.current === "voice") {
+                setVoiceState("listening");
                 setTimeout(() => {
                   startVoiceListening();
-                }, 400);
+                }, 300);
+              } else {
+                setVoiceState("idle");
               }
             },
             onError: () => {
-              setVoiceState("idle");
+              if (activeModeRef.current === "voice") {
+                startVoiceListening();
+              } else {
+                setVoiceState("idle");
+              }
             },
           });
         } else {
           setVoiceState("idle");
-          if (activeModeRef.current === "voice" && isContinuousRef.current) {
+          if (activeModeRef.current === "voice") {
             setTimeout(() => {
               startVoiceListening();
             }, 400);
@@ -184,11 +184,29 @@ export function DivineAIGuide() {
   // Activate continuous Voice Activity Detection + STT
   const startVoiceListening = useCallback(async () => {
     ttsRef.current?.stop();
-    setVoiceState("requesting_permission");
+    ttsRef.current?.unlockAudio();
+    setVoiceState("listening");
 
+    // Initialize Web Speech Recognition
+    if (!sttRef.current) {
+      sttRef.current = new SpeechToTextClient({
+        onResult: (text, isFinal) => {
+          setLiveTranscript(text);
+          if (isFinal && text.trim().length > 1) {
+            sendMessage(text, true);
+          }
+        },
+        onError: (err) => {
+          console.warn("STT Error:", err);
+        },
+      });
+    }
+
+    // Initialize VAD for interruption / barge-in
     if (!vadRef.current) {
       vadRef.current = new VoiceActivityDetector({
         onSpeechStart: () => {
+          // If bot is speaking and user speaks, stop bot immediately!
           ttsRef.current?.stop();
           setVoiceState("recording");
           setLiveTranscript("Aap bol rahe hain...");
@@ -202,7 +220,7 @@ export function DivineAIGuide() {
             transcript = await sttRef.current.transcribeBlob(audioBlob);
           }
 
-          if (transcript) {
+          if (transcript && transcript.trim().length > 1) {
             sendMessage(transcript, true);
           } else {
             setVoiceState("listening");
@@ -214,19 +232,6 @@ export function DivineAIGuide() {
         },
         onError: (err) => {
           console.warn("VAD error:", err);
-          setVoiceState("error");
-          setLiveTranscript(err);
-        },
-      });
-    }
-
-    if (!sttRef.current) {
-      sttRef.current = new SpeechToTextClient({
-        onResult: (text, isFinal) => {
-          setLiveTranscript(text);
-          if (isFinal) {
-            sendMessage(text, true);
-          }
         },
       });
     }
@@ -253,10 +258,11 @@ export function DivineAIGuide() {
 
   // Switch to Voice Mode
   const handleOpenVoiceMode = () => {
+    ttsRef.current?.unlockAudio();
     setActiveMode("voice");
     setTimeout(() => {
       startVoiceListening();
-    }, 300);
+    }, 250);
   };
 
   // Switch to Chat Mode
@@ -265,15 +271,12 @@ export function DivineAIGuide() {
     setActiveMode("chat");
   };
 
-  const toggleMicInVoiceMode = () => {
+  // Toggle Mute / Mic
+  const handleToggleVoiceOrb = () => {
     if (voiceState === "speaking") {
       ttsRef.current?.stop();
       startVoiceListening();
-    } else if (
-      voiceState === "listening" ||
-      voiceState === "recording" ||
-      voiceState === "requesting_permission"
-    ) {
+    } else if (voiceState === "listening" || voiceState === "recording") {
       stopVoiceListening();
     } else {
       startVoiceListening();
@@ -292,6 +295,7 @@ export function DivineAIGuide() {
 
   const handleSpeakSingleMessage = (text: string) => {
     ttsRef.current?.stop();
+    ttsRef.current?.unlockAudio();
     setVoiceState("speaking");
     ttsRef.current?.speak(text, {
       onStart: () => setVoiceState("speaking"),
@@ -304,12 +308,13 @@ export function DivineAIGuide() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 🌟 1. CLEAN CIRCULAR FLOATING ICON (Only Official Science Divine Logo) */}
+      {/* 🌟 1. CLEAN CIRCULAR FLOATING ICON (Pure Science Divine Sun Logo Only) */}
       {/* ========================================================================= */}
       {!isOpen && (
         <div className="fixed bottom-6 right-6 z-[999]">
           <button
             onClick={() => {
+              ttsRef.current?.unlockAudio();
               setIsOpen(true);
               setActiveMode("chat");
             }}
@@ -366,7 +371,7 @@ export function DivineAIGuide() {
                 <div className="bg-black/30 p-0.5 rounded-full flex items-center">
                   <button
                     onClick={handleOpenChatMode}
-                    className={`px-2 py-0.5 rounded-full text-[10.5px] font-medium transition-all ${
+                    className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium transition-all ${
                       activeMode === "chat"
                         ? "bg-amber-400 text-slate-950 font-bold shadow-sm"
                         : "text-amber-100/80 hover:text-white"
@@ -376,13 +381,13 @@ export function DivineAIGuide() {
                   </button>
                   <button
                     onClick={handleOpenVoiceMode}
-                    className={`px-2 py-0.5 rounded-full text-[10.5px] font-medium flex items-center gap-1 transition-all ${
+                    className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium flex items-center gap-1 transition-all ${
                       activeMode === "voice"
                         ? "bg-gradient-to-r from-sky-400 to-cyan-400 text-slate-950 font-bold shadow-sm"
                         : "text-sky-300 hover:text-white"
                     }`}
                   >
-                    <AudioLines size={10} />
+                    <AudioLines size={11} />
                     <span>Voice</span>
                   </button>
                 </div>
@@ -462,46 +467,46 @@ export function DivineAIGuide() {
             )}
 
             {/* ========================================================================= */}
-            {/* 🎙️ TAB 2: IMMERSIVE FULL VOICE SCREEN */}
+            {/* 🎙️ TAB 2: IMMERSIVE FULL VOICE SCREEN (100% Automatic Hands-Free) */}
             {/* ========================================================================= */}
             {activeMode === "voice" && (
-              <div className="flex-1 flex flex-col justify-between items-center p-5 bg-gradient-to-b from-amber-50/70 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
-                {/* Back to Chat button */}
+              <div className="flex-1 flex flex-col justify-between items-center p-6 bg-gradient-to-b from-amber-50/70 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
+                {/* Header Back Button */}
                 <div className="w-full flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <button
                     onClick={handleOpenChatMode}
-                    className="flex items-center gap-1 hover:text-amber-800 dark:hover:text-amber-300 font-medium text-[11px]"
+                    className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 text-slate-700 dark:text-slate-200 font-medium text-[11px] transition-colors"
                   >
                     <ArrowLeft size={13} />
-                    <span>Chat par wapas</span>
+                    <span>Back to Chat</span>
                   </button>
-                  <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400 font-semibold text-[10.5px]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping" />
-                    Live Voice Mode
+                  <span className="flex items-center gap-1.5 text-sky-600 dark:text-sky-400 font-semibold text-[11px]">
+                    <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
+                    Hands-Free Voice AI
                   </span>
                 </div>
 
-                {/* Center Glowing Sacred Orb */}
+                {/* Center Glowing Sacred Orb (Tap to interrupt/speak) */}
                 <div className="flex flex-col items-center justify-center my-auto">
                   <VoiceOrb
                     state={voiceState}
                     audioLevel={audioLevel}
-                    onClick={toggleMicInVoiceMode}
+                    onClick={handleToggleVoiceOrb}
                     size="lg"
                   />
 
                   {/* Status & Live Transcript */}
-                  <div className="mt-3.5 text-center max-w-[260px]">
+                  <div className="mt-4 text-center max-w-[280px]">
                     {liveTranscript ? (
-                      <p className="text-xs font-semibold text-sky-700 dark:text-sky-300 animate-pulse">
+                      <p className="text-xs font-semibold text-sky-700 dark:text-sky-300 animate-pulse bg-sky-100/70 dark:bg-sky-950/70 px-3 py-1.5 rounded-full border border-sky-300/40">
                         🎙️ &quot;{liveTranscript}&quot;
                       </p>
                     ) : (
-                      <div>
+                      <div className="space-y-0.5">
                         <p className="text-sm font-bold text-slate-800 dark:text-slate-100">
                           {stateLabel.hi}
                         </p>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400">
                           {stateLabel.en}
                         </p>
                       </div>
@@ -509,64 +514,38 @@ export function DivineAIGuide() {
                   </div>
                 </div>
 
-                {/* Bottom Voice Controls */}
-                <div className="w-full flex flex-col items-center gap-2.5">
-                  <div className="flex items-center justify-center gap-4">
-                    {/* Auto Voice Continuous Listening Toggle */}
-                    <button
-                      onClick={() => setIsContinuousListening(!isContinuousListening)}
-                      className={`flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-semibold transition-all ${
-                        isContinuousListening
-                          ? "bg-amber-600 text-white shadow-sm"
-                          : "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
-                      }`}
-                      title="Auto Voice"
-                    >
-                      <Radio size={10} className={isContinuousListening ? "animate-pulse" : ""} />
-                      <span>Auto Voice</span>
-                    </button>
-
-                    {/* Central Sky Blue / Red Voice Action Button */}
-                    <button
-                      onClick={toggleMicInVoiceMode}
-                      className={`p-3.5 rounded-full shadow-xl transition-all transform hover:scale-110 active:scale-95 ${
-                        voiceState === "speaking"
-                          ? "bg-amber-500 text-white shadow-amber-500/40"
-                          : voiceState === "listening" || voiceState === "recording"
-                          ? "bg-red-500 text-white shadow-red-500/50 animate-pulse"
-                          : "bg-gradient-to-r from-sky-500 via-cyan-500 to-sky-600 text-white shadow-sky-500/40"
-                      }`}
-                      aria-label="Toggle Mic / Stop"
-                    >
-                      {voiceState === "speaking" ? (
-                        <StopCircle size={20} />
-                      ) : voiceState === "listening" || voiceState === "recording" ? (
-                        <MicOff size={20} />
-                      ) : (
-                        <Mic size={20} />
-                      )}
-                    </button>
-
-                    {/* Mute Voice Button */}
+                {/* Bottom Minimalist Controls (Clean & Intuitive) */}
+                <div className="w-full flex flex-col items-center gap-3">
+                  <div className="flex items-center justify-center gap-6">
+                    {/* Mute Voice Audio Toggle */}
                     <button
                       onClick={() => {
                         const newMuted = !isMuted;
                         setIsMuted(newMuted);
                         if (newMuted) ttsRef.current?.stop();
                       }}
-                      className={`p-2 rounded-full text-xs transition-colors ${
+                      className={`p-3 rounded-full shadow-md transition-all ${
                         isMuted
-                          ? "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300"
-                          : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300"
+                          ? "bg-red-500 text-white"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
                       }`}
                       title={isMuted ? "Unmute Voice" : "Mute Voice"}
                     >
-                      {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+                      {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                    </button>
+
+                    {/* End Call / Return to Chat */}
+                    <button
+                      onClick={handleOpenChatMode}
+                      className="p-3.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white shadow-lg shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all"
+                      title="End Voice Mode"
+                    >
+                      <PhoneOff size={20} />
                     </button>
                   </div>
 
-                  <p className="text-[9.5px] text-slate-400 text-center">
-                    Bolo aur suno — AI beech mein bolne par turant chup ho jayega.
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 text-center">
+                    Aap naturally bolte rahein — AI automatic sunega aur bol kar uttar dega.
                   </p>
                 </div>
               </div>
