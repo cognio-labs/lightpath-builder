@@ -20,7 +20,6 @@ import {
   StopCircle,
   ArrowLeft,
   AudioLines,
-  MessageSquare,
 } from "lucide-react";
 import { LOGO_URL } from "@/data/content";
 
@@ -305,7 +304,7 @@ export function DivineAIGuide() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 🌟 1. UNIFIED SLEEK FLOATING LAUNCHER (Science Divine Logo + Sky Blue Voice) */}
+      {/* 🌟 1. CLEAN CIRCULAR FLOATING ICON (Only Official Science Divine Logo) */}
       {/* ========================================================================= */}
       {!isOpen && (
         <div className="fixed bottom-6 right-6 z-[999]">
@@ -314,44 +313,26 @@ export function DivineAIGuide() {
               setIsOpen(true);
               setActiveMode("chat");
             }}
-            className="group relative flex items-center gap-3 pl-2.5 pr-3.5 py-2 rounded-full bg-gradient-to-r from-[#5B1209] via-[#6e160b] to-[#5B1209] text-white shadow-2xl border border-amber-400/50 hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md"
+            className="group relative w-14 h-14 rounded-full bg-white dark:bg-slate-900 shadow-2xl border-2 border-amber-400 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300"
             aria-label="Open Divine AI Guide"
+            title="Divine AI Guide — Science Divine"
           >
-            {/* Glowing Aura Ring */}
-            <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-amber-400 via-sky-400 to-amber-300 opacity-40 blur-sm group-hover:opacity-75 transition duration-500" />
+            {/* Luminous Pulsing Outer Halo */}
+            <span className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 opacity-40 blur-md group-hover:opacity-80 animate-pulse transition duration-500 pointer-events-none" />
 
-            {/* Official Science Divine Sun Logo in White Round Badge */}
-            <div className="relative z-10 w-8 h-8 rounded-full bg-white p-0.5 flex items-center justify-center shadow-md overflow-hidden border border-amber-300/80">
+            {/* Official Science Divine Sun Logo */}
+            <div className="relative z-10 w-10 h-10 rounded-full overflow-hidden flex items-center justify-center p-0.5">
               <img
                 src={LOGO_URL}
                 alt="Science Divine"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain drop-shadow-sm"
               />
             </div>
 
-            {/* Label Text */}
-            <div className="relative z-10 text-left">
-              <div className="text-[12px] font-bold tracking-wide text-amber-200 flex items-center gap-1 font-serif">
-                <span>Divine AI Guide</span>
-                <Sparkles size={11} className="text-yellow-400" />
-              </div>
-              <div className="text-[10px] text-amber-100/80 font-sans font-medium leading-tight">
-                Guru Ji Wisdom &amp; Voice
-              </div>
-            </div>
-
-            {/* Integrated Sky Blue ChatGPT-Style Voice Pulse Badge */}
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(true);
-                handleOpenVoiceMode();
-              }}
-              className="relative z-10 ml-1 p-1.5 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white shadow-md hover:scale-115 active:scale-90 transition-transform"
-              title="Quick Voice Mode"
-            >
-              <AudioLines size={14} className="animate-pulse" />
-            </div>
+            {/* Subtle Voice Wave Badge on Corner */}
+            <span className="absolute -top-1 -right-1 z-20 w-5 h-5 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white flex items-center justify-center shadow-md border border-white">
+              <AudioLines size={10} className="animate-pulse" />
+            </span>
           </button>
         </div>
       )}
@@ -486,11 +467,11 @@ export function DivineAIGuide() {
             )}
 
             {/* ========================================================================= */}
-            {/* 🎙️ TAB 2: IMMERSIVE FULL VOICE SCREEN (Gemini / ChatGPT Voice Mode) */}
+            {/* 🎙️ TAB 2: IMMERSIVE FULL VOICE SCREEN */}
             {/* ========================================================================= */}
             {activeMode === "voice" && (
               <div className="flex-1 flex flex-col justify-between items-center p-5 bg-gradient-to-b from-amber-50/70 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
-                {/* Back to Chat header button */}
+                {/* Back to Chat button */}
                 <div className="w-full flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <button
                     onClick={handleOpenChatMode}
@@ -505,7 +486,7 @@ export function DivineAIGuide() {
                   </span>
                 </div>
 
-                {/* Center Glowing Sacred Orb with Audio Waveform */}
+                {/* Center Glowing Sacred Orb */}
                 <div className="flex flex-col items-center justify-center my-auto">
                   <VoiceOrb
                     state={voiceState}
