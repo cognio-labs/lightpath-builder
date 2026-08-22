@@ -29,51 +29,51 @@ export function ConversationMessages({
   onSpeakMessage,
 }: ConversationMessagesProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 font-sans">
       {messages.map((msg) => (
         <div
           key={msg.id}
-          className={`flex gap-3 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+          className={`flex gap-2.5 ${msg.sender === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
         >
           {msg.sender === "bot" && (
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 grid place-items-center text-white shrink-0 shadow-md">
-              <Sparkles size={16} />
+            <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 via-yellow-400 to-amber-600 grid place-items-center text-slate-950 shrink-0 shadow-md shadow-amber-500/20 mt-0.5">
+              <Sparkles size={14} className="animate-pulse" />
             </div>
           )}
 
           <div
-            className={`max-w-[85%] rounded-2xl p-4 shadow-sm text-sm ${
+            className={`max-w-[86%] rounded-2xl px-4 py-3 shadow-sm text-[13px] leading-relaxed transition-all ${
               msg.sender === "user"
-                ? "bg-[#5B1209] text-white rounded-tr-none ml-auto"
-                : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-100 dark:border-slate-700 rounded-tl-none"
+                ? "bg-gradient-to-br from-[#5B1209] to-[#781b0f] text-white rounded-tr-sm ml-auto shadow-amber-950/10"
+                : "bg-white dark:bg-slate-800/90 text-slate-800 dark:text-slate-100 border border-amber-100/80 dark:border-slate-700/80 rounded-tl-sm shadow-slate-200/50"
             }`}
           >
-            {/* Sender Label & Timestamp */}
-            <div className="flex items-center justify-between gap-2 mb-1 opacity-75 text-[11px]">
-              <span className="font-semibold">
-                {msg.sender === "user" ? "Aap (Seeker)" : "Divine AI Guide"}
+            {/* Header info */}
+            <div className="flex items-center justify-between gap-2 mb-1.5 opacity-70 text-[10px]">
+              <span className="font-semibold tracking-wide uppercase">
+                {msg.sender === "user" ? "You" : "Divine AI Guide"}
               </span>
-              <span className="flex items-center gap-1">
-                {msg.timestamp}
+              <div className="flex items-center gap-1.5">
+                <span>{msg.timestamp}</span>
                 {msg.sender === "bot" && onSpeakMessage && (
                   <button
                     onClick={() => onSpeakMessage(msg.text)}
-                    className="p-1 hover:text-amber-500 transition-colors ml-1"
-                    title="Play voice"
+                    className="p-0.5 hover:text-amber-600 dark:hover:text-amber-300 transition-colors"
+                    title="Listen to response"
                   >
                     <Volume2 size={12} />
                   </button>
                 )}
-              </span>
+              </div>
             </div>
 
-            {/* Message Body with clean formatting */}
-            <div className="whitespace-pre-wrap leading-relaxed space-y-2">
-              {msg.text.split("\n\n").map((para, pIdx) => (
-                <p key={pIdx}>
-                  {para.split("**").map((chunk, cIdx) =>
+            {/* Formatted Message Content */}
+            <div className="space-y-2">
+              {msg.text.split("\n\n").map((paragraph, pIdx) => (
+                <p key={pIdx} className="leading-[1.6]">
+                  {paragraph.split("**").map((chunk, cIdx) =>
                     cIdx % 2 === 1 ? (
-                      <strong key={cIdx} className="font-semibold text-amber-700 dark:text-amber-400">
+                      <strong key={cIdx} className="font-semibold text-amber-800 dark:text-amber-300">
                         {chunk}
                       </strong>
                     ) : (
@@ -84,31 +84,31 @@ export function ConversationMessages({
               ))}
             </div>
 
-            {/* Verified Source Badges & Quick Action Links */}
+            {/* Verified Page Navigation Badges */}
             {msg.links && msg.links.length > 0 && (
-              <div className="mt-3 pt-3 border-t border-amber-100 dark:border-slate-700 flex flex-wrap gap-2">
+              <div className="mt-3 pt-2.5 border-t border-amber-100/70 dark:border-slate-700/70 flex flex-wrap gap-1.5">
                 {msg.links.map((link, lIdx) => (
                   <Link
                     key={lIdx}
                     href={link.url}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-xs font-semibold hover:bg-amber-100 dark:hover:bg-amber-900 transition-colors border border-amber-200 dark:border-amber-800/60"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50/90 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-[11px] font-medium hover:bg-amber-100 dark:hover:bg-amber-900/60 transition-colors border border-amber-200/70 dark:border-amber-800/50"
                   >
-                    <ShieldCheck size={12} className="text-amber-600" />
+                    <ShieldCheck size={11} className="text-amber-600" />
                     <span>{link.label}</span>
-                    <ExternalLink size={10} />
+                    <ExternalLink size={9} className="opacity-60" />
                   </Link>
                 ))}
               </div>
             )}
 
-            {/* Suggested Follow-up Questions */}
+            {/* Quick Suggestion Follow-up Buttons */}
             {msg.suggestedQuestions && msg.suggestedQuestions.length > 0 && (
               <div className="mt-3 pt-2 flex flex-wrap gap-1.5">
                 {msg.suggestedQuestions.map((sug, sIdx) => (
                   <button
                     key={sIdx}
                     onClick={() => onSuggestionClick(sug)}
-                    className="text-left px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-900 hover:bg-amber-50 dark:hover:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-300 hover:text-amber-700 transition-colors border border-slate-200 dark:border-slate-700"
+                    className="text-left px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-900/80 hover:bg-amber-50 dark:hover:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-300 hover:text-amber-800 transition-colors border border-slate-200/80 dark:border-slate-700/80"
                   >
                     💬 {sug}
                   </button>
@@ -118,22 +118,22 @@ export function ConversationMessages({
           </div>
 
           {msg.sender === "user" && (
-            <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 grid place-items-center text-slate-700 dark:text-slate-200 shrink-0">
-              <User size={16} />
+            <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 grid place-items-center text-slate-600 dark:text-slate-200 shrink-0 shadow-sm mt-0.5">
+              <User size={14} />
             </div>
           )}
         </div>
       ))}
 
       {isThinking && (
-        <div className="flex gap-3 justify-start items-center animate-fade-in">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 grid place-items-center text-white shrink-0 animate-spin">
-            <Sparkles size={16} />
+        <div className="flex gap-2.5 justify-start items-center animate-fade-in">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 grid place-items-center text-slate-950 shrink-0 animate-spin">
+            <Sparkles size={14} />
           </div>
-          <div className="bg-white dark:bg-slate-800 rounded-2xl rounded-tl-none p-3 border border-amber-100 dark:border-slate-700 shadow-sm">
-            <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 font-medium">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl rounded-tl-sm px-3.5 py-2.5 border border-amber-100 dark:border-slate-700 shadow-sm">
+            <div className="flex items-center gap-2 text-xs text-amber-700 dark:text-amber-300 font-medium">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
-              <span>Divine Wisdom dhoondh rahe hain...</span>
+              <span>Divine Wisdom soch rahe hain...</span>
             </div>
           </div>
         </div>

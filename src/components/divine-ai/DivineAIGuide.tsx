@@ -12,23 +12,22 @@ import {
   Send,
   Sparkles,
   RefreshCw,
-  MessageSquare,
   Mic,
   MicOff,
   Volume2,
   VolumeX,
   Radio,
   StopCircle,
-  Headphones,
   ArrowLeft,
   AudioLines,
+  MessageSquare,
 } from "lucide-react";
 import { LOGO_URL } from "@/data/content";
 
 const INITIAL_GREETING: MessageItem = {
   id: "initial",
   sender: "bot",
-  text: "🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nAap Sakshi Shree, Science Divine Movement, courses, meditation techniques, ya personal session ke baare mein pooch sakte hain.",
+  text: "🙏 **Hari Om & Namaste!** Main aapka **Divine AI Guide** hoon.\n\nAap Sakshi Shree, Science Divine Movement, Sound Body, Sound Mind, courses, ya personal session ke baare mein pooch sakte hain.",
   timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
   suggestedQuestions: [
     "Guru Ji kaun hain?",
@@ -108,7 +107,6 @@ export function DivineAIGuide() {
       setVoiceState("thinking");
       setIsThinking(true);
 
-      // Stop VAD while fetching response
       vadRef.current?.stop();
       sttRef.current?.stop();
 
@@ -148,7 +146,7 @@ export function DivineAIGuide() {
         setMessages((prev) => [...prev, botMsg]);
         setIsThinking(false);
 
-        // Speak aloud if voice mode or not muted
+        // Speak response if in Voice mode or unmuted
         if (activeModeRef.current === "voice" && !isMutedRef.current) {
           setVoiceState("speaking");
           await ttsRef.current?.speak(spokenText, {
@@ -306,70 +304,71 @@ export function DivineAIGuide() {
 
   return (
     <>
-      {/* 1. FLOATING LAUNCHER BUTTON (With Science Divine Logo + Sky Blue Voice Button) */}
+      {/* ========================================================================= */}
+      {/* 🌟 1. UNIFIED SLEEK FLOATING LAUNCHER (Science Divine Logo + Sky Blue Voice) */}
+      {/* ========================================================================= */}
       {!isOpen && (
-        <div className="fixed bottom-6 right-6 z-[999] flex items-center gap-2">
-          {/* Direct Quick Voice Mode Button (ChatGPT Style Sky Blue) */}
-          <button
-            onClick={() => {
-              setIsOpen(true);
-              handleOpenVoiceMode();
-            }}
-            className="group relative p-3 rounded-full bg-gradient-to-r from-sky-500 via-cyan-500 to-sky-600 text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 border border-sky-300/40"
-            title="Open Real-time Voice Mode"
-            aria-label="Open Voice Mode"
-          >
-            <span className="absolute -inset-1 rounded-full bg-sky-400 opacity-40 blur-md group-hover:opacity-80 animate-pulse" />
-            <AudioLines size={20} className="relative z-10 animate-pulse" />
-          </button>
-
-          {/* Main Divine AI Guide Pill Button (With Official Science Divine Logo) */}
+        <div className="fixed bottom-6 right-6 z-[999]">
           <button
             onClick={() => {
               setIsOpen(true);
               setActiveMode("chat");
             }}
-            className="group relative flex items-center gap-3 pl-2.5 pr-4 py-2 rounded-full bg-gradient-to-r from-[#5B1209] via-amber-900 to-[#5B1209] text-white shadow-2xl border border-amber-400/50 hover:scale-105 active:scale-95 transition-all duration-300"
+            className="group relative flex items-center gap-3 pl-2.5 pr-3.5 py-2 rounded-full bg-gradient-to-r from-[#5B1209] via-[#6e160b] to-[#5B1209] text-white shadow-2xl border border-amber-400/50 hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md"
             aria-label="Open Divine AI Guide"
           >
-            <span className="absolute -inset-1 rounded-full bg-amber-400 opacity-30 blur-md group-hover:opacity-75 transition duration-500" />
+            {/* Glowing Aura Ring */}
+            <span className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-amber-400 via-sky-400 to-amber-300 opacity-40 blur-sm group-hover:opacity-75 transition duration-500" />
 
-            <div className="relative z-10 flex items-center gap-2.5">
-              {/* Official Science Divine Sun Logo */}
-              <div className="w-8 h-8 rounded-full bg-white/95 p-1 flex items-center justify-center shadow-inner overflow-hidden border border-amber-300">
-                <img
-                  src={LOGO_URL}
-                  alt="Science Divine Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+            {/* Official Science Divine Sun Logo in White Round Badge */}
+            <div className="relative z-10 w-8 h-8 rounded-full bg-white p-0.5 flex items-center justify-center shadow-md overflow-hidden border border-amber-300/80">
+              <img
+                src={LOGO_URL}
+                alt="Science Divine"
+                className="w-full h-full object-contain"
+              />
+            </div>
 
-              <div className="text-left">
-                <div className="text-xs font-bold tracking-wide uppercase text-amber-300 flex items-center gap-1">
-                  <span>Divine AI</span>
-                  <Sparkles size={11} className="text-yellow-400" />
-                </div>
-                <div className="text-[10px] text-amber-100/80 font-medium leading-none">
-                  Chat &amp; Voice Guide
-                </div>
+            {/* Label Text */}
+            <div className="relative z-10 text-left">
+              <div className="text-[12px] font-bold tracking-wide text-amber-200 flex items-center gap-1 font-serif">
+                <span>Divine AI Guide</span>
+                <Sparkles size={11} className="text-yellow-400" />
               </div>
+              <div className="text-[10px] text-amber-100/80 font-sans font-medium leading-tight">
+                Guru Ji Wisdom &amp; Voice
+              </div>
+            </div>
+
+            {/* Integrated Sky Blue ChatGPT-Style Voice Pulse Badge */}
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsOpen(true);
+                handleOpenVoiceMode();
+              }}
+              className="relative z-10 ml-1 p-1.5 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white shadow-md hover:scale-115 active:scale-90 transition-transform"
+              title="Quick Voice Mode"
+            >
+              <AudioLines size={14} className="animate-pulse" />
             </div>
           </button>
         </div>
       )}
 
-      {/* 2. MAIN PHONE-SIZED POPUP WINDOW (Compact Mobile Form Factor) */}
+      {/* ========================================================================= */}
+      {/* 📱 2. COMPACT PHONE-SIZED POPUP WINDOW */}
+      {/* ========================================================================= */}
       {isOpen && (
         <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 z-[9999] flex items-end sm:items-center justify-center pointer-events-none">
           <div
-            className="w-full sm:w-[400px] h-[92vh] sm:h-[600px] max-h-[92vh] bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl shadow-2xl border border-amber-200/60 dark:border-slate-800 flex flex-col overflow-hidden pointer-events-auto transition-all animate-fade-in"
+            className="w-full sm:w-[385px] h-[90vh] sm:h-[580px] max-h-[90vh] bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl shadow-2xl border border-amber-200/70 dark:border-slate-800 flex flex-col overflow-hidden pointer-events-auto transition-all animate-fade-in font-sans"
             onClick={(e) => e.stopPropagation()}
           >
             {/* TOP BAR HEADER */}
-            <div className="px-4 py-3 bg-[#5B1209] text-white flex items-center justify-between border-b border-amber-500/30 shrink-0">
-              <div className="flex items-center gap-2.5">
-                {/* Science Divine Logo */}
-                <div className="w-7 h-7 rounded-full bg-white/95 p-0.5 grid place-items-center overflow-hidden border border-amber-300">
+            <div className="px-3.5 py-2.5 bg-gradient-to-r from-[#5B1209] to-[#73190e] text-white flex items-center justify-between border-b border-amber-500/30 shrink-0">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-white p-0.5 grid place-items-center overflow-hidden border border-amber-300 shadow-sm">
                   <img
                     src={LOGO_URL}
                     alt="Science Divine"
@@ -377,22 +376,21 @@ export function DivineAIGuide() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-display text-sm font-bold text-amber-200 flex items-center gap-1 leading-tight">
+                  <h3 className="font-serif text-[13px] font-bold text-amber-200 flex items-center gap-1 leading-tight">
                     Divine AI Guide
                   </h3>
-                  <p className="text-[10px] text-amber-100/75">
-                    Guru Ji Wisdom &amp; Voice Assistant
+                  <p className="text-[9.5px] text-amber-100/75">
+                    Official Science Divine Assistant
                   </p>
                 </div>
               </div>
 
-              {/* Mode Switch Tabs + Action Buttons */}
+              {/* Segmented Mode Selector & Controls */}
               <div className="flex items-center gap-1.5">
-                {/* Mode Selector Tabs (Chat / Voice) */}
-                <div className="bg-black/25 p-0.5 rounded-full flex items-center text-xs">
+                <div className="bg-black/30 p-0.5 rounded-full flex items-center">
                   <button
                     onClick={handleOpenChatMode}
-                    className={`px-2.5 py-1 rounded-full text-[11px] font-medium transition-all ${
+                    className={`px-2 py-0.5 rounded-full text-[10.5px] font-medium transition-all ${
                       activeMode === "chat"
                         ? "bg-amber-400 text-slate-950 font-bold shadow-sm"
                         : "text-amber-100/80 hover:text-white"
@@ -402,13 +400,13 @@ export function DivineAIGuide() {
                   </button>
                   <button
                     onClick={handleOpenVoiceMode}
-                    className={`px-2.5 py-1 rounded-full text-[11px] font-medium flex items-center gap-1 transition-all ${
+                    className={`px-2 py-0.5 rounded-full text-[10.5px] font-medium flex items-center gap-1 transition-all ${
                       activeMode === "voice"
                         ? "bg-gradient-to-r from-sky-400 to-cyan-400 text-slate-950 font-bold shadow-sm"
                         : "text-sky-300 hover:text-white"
                     }`}
                   >
-                    <AudioLines size={11} />
+                    <AudioLines size={10} />
                     <span>Voice</span>
                   </button>
                 </div>
@@ -418,7 +416,7 @@ export function DivineAIGuide() {
                   className="p-1 text-amber-200 hover:text-white rounded-md hover:bg-white/10 transition-colors"
                   title="Clear Chat"
                 >
-                  <RefreshCw size={14} />
+                  <RefreshCw size={13} />
                 </button>
                 <button
                   onClick={() => {
@@ -428,18 +426,18 @@ export function DivineAIGuide() {
                   className="p-1 text-amber-200 hover:text-white rounded-md hover:bg-white/10 transition-colors"
                   aria-label="Close"
                 >
-                  <X size={18} />
+                  <X size={17} />
                 </button>
               </div>
             </div>
 
             {/* ========================================================================= */}
-            {/* 📱 TAB 1: CHAT MODE (ChatGPT / Gemini Text Style) */}
+            {/* 💬 TAB 1: MODERN CHAT MODE */}
             {/* ========================================================================= */}
             {activeMode === "chat" && (
-              <div className="flex-1 flex flex-col min-h-0 bg-slate-50/50 dark:bg-slate-950/50">
-                {/* Message Stream */}
-                <div className="flex-1 overflow-y-auto p-3.5 space-y-3.5">
+              <div className="flex-1 flex flex-col min-h-0 bg-slate-50/60 dark:bg-slate-950/60">
+                {/* Scrollable Message List */}
+                <div className="flex-1 overflow-y-auto p-3 space-y-3">
                   <ConversationMessages
                     messages={messages}
                     isThinking={isThinking}
@@ -449,19 +447,19 @@ export function DivineAIGuide() {
                   <div ref={chatScrollRef} />
                 </div>
 
-                {/* Bottom Input Area with Sky Blue Voice Button */}
+                {/* Bottom Input Area with Sky Blue Voice Launcher */}
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
                     sendMessage(inputText, false);
                   }}
-                  className="p-2.5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2 shrink-0"
+                  className="p-2.5 bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800 flex items-center gap-2 shrink-0 shadow-lg"
                 >
-                  {/* Sky Blue ChatGPT-Style Voice Mode Launcher Button */}
+                  {/* Sky Blue ChatGPT-Style Voice Mic Trigger */}
                   <button
                     type="button"
                     onClick={handleOpenVoiceMode}
-                    className="p-2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white hover:from-sky-600 hover:to-cyan-600 shadow-md shadow-sky-500/20 active:scale-95 transition-all shrink-0"
+                    className="p-2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white hover:from-sky-600 hover:to-cyan-600 shadow-md shadow-sky-500/25 active:scale-90 transition-all shrink-0"
                     title="Switch to Real-Time Voice Mode"
                   >
                     <AudioLines size={16} />
@@ -471,43 +469,43 @@ export function DivineAIGuide() {
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
-                    placeholder="Poochiye Guru Ji ya Science Divine ke baare mein..."
-                    className="flex-1 min-w-0 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-full px-3.5 py-2 text-xs focus:outline-none focus:border-amber-500 dark:text-white"
+                    placeholder="Poochiye Guru Ji ya courses ke baare mein..."
+                    className="flex-1 min-w-0 bg-slate-100/80 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full px-3.5 py-1.5 text-[12px] focus:outline-none focus:border-amber-500 dark:text-white"
                   />
 
                   <button
                     type="submit"
                     disabled={!inputText.trim() || isThinking}
-                    className="p-2 rounded-full bg-[#5B1209] hover:bg-amber-900 text-white disabled:opacity-40 transition-colors shrink-0"
+                    className="p-2 rounded-full bg-[#5B1209] hover:bg-amber-900 text-white disabled:opacity-40 transition-colors shrink-0 shadow-sm"
                     aria-label="Send Message"
                   >
-                    <Send size={15} />
+                    <Send size={14} />
                   </button>
                 </form>
               </div>
             )}
 
             {/* ========================================================================= */}
-            {/* 🎙️ TAB 2: VOICE MODE (Gemini / Kimi / ChatGPT Live Voice Screen) */}
+            {/* 🎙️ TAB 2: IMMERSIVE FULL VOICE SCREEN (Gemini / ChatGPT Voice Mode) */}
             {/* ========================================================================= */}
             {activeMode === "voice" && (
-              <div className="flex-1 flex flex-col justify-between items-center p-6 bg-gradient-to-b from-amber-50/70 via-white to-sky-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
-                {/* Back to Chat header bar */}
+              <div className="flex-1 flex flex-col justify-between items-center p-5 bg-gradient-to-b from-amber-50/70 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
+                {/* Back to Chat header button */}
                 <div className="w-full flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <button
                     onClick={handleOpenChatMode}
-                    className="flex items-center gap-1 hover:text-amber-700 dark:hover:text-amber-300 font-medium"
+                    className="flex items-center gap-1 hover:text-amber-800 dark:hover:text-amber-300 font-medium text-[11px]"
                   >
-                    <ArrowLeft size={14} />
-                    <span>Back to Chat</span>
+                    <ArrowLeft size={13} />
+                    <span>Chat par wapas</span>
                   </button>
-                  <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400 font-semibold text-[11px]">
-                    <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" />
-                    Live Voice
+                  <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400 font-semibold text-[10.5px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping" />
+                    Live Voice Mode
                   </span>
                 </div>
 
-                {/* Center Animated Glowing Divine Orb */}
+                {/* Center Glowing Sacred Orb with Audio Waveform */}
                 <div className="flex flex-col items-center justify-center my-auto">
                   <VoiceOrb
                     state={voiceState}
@@ -516,8 +514,8 @@ export function DivineAIGuide() {
                     size="lg"
                   />
 
-                  {/* Status Text & Live Transcription */}
-                  <div className="mt-4 text-center max-w-[280px]">
+                  {/* Status & Live Transcript */}
+                  <div className="mt-3.5 text-center max-w-[260px]">
                     {liveTranscript ? (
                       <p className="text-xs font-semibold text-sky-700 dark:text-sky-300 animate-pulse">
                         🎙️ &quot;{liveTranscript}&quot;
@@ -527,7 +525,7 @@ export function DivineAIGuide() {
                         <p className="text-sm font-bold text-slate-800 dark:text-slate-100">
                           {stateLabel.hi}
                         </p>
-                        <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
                           {stateLabel.en}
                         </p>
                       </div>
@@ -536,63 +534,63 @@ export function DivineAIGuide() {
                 </div>
 
                 {/* Bottom Voice Controls */}
-                <div className="w-full flex flex-col items-center gap-3">
+                <div className="w-full flex flex-col items-center gap-2.5">
                   <div className="flex items-center justify-center gap-4">
-                    {/* Auto Voice Continuous Mode Toggle */}
+                    {/* Auto Voice Continuous Listening Toggle */}
                     <button
                       onClick={() => setIsContinuousListening(!isContinuousListening)}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all ${
+                      className={`flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-semibold transition-all ${
                         isContinuousListening
                           ? "bg-amber-600 text-white shadow-sm"
                           : "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
                       }`}
-                      title="Continuous Auto-Listening"
+                      title="Auto Voice"
                     >
-                      <Radio size={11} className={isContinuousListening ? "animate-pulse" : ""} />
+                      <Radio size={10} className={isContinuousListening ? "animate-pulse" : ""} />
                       <span>Auto Voice</span>
                     </button>
 
-                    {/* Central Mic / Interrupt Button (Sky Blue / Red) */}
+                    {/* Central Sky Blue / Red Voice Action Button */}
                     <button
                       onClick={toggleMicInVoiceMode}
-                      className={`p-4 rounded-full shadow-xl transition-all transform hover:scale-110 active:scale-95 ${
+                      className={`p-3.5 rounded-full shadow-xl transition-all transform hover:scale-110 active:scale-95 ${
                         voiceState === "speaking"
                           ? "bg-amber-500 text-white shadow-amber-500/40"
                           : voiceState === "listening" || voiceState === "recording"
                           ? "bg-red-500 text-white shadow-red-500/50 animate-pulse"
                           : "bg-gradient-to-r from-sky-500 via-cyan-500 to-sky-600 text-white shadow-sky-500/40"
                       }`}
-                      aria-label="Toggle Mic / Interrupt"
+                      aria-label="Toggle Mic / Stop"
                     >
                       {voiceState === "speaking" ? (
-                        <StopCircle size={22} />
+                        <StopCircle size={20} />
                       ) : voiceState === "listening" || voiceState === "recording" ? (
-                        <MicOff size={22} />
+                        <MicOff size={20} />
                       ) : (
-                        <Mic size={22} />
+                        <Mic size={20} />
                       )}
                     </button>
 
-                    {/* Mute Voice Toggle */}
+                    {/* Mute Voice Button */}
                     <button
                       onClick={() => {
                         const newMuted = !isMuted;
                         setIsMuted(newMuted);
                         if (newMuted) ttsRef.current?.stop();
                       }}
-                      className={`p-2.5 rounded-full text-xs transition-colors ${
+                      className={`p-2 rounded-full text-xs transition-colors ${
                         isMuted
                           ? "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300"
                           : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300"
                       }`}
-                      title={isMuted ? "Unmute AI Voice" : "Mute AI Voice"}
+                      title={isMuted ? "Unmute Voice" : "Mute Voice"}
                     >
-                      {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                      {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
                     </button>
                   </div>
 
-                  <p className="text-[10px] text-slate-400 text-center">
-                    Bolo aur suno — AI beech mein bolne par turant chup ho jayega (Barge-in).
+                  <p className="text-[9.5px] text-slate-400 text-center">
+                    Bolo aur suno — AI beech mein bolne par turant chup ho jayega.
                   </p>
                 </div>
               </div>
