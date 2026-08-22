@@ -1061,73 +1061,108 @@ export default function Page() {
       </section>
 
       {/* ════════════════════════════════════
-          HAR GHAR SHIKSHA BANNER
+          HAR GHAR SHIKSHA CAMPAIGN SHOWCASE
       ════════════════════════════════════ */}
-      <section className="relative overflow-hidden py-24" style={{ background: "#0B132B" }}>
+      <section className="relative overflow-hidden py-20 lg:py-24 bg-gradient-to-br from-[#2B0602] via-[#4A0E08] to-[#1A0301] text-white">
+        {/* Ambient background aura */}
         <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "url(https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp)",
-            backgroundSize: "cover",
-            backgroundPosition: "center 20%",
-            opacity: 0.55,
-          }}
+          className="absolute -top-20 -left-20 w-96 h-96 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(245,158,11,0.2) 0%, transparent 70%)" }}
         />
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.8) 100%)",
-          }}
+          className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.2) 0%, transparent 70%)" }}
         />
-        <div className="container-page relative text-center text-white">
-          <div
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border"
-            style={{
-              borderColor: "rgba(212,175,55,0.4)",
-              color: "#D4AF37",
-              background: "rgba(212,175,55,0.1)",
-            }}
-          >
-            Campaign
-          </div>
-          <h2
-            className="font-display text-3xl md:text-5xl font-bold mb-4"
-            style={{ textShadow: "0 4px 12px rgba(0,0,0,0.6)" }}
-          >
-            Har Ghar Shiksha,{" "}
-            <span
-              style={{
-                background: "linear-gradient(90deg, #FBBF24, #F59E0B)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              Har Ghar Dhyan
-            </span>
-          </h2>
-          <p className="text-white/70 max-w-2xl mx-auto mb-8 text-base leading-relaxed">
-            Empowering futures through education. Science Divine provides free schooling for
-            underprivileged children, aiming to shape brighter futures and break the cycle of
-            poverty through quality education.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={RAZORPAY_DONATION_LINK}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-gold rounded-full px-8 py-3.5 text-sm font-semibold"
-            >
-              Donate Now
-            </a>
-            <Link
-              href="/har-ghar-shiksha"
-              className="rounded-full px-8 py-3.5 text-sm font-semibold border border-white/30 text-white hover:bg-white/10 transition-colors"
-            >
-              Learn More
-            </Link>
+
+        <div className="container-page relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 text-center lg:text-left space-y-6">
+              <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border shadow-sm"
+                style={{
+                  borderColor: "rgba(212,175,55,0.5)",
+                  color: "#FBBF24",
+                  background: "rgba(212,175,55,0.15)",
+                }}
+              >
+                <Heart size={13} className="text-amber-400 animate-pulse" />
+                <span>Har Ghar Shiksha Campaign</span>
+              </div>
+
+              <h2
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
+                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}
+              >
+                Har Ghar Shiksha,{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  Har Ghar Dhyan
+                </span>
+              </h2>
+
+              <p className="text-amber-100/90 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+                Empowering futures through education and meditation. Under the compassionate guidance of{" "}
+                <strong className="text-amber-300 font-semibold">Sakshi Shree</strong>, Science Divine provides free schooling,
+                learning materials, values, and holistic grooming for underprivileged children.
+              </p>
+
+              {/* Campaign Highlights */}
+              <div className="grid grid-cols-2 gap-3 max-w-lg mx-auto lg:mx-0 pt-1 text-left">
+                <div className="p-3 rounded-2xl bg-white/5 border border-amber-400/20 backdrop-blur-sm">
+                  <div className="text-xl font-bold text-amber-300 font-serif">10,000+</div>
+                  <div className="text-xs text-amber-100/80">Children Sponsored</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-white/5 border border-amber-400/20 backdrop-blur-sm">
+                  <div className="text-xl font-bold text-amber-300 font-serif">100%</div>
+                  <div className="text-xs text-amber-100/80">Free Education &amp; Kits</div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                <a
+                  href={RAZORPAY_DONATION_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all transform hover:scale-105 active:scale-95"
+                >
+                  Donate Now
+                </a>
+                <Link
+                  href="/shiksha-sewa"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold border border-amber-300/40 text-amber-100 hover:bg-white/10 transition-colors"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Image Showcase Column (Fully visible, uncut Guru Ji & Students portrait) */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400/40 group bg-slate-950/40">
+                <img
+                  src="https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp"
+                  alt="Sakshi Shree with children - Har Ghar Shiksha"
+                  className="w-full h-auto max-h-[460px] object-cover object-top group-hover:scale-103 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/90 text-slate-950 font-bold text-[11px] mb-1">
+                    <Sparkles size={12} />
+                    <span>Sakshi Shree with Students</span>
+                  </div>
+                  <p className="text-xs text-amber-100/90 drop-shadow-sm">
+                    Shaping young minds into conscious, joyful human beings.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
