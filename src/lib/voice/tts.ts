@@ -7,31 +7,69 @@ export interface TTSOptions {
   onError?: (error: any) => void;
 }
 
+// 0.05s silent MP3 data URI to warm up mobile audio
+const SILENT_AUDIO_URI =
+  "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA";
+
 export class TextToSpeechClient {
-  private currentAudio: HTMLAudioElement | null = null;
+  private persistentAudio: HTMLAudioElement | null = null;
   private currentUtterance: SpeechSynthesisUtterance | null = null;
   private isSpeaking = false;
   private currentAbortController: AbortController | null = null;
   private isAudioUnlocked = false;
 
+  constructor() {
+    if (typeof window !== "undefined") {
+      try {
+        this.persistentAudio = new Audio();
+      } catch (e) {
+        // ignore
+      }
+    }
+  }
+
   /**
-   * Unlock browser audio playback on first user gesture.
+   * Unlock browser audio playback on direct user gesture (touch/click).
+   * Essential for iOS Safari and Android Chrome.
    */
   public unlockAudio() {
-    if (this.isAudioUnlocked || typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
+
     try {
+      // 1. Unlock Web Audio API AudioContext
       const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
       if (AudioCtx) {
-        const audioCtx = new AudioCtx();
-        if (audioCtx.state === "suspended") {
-          audioCtx.resume();
+        const ctx = new AudioCtx();
+        if (ctx.state === "suspended") {
+          ctx.resume();
         }
       }
-      const dummy = new Audio();
-      dummy.play().catch(() => {});
-      this.isAudioUnlocked = true;
+
+      // 2. Unlock HTMLAudioElement with silent buffer
+      if (!this.persistentAudio) {
+        this.persistentAudio = new Audio();
+      }
+
+      if (!this.isAudioUnlocked) {
+        this.persistentAudio.src = SILENT_AUDIO_URI;
+        const playPromise = this.persistentAudio.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              this.isAudioUnlocked = true;
+            })
+            .catch(() => {
+              // will unlock on next interaction
+            });
+        }
+      }
+
+      // 3. Unlock SpeechSynthesis on mobile
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.resume();
+      }
     } catch (e) {
-      // ignore
+      console.warn("Mobile audio unlock exception:", e);
     }
   }
 
@@ -69,8 +107,14 @@ export class TextToSpeechClient {
         const data = await res.json();
         if (data.available && data.audioBase64) {
           const audioSrc = `data:${data.contentType || "audio/mpeg"};base64,${data.audioBase64}`;
-          const audio = new Audio(audioSrc);
-          this.currentAudio = audio;
+
+          if (!this.persistentAudio) {
+            this.persistentAudio = new Audio();
+          }
+
+          const audio = this.persistentAudio;
+          audio.src = audioSrc;
+          audio.currentTime = 0;
 
           audio.onplay = () => {
             this.isSpeaking = true;
@@ -79,10 +123,6 @@ export class TextToSpeechClient {
 
           audio.onended = () => {
             this.isSpeaking = false;
-            this.currentAudio = null;
-            if (process.env.NODE_ENV === "development") {
-              console.log("[DIVINE TTS] finished");
-            }
             options.onEnded?.();
           };
 
@@ -95,7 +135,7 @@ export class TextToSpeechClient {
             await audio.play();
             return;
           } catch (playErr) {
-            console.warn("audio.play() blocked, using browser synthesis fallback:", playErr);
+            console.warn("audio.play() blocked on mobile, using browser synthesis fallback:", playErr);
             this.fallbackBrowserSpeech(cleanText, options);
             return;
           }
@@ -127,6 +167,7 @@ export class TextToSpeechClient {
 
     try {
       window.speechSynthesis.cancel();
+      window.speechSynthesis.resume();
 
       const utterance = new SpeechSynthesisUtterance(text);
       this.currentUtterance = utterance;
@@ -154,16 +195,13 @@ export class TextToSpeechClient {
         utterance.onend = () => {
           this.isSpeaking = false;
           this.currentUtterance = null;
-          if (process.env.NODE_ENV === "development") {
-            console.log("[DIVINE TTS] browser speech finished");
-          }
           options.onEnded?.();
         };
 
-        utterance.onerror = (e) => {
-          console.warn("Browser SpeechSynthesis error:", e);
+        utterance.onerror = (err) => {
           this.isSpeaking = false;
           this.currentUtterance = null;
+          options.onError?.(err);
           options.onEnded?.();
         };
 
@@ -176,52 +214,48 @@ export class TextToSpeechClient {
         window.speechSynthesis.onvoiceschanged = () => {
           setVoiceAndSpeak();
         };
-        setTimeout(setVoiceAndSpeak, 150);
+        // Fallback speak immediately in case voiceschanged does not fire
+        setTimeout(() => {
+          if (!this.isSpeaking) {
+            window.speechSynthesis.speak(utterance);
+          }
+        }, 100);
       }
-    } catch (e) {
-      console.warn("Failed to trigger browser speech:", e);
+    } catch (synthErr) {
+      console.warn("speechSynthesis error:", synthErr);
       this.isSpeaking = false;
       options.onEnded?.();
     }
   }
 
-  /**
-   * Immediately stops any ongoing speech playback (Barge-in / Interruption).
-   */
   public stopSpeaking() {
-    this.isSpeaking = false;
-
     if (this.currentAbortController) {
       this.currentAbortController.abort();
       this.currentAbortController = null;
     }
 
-    if (this.currentAudio) {
+    if (this.persistentAudio) {
       try {
-        this.currentAudio.pause();
-        this.currentAudio.currentTime = 0;
-      } catch (err) {
+        this.persistentAudio.pause();
+        this.persistentAudio.currentTime = 0;
+      } catch (e) {
         // ignore
       }
-      this.currentAudio = null;
     }
 
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       try {
         window.speechSynthesis.cancel();
-      } catch (err) {
+      } catch (e) {
         // ignore
       }
-      this.currentUtterance = null;
     }
+
+    this.currentUtterance = null;
+    this.isSpeaking = false;
   }
 
-  // Alias for backward compatibility
-  public stop() {
-    this.stopSpeaking();
-  }
-
-  public getIsSpeaking(): boolean {
+  public get speaking(): boolean {
     return this.isSpeaking;
   }
 }

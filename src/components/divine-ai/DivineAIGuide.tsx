@@ -150,7 +150,7 @@ export function DivineAIGuide() {
         setIsThinking(false);
         isRequestInProgressRef.current = false;
 
-        // 🌟 Voice Mode Auto-Speak Pipeline
+        // 🌟 Voice Mode Auto-Speak Pipeline (Mobile-Compatible)
         if (activeModeRef.current === "voice" && !isMutedRef.current) {
           setVoiceState("speaking");
           ttsRef.current?.speakText(spokenAnswer, {
@@ -160,9 +160,7 @@ export function DivineAIGuide() {
             onEnded: () => {
               if (activeModeRef.current === "voice") {
                 setVoiceState("listening");
-                setTimeout(() => {
-                  startVoiceListening();
-                }, 300);
+                startVoiceListening();
               } else {
                 setVoiceState("idle");
               }
@@ -178,9 +176,7 @@ export function DivineAIGuide() {
         } else {
           setVoiceState("idle");
           if (activeModeRef.current === "voice") {
-            setTimeout(() => {
-              startVoiceListening();
-            }, 300);
+            startVoiceListening();
           }
         }
       } catch (err: any) {
@@ -203,8 +199,8 @@ export function DivineAIGuide() {
     [messages]
   );
 
-  // Start Speech-to-Text
-  const startVoiceListening = useCallback(async () => {
+  // Start Speech-to-Text (Synchronous User-Gesture Initiation for Mobile)
+  const startVoiceListening = useCallback(() => {
     ttsRef.current?.stopSpeaking();
     ttsRef.current?.unlockAudio();
     setPermissionError(null);
@@ -232,7 +228,7 @@ export function DivineAIGuide() {
           if (err === "permission-denied" || err === "not-allowed") {
             setVoiceState("error");
             setPermissionError(
-              "Microphone permission is required for voice conversations. Please allow microphone access in your browser settings and try again."
+              "Microphone permission is required for voice conversation. Please allow microphone in browser settings."
             );
           } else {
             setVoiceState("error");
@@ -244,7 +240,7 @@ export function DivineAIGuide() {
               if (activeModeRef.current === "voice" && !isRequestInProgressRef.current) {
                 sttRef.current?.start();
               }
-            }, 200);
+            }, 250);
           }
         },
       });
@@ -267,13 +263,11 @@ export function DivineAIGuide() {
     setIsThinking(false);
   }, []);
 
-  // Switch to Voice Mode
+  // Switch to Voice Mode (Synchronously unlock audio + mic)
   const handleOpenVoiceMode = () => {
     ttsRef.current?.unlockAudio();
     setActiveMode("voice");
-    setTimeout(() => {
-      startVoiceListening();
-    }, 200);
+    startVoiceListening();
   };
 
   // Switch to Chat Mode
@@ -284,6 +278,7 @@ export function DivineAIGuide() {
 
   // Toggle Voice Orb (Tap to Interrupt or Speak)
   const handleToggleVoiceOrb = () => {
+    ttsRef.current?.unlockAudio();
     if (voiceState === "speaking") {
       ttsRef.current?.stopSpeaking();
       startVoiceListening();
@@ -314,7 +309,7 @@ export function DivineAIGuide() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 🌟 1. CLEAN CIRCULAR FLOATING ICON (Pure Science Divine Sun Logo Only) */}
+      {/* 🌟 1. CLEAN CIRCULAR FLOATING ICON (Official Science Divine Sun Logo Only) */}
       {/* ========================================================================= */}
       {!isOpen && (
         <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[999]">
@@ -324,14 +319,12 @@ export function DivineAIGuide() {
               setIsOpen(true);
               setActiveMode("chat");
             }}
-            className="group relative w-13 h-13 sm:w-14 sm:h-14 min-w-[44px] min-h-[44px] rounded-full bg-white dark:bg-slate-900 shadow-2xl border-2 border-amber-400 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300"
+            className="group relative w-13 h-13 sm:w-14 sm:h-14 min-w-[48px] min-h-[48px] rounded-full bg-white dark:bg-slate-900 shadow-2xl border-2 border-amber-400 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300"
             aria-label="Open Divine AI Guide"
             title="Divine AI Guide — Science Divine"
           >
-            {/* Soft Luminous Outer Glow */}
             <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 opacity-40 blur-sm group-hover:opacity-80 animate-pulse transition duration-500 pointer-events-none" />
 
-            {/* Official Science Divine Sun Logo */}
             <div className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden flex items-center justify-center p-0.5">
               <img
                 src={LOGO_URL}
@@ -344,7 +337,7 @@ export function DivineAIGuide() {
       )}
 
       {/* ========================================================================= */}
-      {/* 📱 2. COMPACT RESPONSIVE POPUP WINDOW (Optimized for Mobile, Tablet, Laptop & Desktop) */}
+      {/* 📱 2. COMPACT POPUP WINDOW (Mobile & Desktop Responsive) */}
       {/* ========================================================================= */}
       {isOpen && (
         <div className="fixed inset-0 sm:inset-auto sm:bottom-5 sm:right-5 z-[9999] flex items-end sm:items-center justify-center pointer-events-none p-0 sm:p-0">
@@ -419,11 +412,10 @@ export function DivineAIGuide() {
             </div>
 
             {/* ========================================================================= */}
-            {/* 💬 TAB 1: MODERN CHAT MODE */}
+            {/* 💬 TAB 1: CHAT MODE */}
             {/* ========================================================================= */}
             {activeMode === "chat" && (
               <div className="flex-1 flex flex-col min-h-0 bg-slate-50/60 dark:bg-slate-950/60">
-                {/* Scrollable Message List */}
                 <div className="flex-1 overflow-y-auto p-2.5 space-y-2.5">
                   <ConversationMessages
                     messages={messages}
@@ -434,7 +426,6 @@ export function DivineAIGuide() {
                   <div ref={chatScrollRef} />
                 </div>
 
-                {/* Bottom Input Area with Sky Blue Voice Launcher */}
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -442,11 +433,10 @@ export function DivineAIGuide() {
                   }}
                   className="p-2 bg-white dark:bg-slate-900 border-t border-slate-200/80 dark:border-slate-800 flex items-center gap-1.5 shrink-0 shadow-md"
                 >
-                  {/* Sky Blue Voice Launcher */}
                   <button
                     type="button"
                     onClick={handleOpenVoiceMode}
-                    className="p-2 min-w-[38px] min-h-[38px] rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white hover:from-sky-600 hover:to-cyan-600 shadow-sm active:scale-90 transition-all shrink-0 flex items-center justify-center"
+                    className="p-2 min-w-[40px] min-h-[40px] rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white hover:from-sky-600 hover:to-cyan-600 shadow-sm active:scale-90 transition-all shrink-0 flex items-center justify-center"
                     title="Switch to Voice Mode"
                   >
                     <AudioLines size={16} />
@@ -463,7 +453,7 @@ export function DivineAIGuide() {
                   <button
                     type="submit"
                     disabled={!inputText.trim() || isThinking}
-                    className="p-2 min-w-[38px] min-h-[38px] rounded-full bg-[#5B1209] hover:bg-amber-900 text-white disabled:opacity-40 transition-colors shrink-0 shadow-sm flex items-center justify-center"
+                    className="p-2 min-w-[40px] min-h-[40px] rounded-full bg-[#5B1209] hover:bg-amber-900 text-white disabled:opacity-40 transition-colors shrink-0 shadow-sm flex items-center justify-center"
                     aria-label="Send Message"
                   >
                     <Send size={13} />
@@ -473,11 +463,10 @@ export function DivineAIGuide() {
             )}
 
             {/* ========================================================================= */}
-            {/* 🎙️ TAB 2: IMMERSIVE FULL VOICE SCREEN (100% Automatic Hands-Free) */}
+            {/* 🎙️ TAB 2: VOICE MODE (Optimized for Mobile Audio & Mic) */}
             {/* ========================================================================= */}
             {activeMode === "voice" && (
               <div className="flex-1 flex flex-col justify-between items-center p-4 bg-gradient-to-b from-amber-50/70 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
-                {/* Header Back Button */}
                 <div className="w-full flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <button
                     onClick={handleOpenChatMode}
@@ -492,7 +481,7 @@ export function DivineAIGuide() {
                   </span>
                 </div>
 
-                {/* Center Glowing Sacred Orb (Tap to interrupt/speak) */}
+                {/* Center Glowing Sacred Orb (Tap to Interrupt or Speak) */}
                 <div className="flex flex-col items-center justify-center my-auto py-2">
                   <VoiceOrb
                     state={voiceState}
@@ -500,7 +489,6 @@ export function DivineAIGuide() {
                     size="md"
                   />
 
-                  {/* Status & Live Transcript */}
                   <div className="mt-3 text-center max-w-[270px]">
                     {permissionError ? (
                       <p className="text-[11px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 p-2 rounded-xl border border-rose-200 dark:border-rose-900">
@@ -523,17 +511,17 @@ export function DivineAIGuide() {
                   </div>
                 </div>
 
-                {/* Bottom Minimalist Controls */}
+                {/* Bottom Minimalist Controls (Touch Targets >= 48px) */}
                 <div className="w-full flex flex-col items-center gap-2">
                   <div className="flex items-center justify-center gap-5">
-                    {/* Mute Voice Audio Toggle */}
+                    {/* Mute Voice Audio */}
                     <button
                       onClick={() => {
                         const newMuted = !isMuted;
                         setIsMuted(newMuted);
                         if (newMuted) ttsRef.current?.stopSpeaking();
                       }}
-                      className={`p-2.5 rounded-full shadow-sm transition-all flex items-center justify-center ${
+                      className={`p-3 min-w-[48px] min-h-[48px] rounded-full shadow-sm transition-all flex items-center justify-center ${
                         isMuted
                           ? "bg-red-500 text-white"
                           : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200"
@@ -541,13 +529,13 @@ export function DivineAIGuide() {
                       title={isMuted ? "Unmute Voice" : "Mute Voice"}
                       aria-label="Mute / Unmute Voice"
                     >
-                      {isMuted ? <VolumeX size={17} /> : <Volume2 size={17} />}
+                      {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
                     </button>
 
-                    {/* Microphone Action (Tap to speak if stopped) */}
+                    {/* Microphone Tap to Speak / Interrupt */}
                     <button
                       onClick={handleToggleVoiceOrb}
-                      className={`p-3.5 rounded-full shadow-lg transition-all flex items-center justify-center ${
+                      className={`p-3.5 min-w-[52px] min-h-[52px] rounded-full shadow-lg transition-all flex items-center justify-center ${
                         voiceState === "speaking"
                           ? "bg-amber-500 text-white shadow-amber-500/40"
                           : voiceState === "listening"
@@ -557,21 +545,21 @@ export function DivineAIGuide() {
                       title={voiceState === "speaking" ? "Stop Speaking" : "Start Listening"}
                       aria-label="Voice Action"
                     >
-                      <Mic size={20} />
+                      <Mic size={22} />
                     </button>
 
                     {/* End Call / Return to Chat */}
                     <button
                       onClick={handleOpenChatMode}
-                      className="p-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
+                      className="p-3 min-w-[48px] min-h-[48px] rounded-full bg-rose-600 hover:bg-rose-700 text-white shadow-md hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
                       title="End Voice Mode"
                       aria-label="End Voice Mode"
                     >
-                      <PhoneOff size={17} />
+                      <PhoneOff size={18} />
                     </button>
                   </div>
 
-                  <p className="text-[9.5px] text-slate-400 text-center">
+                  <p className="text-[10px] text-slate-400 text-center">
                     Aap naturally bolte rahein — AI automatic sunega aur bol kar uttar dega.
                   </p>
                 </div>
