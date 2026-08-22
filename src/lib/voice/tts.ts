@@ -57,8 +57,8 @@ export class TextToSpeechClient {
     this.currentAbortController = new AbortController();
 
     try {
-      // 1. Try server-side OpenRouter Fish Audio Free TTS
-      const res = await fetch("/api/voice/speak", {
+      // 1. Try server-side Free.ai / OpenRouter TTS
+      const res = await fetch("/api/tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: cleanText }),

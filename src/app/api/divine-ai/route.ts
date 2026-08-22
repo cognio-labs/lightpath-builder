@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { DIVINE_SYSTEM_PROMPT, sanitizeAIResponse } from "@/lib/ai/divine-system-prompt";
 import { retrieveRelevantKnowledge } from "@/lib/ai/knowledge-retrieval";
 import { cleanTextForSpeech } from "@/lib/voice/text-cleaner";
+import { validateDivineEnv } from "@/lib/env";
 
 interface ChatMessage {
   role: "user" | "assistant" | "system";
@@ -69,13 +70,16 @@ export async function POST(request: NextRequest) {
       ? { contextText: "", sourceItems: [], primaryLinks: [] }
       : retrieveRelevantKnowledge(userText);
 
-    // 2. OpenRouter Config from Server Environment — 2 SEPARATE DEDICATED MODELS
-    const openrouterKey = process.env.OPENROUTER_API_KEY;
+    // 2. Validate Server Environment
+    const envStatus = validateDivineEnv();
+    const openrouterKey = envStatus.openrouterKey;
     const baseUrl = process.env.OPENROUTER_BASE_URL || "https://openrouter.ai/api/v1";
 
-    // 🌟 Voice Model (Ultra-fast, conversational 1-2 line speech) vs Chat Model (Deep, rich wisdom)
     const voiceModel = process.env.OPENROUTER_VOICE_MODEL || "openrouter/free";
-    const chatModel = process.env.OPENROUTER_CHAT_MODEL || "nvidia/nemotron-3.5-lightning:free";
+    const chatModel =
+      process.env.OPENROUTER_MODEL ||
+      process.env.OPENROUTER_CHAT_MODEL ||
+      "nvidia/nemotron-3.5-lightning:free";
 
     const selectedModel = isVoice ? voiceModel : chatModel;
     const fallbackModel = isVoice ? "google/gemma-4-31b-it:free" : "openrouter/free";
