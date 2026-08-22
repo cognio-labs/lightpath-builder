@@ -38,7 +38,7 @@ Please check the Courses page for current schedules and registration details.`,
 Duration: ${course.duration} | Level: ${course.level}
 Key Features: ${course.features.join(", ")}.
 Description: ${course.description}
-Price: ₹${course.price} (Original: ₹${course.originalPrice} - subject to current promotions on site).
+Current price and availability must be checked on the official course page before answering.
 You can explore the curriculum and register directly on the course page.`,
     sourceUrl: `/${course.slug}`,
     keywords: [

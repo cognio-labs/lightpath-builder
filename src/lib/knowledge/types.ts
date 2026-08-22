@@ -28,4 +28,10 @@ export interface KnowledgeItem {
   keywords: string[];
   quotes?: string[];
   suggestedQuestions?: string[];
+  pageType?: string;
+  section?: string;
+  language?: "en" | "hi" | "mixed";
+  updatedAt?: string;
+  sourceKind?: "curated" | "website";
+  score?: number;
 }

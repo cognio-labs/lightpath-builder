@@ -23,13 +23,16 @@ import { LOGO_URL } from "@/data/content";
 const INITIAL_GREETING: MessageItem = {
   id: "initial",
   sender: "bot",
-  text: "Hey! Hari Om 🙏 Kaise hain aap? Aaj kis baare mein baat karna chahenge?",
+  text: "Namaste 🙏 Main Divine AI Guide hoon, Science Divine ka AI assistant. Aap Guruji Sakshi Shree, courses, meditation, events, personal session ya initiatives ke baare mein pooch sakte hain. Aaj main aapki kis baat mein help karun?",
   timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
   suggestedQuestions: [
     "Sakshi Shree kaun hain?",
-    "Science Divine ke courses kaunse hain?",
-    "Meditation ke baare mein batao",
-    "Personal session kaise book karein?",
+    "Courses dekhein",
+    "Upcoming Events",
+    "Personal Session",
+    "Meditation",
+    "Science Divine kya hai?",
+    "Donate kaise karein?",
   ],
 };
 
@@ -38,6 +41,28 @@ function isFillerOrEmpty(text: string): boolean {
   if (!trimmed || trimmed.length < 2) return true;
   const fillers = ["um", "hmm", "uh", "ah", "err", "hmmm", "uhh"];
   return fillers.includes(trimmed);
+}
+
+function getPageContext() {
+  const path = window.location.pathname;
+  const pageType =
+    path.includes("course") || /design-your-destiny|mind-power|joyful-living|sanjeev/.test(path)
+      ? "course"
+      : path.includes("event")
+        ? "event"
+        : path.includes("session")
+          ? "personal_session"
+          : /sewa|initiative|young-mind/.test(path)
+            ? "initiative"
+            : path === "/contact"
+              ? "contact"
+              : "general";
+  return {
+    currentUrl: window.location.href,
+    currentPage: path,
+    pageTitle: document.title,
+    pageType,
+  };
 }
 
 export function DivineAIGuide() {
@@ -127,6 +152,7 @@ export function DivineAIGuide() {
           body: JSON.stringify({
             messages: [...historyPayload, { role: "user", content: cleanInput }],
             mode: isFromVoice || activeModeRef.current === "voice" ? "voice" : "chat",
+            pageContext: getPageContext(),
           }),
           signal: abortControllerRef.current.signal,
         });

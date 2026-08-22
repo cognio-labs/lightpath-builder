@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { DIVINE_SYSTEM_PROMPT, sanitizeAIResponse } from "@/lib/ai/divine-system-prompt";
-import { retrieveRelevantKnowledge } from "@/lib/ai/knowledge-retrieval";
+import {
+  retrieveRelevantKnowledge,
+  type PageContext,
+  type RetrievalResult,
+} from "@/lib/ai/knowledge-retrieval";
 import { cleanTextForSpeech } from "@/lib/voice/text-cleaner";
 import { validateDivineEnv } from "@/lib/env";
 
@@ -14,6 +18,7 @@ interface DivineAIRequestPayload {
   message?: string;
   mode?: "voice" | "chat";
   isVoiceMode?: boolean;
+  pageContext?: PageContext;
 }
 
 function isCasualGreeting(query: string): boolean {
@@ -66,9 +71,14 @@ export async function POST(request: NextRequest) {
     const isGreeting = isCasualGreeting(userText);
 
     // 1. Retrieve verified Science Divine knowledge (only when not a basic greeting)
-    const retrieval = isGreeting
-      ? { contextText: "", sourceItems: [], primaryLinks: [] }
-      : retrieveRelevantKnowledge(userText);
+    const retrieval: RetrievalResult = isGreeting
+      ? {
+          contextText: "",
+          sourceItems: [],
+          primaryLinks: [],
+          usedWebsiteIndex: false,
+        }
+      : await retrieveRelevantKnowledge(userText, body.pageContext);
 
     // 2. Validate Server Environment
     const envStatus = validateDivineEnv();
@@ -89,9 +99,17 @@ export async function POST(request: NextRequest) {
         ? "\n\nVOICE MODE ACTIVE: Keep response strictly to 1-2 short spoken sentences for real-time speech. Never use markdown, asterisks, or bullet lists."
         : "\n\nCHAT MODE ACTIVE: Provide a clear, well-structured, warm response with actionable spiritual guidance.";
 
+      const requestContext = `
+CURRENT DATE: ${new Date().toISOString().slice(0, 10)}
+VISITOR PAGE:
+- URL: ${body.pageContext?.currentUrl || "Not provided"}
+- Title: ${body.pageContext?.pageTitle || "Not provided"}
+- Type: ${body.pageContext?.pageType || "Not provided"}`;
+
       const systemPromptWithKnowledge = isGreeting
-        ? `${DIVINE_SYSTEM_PROMPT}${voiceInstructions}`
+        ? `${DIVINE_SYSTEM_PROMPT}${voiceInstructions}\n${requestContext}`
         : `${DIVINE_SYSTEM_PROMPT}${voiceInstructions}
+${requestContext}
 
 ==================================================
 VERIFIED SCIENCE DIVINE KNOWLEDGE BASE:
@@ -133,7 +151,7 @@ ${retrieval.contextText}
               model,
               messages: messagesForLLM,
               temperature: isVoice ? 0.65 : 0.7,
-              max_tokens: isVoice ? 120 : 300,
+              max_tokens: isVoice ? 140 : 500,
             }),
           });
 
@@ -152,6 +170,7 @@ ${retrieval.contextText}
                 links: retrieval.primaryLinks,
                 modelUsed: model,
                 mode: isVoice ? "voice" : "chat",
+                retrievalMode: retrieval.usedWebsiteIndex ? "hybrid-rag" : "curated-fallback",
               });
             }
           }
@@ -174,6 +193,7 @@ ${retrieval.contextText}
       links: retrieval.primaryLinks,
       modelUsed: "knowledge-engine-local",
       mode: isVoice ? "voice" : "chat",
+      retrievalMode: retrieval.usedWebsiteIndex ? "hybrid-rag" : "curated-fallback",
     });
   } catch (error: any) {
     console.error("Divine AI API error:", error);
@@ -194,7 +214,7 @@ ${retrieval.contextText}
 
 function synthesizeKnowledgeResponse(
   query: string,
-  retrieval: ReturnType<typeof retrieveRelevantKnowledge>
+  retrieval: RetrievalResult
 ): string {
   const q = query.toLowerCase().trim();
   const isHindi =
@@ -219,9 +239,9 @@ function synthesizeKnowledgeResponse(
     q.includes("kaun hain")
   ) {
     if (isHindi) {
-      return "🙏 Sakshi Shree enlightened spiritual master hain aur Science Divine Movement ke sansthapak hain. Unka mool sandesh hai 'Bheetar se sanyaas, bahar se sansaar' — yaani sansaar ke saare kaam nibhate hue bheetar se shaant aur sakshi bhaav mein jeena.";
+      return "🙏 Sakshi Shree Science Divine Movement ke founder hain. Unka mool sandesh hai 'Bheetar se sanyaas, bahar se sansaar' — yaani duniya ki zimmedariyan nibhate hue andar se non-attachment aur sakshi bhaav mein jeena.";
     }
-    return "🙏 Sakshi Shree is an enlightened spiritual master and the guide behind Science Divine Movement. He teaches 'Bheetar se sanyaas, bahar se sansaar' — living with inner peace and detachment while fulfilling all worldly and family duties.";
+    return "🙏 Sakshi Shree founded the Science Divine Movement. Its central philosophy, 'Bheetar se sanyaas, bahar se sansaar,' means living fully in the world while cultivating inner non-attachment.";
   }
 
   // Teachings
@@ -240,6 +260,13 @@ function synthesizeKnowledgeResponse(
     return "Science Divine offers four core transformational courses: Design Your Destiny, Science of Joyful Living, Mind Power Meditation, and Sanjeevani Kriya.";
   }
 
+  if (q.includes("event") || q.includes("satsang") || q.includes("mahotsav")) {
+    if (isHindi) {
+      return "Mujhe abhi official listing mein koi confirmed upcoming event verify nahi ho raha. Events page par latest listing check kijiye; main purane event ko upcoming nahi bataunga.";
+    }
+    return "I could not verify a confirmed upcoming event in the current official listing. Please check the Events page for the latest listing.";
+  }
+
   if (retrieval.sourceItems.length > 0) {
     return retrieval.sourceItems[0].content;
   }
@@ -247,5 +274,5 @@ function synthesizeKnowledgeResponse(
   if (isHindi) {
     return "Aap Guru Ji ke pravachan, meditation techniques, courses ya session booking ke vishay mein pooch sakte hain.";
   }
-  return "You can ask me about Guru Ji's teachings, meditation techniques, courses, or booking a personal session.";
+  return "I don't want to give you incorrect information. I couldn't find that information in the available Science Divine resources. You can contact the Science Divine team for confirmation.";
 }

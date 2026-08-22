@@ -2,7 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
-import { Sparkles, User, ExternalLink, Volume2, ShieldCheck } from "lucide-react";
+import {
+  Sparkles,
+  User,
+  ArrowUpRight,
+  Volume2,
+  BookOpen,
+  CalendarDays,
+  HeartHandshake,
+  Phone,
+} from "lucide-react";
 import { KnowledgeItem } from "@/lib/knowledge/types";
 
 export interface MessageItem {
@@ -11,7 +20,7 @@ export interface MessageItem {
   text: string;
   timestamp: string;
   sources?: KnowledgeItem[];
-  links?: { label: string; url: string }[];
+  links?: { label: string; url: string; kind?: string }[];
   suggestedQuestions?: string[];
 }
 
@@ -28,6 +37,14 @@ export function ConversationMessages({
   onSuggestionClick,
   onSpeakMessage,
 }: ConversationMessagesProps) {
+  const actionIcon = (kind?: string) => {
+    if (kind === "explore_course" || kind === "read_article") return BookOpen;
+    if (kind === "view_event" || kind === "register_event") return CalendarDays;
+    if (kind === "donate" || kind === "view_initiative") return HeartHandshake;
+    if (kind === "contact") return Phone;
+    return ArrowUpRight;
+  };
+
   return (
     <div className="space-y-3 font-sans">
       {messages.map((msg) => (
@@ -85,20 +102,25 @@ export function ConversationMessages({
               ))}
             </div>
 
-            {/* Verified Page Navigation Badges */}
+            {/* Context-aware next actions */}
             {msg.links && msg.links.length > 0 && (
-              <div className="mt-2.5 pt-2 border-t border-amber-100/70 dark:border-slate-700/70 flex flex-wrap gap-1">
-                {msg.links.map((link, lIdx) => (
-                  <Link
-                    key={lIdx}
-                    href={link.url}
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 text-[10px] font-medium hover:bg-amber-100 dark:hover:bg-amber-900/60 transition-colors border border-amber-200/70 dark:border-amber-800/50"
-                  >
-                    <ShieldCheck size={10} className="text-amber-600" />
-                    <span>{link.label}</span>
-                    <ExternalLink size={8} className="opacity-60" />
-                  </Link>
-                ))}
+              <div className="mt-2.5 pt-2 border-t border-amber-100/70 dark:border-slate-700/70 grid gap-1.5">
+                {msg.links.map((link, lIdx) => {
+                  const ActionIcon = actionIcon(link.kind);
+                  return (
+                    <Link
+                      key={lIdx}
+                      href={link.url}
+                      className="inline-flex min-h-8 items-center justify-between gap-2 rounded-md border border-amber-200/80 bg-amber-50 px-2.5 py-1.5 text-[10.5px] font-semibold text-amber-950 transition-colors hover:bg-amber-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 dark:border-amber-800/60 dark:bg-amber-950/40 dark:text-amber-100"
+                    >
+                      <span className="inline-flex items-center gap-1.5">
+                        <ActionIcon size={12} aria-hidden="true" />
+                        {link.label}
+                      </span>
+                      <ArrowUpRight size={11} className="opacity-65" aria-hidden="true" />
+                    </Link>
+                  );
+                })}
               </div>
             )}
 
@@ -111,7 +133,7 @@ export function ConversationMessages({
                     onClick={() => onSuggestionClick(sug)}
                     className="text-left px-2 py-0.5 rounded-md bg-slate-50 dark:bg-slate-900 hover:bg-amber-50 dark:hover:bg-slate-800 text-[10.5px] text-slate-600 dark:text-slate-300 hover:text-amber-800 transition-colors border border-slate-200/80 dark:border-slate-700/80"
                   >
-                    💬 {sug}
+                    {sug}
                   </button>
                 ))}
               </div>

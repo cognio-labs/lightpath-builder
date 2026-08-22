@@ -2,6 +2,14 @@ import { KnowledgeItem } from "./types";
 import { scienceDivineLinks } from "../navigation/science-divine-links";
 import { EVENTS } from "@/data/content";
 
+function getEventStatus(dateLabel: string): string {
+  const parsedDate = Date.parse(dateLabel);
+  if (Number.isNaN(parsedDate)) return "Availability must be confirmed on the official Events page";
+  return parsedDate < Date.now()
+    ? "Completed"
+    : "Upcoming, subject to confirmation on the official Events page";
+}
+
 export const eventsKnowledge: KnowledgeItem[] = [
   {
     id: "events-overview",
@@ -36,7 +44,7 @@ Check the Events page for upcoming dates, venue addresses, and entry registratio
     content: `${ev.title}:
 Date: ${ev.date} | Time: ${ev.time}
 Location: ${ev.location}
-Status: ${ev.status}
+Status: ${getEventStatus(ev.date)}
 Join Sakshi Shree for guided meditation, problem resolution, and spiritual discourse. Check the Events section to reserve your seat.`,
     sourceUrl: scienceDivineLinks.events,
     keywords: [
