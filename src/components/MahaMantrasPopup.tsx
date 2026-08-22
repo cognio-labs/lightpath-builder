@@ -8,7 +8,7 @@ export function MahaMantrasPopup() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem("mm-dismissed")) return;
-    const t = setTimeout(() => setOpen(true), 3500);
+    const t = setTimeout(() => setOpen(true), 4000);
     return () => clearTimeout(t);
   }, []);
 
@@ -20,40 +20,52 @@ export function MahaMantrasPopup() {
   if (!open) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 max-w-[320px] sm:max-w-sm animate-fade-in pointer-events-auto">
-      <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl p-4 pr-9 shadow-2xl border border-amber-300/60 dark:border-slate-700 relative text-slate-800 dark:text-slate-100 font-sans">
+    <aside
+      aria-label="Book Announcement"
+      className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 max-w-[calc(100vw-32px)] sm:max-w-[340px] animate-fade-in pointer-events-auto"
+    >
+      <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-xl border border-amber-300/70 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-sans flex flex-col gap-2 relative">
+        {/* Close button */}
         <button
           onClick={close}
-          className="absolute top-2.5 right-2.5 p-1 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="absolute top-2 right-2 p-1 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           aria-label="Close Announcement"
         >
-          <X size={15} />
+          <X size={14} />
         </button>
 
-        <div className="flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-1">
-          <Sparkles size={12} className="text-amber-500" />
-          <span>Transform Your Life</span>
+        {/* Header & Title */}
+        <div className="flex items-center gap-2 pr-6">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-400 grid place-items-center text-slate-950 shrink-0 shadow-sm">
+            <BookOpen size={16} />
+          </div>
+          <div>
+            <span className="flex items-center gap-1 text-[9.5px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+              <Sparkles size={10} className="text-amber-500" />
+              <span>New Book Release</span>
+            </span>
+            <h4 className="font-serif font-bold text-[13px] sm:text-[13.5px] text-slate-900 dark:text-white leading-tight">
+              Maha Mantras by Sakshi Shree
+            </h4>
+          </div>
         </div>
 
-        <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900 dark:text-white mb-1 leading-tight flex items-center gap-1.5">
-          <BookOpen size={16} className="text-amber-600 shrink-0" />
-          <span>Maha Mantras by Sakshi Shree</span>
-        </h4>
-
-        <p className="text-[11.5px] text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
-          Be among the first to experience ancient divine wisdom for modern joyful living.
-        </p>
-
-        <a
-          href="https://amzn.in/d/0cR0rBnu"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 rounded-full px-4 py-1.5 text-xs font-bold shadow-md shadow-amber-500/20 active:scale-95 transition-all"
-        >
-          <ShoppingBag size={13} />
-          <span>Book Now on Amazon</span>
-        </a>
+        {/* Quick Action Button */}
+        <div className="flex items-center justify-between gap-2 pt-1 border-t border-amber-100/80 dark:border-slate-800">
+          <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate">
+            Ancient wisdom for modern life
+          </span>
+          <a
+            href="https://amzn.in/d/0cR0rBnu"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 rounded-full px-3 py-1 text-[11px] font-bold shadow-sm active:scale-95 transition-all shrink-0"
+          >
+            <ShoppingBag size={12} />
+            <span>Book Now</span>
+          </a>
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }
