@@ -5,9 +5,10 @@ import { VoiceOrb } from "./VoiceOrb";
 import { VoiceControls } from "./VoiceControls";
 import { ConversationMessages, MessageItem } from "./ConversationMessages";
 import { VoiceState } from "@/lib/voice/types";
+import { VoiceActivityDetector } from "@/lib/voice/vad";
 import { SpeechToTextClient } from "@/lib/voice/stt";
 import { TextToSpeechClient } from "@/lib/voice/tts";
-import { X, Send, Sparkles, MessageSquare, RefreshCw, Volume2, Shield } from "lucide-react";
+import { X, Send, Sparkles, RefreshCw } from "lucide-react";
 import { LOGO_URL } from "@/data/content";
 
 const INITIAL_GREETING: MessageItem = {
@@ -25,8 +26,8 @@ const INITIAL_GREETING: MessageItem = {
 
 export function DivineAIGuide() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVoiceOrbMode, setIsVoiceOrbMode] = useState(true);
   const [voiceState, setVoiceState] = useState<VoiceState>("idle");
+  const [audioLevel, setAudioLevel] = useState(0);
   const [isContinuousListening, setIsContinuousListening] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const [showKeyboardInput, setShowKeyboardInput] = useState(false);
@@ -35,11 +36,15 @@ export function DivineAIGuide() {
   const [messages, setMessages] = useState<MessageItem[]>([INITIAL_GREETING]);
   const [isThinking, setIsThinking] = useState(false);
 
+  const vadRef = useRef<VoiceActivityDetector | null>(null);
   const sttRef = useRef<SpeechToTextClient | null>(null);
   const ttsRef = useRef<TextToSpeechClient | null>(null);
   const chatScrollRef = useRef<HTMLDivElement>(null);
+  const conversationIdRef = useRef<string>(`conv-${Date.now()}`);
+
   const isContinuousRef = useRef(isContinuousListening);
   const isMutedRef = useRef(isMuted);
+  const voiceStateRef = useRef(voiceState);
 
   useEffect(() => {
     isContinuousRef.current = isContinuousListening;
@@ -49,30 +54,37 @@ export function DivineAIGuide() {
     isMutedRef.current = isMuted;
   }, [isMuted]);
 
-  // Scroll messages to bottom on update
+  useEffect(() => {
+    voiceStateRef.current = voiceState;
+  }, [voiceState]);
+
+  // Scroll to bottom on message updates
   useEffect(() => {
     if (isOpen) {
       chatScrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isThinking, isOpen]);
 
-  // Initialize TTS
+  // Initialize TTS on mount
   useEffect(() => {
     ttsRef.current = new TextToSpeechClient();
     return () => {
       ttsRef.current?.stop();
+      vadRef.current?.stop();
+      sttRef.current?.stop();
     };
   }, []);
 
-  // Send message to API and receive knowledge-backed response
+  // Send message to voice chat API
   const sendMessage = useCallback(
-    async (text: string) => {
-      if (!text.trim()) return;
+    async (text: string, isFromVoice = false) => {
+      const cleanInput = text.trim();
+      if (!cleanInput) return;
 
       const userMsg: MessageItem = {
         id: `user-${Date.now()}`,
         sender: "user",
-        text,
+        text: cleanInput,
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       };
 
@@ -82,23 +94,32 @@ export function DivineAIGuide() {
       setVoiceState("thinking");
       setIsThinking(true);
 
-      // Prepare conversation history
+      // Stop VAD while processing LLM
+      vadRef.current?.stop();
+      sttRef.current?.stop();
+
       const historyPayload = messages.slice(-8).map((m) => ({
         role: m.sender === "bot" ? ("assistant" as const) : ("user" as const),
         content: m.text,
       }));
 
       try {
-        const res = await fetch("/api/chat", {
+        const res = await fetch("/api/voice/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: text, history: historyPayload }),
+          body: JSON.stringify({
+            message: cleanInput,
+            history: historyPayload,
+            isVoiceMode: isFromVoice,
+            conversationId: conversationIdRef.current,
+          }),
         });
 
         const data = await res.json();
         const botResponseText =
           data.response ||
           "🙏 Main aapka prashna samajh gaya hoon. Kripya thoda aur spasht poochein.";
+        const spokenText = data.spokenText || botResponseText;
 
         const botMsg: MessageItem = {
           id: `bot-${Date.now()}`,
@@ -113,17 +134,19 @@ export function DivineAIGuide() {
         setMessages((prev) => [...prev, botMsg]);
         setIsThinking(false);
 
-        // Speak the response if not muted
+        // Speak aloud if not muted
         if (!isMutedRef.current) {
           setVoiceState("speaking");
-          await ttsRef.current?.speak(botResponseText, {
-            onStart: () => setVoiceState("speaking"),
+          await ttsRef.current?.speak(spokenText, {
+            onStart: () => {
+              setVoiceState("speaking");
+            },
             onEnded: () => {
               setVoiceState("idle");
-              // Auto-Listening for continuous conversational voice flow
-              if (isContinuousRef.current && sttRef.current?.isSupported()) {
+              // Continuous Auto-Listening (Gemini style)
+              if (isContinuousRef.current && isOpen) {
                 setTimeout(() => {
-                  startListening();
+                  startVoiceListening();
                 }, 400);
               }
             },
@@ -133,70 +156,121 @@ export function DivineAIGuide() {
           });
         } else {
           setVoiceState("idle");
+          if (isContinuousRef.current && isOpen) {
+            setTimeout(() => {
+              startVoiceListening();
+            }, 400);
+          }
         }
       } catch (err) {
-        console.error("Chat error:", err);
+        console.error("Voice Chat error:", err);
         setIsThinking(false);
         setVoiceState("error");
       }
     },
-    [messages]
+    [messages, isOpen]
   );
 
-  // STT start helper
-  const startListening = useCallback(() => {
-    // Stop any ongoing TTS immediately (interruption support)
+  // Activate continuous Voice Activity Detection + STT
+  const startVoiceListening = useCallback(async () => {
+    // Interruption / Barge-in: Stop any speaking audio immediately
     ttsRef.current?.stop();
+
+    setVoiceState("requesting_permission");
+
+    if (!vadRef.current) {
+      vadRef.current = new VoiceActivityDetector({
+        onSpeechStart: () => {
+          // Barge-in: Stop AI speech instantly if user speaks
+          ttsRef.current?.stop();
+          setVoiceState("recording");
+          setLiveTranscript("Aap bol rahe hain...");
+        },
+        onSpeechEnd: async (audioBlob: Blob) => {
+          setVoiceState("transcribing");
+          setLiveTranscript("Samajh raha hoon...");
+
+          // 1. Try server-side Whisper transcription
+          let transcript = "";
+          if (sttRef.current) {
+            transcript = await sttRef.current.transcribeBlob(audioBlob);
+          }
+
+          if (transcript) {
+            sendMessage(transcript, true);
+          } else {
+            // Fallback: If no server transcript returned, return to listening
+            setVoiceState("listening");
+            setLiveTranscript("");
+          }
+        },
+        onVolumeChange: (vol) => {
+          setAudioLevel(vol);
+        },
+        onError: (err) => {
+          console.warn("VAD error:", err);
+          setVoiceState("error");
+          setLiveTranscript(err);
+        },
+      });
+    }
 
     if (!sttRef.current) {
       sttRef.current = new SpeechToTextClient({
-        onStart: () => {
-          setVoiceState("listening");
-          setLiveTranscript("");
-        },
-        onResult: (transcript, isFinal) => {
-          setLiveTranscript(transcript);
+        onResult: (text, isFinal) => {
+          setLiveTranscript(text);
           if (isFinal) {
-            setVoiceState("transcribing");
-            sendMessage(transcript);
-          }
-        },
-        onError: (err) => {
-          console.warn("STT error:", err);
-          setVoiceState("idle");
-          setLiveTranscript("");
-        },
-        onEnd: () => {
-          if (voiceState === "listening") {
-            setVoiceState("idle");
+            sendMessage(text, true);
           }
         },
       });
     }
 
-    sttRef.current.start();
-  }, [sendMessage, voiceState]);
+    const success = await vadRef.current.start();
+    if (success) {
+      setVoiceState("listening");
+      setLiveTranscript("");
+      // Also start browser speech recognition as fast parallel fallback
+      if (sttRef.current.isSupported()) {
+        sttRef.current.start();
+      }
+    }
+  }, [sendMessage]);
 
-  // STT stop helper
-  const stopListening = useCallback(() => {
+  // Stop listening helper
+  const stopVoiceListening = useCallback(() => {
+    vadRef.current?.stop();
     sttRef.current?.stop();
+    ttsRef.current?.stop();
     setVoiceState("idle");
     setLiveTranscript("");
+    setAudioLevel(0);
   }, []);
 
   const toggleMic = () => {
-    if (voiceState === "listening") {
-      stopListening();
+    if (voiceState === "speaking") {
+      // Barge-in / Interrupt AI speech
+      ttsRef.current?.stop();
+      startVoiceListening();
+    } else if (
+      voiceState === "listening" ||
+      voiceState === "recording" ||
+      voiceState === "requesting_permission"
+    ) {
+      stopVoiceListening();
     } else {
-      startListening();
+      startVoiceListening();
     }
   };
 
   const handleClearHistory = () => {
     ttsRef.current?.stop();
+    vadRef.current?.stop();
     sttRef.current?.stop();
     setVoiceState("idle");
+    setLiveTranscript("");
     setMessages([INITIAL_GREETING]);
+    conversationIdRef.current = `conv-${Date.now()}`;
   };
 
   const handleSpeakSingleMessage = (text: string) => {
@@ -215,13 +289,11 @@ export function DivineAIGuide() {
           <button
             onClick={() => {
               setIsOpen(true);
-              // Start in voice listening mode on open
-              setTimeout(() => startListening(), 400);
+              setTimeout(() => startVoiceListening(), 400);
             }}
             className="group relative flex items-center gap-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#5B1209] via-amber-800 to-[#5B1209] text-white shadow-2xl border border-amber-400/50 hover:scale-105 active:scale-95 transition-all duration-300"
-            aria-label="Open Divine AI Guide"
+            aria-label="Open Divine AI Voice Guide"
           >
-            {/* Glowing Aura */}
             <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 opacity-40 blur-md group-hover:opacity-75 animate-pulse transition duration-500" />
 
             <div className="relative z-10 flex items-center gap-2.5">
@@ -233,7 +305,7 @@ export function DivineAIGuide() {
                   Divine AI Guide
                 </div>
                 <div className="text-[11px] text-amber-100/90 font-medium">
-                  Talk with Guru Ji Wisdom
+                  Voice &amp; Knowledge Assistant
                 </div>
               </div>
             </div>
@@ -245,7 +317,7 @@ export function DivineAIGuide() {
       {isOpen && (
         <div className="fixed inset-0 z-[9999] bg-slate-950/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fade-in">
           <div
-            className="w-full sm:max-w-xl md:max-w-2xl h-[92vh] sm:h-[85vh] bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl shadow-2xl border border-amber-200/50 dark:border-slate-800 flex flex-col overflow-hidden"
+            className="w-full sm:max-w-xl md:max-w-2xl h-[94vh] sm:h-[86vh] bg-white dark:bg-slate-900 rounded-t-3xl sm:rounded-3xl shadow-2xl border border-amber-200/50 dark:border-slate-800 flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Bar Header */}
@@ -262,7 +334,7 @@ export function DivineAIGuide() {
                     Divine AI Guide
                   </h3>
                   <p className="text-[11px] text-amber-100/80">
-                    Official Science Divine Knowledge &amp; Voice Guide
+                    Gemini-Style Conversational Voice &amp; Knowledge
                   </p>
                 </div>
               </div>
@@ -277,9 +349,7 @@ export function DivineAIGuide() {
                 </button>
                 <button
                   onClick={() => {
-                    ttsRef.current?.stop();
-                    sttRef.current?.stop();
-                    setVoiceState("idle");
+                    stopVoiceListening();
                     setIsOpen(false);
                   }}
                   className="p-1.5 text-amber-200 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
@@ -290,9 +360,14 @@ export function DivineAIGuide() {
               </div>
             </div>
 
-            {/* Voice Mode View (Divine Orb Top Section) */}
-            <div className="p-4 bg-gradient-to-b from-amber-50/50 via-white to-transparent dark:from-slate-800/40 dark:to-transparent border-b border-amber-100/60 dark:border-slate-800 flex flex-col items-center justify-center shrink-0">
-              <VoiceOrb state={voiceState} onClick={toggleMic} size="md" />
+            {/* Voice Mode View (Divine Orb with Waveform Visualizer) */}
+            <div className="p-4 bg-gradient-to-b from-amber-50/60 via-white to-transparent dark:from-slate-800/50 dark:to-transparent border-b border-amber-100/60 dark:border-slate-800 flex flex-col items-center justify-center shrink-0">
+              <VoiceOrb
+                state={voiceState}
+                audioLevel={audioLevel}
+                onClick={toggleMic}
+                size="md"
+              />
 
               <div className="mt-3 w-full max-w-sm">
                 <VoiceControls
@@ -313,12 +388,12 @@ export function DivineAIGuide() {
               </div>
             </div>
 
-            {/* Scrollable Chat History List */}
+            {/* Scrollable Conversation History */}
             <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4">
               <ConversationMessages
                 messages={messages}
                 isThinking={isThinking}
-                onSuggestionClick={(sug) => sendMessage(sug)}
+                onSuggestionClick={(sug) => sendMessage(sug, false)}
                 onSpeakMessage={handleSpeakSingleMessage}
               />
               <div ref={chatScrollRef} />
@@ -329,7 +404,7 @@ export function DivineAIGuide() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  sendMessage(inputText);
+                  sendMessage(inputText, false);
                 }}
                 className="p-3 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex gap-2 items-center"
               >
@@ -337,7 +412,7 @@ export function DivineAIGuide() {
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Guru Ji ke pravachan, courses, ya meditation ke baare mein poochein..."
+                  placeholder="Guru Ji ke pravachan, courses ya meditation ke baare mein poochein..."
                   className="flex-1 min-w-0 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-amber-500 dark:text-white"
                 />
                 <button

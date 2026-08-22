@@ -1,3 +1,5 @@
+import { cleanTextForSpeech } from "./text-cleaner";
+
 export interface TTSOptions {
   onStart?: () => void;
   onEnded?: () => void;
@@ -8,28 +10,28 @@ export class TextToSpeechClient {
   private currentAudio: HTMLAudioElement | null = null;
   private currentUtterance: SpeechSynthesisUtterance | null = null;
   private isSpeaking = false;
+  private currentAbortController: AbortController | null = null;
 
   public async speak(text: string, options: TTSOptions = {}) {
     this.stop();
     this.isSpeaking = true;
 
-    // Clean markdown symbols from voice synthesis
-    const cleanText = text
-      .replace(/[*_~`#\[\]\(\)]/g, "")
-      .replace(/https?:\/\/\S+/g, "")
-      .trim();
-
+    const cleanText = cleanTextForSpeech(text);
     if (!cleanText) {
+      this.isSpeaking = false;
       options.onEnded?.();
       return;
     }
 
+    this.currentAbortController = new AbortController();
+
     try {
-      // 1. Try ElevenLabs API endpoint first
-      const res = await fetch("/api/voice", {
+      // 1. Try server-side OpenRouter / Fish Audio / ElevenLabs TTS
+      const res = await fetch("/api/voice/speak", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: cleanText }),
+        signal: this.currentAbortController.signal,
       });
 
       if (res.ok) {
@@ -50,7 +52,7 @@ export class TextToSpeechClient {
           };
 
           audio.onerror = (err) => {
-            console.warn("ElevenLabs audio playback failed, falling back to browser synthesis:", err);
+            console.warn("Server audio playback failed, falling back to browser speech synthesis:", err);
             this.fallbackBrowserSpeech(cleanText, options);
           };
 
@@ -59,10 +61,13 @@ export class TextToSpeechClient {
         }
       }
 
-      // Fallback if ElevenLabs not available
+      // If server speech unavailable, use browser synthesis fallback
       this.fallbackBrowserSpeech(cleanText, options);
-    } catch (err) {
-      console.warn("TTS error, using browser speech fallback:", err);
+    } catch (err: any) {
+      if (err.name === "AbortError") {
+        return; // Interrupted intentionally
+      }
+      console.warn("TTS fetch error, using browser fallback:", err);
       this.fallbackBrowserSpeech(cleanText, options);
     }
   }
@@ -79,16 +84,15 @@ export class TextToSpeechClient {
     const utterance = new SpeechSynthesisUtterance(text);
     this.currentUtterance = utterance;
 
-    // Choose Hindi / Indian English voice if available
     const voices = window.speechSynthesis.getVoices();
-    const hiVoice = voices.find(
+    const preferredVoice = voices.find(
       (v) => v.lang.startsWith("hi") || v.lang.includes("IN") || v.name.includes("India")
     );
-    if (hiVoice) {
-      utterance.voice = hiVoice;
+    if (preferredVoice) {
+      utterance.voice = preferredVoice;
     }
 
-    utterance.rate = 0.95; // peaceful, calm cadence
+    utterance.rate = 0.95;
     utterance.pitch = 1.0;
 
     utterance.onstart = () => {
@@ -111,8 +115,17 @@ export class TextToSpeechClient {
     window.speechSynthesis.speak(utterance);
   }
 
+  /**
+   * Immediately stops any ongoing speech playback (Barge-in / Interruption).
+   */
   public stop() {
     this.isSpeaking = false;
+
+    if (this.currentAbortController) {
+      this.currentAbortController.abort();
+      this.currentAbortController = null;
+    }
+
     if (this.currentAudio) {
       try {
         this.currentAudio.pause();

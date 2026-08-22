@@ -2,7 +2,7 @@
 
 import React from "react";
 import { VoiceState, VOICE_STATE_LABELS } from "@/lib/voice/types";
-import { Mic, MicOff, Volume2, VolumeX, Keyboard, Radio } from "lucide-react";
+import { Mic, MicOff, Volume2, VolumeX, Keyboard, Radio, StopCircle } from "lucide-react";
 
 interface VoiceControlsProps {
   voiceState: VoiceState;
@@ -27,7 +27,12 @@ export function VoiceControls({
   onToggleKeyboardMode,
   showKeyboardInput,
 }: VoiceControlsProps) {
-  const stateLabel = VOICE_STATE_LABELS[voiceState];
+  const stateLabel = VOICE_STATE_LABELS[voiceState] || VOICE_STATE_LABELS.idle;
+
+  const isMicActive =
+    voiceState === "listening" ||
+    voiceState === "recording" ||
+    voiceState === "requesting_permission";
 
   return (
     <div className="flex flex-col items-center gap-3 w-full">
@@ -54,23 +59,32 @@ export function VoiceControls({
               ? "bg-amber-600 text-white shadow-md shadow-amber-600/30"
               : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
           }`}
-          title="Auto-listening mode"
+          title="Auto-listening mode (Gemini style continuous talk)"
         >
           <Radio size={12} className={isContinuousListening ? "animate-pulse" : ""} />
           <span>Auto Voice</span>
         </button>
 
-        {/* Big Main Mic Action Button */}
+        {/* Central Mic / Interrupt / Action Button */}
         <button
           onClick={onToggleMic}
           className={`p-3.5 rounded-full shadow-lg transition-all transform hover:scale-110 active:scale-95 ${
-            voiceState === "listening"
+            voiceState === "speaking"
+              ? "bg-amber-500 text-white shadow-amber-500/50 hover:bg-amber-600"
+              : isMicActive
               ? "bg-red-500 text-white shadow-red-500/50 animate-pulse"
               : "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-amber-500/30"
           }`}
-          aria-label="Toggle Microphone"
+          aria-label={voiceState === "speaking" ? "Interrupt AI" : "Toggle Microphone"}
+          title={voiceState === "speaking" ? "Tap to interrupt AI" : "Tap to speak"}
         >
-          {voiceState === "listening" ? <MicOff size={20} /> : <Mic size={20} />}
+          {voiceState === "speaking" ? (
+            <StopCircle size={20} />
+          ) : isMicActive ? (
+            <MicOff size={20} />
+          ) : (
+            <Mic size={20} />
+          )}
         </button>
 
         {/* Audio Mute/Unmute */}

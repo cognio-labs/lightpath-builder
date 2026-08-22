@@ -12,24 +12,23 @@ export class SpeechToTextClient {
 
   constructor(callbacks: STTCallbacks = {}) {
     this.callbacks = callbacks;
-    this.initRecognition();
+    this.initBrowserRecognition();
   }
 
-  private initRecognition() {
+  private initBrowserRecognition() {
     if (typeof window === "undefined") return;
 
     const SpeechRecognition =
       (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-      console.warn("Web Speech Recognition is not supported in this browser.");
       return;
     }
 
     this.recognition = new SpeechRecognition();
     this.recognition.continuous = false;
     this.recognition.interimResults = true;
-    this.recognition.lang = "hi-IN"; // Supports Hindi & Hinglish naturally, works with English accents too
+    this.recognition.lang = "hi-IN";
 
     this.recognition.onstart = () => {
       this.isListening = true;
@@ -73,10 +72,9 @@ export class SpeechToTextClient {
 
   public start(lang = "hi-IN") {
     if (!this.recognition) {
-      this.initRecognition();
+      this.initBrowserRecognition();
     }
     if (!this.recognition) {
-      this.callbacks.onError?.("Speech recognition not supported");
       return;
     }
 
@@ -110,5 +108,28 @@ export class SpeechToTextClient {
       }
     }
     this.isListening = false;
+  }
+
+  /**
+   * Transcribes an audio blob using server-side OpenRouter Whisper Large v3
+   */
+  public async transcribeBlob(audioBlob: Blob): Promise<string> {
+    try {
+      const formData = new FormData();
+      formData.append("file", audioBlob, "speech.webm");
+
+      const res = await fetch("/api/voice/transcribe", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        return data.text || "";
+      }
+    } catch (err) {
+      console.warn("Server transcribe error:", err);
+    }
+    return "";
   }
 }
