@@ -328,11 +328,6 @@ export function DivineAIGuide() {
                 className="w-full h-full object-contain drop-shadow-sm"
               />
             </div>
-
-            {/* Subtle Voice Wave Badge on Corner */}
-            <span className="absolute -top-1 -right-1 z-20 w-5 h-5 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white flex items-center justify-center shadow-md border border-white">
-              <AudioLines size={10} className="animate-pulse" />
-            </span>
           </button>
         </div>
       )}
