@@ -64,19 +64,19 @@ const FEATURE_CARDS = [
   {
     title: "Sound Body",
     desc: "Physical vitality through yoga, breath, and conscious movement.",
-    image: "https://images.pexels.com/photos/13849091/pexels-photo-13849091.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=85&w=1600",
     alt: "Physical vitality through yoga, breath, and conscious movement",
   },
   {
     title: "Sound Mind",
     desc: "Mental clarity through meditation and mindfulness practice.",
-    image: "https://images.pexels.com/photos/12520110/pexels-photo-12520110.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.unsplash.com/photo-1508672019048-805479767383?auto=format&fit=crop&q=85&w=1600",
     alt: "Mental clarity through meditation and mindfulness practice",
   },
   {
     title: "Self Realization",
     desc: "Spiritual awakening under Sakshi Shree's direct guidance.",
-    image: "https://images.unsplash.com/photo-1757941899028-c40a5ae28245?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=85&w=1600",
+    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&q=85&w=1600",
     alt: "Spiritual awakening under Sakshi Shree's direct guidance",
   },
 ];
@@ -481,11 +481,11 @@ export default function Page() {
                 key={p.title}
                 className="group flex flex-col rounded-3xl p-7 md:p-9 bg-white border border-amber-100/90 shadow-[0_12px_28px_rgba(66,38,22,0.08)] hover:shadow-[0_20px_40px_rgba(66,38,22,0.15)] transition-all duration-300 hover:-translate-y-2 text-center"
               >
-                <div className="h-[260px] md:h-[280px] w-full overflow-hidden rounded-2xl bg-amber-50 mb-7 shadow-sm">
+                <div className="h-[220px] sm:h-[240px] md:h-[260px] w-full overflow-hidden rounded-2xl bg-amber-50 mb-7 shadow-sm">
                   <img
                     src={p.image}
                     alt={p.alt}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="flex flex-1 flex-col justify-between px-2">
