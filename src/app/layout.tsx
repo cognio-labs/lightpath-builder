@@ -4,7 +4,7 @@ import { Providers } from "./providers";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
-import { DivineAIChatWidget } from "@/components/DivineAIChatWidget";
+
 
 export const metadata: Metadata = {
   title: "Science Divine Foundation | Sound Body, Sound Mind, Self Realization",
@@ -56,7 +56,6 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <SiteFooter />
             <MahaMantrasPopup />
-            <DivineAIChatWidget />
           </div>
         </Providers>
       </body>
