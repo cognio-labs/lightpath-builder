@@ -127,8 +127,8 @@ export default function Page() {
           }
           .hero-main-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(44px, 4.6vw, 64px);
-            line-height: 1.04;
+            font-size: clamp(34px, 4vw, 62px);
+            line-height: 1.06;
             font-weight: 500;
             letter-spacing: -0.025em;
           }
@@ -145,7 +145,7 @@ export default function Page() {
             line-height: 1.2;
           }
           .hero-copy {
-            max-width: 430px;
+            max-width: 440px;
             color: #5f5553;
             font-size: 0.95rem;
             line-height: 1.58;
@@ -202,19 +202,26 @@ export default function Page() {
             border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 24px;
             box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
-            width: 95px;
+            width: 92px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 12px 6px;
+            padding: 10px 4px;
           }
           .hero-sunrise-wash {
-            background: linear-gradient(90deg, rgba(255,253,247,0.92) 0%, rgba(255,253,247,0.72) 36%, rgba(255,253,247,0.15) 65%, rgba(255,253,247,0.02) 85%);
+            background: linear-gradient(90deg, rgba(255,253,247,0.95) 0%, rgba(255,253,247,0.85) 45%, rgba(255,253,247,0.25) 75%, rgba(255,253,247,0.05) 100%);
           }
           .hero-portrait {
-            width: clamp(480px, 44vw, 750px);
-            max-width: 52vw;
+            width: clamp(400px, 40vw, 680px);
+            max-width: 48vw;
             filter: drop-shadow(0 20px 18px rgba(70, 39, 20, 0.13));
+          }
+          @media (max-width: 1280px) {
+            .quick-action-bar {
+              right: 10px;
+              width: 84px;
+              padding: 8px 4px;
+            }
           }
           @media (max-width: 1024px) {
             .quick-action-bar {
@@ -224,16 +231,12 @@ export default function Page() {
               width: 100%;
               max-width: 500px;
               justify-content: space-around;
-              margin: 30px auto 0;
-            }
-            .hero-portrait {
-              width: min(62vw, 550px);
-              max-width: none;
+              margin: 24px auto 0;
             }
           }
           @media (max-width: 640px) {
             .hero-sunrise-wash {
-              background: linear-gradient(180deg, rgba(255,253,247,0.88) 0%, rgba(255,253,247,0.76) 54%, rgba(255,253,247,0.18) 100%);
+              background: linear-gradient(180deg, rgba(255,253,247,0.92) 0%, rgba(255,253,247,0.82) 54%, rgba(255,253,247,0.25) 100%);
             }
           }
         `}</style>
@@ -304,11 +307,11 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Right Portrait Image - Anchored flush to bottom and right */}
+        {/* Right Portrait Image - Positioned with clearance from floating quick action bar */}
         <img
           src="/sakshi-shree-hero-portrait.png"
           alt="Sadguru Sakshi Shree"
-          className="absolute bottom-0 right-0 lg:right-0 xl:right-0 max-h-[85%] lg:max-h-[88%] lg:max-w-[540px] xl:max-w-[580px] w-auto object-contain object-bottom z-10 pointer-events-none drop-shadow-[0_16px_22px_rgba(55,35,20,0.15)]"
+          className="absolute bottom-0 right-0 lg:right-[105px] xl:right-[120px] max-h-[82%] lg:max-h-[86%] xl:max-h-[88%] lg:max-w-[460px] xl:max-w-[540px] w-auto object-contain object-bottom z-10 pointer-events-none drop-shadow-[0_16px_22px_rgba(55,35,20,0.15)] opacity-25 md:opacity-40 lg:opacity-100 transition-all duration-300"
         />
 
         {/* Floating Quick Actions Widget on Right Edge */}
