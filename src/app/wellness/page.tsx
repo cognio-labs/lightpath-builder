@@ -1,18 +1,15 @@
-"use client";
+import { SOLUTIONS_LIST } from "@/data/solutionsData";
+import SolutionPageTemplate from "@/components/SolutionPageTemplate";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
-import { SolutionPageLayout } from "@/components/SolutionPageLayout";
+export const metadata: Metadata = {
+  title: "Holistic Wellness & Mind-Body Balance | Science Divine",
+  description: "Harmonize physical vitality, mental clarity, and spiritual enlightenment.",
+};
 
-
-
-
-export default function Page() {
-  return (
-    <SolutionPageLayout
-      slug={"yoga" as any}
-      title="Wellness"
-      tagline="Your Path to Complete Holistic Wellness"
-      intro="True wellness encompasses body, mind, and spirit. Discover ancient techniques made practical for modern life to achieve lasting health and vitality."
-      heroImage="/premium-heroes/wellness-hero.png"
-    />
-  );
+export default function WellnessPage() {
+  const solution = SOLUTIONS_LIST.find((s) => s.slug === "wellness");
+  if (!solution) notFound();
+  return <SolutionPageTemplate solution={solution} />;
 }

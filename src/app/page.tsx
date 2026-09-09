@@ -8,8 +8,9 @@ import { Lens } from "@/components/ui/lens";
 import { Counter } from "@/lib/useCounter";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 import TextType from "@/components/ui/TextType";
-import GlareHover from "@/components/ui/GlareHover";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import GlareHover from "@/components/ui/GlareHover";
+import SolutionsCarousel from "@/components/SolutionsCarousel";
 import {
   COURSES,
   EVENTS,
@@ -18,50 +19,13 @@ import {
   SOCIALS,
   LEADERS,
 } from "@/data/content";
-import { ArrowRight, Calendar, MapPin, Clock, Heart, BookOpen, Droplets, Sparkles, Users, User,  } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Clock, Heart, BookOpen, Droplets, Sparkles, Users, User, Mail, MessageCircle } from "lucide-react";
 import { Facebook, Youtube, Instagram, Linkedin } from "@/components/SocialIcons";
 
 
 
 
-/* ─────────────── SOLUTION TOPICS ─────────────── */
-const SOLUTION_ITEMS = [
-  {
-    slug: "depression",
-    label: "Depression",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/child-150x150.png",
-  },
-  {
-    slug: "anxiety",
-    label: "Anxiety",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/headache-150x150.png",
-  },
-  {
-    slug: "sleeping-disorder",
-    label: "Sleeping Disorder",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/sleeping-150x150.png",
-  },
-  {
-    slug: "overthinking",
-    label: "Overthinking",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/overthinking-150x150.png",
-  },
-  {
-    slug: "parenting",
-    label: "Parenting",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/family-150x150.png",
-  },
-  {
-    slug: "wellness",
-    label: "Wellness",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/yoga-150x150.png",
-  },
-  {
-    slug: "relationship",
-    label: "Relationships",
-    icon: "https://sciencedivine.org/wp-content/uploads/2025/01/couple-150x150.png",
-  },
-];
+
 
 const BLOG_POSTS = [
   {
@@ -100,20 +64,20 @@ const FEATURE_CARDS = [
   {
     title: "Sound Body",
     desc: "Physical vitality through yoga, breath, and conscious movement.",
-    image: "/feature-cards/sound-body.png",
-    alt: "Person practicing sunrise meditation in nature for physical wellness",
+    image: "https://images.pexels.com/photos/13849091/pexels-photo-13849091.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "Physical vitality through yoga, breath, and conscious movement",
   },
   {
     title: "Sound Mind",
     desc: "Mental clarity through meditation and mindfulness practice.",
-    image: "/feature-cards/sound-mind.png",
-    alt: "Person meditating peacefully over mountain scenery for mental clarity",
+    image: "https://images.pexels.com/photos/12520110/pexels-photo-12520110.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "Mental clarity through meditation and mindfulness practice",
   },
   {
     title: "Self Realization",
     desc: "Spiritual awakening under Sakshi Shree's direct guidance.",
-    image: "/feature-cards/self-realization.png",
-    alt: "Meditation surrounded by divine golden light and lotus flowers",
+    image: "https://images.unsplash.com/photo-1757941899028-c40a5ae28245?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=85&w=1600",
+    alt: "Spiritual awakening under Sakshi Shree's direct guidance",
   },
 ];
 function LensImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
@@ -145,570 +109,405 @@ export default function Page() {
   return (
     <>
       {/* ════════════════════════════════════
-          HERO SECTION ,  LUXURY SPIRITUAL REDESIGN
+          HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
-      <section className="hero-luxury-bg" style={{
-        position: "relative",
-        overflow: "hidden",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
+      <section className="relative overflow-hidden min-h-[640px] lg:h-[730px] flex items-center bg-[#fffaf0]" style={{
+        backgroundImage: "url('/hero-sunrise-mountains.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
       }}>
         <style>{`
-          @keyframes homeFadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-          @keyframes homeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-          @keyframes homePulse { 0%,100%{opacity:.3} 50%{opacity:.7} }
-          @keyframes rotateMandala {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+          .hero-badge-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #521623;
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.1;
           }
-          @keyframes homeParticle {
-            0%{transform:translateY(0) translateX(0);opacity:0}
-            30%{opacity:.6}
-            70%{opacity:.4}
-            100%{transform:translateY(-140px) translateX(25px);opacity:0}
+          .hero-main-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(44px, 4.6vw, 64px);
+            line-height: 1.04;
+            font-weight: 500;
+            letter-spacing: -0.025em;
           }
-          .hm-fade-1 { animation: homeFadeUp 0.8s 0.1s both; }
-          .hm-fade-2 { animation: homeFadeUp 0.8s 0.3s both; }
-          .hm-fade-3 { animation: homeFadeUp 0.8s 0.5s both; }
-          .hm-fade-4 { animation: homeFadeUp 0.8s 0.7s both; }
-          .hm-fade-5 { animation: homeFadeUp 0.8s 0.9s both; }
-          .hm-fade-6 { animation: homeFadeUp 0.8s 1.1s both; }
-          .hm-fade-img { animation: homeFadeUp 1s 0.4s both; }
-
-          .btn-hero-primary {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: linear-gradient(135deg, #B8860B 0%, #C79A2E 50%, #D4AF37 100%);
-            background-size: 200% auto;
-            color: #FFFFFF; padding: 16px 38px; border-radius: 100px;
-            font-weight: 700; font-size: 1rem; text-decoration: none;
-            box-shadow: 0 12px 32px rgba(199,154,46,0.35);
-            transition: background-position 0.4s, box-shadow 0.4s, transform 0.25s;
-            white-space: nowrap;
+          .hero-founder {
+            width: 210px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.55);
           }
-          .btn-hero-primary:hover {
-            background-position: right center;
-            box-shadow: 0 16px 42px rgba(199,154,46,0.5);
-            transform: translateY(-3px);
+          .hero-tagline {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: rgba(93, 59, 54, 0.9);
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.2;
           }
-          .btn-hero-primary:hover .btn-arrow { transform: translateX(5px); }
-          .btn-arrow { transition: transform 0.3s; }
-
-          .btn-hero-secondary {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: #FFFDF9;
-            border: 1.5px solid rgba(199,154,46,0.5);
-            color: #16233D; padding: 16px 38px; border-radius: 100px;
-            font-weight: 600; font-size: 1rem; text-decoration: none;
-            box-shadow: 0 4px 18px rgba(199,154,46,0.08);
-            transition: background 0.4s, border-color 0.4s, transform 0.25s, box-shadow 0.4s;
-            white-space: nowrap;
+          .hero-copy {
+            max-width: 430px;
+            color: #5f5553;
+            font-size: 0.95rem;
+            line-height: 1.58;
           }
-          .btn-hero-secondary:hover {
-            background: rgba(199,154,46,0.1);
-            border-color: #C79A2E;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(199,154,46,0.22);
+          .btn-explore {
+            background: #521623;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(82, 22, 35, 0.25);
           }
-
-          .hm-stat-sep { width: 1px; height: 48px; background: rgba(199,154,46,0.3); }
-          .hm-stat-card {
-            transition: transform 0.3s ease;
+          .btn-explore:hover {
+            background: #3B0F19;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(82, 22, 35, 0.35);
           }
-          .hm-stat-card:hover {
-            transform: translateY(-3px);
+          .btn-experience {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1.5px solid #D4AF37;
+            color: #521623;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
           }
-
-          .hm-particle {
-            position: absolute; border-radius: 50%;
-            background: radial-gradient(circle, #C79A2E, rgba(199,154,46,0));
-            animation: homeParticle linear infinite;
-            pointer-events: none;
+          .btn-experience:hover {
+            background: #FFFDF7;
+            border-color: #B8860B;
+            transform: translateY(-2px);
           }
-
-          /* Sacred 580px Golden Lotus Mandala Rotation */
-          .hero-mandala-580 {
-            position: absolute;
+          .quick-action-bar {
+            position: fixed;
+            right: 18px;
             top: 50%;
-            left: 50%;
-            width: 580px;
-            height: 580px;
-            opacity: 0.95;
-            pointer-events: none;
-            animation: rotateMandala 80s linear infinite;
-            will-change: transform;
-            transform: translate(-50%, -50%) translateZ(0);
-            z-index: 0;
-            filter: drop-shadow(0 0 10px rgba(146, 96, 12, 0.35));
-          }
-
-          /* ── Hero Container & Grid Layout ── */
-          .hm-inner {
-            max-width: 1440px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 60px;
-            position: relative;
-            z-index: 10;
-          }
-          .hm-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            align-items: center;
-            gap: 30px;
-            min-height: auto;
-            padding: 30px 0 20px;
-          }
-          .hm-left { max-width: 650px; }
-          .hm-left p { max-width: 580px; }
-          .hm-left .hm-btns { display: flex; flex-direction: row; flex-wrap: wrap; gap: 14px; align-items: center; }
-          .hm-left .hm-stats { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 24px; }
-          
-          .hm-right {
-            position: relative;
+            transform: translateY(-50%);
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 24px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+            width: 95px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100%;
-            min-height: 480px;
+            padding: 12px 6px;
           }
-
-          /* Responsive Breakpoints */
-          @media (max-width: 1200px) {
-            .hm-inner { padding: 0 24px; }
-            .hm-grid { gap: 24px; }
-            .hero-mandala-580 { width: 440px; height: 440px; }
+          .hero-sunrise-wash {
+            background: linear-gradient(90deg, rgba(255,253,247,0.92) 0%, rgba(255,253,247,0.72) 36%, rgba(255,253,247,0.15) 65%, rgba(255,253,247,0.02) 85%);
           }
-          @media (max-width: 900px) {
-            .hm-inner { padding: 0 16px; }
-            .hm-grid {
-              grid-template-columns: 1fr;
-              min-height: auto;
-              padding: 24px 0 20px;
-              gap: 20px;
-            }
-            .hm-left { max-width: 100%; order: 2; text-align: center; }
-            .hm-left p { margin-left: auto; margin-right: auto; }
-            .hm-left .hm-btns { justify-content: center; }
-            .hm-left .hm-stats { justify-content: center; }
-            .hm-right { order: 1; min-height: 320px; margin-bottom: 5px; }
-            .hero-mandala-580 { width: 320px; height: 320px; }
-            .hero-guru-cutout { max-width: 290px !important; }
+          .hero-portrait {
+            width: clamp(480px, 44vw, 750px);
+            max-width: 52vw;
+            filter: drop-shadow(0 20px 18px rgba(70, 39, 20, 0.13));
           }
-          @media (max-width: 600px) {
-            .hm-grid { padding: 16px 0 16px; gap: 16px; }
-            .hm-left .hm-btns { flex-direction: column; width: 100%; gap: 10px; }
-            .btn-hero-primary, .btn-hero-secondary { width: 100%; justify-content: center; padding: 12px 18px; font-size: 0.9rem; }
-            .hm-left .hm-stats {
-              display: grid !important;
-              grid-template-columns: repeat(3, 1fr) !important;
-              gap: 6px !important;
-              width: 100% !important;
-              justify-items: center !important;
-              align-items: flex-start !important;
+          @media (max-width: 1024px) {
+            .quick-action-bar {
+              position: static;
+              transform: none;
+              flex-direction: row;
+              width: 100%;
+              max-width: 500px;
+              justify-content: space-around;
+              margin: 30px auto 0;
             }
-            .hm-stat-card {
-              align-items: center !important;
-              text-align: center !important;
-              width: 100% !important;
+            .hero-portrait {
+              width: min(62vw, 550px);
+              max-width: none;
             }
-            .hm-stat-sep { display: none !important; }
-            .hm-right { order: 1; min-height: 260px; margin-bottom: 0px; }
-            .hero-mandala-580 { width: 260px; height: 260px; }
-            .hero-guru-cutout { max-width: 230px !important; }
+          }
+          @media (max-width: 640px) {
+            .hero-sunrise-wash {
+              background: linear-gradient(180deg, rgba(255,253,247,0.88) 0%, rgba(255,253,247,0.76) 54%, rgba(255,253,247,0.18) 100%);
+            }
           }
         `}</style>
 
-        {/* Ambient background subtle lighting */}
-        <div style={{
-          position: "absolute", top: "-10%", left: "-5%",
-          width: "650px", height: "650px",
-          background: "radial-gradient(circle, rgba(199,154,46,0.12) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", bottom: "-5%", right: "-5%",
-          width: "750px", height: "750px",
-          background: "radial-gradient(circle, rgba(199,154,46,0.1) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
+        {/* Luminous Golden Yellow Sunrise Halo & Cloud Glow */}
+        <div
+          className="hero-golden-sun-glow absolute right-8 lg:right-24 top-6 w-[520px] h-[520px] rounded-full blur-[80px] opacity-75 pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(circle, rgba(255, 210, 60, 0.8) 0%, rgba(245, 170, 30, 0.45) 45%, transparent 75%)",
+          }}
+        />
 
-        {/* Luxury paper texture pattern overlay */}
-        <div style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "radial-gradient(rgba(199,154,46,0.035) 1.5px, transparent 1.5px)",
-          backgroundSize: "28px 28px",
-          pointerEvents: "none",
-        }} />
+        <div className="hero-sunrise-wash absolute inset-0 pointer-events-none" />
 
-        {/* Floating dust & sparkle particles */}
-        {[{s:8,l:"12%",b:"15%",d:"12s",del:"0s"},{s:6,l:"22%",b:"35%",d:"15s",del:"1s"},{s:9,l:"7%",b:"55%",d:"14s",del:"2s"},{s:5,l:"28%",b:"25%",d:"18s",del:"3s"},{s:7,l:"85%",b:"40%",d:"16s",del:"1.5s"}].map((p,i)=>(
-          <div key={i} className="hm-particle" style={{
-            width: `${p.s}px`, height: `${p.s}px`,
-            left: p.l, bottom: p.b,
-            animationDuration: p.d, animationDelay: p.del,
-            opacity: 0.4,
-          }} />
-        ))}
-
-        <div className="hm-inner">
-          <div className="hm-grid">
-
-            {/* ── LEFT COLUMN CONTENT ── */}
-            <div className="hm-left hm-fade-1">
-
-              {/* Small Premium Badge */}
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: "10px",
-                background: "rgba(255, 253, 249, 0.9)",
-                border: "1.5px solid rgba(199, 154, 46, 0.45)",
-                borderRadius: "100px", padding: "8px 22px",
-                backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
-                marginBottom: "20px",
-                boxShadow: "0 4px 18px rgba(199,154,46,0.08)"
-              }}>
-                <LotusIcon size={18} color="#C79A2E" />
-                <span style={{
-                  color: "#8B6914", fontSize: "11px", fontWeight: 700,
-                  letterSpacing: "0.2em", textTransform: "uppercase" as const
-                }}>
-                  Sound Body &bull; Sound Mind &bull; Self Realization
-                </span>
+        <div className="hero-content-shell max-w-[1580px] w-full mx-auto px-6 md:px-12 py-10 lg:py-0 lg:pt-[50px] relative z-10 h-full flex items-center lg:items-start">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-6 relative z-10">
+              
+              {/* Founder Header Badge */}
+              <div className="hero-founder space-y-1">
+                <div className="flex items-center gap-2">
+                  <Heart size={18} className="text-[#C79A2E] fill-[#C79A2E]" />
+                </div>
+                <h3 className="hero-badge-title">Sadguru Sakshi Shree</h3>
+                <p className="text-xs text-amber-900/70 font-medium tracking-wide">
+                  Founder, Science Divine Foundation
+                </p>
+                <img 
+                  src="/signature.png" 
+                  alt="Sakshi Shree Signature" 
+                  className="h-10 opacity-85 object-contain pt-1"
+                />
               </div>
 
-              {/* Editorial Heading */}
-              <h1 style={{ margin: "0 0 18px", fontFamily: "'Playfair Display', serif", lineHeight: 1.02, fontWeight: 700 }}>
-                <span className="hm-fade-1" style={{ display: "block", fontSize: "clamp(30px, 3.8vw, 56px)", color: "var(--foreground)", letterSpacing: "-0.015em" }}>
-                  Awaken Your
-                </span>
-                <span className="hm-fade-2" style={{
-                  display: "block", fontSize: "clamp(32px, 4.2vw, 60px)", fontStyle: "italic", fontWeight: 700,
-                  backgroundImage: "linear-gradient(135deg, #B8860B 0%, #C79A2E 50%, #E6C84A 100%)",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  color: "transparent",
-                  paddingTop: "0.08em", marginTop: "-0.05em", paddingRight: "0.1em"
-                }}>
-                  <TextType 
-                    text={["True Potential", "Sound Body", "Sound Mind", "Self Realization"]}
-                    typingSpeed={75}
-                    pauseDuration={1800}
-                    showCursor
-                    cursorCharacter="_"
-                    deletingSpeed={50}
-                    variableSpeedEnabled={false}
-                    cursorBlinkDuration={0.5}
-                  />
-                </span>
-                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(30px, 3.8vw, 56px)", color: "var(--foreground)", letterSpacing: "-0.015em", marginTop: "-0.05em" }}>
-                  with Science Divine
-                </span>
-                <span className="hm-fade-3" style={{ display: "block", fontSize: "clamp(30px, 3.8vw, 56px)", color: "var(--foreground)", letterSpacing: "-0.015em" }}>
-                  Movement
-                </span>
+              {/* Main Heading */}
+              <h1 className="hero-main-title">
+                <span className="block text-[#521623]">Awaken the Divine Within,</span>
+                <span className="block text-[#B8860B]">Transform the World Around.</span>
               </h1>
 
-
-              {/* Description */}
-              <p className="hm-fade-4" style={{ fontSize: "1.05rem", color: "var(--foreground)", opacity: 0.8, lineHeight: 1.65, marginBottom: "28px", maxWidth: "580px" }}>
-                Journey towards conscious living through Sound Body, Sound Mind, and Self-Realization, guided by enlightened master{" "}
-                <strong style={{ color: "#C79A2E", fontWeight: 700 }}>Sakshi Shree</strong>.
+              {/* Subheading / Tagline */}
+              <p className="hero-tagline italic">
+                The Science of Awareness for a Conscious Life.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="hm-fade-5 hm-btns" style={{ marginBottom: "36px" }}>
-                <Link href="/book-session" className="btn-hero-primary">
-                  <User size={18} />
-                  Meet Sakshi Shree <ArrowRight size={18} className="btn-arrow" />
+              {/* Body Text */}
+              <p className="hero-copy font-normal">
+                Science Divine is a non-profit organisation dedicated to spreading the timeless wisdom of <span className="font-medium text-amber-950">Awareness (Sakshi Bhav)</span> and <span className="font-medium text-amber-950">Bhagavad Gita</span> for a better, conscious & compassionate world.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link href="#teachings" className="btn-explore">
+                  EXPLORE THE TEACHINGS <ArrowRight size={16} />
                 </Link>
-                <Link href="/events" className="btn-hero-secondary">
-                  <Calendar size={18} style={{ color: "#C79A2E" }} />
-                  Join Our Next Event
+                <Link href="#events" className="btn-experience">
+                  JOIN AN EXPERIENCE <Calendar size={16} className="text-[#B8860B]" />
                 </Link>
               </div>
 
-              {/* Statistics */}
-              <div className="hm-fade-6 hm-stats">
-                {[
-                  { icon: <Users size={22} color="#C79A2E" />, num: "5M+", label: "Lives Impacted" },
-                  { icon: <LotusIcon size={22} color="#C79A2E" />, num: "40+", label: "Years of Wisdom" },
-                  { icon: <Calendar size={22} color="#C79A2E" />, num: "1000+", label: "Events Held" }
-                ].map((s, i) => (
-                  <React.Fragment key={i}>
-                    {i > 0 && <div className="hm-stat-sep" />}
-                    <div className="hm-stat-card" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                      <div style={{ marginBottom: "6px" }}>{s.icon}</div>
-                      <div style={{
-                        fontFamily: "'Playfair Display', serif", fontSize: "2.2rem",
-                        fontWeight: 800, color: "var(--foreground)", lineHeight: 1,
-                        display: "flex", alignItems: "baseline"
-                      }}>
-                        {s.num.replace(/\D/g, '')}
-                        <span style={{ fontSize: "1.6rem", fontWeight: 700, marginLeft: "2px", color: "#C79A2E" }}>
-                          {s.num.replace(/\d/g, '')}
-                        </span>
-                      </div>
-                      <div style={{
-                        fontSize: "0.78rem", color: "var(--foreground)", opacity: 0.7, marginTop: "6px",
-                        fontWeight: 600, letterSpacing: "0.02em"
-                      }}>{s.label}</div>
-                    </div>
-                  </React.Fragment>
-                ))}
-              </div>
             </div>
 
-            {/* ── RIGHT COLUMN ── GURU JI & ROTATING CHAKRA MANDALA ── */}
-            <div className="hm-right hm-fade-img">
-
-              {/* Radiant Golden Backlight Aura */}
-              <div style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "500px",
-                height: "500px",
-                background: "radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(212, 175, 55, 0.2) 45%, transparent 70%)",
-                borderRadius: "50%",
-                filter: "blur(28px)",
-                pointerEvents: "none",
-                zIndex: 1,
-                animation: "homePulse 4s ease-in-out infinite",
-              }} />
-
-              {/* Rotating Sacred Golden Chakra Mandala Layer */}
-              <svg className="hero-mandala-580" style={{ opacity: 0.95 }} viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#92400E" fill="none" strokeWidth="2.2">
-                  {/* Outer Sacred Geometry Rings */}
-                  <circle cx="300" cy="300" r="290" stroke="#78350F" strokeWidth="2" opacity="0.85" strokeDasharray="5 7" />
-                  <circle cx="300" cy="300" r="280" stroke="#854D0E" strokeWidth="3.2" opacity="0.95" />
-                  <circle cx="300" cy="300" r="270" stroke="#9A3412" strokeWidth="1.8" opacity="0.85" />
-                  
-                  {/* Sacred Lotus Petals ── Outer Layer */}
-                  {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
-                    <g key={deg} transform={`rotate(${deg} 300 300)`}>
-                      <path d="M300,25 Q335,150 300,275 Q265,150 300,25" opacity="0.95" stroke="#78350F" strokeWidth="2.6" />
-                      <circle cx="300" cy="45" r="4.5" fill="#854D0E" stroke="#78350F" strokeWidth="1.2" opacity="1" />
-                      <line x1="300" y1="25" x2="300" y2="275" opacity="0.65" stroke="#92400E" strokeWidth="1.5" />
-                    </g>
-                  ))}
-                  
-                  {/* Sacred Lotus Petals ── Inner Layer */}
-                  {[15, 45, 75, 105, 135, 165, 195, 225, 255, 285, 315, 345].map(deg => (
-                    <g key={deg} transform={`rotate(${deg} 300 300)`}>
-                      <path d="M300,60 Q325,170 300,275 Q275,170 300,60" opacity="0.9" stroke="#9A3412" strokeWidth="2.4" />
-                      <circle cx="300" cy="85" r="4" fill="#78350F" opacity="0.95" />
-                    </g>
-                  ))}
-
-                  {/* Inner Concentric Rings */}
-                  <circle cx="300" cy="300" r="210" stroke="#854D0E" strokeWidth="3" opacity="0.95" />
-                  <circle cx="300" cy="300" r="195" stroke="#78350F" strokeWidth="2.5" opacity="0.85" strokeDasharray="4 8" />
-                  <circle cx="300" cy="300" r="150" stroke="#92400E" strokeWidth="2.4" opacity="0.95" />
-                  
-                  {/* Sunburst Rays Core */}
-                  {[...Array(36)].map((_, i) => (
-                    <line key={i} x1="300" y1="170" x2="300" y2="275" opacity="0.75" stroke="#78350F" strokeWidth="1.8" transform={`rotate(${i * 10} 300 300)`} />
-                  ))}
-                </g>
-              </svg>
-
-              {/* Main Static Guru Ji Portrait floating gracefully above mountain clouds */}
-              <img
-                src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
-                alt="Sakshi Shree ── Enlightened Spiritual Master in Meditation"
-                className="hero-guru-cutout"
-                style={{
-                  position: "relative", zIndex: 2,
-                  width: "100%",
-                  maxWidth: "490px",
-                  height: "auto",
-                  maxHeight: "560px",
-                  objectFit: "contain",
-                  animation: "homeFloat 6s ease-in-out infinite",
-                  filter: "drop-shadow(0 16px 36px rgba(184, 134, 11, 0.32))",
-                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 84%, rgba(0,0,0,0) 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 84%, rgba(0,0,0,0) 100%)",
-                }}
-              />
-
-              {/* Floating gold sparkle particles */}
-              {[{t:"12%",r:"6%",s:10,d:"5s",del:"0s"},{t:"52%",r:"2%",s:7,d:"7s",del:"1.5s"},{t:"78%",r:"10%",s:5,d:"6s",del:"3s"},{t:"22%",l:"4%",s:8,d:"8s",del:"2s"}].map((p,i)=>(
-                <div key={i} className="hm-particle" style={{
-                  width: `${p.s}px`, height: `${p.s}px`,
-                  top: p.t,
-                  ...('right' in p ? { right: p.r } : {}),
-                  ...('left' in p ? { left: p.l } : {}),
-                  animationDuration: p.d, animationDelay: p.del,
-                  opacity: 0.75, zIndex: 3,
-                }} />
-              ))}
-            </div>
+            {/* Right Column Spacer for Desktop */}
+            <div className="lg:col-span-5 hidden lg:block" />
 
           </div>
         </div>
 
+        {/* Right Portrait Image - Anchored flush to bottom and right */}
+        <img
+          src="/sakshi-shree-hero-portrait.png"
+          alt="Sadguru Sakshi Shree"
+          className="absolute bottom-0 right-0 lg:right-0 xl:right-0 max-h-[85%] lg:max-h-[88%] lg:max-w-[540px] xl:max-w-[580px] w-auto object-contain object-bottom z-10 pointer-events-none drop-shadow-[0_16px_22px_rgba(55,35,20,0.15)]"
+        />
+
+        {/* Floating Quick Actions Widget on Right Edge */}
+        <div className="quick-action-bar">
+          <Link href="#events" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
+            <Calendar size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Attend<br/>Live Event</span>
+          </Link>
+          
+          <Link href="#programs" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
+            <BookOpen size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Book<br/>Session</span>
+          </Link>
+          
+          <Link href="#contact" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
+            <Mail size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Ask<br/>Question</span>
+          </Link>
+          
+          <Link href="#contact" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full">
+            <MessageCircle size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">WhatsApp<br/>Connect</span>
+          </Link>
+        </div>
 
       </section>
 
       {/* ════════════════════════════════════
-          SCIENCE DIVINE MOVEMENT
+          EXPLORE YOUR INNER JOURNEY
       ════════════════════════════════════ */}
-      <section
-        className="section-pad relative overflow-hidden"
-        style={{
-          position: "relative",
-          backgroundImage: "url('/clean-golden-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="container-page relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-start mb-10">
-            <div>
-              <SectionHeading eyebrow="Our Mission" title="Science Divine Movement" />
-              <p className="text-gray-700 leading-relaxed font-medium">
-                The Science Divine Movement is a global initiative helping people realize their
-                optimum potential through definite scientific techniques for sound body, sound mind,
-                and self-realization. Founded by enlightened spiritual master Sakshi Shree, it
-                simplifies spirituality to become an integral part of everyday life.
-              </p>
-            </div>
-            <div>
-              <blockquote
-                className="font-quote text-xl md:text-2xl text-slate-900 leading-relaxed mb-6 italic pl-5 border-l-4 rounded-r-2xl p-4"
-                style={{
-                  borderColor: "#D4AF37",
-                  background: "rgba(255, 255, 255, 0.75)",
-                  backdropFilter: "blur(10px)",
-                  boxShadow: "0 6px 24px rgba(212, 175, 55, 0.12)",
-                }}
-              >
-                "Bheetar se sanyaas, bahar se sansaar", total participation in worldly life while
-                enjoying complete inner renunciation.
-              </blockquote>
+      <section className="py-20 px-6 relative overflow-hidden bg-[#FAF7F2]">
+        <div className="max-w-[1300px] mx-auto text-center relative z-10">
+          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E] block mb-2">
+            EXPLORE YOUR
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#4E1321] mb-14">
+            Inner Journey
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 justify-items-center">
+            {[
+              {
+                title: "Awareness",
+                subtitle: "Sakshi Bhav",
+                href: "/about",
+                icon: (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Wisdom",
+                subtitle: "Bhagavad Gita",
+                href: "/courses",
+                icon: <BookOpen size={24} className="text-[#4E1321]" />,
+              },
+              {
+                title: "Practice",
+                subtitle: "Sakshi Sadhna",
+                href: "/practices",
+                icon: (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Purpose",
+                subtitle: "Conscious Living",
+                href: "/about-movement",
+                icon: (
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Seva",
+                subtitle: "Serving Humanity",
+                href: "/initiatives",
+                icon: <Heart size={24} className="text-[#4E1321]" />,
+              },
+            ].map((item, idx) => (
               <Link
-                href="/about-movement"
-                className="btn-outline-gold rounded-full px-6 py-3 text-sm font-semibold inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm shadow-md"
+                key={idx}
+                href={item.href}
+                className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1.5"
               >
-                Learn More <ArrowRight size={15} />
-              </Link>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {FEATURE_CARDS.map((p) => (
-              <GlareHover
-                key={p.title}
-                glareColor="#ffffff"
-                glareOpacity={0.35}
-                glareAngle={-30}
-                glareSize={320}
-                transitionDuration={800}
-                playOnce={false}
-                className="h-full rounded-[20px]"
-              >
-                <div
-                  className="group flex h-full flex-col rounded-[20px] p-6 transition-all duration-500 hover:-translate-y-2 md:p-7"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.88)",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
-                    border: "1px solid rgba(255, 255, 255, 0.95)",
-                    boxShadow: "0 12px 36px rgba(184, 134, 11, 0.08)",
-                  }}
-                >
-                  <div className="h-[220px] w-full overflow-hidden rounded-[18px] bg-gray-100 shadow-md">
-                    <LensImage
-                      src={p.image}
-                      alt={p.alt}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col px-1 pb-1 pt-7 text-center">
-                    <h3 className="font-display text-2xl font-bold leading-tight text-gray-900">
-                      {p.title}
-                    </h3>
-                    <p className="mx-auto mt-4 max-w-xs text-sm leading-7 text-gray-600 font-medium">{p.desc}</p>
-                  </div>
+                <div className="w-20 h-20 rounded-full bg-white border-2 border-[#D4AF37] shadow-md flex items-center justify-center mb-4 transition-shadow group-hover:shadow-lg group-hover:border-[#B8860B]">
+                  {item.icon}
                 </div>
-              </GlareHover>
+                <h3 className="font-serif text-xl font-bold text-[#4E1321] mb-1 group-hover:text-[#B8860B] transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs font-medium text-[#8B6914] mb-2">
+                  {item.subtitle}
+                </p>
+                <span className="text-xs text-[#C79A2E] transition-transform duration-300 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════
-          FIND SOLUTIONS FOR
+          ABOUT SCIENCE DIVINE MOVEMENT
       ════════════════════════════════════ */}
-      <section
-        className="section-pad"
-        style={{
-          position: "relative",
-          backgroundImage: "url('/solutions-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Solutions icon grid */}
-            <div>
-              <SectionHeading eyebrow="Guidance" title="Find Solutions For :" />
-              <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed font-medium">
-                Explore Sakshi Shree's teachings centered around overcoming common struggles such as
-                depression, anxiety, anger, and more. Find practical guidance to navigate life's
-                challenges and enhance your well-being.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {SOLUTION_ITEMS.map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={`/${item.slug}` as string}
-                    className="p-4 rounded-2xl text-center group transition-all duration-300 hover:-translate-y-1"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.85)",
-                      backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
-                      border: "1px solid rgba(255, 255, 255, 0.9)",
-                      boxShadow: "0 8px 24px rgba(0, 40, 100, 0.05)",
-                    }}
-                  >
-                    <img
-                      src={item.icon}
-                      alt={item.label}
-                      className="w-12 h-12 object-contain mx-auto mb-2 group-hover:scale-110 transition-transform"
-                    />
-                    <p className="text-xs font-bold text-gray-800 dark:text-gray-900">{item.label}</p>
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-6">
-                <Link
-                  href="/get-solutions-for"
-                  className="btn-gold rounded-full px-6 py-3 text-sm font-semibold inline-flex items-center gap-2 shadow-lg"
-                >
-                  All Solutions <ArrowRight size={15} />
-                </Link>
-              </div>
+      {/* ════════════════════════════════════
+          ABOUT SCIENCE DIVINE MOVEMENT
+      ════════════════════════════════════ */}
+      <section className="relative overflow-hidden min-h-[620px] lg:min-h-[680px] flex items-center py-16 lg:py-20 px-4 md:px-10 bg-cover bg-center" style={{
+        backgroundImage: "url('/about-section-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center right",
+      }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#fffaf2]/95 via-[#fffaf2]/80 to-transparent pointer-events-none z-0" />
+        
+        <div className="max-w-[1440px] w-full mx-auto grid lg:grid-cols-12 gap-6 items-center relative z-10 h-full">
+          <div className="lg:col-span-8 space-y-5 relative z-20">
+            <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E] block">
+              ABOUT SCIENCE DIVINE
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#4E1321]">
+              Science Divine Movement
+            </h2>
+            <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg max-w-2xl lg:max-w-3xl">
+              The Science Divine Movement is a global initiative helping people realize their optimum
+              potential through definite scientific techniques for sound body, sound mind, and self-realization.
+              Founded by enlightened spiritual master Sakshi Shree, it simplifies spirituality to become an
+              integral part of everyday life, freeing humanity from ideologies and belief systems that have divided us through the ages.
+            </p>
+            <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg max-w-2xl lg:max-w-3xl">
+              Our fundamental maxim is <span className="font-serif italic font-semibold text-[#8B6914] text-lg lg:text-xl">&quot;Bheetar se sanyaas, bahar se sansaar&quot;</span> – total participation in worldly life while enjoying complete inner renunciation.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/about-movement"
+                className="inline-flex items-center gap-2 font-bold text-sm text-[#4E1321] hover:text-[#B8860B] transition-colors"
+              >
+                Know Sakshi Shree <ArrowRight size={16} />
+              </Link>
             </div>
+          </div>
 
-            {/* Right image */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-sm overflow-hidden rounded-3xl shadow-2xl border-4 border-white/80">
-                <LensImage
-                  src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
-                  alt="Meditation and inner peace"
-                  className="h-full w-full object-cover"
-                />
+          {/* Desktop Spacer Column */}
+          <div className="lg:col-span-4 hidden lg:block" />
+        </div>
+
+        {/* Sakshi Shree Portrait Positioned Closer */}
+        <img
+          src="/about-sakshi-shree-new.png"
+          alt="Sadguru Sakshi Shree"
+          className="absolute bottom-0 right-0 md:right-[2%] lg:right-[4%] max-h-[96%] lg:max-h-[102%] w-auto object-contain object-bottom z-10 pointer-events-none drop-shadow-[0_20px_30px_rgba(40,20,10,0.22)]"
+        />
+      </section>
+
+      {/* ════════════════════════════════════
+          SOUND BODY, SOUND MIND, SELF REALIZATION
+      ════════════════════════════════════ */}
+      <section className="relative z-20 pt-16 md:pt-24 pb-24 px-4 md:px-8 bg-[#FFFDF9]">
+        <div className="max-w-[1720px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            {FEATURE_CARDS.map((p) => (
+              <div
+                key={p.title}
+                className="group flex flex-col rounded-3xl p-7 md:p-9 bg-white border border-amber-100/90 shadow-[0_12px_28px_rgba(66,38,22,0.08)] hover:shadow-[0_20px_40px_rgba(66,38,22,0.15)] transition-all duration-300 hover:-translate-y-2 text-center"
+              >
+                <div className="h-[260px] md:h-[280px] w-full overflow-hidden rounded-2xl bg-amber-50 mb-7 shadow-sm">
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-between px-2">
+                  <div>
+                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#4E1321] mb-3">
+                      {p.title}
+                    </h3>
+                    <p className="text-base leading-relaxed text-gray-600 font-medium">
+                      {p.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* ════════════════════════════════════
+          WELLNESS SOLUTIONS CAROUSEL
+      ════════════════════════════════════ */}
+      <SolutionsCarousel />
 
       {/* ════════════════════════════════════
           SAKSHI SHREE QUOTE SECTION
@@ -727,7 +526,7 @@ export default function Page() {
                   }}
                 />
                 <img
-                  src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
+                  src="/about-sakshi-shree-new.png"
                   alt="Sakshi Shree"
                   className="relative z-10 w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4"
                   style={{ borderColor: "#D4AF37", boxShadow: "0 0 40px rgba(212,175,55,0.3)" }}
@@ -848,29 +647,40 @@ export default function Page() {
       </section>
 
       {/* ════════════════════════════════════
-          STATS BANNER
+          OUR IMPACT SECTION
       ════════════════════════════════════ */}
-      <section className="py-16" style={{ background: "#0F172A" }}>
-        <div className="container-page">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+      <section className="py-20 px-6 bg-[#FAF6F0] text-center border-t border-b border-amber-100/70 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto">
+          
+          {/* Heading & Subtitle */}
+          <div className="mb-14 space-y-2">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#521623]">
+              Our Impact
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 font-medium tracking-wide">
+              A growing movement of awareness, peace and service.
+            </p>
+          </div>
+
+          {/* 4 Stats Grid with vertical line dividers */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-amber-900/15">
             {[
-              { val: <Counter to={5000000} suffix="+" />, label: "Lives Impacted" },
-              { val: <Counter to={1000} suffix="+" />, label: "Meditation Events" },
-              { val: <Counter to={10000} suffix="+" />, label: "Students Educated" },
-              { val: "9/10", label: "Experience Inner Peace" },
-              { val: <Counter to={40} suffix="+" />, label: "Years of Guidance" },
-            ].map((s, i) => (
-              <div key={i} className="space-y-2">
-                <div
-                  className="font-display text-3xl md:text-4xl font-bold"
-                  style={{ color: "#D4AF37" }}
-                >
-                  {s.val}
+              { val: "50+", label: "Seva Initiatives" },
+              { val: "1M+", label: "Lives Touched" },
+              { val: "500+", label: "Events Conducted" },
+              { val: "25+", label: "Countries Reached" },
+            ].map((item, idx) => (
+              <div key={idx} className="py-6 px-4 flex flex-col items-center justify-center space-y-2">
+                <div className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#521623] tracking-tight">
+                  {item.val}
                 </div>
-                <div className="text-xs text-white/60 uppercase tracking-wider">{s.label}</div>
+                <div className="text-xs sm:text-sm font-medium text-gray-600 tracking-wide">
+                  {item.label}
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Overcome Depression & Rediscover Joy | Science Divine",
-  description: "Awaken inner light, hope, and emotional vitality with Sakshi Shree's guided wisdom.",
+  title: "Restorative Sleep & Bedtime Peace | Science Divine",
+  description: "Unwind your nervous system for deep, effortless, and rejuvenating night sleep.",
 };
 
-export default function DepressionPage() {
-  const solution = SOLUTIONS_LIST.find((s) => s.slug === "depression");
+export default function SleepPage() {
+  const solution = SOLUTIONS_LIST.find((s) => s.slug === "sleep");
   if (!solution) notFound();
   return <SolutionPageTemplate solution={solution} />;
 }

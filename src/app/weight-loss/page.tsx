@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Overcome Depression & Rediscover Joy | Science Divine",
-  description: "Awaken inner light, hope, and emotional vitality with Sakshi Shree's guided wisdom.",
+  title: "Mindful Weight Loss & Vitality | Science Divine",
+  description: "Achieve healthy body balance through conscious living, movement, and self-awareness.",
 };
 
-export default function DepressionPage() {
-  const solution = SOLUTIONS_LIST.find((s) => s.slug === "depression");
+export default function WeightLossPage() {
+  const solution = SOLUTIONS_LIST.find((s) => s.slug === "weight-loss");
   if (!solution) notFound();
   return <SolutionPageTemplate solution={solution} />;
 }

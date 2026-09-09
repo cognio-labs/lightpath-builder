@@ -404,7 +404,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
               <img
-                src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
+                src="/about-sakshi-shree-new.png"
                 alt="Sakshi Shree ,  Mission"
                 loading="lazy"
                 style={{

@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Overcome Depression & Rediscover Joy | Science Divine",
-  description: "Awaken inner light, hope, and emotional vitality with Sakshi Shree's guided wisdom.",
+  title: "Back Pain Relief & Spine Health | Science Divine",
+  description: "Ease bodily tension, posture misalignment, and physical stress naturally.",
 };
 
-export default function DepressionPage() {
-  const solution = SOLUTIONS_LIST.find((s) => s.slug === "depression");
+export default function BackPainPage() {
+  const solution = SOLUTIONS_LIST.find((s) => s.slug === "back-pain");
   if (!solution) notFound();
   return <SolutionPageTemplate solution={solution} />;
 }

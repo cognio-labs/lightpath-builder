@@ -1,0 +1,670 @@
+export interface SolutionData {
+  slug: string;
+  name: string;
+  iconName: string; // Lucide icon identifier
+  tagline: string;
+  shortDesc: string;
+  heroImage: string;
+  badge: string;
+  themeColor: string;
+  benefits: { title: string; desc: string; icon: string }[];
+  symptoms: { title: string; desc: string }[];
+  practices: { title: string; duration: string; desc: string }[];
+  quote: { text: string; author: string };
+  faqs: { question: string; answer: string }[];
+}
+
+export const SOLUTIONS_LIST: SolutionData[] = [
+  {
+    slug: "depression",
+    name: "Depression",
+    iconName: "CloudSun",
+    tagline: "Awaken Inner Light & Overcome Darkness",
+    shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
+    heroImage: "/premium-heroes/depression-hero.png",
+    badge: "EMOTIONAL HEALING & HOPE",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Renewed Joy & Purpose", desc: "Reconnect with the natural joy of existing and find meaningful purpose.", icon: "Sun" },
+      { title: "Emotional Liberation", desc: "Gently release stored grief, trauma, and emotional numbness.", icon: "Heart" },
+      { title: "Vital Life Energy", desc: "Awaken dormant energy through pranas and uplifting spiritual community.", icon: "Sparkles" },
+      { title: "Mindful Presence", desc: "Shift away from past regrets and future anxiety into peaceful present awareness.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Persistent Sadness & Numbness", desc: "Feeling disconnected, empty, or unmotivated." },
+      { title: "Loss of Interest", desc: "No longer finding joy in hobbies, work, or social connections." },
+      { title: "Low Energy & Fatigue", desc: "Feeling heavy and depleted even after sleeping." },
+    ],
+    practices: [
+      { title: "Sunlight & Prana Sadhna", duration: "15 Mins / Morning", desc: "Absorb morning sunlight while practicing rhythmic breathing." },
+      { title: "Gratitude & Joy Meditation", duration: "15 Mins / Day", desc: "Cultivate appreciation for life's small blessings." },
+      { title: "Chanting & Sound Vibrations", duration: "10 Mins / Day", desc: "Elevate your bio-energy with sacred sound frequencies." },
+    ],
+    quote: {
+      text: "Behind every cloud of darkness lies your eternal sun of awareness. You are not your feelings; you are the light.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "Can spiritual practice help with depression?", answer: "Spiritual practice elevates bio-energy, clears negative mental cycles, and restores life purpose and connection." },
+      { question: "What if I feel too low to practice?", answer: "Start with simple 5-minute breathing or listening to guided chants. Gentle steps build steady momentum." },
+      { question: "Important Healthcare Note", answer: "Spiritual practices support inner strength. If you suffer from clinical depression or self-harm thoughts, please consult professional healthcare providers." },
+    ],
+  },
+  {
+    slug: "anxiety",
+    name: "Anxiety",
+    iconName: "Brain",
+    tagline: "Calm Panic, Release Fear & Rest in Awareness",
+    shortDesc: "Overcome racing heartbeat, panic, and persistent worry with Sakshi Bhav and soothing breathwork.",
+    heroImage: "/premium-heroes/anxiety-hero.png",
+    badge: "ANXIETY RELIEF & PEACE",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Nervous System Reset", desc: "Instantly soothe rapid breathing and pounding heartbeat during anxious moments.", icon: "Shield" },
+      { title: "Release Fear & Worry", desc: "Break free from irrational fears about the future through witness consciousness.", icon: "Sparkles" },
+      { title: "Emotional Grounding", desc: "Anchor your focus deeply in the present moment with body awareness.", icon: "Sun" },
+      { title: "Restful Confidence", desc: "Build unwavering inner trust and calm under life pressure.", icon: "Heart" },
+    ],
+    symptoms: [
+      { title: "Racing Thoughts & Heartbeat", desc: "Feeling tightness in chest or rapid pulse during stressful triggers." },
+      { title: "Restlessness & Anticipatory Worry", desc: "Constant apprehension about what might go wrong next." },
+      { title: "Shortness of Breath", desc: "Shallow breathing when feeling nervous or overwhelmed." },
+    ],
+    practices: [
+      { title: "Sanjeevni Kriya Breathwork", duration: "15 Mins / Morning", desc: "Deep rhythmic breathing to lower sympathetic nerve activity." },
+      { title: "Sakshi Bhav Witness Practice", duration: "10 Mins / Day", desc: "Observe anxious thoughts like passing clouds without fear." },
+      { title: "Grounding Earth Meditation", duration: "10 Mins / When Needed", desc: "Focus awareness on feet and breath to dissolve panic spikes." },
+    ],
+    quote: {
+      text: "Fear lives in the future; peace lives right now. Return to the present moment.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How to stop panic attacks quickly?", answer: "Focus on slow, deep belly exhales (exhaling twice as long as inhaling) and observe your body with Sakshi Bhav." },
+      { question: "Is this suitable alongside therapy?", answer: "Yes! Mindfulness and breathwork strongly complement psychological counseling." },
+    ],
+  },
+  {
+    slug: "sleeping-disorder",
+    name: "Sleeping Disorder",
+    iconName: "Moon",
+    tagline: "Overcome Insomnia & Wake Up Deeply Refreshed",
+    shortDesc: "Quiet bedtime mental chatter and restore natural sleep cycles through Yoga Nidra and deep relaxation.",
+    heroImage: "/premium-heroes/sleeping-disorder-hero.png",
+    badge: "RESTFUL SLEEP SANCTUARY",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Fall Asleep Quickly", desc: "Quiet night thoughts and fall asleep effortlessly without restlessness.", icon: "Moon" },
+      { title: "Deep Restorative Sleep", desc: "Enjoy uninterrupted sleep cycles for cellular repair and mental refresh.", icon: "Shield" },
+      { title: "Morning Energy Boost", desc: "Awaken alert, positive, and full of life energy every single morning.", icon: "Sun" },
+    ],
+    symptoms: [
+      { title: "Bedtime Mind Racing", desc: "Lying awake for hours overthinking past or future tasks." },
+      { title: "Frequent Waking Up", desc: "Waking up at 2 AM or 3 AM unable to fall back asleep." },
+    ],
+    practices: [
+      { title: "Yoga Nidra Divine Relaxation", duration: "20 Mins / Bedtime", desc: "Guided body scan to guide brainwaves into restorative theta sleep states." },
+      { title: "4-7-8 Deep Sleep Breathing", duration: "5 Mins / Bedtime", desc: "Scientific breathing cadence to activate melatonin and sleep hormones." },
+    ],
+    quote: {
+      text: "Surrender the day's burden to the divine when you lie down. Deep sleep is your birthright.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How does Yoga Nidra help insomnia?", answer: "It systematically releases muscle tension and slows brainwave activity, guiding you safely into deep sleep." },
+    ],
+  },
+  {
+    slug: "overthinking",
+    name: "Overthinking",
+    iconName: "Activity",
+    tagline: "Break Thought Swirls & Find Mental Silence",
+    shortDesc: "Stop repetitive mental loops and quiet your busy mind with witness consciousness.",
+    heroImage: "/premium-heroes/depression-hero.png",
+    badge: "MENTAL CLARITY & SILENCE",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Stop Thought Loops", desc: "Break continuous analysis paralysis and ruminating over past events.", icon: "Sparkles" },
+      { title: "Quiet Internal Noise", desc: "Cultivate quiet mental spaciousness for clear intuition.", icon: "Sun" },
+    ],
+    symptoms: [
+      { title: "Analysis Paralysis", desc: "Inability to decide due to excessive mental scenarios." },
+    ],
+    practices: [
+      { title: "Thought Witnessing Sadhna", duration: "15 Mins / Day", desc: "Watch thoughts objectively without getting pulled into stories." },
+    ],
+    quote: {
+      text: "You are not your thoughts. You are the silent observer behind them.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How to stop overthinking at night?", answer: "Write down your open tasks on paper, then practice 10 minutes of Sakshi Bhav breathing." },
+    ],
+  },
+  {
+    slug: "parenting",
+    name: "Parenting",
+    iconName: "Baby",
+    tagline: "Conscious & Mindful Parenting for Joyful Homes",
+    shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
+    heroImage: "/premium-heroes/parenting-hero.png",
+    badge: "MINDFUL PARENTING",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Patience & Calmness", desc: "Handle tantrums and childhood stress with calm, gentle authority.", icon: "Heart" },
+      { title: "Deep Parent-Child Bond", desc: "Build lifelong trust and open communication with your children.", icon: "Sparkles" },
+      { title: "Positive Role Modeling", desc: "Lead by example in self-regulation, empathy, and conscious living.", icon: "Sun" },
+      { title: "Stress-Free Household", desc: "Create a peaceful home environment where children thrive happily.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Frequent Shouting or Frustration", desc: "Losing patience during daily routines or homework." },
+      { title: "Communication Gap", desc: "Children refusing to share thoughts or follow guidance." },
+      { title: "Parenting Anxiety", desc: "Constant worry about children's future and development." },
+    ],
+    practices: [
+      { title: "Mindful Listening with Children", duration: "15 Mins / Day", desc: "Give undivided, loving attention to your child's stories." },
+      { title: "Pre-Bedtime Gratitude Chanting", duration: "10 Mins / Night", desc: "Chant together before sleep for tranquil, happy minds." },
+      { title: "Patience Pause Practice", duration: "3 Breaths", desc: "Take 3 deep breaths before responding when frustrated." },
+    ],
+    quote: {
+      text: "Do not try to mold your children into your image; blossom them into their divine potential with love.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How to handle anger when children disobey?", answer: "Pause for 3 deep breaths before speaking. Calm firmness communicates far better than shouting." },
+      { question: "Can meditation be taught to children?", answer: "Yes! Simple 5-minute breathing games and chanting work wonders for kids' focus and calm." },
+      { question: "How to balance work and quality parenting?", answer: "Focus on 15 minutes of uninterrupted, present-moment connection every single day." },
+    ],
+  },
+  {
+    slug: "wellness",
+    name: "Wellness",
+    iconName: "Flower2",
+    tagline: "Holistic Health, Balance & Longevity",
+    shortDesc: "Unify body, mind, and spirit into optimal wellness with daily conscious living and divine energy alignment.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "HOLISTIC WELLNESS & LIFESTYLE",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Total Body Alignment", desc: "Balance your nervous system, digestion, and biological rhythms.", icon: "Sun" },
+      { title: "Vibrant Energy Levels", desc: "Sustain high vitality from morning until evening naturally.", icon: "Sparkles" },
+      { title: "Emotional Equanimity", desc: "Stay centered, happy, and peaceful regardless of external changes.", icon: "Heart" },
+      { title: "Long-term Longevity", desc: "Protect cellular health through stress-reduction and Sakshi Sadhna.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Feeling Out of Balance", desc: "Lack of harmony between physical health and mental peace." },
+      { title: "Frequent Minor Ailments", desc: "Frequent headaches, digestive issues, or low vitality." },
+      { title: "Disconnection from Self", desc: "Living on autopilot without true joy or awareness." },
+    ],
+    practices: [
+      { title: "Daily Morning Sakshi Sadhna", duration: "30 Mins / Morning", desc: "Integrated yoga, pranayama, and silent meditation routine." },
+      { title: "Conscious Hydration & Food", duration: "All Day", desc: "Drink water and eat meals with mindful gratitude." },
+      { title: "Evening Reflection & Gratitude", duration: "10 Mins / Evening", desc: "End the day with peace and inner appreciation." },
+    ],
+    quote: {
+      text: "True wellness is when body, mind, and soul sing in complete spiritual harmony.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "What does holistic wellness mean?", answer: "Holistic wellness addresses the complete human experience — physical fitness, mental peace, and spiritual awakening." },
+      { question: "How to maintain consistency in daily Sadhna?", answer: "Dedicate a fixed 20-minute slot every morning in a quiet space. Consistency builds life-changing habits." },
+      { question: "Who can follow the Science Divine wellness path?", answer: "Anyone of any age, gender, or background seeking health, joy, and spiritual growth." },
+    ],
+  },
+  {
+    slug: "relationships",
+    name: "Relationships",
+    iconName: "HeartHandshake",
+    tagline: "Nurture Love, Compassion & Mutual Harmony",
+    shortDesc: "Heal interpersonal conflicts, deepen emotional intimacy, and build loving bonds through unconditional understanding.",
+    heroImage: "/premium-heroes/relationships-hero.png",
+    badge: "RELATIONSHIP & LOVE HARMONY",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Deep Mutual Respect", desc: "Understand partner needs and honor individual boundaries with love.", icon: "Heart" },
+      { title: "Conflict Resolution", desc: "Dissolve ego clashes and replace arguments with constructive dialogue.", icon: "Shield" },
+      { title: "Emotional Intimacy", desc: "Create a safe, trusting environment for authentic emotional sharing.", icon: "Sparkles" },
+      { title: "Unconditional Love", desc: "Shift from demanding love to becoming a source of love and joy.", icon: "Sun" },
+    ],
+    symptoms: [
+      { title: "Frequent Arguments & Friction", desc: "Misunderstandings over small daily matters." },
+      { title: "Emotional Distance", desc: "Feeling disconnected or lonely even while living together." },
+      { title: "Resentment & Grudges", desc: "Holding past hurt instead of forgiving and moving forward." },
+    ],
+    practices: [
+      { title: "Heart-to-Heart Listening", duration: "15 Mins / Day", desc: "Listen to your loved one without interrupting or judging." },
+      { title: "Forgiveness Meditation", duration: "10 Mins / Day", desc: "Release past grievances and cultivate a compassionate heart." },
+      { title: "Shared Gratitude Practice", duration: "5 Mins / Evening", desc: "Express genuine appreciation for each other daily." },
+    ],
+    quote: {
+      text: "When you change yourself with love, your relationships naturally transform around you.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How can Sakshi Bhav improve my marriage?", answer: "Sakshi Bhav helps you stay calm during heated moments, preventing reactive arguments and fostering understanding." },
+      { question: "Can one person practice and improve a relationship?", answer: "Yes! When your response changes from anger to love, the dynamic between both people shifts." },
+      { question: "How to heal after a relationship hurt?", answer: "Practice forgiveness meditation and focus on your inner peace and self-worth." },
+    ],
+  },
+  {
+    slug: "stress",
+    name: "Stress",
+    iconName: "Activity",
+    tagline: "Find Your Calm & Release Chronic Tension",
+    shortDesc: "Transform mental pressure into profound inner composure using Sakshi Bhav (Witness Consciousness) and scientific breathwork.",
+    heroImage: "/premium-heroes/depression-hero.png",
+    badge: "WELLNESS & STRESS MANAGEMENT",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Nervous System Calm", desc: "Lower cortisol levels and soothe your sympathetic fight-or-flight response within minutes.", icon: "Shield" },
+      { title: "Mental Rest & Clarity", desc: "Dissolve racing thoughts and restore quiet focus for daily decision making.", icon: "Sparkles" },
+      { title: "Emotional Resilience", desc: "Build inner stability so external events no longer trigger anxiety or burnout.", icon: "Heart" },
+      { title: "Deep Physical Ease", desc: "Release shoulder, neck, and chest tension caused by accumulated daily pressure.", icon: "Sun" },
+    ],
+    symptoms: [
+      { title: "Constant Muscle Tightness", desc: "Holding tightness in your shoulders, jaw, or upper back." },
+      { title: "Overwhelmed Mind", desc: "Feeling unable to slow down racing thoughts or manage daily tasks." },
+      { title: "Irritability & Fatigue", desc: "Short temper, low emotional tolerance, and energy crashes." },
+    ],
+    practices: [
+      { title: "Sanjeevni Kriya Breathwork", duration: "15 Mins / Day", desc: "Scientific rhythmic breathing to reset the autonomic nervous system." },
+      { title: "Sakshi Bhav Awareness", duration: "10 Mins / Day", desc: "Learn to observe stressful thoughts as a neutral witness without reacting." },
+      { title: "Evening Release Meditation", duration: "20 Mins / Evening", desc: "Guided relaxation to clear work stress before sleep." },
+    ],
+    quote: {
+      text: "Stress is not caused by external events; it is your internal reaction to them. Learn Sakshi Bhav and stay unmoved.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How quickly can these stress techniques show results?", answer: "Many practitioners report immediate relief after 10-15 minutes of Sanjeevni Kriya breathwork. Consistent daily practice over 2-3 weeks establishes long-term emotional resilience." },
+      { question: "Is this practice suitable for busy working professionals?", answer: "Yes! The techniques are designed specifically for modern lifestyles and can be done anywhere in 10-15 minutes." },
+      { question: "Does this replace medical treatment for chronic stress?", answer: "These practices complement overall well-being. For medical conditions, we always recommend consulting a qualified healthcare professional." },
+    ],
+  },
+  {
+    slug: "mental-health",
+    name: "Mental Health",
+    iconName: "Brain",
+    tagline: "Nurture Emotional Wellbeing & Inner Harmony",
+    shortDesc: "Cultivate a balanced mind, self-compassion, and mental clarity through Sakshi Shree's timeless meditation practices.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "HOLISTIC MENTAL HEALTH",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Emotional Balance", desc: "Harmonize mood swings and develop a steady, peaceful mental baseline.", icon: "Heart" },
+      { title: "Overcoming Overthinking", desc: "Break cycles of intrusive thoughts through non-judgmental awareness.", icon: "Sparkles" },
+      { title: "Self-Acceptance", desc: "Deepen love and understanding for yourself without harsh self-criticism.", icon: "Sun" },
+      { title: "Clear Decision Making", desc: "Unclutter your mind to make life choices with intuition and confidence.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Mental Exhaustion", desc: "Feeling mentally drained despite resting." },
+      { title: "Emotional Overwhelm", desc: "Difficulty processing negative emotions or daily social interactions." },
+      { title: "Lack of Inner Peace", desc: "Persistent feeling of dissatisfaction or internal unrest." },
+    ],
+    practices: [
+      { title: "Mindfulness Meditation", duration: "20 Mins / Morning", desc: "Quiet the mind and anchor your consciousness in the present moment." },
+      { title: "Self-Compassion Contemplation", duration: "10 Mins / Day", desc: "Replace self-criticism with unconditional kindness." },
+      { title: "Thought Witnessing Practice", duration: "15 Mins / Day", desc: "Observe thoughts like passing clouds without getting attached." },
+    ],
+    quote: {
+      text: "A peaceful mind is not the absence of thoughts, but the presence of total awareness.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "Can meditation really help mental health?", answer: "Yes, meditation reduces hyperactivity in the amygdala (the brain's fear center) and strengthens regions associated with focus and emotional regulation." },
+      { question: "How does Sakshi Bhav help with negative thoughts?", answer: "By observing thoughts neutrally rather than fighting them, negative patterns naturally lose their power and fade away." },
+      { question: "Medical Disclaimer", answer: "Our spiritual practices foster mental peace and self-awareness. For diagnosed psychiatric conditions, please consult medical specialists." },
+    ],
+  },
+  {
+    slug: "weight-loss",
+    name: "Weight Loss",
+    iconName: "Scale",
+    tagline: "Mindful Weight Balance & Physical Vitality",
+    shortDesc: "Achieve healthy body weight and natural vitality through conscious eating, yoga movement, and biological harmony.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "CONSCIOUS WELLNESS & FITNESS",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Conscious Eating", desc: "Overcome emotional eating and cravings by developing intuitive food awareness.", icon: "Sun" },
+      { title: "Metabolic Activation", desc: "Enhance digestive fire (Jatharagni) through specific pranayama routines.", icon: "Flame" },
+      { title: "Natural Weight Control", desc: "Maintain your optimal body weight naturally without extreme restrictive dieting.", icon: "Shield" },
+      { title: "Increased Stamina", desc: "Feel light, energetic, and active throughout the entire day.", icon: "Sparkles" },
+    ],
+    symptoms: [
+      { title: "Emotional & Stress Eating", desc: "Eating due to stress, boredom, or sadness rather than true hunger." },
+      { title: "Sluggish Metabolism", desc: "Feeling heavy and lethargic after regular meals." },
+      { title: "Yo-Yo Weight Fluctuations", desc: "Difficulty maintaining long-term weight goals." },
+    ],
+    practices: [
+      { title: "Mindful Eating Sadhna", duration: "During Meals", desc: "Eat consciously, chewing slowly and savoring every bite." },
+      { title: "Kapalbhati & Surya Kriya", duration: "15 Mins / Morning", desc: "Energize digestion and boost cellular metabolism." },
+      { title: "Conscious Movement", duration: "30 Mins / Day", desc: "Gentle yoga poses for flexibility and fat burn." },
+    ],
+    quote: {
+      text: "When you respect your body as a temple of consciousness, right eating and healthy weight follow naturally.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How does mindfulness help in losing weight?", answer: "Mindfulness reconnects you with natural hunger and fullness cues, preventing stress eating and binge habits." },
+      { question: "Are these exercises difficult for beginners?", answer: "Not at all! The yoga and breathing exercises are gentle, safe, and suitable for all fitness levels." },
+      { question: "Should I follow a specific diet plan?", answer: "We advocate a balanced, wholesome vegetarian diet eaten with full mindfulness and gratitude." },
+    ],
+  },
+  {
+    slug: "depression",
+    name: "Depression",
+    iconName: "CloudSun",
+    tagline: "Awaken Inner Light & Overcome Darkness",
+    shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
+    heroImage: "/premium-heroes/depression-hero.png",
+    badge: "EMOTIONAL HEALING & HOPE",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Renewed Joy & Purpose", desc: "Reconnect with the natural joy of existing and find meaningful purpose.", icon: "Sun" },
+      { title: "Emotional Liberation", desc: "Gently release stored grief, trauma, and emotional numbness.", icon: "Heart" },
+      { title: "Vital Life Energy", desc: "Awaken dormant energy through pranas and uplifting spiritual community.", icon: "Sparkles" },
+      { title: "Mindful Presence", desc: "Shift away from past regrets and future anxiety into peaceful present awareness.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Persistent Sadness & Numbness", desc: "Feeling disconnected, empty, or unmotivated." },
+      { title: "Loss of Interest", desc: "No longer finding joy in hobbies, work, or social connections." },
+      { title: "Low Energy & Fatigue", desc: "Feeling heavy and depleted even after sleeping." },
+    ],
+    practices: [
+      { title: "Sunlight & Prana Sadhna", duration: "15 Mins / Morning", desc: "Absorb morning sunlight while practicing rhythmic breathing." },
+      { title: "Gratitude & Joy Meditation", duration: "15 Mins / Day", desc: "Cultivate appreciation for life's small blessings." },
+      { title: "Chanting & Sound Vibrations", duration: "10 Mins / Day", desc: "Elevate your bio-energy with sacred sound frequencies." },
+    ],
+    quote: {
+      text: "Behind every cloud of darkness lies your eternal sun of awareness. You are not your feelings; you are the light.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "Can spiritual practice help with depression?", answer: "Spiritual practice elevates bio-energy, clears negative mental cycles, and restores life purpose and connection." },
+      { question: "What if I feel too low to practice?", answer: "Start with simple 5-minute breathing or listening to guided chants. Gentle steps build steady momentum." },
+      { question: "Important Healthcare Note", answer: "Spiritual practices support inner strength. If you suffer from clinical depression or self-harm thoughts, please consult professional healthcare providers." },
+    ],
+  },
+  {
+    slug: "anger",
+    name: "Anger",
+    iconName: "Flame",
+    tagline: "Master Anger & Channel Emotional Energy",
+    shortDesc: "Convert fiery anger into creative energy, patience, and deep emotional composure with Sakshi Bhav techniques.",
+    heroImage: "/premium-heroes/anxiety-hero.png",
+    badge: "EMOTIONAL MASTERY",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Cooling Emotional Heat", desc: "Instantly neutralize sudden spikes of fury before reacting impulsively.", icon: "Shield" },
+      { title: "Improved Communication", desc: "Express needs calmly and constructively without damaging relationships.", icon: "Heart" },
+      { title: "Inner Tranquility", desc: "Maintain poise even when provoked by difficult situations or people.", icon: "Sun" },
+      { title: "Creative Energy Conversion", desc: "Transform raw fiery intensity into passion for positive work and purpose.", icon: "Sparkles" },
+    ],
+    symptoms: [
+      { title: "Frequent Outbursts", desc: "Losing control over small annoyances or disagreements." },
+      { title: "Physical Signs of Fury", desc: "Clenched fists, racing heart, or feeling hot when angry." },
+      { title: "Post-Anger Regret", desc: "Feeling guilty or remorseful after saying harsh words." },
+    ],
+    practices: [
+      { title: "Cooling Sheetali Pranayama", duration: "5 Mins / When Needed", desc: "Inhale through rolled tongue to instantly cool emotional fire." },
+      { title: "Pause & Witness Technique", duration: "3 Mins / Trigger", desc: "Count 10 conscious breaths before responding to provocation." },
+      { title: "Heart Center Meditation", duration: "15 Mins / Night", desc: "Focus on love and forgiveness at the heart chakra." },
+    ],
+    quote: {
+      text: "Anger is punishment you give yourself for someone else's mistake. Radiate peace instead.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "Is anger completely bad?", answer: "Anger is energy. When suppressed, it causes harm; when witnessed neutrally, it transforms into constructive determination." },
+      { question: "How to stop instant anger outbursts?", answer: "Practice Sheetali pranayama and take 3 deep belly breaths immediately when you feel triggered." },
+      { question: "Can this help in family conflicts?", answer: "Yes! A calm response diffuses arguments and fosters mutual understanding." },
+    ],
+  },
+  {
+    slug: "sleep",
+    name: "Sleep",
+    iconName: "Moon",
+    tagline: "Deep, Restorative Sleep & Nighttime Peace",
+    shortDesc: "Overcome insomnia and restlessness with gentle evening Sadhna, relaxing breathwork, and peaceful mind cultivation.",
+    heroImage: "/premium-heroes/sleeping-disorder-hero.png",
+    badge: "SLEEP & DEEP REST",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Fall Asleep Faster", desc: "Quiet bedtime mental chatter and drift naturally into deep sleep.", icon: "Moon" },
+      { title: "Uninterrupted Rest", desc: "Sleep soundly through the night without waking up restless.", icon: "Shield" },
+      { title: "Morning Energy Boost", desc: "Wake up fully refreshed, alert, and vibrant every morning.", icon: "Sun" },
+      { title: "Parasympathetic Activation", desc: "Trigger deep bodily relaxation for cell repair and rejuvenation.", icon: "Sparkles" },
+    ],
+    symptoms: [
+      { title: "Lying Awake for Hours", desc: "Inability to turn off thoughts after getting into bed." },
+      { title: "Frequent Night Waking", desc: "Waking up multiple times and struggling to sleep again." },
+      { title: "Morning Grogginess", desc: "Feeling tired and unrefreshed despite hours in bed." },
+    ],
+    practices: [
+      { title: "Yoga Nidra (Divine Sleep)", duration: "20 Mins / Bedtime", desc: "Conscious body scan meditation for complete muscle relaxation." },
+      { title: "4-7-8 Breathing Technique", duration: "5 Mins / Bedtime", desc: "Deep relaxing breath rhythm to trigger sleep hormones." },
+      { title: "Digital Detox Sadhna", duration: "1 Hour Before Sleep", desc: "Turn off screens and tune into peaceful instrumental chanting." },
+    ],
+    quote: {
+      text: "Sleep is the bridge where the body repairs itself and the mind surrenders to the Divine.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "What is Yoga Nidra?", answer: "Yoga Nidra is systematic relaxation guided through body awareness, bringing the brain into restorative theta waves." },
+      { question: "Can I stop sleeping pills using this?", answer: "Many practitioners reduce reliance on medication gradually. Always consult your doctor before modifying medication." },
+      { question: "What is the ideal bedtime routine?", answer: "Avoid screens 1 hour before bed, do 10 minutes of 4-7-8 breathing, and listen to soothing guided meditation." },
+    ],
+  },
+  {
+    slug: "wellness",
+    name: "Wellness",
+    iconName: "Flower2",
+    tagline: "Holistic Health, Balance & Longevity",
+    shortDesc: "Unify body, mind, and spirit into optimal wellness with daily conscious living and divine energy alignment.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "HOLISTIC WELLNESS & LIFESTYLE",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Total Body Alignment", desc: "Balance your nervous system, digestion, and biological rhythms.", icon: "Sun" },
+      { title: "Vibrant Energy Levels", desc: "Sustain high vitality from morning until evening naturally.", icon: "Sparkles" },
+      { title: "Emotional Equanimity", desc: "Stay centered, happy, and peaceful regardless of external changes.", icon: "Heart" },
+      { title: "Long-term Longevity", desc: "Protect cellular health through stress-reduction and Sakshi Sadhna.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Feeling Out of Balance", desc: "Lack of harmony between physical health and mental peace." },
+      { title: "Frequent Minor Ailments", desc: "Frequent headaches, digestive issues, or low vitality." },
+      { title: "Disconnection from Self", desc: "Living on autopilot without true joy or awareness." },
+    ],
+    practices: [
+      { title: "Daily Morning Sakshi Sadhna", duration: "30 Mins / Morning", desc: "Integrated yoga, pranayama, and silent meditation routine." },
+      { title: "Conscious Hydration & Food", duration: "All Day", desc: "Drink water and eat meals with mindful gratitude." },
+      { title: "Evening Reflection & Gratitude", duration: "10 Mins / Evening", desc: "End the day with peace and inner appreciation." },
+    ],
+    quote: {
+      text: "True wellness is when body, mind, and soul sing in complete spiritual harmony.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "What does holistic wellness mean?", answer: "Holistic wellness addresses the complete human experience — physical fitness, mental peace, and spiritual awakening." },
+      { question: "How to maintain consistency in daily Sadhna?", answer: "Dedicate a fixed 20-minute slot every morning in a quiet space. Consistency builds life-changing habits." },
+      { question: "Who can follow the Science Divine wellness path?", answer: "Anyone of any age, gender, or background seeking health, joy, and spiritual growth." },
+    ],
+  },
+  {
+    slug: "relationships",
+    name: "Relationships",
+    iconName: "HeartHandshake",
+    tagline: "Nurture Love, Compassion & Mutual Harmony",
+    shortDesc: "Heal interpersonal conflicts, deepen emotional intimacy, and build loving bonds through unconditional understanding.",
+    heroImage: "/premium-heroes/relationships-hero.png",
+    badge: "RELATIONSHIP & LOVE HARMONY",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Deep Mutual Respect", desc: "Understand partner needs and honor individual boundaries with love.", icon: "Heart" },
+      { title: "Conflict Resolution", desc: "Dissolve ego clashes and replace arguments with constructive dialogue.", icon: "Shield" },
+      { title: "Emotional Intimacy", desc: "Create a safe, trusting environment for authentic emotional sharing.", icon: "Sparkles" },
+      { title: "Unconditional Love", desc: "Shift from demanding love to becoming a source of love and joy.", icon: "Sun" },
+    ],
+    symptoms: [
+      { title: "Frequent Arguments & Friction", desc: "Misunderstandings over small daily matters." },
+      { title: "Emotional Distance", desc: "Feeling disconnected or lonely even while living together." },
+      { title: "Resentment & Grudges", desc: "Holding past hurt instead of forgiving and moving forward." },
+    ],
+    practices: [
+      { title: "Heart-to-Heart Listening", duration: "15 Mins / Day", desc: "Listen to your loved one without interrupting or judging." },
+      { title: "Forgiveness Meditation", duration: "10 Mins / Day", desc: "Release past grievances and cultivate a compassionate heart." },
+      { title: "Shared Gratitude Practice", duration: "5 Mins / Evening", desc: "Express genuine appreciation for each other daily." },
+    ],
+    quote: {
+      text: "When you change yourself with love, your relationships naturally transform around you.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How can Sakshi Bhav improve my marriage?", answer: "Sakshi Bhav helps you stay calm during heated moments, preventing reactive arguments and fostering understanding." },
+      { question: "Can one person practice and improve a relationship?", answer: "Yes! When your response changes from anger to love, the dynamic between both people shifts." },
+      { question: "How to heal after a relationship hurt?", answer: "Practice forgiveness meditation and focus on your inner peace and self-worth." },
+    ],
+  },
+  {
+    slug: "parenting",
+    name: "Parenting",
+    iconName: "Baby",
+    tagline: "Conscious & Mindful Parenting for Joyful Homes",
+    shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
+    heroImage: "/premium-heroes/parenting-hero.png",
+    badge: "MINDFUL PARENTING",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Patience & Calmness", desc: "Handle tantrums and childhood stress with calm, gentle authority.", icon: "Heart" },
+      { title: "Deep Parent-Child Bond", desc: "Build lifelong trust and open communication with your children.", icon: "Sparkles" },
+      { title: "Positive Role Modeling", desc: "Lead by example in self-regulation, empathy, and conscious living.", icon: "Sun" },
+      { title: "Stress-Free Household", desc: "Create a peaceful home environment where children thrive happily.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Frequent Shouting or Frustration", desc: "Losing patience during daily routines or homework." },
+      { title: "Communication Gap", desc: "Children refusing to share thoughts or follow guidance." },
+      { title: "Parenting Anxiety", desc: "Constant worry about children's future and development." },
+    ],
+    practices: [
+      { title: "Mindful Listening with Children", duration: "15 Mins / Day", desc: "Give undivided, loving attention to your child's stories." },
+      { title: "Pre-Bedtime Gratitude Chanting", duration: "10 Mins / Night", desc: "Chant together before sleep for tranquil, happy minds." },
+      { title: "Patience Pause Practice", duration: "3 Breaths", desc: "Take 3 deep breaths before responding when frustrated." },
+    ],
+    quote: {
+      text: "Do not try to mold your children into your image; blossom them into their divine potential with love.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How to handle anger when children disobey?", answer: "Pause for 3 deep breaths before speaking. Calm firmness communicates far better than shouting." },
+      { question: "Can meditation be taught to children?", answer: "Yes! Simple 5-minute breathing games and chanting work wonders for kids' focus and calm." },
+      { question: "How to balance work and quality parenting?", answer: "Focus on 15 minutes of uninterrupted, present-moment connection every single day." },
+    ],
+  },
+  {
+    slug: "back-pain",
+    name: "Back Pain",
+    iconName: "Accessibility",
+    tagline: "Relieve Back Tension & Improve Spine Health",
+    shortDesc: "Ease spine stiffness, lower back aches, and postural strain through gentle yoga therapy and body relaxation.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "SPINE HEALTH & PAIN RELIEF",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Spine Flexibility", desc: "Gentle spinal stretches to increase disc lubrication and flexibility.", icon: "Sun" },
+      { title: "Postural Realignment", desc: "Correct sitting and standing posture to remove structural strain.", icon: "Shield" },
+      { title: "Tension Release", desc: "Dissolve chronic muscular spasms in the lower back and shoulders.", icon: "Sparkles" },
+      { title: "Enhanced Mobility", desc: "Move freely with comfort and ease during daily activities.", icon: "Heart" },
+    ],
+    symptoms: [
+      { title: "Lower Back Stiffness", desc: "Aching or stiffness when standing up after prolonged sitting." },
+      { title: "Neck & Shoulder Tightness", desc: "Knotting and tension from desk work and computer use." },
+      { title: "Restricted Movement", desc: "Discomfort during bending or twisting." },
+    ],
+    practices: [
+      { title: "Marjariasana & Bhujangasana", duration: "15 Mins / Morning", desc: "Cat-Cow and Cobra poses to gently flex and strengthen the spine." },
+      { title: "Spinal Decompression Stretch", duration: "10 Mins / Evening", desc: "Gentle traction poses to relieve disc pressure." },
+      { title: "Mindful Posture Check", duration: "Hourly", desc: "Align shoulders and spine every hour at your desk." },
+    ],
+    quote: {
+      text: "You are as young as your spine is flexible. Keep your spine erect and your mind aware.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "Can gentle yoga help with chronic back pain?", answer: "Yes, therapeutic yoga strengthens core muscles, lubricates joints, and releases muscular tension around the spine." },
+      { question: "What if I have severe back pain?", answer: "Perform only ultra-gentle stretches and consult your orthopedic specialist before starting." },
+      { question: "How does stress contribute to back pain?", answer: "Stress causes involuntary muscle contraction in the lower back and shoulders. Deep breathing releases this tension." },
+    ],
+  },
+  {
+    slug: "fatigue",
+    name: "Fatigue",
+    iconName: "Zap",
+    tagline: "Revitalize Energy & Overcome Chronic Exhaustion",
+    shortDesc: "Recharge cellular stamina, restore biological vitality, and overcome daily lethargy with pranic energy techniques.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "ENERGY REVITALIZATION",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Instant Energy Boost", desc: "Recharge your bio-battery in 10 minutes without caffeine or stimulants.", icon: "Zap" },
+      { title: "Cellular Oxygenation", desc: "Increase blood oxygen levels for mental sharpness and physical vigor.", icon: "Sun" },
+      { title: "Sustained Stamina", desc: "Maintain steady, vibrant energy levels throughout the afternoon.", icon: "Sparkles" },
+      { title: "Adrenal Recovery", desc: "Allow exhausted adrenal glands to rest and rebuild naturally.", icon: "Shield" },
+    ],
+    symptoms: [
+      { title: "Afternoon Energy Crashes", desc: "Heavy tiredness around 2 PM to 4 PM." },
+      { title: "Brain Fog", desc: "Difficulty concentrating or remembering daily details." },
+      { title: "Waking Up Exhausted", desc: "Feeling unrefreshed even after 8 hours of sleep." },
+    ],
+    practices: [
+      { title: "Bhadrasana & Bhastrika Pranayama", duration: "10 Mins / Afternoon", desc: "Bellows breathing to flood cells with fresh oxygen and prana." },
+      { title: "10-Minute Power Meditation", duration: "10 Mins / Midday", desc: "Deep mental reset to clear cognitive fatigue." },
+      { title: "Hydration & Solar Bathing", duration: "15 Mins / Morning", desc: "Absorb morning sun rays and drink energized water." },
+    ],
+    quote: {
+      text: "Energy follows attention. When you direct your awareness inward, fresh prana flows infinitely.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "Why do I feel tired all the time?", answer: "Chronic fatigue is often caused by shallow breathing, mental stress, lack of sunlight, and adrenal burnout." },
+      { question: "Can pranayama replace caffeine?", answer: "Pranayama provides clean, natural oxygenation without the jittery crashes associated with coffee." },
+      { question: "How quickly does energy return?", answer: "10 minutes of Bhastrika pranayama provides an immediate noticeable rise in alertness and physical energy." },
+    ],
+  },
+  {
+    slug: "immunity",
+    name: "Immunity",
+    iconName: "ShieldCheck",
+    tagline: "Strengthen Natural Body Defense & Vitality",
+    shortDesc: "Boost your body's immune system, lymphatic flow, and disease resistance through holistic Sadhna and stress reduction.",
+    heroImage: "/premium-heroes/wellness-hero.png",
+    badge: "IMMUNE HEALTH & VITALITY",
+    themeColor: "#C79A2E",
+    benefits: [
+      { title: "Enhanced White Cell Response", desc: "Reduce chronic inflammation to empower your natural immune defenses.", icon: "Shield" },
+      { title: "Lymphatic Circulation", desc: "Stimulate lymph drainage to clear cellular waste and toxins.", icon: "Sun" },
+      { title: "Stress-Induced Immunity Boost", desc: "Prevent cortisol from suppressing your body's infection protection.", icon: "Heart" },
+      { title: "Resilience to Seasonal Illness", desc: "Stay strong and vibrant during seasonal weather changes.", icon: "Sparkles" },
+    ],
+    symptoms: [
+      { title: "Frequent Colds & Infections", desc: "Catching seasonal bugs easily." },
+      { title: "Slow Healing & Recovery", desc: "Taking long to bounce back from minor illnesses." },
+      { title: "Digestive Discomfort", desc: "Sluggish gut health affecting overall immunity." },
+    ],
+    practices: [
+      { title: "Kapalbhati & Anulom Vilom", duration: "15 Mins / Morning", desc: "Clear respiratory channels and purify biological energy pathways." },
+      { title: "Herbal Pranic Infusion", duration: "Daily Morning", desc: "Warm water with tulsi, turmeric, and black pepper for gut immunity." },
+      { title: "Deep Restful Sleep Routine", duration: "7-8 Hours / Night", desc: "Allow immune T-cells to regenerate during deep sleep." },
+    ],
+    quote: {
+      text: "A peaceful mind and clean prana create an impenetrable shield of health around your body.",
+      author: "Sadguru Sakshi Shree",
+    },
+    faqs: [
+      { question: "How does stress weaken immunity?", answer: "High stress releases cortisol, which suppresses immune cell activity. Calming the mind restores natural defense." },
+      { question: "Which breathing exercise is best for immunity?", answer: "Anulom Vilom (alternate nostril breathing) balances nervous system branches and enhances oxygenation." },
+      { question: "Can these practices be done alongside medical supplements?", answer: "Yes! Spiritual and lifestyle practices work hand-in-hand with medical nutrition for total wellbeing." },
+    ],
+  },
+];
+

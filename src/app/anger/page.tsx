@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Overcome Depression & Rediscover Joy | Science Divine",
-  description: "Awaken inner light, hope, and emotional vitality with Sakshi Shree's guided wisdom.",
+  title: "Master Anger & Emotional Harmony | Science Divine",
+  description: "Channel intense emotions into creative energy and deep inner composure.",
 };
 
-export default function DepressionPage() {
-  const solution = SOLUTIONS_LIST.find((s) => s.slug === "depression");
+export default function AngerPage() {
+  const solution = SOLUTIONS_LIST.find((s) => s.slug === "anger");
   if (!solution) notFound();
   return <SolutionPageTemplate solution={solution} />;
 }

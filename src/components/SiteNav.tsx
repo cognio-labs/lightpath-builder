@@ -47,8 +47,8 @@ export function SiteNav() {
     <header
       className={`sticky top-0 z-[100] w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#5B1209]/97 backdrop-blur-md border-b border-[#D4AF37]/35 shadow-[0_8px_30px_rgba(49,8,4,0.18)]"
-          : "bg-[#5B1209] border-b border-[#D4AF37]/20"
+          ? "bg-white/98 backdrop-blur-md border-b border-amber-100 shadow-[0_6px_24px_rgba(82,22,35,0.08)]"
+          : "bg-white border-b border-amber-100/90 shadow-sm"
       }`}
       style={{ height: "72px" }}
     >
@@ -145,18 +145,18 @@ export function SiteNav() {
         <div className="flex items-center gap-2">
           <Link
             href="/initiatives"
-            className="hidden md:inline-flex btn-gold rounded-full px-5 py-2 text-sm font-semibold"
+            className="hidden md:inline-flex bg-[#521623] hover:bg-[#3B0F19] text-white rounded-full px-5 py-2 text-sm font-semibold transition-all shadow-sm"
           >
             Donate
           </Link>
           <Link
             href="/book-session"
-            className="hidden md:inline-flex btn-outline-gold rounded-full px-5 py-2 text-sm font-semibold !text-[#F6D978] !border-[#D4AF37] hover:!bg-white/10"
+            className="hidden md:inline-flex border-1.5 border-[#521623] text-[#521623] hover:bg-[#521623] hover:text-white rounded-full px-5 py-2 text-sm font-semibold transition-all"
           >
             Book Session
           </Link>
           <button
-            className="lg:hidden rounded-full p-2.5 bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[#F6D978] transition-colors border border-[#D4AF37]/45"
+            className="lg:hidden rounded-full p-2.5 bg-amber-50 hover:bg-amber-100 text-[#521623] transition-colors border border-amber-200"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -274,7 +274,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="px-3 py-2 text-sm font-medium text-[#FFF8E7] hover:text-[#F6D978] transition-colors rounded-lg hover:bg-white/10"
+      className="px-3 py-2 text-sm font-semibold text-[#521623] hover:text-[#B8860B] transition-colors rounded-lg hover:bg-amber-50/70"
     >
       {children}
     </Link>
@@ -301,7 +301,7 @@ function Dropdown({
       onMouseLeave={() => setOpen(false)}
     >
       <button
-        className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-[#FFF8E7] hover:text-[#F6D978] transition-colors rounded-lg hover:bg-white/10"
+        className="flex items-center gap-1 px-3 py-2 text-sm font-semibold text-[#521623] hover:text-[#B8860B] transition-colors rounded-lg hover:bg-amber-50/70"
         aria-expanded={open}
       >
         {label}{" "}

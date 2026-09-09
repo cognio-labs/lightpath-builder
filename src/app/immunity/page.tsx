@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Overcome Depression & Rediscover Joy | Science Divine",
-  description: "Awaken inner light, hope, and emotional vitality with Sakshi Shree's guided wisdom.",
+  title: "Strengthen Natural Immunity & Defense | Science Divine",
+  description: "Boost your body's innate disease resistance through stress-reduction and Sakshi Sadhna.",
 };
 
-export default function DepressionPage() {
-  const solution = SOLUTIONS_LIST.find((s) => s.slug === "depression");
+export default function ImmunityPage() {
+  const solution = SOLUTIONS_LIST.find((s) => s.slug === "immunity");
   if (!solution) notFound();
   return <SolutionPageTemplate solution={solution} />;
 }
