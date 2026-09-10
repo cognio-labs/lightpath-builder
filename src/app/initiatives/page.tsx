@@ -124,65 +124,64 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[#FCFBF8] text-slate-800 font-sans selection:bg-amber-100 selection:text-amber-900">
       {/* ========================================================================= */}
-      {/* 🌟 1. HERO HEADER SECTION (Deep Divine Burgundy & Sacred Gold Aura) */}
+      {/* 🌟 1. HERO HEADER SECTION (Warm Sacred Ivory & Gold Aura) */}
       {/* ========================================================================= */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#3D0A04] via-[#5B1209] to-[#2B0602] text-white overflow-hidden">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#FFFDF9] via-[#FFF8EB] to-[#FFF4DE] text-[#521623] overflow-hidden border-b border-[#E8C969]/40">
         {/* Background Sacred Aura Orbs & Glow */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-yellow-400/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-10 right-1/3 w-96 h-96 bg-rose-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-[#F59E0B]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-page relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Hero Content */}
             <div className="lg:col-span-7 text-center lg:text-left">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-amber-400/40 mb-6 shadow-sm">
-                <Heart size={14} className="text-amber-300 animate-pulse" />
-                <span className="text-amber-200 text-xs font-bold tracking-wider uppercase">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF4CF] border border-[#E8C969] mb-6 shadow-sm">
+                <Heart size={14} className="text-[#D4AF37] animate-pulse" />
+                <span className="text-[#521623] text-xs font-bold tracking-wider uppercase">
                   Science Divine Foundation
                 </span>
               </div>
 
               {/* Main Heading */}
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-5">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#521623] leading-tight tracking-tight mb-5">
                 Our Initiatives <br />
-                <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#D7A316] via-[#B8860B] to-[#D7A316] bg-clip-text text-transparent">
                   Enriching Lives with Compassion
                 </span>
               </h1>
 
               {/* Subheading */}
-              <p className="text-base sm:text-lg text-amber-100/90 leading-relaxed font-medium max-w-2xl mb-8">
+              <p className="text-base sm:text-lg text-[#634E50] leading-relaxed font-medium max-w-2xl mb-8">
                 Empowering Education, Nourishing Communities, and Ensuring Holistic Wellbeing
-                under the divine guidance of <strong className="text-amber-300 font-semibold">Sakshi Shree</strong>.
+                under the divine guidance of <strong className="text-[#521623] font-semibold">Sakshi Shree</strong>.
               </p>
 
               {/* Pillars Banner */}
-              <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs sm:text-sm font-semibold text-amber-200/90 pt-2 border-t border-amber-400/20">
+              <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs sm:text-sm font-semibold text-[#8B6914] pt-2 border-t border-[#E8C969]/40">
                 <span>Sound Body</span>
-                <span className="text-amber-400">•</span>
+                <span className="text-[#D4AF37]">•</span>
                 <span>Sound Mind</span>
-                <span className="text-amber-400">•</span>
+                <span className="text-[#D4AF37]">•</span>
                 <span>Self Realization</span>
               </div>
             </div>
 
             {/* Right Hero Image Card */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 group">
+              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
                 <img
                   src="https://sciencedivine.org/wp-content/uploads/2025/03/AAP_0044-1-1.webp"
                   alt="Science Divine Initiatives"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/80 backdrop-blur-md text-[11px] font-bold text-slate-950 mb-1">
-                    <Sparkles size={11} />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FFF4CF] backdrop-blur-md text-[11px] font-bold text-[#521623] mb-1 border border-[#E8C969]">
+                    <Sparkles size={11} className="text-[#D4AF37]" />
                     Har Ghar Shiksha
                   </span>
-                  <p className="text-xs text-slate-200">
+                  <p className="text-xs text-slate-100 font-medium">
                     Transforming underprivileged lives with values &amp; knowledge.
                   </p>
                 </div>
@@ -196,16 +195,16 @@ export default function Page() {
       {/* 📊 2. IMPACT STATS COUNTER STRIP */}
       {/* ========================================================================= */}
       <section className="relative z-20 -mt-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-amber-100 dark:border-slate-800 p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div className="rounded-3xl shadow-lg border border-[#E8C969]/70 p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center" style={{ backgroundColor: "#FFFDF9" }}>
           {IMPACT_STATS.map((stat, idx) => (
             <div key={idx} className="space-y-1">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-amber-600 to-amber-700 dark:from-amber-400 dark:to-yellow-300 bg-clip-text text-transparent font-serif">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#521623] font-serif">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100">
+              <div className="text-xs sm:text-sm font-bold text-[#B8860B] uppercase tracking-wider">
                 {stat.label}
               </div>
-              <div className="text-[11px] text-slate-500 dark:text-slate-400">
+              <div className="text-[11px] text-[#634E50] font-medium">
                 {stat.desc}
               </div>
             </div>
@@ -216,23 +215,23 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* ☸️ 3. SACRED MOVEMENT PHILOSOPHY INTRO */}
       {/* ========================================================================= */}
-      <section className="py-20 px-4 bg-gradient-to-b from-[#FCFBF8] via-[#FFFDF9] to-[#FBF8F2] relative">
+      <section className="py-20 px-4 bg-[#FFFDF9] relative">
         <div className="max-w-4xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 font-bold text-xs tracking-wider uppercase border border-amber-500/20">
-            <Sparkles size={13} className="text-amber-600" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FFF4CF] text-[#521623] font-bold text-xs tracking-wider uppercase border border-[#E8C969]">
+            <Sparkles size={13} className="text-[#D4AF37]" />
             <span>A Living Movement of Transformation</span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#521623] leading-tight">
             Have you experienced the divine grace of Sakshi Shree?
           </h2>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-[#634E50] text-base sm:text-lg leading-relaxed font-medium">
             Do you wish his transformative wisdom, meditation techniques, and unconditional compassion
             to touch millions of seekers and underprivileged families worldwide?
           </p>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto">
+          <p className="text-[#634E50] text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-medium">
             Sakshi Shree walks this path selflessly for all. The teachings, the energy, and the spiritual awakening
             reach seekers everywhere through tireless sewa. Your support and seva ensure that this divine mission
             reaches every home — spreading peace, health, and enlightenment.
@@ -262,48 +261,49 @@ export default function Page() {
               return (
                 <div
                   key={idx}
-                  className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-amber-100/80 dark:border-slate-800 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
+                  className="rounded-3xl overflow-hidden border border-[#E8C969]/80 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col group"
+                  style={{ backgroundColor: "#FFFDF9" }}
                 >
                   {/* Top Image & Badge */}
-                  <div className="relative h-48 overflow-hidden bg-slate-100">
+                  <div className="relative h-48 overflow-hidden bg-[#FFFBF2]">
                     <img
                       src={init.image}
                       alt={init.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       style={{ objectPosition: init.imagePosition }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#521623]/80 via-[#521623]/25 to-transparent pointer-events-none" />
 
                     {/* Icon Badge */}
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white/95 backdrop-blur-md text-amber-700 flex items-center justify-center shadow-md border border-amber-200">
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-[#FFF4CF] border border-[#E8C969] text-[#521623] flex items-center justify-center shadow-md">
                       <IconComp size={20} />
                     </div>
 
                     <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <span className="text-[10px] font-bold text-amber-300 tracking-wider uppercase block">
+                      <span className="text-[10px] font-bold text-[#F5C445] tracking-wider uppercase block drop-shadow-sm">
                         {init.tagline}
                       </span>
-                      <h3 className="font-serif text-lg font-bold leading-tight drop-shadow-sm">
+                      <h3 className="font-serif text-xl font-bold leading-tight text-white drop-shadow-md">
                         {init.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4" style={{ backgroundColor: "#FFFDF9" }}>
                     <div className="space-y-3">
-                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      <p className="text-xs text-[#533C3F] leading-relaxed font-medium">
                         {init.desc}
                       </p>
 
                       {/* Bullet Highlights */}
-                      <ul className="space-y-1.5 pt-1">
+                      <ul className="space-y-2 pt-1">
                         {init.bulletPoints.map((bp, bpi) => (
                           <li
                             key={bpi}
-                            className="flex items-start gap-2 text-[11.5px] text-slate-700 dark:text-slate-300 leading-tight"
+                            className="flex items-start gap-2 text-[11.5px] text-[#4E1321] font-semibold leading-tight"
                           >
-                            <CheckCircle2 size={13} className="text-amber-600 shrink-0 mt-0.5" />
+                            <CheckCircle2 size={14} className="text-[#C79A2E] shrink-0 mt-0.5" />
                             <span>{bp}</span>
                           </li>
                         ))}
@@ -311,34 +311,34 @@ export default function Page() {
                     </div>
 
                     {/* Progress Bar & Buttons */}
-                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-3">
+                    <div className="pt-3 border-t border-[#E8C969]/40 space-y-3">
                       <div>
-                        <div className="flex justify-between text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1">
+                        <div className="flex justify-between text-[11px] font-bold text-[#521623] mb-1.5">
                           <span>₹{init.achieved.toLocaleString()}</span>
-                          <span className="text-amber-600">{percent}%</span>
+                          <span className="text-[#B8860B]">{percent}%</span>
                           <span>₹{init.goal.toLocaleString()}</span>
                         </div>
-                        <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div className="w-full h-2.5 bg-[#FFF4CF] border border-[#E8C969]/50 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full transition-all duration-700"
+                            className="h-full bg-gradient-to-r from-[#D7A316] to-[#F59E0B] rounded-full transition-all duration-700"
                             style={{ width: `${percent}%` }}
                           />
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 gap-2.5 pt-1">
                         <a
                           href={init.donateUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-center py-2 px-3 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 text-xs font-bold shadow-md shadow-amber-500/20 transition-all active:scale-95 flex items-center justify-center gap-1"
+                          className="text-center py-2.5 px-3 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] text-xs font-bold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5"
                         >
-                          <Heart size={12} />
+                          <Heart size={13} className="fill-[#521623]" />
                           <span>Donate</span>
                         </a>
                         <Link
                           href={`/${init.knowMoreSlug}` as any}
-                          className="text-center py-2 px-3 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold transition-colors border border-slate-200 dark:border-slate-700"
+                          className="text-center py-2.5 px-3 rounded-full bg-white hover:bg-[#FFF4CF] text-[#521623] text-xs font-bold transition-all border-2 border-[#521623] flex items-center justify-center"
                         >
                           Know More
                         </Link>
@@ -355,18 +355,18 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* 📸 5. LIVE SEWA GALLERY SLIDER */}
       {/* ========================================================================= */}
-      <section className="py-16 bg-[#FFFDF9] border-y border-amber-100">
+      <section className="py-16 bg-[#FFFDF9] border-y border-[#E8C969]/50">
         <div className="container-page">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
             <div>
-              <span className="text-xs font-bold text-amber-700 tracking-wider uppercase block">
+              <span className="text-xs font-bold text-[#B8860B] tracking-wider uppercase block">
                 Moments of Compassion
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#521623]">
                 Ground Reality &amp; Sewa Gallery
               </h2>
             </div>
-            <p className="text-xs text-slate-500 max-w-sm mt-2 sm:mt-0">
+            <p className="text-xs text-[#634E50] max-w-sm mt-2 sm:mt-0 font-medium">
               Photographs capturing education, free food distribution, and community empowerment.
             </p>
           </div>
@@ -375,16 +375,16 @@ export default function Page() {
             {GALLERY.map((g, i) => (
               <div
                 key={i}
-                className="relative min-w-[240px] sm:min-w-[280px] h-56 rounded-2xl overflow-hidden shadow-md group shrink-0"
+                className="relative min-w-[260px] sm:min-w-[300px] h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group shrink-0 bg-[#FFFBF2] border border-[#E8C969]/40"
               >
                 <img
                   src={g.url}
                   alt={g.caption}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#521623]/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <p className="text-xs font-medium drop-shadow-sm">{g.caption}</p>
+                  <p className="text-xs font-bold drop-shadow-md text-amber-100">{g.caption}</p>
                 </div>
               </div>
             ))}
@@ -395,17 +395,13 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* 🤝 6. CALL TO ACTION BANNER */}
       {/* ========================================================================= */}
-      <section className="py-16 px-4 bg-gradient-to-br from-[#3D0A04] via-[#5B1209] to-[#2B0602] text-white relative overflow-hidden">
+      <section className="py-16 px-4 bg-gradient-to-br from-[#FFFDF9] via-[#FFF8EB] to-[#FFF3DC] border-t border-[#E8C969]/60 text-[#521623] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
-          <div className="w-12 h-12 rounded-full bg-white/10 mx-auto flex items-center justify-center text-amber-300 border border-amber-400/30 shadow-inner">
-            <Heart size={24} />
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#521623] leading-tight">
             Be a Part of the Divine Mission
           </h2>
 
-          <p className="text-amber-100/90 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#634E50] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium">
             Your generous contribution or volunteer support brings food to the hungry, education to underprivileged
             children, and peaceful meditation to millions of souls.
           </p>
@@ -415,13 +411,13 @@ export default function Page() {
               href={RAZORPAY_DONATION_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-bold text-sm shadow-xl shadow-amber-500/25 transition-all transform hover:scale-105 active:scale-95"
+              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-sm shadow-lg transition-all transform hover:scale-105 active:scale-95"
             >
               Donate Now via Razorpay
             </a>
             <Link
               href="/contact"
-              className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 backdrop-blur-md transition-colors"
+              className="px-8 py-3.5 rounded-full bg-white hover:bg-[#FFF4CF] text-[#521623] font-bold text-sm border-2 border-[#521623] shadow-sm transition-all"
             >
               Volunteer with Us
             </Link>

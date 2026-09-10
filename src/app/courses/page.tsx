@@ -1,61 +1,60 @@
 "use client";
 import Link from "next/link";
-
-import { useState } from "react";
-import { Clock, Award, Star, Check, Sparkles, BookOpen, Compass, ArrowRight, ShieldCheck } from "lucide-react";
-
-
-
+import { Clock, ShieldCheck, Sparkles, Star, ArrowRight } from "lucide-react";
 
 const COURSES_DATA = [
   {
     slug: "design-your-destiny-2",
     title: "Design Your Destiny",
+    category: "Mastery Course",
     tagline: "Manifest your dreams & unlock your full potential",
     desc: "Embark on a profound journey of self-discovery and empowerment with 'Design Your Destiny'. This transformative course empowers you to manifest your dreams, unlock your full potential, and create a life of success, fulfilment, and lasting happiness through powerful teachings and practical strategies.",
-    level: "Beginner",
+    level: "Beginner Level",
     duration: "2 hours",
     price: 499,
     originalPrice: 5100,
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png",
-    features: ["Manifest Dreams", "Emotional Balance", "Unlock Potential", "Daily Habits"]
+    image: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1000&q=90&fit=crop",
+    features: ["Manifest Dreams", "Emotional Balance", "Unlock Potential", "Daily Habits"],
   },
   {
     slug: "science-of-joyful-living-march",
     title: "Science of Joyful Living",
+    category: "Life Transformation",
     tagline: "Discover tools for joy, purpose, and well-being",
-    desc: "Experience the transformative impact of the 'Science of Joyful Living course'. Discover tools for joy, purpose, and well-being, empowering you to live a fulfilling and meaningful life.",
+    desc: "Experience the transformative impact of the 'Science of Joyful Living course'. Discover tools for joy, purpose, and well-being, empowering you to live a fulfilling, balanced, and deeply meaningful life.",
     level: "Beginner Level",
     duration: "2 hours",
     price: 459,
     originalPrice: 5100,
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=90&fit=crop&crop=center",
-    features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"]
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1000&q=90&fit=crop",
+    features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"],
   },
   {
     slug: "mind-power-meditation",
     title: "Mind Power Meditation",
+    category: "Inner Awakening",
     tagline: "Harness the untapped potential of your mind",
-    desc: "Mind Power Meditation is a transformative practice that harnesses the untapped potential of the mind to unlock inner strength, clarity, and manifestation abilities.",
-    level: "Beginner",
+    desc: "Mind Power Meditation is a transformative practice that harnesses the untapped potential of the mind to unlock inner strength, supreme clarity, emotional stability, and conscious manifestation abilities.",
+    level: "Beginner Level",
     duration: "2 hours",
     price: 499,
     originalPrice: 5100,
-    image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=900&q=90&fit=crop&crop=center",
-    features: ["Manifest Your Reality", "Thought Science", "Blissful Living", "Inner Cleansing"]
+    image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=1000&q=90&fit=crop",
+    features: ["Manifest Your Reality", "Thought Science", "Blissful Living", "Inner Cleansing"],
   },
   {
     slug: "sanjeevni-kriya-2",
     title: "Sanjeevani Kriya",
+    category: "Sacred Breath & Energy",
     tagline: "Revitalize your body, mind, and spirit",
-    desc: "Sanjeevani Kriya holds the key to a transformative journey towards love and divinity. This practice not only brings inner peace, soundness of body and mind, but also helps in realizing one’s true self.",
+    desc: "Sanjeevani Kriya holds the key to a transformative journey towards love and divinity. This practice brings profound inner peace, soundness of body and mind, and facilitates realizing one’s true self.",
     level: "Beginner Level",
     duration: "2 hours",
     price: 459,
     originalPrice: 5100,
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-min-an-1234035-1-1.png",
-    features: ["Inner Peace & Clarity", "Balance Energy Centers", "Self-Realization", "Heart Chakra Activation"]
-  }
+    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1000&q=90&fit=crop",
+    features: ["Inner Peace & Clarity", "Balance Energy Centers", "Self-Realization", "Heart Chakra Activation"],
+  },
 ];
 
 const TESTIMONIALS = [
@@ -63,203 +62,218 @@ const TESTIMONIALS = [
   { id: "EiFMTSo8Yws", name: "Helen Testimonial" },
   { id: "6bkJdkmAt20", name: "Pooja Pagaddinnimath Testimonial" },
   { id: "5KmsxqJXACM", name: "Patty Testimonial" },
-];export default function Page() {
+];
+
+export default function Page() {
   return (
-    <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif", overflowX: "hidden" }}>
-      {/* Hero Section */}
-      <section style={{ background: "linear-gradient(135deg, #FAF8FF 0%, #FFFDF5 50%, #FAF8FF 100%)", paddingTop: "100px", paddingBottom: "50px", borderBottom: "1px solid #E2E8F0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: "800px", paddingLeft: "16px", paddingRight: "16px" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.12)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "16px", maxWidth: "100%" }}>
-            <Sparkles size={14} style={{ color: "#D4AF37", flexShrink: 0 }} />
-            <span style={{ color: "#B45309", fontSize: "10px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Transformative Growth Courses</span>
+    <div className="bg-[#FFFDF9] text-[#521623] min-h-screen">
+      {/* ── Hero Section ── */}
+      <section className="relative overflow-hidden pt-28 pb-16 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-[#FFFDF9] via-[#FAF6EE] to-[#FFFDF9] border-b border-[#E8C969]/40">
+        {/* Soft Ambient Radial Glow */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] pointer-events-none rounded-full blur-[130px] opacity-35"
+          style={{
+            background: "radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, rgba(255, 244, 207, 0.6) 60%, transparent 80%)",
+          }}
+        />
+
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-4">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF4CF] border border-[#D4AF37]/50 shadow-xs">
+            <Sparkles size={14} className="text-[#B8860B]" />
+            <span className="text-[11px] uppercase font-bold tracking-[0.25em] text-[#521623]">
+              Transformative Growth Courses
+            </span>
           </div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.65rem, 5.5vw, 3.8rem)", fontWeight: 800, color: "#0F172A", lineHeight: 1.2, marginBottom: "16px", wordBreak: "break-word", overflowWrap: "break-word" }}>
-            Explore Our Courses for <br className="hidden sm:inline" />
-            <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", display: "inline-block" }}>
-              Personal Growth & Wellness
+
+          {/* Heading */}
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#521623] tracking-tight leading-[1.12]">
+            Explore Our Courses for{" "}
+            <span className="bg-gradient-to-r from-[#D7A316] via-[#B8860B] to-[#D7A316] bg-clip-text text-transparent block sm:inline">
+              Personal Growth &amp; Wellness
             </span>
           </h1>
-          <p style={{ fontSize: "1rem", color: "#64748B", lineHeight: 1.65, maxWidth: "600px", margin: "0 auto 24px", paddingLeft: "8px", paddingRight: "8px" }}>
-            Discover a range of transformative courses designed to enhance personal growth, promote well-being, and empower you on your journey towards a fulfilling life.
+
+          {/* Description */}
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+            Discover life-changing courses designed to enhance personal growth, promote physical vitality, dissolve stress, and empower you on your journey towards an enlightened and blissful life.
           </p>
         </div>
       </section>
 
-      {/* Courses Cards Grid */}
-      <section className="section-pad" style={{ background: "#FAF9F6" }}>
-        <style>{`
-          .course-card {
-            background: #FFFFFF;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s cubic-bezier(.22,.61,.36,1), box-shadow 0.3s;
-          }
-          .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(212,175,55,0.16), 0 4px 16px rgba(0,0,0,0.07);
-          }
-          .course-card:hover .course-img {
-            transform: scale(1.05);
-          }
-          .course-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-            display: block;
-            transition: transform 0.5s cubic-bezier(.22,.61,.36,1);
-          }
-          .course-start-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            background: linear-gradient(135deg, #F59E0B, #D4AF37);
-            color: #1a0e00;
-            padding: 13px 20px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 0.92rem;
-            text-decoration: none;
-            letter-spacing: 0.02em;
-            transition: background-position 0.3s, box-shadow 0.3s, transform 0.2s;
-            box-shadow: 0 4px 16px rgba(212,175,55,0.3);
-          }
-          .course-start-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(212,175,55,0.45);
-          }
-          @media (max-width: 1024px) {
-            .courses-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          }
-          @media (max-width: 640px) {
-            .courses-grid { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
-        <div className="container-page" style={{ paddingLeft: "16px", paddingRight: "16px" }}>
-          <div className="courses-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "24px" }}>
-            {COURSES_DATA.map((c, i) => (
-              <div key={i} className="course-card">
-                {/* Image */}
-                <div style={{ position: "relative", height: "220px", overflow: "hidden", flexShrink: 0 }}>
-                  <img src={c.image} alt={c.title} className="course-img" />
-                  {/* Level badge */}
-                  <div style={{
-                    position: "absolute", top: "14px", left: "14px",
-                    background: "rgba(15,23,42,0.78)",
-                    color: "#FFFFFF", padding: "5px 12px",
-                    borderRadius: "100px", fontSize: "10px", fontWeight: 700,
-                    backdropFilter: "blur(6px)", display: "flex", alignItems: "center", gap: "5px",
-                  }}>
-                    <ShieldCheck size={11} style={{ color: "#D4AF37" }} />
-                    {c.level}
+      {/* ── Courses Cards Grid Section ── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-12 bg-[#FAF8F5]">
+        <div className="max-w-[1380px] mx-auto">
+          {/* Section Subtitle */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#E8C969]/30">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8860B] block mb-1">
+                Curated Transformational Programs
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#521623]">
+                Available Courses ({COURSES_DATA.length})
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-500 font-medium">
+              Lifetime Access &bull; 100% Practical &bull; Guided by Sakshi Shree
+            </p>
+          </div>
+
+          {/* 2-Column Landscape Cards Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 xl:gap-10">
+            {COURSES_DATA.map((c, i) => {
+              const discountPercent = Math.round((1 - c.price / c.originalPrice) * 100);
+
+              return (
+                <div
+                  key={i}
+                  className="group rounded-3xl bg-[#FFFDF9] border-2 border-[#E8C969]/40 hover:border-[#D4AF37] shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(212,175,55,0.18)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col sm:flex-row"
+                >
+                  {/* Left Column: Landscape Image filling 100% height */}
+                  <div className="relative w-full sm:w-[44%] min-h-[260px] sm:min-h-[340px] overflow-hidden flex-shrink-0 self-stretch">
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      loading="eager"
+                    />
+
+                    {/* Level Badge (Top Left) */}
+                    <div className="absolute top-3.5 left-3.5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#521623]/85 text-amber-100 text-[11px] font-bold tracking-wide backdrop-blur-md border border-[#E8C969]/30 shadow-md">
+                      <ShieldCheck size={12} className="text-[#D7A316]" />
+                      <span>{c.level}</span>
+                    </div>
+
+                    {/* Duration Badge (Top Right) */}
+                    <div className="absolute top-3.5 right-3.5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7A316] text-[#521623] text-[11px] font-extrabold shadow-md">
+                      <Clock size={12} />
+                      <span>{c.duration}</span>
+                    </div>
                   </div>
-                  {/* Duration badge */}
-                  <div style={{
-                    position: "absolute", top: "14px", right: "14px",
-                    background: "rgba(212,175,55,0.92)",
-                    color: "#1a0e00", padding: "5px 10px",
-                    borderRadius: "100px", fontSize: "10px", fontWeight: 700,
-                    display: "flex", alignItems: "center", gap: "4px",
-                  }}>
-                    <Clock size={10} />
-                    {c.duration}
+
+                  {/* Right Column: Course Details */}
+                  <div className="w-full sm:w-[56%] p-6 sm:p-7 flex flex-col justify-between">
+                    <div>
+                      {/* Category Label */}
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#B8860B] block mb-1">
+                        {c.category}
+                      </span>
+
+                      {/* Course Title */}
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors leading-snug mb-1">
+                        {c.title}
+                      </h3>
+
+                      {/* Tagline */}
+                      <p className="text-xs sm:text-sm font-semibold italic text-[#B8860B] mb-2.5">
+                        {c.tagline}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed line-clamp-3 mb-4">
+                        {c.desc}
+                      </p>
+
+                      {/* Feature Tags */}
+                      <div className="flex flex-wrap gap-1.5 mb-5">
+                        {c.features.map((feat, fi) => (
+                          <span
+                            key={fi}
+                            className="inline-block px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#FFF8E7] text-[#8B6914] border border-[#E8C969]/60 shadow-2xs"
+                          >
+                            {feat}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bottom Pricing & CTA Row */}
+                    <div className="pt-3 border-t border-amber-100/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      {/* Price Section */}
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl sm:text-3xl font-extrabold text-[#521623] leading-none">
+                          ₹{c.price}
+                        </span>
+                        <span className="text-xs sm:text-sm text-slate-400 line-through">
+                          ₹{c.originalPrice}
+                        </span>
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold uppercase bg-amber-100 text-[#8B6914] border border-amber-200">
+                          {discountPercent}% OFF
+                        </span>
+                      </div>
+
+                      {/* Start Course Button */}
+                      <Link
+                        href={`/${c.slug}` as any}
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95"
+                      >
+                        Start Course <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div style={{ padding: "20px 18px 22px", flex: 1, display: "flex", flexDirection: "column" }}>
-                  <h3 style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: "1.2rem", fontWeight: 700,
-                    color: "#0F172A", marginBottom: "5px", lineHeight: 1.3,
-                  }}>{c.title}</h3>
-                  <p style={{
-                    color: "#D4AF37", fontSize: "0.82rem",
-                    fontWeight: 600, fontStyle: "italic", marginBottom: "12px",
-                  }}>{c.tagline}</p>
-                  <p style={{
-                    color: "#64748B", fontSize: "0.84rem",
-                    lineHeight: 1.65, marginBottom: "16px", flex: 1,
-                  }}>{c.desc}</p>
-
-                  {/* Feature tags */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "20px" }}>
-                    {c.features.map((f, fi) => (
-                      <span key={fi} style={{
-                        background: "#FFF8ED", border: "1px solid #FDDFA0",
-                        color: "#92580A", fontSize: "10px", fontWeight: 600,
-                        padding: "3px 9px", borderRadius: "100px",
-                      }}>{f}</span>
-                    ))}
-                  </div>
-
-                  {/* Price row */}
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "14px" }}>
-                    <span style={{ fontSize: "1.55rem", fontWeight: 900, color: "#B45309", lineHeight: 1 }}>
-                      ₹{c.price}
-                    </span>
-                    <span style={{
-                      textDecoration: "line-through", color: "#94A3B8",
-                      fontSize: "0.88rem",
-                    }}>₹{c.originalPrice}</span>
-                    <span style={{
-                      marginLeft: "auto", background: "#FEF3C7",
-                      color: "#92400E", fontSize: "10px", fontWeight: 700,
-                      padding: "3px 8px", borderRadius: "6px",
-                    }}>
-                      {Math.round((1 - c.price / c.originalPrice) * 100)}% OFF
-                    </span>
-                  </div>
-
-                  {/* CTA button ,  full width, own row */}
-                  <Link href={`/${c.slug}` as any} className="course-start-btn">
-                    Start Course <ArrowRight size={15} />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-
-      {/* Testimonials */}
-      <section className="section-pad" style={{ background: "#FFFFFF" }}>
-        <div className="container-page" style={{ paddingLeft: "16px", paddingRight: "16px" }}>
-          <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <span style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Graduates speak</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", fontWeight: 700, color: "#0F172A", marginTop: "8px" }}>10,000+ Lives Changed</h2>
-            <p style={{ color: "#64748B", fontSize: "1rem", marginTop: "8px" }}>Real stories from real people whose lives shifted after taking a Science Divine course.</p>
+      {/* ── Testimonials Section ── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-12 bg-[#FFFDF9] border-t border-[#E8C969]/30">
+        <div className="max-w-[1380px] mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8860B] block">
+              Graduates Speak
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#521623]">
+              10,000+ Lives Transformed
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-medium">
+              Real stories from real seekers whose life, mindset, and health shifted after taking a Science Divine course.
+            </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginTop: "30px" }}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.12)"; }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+              <div
+                key={i}
+                className="bg-[#FFFDF9] rounded-2xl overflow-hidden border-2 border-[#E8C969]/35 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
               >
-                <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                <div className="relative pt-[56.25%] bg-slate-900">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${t.id}`}
+                    title={t.name}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full border-0"
+                  />
                 </div>
-                <div style={{ padding: "20px" }}>
-                  <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}</div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", fontWeight: 700, color: "#111827" }}>{t.name}</h3>
-                  <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>Science Divine Community Member</p>
+                <div className="p-4 space-y-1.5">
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, si) => (
+                      <Star key={si} size={13} fill="#D7A316" className="text-[#D7A316]" />
+                    ))}
+                  </div>
+                  <h3 className="font-serif font-bold text-[#521623] text-sm leading-tight">
+                    {t.name}
+                  </h3>
+                  <p className="text-slate-500 text-xs font-medium">
+                    Science Divine Seeker
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: "48px" }}>
-            <a href="https://sciencedivine.org/latest-testimonials-videos/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.3)" }}>
-              Watch All Testimonials <ArrowRight size={16} />
+          <div className="text-center mt-12">
+            <a
+              href="https://sciencedivine.org/latest-testimonials-videos/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95"
+            >
+              Watch All Video Testimonials <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -267,5 +281,3 @@ const TESTIMONIALS = [
     </div>
   );
 }
-
-

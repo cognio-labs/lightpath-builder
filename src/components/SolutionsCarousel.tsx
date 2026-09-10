@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { SOLUTIONS_LIST } from "@/data/solutionsData";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export const CATEGORY_IMAGE_MAP: Record<string, string> = {
   depression: "/category-icons/family-150x150.webp",
@@ -26,52 +26,48 @@ const SEVEN_SLUGS = [
 ];
 
 export default function SolutionsCarousel() {
-  // Only keep the exact 7 requested categories
   const filteredList = SOLUTIONS_LIST.filter((item) =>
     SEVEN_SLUGS.includes(item.slug)
   );
 
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Auto-advance active card info continuously every 3 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % filteredList.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [filteredList.length]);
-
-  // Duplicate items 6 times for uninterrupted, continuous infinite looping
-  const marqueeItems = [
-    ...filteredList,
-    ...filteredList,
+  // Clone items 4 times to ensure a completely seamless continuous infinite marquee
+  const displayList = [
     ...filteredList,
     ...filteredList,
     ...filteredList,
     ...filteredList,
   ];
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Smooth continuous auto-scroll that never stops (no pause on hover, 60fps)
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationFrameId: number;
+    const speed = 0.85; // smooth scrolling speed
+
+    const step = () => {
+      if (container) {
+        container.scrollLeft += speed;
+        // Seamlessly loop back by half width when passing the midpoint
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft -= container.scrollWidth / 2;
+        }
+      }
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [filteredList]);
+
   return (
     <section
-      className="relative overflow-hidden pt-2 md:pt-4 pb-10 md:pb-12 bg-[#FFFDF9] text-[#4E1321] select-none border-b border-amber-100/80"
+      className="relative overflow-hidden pt-6 pb-12 bg-[#FFFDF9] text-[#4E1321] select-none border-b border-amber-100/80"
       aria-label="Wellness Solutions Navigation Carousel"
     >
-      <style>{`
-        @keyframes continuousScroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-continuous-scroll {
-          display: flex;
-          width: max-content;
-          animation: continuousScroll 48s linear infinite;
-        }
-      `}</style>
-
       {/* Soft Ambient Radial Wash */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] pointer-events-none rounded-full blur-[140px] opacity-35"
@@ -81,9 +77,9 @@ export default function SolutionsCarousel() {
         }}
       />
 
-      <div className="container-page relative z-10">
+      <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFFDF7] border border-[#D4AF37]/40 shadow-sm">
             <Sparkles size={14} className="text-[#B8860B]" />
             <span className="text-[11px] uppercase font-bold tracking-[0.25em] text-[#B8860B]">
@@ -100,76 +96,54 @@ export default function SolutionsCarousel() {
           </p>
         </div>
 
-        {/* Continuous Uninterrupted Auto-Sliding Marquee Track */}
-        <div className="overflow-hidden w-full py-6">
-          <div className="animate-continuous-scroll gap-6 sm:gap-10 md:gap-14">
-            {marqueeItems.map((item, idx) => {
-              const originalIndex = idx % filteredList.length;
+        {/* Continuous Auto-Scrolling Track (No Arrow Buttons, Never Stops) */}
+        <div className="relative w-full overflow-hidden">
+          {/* Subtle edge fade masks for high-end look */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#FFFDF9] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#FFFDF9] to-transparent z-10 pointer-events-none" />
+
+          <div
+            ref={scrollContainerRef}
+            className="flex items-center gap-4 sm:gap-6 overflow-x-hidden py-6 px-4 w-full"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {displayList.map((item, idx) => {
               const iconSrc =
                 CATEGORY_IMAGE_MAP[item.slug] || "/category-icons/family-150x150.webp";
-              const isActive = originalIndex === activeIndex;
 
               return (
                 <div
                   key={`${item.slug}-${idx}`}
-                  onClick={() => setActiveIndex(originalIndex)}
-                  className="flex-shrink-0"
+                  className="carousel-card-item flex-shrink-0"
                 >
                   <Link
                     href={`/solutions/${item.slug}`}
-                    className={`group relative flex flex-col items-center p-3 rounded-2xl w-[125px] sm:w-[140px] md:w-[150px] transition-all duration-300 text-center ${
-                      isActive
-                        ? "-translate-y-2 scale-105"
-                        : "hover:-translate-y-1.5 opacity-90 hover:opacity-100"
-                    }`}
+                    className="group relative flex flex-col items-center p-3 rounded-2xl w-[120px] sm:w-[135px] md:w-[150px] transition-all duration-300 text-center hover:-translate-y-2 hover:scale-105"
                   >
                     {/* Circle Icon Container */}
-                    <div
-                      className={`relative w-22 h-22 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-3 transition-all duration-300 ${
-                        isActive
-                          ? "bg-amber-50/90 border-2 border-[#B8860B] shadow-[0_10px_28px_rgba(184,134,11,0.35)] scale-105"
-                          : "bg-white border-2 border-[#6B1728] shadow-sm group-hover:border-[#B8860B] group-hover:bg-amber-50/50 group-hover:shadow-md"
-                      }`}
-                    >
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-3 transition-all duration-300 bg-white border-2 border-[#6B1728] shadow-sm group-hover:border-[#B8860B] group-hover:bg-amber-50/70 group-hover:shadow-[0_8px_24px_rgba(184,134,11,0.25)]">
                       <img
                         src={iconSrc}
                         alt={item.name}
-                        className={`w-12 h-12 sm:w-14 sm:h-14 object-contain transition-transform duration-300 ${
-                          isActive ? "scale-110" : "group-hover:scale-110"
-                        }`}
+                        className="w-11 h-11 sm:w-14 sm:h-14 object-contain transition-transform duration-300 group-hover:scale-110"
+                        loading="lazy"
                       />
-
-                      {/* Active Ring Pulse */}
-                      {isActive && (
-                        <div className="absolute inset-0 rounded-full border border-[#B8860B] animate-ping opacity-30 pointer-events-none" />
-                      )}
                     </div>
 
                     {/* Category Label */}
-                    <span
-                      className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors duration-300 ${
-                        isActive
-                          ? "text-[#4E1321] font-bold"
-                          : "text-[#521623]/85 group-hover:text-[#B8860B]"
-                      }`}
-                    >
+                    <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#521623]/90 group-hover:text-[#B8860B] group-hover:font-bold transition-colors duration-300">
                       {item.name}
                     </span>
-
-                    {/* Active State Dot Indicator */}
-                    {isActive && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#B8860B] mt-1.5 shadow-[0_0_6px_#B8860B]" />
-                    )}
                   </Link>
                 </div>
               );
             })}
           </div>
         </div>
-
       </div>
     </section>
   );
 }
-
-

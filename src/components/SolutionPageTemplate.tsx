@@ -65,19 +65,19 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
   const getPracticeStyle = (index: number) => {
     const configs = [
       {
-        backgroundImage: "url('/feature-cards/sound-mind.png')",
+        backgroundImage: "url('/about-sound-body.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/feature-cards/self-realization.png')",
+        backgroundImage: "url('/about-sound-mind.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/wellbeing-practices-ai.png')",
-        backgroundSize: "300% auto",
-        backgroundPosition: "0% 0%",
+        backgroundImage: "url('/about-self-realization.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
       },
     ];
     return configs[index % configs.length];
