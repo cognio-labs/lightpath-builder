@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { SolutionData, SOLUTIONS_LIST } from "@/data/solutionsData";
+import { SolutionData } from "@/data/solutionsData";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
 import {
   ArrowRight,
@@ -26,52 +26,108 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
     setOpenFaqIndex(openFaqIndex === idx ? null : idx);
   };
 
+  const getCardStyle = (index: number) => {
+    const configs = [
+      {
+        backgroundImage: "url('/feature-cards/sound-body.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/feature-cards/sound-mind.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/feature-cards/self-realization.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/exclusive-meditation-woman.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/about-sound-body.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/about-sound-mind.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+    ];
+    return configs[index % configs.length];
+  };
+
+  const getPracticeStyle = (index: number) => {
+    const configs = [
+      {
+        backgroundImage: "url('/feature-cards/sound-mind.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/feature-cards/self-realization.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+      },
+      {
+        backgroundImage: "url('/wellbeing-practices-ai.png')",
+        backgroundSize: "300% auto",
+        backgroundPosition: "0% 0%",
+      },
+    ];
+    return configs[index % configs.length];
+  };
+
   return (
-    <div className="bg-[#FAF7F2] text-slate-900 min-h-screen">
-      
-      {/* ════════════════════════════════════
+    <div className="bg-[#FFF9ED] text-[#533C3F] min-h-screen">
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           1. HERO SECTION
-      ════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section
-        className="relative overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center py-20 px-6 md:px-12 bg-cover bg-center text-white"
+        className="relative overflow-hidden min-h-[520px] lg:min-h-[600px] flex items-center py-14 sm:py-16 lg:py-20 px-4 sm:px-6 bg-cover bg-center text-[#521623]"
         style={{
           backgroundImage: `url('${solution.heroImage}')`,
           backgroundSize: "cover",
           backgroundPosition: "center center",
         }}
       >
-        {/* Dark Overlay Gradient Wash */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#090D16]/95 via-[#090D16]/85 to-[#090D16]/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFF9ED]/98 via-[#FFF9ED]/91 to-[#FFF9ED]/45 pointer-events-none" />
 
-        <div className="max-w-[1400px] w-full mx-auto relative z-10 space-y-6">
+        <div className="max-w-[1280px] w-full mx-auto relative z-10 space-y-5 sm:space-y-6">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-amber-300/80 uppercase tracking-widest">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#8B6914] uppercase tracking-widest">
+            <Link href="/" className="hover:text-[#521623] transition-colors">
               Home
             </Link>
             <span>&bull;</span>
-            <Link href="/#solutions" className="hover:text-white transition-colors">
+            <Link href="/#solutions" className="hover:text-[#521623] transition-colors">
               Solutions
             </Link>
             <span>&bull;</span>
-            <span className="text-white">{solution.name}</span>
+            <span className="text-[#521623]">{solution.name}</span>
           </div>
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFF4CF] border border-[#D4AF37]/55">
             <Sparkles size={14} className="text-[#D4AF37]" />
-            <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#FDF4D7]">
+            <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#6A1A2B]">
               {solution.badge}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-3xl leading-tight">
+          <h1 className="font-serif text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-tight text-[#521623] max-w-3xl leading-[1.08]">
             {solution.tagline}
           </h1>
 
           {/* Description */}
-          <p className="text-base sm:text-lg text-slate-200 font-medium max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[#634E50] font-medium max-w-2xl leading-relaxed">
             {solution.shortDesc}
           </p>
 
@@ -79,13 +135,13 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link
               href="/book-session"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#B8860B] via-[#C79A2E] to-[#D4AF37] text-slate-950 font-bold text-sm uppercase tracking-wider shadow-xl hover:scale-105 transition-all"
+              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full bg-[#D7A316] text-[#521623] font-bold text-sm uppercase tracking-wider shadow-md hover:bg-[#C48F0A] transition-colors"
             >
               <User size={18} /> Book Personal Session <ArrowRight size={18} />
             </Link>
             <Link
               href="/events"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-white/10 border border-[#D4AF37]/50 text-white font-bold text-sm uppercase tracking-wider backdrop-blur-md hover:bg-white/20 transition-all"
+              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full bg-[#FFF9ED] border-2 border-[#521623] text-[#521623] font-bold text-sm uppercase tracking-wider hover:bg-[#FFF4CF] transition-colors"
             >
               <Calendar size={18} className="text-[#D4AF37]" /> Attend Live Event
             </Link>
@@ -93,11 +149,11 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           2. KEY BENEFITS SECTION
-      ════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-[1300px] mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section className="section-pad px-4 sm:px-6 max-w-[1280px] mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
             TRANSFORMATIVE BENEFITS
           </span>
@@ -109,14 +165,20 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {solution.benefits.map((b, i) => (
             <div
               key={i}
-              className="group p-7 rounded-3xl bg-white border border-amber-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
+              className="group min-h-full rounded-3xl bg-white border border-[#E8C969] shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col"
             >
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200/60 flex items-center justify-center mb-6 text-[#4E1321] group-hover:bg-[#4E1321] group-hover:text-[#D4AF37] transition-colors">
+              <div
+                className="h-44 sm:h-48 bg-no-repeat overflow-hidden"
+                role="img"
+                aria-label={`${b.title} wellbeing practice`}
+                style={getCardStyle(i)}
+              />
+              <div className="p-5 sm:p-6 flex-1">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFF4CF] border border-[#E8C969] flex items-center justify-center mb-4 text-[#521623] group-hover:bg-[#521623] group-hover:text-[#D7A316] transition-colors">
                   {b.icon === "Shield" && <Shield size={26} />}
                   {b.icon === "Sparkles" && <Sparkles size={26} />}
                   {b.icon === "Heart" && <Heart size={26} />}
@@ -137,10 +199,10 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           3. SYMPTOMS & COMMON CHALLENGES
-      ════════════════════════════════════ */}
-      <section className="py-16 px-6 bg-[#FAF3E8] border-y border-amber-100">
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section className="section-pad px-4 sm:px-6 bg-[#FFF4E4] border-y border-[#E8C969]/60">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 space-y-4">
@@ -173,11 +235,11 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           4. RECOMMENDED PRACTICES
-      ════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-[1300px] mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section className="section-pad px-4 sm:px-6 max-w-[1280px] mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
             DAILY SADHNA & ROUTINES
           </span>
@@ -189,13 +251,19 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
           {solution.practices.map((p, i) => (
             <div
               key={i}
-              className="p-8 rounded-3xl bg-white border border-amber-200/80 shadow-md flex flex-col justify-between"
+              className="rounded-3xl bg-white border border-[#E8C969] shadow-sm overflow-hidden flex flex-col"
             >
-              <div className="space-y-4">
+              <div
+                className="h-48 bg-no-repeat overflow-hidden"
+                role="img"
+                aria-label={`${p.title} guided practice`}
+                style={getPracticeStyle(i)}
+              />
+              <div className="p-6 sm:p-7 space-y-4 flex-1">
                 <span className="inline-block px-3 py-1 rounded-full bg-amber-100 text-[#8B6914] font-bold text-xs">
                   {p.duration}
                 </span>
@@ -206,7 +274,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
                   {p.desc}
                 </p>
               </div>
-              <div className="pt-6">
+              <div className="px-6 sm:px-7 pb-6">
                 <Link
                   href="/book-session"
                   className="inline-flex items-center gap-2 text-xs font-bold text-[#521623] hover:text-[#B8860B] transition-colors"
@@ -219,9 +287,9 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           5. EXPERT MASTER WISDOM & QUOTE
-      ════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="py-20 px-6 bg-[#4E1321] text-white relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center"
@@ -241,11 +309,11 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           6. FAQ SECTION & HEALTH DISCLAIMER
-      ════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="py-20 px-6 max-w-[1000px] mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
             FREQUENTLY ASKED QUESTIONS
           </span>
@@ -291,9 +359,9 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           7. STRONG CALL TO ACTION BANNER
-      ════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="py-16 px-6 bg-gradient-to-r from-[#521623] via-[#4E1321] to-[#3B0F19] text-white text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-amber-100">
@@ -305,13 +373,13 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Link
               href="/book-session"
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] text-slate-950 font-bold text-sm uppercase tracking-wider shadow-xl hover:scale-105 transition-all"
+              className="px-8 py-4 rounded-full bg-[#D7A316] text-[#521623] font-bold text-sm uppercase tracking-wider shadow-md hover:bg-[#C48F0A] transition-colors"
             >
               Book Personal Guidance
             </Link>
             <Link
               href="/events"
-              className="px-8 py-4 rounded-full bg-white/10 border border-[#D4AF37] text-white font-bold text-sm uppercase tracking-wider backdrop-blur-md hover:bg-white/20 transition-all"
+              className="px-8 py-4 rounded-full bg-[#FFF9ED] border-2 border-[#D7A316] text-[#521623] font-bold text-sm uppercase tracking-wider hover:bg-[#FFF4CF] transition-colors"
             >
               Explore Upcoming Events
             </Link>
@@ -319,9 +387,9 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* ════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           8. RELATED SOLUTIONS CAROUSEL
-      ════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SolutionsCarousel />
 
     </div>

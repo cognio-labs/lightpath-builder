@@ -65,10 +65,10 @@ export default function FindSolutionsSection() {
 
       <div className="max-w-[1520px] mx-auto relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+
           {/* Left Content & Grid */}
           <div className="lg:col-span-7 space-y-6">
-            
+
             {/* Header Badge */}
             <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E] block">
               GUIDANCE
@@ -86,14 +86,15 @@ export default function FindSolutionsSection() {
 
             {/* Solution Cards 3-Column Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-              {GUIDANCE_CARDS.map((card) => {
+              {GUIDANCE_CARDS.map((card, idx) => {
                 const IconComponent = card.icon;
                 return (
                   <Link
                     key={card.name}
                     href={`/solutions/${card.slug}`}
-                    className="group flex flex-col items-center justify-center p-5 rounded-2xl bg-white/95 border border-white/80 shadow-[0_8px_20px_rgba(30,50,80,0.05)] hover:shadow-[0_14px_30px_rgba(30,50,80,0.12)] hover:-translate-y-1.5 transition-all duration-300 text-center"
+                    className="group flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/80 shadow-[0_8px_20px_rgba(30,50,80,0.05)] hover:shadow-[0_14px_30px_rgba(30,50,80,0.12)] hover:-translate-y-1.5 transition-all duration-300 text-center"
                   >
+                    <img src={["/premium-heroes/depression-hero.png", "/premium-heroes/anxiety-hero.png", "/premium-heroes/sleeping-disorder-hero.png", "/premium-heroes/overthinking-hero.png", "/premium-heroes/parenting-hero.png", "/premium-heroes/wellness-hero.png", "/premium-heroes/relationships-hero.png"][idx]} alt="" className="mb-3 h-20 w-full rounded-xl object-cover" loading="lazy" />
                     <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-3 group-hover:bg-amber-50 group-hover:border-amber-200 transition-colors">
                       <IconComponent
                         size={26}

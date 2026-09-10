@@ -38,7 +38,7 @@ const SOLUTION_METAS: Record<
   }
 > = {
   "Sleeping Disorder": {
-    themeColor: "#15803D", // Green
+    themeColor: "#D4AF37", // Brand gold
     lightBgColor: "rgba(21, 128, 61, 0.08)",
     badgeText: "SOLUTIONS HUB",
     image: "/premium-heroes/sleeping-disorder-hero.png",
@@ -67,7 +67,7 @@ const SOLUTION_METAS: Record<
     ],
   },
   Wellness: {
-    themeColor: "#BE123C", // Rose
+    themeColor: "#D4AF37", // Brand gold
     lightBgColor: "rgba(190, 18, 60, 0.08)",
     badgeText: "SOLUTIONS • WELLNESS",
     image: "/premium-heroes/wellness-hero.png",
@@ -96,7 +96,7 @@ const SOLUTION_METAS: Record<
     ],
   },
   Relationships: {
-    themeColor: "#B91C1C", // Crimson/Red
+    themeColor: "#D4AF37", // Brand gold
     lightBgColor: "rgba(185, 28, 28, 0.08)",
     badgeText: "SOLUTIONS • RELATIONSHIPS",
     image: "/premium-heroes/relationships-hero.png",
@@ -149,6 +149,7 @@ export function SolutionPageLayout({
   );
 
   const meta = SOLUTION_METAS[title] || SOLUTION_METAS["Wellness"];
+  const cardImages = ["/feature-cards/sound-body.png", "/feature-cards/sound-mind.png", "/feature-cards/self-realization.png", "/wellbeing-practices-ai.png"];
 
   return (
     <>
@@ -232,7 +233,8 @@ export function SolutionPageLayout({
             {meta.cards.map((card, idx) => {
               const CardIcon = card.icon;
               return (
-                <div key={idx} className="flex gap-4 items-start group">
+                <div key={idx} className="flex flex-col gap-3 items-start group">
+                  <img src={cardImages[idx]} alt="" className="h-28 w-full rounded-2xl object-cover object-top" loading="lazy" />
                   <div
                     className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{
@@ -295,7 +297,8 @@ export function SolutionPageLayout({
           {tab === "articles" && (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
               {articles.map((a, i) => (
-                <article key={i} className="card-premium rounded-2xl p-6 group">
+                <article key={i} className="card-premium rounded-2xl p-6 group overflow-hidden">
+                  <img src={cardImages[i % cardImages.length]} alt="" className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] object-cover" loading="lazy" />
                   <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
                     {title}
                   </div>
@@ -347,7 +350,8 @@ export function SolutionPageLayout({
           {tab === "podcasts" && (
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="card-premium rounded-2xl p-6">
+                <div key={i} className="card-premium rounded-2xl p-6 overflow-hidden">
+                  <img src={cardImages[(i + 1) % cardImages.length]} alt="" className="-mx-6 -mt-6 mb-5 h-32 w-[calc(100%+3rem)] object-cover" loading="lazy" />
                   <div className="flex items-center gap-4 mb-4">
                     <div
                       className="w-14 h-14 rounded-xl grid place-items-center text-white flex-shrink-0"
@@ -495,6 +499,3 @@ function TabButton({
     </button>
   );
 }
-
-
-

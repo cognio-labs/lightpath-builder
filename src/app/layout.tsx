@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
+import { QuickActionBar } from "@/components/QuickActionBar";
 
 
 export const metadata: Metadata = {
@@ -54,6 +55,7 @@ export default function RootLayout({
           <div className="flex min-h-dvh flex-col bg-white">
             <SiteNav />
             <main className="flex-1 pb-20 lg:pb-0">{children}</main>
+            <QuickActionBar />
             <SiteFooter />
             <MahaMantrasPopup />
           </div>

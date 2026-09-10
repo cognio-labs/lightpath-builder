@@ -226,64 +226,68 @@ export default function Page() {
               background-size: cover !important;
             }
           }
+          .quick-action-bar {
+            position: fixed;
+            right: 6px;
+            top: 52%;
+            transform: translateY(-50%);
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(212, 175, 55, 0.45);
+            border-radius: 24px;
+            box-shadow: 0 10px 32px rgba(82, 22, 35, 0.16);
+            width: 78px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4px 2px;
+          }
+          @media (min-width: 640px) {
+            .quick-action-bar {
+              right: 12px;
+              width: 86px;
+              padding: 8px 4px;
+            }
+          }
           @media (min-width: 1024px) {
             .quick-action-bar {
-              position: fixed;
               right: 16px;
-              top: 50%;
-              transform: translateY(-50%);
-              z-index: 50;
-              background: rgba(255, 255, 255, 0.95);
-              backdrop-filter: blur(12px);
-              -webkit-backdrop-filter: blur(12px);
-              border: 1px solid rgba(212, 175, 55, 0.35);
-              border-radius: 24px;
-              box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
               width: 92px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
               padding: 10px 4px;
             }
           }
-          @media (max-width: 1023px) {
-            .quick-action-bar {
-              position: fixed;
-              left: 12px;
-              right: 12px;
-              bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-              max-width: 440px;
-              margin-inline: auto;
-              z-index: 50;
-              background: rgba(255, 255, 255, 0.96);
-              backdrop-filter: blur(16px);
-              -webkit-backdrop-filter: blur(16px);
-              border: 1px solid rgba(212, 175, 55, 0.45);
-              border-radius: 9999px;
-              box-shadow: 0 10px 32px rgba(82, 22, 35, 0.18);
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              justify-content: space-around;
-              padding: 6px 8px;
-            }
-            .quick-action-bar a {
-              flex: 1;
-              min-width: 0;
-              padding: 4px 2px !important;
-              border: none !important;
-              border-bottom: none !important;
-            }
+          .quick-action-bar a {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 7px 2px !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+          }
+          .quick-action-bar a:last-child {
+            border-bottom: none !important;
+          }
+          .quick-action-bar a span {
+            font-size: 9px !important;
+            line-height: 1.15 !important;
+            font-weight: 700 !important;
+            color: #4E1321 !important;
+            white-space: normal !important;
+          }
+          @media (min-width: 640px) {
             .quick-action-bar a span {
               font-size: 10px !important;
-              line-height: 1.15 !important;
-              white-space: nowrap !important;
             }
-            .quick-action-bar a svg {
-              width: 18px !important;
-              height: 18px !important;
-              margin-bottom: 2px !important;
-            }
+          }
+          .quick-action-bar a svg {
+            width: 19px !important;
+            height: 19px !important;
+            margin-bottom: 3px !important;
+            color: #4E1321 !important;
           }
         `}</style>
 
@@ -299,10 +303,10 @@ export default function Page() {
 
         <div className="container-page pt-6 sm:pt-8 lg:pt-10 lg:pb-12 pb-0 relative z-10 w-full flex items-center justify-start">
           <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
-            
+
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-5 relative z-10 pt-2 lg:pt-4">
-              
+
               {/* Main Heading */}
               <h1 className="hero-main-title">
                 <span className="block text-[#521623] lg:whitespace-nowrap">Awaken the Divine Within,</span>
@@ -337,8 +341,8 @@ export default function Page() {
                     alt="Sadguru Sakshi Shree"
                     className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
                   />
-                  {/* Founder Badge positioned over lower white robe */}
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/92 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-[#B8860B]/40 shadow-md flex flex-col items-center text-center w-[165px]">
+                  {/* Founder Badge positioned over lower white robe, clear of hand */}
+                  <div className="absolute bottom-1.5 left-[32%] sm:left-[34%] -translate-x-1/2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-xl border border-[#B8860B]/40 shadow-md flex flex-col items-center text-center w-[155px]">
                     <div className="flex items-center gap-1">
                       <Heart size={10} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
                       <h4 className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
@@ -351,7 +355,7 @@ export default function Page() {
                     <img
                       src="/signature.png"
                       alt="Sakshi Shree Signature"
-                      className="h-5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
+                      className="h-4.5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
                     />
                   </div>
                 </div>
@@ -373,9 +377,9 @@ export default function Page() {
               alt="Sadguru Sakshi Shree"
               className="w-full h-auto max-h-[580px] xl:max-h-[640px] 2xl:max-h-[670px] object-contain object-bottom block drop-shadow-[0_16px_24px_rgba(55,35,20,0.18)]"
             />
-            {/* Founder Badge Attached directly over the white robe */}
-            <div className="absolute bottom-3 lg:bottom-4 left-[24%] xl:left-[26%] z-20 pointer-events-auto">
-              <div className="space-y-0.5 text-left border-b border-[#B8860B]/60 pb-1.5 w-[145px] sm:w-[155px]">
+            {/* Founder Badge Attached directly over lower left white robe, safely clear of hand */}
+            <div className="absolute bottom-2 lg:bottom-2.5 left-[16%] xl:left-[18%] z-20 pointer-events-auto">
+              <div className="space-y-0.5 text-left border-b border-[#B8860B]/60 pb-1 w-[145px] sm:w-[155px]">
                 <div className="flex items-center gap-1">
                   <Heart size={11} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
                   <h4 className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
@@ -385,39 +389,15 @@ export default function Page() {
                 <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight pl-0.5 whitespace-nowrap">
                   Founder, Science Divine Foundation
                 </p>
-                <img 
-                  src="/signature.png" 
-                  alt="Sakshi Shree Signature" 
-                  className="h-6 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
+                <img
+                  src="/signature.png"
+                  alt="Sakshi Shree Signature"
+                  className="h-5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
                 />
               </div>
             </div>
           </div>
         </div>
-
-        {/* Floating Quick Actions Widget */}
-        <div className="quick-action-bar">
-          <Link href="#events" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
-            <Calendar size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Attend<br className="hidden lg:block"/> Live Event</span>
-          </Link>
-          
-          <Link href="#programs" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
-            <BookOpen size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Book<br className="hidden lg:block"/> Session</span>
-          </Link>
-          
-          <Link href="#contact" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
-            <Mail size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Ask<br className="hidden lg:block"/> Question</span>
-          </Link>
-          
-          <Link href="#contact" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full">
-            <MessageCircle size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">WhatsApp<br className="hidden lg:block"/> Connect</span>
-          </Link>
-        </div>
-
       </section>
 
       {/* ════════════════════════════════════
@@ -505,19 +485,19 @@ export default function Page() {
       {/* ════════════════════════════════════
           ABOUT SCIENCE DIVINE MOVEMENT
       ════════════════════════════════════ */}
-      <section className="about-section-bg relative overflow-hidden min-h-[540px] sm:min-h-[580px] md:min-h-[600px] lg:min-h-[640px] xl:min-h-[690px] pt-10 sm:pt-14 lg:pt-20 pb-0 lg:pb-0 bg-cover flex flex-col justify-between" style={{
+      <section className="about-section-bg relative overflow-hidden min-h-[520px] sm:min-h-[560px] md:min-h-[600px] lg:min-h-[640px] xl:min-h-[690px] pt-10 sm:pt-14 lg:pt-20 pb-0 lg:pb-0 bg-cover flex flex-col justify-between" style={{
         backgroundImage: "url('/about-section-bg.png')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}>
-        {/* Gradient overlay — covers left/top for text readability, fades away on right/bottom */}
+        {/* Gradient overlay — keeps text readable while letting scenic mountains & temple background show vibrantly */}
         <div className="absolute inset-0 pointer-events-none z-0"
-          style={{ background: "linear-gradient(160deg, rgba(255,250,242,0.97) 0%, rgba(255,250,242,0.90) 30%, rgba(255,250,242,0.60) 55%, rgba(255,250,242,0.10) 80%, transparent 100%)" }}
+          style={{ background: "linear-gradient(160deg, rgba(255,250,242,0.85) 0%, rgba(255,250,242,0.60) 35%, rgba(255,250,242,0.25) 70%, transparent 100%)" }}
         />
-        
+
         <div className="container-page pb-0 relative z-10 h-full flex flex-col justify-between flex-1">
           <div className="grid lg:grid-cols-12 gap-8 items-start flex-1">
-            <div className="lg:col-span-7 xl:col-span-7 space-y-5 relative z-20 pb-4 lg:pb-12">
+            <div className="lg:col-span-7 xl:col-span-7 space-y-5 relative z-20 pb-2 lg:pb-12">
               <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E] block">
                 ABOUT SCIENCE DIVINE
               </span>
@@ -541,25 +521,25 @@ export default function Page() {
                   Know Sakshi Shree <ArrowRight size={16} />
                 </Link>
               </div>
-
-              {/* Mobile Portrait placed cleanly below text, attached flush to section bottom edge (No text overlap) */}
-              <div className="lg:hidden mt-6 flex justify-center w-full relative z-20">
-                <img
-                  src="/about-sakshi-shree-new.png"
-                  alt="Sadguru Sakshi Shree"
-                  className="w-full max-w-[320px] sm:max-w-[380px] h-auto object-contain object-bottom block -mb-1 drop-shadow-[0_16px_28px_rgba(40,20,10,0.18)]"
-                />
-              </div>
             </div>
 
             {/* Desktop Spacer Column */}
             <div className="lg:col-span-5 xl:col-span-5 hidden lg:block" />
           </div>
+
+          {/* Mobile Portrait placed flush at section bottom without empty space underneath */}
+          <div className="lg:hidden mt-4 flex justify-center w-full relative z-20 -mb-1">
+            <img
+              src="/about-sakshi-shree-user.png"
+              alt="Sadguru Sakshi Shree"
+              className="w-full max-w-[340px] sm:max-w-[400px] h-auto object-contain object-bottom block drop-shadow-[0_16px_28px_rgba(40,20,10,0.18)]"
+            />
+          </div>
         </div>
 
         {/* Desktop Portrait — absolutely positioned at bottom right */}
         <img
-          src="/about-sakshi-shree-new.png"
+          src="/about-sakshi-shree-user.png"
           alt="Sadguru Sakshi Shree"
           className="hidden lg:block absolute bottom-0 right-0 lg:right-10 xl:right-14
             w-auto lg:max-w-[520px] lg:max-h-[96%]
@@ -625,7 +605,7 @@ export default function Page() {
 
         <div className="container-page relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Image Column with Guru Ji Namaste Cutout */}
             <div className="lg:col-span-5 flex justify-center items-end relative">
               {/* Backplate Decorative Arch Frame */}
@@ -634,7 +614,7 @@ export default function Page() {
                   className="absolute inset-x-4 top-4 bottom-0 rounded-t-[2.5rem] pointer-events-none opacity-40"
                   style={{ background: "radial-gradient(circle at 50% 30%, rgba(212,175,55,0.35), transparent 70%)" }}
                 />
-                
+
                 <img
                   src="/guruji-namaste-new.png"
                   alt="Sadguru Sakshi Shree Namaste"
@@ -650,7 +630,7 @@ export default function Page() {
 
             {/* Right Quote & Content Column */}
             <div className="lg:col-span-7 space-y-6 text-left pl-0 lg:pl-4">
-              
+
               {/* Tag Header */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-amber-300/80 bg-amber-100/70 text-[#8B6914] shadow-xs">
                 <span>Words of Divine Wisdom</span>
@@ -694,7 +674,7 @@ export default function Page() {
       {/* ════════════════════════════════════
           RECOGNIZED BY LEADERS & MEDIA
       ════════════════════════════════════ */}
-      <section className="section-pad bg-white dark:bg-slate-950">
+      <section className="section-pad bg-[#FFFDF9] border-b border-amber-200/50">
         <div className="container-page">
           <SectionHeading
             center
@@ -723,7 +703,7 @@ export default function Page() {
       {/* ════════════════════════════════════
           COURSES
       ════════════════════════════════════ */}
-      <section className="section-pad bg-[#FAFAFA] dark:bg-slate-900/40 border-t border-b border-gray-100 dark:border-slate-800">
+      <section className="section-pad bg-[#FFFBF2] border-b border-amber-200/50">
         <div className="container-page">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-6 sm:mb-8 md:mb-10">
             <SectionHeading
@@ -792,7 +772,7 @@ export default function Page() {
       ════════════════════════════════════ */}
       <section className="py-10 sm:py-12 md:py-16 lg:py-20 bg-[#FAF6F0] text-center border-t border-b border-amber-100/70 relative overflow-hidden">
         <div className="container-page">
-          
+
           {/* Heading & Subtitle */}
           <div className="mb-8 sm:mb-10 md:mb-12 space-y-2">
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#521623]">
@@ -1076,7 +1056,7 @@ export default function Page() {
                     <h3 className="font-serif font-bold text-[#521623] text-xl leading-tight group-hover:text-[#B8860B] transition-colors">
                       {e.title}
                     </h3>
-                    
+
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
                       {e.description}
                     </p>
