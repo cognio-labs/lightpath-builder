@@ -374,7 +374,7 @@ export function DivineAIGuide() {
             {/* TOP BAR HEADER */}
             <div className="px-3 py-2 bg-gradient-to-r from-[#5B1209] to-[#73190e] text-white flex items-center justify-between border-b border-amber-500/30 shrink-0">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-white p-0.5 grid place-items-center overflow-hidden border border-amber-300 shadow-sm">
+                <div className="w-6 h-6 rounded-full p-0.5 grid place-items-center overflow-hidden shrink-0">
                   <img
                     src={LOGO_URL}
                     alt="Science Divine"

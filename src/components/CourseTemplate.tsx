@@ -37,7 +37,7 @@ export function CourseTemplate({
           />
           <div>
             <SectionHeading eyebrow="Overview" title={course.title} subtitle={course.description} />
-            <div className="grid grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {course.features.map((f) => (
                 <div key={f} className="glass-card rounded-xl p-4 flex items-center gap-3">
                   <span className="w-8 h-8 rounded-full gradient-bg grid place-items-center text-white shrink-0">

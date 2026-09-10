@@ -153,7 +153,7 @@ export function SolutionPageLayout({
   return (
     <>
       <section
-        className="relative overflow-hidden pt-28 pb-16"
+        className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16"
         style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
       >
         {/* Decorative gold orbs */}
@@ -421,7 +421,7 @@ export function SolutionHeroImage({
 }) {
   return (
     <div className="lg:col-span-5 flex justify-center relative">
-      <div className="relative w-full max-w-[520px] aspect-[1.16] min-h-[320px] overflow-hidden rounded-[34px] bg-white shadow-2xl shadow-amber-900/10 ring-1 ring-white/80">
+      <div className="relative w-full max-w-[520px] aspect-[1.16] sm:min-h-[320px] overflow-hidden rounded-[24px] sm:rounded-[34px] bg-white shadow-2xl shadow-amber-900/10 ring-1 ring-white/80">
         <img
           src={src}
           alt={alt}

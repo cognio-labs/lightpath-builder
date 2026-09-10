@@ -1,5 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
+export function parseStatValue(str: string): { to: number; suffix: string; prefix: string } {
+  const match = str.match(/^([^\d]*)([\d,.]+)(.*)$/);
+  if (!match) return { to: 0, suffix: str, prefix: "" };
+  const prefix = match[1] || "";
+  const to = parseFloat(match[2].replace(/,/g, "")) || 0;
+  const suffix = match[3] || "";
+  return { to, suffix, prefix };
+}
+
 export function useCounter(target: number, duration = 2000) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -24,7 +33,7 @@ export function useCounter(target: number, duration = 2000) {
           }
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.2 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -33,21 +42,42 @@ export function useCounter(target: number, duration = 2000) {
   return { ref, value };
 }
 
-export function Counter({
-  to,
-  suffix = "",
-  prefix = "",
-}: {
-  to: number;
+interface CounterProps {
+  to?: number;
+  value?: string;
   suffix?: string;
   prefix?: string;
-}) {
-  const { ref, value } = useCounter(to);
+  duration?: number;
+  className?: string;
+}
+
+export function Counter({
+  to,
+  value,
+  suffix = "",
+  prefix = "",
+  duration = 2000,
+  className,
+}: CounterProps) {
+  let target = to ?? 0;
+  let finalSuffix = suffix;
+  let finalPrefix = prefix;
+
+  if (value !== undefined) {
+    const parsed = parseStatValue(value);
+    target = parsed.to;
+    finalSuffix = parsed.suffix;
+    finalPrefix = parsed.prefix;
+  }
+
+  const { ref, value: currentVal } = useCounter(target, duration);
+
   return (
-    <span ref={ref}>
-      {prefix}
-      {value.toLocaleString()}
-      {suffix}
+    <span ref={ref} className={className}>
+      {finalPrefix}
+      {currentVal.toLocaleString()}
+      {finalSuffix}
     </span>
   );
 }
+

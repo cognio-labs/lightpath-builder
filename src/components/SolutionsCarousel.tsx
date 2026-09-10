@@ -53,7 +53,7 @@ export default function SolutionsCarousel() {
 
   return (
     <section
-      className="relative overflow-hidden py-16 px-4 sm:px-6 md:px-12 bg-[#FFFDF9] text-[#4E1321] select-none border-t border-b border-amber-100/80"
+      className="relative overflow-hidden pt-2 md:pt-4 pb-10 md:pb-12 bg-[#FFFDF9] text-[#4E1321] select-none border-b border-amber-100/80"
       aria-label="Wellness Solutions Navigation Carousel"
     >
       <style>{`
@@ -81,7 +81,7 @@ export default function SolutionsCarousel() {
         }}
       />
 
-      <div className="max-w-[1520px] mx-auto relative z-10">
+      <div className="container-page relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFFDF7] border border-[#D4AF37]/40 shadow-sm">
@@ -167,29 +167,6 @@ export default function SolutionsCarousel() {
           </div>
         </div>
 
-        {/* Active Solution Quick Info Bar & CTA */}
-        {filteredList[activeIndex] && (
-          <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-white border border-amber-200/90 shadow-[0_10px_30px_rgba(82,22,35,0.06)] max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-500">
-            <div className="space-y-1 text-center md:text-left">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#B8860B]">
-                {filteredList[activeIndex].badge}
-              </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#4E1321]">
-                {filteredList[activeIndex].tagline}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 max-w-xl font-medium">
-                {filteredList[activeIndex].shortDesc}
-              </p>
-            </div>
-
-            <Link
-              href={`/solutions/${filteredList[activeIndex].slug}`}
-              className="flex-shrink-0 inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#4E1321] text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-[#3B0F19] transition-all shadow-md hover:scale-105"
-            >
-              Explore {filteredList[activeIndex].name} Solution <ArrowRight size={16} />
-            </Link>
-          </div>
-        )}
       </div>
     </section>
   );

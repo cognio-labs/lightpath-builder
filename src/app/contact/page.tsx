@@ -39,7 +39,7 @@ export default function Page() {
 
           {/* Contact Form ,  3 cols */}
           <div className="lg:col-span-3">
-            <div className="card-premium rounded-3xl p-8 md:p-10">
+            <div className="card-premium rounded-3xl p-5 sm:p-8 md:p-10">
               <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Send a Message</h2>
               <p className="text-sm text-gray-500 mb-8">We'll get back to you as soon as possible.</p>
               <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>

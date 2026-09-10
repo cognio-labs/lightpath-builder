@@ -120,11 +120,11 @@ export function SectionHeading({
     <div className={`mb-6 md:mb-8 ${center ? "text-center max-w-3xl mx-auto" : ""}`}>
       {eyebrow && (
         <div className={`flex items-center gap-2 mb-2 ${center ? "justify-center" : ""}`}>
-          <span className="text-xs font-bold uppercase tracking-widest text-amber-700">{eyebrow}</span>
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#8B6914]">{eyebrow}</span>
         </div>
       )}
-      <h2 className="font-display text-2xl md:text-4xl font-bold text-gray-900 leading-tight">{title}</h2>
-      {subtitle && <p className="mt-2 text-sm md:text-base text-gray-500 leading-relaxed">{subtitle}</p>}
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#521623] leading-tight">{title}</h2>
+      {subtitle && <p className="mt-2.5 text-sm md:text-base text-gray-600 font-medium leading-relaxed">{subtitle}</p>}
     </div>
   );
 }

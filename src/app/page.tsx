@@ -4,13 +4,14 @@ import Link from "next/link";
 import * as React from "react";
 import { SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
-import { Lens } from "@/components/ui/lens";
 import { Counter } from "@/lib/useCounter";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 import TextType from "@/components/ui/TextType";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import GlareHover from "@/components/ui/GlareHover";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
+import ExclusiveContentCard from "@/components/ExclusiveContentCard";
+import MarqueeTestimonials from "@/components/ui/marquee-card";
 import {
   COURSES,
   EVENTS,
@@ -32,31 +33,43 @@ const BLOG_POSTS = [
     title: "Does Spirituality Require Renouncement of Materialism?",
     href: "https://sciencedivine.org/spirituality-and-materialism/",
     excerpt: "Exploring the balance between material life and spiritual awakening.",
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+    alt: "Balance between materialism and spirituality - peaceful lotus meditation",
   },
   {
     title: "Spiritual Enlightenment: The Science of Breathing",
     href: "https://sciencedivine.org/the-science-of-breathing/",
     excerpt: "Ancient breath techniques that transform body and mind.",
+    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
+    alt: "Science of breathing - pranayama meditation in tranquil nature",
   },
   {
     title: "Is the Law of Attraction a Myth?",
     href: "https://sciencedivine.org/power-of-law-of-attraction/",
     excerpt: "A scientific and spiritual look at manifestation and intention.",
+    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
+    alt: "Law of attraction - cosmic energy manifestation and golden light",
   },
   {
     title: "Power Of Spirituality In Self Discovery",
     href: "https://sciencedivine.org/power-of-spirituality-in-self-discovery/",
     excerpt: "How spiritual practices unlock your deepest potential.",
+    image: "https://images.unsplash.com/photo-1499209974431-9dac3cea0047?auto=format&fit=crop&w=800&q=80",
+    alt: "Power of spirituality in self discovery - serene sunrise mountain lake",
   },
   {
     title: "Master Your Own Fate",
     href: "https://sciencedivine.org/master-your-own-fate/",
     excerpt: "Taking conscious control of your destiny through awareness.",
+    image: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80",
+    alt: "Master your own fate - golden path leading to bright future sunrise",
   },
   {
     title: "Easy Habits That Can Change Your Life In a Month",
     href: "https://sciencedivine.org/habits-that-can-change-your-life/",
     excerpt: "Simple daily practices for lasting transformation.",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
+    alt: "Easy habits that change your life - morning wellness meditation routine",
   },
 ];
 
@@ -64,35 +77,33 @@ const FEATURE_CARDS = [
   {
     title: "Sound Body",
     desc: "Physical vitality through yoga, breath, and conscious movement.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=85&w=1600",
-    alt: "Physical vitality through yoga, breath, and conscious movement",
+    image: "/feature-sound-body.png",
+    alt: "Graceful outdoor yoga practice at sunrise with golden light and vitality",
   },
   {
     title: "Sound Mind",
     desc: "Mental clarity through meditation and mindfulness practice.",
-    image: "https://images.unsplash.com/photo-1508672019048-805479767383?auto=format&fit=crop&q=85&w=1600",
-    alt: "Mental clarity through meditation and mindfulness practice",
+    image: "/feature-sound-mind.png",
+    alt: "Peaceful meditation in serene nature with morning mist and stillness",
   },
   {
     title: "Self Realization",
     desc: "Spiritual awakening under Sakshi Shree's direct guidance.",
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&q=85&w=1600",
-    alt: "Spiritual awakening under Sakshi Shree's direct guidance",
+    image: "/feature-self-realization.png",
+    alt: "Spiritual awakening on mountain peak overlooking golden sunrise landscape",
   },
 ];
 function LensImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
-    <Lens className="h-full w-full rounded-2xl" lensSize={140} zoomFactor={1.7}>
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className={
-          className ??
-          "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        }
-      />
-    </Lens>
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className={
+        className ??
+        "h-full w-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
+      }
+    />
   );
 }
 function LotusIcon({ size = 20, color = "#C9910B", className = "" }: { size?: number; color?: string; className?: string }) {
@@ -111,7 +122,7 @@ export default function Page() {
       {/* ════════════════════════════════════
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
-      <section className="relative overflow-hidden min-h-[640px] lg:h-[730px] flex items-center bg-[#fffaf0]" style={{
+      <section className="hero-sunrise-bg relative overflow-hidden min-h-[540px] sm:min-h-[560px] md:min-h-[600px] pt-8 sm:pt-12 md:pt-14 pb-0 lg:py-0 lg:min-h-[640px] xl:min-h-[670px] flex flex-col justify-between lg:flex-row lg:items-center bg-[#fffaf0]" style={{
         backgroundImage: "url('/hero-sunrise-mountains.png')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
@@ -127,33 +138,40 @@ export default function Page() {
           }
           .hero-main-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(34px, 4vw, 62px);
-            line-height: 1.06;
-            font-weight: 500;
-            letter-spacing: -0.025em;
-          }
-          .hero-founder {
-            width: 210px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(184, 134, 11, 0.55);
+            font-size: clamp(22px, 5.5vw, 54px);
+            line-height: 1.15;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
           }
           .hero-tagline {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            color: rgba(93, 59, 54, 0.9);
-            font-size: 1.2rem;
-            font-weight: 500;
-            line-height: 1.2;
+            color: rgba(93, 59, 54, 0.95);
+            font-size: clamp(1rem, 2.8vw, 1.4rem);
+            font-weight: 600;
+            line-height: 1.25;
+            -webkit-font-smoothing: antialiased;
           }
           .hero-copy {
-            max-width: 440px;
-            color: #5f5553;
-            font-size: 0.95rem;
-            line-height: 1.58;
+            width: 100%;
+            max-width: 100%;
+            color: #4a403e;
+            font-size: 1.02rem;
+            line-height: 1.6;
+            font-weight: 450;
+            -webkit-font-smoothing: antialiased;
+          }
+          @media (min-width: 1024px) {
+            .hero-copy {
+              max-width: 540px;
+            }
           }
           .btn-explore {
             background: #521623;
             color: #ffffff;
-            padding: 14px 28px;
+            padding: 13px 26px;
             border-radius: 8px;
             font-weight: 700;
             font-size: 0.85rem;
@@ -161,6 +179,7 @@ export default function Page() {
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 14px rgba(82, 22, 35, 0.25);
@@ -171,10 +190,10 @@ export default function Page() {
             box-shadow: 0 6px 20px rgba(82, 22, 35, 0.35);
           }
           .btn-experience {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border: 1.5px solid #D4AF37;
             color: #521623;
-            padding: 14px 28px;
+            padding: 13px 26px;
             border-radius: 8px;
             font-weight: 700;
             font-size: 0.85rem;
@@ -182,6 +201,7 @@ export default function Page() {
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             transition: all 0.3s ease;
           }
@@ -190,93 +210,103 @@ export default function Page() {
             border-color: #B8860B;
             transform: translateY(-2px);
           }
-          .quick-action-bar {
-            position: fixed;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 24px;
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
-            width: 92px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px 4px;
-          }
           .hero-sunrise-wash {
-            background: linear-gradient(90deg, rgba(255,253,247,0.95) 0%, rgba(255,253,247,0.85) 45%, rgba(255,253,247,0.25) 75%, rgba(255,253,247,0.05) 100%);
+            background: linear-gradient(90deg, rgba(255,253,247,0.96) 0%, rgba(255,253,247,0.88) 45%, rgba(255,253,247,0.25) 75%, rgba(255,253,247,0.05) 100%);
           }
-          .hero-portrait {
-            width: clamp(400px, 40vw, 680px);
-            max-width: 48vw;
-            filter: drop-shadow(0 20px 18px rgba(70, 39, 20, 0.13));
-          }
-          @media (max-width: 1280px) {
-            .quick-action-bar {
-              right: 10px;
-              width: 84px;
-              padding: 8px 4px;
+          @media (max-width: 1023px) {
+            .hero-sunrise-bg {
+              background-position: 50% 100% !important;
+              background-size: cover !important;
             }
-          }
-          @media (max-width: 1024px) {
-            .quick-action-bar {
-              position: static;
-              transform: none;
-              flex-direction: row;
-              width: 100%;
-              max-width: 500px;
-              justify-content: space-around;
-              margin: 24px auto 0;
-            }
-          }
-          @media (max-width: 640px) {
             .hero-sunrise-wash {
-              background: linear-gradient(180deg, rgba(255,253,247,0.92) 0%, rgba(255,253,247,0.82) 54%, rgba(255,253,247,0.25) 100%);
+              background: linear-gradient(180deg, rgba(255,253,247,0.92) 0%, rgba(255,253,247,0.78) 32%, rgba(255,253,247,0.15) 62%, rgba(255,253,247,0.0) 100%);
+            }
+            .about-section-bg {
+              background-position: center bottom !important;
+              background-size: cover !important;
+            }
+          }
+          @media (min-width: 1024px) {
+            .quick-action-bar {
+              position: fixed;
+              right: 16px;
+              top: 50%;
+              transform: translateY(-50%);
+              z-index: 50;
+              background: rgba(255, 255, 255, 0.95);
+              backdrop-filter: blur(12px);
+              -webkit-backdrop-filter: blur(12px);
+              border: 1px solid rgba(212, 175, 55, 0.35);
+              border-radius: 24px;
+              box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+              width: 92px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 10px 4px;
+            }
+          }
+          @media (max-width: 1023px) {
+            .quick-action-bar {
+              position: fixed;
+              left: 12px;
+              right: 12px;
+              bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+              max-width: 440px;
+              margin-inline: auto;
+              z-index: 50;
+              background: rgba(255, 255, 255, 0.96);
+              backdrop-filter: blur(16px);
+              -webkit-backdrop-filter: blur(16px);
+              border: 1px solid rgba(212, 175, 55, 0.45);
+              border-radius: 9999px;
+              box-shadow: 0 10px 32px rgba(82, 22, 35, 0.18);
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-around;
+              padding: 6px 8px;
+            }
+            .quick-action-bar a {
+              flex: 1;
+              min-width: 0;
+              padding: 4px 2px !important;
+              border: none !important;
+              border-bottom: none !important;
+            }
+            .quick-action-bar a span {
+              font-size: 10px !important;
+              line-height: 1.15 !important;
+              white-space: nowrap !important;
+            }
+            .quick-action-bar a svg {
+              width: 18px !important;
+              height: 18px !important;
+              margin-bottom: 2px !important;
             }
           }
         `}</style>
 
         {/* Luminous Golden Yellow Sunrise Halo & Cloud Glow */}
         <div
-          className="hero-golden-sun-glow absolute right-8 lg:right-24 top-6 w-[520px] h-[520px] rounded-full blur-[80px] opacity-75 pointer-events-none z-0"
+          className="hero-golden-sun-glow absolute right-2 lg:right-10 xl:right-16 top-2 lg:top-6 w-[280px] sm:w-[380px] md:w-[520px] h-[280px] sm:h-[380px] md:h-[520px] rounded-full blur-[60px] md:blur-[80px] opacity-65 pointer-events-none z-0"
           style={{
-            background: "radial-gradient(circle, rgba(255, 210, 60, 0.8) 0%, rgba(245, 170, 30, 0.45) 45%, transparent 75%)",
+            background: "radial-gradient(circle, rgba(255, 210, 60, 0.75) 0%, rgba(245, 170, 30, 0.35) 45%, transparent 75%)",
           }}
         />
 
         <div className="hero-sunrise-wash absolute inset-0 pointer-events-none" />
 
-        <div className="hero-content-shell max-w-[1580px] w-full mx-auto px-6 md:px-12 py-10 lg:py-0 lg:pt-[50px] relative z-10 h-full flex items-center lg:items-start">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="container-page pt-6 sm:pt-8 lg:pt-10 lg:pb-12 pb-0 relative z-10 w-full flex items-center justify-start">
+          <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
             
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 relative z-10">
+            <div className="lg:col-span-7 space-y-5 relative z-10 pt-2 lg:pt-4">
               
-              {/* Founder Header Badge */}
-              <div className="hero-founder space-y-1">
-                <div className="flex items-center gap-2">
-                  <Heart size={18} className="text-[#C79A2E] fill-[#C79A2E]" />
-                </div>
-                <h3 className="hero-badge-title">Sadguru Sakshi Shree</h3>
-                <p className="text-xs text-amber-900/70 font-medium tracking-wide">
-                  Founder, Science Divine Foundation
-                </p>
-                <img 
-                  src="/signature.png" 
-                  alt="Sakshi Shree Signature" 
-                  className="h-10 opacity-85 object-contain pt-1"
-                />
-              </div>
-
               {/* Main Heading */}
               <h1 className="hero-main-title">
-                <span className="block text-[#521623]">Awaken the Divine Within,</span>
-                <span className="block text-[#B8860B]">Transform the World Around.</span>
+                <span className="block text-[#521623] lg:whitespace-nowrap">Awaken the Divine Within,</span>
+                <span className="block text-[#B8860B] lg:whitespace-nowrap">Transform the World Around.</span>
               </h1>
 
               {/* Subheading / Tagline */}
@@ -290,50 +320,101 @@ export default function Page() {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link href="#teachings" className="btn-explore">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full sm:w-auto">
+                <Link href="#teachings" className="btn-explore w-full sm:w-auto">
                   EXPLORE THE TEACHINGS <ArrowRight size={16} />
                 </Link>
-                <Link href="#events" className="btn-experience">
+                <Link href="#events" className="btn-experience w-full sm:w-auto">
                   JOIN AN EXPERIENCE <Calendar size={16} className="text-[#B8860B]" />
                 </Link>
               </div>
 
+              {/* Mobile Portrait attached flush to bottom edge */}
+              <div className="lg:hidden mt-8 flex flex-col items-center w-full">
+                <div className="relative max-w-[360px] sm:max-w-[440px] w-full flex flex-col items-center">
+                  <img
+                    src="/sakshi-shree-hero-portrait.png"
+                    alt="Sadguru Sakshi Shree"
+                    className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
+                  />
+                  {/* Founder Badge positioned over lower white robe */}
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/92 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-[#B8860B]/40 shadow-md flex flex-col items-center text-center w-[165px]">
+                    <div className="flex items-center gap-1">
+                      <Heart size={10} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
+                      <h4 className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
+                        Sadguru Sakshi Shree
+                      </h4>
+                    </div>
+                    <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight whitespace-nowrap">
+                      Founder, Science Divine Foundation
+                    </p>
+                    <img
+                      src="/signature.png"
+                      alt="Sakshi Shree Signature"
+                      className="h-5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
+                    />
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            {/* Right Column Spacer for Desktop */}
-            <div className="lg:col-span-5 hidden lg:block" />
+            {/* Desktop Spacer Column */}
+            <div className="lg:col-span-5 hidden lg:block" aria-hidden="true" />
 
           </div>
         </div>
 
-        {/* Right Portrait Image - Positioned with clearance from floating quick action bar */}
-        <img
-          src="/sakshi-shree-hero-portrait.png"
-          alt="Sadguru Sakshi Shree"
-          className="absolute bottom-0 right-0 lg:right-[105px] xl:right-[120px] max-h-[82%] lg:max-h-[86%] xl:max-h-[88%] lg:max-w-[460px] xl:max-w-[540px] w-auto object-contain object-bottom z-10 pointer-events-none drop-shadow-[0_16px_22px_rgba(55,35,20,0.15)] opacity-25 md:opacity-40 lg:opacity-100 transition-all duration-300"
-        />
+        {/* Desktop Portrait attached flush to section bottom with generous breathing space on the right */}
+        <div className="hidden lg:flex absolute bottom-0 right-[116px] lg:right-[124px] xl:right-[140px] 2xl:right-[168px] z-10 items-end pointer-events-none">
+          <div className="relative flex items-end max-w-[440px] xl:max-w-[500px] 2xl:max-w-[540px]">
+            <img
+              src="/sakshi-shree-hero-portrait.png"
+              alt="Sadguru Sakshi Shree"
+              className="w-full h-auto max-h-[580px] xl:max-h-[640px] 2xl:max-h-[670px] object-contain object-bottom block drop-shadow-[0_16px_24px_rgba(55,35,20,0.18)]"
+            />
+            {/* Founder Badge Attached directly over the white robe */}
+            <div className="absolute bottom-3 lg:bottom-4 left-[24%] xl:left-[26%] z-20 pointer-events-auto">
+              <div className="space-y-0.5 text-left border-b border-[#B8860B]/60 pb-1.5 w-[145px] sm:w-[155px]">
+                <div className="flex items-center gap-1">
+                  <Heart size={11} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
+                  <h4 className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
+                    Sadguru Sakshi Shree
+                  </h4>
+                </div>
+                <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight pl-0.5 whitespace-nowrap">
+                  Founder, Science Divine Foundation
+                </p>
+                <img 
+                  src="/signature.png" 
+                  alt="Sakshi Shree Signature" 
+                  className="h-6 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
-        {/* Floating Quick Actions Widget on Right Edge */}
+        {/* Floating Quick Actions Widget */}
         <div className="quick-action-bar">
           <Link href="#events" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
             <Calendar size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Attend<br/>Live Event</span>
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Attend<br className="hidden lg:block"/> Live Event</span>
           </Link>
           
           <Link href="#programs" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
             <BookOpen size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Book<br/>Session</span>
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Book<br className="hidden lg:block"/> Session</span>
           </Link>
           
           <Link href="#contact" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full border-b border-amber-100/80">
             <Mail size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Ask<br/>Question</span>
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">Ask<br className="hidden lg:block"/> Question</span>
           </Link>
           
           <Link href="#contact" className="flex flex-col items-center p-3 text-center group hover:opacity-85 transition-opacity w-full">
             <MessageCircle size={22} className="text-[#4E1321] mb-1.5 group-hover:scale-110 transition-transform" />
-            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">WhatsApp<br/>Connect</span>
+            <span className="text-[10px] font-bold text-[#4E1321] leading-tight">WhatsApp<br className="hidden lg:block"/> Connect</span>
           </Link>
         </div>
 
@@ -342,16 +423,16 @@ export default function Page() {
       {/* ════════════════════════════════════
           EXPLORE YOUR INNER JOURNEY
       ════════════════════════════════════ */}
-      <section className="py-20 px-6 relative overflow-hidden bg-[#FAF7F2]">
-        <div className="max-w-[1300px] mx-auto text-center relative z-10">
-          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E] block mb-2">
+      <section className="py-8 sm:py-10 md:py-14 lg:py-16 relative overflow-hidden bg-[#FAF7F2]">
+        <div className="container-page text-center relative z-10">
+          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E] block mb-1.5">
             EXPLORE YOUR
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#4E1321] mb-14">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#4E1321] mb-6 sm:mb-8 md:mb-10">
             Inner Journey
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 justify-items-center [&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1 lg:[&>*:last-child]:col-span-1">
             {[
               {
                 title: "Awareness",
@@ -403,13 +484,13 @@ export default function Page() {
                 href={item.href}
                 className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1.5"
               >
-                <div className="w-20 h-20 rounded-full bg-white border-2 border-[#D4AF37] shadow-md flex items-center justify-center mb-4 transition-shadow group-hover:shadow-lg group-hover:border-[#B8860B]">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white border-2 border-[#D4AF37] shadow-md flex items-center justify-center mb-3 transition-shadow group-hover:shadow-lg group-hover:border-[#B8860B]">
                   {item.icon}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-[#4E1321] mb-1 group-hover:text-[#B8860B] transition-colors">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#4E1321] mb-0.5 group-hover:text-[#B8860B] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs font-medium text-[#8B6914] mb-2">
+                <p className="text-xs font-medium text-[#8B6914] mb-1">
                   {item.subtitle}
                 </p>
                 <span className="text-xs text-[#C79A2E] transition-transform duration-300 group-hover:translate-x-1">
@@ -424,79 +505,95 @@ export default function Page() {
       {/* ════════════════════════════════════
           ABOUT SCIENCE DIVINE MOVEMENT
       ════════════════════════════════════ */}
-      {/* ════════════════════════════════════
-          ABOUT SCIENCE DIVINE MOVEMENT
-      ════════════════════════════════════ */}
-      <section className="relative overflow-hidden min-h-[620px] lg:min-h-[680px] flex items-center py-16 lg:py-20 px-4 md:px-10 bg-cover bg-center" style={{
+      <section className="about-section-bg relative overflow-hidden min-h-[540px] sm:min-h-[580px] md:min-h-[600px] lg:min-h-[640px] xl:min-h-[690px] pt-10 sm:pt-14 lg:pt-20 pb-0 lg:pb-0 bg-cover flex flex-col justify-between" style={{
         backgroundImage: "url('/about-section-bg.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center right",
+        backgroundPosition: "center center",
       }}>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fffaf2]/95 via-[#fffaf2]/80 to-transparent pointer-events-none z-0" />
+        {/* Gradient overlay — covers left/top for text readability, fades away on right/bottom */}
+        <div className="absolute inset-0 pointer-events-none z-0"
+          style={{ background: "linear-gradient(160deg, rgba(255,250,242,0.97) 0%, rgba(255,250,242,0.90) 30%, rgba(255,250,242,0.60) 55%, rgba(255,250,242,0.10) 80%, transparent 100%)" }}
+        />
         
-        <div className="max-w-[1440px] w-full mx-auto grid lg:grid-cols-12 gap-6 items-center relative z-10 h-full">
-          <div className="lg:col-span-8 space-y-5 relative z-20">
-            <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E] block">
-              ABOUT SCIENCE DIVINE
-            </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#4E1321]">
-              Science Divine Movement
-            </h2>
-            <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg max-w-2xl lg:max-w-3xl">
-              The Science Divine Movement is a global initiative helping people realize their optimum
-              potential through definite scientific techniques for sound body, sound mind, and self-realization.
-              Founded by enlightened spiritual master Sakshi Shree, it simplifies spirituality to become an
-              integral part of everyday life, freeing humanity from ideologies and belief systems that have divided us through the ages.
-            </p>
-            <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg max-w-2xl lg:max-w-3xl">
-              Our fundamental maxim is <span className="font-serif italic font-semibold text-[#8B6914] text-lg lg:text-xl">&quot;Bheetar se sanyaas, bahar se sansaar&quot;</span> – total participation in worldly life while enjoying complete inner renunciation.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/about-movement"
-                className="inline-flex items-center gap-2 font-bold text-sm text-[#4E1321] hover:text-[#B8860B] transition-colors"
-              >
-                Know Sakshi Shree <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
+        <div className="container-page pb-0 relative z-10 h-full flex flex-col justify-between flex-1">
+          <div className="grid lg:grid-cols-12 gap-8 items-start flex-1">
+            <div className="lg:col-span-7 xl:col-span-7 space-y-5 relative z-20 pb-4 lg:pb-12">
+              <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E] block">
+                ABOUT SCIENCE DIVINE
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[3.25rem] font-bold text-[#4E1321] leading-[1.12]">
+                Science Divine Movement
+              </h2>
+              <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg max-w-full lg:max-w-2xl">
+                The Science Divine Movement is a global initiative helping people realize their optimum
+                potential through definite scientific techniques for sound body, sound mind, and self-realization.
+                Founded by enlightened spiritual master Sakshi Shree, it simplifies spirituality to become an
+                integral part of everyday life, freeing humanity from ideologies and belief systems that have divided us through the ages.
+              </p>
+              <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg max-w-full lg:max-w-2xl">
+                Our fundamental maxim is <span className="font-serif italic font-semibold text-[#8B6914] text-lg lg:text-xl">&quot;Bheetar se sanyaas, bahar se sansaar&quot;</span> – total participation in worldly life while enjoying complete inner renunciation.
+              </p>
+              <div className="pt-3">
+                <Link
+                  href="/about-movement"
+                  className="inline-flex items-center gap-2 font-bold text-sm text-[#4E1321] hover:text-[#B8860B] transition-colors"
+                >
+                  Know Sakshi Shree <ArrowRight size={16} />
+                </Link>
+              </div>
 
-          {/* Desktop Spacer Column */}
-          <div className="lg:col-span-4 hidden lg:block" />
+              {/* Mobile Portrait placed cleanly below text, attached flush to section bottom edge (No text overlap) */}
+              <div className="lg:hidden mt-6 flex justify-center w-full relative z-20">
+                <img
+                  src="/about-sakshi-shree-new.png"
+                  alt="Sadguru Sakshi Shree"
+                  className="w-full max-w-[320px] sm:max-w-[380px] h-auto object-contain object-bottom block -mb-1 drop-shadow-[0_16px_28px_rgba(40,20,10,0.18)]"
+                />
+              </div>
+            </div>
+
+            {/* Desktop Spacer Column */}
+            <div className="lg:col-span-5 xl:col-span-5 hidden lg:block" />
+          </div>
         </div>
 
-        {/* Sakshi Shree Portrait Positioned Closer */}
+        {/* Desktop Portrait — absolutely positioned at bottom right */}
         <img
           src="/about-sakshi-shree-new.png"
           alt="Sadguru Sakshi Shree"
-          className="absolute bottom-0 right-0 md:right-[2%] lg:right-[4%] max-h-[96%] lg:max-h-[102%] w-auto object-contain object-bottom z-10 pointer-events-none drop-shadow-[0_20px_30px_rgba(40,20,10,0.22)]"
+          className="hidden lg:block absolute bottom-0 right-0 lg:right-10 xl:right-14
+            w-auto lg:max-w-[520px] lg:max-h-[96%]
+            xl:max-w-[600px] xl:max-h-[100%]
+            h-auto object-contain object-bottom z-10 pointer-events-none
+            drop-shadow-[0_24px_36px_rgba(40,20,10,0.18)]"
         />
       </section>
 
       {/* ════════════════════════════════════
           SOUND BODY, SOUND MIND, SELF REALIZATION
       ════════════════════════════════════ */}
-      <section className="relative z-20 pt-16 md:pt-24 pb-24 px-4 md:px-8 bg-[#FFFDF9]">
-        <div className="max-w-[1720px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      <section className="relative z-20 py-6 sm:py-8 md:py-10 lg:py-12 bg-[#FFFDF9] w-full">
+        <div className="container-page">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 w-full">
             {FEATURE_CARDS.map((p) => (
               <div
                 key={p.title}
-                className="group flex flex-col rounded-3xl p-7 md:p-9 bg-white border border-amber-100/90 shadow-[0_12px_28px_rgba(66,38,22,0.08)] hover:shadow-[0_20px_40px_rgba(66,38,22,0.15)] transition-all duration-300 hover:-translate-y-2 text-center"
+                className="group flex flex-col rounded-[2rem] p-5 sm:p-6 lg:p-7 bg-white border border-amber-200/80 shadow-[0_12px_30px_rgba(66,38,22,0.08)] hover:shadow-[0_20px_45px_rgba(66,38,22,0.15)] transition-all duration-300 hover:-translate-y-2 text-center w-full"
               >
-                <div className="h-[220px] sm:h-[240px] md:h-[260px] w-full overflow-hidden rounded-2xl bg-amber-50 mb-7 shadow-sm">
+                {/* Landscape Image Container with clean breathing space */}
+                <div className="w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl bg-amber-50 mb-5 sm:mb-6 border border-amber-200/60 shadow-xs">
                   <img
                     src={p.image}
                     alt={p.alt}
                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="flex flex-1 flex-col justify-between px-2">
+                <div className="flex flex-1 flex-col justify-between px-2 pb-2">
                   <div>
-                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#4E1321] mb-3">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#521623] mb-2.5">
                       {p.title}
                     </h3>
-                    <p className="text-base leading-relaxed text-gray-600 font-medium">
+                    <p className="text-sm sm:text-base leading-relaxed text-gray-700 font-medium max-w-sm mx-auto">
                       {p.desc}
                     </p>
                   </div>
@@ -515,40 +612,81 @@ export default function Page() {
       {/* ════════════════════════════════════
           SAKSHI SHREE QUOTE SECTION
       ════════════════════════════════════ */}
-      <section
-        className="section-pad quote-section-bg"
-      >
-        <div className="container-page">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center">
-              <div className="relative">
+      <section className="relative pt-10 sm:pt-14 md:pt-16 lg:pt-20 pb-16 sm:pb-20 md:pb-24 lg:pb-20 overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-[#FFF8EB] to-[#FFF4DE] border-y border-amber-200/60">
+        {/* Background Ambient Radial Glow */}
+        <div
+          className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none opacity-50"
+          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.22) 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-40"
+          style={{ background: "radial-gradient(circle, rgba(82,22,35,0.12) 0%, transparent 70%)" }}
+        />
+
+        <div className="container-page relative z-10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Image Column with Guru Ji Namaste Cutout */}
+            <div className="lg:col-span-5 flex justify-center items-end relative">
+              {/* Backplate Decorative Arch Frame */}
+              <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/5] rounded-[3rem] bg-gradient-to-b from-amber-100/80 via-white/90 to-amber-50/70 border border-amber-300/60 shadow-[0_20px_50px_rgba(82,22,35,0.08)] overflow-hidden flex justify-center items-end group">
                 <div
-                  className="absolute inset-0 rounded-full m-4 animate-glow-pulse"
-                  style={{
-                    background: "radial-gradient(circle, rgba(212,175,55,0.2), transparent 70%)",
-                  }}
+                  className="absolute inset-x-4 top-4 bottom-0 rounded-t-[2.5rem] pointer-events-none opacity-40"
+                  style={{ background: "radial-gradient(circle at 50% 30%, rgba(212,175,55,0.35), transparent 70%)" }}
                 />
+                
                 <img
-                  src="/about-sakshi-shree-new.png"
-                  alt="Sakshi Shree"
-                  className="relative z-10 w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4"
-                  style={{ borderColor: "#D4AF37", boxShadow: "0 0 40px rgba(212,175,55,0.3)" }}
+                  src="/guruji-namaste-new.png"
+                  alt="Sadguru Sakshi Shree Namaste"
+                  className="relative z-10 max-h-[92%] w-auto object-contain object-bottom drop-shadow-[0_16px_30px_rgba(82,22,35,0.18)] group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="text-5xl font-quote text-amber-300">"</div>
-              <blockquote className="font-quote text-2xl md:text-3xl text-gray-800 dark:text-gray-100 leading-relaxed -mt-4">
-                Your thoughts create your reality. Choose them wisely, for they hold the power to
-                design your destiny.
-              </blockquote>
-              <div className="flex items-center gap-4">
-                <div>
-                  <p className="font-display font-bold text-gray-900">Sakshi Shree</p>
-                  <p className="text-sm text-gray-500">Enlightened Spiritual Master</p>
+
+                {/* Floating Bottom Pill Badge */}
+                <div className="absolute bottom-4 z-20 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-amber-300/80 shadow-md flex items-center gap-2">
+                  <span className="text-xs font-bold text-[#521623] tracking-wide">Sadguru Sakshi Shree</span>
                 </div>
               </div>
             </div>
+
+            {/* Right Quote & Content Column */}
+            <div className="lg:col-span-7 space-y-6 text-left pl-0 lg:pl-4">
+              
+              {/* Tag Header */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-amber-300/80 bg-amber-100/70 text-[#8B6914] shadow-xs">
+                <span>Words of Divine Wisdom</span>
+              </div>
+
+              {/* Quote Card */}
+              <div className="relative bg-white/80 backdrop-blur-md p-7 sm:p-9 rounded-3xl border border-amber-200/80 shadow-xl space-y-5">
+                <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#521623] font-semibold italic leading-relaxed tracking-wide">
+                  Your thoughts create your reality. Choose them wisely, for they hold the power to design your destiny.
+                </blockquote>
+
+                <div className="pt-4 border-t border-amber-100 flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#521623]">
+                      Sakshi Shree
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#8B6914] tracking-wide">
+                      Enlightened Spiritual Master & Divine Messenger
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Link */}
+              <div className="pt-1">
+                <Link
+                  href="/about-movement"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#521623] hover:bg-[#3B0F19] active:scale-95 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all"
+                >
+                  <span>Discover Sakshi Shree's Vision</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
@@ -587,7 +725,7 @@ export default function Page() {
       ════════════════════════════════════ */}
       <section className="section-pad bg-[#FAFAFA] dark:bg-slate-900/40 border-t border-b border-gray-100 dark:border-slate-800">
         <div className="container-page">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-12">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-6 sm:mb-8 md:mb-10">
             <SectionHeading
               eyebrow="Transformative Programs"
               title="Courses by Sakshi Shree"
@@ -652,15 +790,15 @@ export default function Page() {
       {/* ════════════════════════════════════
           OUR IMPACT SECTION
       ════════════════════════════════════ */}
-      <section className="py-20 px-6 bg-[#FAF6F0] text-center border-t border-b border-amber-100/70 relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="py-10 sm:py-12 md:py-16 lg:py-20 bg-[#FAF6F0] text-center border-t border-b border-amber-100/70 relative overflow-hidden">
+        <div className="container-page">
           
           {/* Heading & Subtitle */}
-          <div className="mb-14 space-y-2">
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#521623]">
+          <div className="mb-8 sm:mb-10 md:mb-12 space-y-2">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#521623]">
               Our Impact
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 font-medium tracking-wide">
+            <p className="text-sm sm:text-base text-gray-600 font-normal tracking-wide">
               A growing movement of awareness, peace and service.
             </p>
           </div>
@@ -674,10 +812,10 @@ export default function Page() {
               { val: "25+", label: "Countries Reached" },
             ].map((item, idx) => (
               <div key={idx} className="py-6 px-4 flex flex-col items-center justify-center space-y-2">
-                <div className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#521623] tracking-tight">
-                  {item.val}
+                <div className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#521623] tracking-tight">
+                  <Counter value={item.val} duration={2500} />
                 </div>
-                <div className="text-xs sm:text-sm font-medium text-gray-600 tracking-wide">
+                <div className="text-xs sm:text-sm font-normal text-gray-600 tracking-wide">
                   {item.label}
                 </div>
               </div>
@@ -696,11 +834,11 @@ export default function Page() {
       >
         {/* Ambient Glowing Lighting Orbs */}
         <div
-          className="absolute -top-32 -right-32 w-[550px] h-[550px] rounded-full pointer-events-none"
+          className="absolute -top-16 -right-16 w-[300px] sm:w-[420px] lg:w-[550px] h-[300px] sm:h-[420px] lg:h-[550px] rounded-full pointer-events-none overflow-hidden"
           style={{ background: "radial-gradient(circle, rgba(212,175,55,0.22) 0%, transparent 70%)" }}
         />
         <div
-          className="absolute -bottom-32 -left-32 w-[550px] h-[550px] rounded-full pointer-events-none"
+          className="absolute -bottom-16 -left-16 w-[300px] sm:w-[420px] lg:w-[550px] h-[300px] sm:h-[420px] lg:h-[550px] rounded-full pointer-events-none overflow-hidden"
           style={{ background: "radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%)" }}
         />
 
@@ -712,16 +850,12 @@ export default function Page() {
             title="Empowering millions through conscious living."
             subtitle="Real stories from real people whose lives have transformed."
           />
-          <div className="mb-10">
-            <AnimatedTestimonials
-              testimonials={TESTIMONIALS.map((t) => ({
-                quote: t.quote,
-                name: t.name,
-                designation: t.role,
-                src: t.avatar,
-              }))}
-            />
+          {/* Marquee Card Testimonials */}
+          <div className="mb-12">
+            <MarqueeTestimonials />
           </div>
+
+
           {/* Video testimonials */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {TESTIMONIAL_VIDEOS.slice(0, 3).map((v) => (
@@ -746,7 +880,7 @@ export default function Page() {
       ════════════════════════════════════ */}
       <section className="section-pad" style={{ background: "#FAFAFA" }}>
         <div className="container-page">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
             <SectionHeading
               center
               eyebrow="Science Divine Foundation"
@@ -761,16 +895,16 @@ export default function Page() {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mt-6 md:mt-8">
             {/* Shiksha Sewa */}
-            <div className="card-premium rounded-2xl overflow-hidden">
-              <div className="h-52 overflow-hidden">
+            <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
+              <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
                   src="https://sciencedivine.org/wp-content/uploads/elementor/thumbs/IMG_1317-scaled-qycnje1x5jro0x3zk3hzanf2tn181d8a1m064pjdls.webp"
                   alt="Shiksha Sewa - Free Education for Underprivileged Children"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-2 mb-3">
                   <div
                     className="w-8 h-8 rounded-lg grid place-items-center"
@@ -783,7 +917,7 @@ export default function Page() {
                 <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">
                   Har Ghar Shiksha, Har Ghar Dhyan
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
                   Science Divine provides free schooling for underprivileged children, aiming to
                   shape brighter futures and break the cycle of poverty through quality education.
                 </p>
@@ -799,14 +933,14 @@ export default function Page() {
             </div>
 
             {/* Annapurna Sewa */}
-            <div className="card-premium rounded-2xl overflow-hidden">
-              <div className="h-52 overflow-hidden">
+            <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
+              <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
                   src="https://sciencedivine.org/wp-content/uploads/2024/04/IMG-20200818-WA0055.jpg"
                   alt="Annapurna Sewa - Free Meals for the Needy"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-2 mb-3">
                   <div
                     className="w-8 h-8 rounded-lg grid place-items-center"
@@ -819,7 +953,7 @@ export default function Page() {
                 <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">
                   Feeding hearts, one meal at a time
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
                   Annapurna Bhog initiative offers free meals to ensure no one goes hungry,
                   fostering unity and compassion within communities.
                 </p>
@@ -835,14 +969,14 @@ export default function Page() {
             </div>
 
             {/* Swastha Sewa */}
-            <div className="card-premium rounded-2xl overflow-hidden">
-              <div className="h-52 overflow-hidden">
+            <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
+              <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
                   src="https://sciencedivine.org/wp-content/uploads/elementor/thumbs/gospelforasia-RT18-03070-qvla74wkzfu03jfb5e7plwpddk8afeo1uqh0978hb4.jpeg"
                   alt="Swastha Sewa - Free Healthcare"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-2 mb-3">
                   <div
                     className="w-8 h-8 rounded-lg grid place-items-center"
@@ -855,7 +989,7 @@ export default function Page() {
                 <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">
                   Healthcare for all, no exceptions
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
                   Through Swastha Sewa, Science Divine provides free healthcare services, promoting
                   well-being and ensuring access to essential medical care for all.
                 </p>
@@ -873,112 +1007,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════
-          HAR GHAR SHIKSHA CAMPAIGN SHOWCASE
-      ════════════════════════════════════ */}
-      <section className="relative overflow-hidden py-20 lg:py-24 bg-gradient-to-br from-[#2B0602] via-[#4A0E08] to-[#1A0301] text-white">
-        {/* Ambient background aura */}
-        <div
-          className="absolute -top-20 -left-20 w-96 h-96 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(245,158,11,0.2) 0%, transparent 70%)" }}
-        />
-        <div
-          className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.2) 0%, transparent 70%)" }}
-        />
 
-        <div className="container-page relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-6 text-center lg:text-left space-y-6">
-              <div
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border shadow-sm"
-                style={{
-                  borderColor: "rgba(212,175,55,0.5)",
-                  color: "#FBBF24",
-                  background: "rgba(212,175,55,0.15)",
-                }}
-              >
-                <Heart size={13} className="text-amber-400 animate-pulse" />
-                <span>Har Ghar Shiksha Campaign</span>
-              </div>
-
-              <h2
-                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
-                style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}
-              >
-                Har Ghar Shiksha,{" "}
-                <span
-                  style={{
-                    background: "linear-gradient(90deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%)",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  Har Ghar Dhyan
-                </span>
-              </h2>
-
-              <p className="text-amber-100/90 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
-                Empowering futures through education and meditation. Under the compassionate guidance of{" "}
-                <strong className="text-amber-300 font-semibold">Sakshi Shree</strong>, Science Divine provides free schooling,
-                learning materials, values, and holistic grooming for underprivileged children.
-              </p>
-
-              {/* Campaign Highlights */}
-              <div className="grid grid-cols-2 gap-3 max-w-lg mx-auto lg:mx-0 pt-1 text-left">
-                <div className="p-3 rounded-2xl bg-white/5 border border-amber-400/20 backdrop-blur-sm">
-                  <div className="text-xl font-bold text-amber-300 font-serif">10,000+</div>
-                  <div className="text-xs text-amber-100/80">Children Sponsored</div>
-                </div>
-                <div className="p-3 rounded-2xl bg-white/5 border border-amber-400/20 backdrop-blur-sm">
-                  <div className="text-xl font-bold text-amber-300 font-serif">100%</div>
-                  <div className="text-xs text-amber-100/80">Free Education &amp; Kits</div>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
-                <a
-                  href={RAZORPAY_DONATION_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/25 transition-all transform hover:scale-105 active:scale-95"
-                >
-                  Donate Now
-                </a>
-                <Link
-                  href="/shiksha-sewa"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold border border-amber-300/40 text-amber-100 hover:bg-white/10 transition-colors"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Image Showcase Column (Fully visible, uncut Guru Ji & Students portrait) */}
-            <div className="lg:col-span-6 flex justify-center">
-              <div className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400/40 group bg-slate-950/40">
-                <img
-                  src="https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp"
-                  alt="Sakshi Shree with children - Har Ghar Shiksha"
-                  className="w-full h-auto max-h-[460px] object-cover object-top group-hover:scale-103 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/90 text-slate-950 font-bold text-[11px] mb-1">
-                    <Sparkles size={12} />
-                    <span>Sakshi Shree with Students</span>
-                  </div>
-                  <p className="text-xs text-amber-100/90 drop-shadow-sm">
-                    Shaping young minds into conscious, joyful human beings.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ════════════════════════════════════
           UPCOMING EVENTS
@@ -995,8 +1024,12 @@ export default function Page() {
         />
 
         <div className="container-page relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-8">
-            <SectionHeading eyebrow="Coming Up" title="Upcoming Events & Retreats" />
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-6 sm:mb-8 md:mb-10">
+            <SectionHeading
+              eyebrow="Find the Events for Conscious Awakening"
+              title="Upcoming Events"
+              subtitle="Join us at enriching events, where we seamlessly blend learning with inspiration, to foster growth and build lasting connections."
+            />
             <Link
               href="/events"
               className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap shrink-0 shadow-sm"
@@ -1004,39 +1037,72 @@ export default function Page() {
               View All Events <ArrowRight size={14} className="inline ml-1" />
             </Link>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {EVENTS.slice(0, 3).map((e, i) => (
-              <div key={i} className="card-premium rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5" style={{ background: "rgba(255, 255, 255, 0.9)", backdropFilter: "blur(10px)", border: "1px solid rgba(212,175,55,0.25)", boxShadow: "0 10px 30px rgba(15,23,42,0.04)" }}>
-                <div
-                  className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4"
-                  style={{
-                    background:
-                      (e.status as string) === "Completed" ? "#F3F4F6" : "rgba(212,175,55,0.15)",
-                    color: (e.status as string) === "Completed" ? "#6B7280" : "#92700A",
-                  }}
-                >
-                  {e.status}
+              <div
+                key={i}
+                className="card-premium rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 group"
+                style={{
+                  background: "rgba(255, 255, 255, 0.95)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(212,175,55,0.3)",
+                  boxShadow: "0 14px 36px rgba(82,22,35,0.06)",
+                }}
+              >
+                <div>
+                  {/* Event Card Image */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-amber-50">
+                    <img
+                      src={e.image}
+                      alt={e.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 z-10">
+                      <span
+                        className={`inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-wider shadow-sm uppercase ${
+                          e.status === "Completed"
+                            ? "bg-slate-900/80 text-slate-200 border border-slate-700"
+                            : "bg-amber-400/90 text-slate-950 border border-amber-300"
+                        }`}
+                      >
+                        {e.status}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Event Details */}
+                  <div className="p-6 space-y-3">
+                    <h3 className="font-serif font-bold text-[#521623] text-xl leading-tight group-hover:text-[#B8860B] transition-colors">
+                      {e.title}
+                    </h3>
+                    
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
+                      {e.description}
+                    </p>
+
+                    <div className="pt-2 space-y-2 text-xs font-medium text-gray-600 border-t border-amber-100">
+                      <div className="flex items-center gap-2 text-[#521623] font-semibold">
+                        <Calendar size={14} className="text-[#8B6914] shrink-0" />
+                        <span>{e.date} &nbsp;|&nbsp; {e.time}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-gray-500">
+                        <MapPin size={14} className="text-[#8B6914] shrink-0 mt-0.5" />
+                        <span className="line-clamp-2">{e.location}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-display font-bold text-gray-900 text-lg mb-4 leading-tight">
-                  {e.title}
-                </h3>
-                <div className="space-y-2 text-sm text-gray-500 mb-5">
-                  <div className="flex items-center gap-2">
-                    <Calendar size={13} className="text-amber-500" /> {e.date}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock size={13} className="text-amber-500" /> {e.time}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin size={13} className="text-amber-500" /> {e.location}
-                  </div>
+
+                <div className="px-6 pb-6 pt-2">
+                  <Link
+                    href={e.link}
+                    className="w-full py-2.5 rounded-full border border-amber-300/80 bg-amber-50/70 hover:bg-[#521623] text-[#521623] hover:text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                  >
+                    <span>{e.status === "Completed" ? "Event Recap" : "Learn More & Register"}</span>
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
-                <Link
-                  href="/events"
-                  className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1"
-                >
-                  Register <ArrowRight size={13} />
-                </Link>
               </div>
             ))}
           </div>
@@ -1060,27 +1126,42 @@ export default function Page() {
             title="From the Pen of Sakshi Shree"
             subtitle="Delve into profound insights and teachings. Explore mindfulness, personal growth, and spiritual enlightenment."
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {BLOG_POSTS.map((post) => (
               <a
                 key={post.title}
                 href={post.href}
                 target="_blank"
                 rel="noreferrer"
-                className="card-premium rounded-2xl p-6 group transition-all duration-300 hover:-translate-y-1.5"
-                style={{ background: "#FFFFFF", border: "1px solid rgba(212,175,55,0.2)", boxShadow: "0 10px 30px rgba(15,23,42,0.04)" }}
+                className="card-premium rounded-[1.75rem] overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-white border border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(82,22,35,0.14)]"
               >
-                <div
-                  className="w-8 h-0.5 mb-4 transition-all group-hover:w-12"
-                  style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }}
-                />
-                <h3 className="font-display font-bold text-gray-900 mb-3 leading-tight group-hover:text-amber-700 transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">{post.excerpt}</p>
-                <span className="text-xs font-semibold text-amber-600 inline-flex items-center gap-1">
-                  Read More <ArrowRight size={12} />
-                </span>
+                {/* Blog Card Image Container */}
+                <div className="w-full aspect-[16/10] overflow-hidden bg-amber-50 relative border-b border-amber-100">
+                  <img
+                    src={post.image}
+                    alt={post.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
+                </div>
+
+                <div className="p-6 flex flex-col flex-1 justify-between">
+                  <div>
+                    <div className="w-10 h-0.5 mb-3.5 transition-all group-hover:w-16 bg-gradient-to-r from-amber-500 to-amber-700" />
+                    <h3 className="font-serif text-xl font-bold text-[#521623] mb-2.5 leading-tight group-hover:text-[#B8860B] transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed mb-5 font-normal">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-amber-100/80 flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#8B6914] group-hover:text-[#521623] transition-colors inline-flex items-center gap-1.5">
+                      Read Article <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
@@ -1088,79 +1169,11 @@ export default function Page() {
       </section>
 
       {/* ════════════════════════════════════
-          JOIN COMMUNITY ,  NEWSLETTER
+          JOIN COMMUNITY ,  NEWSLETTER / EXCLUSIVE CONTENT
       ════════════════════════════════════ */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div
-            className="rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, #FFFBF0 0%, #FFF3D0 100%)",
-              border: "1px solid rgba(212,175,55,0.3)",
-            }}
-          >
-            <div
-              className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-30"
-              style={{
-                background: "radial-gradient(circle, rgba(212,175,55,0.4), transparent 70%)",
-              }}
-            />
-            <div className="relative">
-              <div
-                className="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 border"
-                style={{
-                  borderColor: "rgba(212,175,55,0.5)",
-                  color: "#92700A",
-                  background: "rgba(212,175,55,0.1)",
-                }}
-              >
-                Join the Community
-              </div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Get Access to Exclusive Content
-              </h2>
-              <p className="text-gray-600 max-w-xl mx-auto mb-8">
-                Get access to exclusive audios, videos, blogs, newsletters, and more! Subscribe now
-                to access a world of unique content, deep insights, and insider knowledge.
-              </p>
-              <form className="max-w-xl mx-auto" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid sm:grid-cols-2 gap-3 mb-3">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400"
-                    style={{ borderColor: "#E5E7EB" }}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400"
-                    style={{ borderColor: "#E5E7EB" }}
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-3 mb-5">
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400"
-                    style={{ borderColor: "#E5E7EB" }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Message (optional)"
-                    className="rounded-full border px-5 py-3 text-sm focus:outline-none focus:border-amber-400"
-                    style={{ borderColor: "#E5E7EB" }}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn-gold rounded-full px-10 py-3.5 text-sm font-semibold w-full sm:w-auto"
-                >
-                  Submit Now
-                </button>
-              </form>
-            </div>
-          </div>
+      <section className="py-10 md:py-14 bg-white">
+        <div className="container-site">
+          <ExclusiveContentCard />
         </div>
       </section>
     </>

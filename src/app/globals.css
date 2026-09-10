@@ -40,6 +40,27 @@
   --color-gold-foreground: var(--gold-foreground);
   --color-amber: var(--amber);
   --color-dark-bg: var(--dark-bg);
+
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
 }
 
 :root {
@@ -79,13 +100,14 @@
   --gold-light: #f3e5ab;
   --gold-foreground: #1a1000;
   --amber: #f59e0b;
-  --dark-bg: #0f172a;
-  --dark-surface: #1e293b;
+  --burgundy: #521623;
+  --dark-bg: #521623;
+  --dark-surface: #3b0f19;
 
   /* ── Gradients ────────────────────────────────── */
   --gradient-gold: linear-gradient(135deg, #f59e0b 0%, #d4af37 50%, #b8860b 100%);
   --gradient-gold-light: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  --gradient-dark: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  --gradient-dark: linear-gradient(180deg, #521623 0%, #3b0f19 100%);
   --gradient-hero: linear-gradient(135deg, #fffbf0 0%, #fff8e7 40%, #ffffff 100%);
   --gradient-radial-gold: radial-gradient(
     ellipse at top right,
@@ -194,7 +216,7 @@ html.dark .bg-white.rounded-xl {
 html.dark [style*="background: #0F172A"],
 html.dark [style*="background:#0F172A"],
 html.dark .dark-bg {
-  background-color: #050810 !important;
+  background-color: #3b0f19 !important;
 }
 
 /* Inline light backgrounds */
@@ -204,7 +226,7 @@ html.dark [style*="background: #fafafa"],
 html.dark [style*="background-color: #ffffff"],
 html.dark [style*="background:#ffffff"],
 html.dark [style*="background: white"] {
-  background-color: #0a0f1e !important;
+  background-color: #521623 !important;
 }
 
 /* Hero pill badges */
@@ -218,9 +240,9 @@ html.dark [style*="background: rgba(255,255,255,0.9)"] {
 html.dark input,
 html.dark textarea,
 html.dark select {
-  background-color: #1e2d45 !important;
+  background-color: #3b0f19 !important;
   color: #f1f5f9 !important;
-  border-color: #1e2d45 !important;
+  border-color: #521623 !important;
 }
 
 /* Buttons outline */
@@ -231,26 +253,33 @@ html.dark .btn-outline-gold {
 
 /* Mobile menu */
 html.dark [class*="fixed"][class*="bg-white"] {
-  background-color: #0a0f1e !important;
+  background-color: #521623 !important;
 }
 
-/* Footer stays extra dark */
+/* Footer stays burgundy */
 html.dark footer {
-  background-color: #050810 !important;
+  background-color: #3b0f19 !important;
 }
 
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     border-color: var(--color-border);
     box-sizing: border-box;
   }
   html {
+    width: 100%;
+    max-width: 100%;
     scroll-behavior: smooth;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
   }
   body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
@@ -260,6 +289,15 @@ html.dark footer {
     line-height: 1.65;
     overflow-x: hidden;
     transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+  img {
+    display: block;
   }
   /* High definition text clarity */
   p, span, h1, h2, h3, h4, h5, h6, a, button, input, label {
@@ -288,6 +326,7 @@ html.dark footer {
     color: #111827;
   }
 }
+
 
 /* ── Utility: Glass card (light) ───────────────── */
 @utility glass-card {
@@ -412,10 +451,25 @@ html.dark footer {
   }
 }
 
-@utility section-pad {
-  padding-block: 2.25rem;
+@utility container-site {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
   @media (min-width: 768px) {
-    padding-block: 3.5rem;
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility section-pad {
+  padding-block: 2.5rem;
+  @media (min-width: 768px) {
+    padding-block: 3.75rem;
+  }
+  @media (min-width: 1280px) {
+    padding-block: 4.5rem;
   }
 }
 
