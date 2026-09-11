@@ -73,17 +73,7 @@ export default function ExclusiveContentCard() {
           alt="Science Divine community practicing yoga at sunrise"
         />
 
-        {/* Top Quote Overlay */}
-        <div className="exclusive-content-quote-overlay">
-          <blockquote className="font-serif italic">
-            “Better Mind<br />&lsquo;Brighter Life&rsquo;”
-          </blockquote>
-          <div className="flex items-center justify-center gap-2 mt-1.5">
-            <div className="w-5 h-[1px] bg-[#C9910B]/60" />
-            <LotusIcon size={16} color="#C9910B" />
-            <div className="w-5 h-[1px] bg-[#C9910B]/60" />
-          </div>
-        </div>
+
 
         {/* S-Curve Curved Wave Divider */}
         <svg

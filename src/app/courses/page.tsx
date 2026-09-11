@@ -127,10 +127,10 @@ export default function Page() {
               return (
                 <div
                   key={i}
-                  className="group rounded-3xl bg-[#FFFDF9] border-2 border-[#E8C969]/40 hover:border-[#D4AF37] shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(212,175,55,0.18)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col sm:flex-row"
+                  className="group rounded-3xl bg-[#FFFDF9] border-2 border-[#E8C969]/40 hover:border-[#D4AF37] shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(212,175,55,0.18)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col sm:flex-row h-full"
                 >
                   {/* Left Column: Landscape Image filling 100% height */}
-                  <div className="relative w-full sm:w-[44%] min-h-[260px] sm:min-h-[340px] overflow-hidden flex-shrink-0 self-stretch">
+                  <div className="relative w-full sm:w-[42%] aspect-[16/10] sm:aspect-auto min-h-[220px] sm:min-h-full flex-shrink-0 self-stretch overflow-hidden bg-amber-50">
                     <img
                       src={c.image}
                       alt={c.title}

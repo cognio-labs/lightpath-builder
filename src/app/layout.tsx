@@ -49,12 +49,31 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         />
+        <link rel="preload" href="/intro-door.mp4" as="video" type="video/mp4" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var params = new URLSearchParams(window.location.search);
+                  var isForce = params.get('intro') === 'true';
+                  var hasSeen = sessionStorage.getItem('science_divine_intro_seen') === 'true';
+                  if (isForce) {
+                    document.documentElement.classList.remove('skip-intro');
+                  } else if (hasSeen) {
+                    document.documentElement.classList.add('skip-intro');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         <Providers>
           <div className="flex min-h-dvh flex-col bg-white">
             <SiteNav />
-            <main className="flex-1 pb-20 lg:pb-0">{children}</main>
+            <main className="flex-1 pb-6 lg:pb-0">{children}</main>
             <QuickActionBar />
             <SiteFooter />
             <MahaMantrasPopup />

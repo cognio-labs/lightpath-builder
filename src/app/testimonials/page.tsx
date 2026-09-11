@@ -12,7 +12,7 @@ export default function Page() {
         eyebrow="Voices"
         title={
           <>
-            Seeker{" "}
+            Transformative{" "}
             <span
               style={{
                 background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
@@ -21,21 +21,13 @@ export default function Page() {
                 color: "transparent",
               }}
             >
-              Testimonials
+              Experiences
             </span>
           </>
         }
         subtitle="Real people. Real transformations. In their own words."
       />
       <section className="py-12 bg-[#FAF7F2] border-b border-amber-200/60 overflow-hidden">
-        <div className="container-page mb-6 text-center">
-          <span className="text-xs uppercase font-bold tracking-widest text-[#8B6914] block">
-            FEATURED REVIEWS
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#521623] mt-1">
-            Transformative Experiences
-          </h2>
-        </div>
         <MarqueeTestimonials />
       </section>
 

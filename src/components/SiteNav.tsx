@@ -35,23 +35,30 @@ const aboutLinks = [
 ];
 
 const initiativeLinks = [
-  { href: "/initiatives", label: "All Initiatives", desc: "Complete overview of our social impact", icon: Globe },
-  { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen },
-  { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils },
-  { href: "/dhyan-sewa", label: "Dhyan Sewa", desc: "Meditation and inner peace programs", icon: Sparkles },
-  { href: "/har-ghar-shiksha", label: "Har Ghar Shiksha", desc: "Transforming homes through education", icon: GraduationCap },
+  { href: "/initiatives", label: "All Initiatives", desc: "Complete overview of our social impact", icon: Globe, image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=240&q=80&auto=format&fit=crop" },
+  { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen, image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=240&q=80&auto=format&fit=crop" },
+  { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils, image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=240&q=80&auto=format&fit=crop" },
+  { href: "/dhyan-sewa", label: "Dhyan Sewa", desc: "Meditation and inner peace programs", icon: Sparkles, image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=240&q=80&auto=format&fit=crop" },
 ];
 
 const practiceLinks = [
-  { href: "/meditation", label: "Meditation", icon: Headphones, desc: "Guided Sakshi Sadhna & silence" },
-  { href: "/yoga", label: "Yoga", icon: Flower2, desc: "Asanas & physical alignment" },
-  { href: "/mindfulness", label: "Mindfulness", icon: Sun, desc: "Present-moment awareness in action" },
-  { href: "/gratitude", label: "Gratitude", icon: Heart, desc: "Heart opening and appreciation" },
-  { href: "/manifestation", label: "Manifestation", icon: Sparkles, desc: "Aligning thoughts with reality" },
-  { href: "/positive-thinking", label: "Positive Thinking", icon: Smile, desc: "Rewiring mind patterns for joy" },
-  { href: "/finding-purpose", label: "Finding Purpose", icon: Compass, desc: "Discovering your divine path" },
+  { href: "/meditation", label: "Meditation", icon: Headphones, image: "https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=240&q=80&auto=format&fit=crop", desc: "Guided Sakshi Sadhna & silence" },
+  { href: "/yoga", label: "Yoga", icon: Flower2, image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=240&q=80&auto=format&fit=crop", desc: "Asanas & physical alignment" },
+  { href: "/mindfulness", label: "Mindfulness", icon: Sun, image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=240&q=80&auto=format&fit=crop", desc: "Present-moment awareness in action" },
+  { href: "/gratitude", label: "Gratitude", icon: Heart, image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=240&q=80&auto=format&fit=crop", desc: "Heart opening and appreciation" },
+  { href: "/manifestation", label: "Manifestation", icon: Sparkles, image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=240&q=80&auto=format&fit=crop", desc: "Aligning thoughts with reality" },
+  { href: "/positive-thinking", label: "Positive Thinking", icon: Smile, image: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=240&q=80&auto=format&fit=crop", desc: "Rewiring mind patterns for joy" },
+  { href: "/finding-purpose", label: "Finding Purpose", icon: Compass, image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=240&q=80&auto=format&fit=crop", desc: "Discovering your divine path" },
 ];
 
+const solutionImages: Record<string, string> = {
+  stress: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=240&q=80&auto=format&fit=crop",
+  anxiety: "https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=240&q=80&auto=format&fit=crop",
+  depression: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=240&q=80&auto=format&fit=crop",
+  parenting: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=240&q=80&auto=format&fit=crop",
+  addictions: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=240&q=80&auto=format&fit=crop",
+  overthinking: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=240&q=80&auto=format&fit=crop",
+};
 // Helper icon mapping for solutions mega menu
 const getSolutionIcon = (slug: string) => {
   switch (slug) {
@@ -67,12 +74,6 @@ const getSolutionIcon = (slug: string) => {
       return Brain;
     case "overthinking":
       return Brain;
-    case "meditation":
-      return Headphones;
-    case "manifestation":
-      return Sparkles;
-    case "finding-purpose":
-      return Compass;
     default:
       return Heart;
   }
@@ -114,24 +115,20 @@ export function SiteNav() {
 
   return (
     <header
-      className={`sticky top-0 z-[100] w-full transition-all duration-300 ${
+      className={`sticky top-0 z-[100] w-full transition-colors duration-300 py-3 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.08)] py-2"
-          : "bg-white border-b border-amber-100/90 py-3"
+          ? "bg-white/95 backdrop-blur-xl border-b border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.08)]"
+          : "bg-white border-b border-amber-100/90"
       }`}
     >
       <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between">
         
         {/* Brand Logo */}
         <Link href="/" className="flex items-center shrink-0 group py-1 mr-4 lg:mr-6 xl:mr-10">
-          <motion.img
+          <img
             src={LOGO_URL}
             alt="Science Divine Foundation"
-            className={`w-auto object-contain transition-all ${
-              scrolled ? "h-11 sm:h-12 lg:h-13" : "h-12 sm:h-14 lg:h-15"
-            }`}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
+            className="w-auto h-12 sm:h-13 lg:h-14 object-contain transition-transform duration-200 group-hover:scale-102"
           />
         </Link>
 
@@ -144,7 +141,7 @@ export function SiteNav() {
           }}
         >
           {/* Home Link */}
-          <NavItem href="/" label="Home" pathname={pathname} hoveredNav={hoveredNav} setHoveredNav={setHoveredNav} />
+          <NavItem href="/" label="Home" pathname={pathname} />
 
           {/* About Dropdown */}
           <div
@@ -155,8 +152,10 @@ export function SiteNav() {
             }}
           >
             <button
-              className={`flex items-center gap-1.5 px-3 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-all cursor-pointer relative z-10 whitespace-nowrap ${
-                pathname.startsWith("/about") ? "text-[#521623] font-bold" : "text-[#521623] hover:text-[#B8860B]"
+              className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
+                pathname.startsWith("/about") || activeDropdown === "about"
+                  ? "text-[#521623] bg-amber-100/70"
+                  : "text-[#521623] hover:text-[#B8860B] hover:bg-amber-100/50"
               }`}
               aria-expanded={activeDropdown === "about"}
             >
@@ -167,25 +166,18 @@ export function SiteNav() {
                   activeDropdown === "about" ? "rotate-180" : ""
                 }`}
               />
-              {hoveredNav === "about" && (
-                <motion.div
-                  layoutId="nav-hover-pill"
-                  className="absolute inset-0 bg-amber-100/60 rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
             </button>
 
             <AnimatePresence>
               {activeDropdown === "about" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
                   className="absolute top-full left-0 pt-2 z-50 w-72"
                 >
-                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-200/90 p-2 space-y-1">
+                  <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {aboutLinks.map((item) => {
                       const Icon = item.icon;
                       return (
@@ -193,16 +185,16 @@ export function SiteNav() {
                           key={item.href}
                           href={item.href}
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/80 transition-colors group"
+                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-amber-100/70 text-[#8B6914] flex items-center justify-center shrink-0 group-hover:bg-[#521623] group-hover:text-white transition-colors">
-                            <Icon size={16} />
+                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                            <Icon size={17} />
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-[#521623] group-hover:text-[#8B6914]">
+                            <div className="text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[11px] text-gray-500 font-medium leading-snug">
+                            <div className="text-[11px] text-amber-950/70 font-medium leading-snug mt-0.5">
                               {item.desc}
                             </div>
                           </div>
@@ -224,8 +216,10 @@ export function SiteNav() {
             }}
           >
             <button
-              className={`flex items-center gap-1.5 px-3 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-all cursor-pointer relative z-10 whitespace-nowrap ${
-                pathname.startsWith("/get-solutions-for") ? "text-[#521623] font-bold" : "text-[#521623] hover:text-[#B8860B]"
+              className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
+                pathname.startsWith("/get-solutions-for") || activeDropdown === "solutions"
+                  ? "text-[#521623] bg-amber-100/70"
+                  : "text-[#521623] hover:text-[#B8860B] hover:bg-amber-100/50"
               }`}
               aria-expanded={activeDropdown === "solutions"}
             >
@@ -236,45 +230,41 @@ export function SiteNav() {
                   activeDropdown === "solutions" ? "rotate-180" : ""
                 }`}
               />
-              {hoveredNav === "solutions" && (
-                <motion.div
-                  layoutId="nav-hover-pill"
-                  className="absolute inset-0 bg-amber-100/60 rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
             </button>
 
             <AnimatePresence>
               {activeDropdown === "solutions" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
                   className="absolute top-full -left-20 pt-2 z-50 w-[580px]"
                 >
-                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-200/90 p-5 space-y-4">
-                    <div className="flex items-center justify-between border-b border-amber-100 pb-3">
+                  <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_24px_60px_-12px_rgba(82,22,35,0.22),0_0_25px_rgba(212,175,55,0.15)] border border-amber-300/40 p-5 space-y-4 relative overflow-hidden">
+                    <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-amber-400/15 blur-2xl pointer-events-none" />
+
+                    <div className="flex items-center justify-between border-b border-amber-200/70 pb-3.5 relative z-10">
                       <div>
-                        <h4 className="font-serif font-bold text-base text-[#521623]">
+                        <h4 className="font-serif font-bold text-base text-[#521623] tracking-wide flex items-center gap-2">
+                          <Sparkles size={16} className="text-[#B8860B]" />
                           Spiritual &amp; Wellness Solutions
                         </h4>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-amber-950/70 font-medium">
                           Tailored guidance for mind, body &amp; life challenges
                         </p>
                       </div>
                       <Link
                         href="/get-solutions-for"
                         onClick={() => setActiveDropdown(null)}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-100/80 text-[#8B6914] text-xs font-bold hover:bg-[#521623] hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#551628] text-[#FFF8E8] text-xs font-bold shadow-[0_6px_16px_rgba(85,22,40,0.28)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all"
                       >
                         <span>All Solutions</span>
                         <ArrowRight size={13} />
                       </Link>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2.5 relative z-10">
                       {SOLUTION_TOPICS.map((topic) => {
                         const IconComponent = getSolutionIcon(topic.slug);
                         return (
@@ -282,19 +272,25 @@ export function SiteNav() {
                             key={topic.slug}
                             href={`/${topic.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-amber-50/80 border border-transparent hover:border-amber-200/60 transition-all group"
+                            className="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-gradient-to-r hover:from-amber-100/80 hover:to-amber-50/60 border border-amber-200/50 hover:border-amber-300/80 shadow-xs hover:shadow-md transition-all duration-200 group transform hover:-translate-y-0.5"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-amber-100/60 text-[#8B6914] flex items-center justify-center shrink-0 group-hover:bg-[#521623] group-hover:text-white transition-colors">
-                              <IconComponent size={15} />
+                            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                              <IconComponent size={16} />
                             </div>
                             <div className="min-w-0">
-                              <div className="text-xs sm:text-sm font-bold text-[#521623] group-hover:text-[#8B6914] truncate">
+                              <div className="text-xs sm:text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors truncate">
                                 {topic.title}
                               </div>
-                              <div className="text-[11px] text-gray-500 font-medium truncate leading-tight">
+                              <div className="text-[11px] text-amber-950/70 font-medium truncate leading-snug mt-0.5">
                                 {topic.tagline || "Guided wisdom & practices"}
                               </div>
                             </div>
+                            <img
+                              src={solutionImages[topic.slug]}
+                              alt=""
+                              aria-hidden="true"
+                              className="w-12 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm"
+                            />
                           </Link>
                         );
                       })}
@@ -314,8 +310,10 @@ export function SiteNav() {
             }}
           >
             <button
-              className={`flex items-center gap-1.5 px-3 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-all cursor-pointer relative z-10 whitespace-nowrap ${
-                activeDropdown === "practices" ? "text-[#521623] font-bold" : "text-[#521623] hover:text-[#B8860B]"
+              className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
+                activeDropdown === "practices"
+                  ? "text-[#521623] bg-amber-100/70"
+                  : "text-[#521623] hover:text-[#B8860B] hover:bg-amber-100/50"
               }`}
               aria-expanded={activeDropdown === "practices"}
             >
@@ -326,25 +324,18 @@ export function SiteNav() {
                   activeDropdown === "practices" ? "rotate-180" : ""
                 }`}
               />
-              {hoveredNav === "practices" && (
-                <motion.div
-                  layoutId="nav-hover-pill"
-                  className="absolute inset-0 bg-amber-100/60 rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
             </button>
 
             <AnimatePresence>
               {activeDropdown === "practices" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
                   className="absolute top-full left-0 pt-2 z-50 w-72"
                 >
-                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-200/90 p-2 space-y-0.5">
+                  <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2.5 space-y-1">
                     {practiceLinks.map((item) => {
                       const Icon = item.icon;
                       return (
@@ -352,19 +343,20 @@ export function SiteNav() {
                           key={item.href}
                           href={item.href}
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-amber-50/80 transition-colors group"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-7 h-7 rounded-md bg-amber-100/70 text-[#8B6914] flex items-center justify-center shrink-0 group-hover:bg-[#521623] group-hover:text-white transition-colors">
-                            <Icon size={14} />
+                          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] transition-all duration-200">
+                            <Icon size={15} />
                           </div>
                           <div>
-                            <div className="text-xs sm:text-sm font-bold text-[#521623] group-hover:text-[#8B6914]">
+                            <div className="text-xs sm:text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[10px] text-gray-500 font-medium leading-none">
+                            <div className="text-[10px] text-amber-950/70 font-medium leading-none mt-0.5">
                               {item.desc}
                             </div>
                           </div>
+                          <img src={item.image} alt="" aria-hidden="true" className="w-11 h-10 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
@@ -375,8 +367,8 @@ export function SiteNav() {
           </div>
 
           {/* Direct Nav Links */}
-          <NavItem href="/courses" label="Courses" pathname={pathname} hoveredNav={hoveredNav} setHoveredNav={setHoveredNav} />
-          <NavItem href="/events" label="Events" pathname={pathname} hoveredNav={hoveredNav} setHoveredNav={setHoveredNav} />
+          <NavItem href="/courses" label="Courses" pathname={pathname} />
+          <NavItem href="/events" label="Events" pathname={pathname} />
 
           {/* Initiatives Dropdown */}
           <div
@@ -387,8 +379,10 @@ export function SiteNav() {
             }}
           >
             <button
-              className={`flex items-center gap-1.5 px-3 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-all cursor-pointer relative z-10 whitespace-nowrap ${
-                pathname.startsWith("/initiatives") ? "text-[#521623] font-bold" : "text-[#521623] hover:text-[#B8860B]"
+              className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
+                pathname.startsWith("/initiatives") || activeDropdown === "initiatives"
+                  ? "text-[#521623] bg-amber-100/70"
+                  : "text-[#521623] hover:text-[#B8860B] hover:bg-amber-100/50"
               }`}
               aria-expanded={activeDropdown === "initiatives"}
             >
@@ -399,25 +393,18 @@ export function SiteNav() {
                   activeDropdown === "initiatives" ? "rotate-180" : ""
                 }`}
               />
-              {hoveredNav === "initiatives" && (
-                <motion.div
-                  layoutId="nav-hover-pill"
-                  className="absolute inset-0 bg-amber-100/60 rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
             </button>
 
             <AnimatePresence>
               {activeDropdown === "initiatives" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 4 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
                   className="absolute top-full left-0 pt-2 z-50 w-72"
                 >
-                  <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-200/90 p-2 space-y-1">
+                  <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {initiativeLinks.map((item) => {
                       const Icon = item.icon;
                       return (
@@ -425,19 +412,20 @@ export function SiteNav() {
                           key={item.href}
                           href={item.href}
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-amber-50/80 transition-colors group"
+                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-amber-100/70 text-[#8B6914] flex items-center justify-center shrink-0 group-hover:bg-[#521623] group-hover:text-white transition-colors">
-                            <Icon size={16} />
+                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                            <Icon size={17} />
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-[#521623] group-hover:text-[#8B6914]">
+                            <div className="text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[11px] text-gray-500 font-medium leading-snug">
+                            <div className="text-[11px] text-amber-950/70 font-medium leading-snug mt-0.5">
                               {item.desc}
                             </div>
                           </div>
+                          <img src={item.image} alt="" aria-hidden="true" className="w-11 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
@@ -447,30 +435,26 @@ export function SiteNav() {
             </AnimatePresence>
           </div>
 
-          <NavItem href="/contact" label="Contact" pathname={pathname} hoveredNav={hoveredNav} setHoveredNav={setHoveredNav} />
+          <NavItem href="/contact" label="Contact" pathname={pathname} />
         </nav>
 
         {/* Right CTA Action Buttons */}
         <div className="flex items-center gap-2.5 xl:gap-3.5 shrink-0 ml-4 lg:ml-6 xl:ml-10">
           {/* Donate Button */}
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-            <Link
-              href="/initiatives"
-              className="hidden md:inline-flex items-center justify-center bg-[#521623] hover:bg-[#3B0F19] text-white border border-amber-400/40 rounded-full px-5 xl:px-6 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-md hover:shadow-xl cursor-pointer whitespace-nowrap"
-            >
-              Donate
-            </Link>
-          </motion.div>
+          <Link
+            href="/initiatives"
+            className="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-[#521623] to-[#3B0F19] hover:from-[#3B0F19] hover:to-[#2A0A12] text-[#FFFDF5] border border-amber-400/40 rounded-full px-5 xl:px-6 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+          >
+            Donate
+          </Link>
 
           {/* Book Session Button */}
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-            <Link
-              href="/book-session"
-              className="hidden md:inline-flex items-center justify-center border-2 border-[#521623] text-[#521623] hover:bg-[#521623] hover:text-white rounded-full px-5 xl:px-6 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-xs hover:shadow-md cursor-pointer whitespace-nowrap"
-            >
-              Book Session
-            </Link>
-          </motion.div>
+          <Link
+            href="/book-session"
+            className="hidden md:inline-flex items-center justify-center bg-[#551628] border border-[#551628] text-[#FFF8E8] hover:bg-[#3B0F19] hover:border-[#3B0F19] rounded-full px-5 xl:px-6 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-[0_6px_16px_rgba(85,22,40,0.2)] hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+          >
+            Book Session
+          </Link>
 
           {/* Mobile Hamburger Menu Toggle */}
           <button
@@ -619,32 +603,22 @@ function NavItem({
   href,
   label,
   pathname,
-  hoveredNav,
-  setHoveredNav,
 }: {
   href: string;
   label: string;
   pathname: string;
-  hoveredNav: string | null;
-  setHoveredNav: (v: string | null) => void;
 }) {
   const isActive = pathname === href;
   return (
     <Link
       href={href}
-      onMouseEnter={() => setHoveredNav(href)}
-      className={`px-3 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-all relative z-10 whitespace-nowrap ${
-        isActive ? "text-[#521623] font-bold" : "text-[#521623] hover:text-[#B8860B]"
+      className={`px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors relative z-10 whitespace-nowrap ${
+        isActive
+          ? "text-[#521623] bg-amber-100/70 font-bold"
+          : "text-[#521623] hover:text-[#B8860B] hover:bg-amber-100/50"
       }`}
     >
       <span>{label}</span>
-      {hoveredNav === href && (
-        <motion.div
-          layoutId="nav-hover-pill"
-          className="absolute inset-0 bg-amber-100/60 rounded-full -z-10"
-          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-        />
-      )}
     </Link>
   );
 }

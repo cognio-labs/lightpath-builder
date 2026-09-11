@@ -13,7 +13,7 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
   reverse?: boolean;
   /**
    * Whether to pause the animation on hover
-   * @default false
+   * @default true
    */
   pauseOnHover?: boolean;
   /**
@@ -26,11 +26,6 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
    */
   vertical?: boolean;
   /**
-   * Number of times to repeat the content
-   * @default 4
-   */
-  repeat?: number;
-  /**
    * Animation speed variant
    * @default "normal"
    */
@@ -40,47 +35,45 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
 export function Marquee({
   className,
   reverse = false,
-  pauseOnHover = false,
+  pauseOnHover = true,
   children,
   vertical = false,
-  repeat = 5,
   speed = "normal",
   ...props
 }: MarqueeProps) {
-  const speedVariants = {
-    slow: "[--duration:120s]",
-    normal: "[--duration:40s]",
-    fast: "[--duration:10s]",
+  const durationMap = {
+    slow: "60s",
+    normal: "40s",
+    fast: "20s",
   };
+  const duration = durationMap[speed] || "40s";
 
   return (
     <div
       {...props}
       className={cn(
-        "group flex overflow-hidden p-1 [--gap:16px] [gap:var(--gap)]",
-        speedVariants[speed],
-        {
-          "flex-row": !vertical,
-          "flex-col": vertical,
-        },
-        className,
+        "group flex overflow-hidden py-3 w-full select-none relative",
+        className
       )}
     >
-      {Array(repeat)
-        .fill(0)
-        .map((_, i) => (
-          <div
-            key={i}
-            className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
-              "animate-marquee flex-row": !vertical,
-              "animate-marquee-vertical flex-col": vertical,
-              "group-hover:[animation-play-state:paused]": pauseOnHover,
-              "[animation-direction:reverse]": reverse,
-            })}
-          >
-            {children}
-          </div>
-        ))}
+      <div
+        className={cn(
+          "flex shrink-0 gap-6 w-max motion-reduce:animate-none",
+          {
+            "group-hover:[animation-play-state:paused]": pauseOnHover,
+          }
+        )}
+        style={{
+          willChange: "transform",
+          animation: `${vertical ? "marquee-vertical" : "testimonialMarquee"} ${duration} linear infinite`,
+          animationDirection: reverse ? "reverse" : "normal",
+        }}
+      >
+        {/* Track 1: Original items */}
+        <div className="flex gap-6 shrink-0">{children}</div>
+        {/* Track 2: Duplicated items for a mathematically perfect -50% loop */}
+        <div className="flex gap-6 shrink-0" aria-hidden="true">{children}</div>
+      </div>
     </div>
   );
 }

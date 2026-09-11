@@ -40,7 +40,6 @@ export function SiteFooter() {
               { to: "/about-movement", label: "About Us" },
               { to: "/about-sakshi-shree", label: "About Sakshi Shree" },
               { to: "/contact", label: "Contact" },
-              { to: "/har-ghar-shiksha", label: "Young Mind Movement" },
               { to: "/shiksha-sewa", label: "Project Shiksha Sewa" },
               { to: "/events", label: "Events" },
               { to: "/courses", label: "Courses" },

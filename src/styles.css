@@ -361,6 +361,10 @@ html.dark footer {
   font-weight: 600;
   transition: var(--transition-smooth);
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   &:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-gold);
@@ -374,6 +378,10 @@ html.dark footer {
   font-weight: 600;
   transition: var(--transition-smooth);
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   &:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-gold);
@@ -387,6 +395,10 @@ html.dark footer {
   font-weight: 600;
   transition: var(--transition-smooth);
   background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   &:hover {
     background: rgba(212, 175, 55, 0.08);
     border-color: #b8860b;
@@ -398,6 +410,10 @@ html.dark footer {
   border: 1.5px solid rgba(212, 175, 55, 0.5);
   color: #92700a;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   transition: var(--transition-smooth);
   &:hover {
     background: rgba(212, 175, 55, 0.08);
@@ -582,8 +598,31 @@ html.dark footer {
 .animate-fade-in {
   animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - var(--gap, 16px)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100% - var(--gap, 16px)));
+  }
+}
+
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee var(--duration, 35s) linear infinite;
+  will-change: transform;
+}
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 35s) linear infinite;
+  will-change: transform;
 }
 .typewriter-gold {
   display: inline-block;

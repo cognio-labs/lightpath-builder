@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
-import { X, ShoppingBag, Sparkles, BookOpen } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { X, Sparkles, BookOpen, ArrowRight, Eye, Infinity } from "lucide-react";
 
 export function MahaMantrasPopup() {
   const [open, setOpen] = useState(false);
@@ -20,20 +20,20 @@ export function MahaMantrasPopup() {
       setIsExiting(false);
       setProgressKey((prev) => prev + 1);
 
-      // 1. Visible for 8 seconds
+      // 1. Visible for 10 seconds
       hideTimer = setTimeout(() => {
         setIsExiting(true);
         setTimeout(() => {
           setOpen(false);
 
-          // 2. Hide for 8 seconds, then show again
+          // 2. Hide for 12 seconds, then show again
           showTimer = setTimeout(() => {
             if (!sessionStorage.getItem("mm-dismissed")) {
               startCycle();
             }
-          }, 8000);
+          }, 12000);
         }, 400);
-      }, 8000);
+      }, 10000);
     };
 
     // Initial show after 1.5s
@@ -61,19 +61,31 @@ export function MahaMantrasPopup() {
 
   return (
     <aside
-      aria-label="Book Announcement"
-      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 max-w-[calc(100vw-32px)] sm:max-w-[330px] pointer-events-auto transition-all duration-400 ${
-        isExiting ? "opacity-0 translate-y-4 scale-95 pointer-events-none" : "animate-fade-in opacity-100 translate-y-0 scale-100"
+      aria-label="New Book Release Announcement"
+      className={`fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-[110] w-[calc(100vw-24px)] sm:w-[380px] max-w-[380px] pointer-events-auto transition-all duration-400 ease-out select-none ${
+        isExiting
+          ? "opacity-0 translate-y-4 scale-95 pointer-events-none"
+          : "opacity-100 translate-y-0 scale-100"
       }`}
     >
-      <div className="bg-white/95 dark:bg-[#3b0f19]/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-amber-300/80 dark:border-amber-700/60 text-[#521623] dark:text-amber-100 font-sans flex flex-col gap-2 relative overflow-hidden">
-        {/* Animated 8-Second Progress Countdown Bar */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-amber-100 dark:bg-amber-950">
+      {/* Outer ambient golden halo glow */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-[#D4AF37]/25 via-[#F59E0B]/30 to-[#D4AF37]/25 rounded-2xl blur-md pointer-events-none" />
+
+      {/* Luxury Sacred Card Container */}
+      <div
+        className="relative rounded-2xl border-[1.5px] border-[#E5C16C]/85 shadow-[0_16px_36px_rgba(0,0,0,0.6),0_0_20px_rgba(212,175,55,0.2)] overflow-hidden text-white backdrop-blur-xl"
+        style={{
+          background:
+            "radial-gradient(ellipse at 85% 20%, #2D0B19 0%, #1A050F 55%, #100208 100%)",
+        }}
+      >
+        {/* Animated Countdown Progress Bar */}
+        <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-amber-950/40 z-30">
           <div
             key={progressKey}
-            className="h-full bg-gradient-to-r from-amber-400 to-yellow-500"
+            className="h-full bg-gradient-to-r from-[#FDE68A] via-[#F59E0B] to-[#D97706]"
             style={{
-              animation: "shrinkBar 8s linear forwards",
+              animation: "shrinkBar 10s linear forwards",
             }}
           />
         </div>
@@ -85,48 +97,88 @@ export function MahaMantrasPopup() {
           }
         `}</style>
 
-        {/* Close button */}
+        {/* Close Button */}
         <button
           onClick={close}
-          className="absolute top-2.5 right-2.5 p-1 rounded-full text-amber-700 hover:text-[#521623] dark:text-amber-300 dark:hover:text-white hover:bg-amber-100 dark:hover:bg-amber-900/60 transition-colors"
+          className="absolute top-2 right-2 w-5.5 h-5.5 rounded-full bg-black/40 hover:bg-[#D4AF37] border border-[#E5C16C]/40 text-amber-200 hover:text-[#2E0D1A] flex items-center justify-center transition-all duration-200 shadow-xs z-30 cursor-pointer"
           aria-label="Close Announcement"
         >
-          <X size={14} />
+          <X size={12} strokeWidth={2.2} />
         </button>
 
-        {/* Header & Title */}
-        <div className="flex items-center gap-2 pr-6">
-          <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-400 grid place-items-center text-[#521623] shrink-0 shadow-sm">
-            <BookOpen size={14} />
+        {/* Card Content: Taller Book + Detailed Info */}
+        <div className="flex items-center p-3 sm:p-3.5 pt-3.5 sm:pt-4 gap-2.5">
+          {/* Left: Taller 3D Book on Altar */}
+          <div className="w-[110px] sm:w-[118px] shrink-0 flex items-center justify-center">
+            <img
+              src="/maha-mantras-book-left.png"
+              alt="Maha Mantras Book by Sakshi Shree"
+              className="w-full h-auto max-h-[148px] sm:max-h-[156px] object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.65)]"
+            />
           </div>
-          <div>
-            <span className="flex items-center text-[9px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
-              <span>New Book Release</span>
-            </span>
-            <h4 className="font-serif font-bold text-[12.5px] sm:text-[13px] text-[#521623] dark:text-white leading-tight">
-              Maha Mantras by Sakshi Shree
-            </h4>
-          </div>
-        </div>
 
-        {/* Quick Action Button */}
-        <div className="flex items-center justify-between gap-2 pt-1 border-t border-amber-100/80 dark:border-amber-900/60">
-          <span className="text-[10.5px] text-amber-800 dark:text-amber-200 font-medium truncate">
-            Ancient divine wisdom
-          </span>
-          <a
-            href="https://amzn.in/d/0cR0rBnu"
-            target="_blank"
-            rel="noreferrer"
-            onClick={close}
-            className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-[#521623] rounded-full px-3 py-1 text-[10.5px] font-bold shadow-sm active:scale-95 transition-all shrink-0"
-          >
-            <ShoppingBag size={11} />
-            <span>Book Now</span>
-          </a>
+          {/* Right: Info & Actions */}
+          <div className="flex-1 min-w-0 pr-2 flex flex-col justify-between gap-1.5">
+            {/* Tag Badge */}
+            <div className="flex items-center">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#4E1423]/90 border border-[#D4AF37]/60 text-[8px] font-bold uppercase tracking-wider text-[#FDE68A]">
+                <BookOpen size={9} className="text-[#F3CE6E]" />
+                New Release
+              </span>
+            </div>
+
+            {/* Title & Author */}
+            <div>
+              <h3 className="font-serif text-[17px] sm:text-[18px] font-bold leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#FFF2CC] via-[#F5D580] to-[#E5AC3A]">
+                Maha Mantras
+              </h3>
+              <p className="font-serif italic text-amber-100/90 text-[11px] leading-tight pt-0.5">
+                by <span className="font-medium text-amber-50">Sakshi Shree</span>
+              </p>
+            </div>
+
+            {/* Short Sacred Quote */}
+            <p className="text-[9.5px] text-amber-100/75 italic leading-tight line-clamp-2">
+              Ancient divine wisdom for inner peace, clarity &amp; destiny.
+            </p>
+
+            {/* 3 Sacred Benefit Badges */}
+            <div className="flex items-center gap-1.5 py-0.5 border-y border-amber-500/20 text-[8px] font-medium text-amber-200/90">
+              <span className="flex items-center gap-0.5">
+                <span className="text-[#F3CE6E] text-[9px]">🪷</span> Peace
+              </span>
+              <span className="text-amber-500/40">•</span>
+              <span className="flex items-center gap-0.5">
+                <Eye size={9} className="text-[#F3CE6E]" /> Clarity
+              </span>
+              <span className="text-amber-500/40">•</span>
+              <span className="flex items-center gap-0.5">
+                <Infinity size={9} className="text-[#F3CE6E]" /> Destiny
+              </span>
+            </div>
+
+            {/* CTA Row */}
+            <div className="flex items-center justify-between gap-1 pt-0.5">
+              <span className="text-[9px] font-bold text-[#F3CE6E] flex items-center gap-0.5">
+                <Sparkles size={8.5} className="text-[#FDE68A]" />
+                Available Now
+              </span>
+              <a
+                href="https://amzn.in/d/0cR0rBnu"
+                target="_blank"
+                rel="noreferrer"
+                onClick={close}
+                className="inline-flex items-center justify-center gap-1 bg-gradient-to-r from-[#D7A316] via-[#F7D272] to-[#C98B28] hover:from-[#F7D272] hover:to-[#D7A316] text-[#350C17] rounded-full px-3 py-1 text-[10px] sm:text-[10.5px] font-extrabold shadow-[0_2px_8px_rgba(212,175,55,0.35)] hover:scale-105 active:scale-95 transition-all duration-200 group cursor-pointer"
+              >
+                <span>Order Now</span>
+                <ArrowRight size={10} className="transition-transform group-hover:translate-x-0.5" strokeWidth={2.5} />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </aside>
   );
 }
 
+export default MahaMantrasPopup;

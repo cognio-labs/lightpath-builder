@@ -29,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sanjeevni-kriya",
     "/events",
     "/initiatives",
-    "/har-ghar-shiksha",
     "/book-session",
     "/testimonials",
     "/shop",

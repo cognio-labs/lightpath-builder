@@ -41,55 +41,6 @@ export const SOLUTION_TOPICS = [
     intro:
       "The mind loops when it lacks direction. Learn to witness thoughts without being consumed by them, and reclaim mental space.",
   },
-  {
-    slug: "meditation",
-    title: "Meditation",
-    tagline: "Start Meditating Today: A Guide to Health and Happiness",
-    intro:
-      "Meditation is not escape, it is the direct path to knowing yourself. Begin today with time-tested techniques.",
-  },
-  {
-    slug: "manifestation",
-    title: "Manifestation",
-    tagline: "Manifest Your Success: Unleash Your Potential",
-    intro:
-      "Consciousness shapes reality. When intention, emotion, and action align, the universe conspires to deliver.",
-  },
-  {
-    slug: "finding-purpose",
-    title: "Finding Purpose",
-    tagline: "Finding Your Purpose: A Journey to Self-Discovery",
-    intro:
-      "Purpose is discovered, not decided. Turn inward and let your true calling emerge naturally.",
-  },
-  {
-    slug: "yoga",
-    title: "Yoga",
-    tagline: "Easy Yoga for Everyday Peace",
-    intro:
-      "Yoga is union, of body, breath, and being. Simple asanas practiced daily transform how you inhabit your life.",
-  },
-  {
-    slug: "gratitude",
-    title: "Gratitude",
-    tagline: "Finding Light in the Storm: The Transformative Power of Gratitude",
-    intro:
-      "Gratitude rewires perception. It shifts you from what's missing to what's already miraculous.",
-  },
-  {
-    slug: "mindfulness",
-    title: "Mindfulness",
-    tagline: "Unlock the Mind's True Potential",
-    intro:
-      "Mindfulness is presence, the art of being fully here. It is the doorway to everything spirituality promises.",
-  },
-  {
-    slug: "positive-thinking",
-    title: "Positive Thinking",
-    tagline: "The Power of Positive Thinking",
-    intro:
-      "Positive thinking is not denial, it's the disciplined choice to focus on what serves your highest good.",
-  },
 ] as const;
 
 export type SolutionSlug = (typeof SOLUTION_TOPICS)[number]["slug"];

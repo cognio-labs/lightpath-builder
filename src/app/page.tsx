@@ -12,6 +12,8 @@ import GlareHover from "@/components/ui/GlareHover";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
 import ExclusiveContentCard from "@/components/ExclusiveContentCard";
 import MarqueeTestimonials from "@/components/ui/marquee-card";
+import { TestimonialMarquee } from "@/components/marquee";
+import CinematicIntro from "@/components/CinematicIntro";
 import {
   COURSES,
   EVENTS,
@@ -47,22 +49,22 @@ const BLOG_POSTS = [
     title: "Is the Law of Attraction a Myth?",
     href: "https://sciencedivine.org/power-of-law-of-attraction/",
     excerpt: "A scientific and spiritual look at manifestation and intention.",
-    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
-    alt: "Law of attraction - cosmic energy manifestation and golden light",
+    image: "/law-of-attraction.png",
+    alt: "Law of attraction - intentions journal and manifestation desk at sunset",
   },
   {
     title: "Power Of Spirituality In Self Discovery",
     href: "https://sciencedivine.org/power-of-spirituality-in-self-discovery/",
     excerpt: "How spiritual practices unlock your deepest potential.",
-    image: "https://images.unsplash.com/photo-1499209974431-9dac3cea0047?auto=format&fit=crop&w=800&q=80",
-    alt: "Power of spirituality in self discovery - serene sunrise mountain lake",
+    image: "/spirituality-self-discovery.png",
+    alt: "Power of spirituality in self discovery - meditation by serene lake at sunrise",
   },
   {
     title: "Master Your Own Fate",
     href: "https://sciencedivine.org/master-your-own-fate/",
     excerpt: "Taking conscious control of your destiny through awareness.",
-    image: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80",
-    alt: "Master your own fate - golden path leading to bright future sunrise",
+    image: "/master-your-own-fate.jpg",
+    alt: "Master your own fate - scenic sunrise mountain overview with compass",
   },
   {
     title: "Easy Habits That Can Change Your Life In a Month",
@@ -119,6 +121,7 @@ function LotusIcon({ size = 20, color = "#C9910B", className = "" }: { size?: nu
 export default function Page() {
   return (
     <>
+      <CinematicIntro />
       {/* ════════════════════════════════════
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
@@ -341,21 +344,21 @@ export default function Page() {
                     alt="Sadguru Sakshi Shree"
                     className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
                   />
-                  {/* Founder Badge positioned over lower white robe, clear of hand */}
-                  <div className="absolute bottom-1.5 left-[32%] sm:left-[34%] -translate-x-1/2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-xl border border-[#B8860B]/40 shadow-md flex flex-col items-center text-center w-[155px]">
-                    <div className="flex items-center gap-1">
-                      <Heart size={10} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
-                      <h4 className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
+                  {/* Founder Badge staying strictly on white cloth, never touching background, text 100% inside card */}
+                  <div className="absolute bottom-2.5 left-[10%] sm:left-[12%] z-20 bg-white/95 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-[#B8860B]/40 shadow-md flex flex-col items-start text-left w-[124px] overflow-hidden">
+                    <div className="flex items-center gap-1 w-full">
+                      <Heart size={8.5} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
+                      <h4 className="font-serif text-[9.5px] font-bold text-[#521623] leading-tight truncate">
                         Sadguru Sakshi Shree
                       </h4>
                     </div>
-                    <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight whitespace-nowrap">
+                    <p className="text-[7px] text-amber-950/85 font-semibold tracking-tight leading-tight pt-0.5 truncate w-full">
                       Founder, Science Divine Foundation
                     </p>
                     <img
                       src="/signature.png"
                       alt="Sakshi Shree Signature"
-                      className="h-4.5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
+                      className="h-3.5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-95"
                     />
                   </div>
                 </div>
@@ -606,25 +609,19 @@ export default function Page() {
         <div className="container-page relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-            {/* Left Image Column with Guru Ji Namaste Cutout */}
+            {/* Left Image Column with Sadguru Sakshi Shree Photo */}
             <div className="lg:col-span-5 flex justify-center items-end relative">
               {/* Backplate Decorative Arch Frame */}
-              <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/5] rounded-[3rem] bg-gradient-to-b from-amber-100/80 via-white/90 to-amber-50/70 border border-amber-300/60 shadow-[0_20px_50px_rgba(82,22,35,0.08)] overflow-hidden flex justify-center items-end group">
+              <div className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[520px] aspect-[3/4] rounded-[3.5rem] bg-gradient-to-b from-amber-100/90 via-white/90 to-amber-50/80 border border-amber-300/60 shadow-[0_25px_60px_rgba(82,22,35,0.12)] flex justify-center items-end group pt-6 sm:pt-8 pb-1 px-4 overflow-hidden">
                 <div
-                  className="absolute inset-x-4 top-4 bottom-0 rounded-t-[2.5rem] pointer-events-none opacity-40"
+                  className="absolute inset-x-4 top-4 bottom-0 rounded-t-[3rem] pointer-events-none opacity-40"
                   style={{ background: "radial-gradient(circle at 50% 30%, rgba(212,175,55,0.35), transparent 70%)" }}
                 />
-
                 <img
                   src="/guruji-namaste-new.png"
-                  alt="Sadguru Sakshi Shree Namaste"
-                  className="relative z-10 max-h-[92%] w-auto object-contain object-bottom drop-shadow-[0_16px_30px_rgba(82,22,35,0.18)] group-hover:scale-105 transition-transform duration-700"
+                  alt="Sadguru Sakshi Shree"
+                  className="relative z-10 w-full h-full max-h-[96%] object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.03]"
                 />
-
-                {/* Floating Bottom Pill Badge */}
-                <div className="absolute bottom-4 z-20 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-amber-300/80 shadow-md flex items-center gap-2">
-                  <span className="text-xs font-bold text-[#521623] tracking-wide">Sadguru Sakshi Shree</span>
-                </div>
               </div>
             </div>
 
@@ -639,7 +636,7 @@ export default function Page() {
               {/* Quote Card */}
               <div className="relative bg-white/80 backdrop-blur-md p-7 sm:p-9 rounded-3xl border border-amber-200/80 shadow-xl space-y-5">
                 <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#521623] font-semibold italic leading-relaxed tracking-wide">
-                  Your thoughts create your reality. Choose them wisely, for they hold the power to design your destiny.
+                  &ldquo;Your thoughts create your reality. Choose them wisely, for they hold the power to design your destiny.&rdquo;
                 </blockquote>
 
                 <div className="pt-4 border-t border-amber-100 flex flex-wrap items-center justify-between gap-4">
@@ -675,13 +672,14 @@ export default function Page() {
           RECOGNIZED BY LEADERS & MEDIA
       ════════════════════════════════════ */}
       <section className="section-pad bg-[#FFFDF9] border-b border-amber-200/50">
-        <div className="container-page">
+        <div className="container-page space-y-10">
           <SectionHeading
             center
             eyebrow="Recognition"
             title="Recognized by Top Leaders & Media"
-            subtitle="Sakshi Shree has shared his wisdom with heads of state, ministers, scholars, and leaders across the globe."
           />
+
+          {/* Leaders Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {LEADERS.map((l) => (
               <div key={l.name} className="card-premium rounded-2xl overflow-hidden group">
@@ -697,6 +695,90 @@ export default function Page() {
               </div>
             ))}
           </div>
+
+          {/* Newspaper Media Cards – Horizontal Carousel */}
+          <div className="pt-6 border-t border-amber-200/50">
+            <div className="relative">
+              {/* Left Arrow */}
+              <button
+                onClick={() => {
+                  const el = document.getElementById("news-carousel");
+                  if (el) el.scrollBy({ left: -320, behavior: "smooth" });
+                }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 rounded-full bg-white border border-amber-300 shadow-md flex items-center justify-center hover:bg-amber-50 hover:shadow-lg transition-all duration-200 group"
+                aria-label="Previous"
+              >
+                <svg className="w-5 h-5 text-[#521623] group-hover:text-[#B8860B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Scrollable Cards Row */}
+              <div
+                id="news-carousel"
+                className="flex gap-4 overflow-x-auto scroll-smooth pb-2 px-1"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {[
+                  {
+                    outlet: "Page 3 News",
+                    date: "July 10, 2024",
+                    image: "/media/page3-news.png",
+                  },
+                  {
+                    outlet: "Dainik Bhaskar",
+                    date: "July 23, 2024",
+                    image: "/media/dainik-bhaskar-guru-purnima.png",
+                  },
+                  {
+                    outlet: "Dainik Bhaskar",
+                    date: "December 13, 2021",
+                    image: "/media/dainik-bhaskar-shiksha-seva.png",
+                  },
+                  {
+                    outlet: "Science Divine",
+                    date: "July 13, 2024",
+                    image: "/media/news-meditation-workshop.png",
+                  },
+                  {
+                    outlet: "Science Divine",
+                    date: "July 26, 2024",
+                    image: "/media/news-guru-purnima-event.png",
+                  },
+                ].map((news, idx) => (
+                  <div
+                    key={idx}
+                    className="card-premium rounded-2xl overflow-hidden bg-white border border-amber-200/80 shadow-sm hover:shadow-lg transition-all duration-300 group flex-none"
+                    style={{ width: "calc(25% - 18px)", minWidth: "220px" }}
+                  >
+                    {/* Image — same aspect-[4/3] as leader cards */}
+                    <div className="aspect-[4/3] bg-[#FAF7F2] relative overflow-hidden flex items-center justify-center p-2">
+                      <img
+                        src={news.image}
+                        alt={news.outlet}
+                        loading="lazy"
+                        className="w-full h-full object-contain rounded-lg transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => {
+                  const el = document.getElementById("news-carousel");
+                  if (el) el.scrollBy({ left: 320, behavior: "smooth" });
+                }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 rounded-full bg-white border border-amber-300 shadow-md flex items-center justify-center hover:bg-amber-50 hover:shadow-lg transition-all duration-200 group"
+                aria-label="Next"
+              >
+                <svg className="w-5 h-5 text-[#521623] group-hover:text-[#B8860B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -705,18 +787,13 @@ export default function Page() {
       ════════════════════════════════════ */}
       <section className="section-pad bg-[#FFFBF2] border-b border-amber-200/50">
         <div className="container-page">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-6 sm:mb-8 md:mb-10">
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
             <SectionHeading
+              center
               eyebrow="Transformative Programs"
               title="Courses by Sakshi Shree"
               subtitle="Four foundational programs that thousands have used to reshape their inner life."
             />
-            <Link
-              href="/courses"
-              className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap shrink-0"
-            >
-              All Courses <ArrowRight size={14} className="inline ml-1" />
-            </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {COURSES.map((c) => (
@@ -764,6 +841,16 @@ export default function Page() {
               </GlareHover>
             ))}
           </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/courses"
+              className="btn-outline-gold rounded-full px-7 py-3 text-sm font-semibold inline-flex items-center gap-2 shadow-md bg-white/90 backdrop-blur-sm transition-all hover:scale-105"
+            >
+              <span>View All Courses</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -788,7 +875,7 @@ export default function Page() {
             {[
               { val: "50+", label: "Seva Initiatives" },
               { val: "1M+", label: "Lives Touched" },
-              { val: "500+", label: "Events Conducted" },
+              { val: "700+", label: "Events Conducted" },
               { val: "25+", label: "Countries Reached" },
             ].map((item, idx) => (
               <div key={idx} className="py-6 px-4 flex flex-col items-center justify-center space-y-2">
@@ -826,19 +913,30 @@ export default function Page() {
 
         <div className="container-page relative z-10">
           <SectionHeading
-            eyebrow="Voices"
             title="Empowering millions through conscious living."
             subtitle="Real stories from real people whose lives have transformed."
           />
-          {/* Marquee Card Testimonials */}
-          <div className="mb-12">
-            <MarqueeTestimonials />
+
+
+          {/* ── Premium Infinite Testimonials Marquee ── */}
+          <div className="mb-14">
+            <TestimonialMarquee
+              testimonials={[
+                { quote: "Sakshi Shree's guidance changed how I see my anxiety. I finally feel completely free, grounded, and focused in life.",       author: "Sanaya Aggarwal",    role: "Student & Practitioner",   avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" },
+                { quote: "The scientific approach of Sakshi Sadhna transformed both my high-stress medical profession and my inner well-being.",        author: "Dr. Rajesh Verma",   role: "Senior Cardiologist",      avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&q=80" },
+                { quote: "Total participation in worldly life with complete inner peace — Sakshi Shree's teachings are pure gold for modern seekers.", author: "Priya Sharma",       role: "Enterprise Architect",     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" },
+                { quote: "Every teaching of Sakshi Shree has a scientific basis. I use these practices daily to lead my team with calm and clarity.",  author: "Amit Sharma",        role: "Technology Consultant",    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" },
+                { quote: "The Inner Cleansing Kriya revitalized my energy and brought lasting emotional healing into my everyday routine.",            author: "Neha Kapoor",        role: "Wellness Practitioner",    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=80" },
+                { quote: "Meditation techniques here provide unmatched mental poise and calm even during the most intense professional challenges.",    author: "Arjun Mehta",        role: "Business Professional",    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80" },
+                { quote: "Spiritual grounding cleared my mental clutter completely. My creativity now flows effortlessly and abundantly every day.",   author: "Riya Malhotra",      role: "Creative Director",        avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80" },
+                { quote: "Practicing Mind Power Meditation helped me overcome burnout and discover the clarity I needed in both work and personal life.",author: "Vivek Singh",        role: "Senior Manager",           avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" },
+              ]}
+            />
           </div>
 
-
           {/* Video testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {TESTIMONIAL_VIDEOS.slice(0, 3).map((v) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10">
+            {TESTIMONIAL_VIDEOS.slice(0, 6).map((v) => (
               <div key={v.id} className="rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1.5 border border-white/80">
                 <YouTubeThumb id={v.id} title={v.title} />
               </div>
@@ -867,12 +965,6 @@ export default function Page() {
               title="Our Initiatives"
               subtitle="Enriching Lives Through Compassionate Initiatives ,  Empowering Education, Nourishing Communities, and Ensuring Health Equity."
             />
-            <Link
-              href="/initiatives"
-              className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold inline-flex items-center gap-2"
-            >
-              Know More <ArrowRight size={14} />
-            </Link>
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mt-6 md:mt-8">
@@ -905,7 +997,7 @@ export default function Page() {
                   href={RAZORPAY_DONATION_LINK}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
                 </a>
@@ -941,7 +1033,7 @@ export default function Page() {
                   href={RAZORPAY_DONATION_LINK}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
                 </a>
@@ -977,17 +1069,25 @@ export default function Page() {
                   href={RAZORPAY_DONATION_LINK}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold inline-block"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
                 </a>
               </div>
             </div>
           </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/initiatives"
+              className="btn-outline-gold rounded-full px-7 py-3 text-sm font-semibold inline-flex items-center gap-2 shadow-md bg-white/90 backdrop-blur-sm transition-all hover:scale-105"
+            >
+              <span>Explore All Initiatives</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
         </div>
       </section>
-
-
 
       {/* ════════════════════════════════════
           UPCOMING EVENTS
@@ -1004,18 +1104,13 @@ export default function Page() {
         />
 
         <div className="container-page relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-6 sm:mb-8 md:mb-10">
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
             <SectionHeading
+              center
               eyebrow="Find the Events for Conscious Awakening"
               title="Upcoming Events"
               subtitle="Join us at enriching events, where we seamlessly blend learning with inspiration, to foster growth and build lasting connections."
             />
-            <Link
-              href="/events"
-              className="btn-outline-gold rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap shrink-0 shadow-sm"
-            >
-              View All Events <ArrowRight size={14} className="inline ml-1" />
-            </Link>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1086,6 +1181,16 @@ export default function Page() {
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/events"
+              className="btn-outline-gold rounded-full px-7 py-3 text-sm font-semibold inline-flex items-center gap-2 shadow-md bg-white/90 backdrop-blur-sm transition-all hover:scale-105"
+            >
+              <span>View All Events</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1145,15 +1250,18 @@ export default function Page() {
               </a>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ════════════════════════════════════
-          JOIN COMMUNITY ,  NEWSLETTER / EXCLUSIVE CONTENT
-      ════════════════════════════════════ */}
-      <section className="py-10 md:py-14 bg-white">
-        <div className="container-site">
-          <ExclusiveContentCard />
+          <div className="text-center mt-10">
+            <a
+              href="https://sciencedivine.org/blog"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-outline-gold rounded-full px-7 py-3 text-sm font-semibold inline-flex items-center gap-2 shadow-md bg-white/90 backdrop-blur-sm transition-all hover:scale-105"
+            >
+              <span>Read All Articles &amp; Wisdom</span>
+              <ArrowRight size={15} />
+            </a>
+          </div>
         </div>
       </section>
     </>

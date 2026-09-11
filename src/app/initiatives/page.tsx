@@ -167,24 +167,16 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Right Hero Image Card */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+            {/* Right Hero Image (Frameless, blending with background) */}
+            <div className="lg:col-span-5 flex justify-center items-center relative">
+              <div className="relative w-full max-w-lg group">
+                {/* Ambient Soft Glow background blending */}
+                <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#F59E0B]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <img
-                  src="https://sciencedivine.org/wp-content/uploads/2025/03/AAP_0044-1-1.webp"
+                  src="/initiatives.png"
                   alt="Science Divine Initiatives"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  className="relative z-10 w-full h-auto rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FFF4CF] backdrop-blur-md text-[11px] font-bold text-[#521623] mb-1 border border-[#E8C969]">
-                    <Sparkles size={11} className="text-[#D4AF37]" />
-                    Har Ghar Shiksha
-                  </span>
-                  <p className="text-xs text-slate-100 font-medium">
-                    Transforming underprivileged lives with values &amp; knowledge.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -371,20 +363,20 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin">
+          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-thin snap-x">
             {GALLERY.map((g, i) => (
               <div
                 key={i}
-                className="relative min-w-[260px] sm:min-w-[300px] h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group shrink-0 bg-[#FFFBF2] border border-[#E8C969]/40"
+                className="relative w-[320px] sm:w-[400px] md:w-[450px] aspect-[16/10] rounded-[2rem] overflow-hidden shadow-lg group shrink-0 bg-gradient-to-b from-[#FFFDF9] via-[#FFF5E5] to-[#521623]/20 border-2 border-[#E8C969]/60 snap-start"
               >
                 <img
                   src={g.url}
                   alt={g.caption}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className={`w-full h-full ${i === 0 ? "object-contain object-center py-1" : "object-cover object-center"} group-hover:scale-105 transition-transform duration-700`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#521623]/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <p className="text-xs font-bold drop-shadow-md text-amber-100">{g.caption}</p>
+                <div className="absolute bottom-4 left-5 right-5 text-white z-10">
+                  <p className="text-xs sm:text-sm font-bold drop-shadow-md text-amber-100">{g.caption}</p>
                 </div>
               </div>
             ))}
