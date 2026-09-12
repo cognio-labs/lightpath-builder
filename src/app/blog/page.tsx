@@ -1,50 +1,94 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Calendar,
   Clock,
-  Mail,
   ChevronLeft,
   ChevronRight,
   Search,
 } from "lucide-react";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "@/data/blogPosts";
-import { LOGO_URL } from "@/data/content";
+import { BlogNewsletterForm } from "@/components/blog/BlogNewsletterForm";
 
 export default function BlogListingPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [headerEmail, setHeaderEmail] = useState("");
-  const [footerEmail, setFooterEmail] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const filteredPosts = BLOG_POSTS.filter((post) => {
-    const matchesCategory =
-      selectedCategory === "all" || post.categorySlug === selectedCategory;
-    const matchesSearch =
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredPosts = useMemo(() => {
+    return BLOG_POSTS.filter((post) => {
+      let matchesCategory = false;
+      if (selectedCategory === "all") {
+        matchesCategory = true;
+      } else if (selectedCategory === "festivals-traditions") {
+        matchesCategory = post.categorySlug === "festivals-traditions";
+      } else if (selectedCategory === "spirituality-wellness") {
+        matchesCategory = post.categorySlug === "spirituality-wellness";
+      } else if (selectedCategory === "bhagavad-gita") {
+        matchesCategory =
+          post.slug.includes("bhagavad-gita") ||
+          post.tags.some((t) => t.toLowerCase().includes("gita"));
+      } else if (selectedCategory === "stress-anxiety") {
+        matchesCategory =
+          post.slug.includes("stress") ||
+          post.slug.includes("anxiety") ||
+          post.slug.includes("overthinking") ||
+          post.tags.some(
+            (t) =>
+              t.toLowerCase().includes("stress") ||
+              t.toLowerCase().includes("anxiety") ||
+              t.toLowerCase().includes("wellness")
+          );
+      } else if (selectedCategory === "meditation-sadhna") {
+        matchesCategory =
+          post.slug.includes("meditation") ||
+          post.slug.includes("non-dual") ||
+          post.tags.some(
+            (t) =>
+              t.toLowerCase().includes("meditation") ||
+              t.toLowerCase().includes("peace")
+          );
+      } else {
+        matchesCategory = post.categorySlug === selectedCategory;
+      }
 
-    return matchesCategory && matchesSearch;
-  });
+      const query = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !query ||
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.tags.some((t) => t.toLowerCase().includes(query));
 
-  const handleHeaderSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (headerEmail) {
-      alert(`Thank you for subscribing with ${headerEmail}!`);
-      setHeaderEmail("");
-    }
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
+
+  const POSTS_PER_PAGE = 12;
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE) || 1;
+  const activePage = Math.min(currentPage, totalPages);
+
+  const displayedPosts = useMemo(() => {
+    const start = (activePage - 1) * POSTS_PER_PAGE;
+    return filteredPosts.slice(start, start + POSTS_PER_PAGE);
+  }, [filteredPosts, activePage, POSTS_PER_PAGE]);
+
+  const handleCategorySelect = (slug: string) => {
+    setSelectedCategory(slug);
+    setCurrentPage(1);
   };
 
-  const handleFooterSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (footerEmail) {
-      alert(`Thank you for signing up with ${footerEmail}!`);
-      setFooterEmail("");
+  const handleSearchChange = (val: string) => {
+    setSearchQuery(val);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (pageNum: number) => {
+    setCurrentPage(pageNum);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 320, behavior: "smooth" });
     }
   };
 
@@ -65,31 +109,7 @@ export default function BlogListingPage() {
           </div>
 
           {/* Top Newsletter Subscribe Form */}
-          <form
-            onSubmit={handleHeaderSubscribe}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-0 max-w-md w-full"
-          >
-            <div className="relative flex-1">
-              <Mail
-                size={16}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-              />
-              <input
-                type="email"
-                required
-                placeholder="Enter your Email"
-                value={headerEmail}
-                onChange={(e) => setHeaderEmail(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none bg-white border border-gray-200 text-xs sm:text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-400 shadow-xs"
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-b-xl sm:rounded-r-xl sm:rounded-bl-none bg-[#8B1515] hover:bg-[#701010] text-white font-bold text-xs sm:text-sm transition-all shadow-xs shrink-0 cursor-pointer"
-            >
-              Subscribe
-            </button>
-          </form>
+          <BlogNewsletterForm variant="header" />
         </div>
       </section>
 
@@ -105,7 +125,7 @@ export default function BlogListingPage() {
               return (
                 <button
                   key={cat.slug}
-                  onClick={() => setSelectedCategory(cat.slug)}
+                  onClick={() => handleCategorySelect(cat.slug)}
                   className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                     isActive
                       ? "bg-[#8B1515] text-white shadow-xs"
@@ -128,7 +148,7 @@ export default function BlogListingPage() {
               type="text"
               placeholder="Search articles..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className="w-full pl-9 pr-3 py-2 rounded-full bg-gray-50 border border-gray-200 text-xs font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#8B1515]"
             />
           </div>
@@ -142,36 +162,42 @@ export default function BlogListingPage() {
         {filteredPosts.length === 0 ? (
           <div className="text-center py-16 bg-gray-50 rounded-2xl border border-gray-200 p-8 space-y-3">
             <p className="text-base font-bold text-gray-800">No articles found</p>
-            <p className="text-xs text-gray-500">Try adjusting your search terms or category selection.</p>
+            <p className="text-xs text-gray-500">
+              Try adjusting your search terms or category selection.
+            </p>
             <button
               onClick={() => {
                 setSelectedCategory("all");
                 setSearchQuery("");
+                setCurrentPage(1);
               }}
-              className="px-5 py-2 rounded-full bg-[#8B1515] text-white font-bold text-xs"
+              className="px-5 py-2 rounded-full bg-[#8B1515] text-white font-bold text-xs hover:bg-[#701010] transition-colors cursor-pointer"
             >
               Reset Filters
             </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredPosts.map((post, idx) => (
+            {displayedPosts.map((post, idx) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.04 }}
+                transition={{ delay: idx * 0.03 }}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Card Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="block relative aspect-[16/10] overflow-hidden bg-gray-100"
+                  >
                     <img
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
+                  </Link>
 
                   {/* Card Content */}
                   <div className="p-6 space-y-3">
@@ -217,46 +243,54 @@ export default function BlogListingPage() {
         )}
 
         {/* ════════════════════════════════════
-            PAGINATION (< 1 2 3 ... 69 >)
+            REAL RECALCULATED PAGINATION
+            Shows only existing pages (12 posts/page)
         ════════════════════════════════════ */}
-        <div className="flex items-center justify-center gap-2 pt-6">
-          <button
-            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 text-xs transition-colors cursor-pointer"
-          >
-            <ChevronLeft size={16} />
-          </button>
-          {[1, 2, 3].map((num) => (
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 pt-6">
             <button
-              key={num}
-              onClick={() => setCurrentPage(num)}
-              className={`w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                currentPage === num
-                  ? "bg-[#FDF0F0] text-[#8B1515] border border-rose-200"
-                  : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
+              onClick={() => handlePageChange(Math.max(1, activePage - 1))}
+              disabled={activePage === 1}
+              aria-label="Previous page"
+              className={`w-8 h-8 rounded-lg border flex items-center justify-center text-xs transition-colors ${
+                activePage === 1
+                  ? "border-gray-100 text-gray-300 cursor-not-allowed"
+                  : "border-gray-200 text-gray-600 hover:bg-gray-100 cursor-pointer"
               }`}
             >
-              {num}
+              <ChevronLeft size={16} />
             </button>
-          ))}
-          <span className="text-xs text-gray-400 px-1">...</span>
-          <button
-            onClick={() => setCurrentPage(69)}
-            className={`w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              currentPage === 69
-                ? "bg-[#FDF0F0] text-[#8B1515] border border-rose-200"
-                : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
-            }`}
-          >
-            69
-          </button>
-          <button
-            onClick={() => setCurrentPage((p) => Math.min(69, p + 1))}
-            className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 text-xs transition-colors cursor-pointer"
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
+              <button
+                key={num}
+                onClick={() => handlePageChange(num)}
+                aria-label={`Page ${num}`}
+                aria-current={activePage === num ? "page" : undefined}
+                className={`w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  activePage === num
+                    ? "bg-[#FDF0F0] text-[#8B1515] border border-rose-200 shadow-xs"
+                    : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
+                }`}
+              >
+                {num}
+              </button>
+            ))}
+
+            <button
+              onClick={() => handlePageChange(Math.min(totalPages, activePage + 1))}
+              disabled={activePage === totalPages}
+              aria-label="Next page"
+              className={`w-8 h-8 rounded-lg border flex items-center justify-center text-xs transition-colors ${
+                activePage === totalPages
+                  ? "border-gray-100 text-gray-300 cursor-not-allowed"
+                  : "border-gray-200 text-gray-600 hover:bg-gray-100 cursor-pointer"
+              }`}
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        )}
 
         {/* ════════════════════════════════════
             BOTTOM NEWSLETTER SIGNUP BOX
@@ -266,34 +300,10 @@ export default function BlogListingPage() {
             Signup for the newsletter
           </h3>
           <p className="text-xs sm:text-sm text-[#718096] max-w-md mx-auto leading-relaxed">
-            Stay up to date with the roadmap progress, announcements feel free to sign up with your email.
+            Stay up to date with transformative wisdom, festival insights, and meditation techniques directly from Sakshi Shree.
           </p>
 
-          <form
-            onSubmit={handleFooterSubscribe}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-0 max-w-md mx-auto pt-2"
-          >
-            <div className="relative flex-1">
-              <Mail
-                size={16}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-              />
-              <input
-                type="email"
-                required
-                placeholder="Enter your Email"
-                value={footerEmail}
-                onChange={(e) => setFooterEmail(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none bg-white border border-gray-300 text-xs sm:text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#8B1515]"
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-b-xl sm:rounded-r-xl sm:rounded-bl-none bg-[#8B1515] hover:bg-[#701010] text-white font-bold text-xs sm:text-sm transition-all shrink-0 cursor-pointer shadow-xs"
-            >
-              Subscribe
-            </button>
-          </form>
+          <BlogNewsletterForm variant="footer" />
         </div>
       </main>
     </div>

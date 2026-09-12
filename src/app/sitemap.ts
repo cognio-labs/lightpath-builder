@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { BLOG_POSTS } from "@/data/blogPosts";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -15,7 +16,7 @@ const SOLUTION_SLUGS = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = [
+  const staticPaths = [
     "/",
     "/about-movement",
     "/about-sakshi-shree",
@@ -42,10 +43,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cancellation-policy",
   ];
 
-  return paths.map((path) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: path === "/" ? 1 : 0.8,
   }));
+
+  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.datePublished ? new Date(post.datePublished) : new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }
