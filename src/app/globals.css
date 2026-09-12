@@ -45,9 +45,6 @@
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 }
 
-html.skip-intro #science-divine-cinematic-intro {
-  display: none !important;
-}
 
 @keyframes testimonialMarquee {
   0% {

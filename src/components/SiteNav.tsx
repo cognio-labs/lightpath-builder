@@ -369,6 +369,7 @@ export function SiteNav() {
           {/* Direct Nav Links */}
           <NavItem href="/courses" label="Courses" pathname={pathname} />
           <NavItem href="/events" label="Events" pathname={pathname} />
+          <NavItem href="/blog" label="Blog" pathname={pathname} />
 
           {/* Initiatives Dropdown */}
           <div
@@ -550,6 +551,14 @@ export function SiteNav() {
                 className="px-4 py-3 rounded-2xl bg-amber-50/70 font-bold text-base text-[#521623]"
               >
                 Events
+              </Link>
+
+              <Link
+                href="/blog"
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-2xl bg-amber-50/70 font-bold text-base text-[#521623]"
+              >
+                Blog &amp; Articles
               </Link>
 
               <MobileGroup label="Seva Initiatives">

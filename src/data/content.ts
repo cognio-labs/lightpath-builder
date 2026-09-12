@@ -45,7 +45,7 @@ export const SOLUTION_TOPICS = [
 
 export type SolutionSlug = (typeof SOLUTION_TOPICS)[number]["slug"];
 
-export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: string }[]> = {
+export const ARTICLES_BY_TOPIC: Record<string, { title: string; excerpt: string }[]> = {
   stress: [
     {
       title: "Master Stress Management: A Meditative Path to Calm",
@@ -263,7 +263,7 @@ export const ARTICLES_BY_TOPIC: Record<SolutionSlug, { title: string; excerpt: s
   ],
 };
 
-export const VIDEOS_BY_TOPIC: Record<SolutionSlug, { id: string; title: string }[]> = {
+export const VIDEOS_BY_TOPIC: Record<string, { id: string; title: string }[]> = {
   stress: [
     { id: "TIeoLbW_Tms", title: "Sakshi Shree's Insights: Finding Inner Peace" },
     { id: "M_bO-m-sG1Q", title: "एक महामंत्र जो तुरंत जीवन को चिंता और तनाव मुक्त" },
@@ -460,7 +460,7 @@ export const EVENTS = [
     time: "10:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Completed" as const,
-    image: "/guruji-meditation.jpg",
+    image: "/navvarsh-dhyan-real.jpg",
     link: "/sunday-event-4-january",
   },
   {
@@ -471,7 +471,7 @@ export const EVENTS = [
     time: "09:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Completed" as const,
-    image: "/about-self-realization.jpg",
+    image: "/vasant-mahotsav-real.jpg",
     link: "/sunday-event-1-february",
   },
   {

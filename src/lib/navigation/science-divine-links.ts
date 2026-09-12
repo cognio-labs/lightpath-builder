@@ -39,6 +39,8 @@ export const scienceDivineLinks = {
   personalSession: "/personal-session",
   usPersonalSession: "/us-personal-session",
   shop: "/shop",
+  blog: "/blog",
+  subscribeToOurNewsletter: "/subscribe-to-our-newsletter",
   contact: "/contact",
   testimonials: "/testimonials",
   latestTestimonialsVideos: "/latest-testimonials-videos",

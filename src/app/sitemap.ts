@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/book-session",
     "/testimonials",
     "/shop",
+    "/blog",
+    "/subscribe-to-our-newsletter",
     "/cart",
     "/checkout",
     "/my-account",

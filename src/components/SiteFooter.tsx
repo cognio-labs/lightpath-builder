@@ -43,6 +43,8 @@ export function SiteFooter() {
               { to: "/shiksha-sewa", label: "Project Shiksha Sewa" },
               { to: "/events", label: "Events" },
               { to: "/courses", label: "Courses" },
+              { to: "/blog", label: "Blog & Articles" },
+              { to: "/subscribe-to-our-newsletter", label: "Newsletter" },
               { to: "/initiatives", label: "Donate" },
               { to: "/book-session", label: "Book Personal Session" },
               { to: "/shop", label: "Shop" },

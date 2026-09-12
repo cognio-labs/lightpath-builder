@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
         email: data.email ?? null,
         phone: data.phone ?? null,
         message: data.message ?? null,
-        meta: data.meta ?? null,
+        meta: (data.meta as any) ?? null,
       });
       if (error) console.warn("Supabase insert warning:", error.message);
     } catch (dbErr) {

@@ -13,7 +13,6 @@ import SolutionsCarousel from "@/components/SolutionsCarousel";
 import ExclusiveContentCard from "@/components/ExclusiveContentCard";
 import MarqueeTestimonials from "@/components/ui/marquee-card";
 import { TestimonialMarquee } from "@/components/marquee";
-import CinematicIntro from "@/components/CinematicIntro";
 import {
   COURSES,
   EVENTS,
@@ -121,7 +120,6 @@ function LotusIcon({ size = 20, color = "#C9910B", className = "" }: { size?: nu
 export default function Page() {
   return (
     <>
-      <CinematicIntro />
       {/* ════════════════════════════════════
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
@@ -372,8 +370,8 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Desktop Portrait attached flush to section bottom with generous breathing space on the right */}
-        <div className="hidden lg:flex absolute bottom-0 right-[116px] lg:right-[124px] xl:right-[140px] 2xl:right-[168px] z-10 items-end pointer-events-none">
+        {/* Desktop Portrait attached flush to section bottom with generous breathing space on the right next to quick actions */}
+        <div className="hidden lg:flex absolute bottom-0 right-[104px] lg:right-[116px] xl:right-[130px] 2xl:right-[150px] z-10 items-end pointer-events-none">
           <div className="relative flex items-end max-w-[440px] xl:max-w-[500px] 2xl:max-w-[540px]">
             <img
               src="/sakshi-shree-hero-portrait.png"
@@ -612,15 +610,15 @@ export default function Page() {
             {/* Left Image Column with Sadguru Sakshi Shree Photo */}
             <div className="lg:col-span-5 flex justify-center items-end relative">
               {/* Backplate Decorative Arch Frame */}
-              <div className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[520px] aspect-[3/4] rounded-[3.5rem] bg-gradient-to-b from-amber-100/90 via-white/90 to-amber-50/80 border border-amber-300/60 shadow-[0_25px_60px_rgba(82,22,35,0.12)] flex justify-center items-end group pt-6 sm:pt-8 pb-1 px-4 overflow-hidden">
+              <div className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[520px] aspect-[4/4.3] rounded-[3.5rem] bg-gradient-to-b from-amber-100/90 via-white/90 to-amber-50/80 border border-amber-300/60 shadow-[0_25px_60px_rgba(82,22,35,0.12)] flex justify-center items-end group pt-6 sm:pt-8 pb-0 px-4 overflow-hidden">
                 <div
                   className="absolute inset-x-4 top-4 bottom-0 rounded-t-[3rem] pointer-events-none opacity-40"
                   style={{ background: "radial-gradient(circle at 50% 30%, rgba(212,175,55,0.35), transparent 70%)" }}
                 />
                 <img
-                  src="/guruji-namaste-new.png"
-                  alt="Sadguru Sakshi Shree"
-                  className="relative z-10 w-full h-full max-h-[96%] object-contain object-bottom transition-transform duration-700 group-hover:scale-[1.03]"
+                  src="/words-of-divine-wisdom.png"
+                  alt="Sadguru Sakshi Shree - Words of Divine Wisdom"
+                  className="relative z-10 w-full h-full max-h-[91%] object-contain object-bottom scale-[1.08] origin-bottom transition-transform duration-700 group-hover:scale-[1.12]"
                 />
               </div>
             </div>
@@ -1252,15 +1250,13 @@ export default function Page() {
           </div>
 
           <div className="text-center mt-10">
-            <a
-              href="https://sciencedivine.org/blog"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href="/blog"
               className="btn-outline-gold rounded-full px-7 py-3 text-sm font-semibold inline-flex items-center gap-2 shadow-md bg-white/90 backdrop-blur-sm transition-all hover:scale-105"
             >
               <span>Read All Articles &amp; Wisdom</span>
               <ArrowRight size={15} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
