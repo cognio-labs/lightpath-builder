@@ -154,16 +154,16 @@ export function SolutionPageLayout({
   return (
     <>
       <section
-        className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16"
-        style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
+        className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 text-white"
+        style={{ background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%)" }}
       >
         {/* Decorative gold orbs */}
         <div
-          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
+          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-20 animate-glow-pulse"
           style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }}
         />
         <div
-          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
+          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-20 animate-glow-pulse"
           style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
         />
 
@@ -175,45 +175,45 @@ export function SolutionPageLayout({
               <div
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
                 style={{
-                  borderColor: `${meta.themeColor}33`,
-                  color: meta.themeColor,
-                  background: `${meta.themeColor}15`,
+                  borderColor: "rgba(212,175,55,0.3)",
+                  color: "#D4AF37",
+                  background: "rgba(212,175,55,0.15)",
                 }}
               >
                 <Flower2 size={14} />
                 <span>{meta.badgeText}</span>
               </div>
 
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15]">
                 {tagline.split(":")[0]}
                 {tagline.includes(":") && (
                   <>
-                    : <span style={{ color: meta.themeColor }}>{tagline.split(":")[1]}</span>
+                    : <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">{tagline.split(":")[1]}</span>
                   </>
                 )}
                 {!tagline.includes(":") && (
-                  <span style={{ color: meta.themeColor }}>{tagline}</span>
+                  <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">{tagline}</span>
                 )}
               </h1>
 
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">{intro}</p>
+              <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-xl">{intro}</p>
 
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link
                   href="/book-session"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-[#0F172A]"
                   style={{
-                    background: `linear-gradient(135deg, ${meta.themeColor}, #D4AF37)`,
+                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
                   }}
                 >
                   Book Personal Session <ArrowRight size={15} />
                 </Link>
                 <Link
                   href="/courses"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-white/20 transition-all text-white backdrop-blur-md"
                   style={{
-                    borderColor: `${meta.themeColor}55`,
-                    color: meta.themeColor,
+                    borderColor: "rgba(255,255,255,0.2)",
+                    background: "rgba(255,255,255,0.08)",
                   }}
                 >
                   Explore Courses
@@ -421,51 +421,18 @@ export function SolutionHeroImage({
 }: {
   src: string;
   alt: string;
-  themeColor: string;
+  themeColor?: string;
+  integrated?: boolean;
 }) {
   return (
     <div className="lg:col-span-5 flex justify-center relative">
-      <div className="relative w-full max-w-[520px] aspect-[1.16] sm:min-h-[320px] overflow-hidden rounded-[24px] sm:rounded-[34px] bg-white shadow-2xl shadow-amber-900/10 ring-1 ring-white/80">
+      <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40">
         <img
           src={src}
           alt={alt}
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-white/10" />
-        <svg
-          className="absolute inset-0 h-full w-full pointer-events-none"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M 0 0 H 17 C 8 11 7 25 15 36 C 26 50 25 64 13 77 C 5 86 2 94 5 100 H 0 Z"
-            fill="#FFFBF0"
-            opacity="0.95"
-          />
-          <path
-            d="M 17 0 C 8 11 7 25 15 36 C 26 50 25 64 13 77 C 5 86 2 94 5 100"
-            fill="none"
-            stroke={themeColor}
-            strokeWidth="0.75"
-            opacity="0.9"
-          />
-          <path
-            d="M 11 4 C 34 -2 63 9 100 -5"
-            fill="none"
-            stroke={themeColor}
-            strokeWidth="0.45"
-            opacity="0.55"
-          />
-          <path
-            d="M 14 7 C 37 1 66 12 100 -1"
-            fill="none"
-            stroke={themeColor}
-            strokeWidth="0.3"
-            opacity="0.35"
-          />
-        </svg>
-        <div className="absolute left-[42%] top-[12%] h-28 w-28 rounded-full border border-white/35 opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
     </div>
   );

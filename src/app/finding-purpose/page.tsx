@@ -11,15 +11,15 @@ import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Target, Heart, Chev
 type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
 const ARTICLES = [
-  { title: "7 Ways to Foster an Optimistic Mind", href: "https://sciencedivine.org/optimistic-mind/", tag: "Mindset", readTime: "7 min", desc: "How shifting to positive patterns clears mental fog and reveals your true passion." },
-  { title: "How to Be Conscious: Wake Up Your Mind Every Day", href: "https://sciencedivine.org/conscious/", tag: "Awareness", readTime: "9 min", desc: "A practical guide to living consciously and discovering what truly matters to you." },
-  { title: "How to Feel Calm: Easy Ways to Find Peace of Mind", href: "https://sciencedivine.org/what-is-peace-of-mind/", tag: "Inner Peace", readTime: "6 min", desc: "Quiet the external noise so that the subtle inner calling of your purpose can be heard." },
-  { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "Why daily self-care and mental alignment are prerequisites for finding your life path." },
-  { title: "Benefits of Yoga for Hypertension Management", href: "https://sciencedivine.org/yoga-for-hypertension/", tag: "Wellness", readTime: "8 min", desc: "Regulating the body's energy levels to approach self-discovery with vigor." },
-  { title: "Yoga Nidra: Mastering the Art of Conscious Relaxation", href: "https://sciencedivine.org/yoga-nidra/", tag: "Relaxation", readTime: "10 min", desc: "Access the deep subconscious spaces where your authentic desires and purposes reside." },
-  { title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation", href: "https://sciencedivine.org/unveiling-the-harmony/", tag: "Mindfulness", readTime: "8 min", desc: "Aligning physical movements and mental stillness to gain clarity on your life's goals." },
-  { title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging", href: "https://sciencedivine.org/meditation-for-seniors/", tag: "Healthy Aging", readTime: "7 min", desc: "It is never too late to redefine your purpose and live with serenity and wisdom." },
-  { title: "Harmonizing Mind and Body: The Transformative Power of Yoga and Meditation", href: "https://sciencedivine.org/harmonizing-mind-and-body/", tag: "Transformation", readTime: "9 min", desc: "Integrating the physical and spiritual to manifest your true potential and calling." },
+  { title: "7 Ways to Foster an Optimistic Mind", href: "https://sciencedivine.org/optimistic-mind/", tag: "Mindset", readTime: "7 min", desc: "How shifting to positive patterns clears mental fog and reveals your true passion.", image: "/articles/optimistic-mind.jpg", alt: "Woman smiling softly in warm morning light" },
+  { title: "How to Be Conscious: Wake Up Your Mind Every Day", href: "https://sciencedivine.org/conscious/", tag: "Awareness", readTime: "9 min", desc: "A practical guide to living consciously and discovering what truly matters to you.", image: "/articles/conscious-mind.jpg", alt: "Person practicing a quiet morning mindfulness ritual" },
+  { title: "How to Feel Calm: Easy Ways to Find Peace of Mind", href: "https://sciencedivine.org/what-is-peace-of-mind/", tag: "Inner Peace", readTime: "6 min", desc: "Quiet the external noise so that the subtle inner calling of your purpose can be heard.", image: "/articles/feel-calm.jpg", alt: "Calm woman resting in soft golden light" },
+  { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "Why daily self-care and mental alignment are prerequisites for finding your life path.", image: "/articles/mental-health.jpg", alt: "Person taking a peaceful pause outdoors" },
+  { title: "Benefits of Yoga for Hypertension Management", href: "https://sciencedivine.org/yoga-for-hypertension/", tag: "Wellness", readTime: "8 min", desc: "Regulating the body's energy levels to approach self-discovery with vigor.", image: "/articles/yoga-hypertension.jpg", alt: "Woman practicing yoga in a sunlit studio" },
+  { title: "Yoga Nidra: Mastering the Art of Conscious Relaxation", href: "https://sciencedivine.org/yoga-nidra/", tag: "Relaxation", readTime: "10 min", desc: "Access the deep subconscious spaces where your authentic desires and purposes reside.", image: "/articles/yoga-nidra.jpg", alt: "Person resting comfortably during a yoga nidra practice" },
+  { title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation", href: "https://sciencedivine.org/unveiling-the-harmony/", tag: "Mindfulness", readTime: "8 min", desc: "Aligning physical movements and mental stillness to gain clarity on your life's goals.", image: "/articles/yoga-mindfulness.jpg", alt: "Woman moving through a mindful yoga pose" },
+  { title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging", href: "https://sciencedivine.org/meditation-for-seniors/", tag: "Healthy Aging", readTime: "7 min", desc: "It is never too late to redefine your purpose and live with serenity and wisdom.", image: "/articles/meditation-seniors.jpg", alt: "Older couple meditating together at home" },
+  { title: "Harmonizing Mind and Body: The Transformative Power of Yoga and Meditation", href: "https://sciencedivine.org/harmonizing-mind-and-body/", tag: "Transformation", readTime: "9 min", desc: "Integrating the physical and spiritual to manifest your true potential and calling.", image: "/articles/mind-body-harmony.jpg", alt: "Person meditating beside a quiet lake at sunset" },
 ];
 
 const VIDEOS = [
@@ -126,18 +126,24 @@ export default function Page() {
               <SectionHeading eyebrow="Read & Reflect" title="Explore Your Life's Purpose" subtitle="Guiding articles from Sakshi Shree on self-discovery, spiritual values, and conscious living." />
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
                 {ARTICLES.map((a, i) => (
-                  <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "20px", padding: "28px", textDecoration: "none", boxShadow: "0 2px 12px rgba(0,0,0,0.04)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
+                  <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid rgba(212,175,55,0.22)", borderRadius: "22px", textDecoration: "none", boxShadow: "0 8px 24px rgba(82,22,35,0.06)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
                     onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.14)"; el.style.borderColor = "#D4AF37"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; el.style.borderColor = "#E5E7EB"; }}
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 8px 24px rgba(82,22,35,0.06)"; el.style.borderColor = "rgba(212,175,55,0.22)"; }}
                   >
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #F59E0B, #D4AF37)", borderRadius: "20px 20px 0 0" }} />
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-                      <span style={{ background: "rgba(212,175,55,0.12)", color: "#B45309", fontSize: "11px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{a.tag}</span>
+                    <div style={{ position: "relative", height: "164px", overflow: "hidden", background: "#F7EEDC" }}>
+                      <img src={a.image} alt={a.alt} loading={i < 3 ? "eager" : "lazy"} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transition: "transform 0.45s ease" }} />
+                      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(82,22,35,0.02) 20%, rgba(82,22,35,0.48) 100%)", pointerEvents: "none" }} />
+                      <span style={{ position: "absolute", left: "18px", bottom: "16px", background: "rgba(255,250,240,0.9)", color: "#8B6914", fontSize: "10px", fontWeight: 800, padding: "5px 10px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.12em", backdropFilter: "blur(8px)" }}>{a.tag}</span>
+                    </div>
+                    <div style={{ padding: "22px 24px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", marginBottom: "12px" }}>
+                      <div style={{ width: "36px", height: "2px", background: "linear-gradient(90deg, #F59E0B, #D4AF37)", borderRadius: "999px" }} />
                       <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
                     </div>
                     <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#111827", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
                     <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#D4AF37", fontWeight: 700, fontSize: "0.875rem" }}>Read Article <ArrowRight size={14} /></div>
+                    <div style={{ paddingTop: "14px", borderTop: "1px solid #F1E6CF", display: "flex", alignItems: "center", gap: "6px", color: "#B8860B", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.03em" }}>Read Article <ArrowRight size={14} /></div>
+                    </div>
                   </a>
                 ))}
               </div>

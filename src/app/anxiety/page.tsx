@@ -1,9 +1,6 @@
 "use client";
 import Link from "next/link";
-
-import { PageHero, SectionHeading } from "@/components/PageHero";
-import { SolutionHeroImage } from "@/components/SolutionPageLayout";
-import { YouTubeThumb } from "@/components/YouTubeEmbed";
+import { SectionHeading } from "@/components/PageHero";
 import { useState } from "react";
 import {
   BookOpen,
@@ -11,15 +8,10 @@ import {
   PlayCircle,
   Mic,
   ArrowRight,
+  ChevronRight,
   Heart,
-  Compass,
-  Flower2,
-  Sun,
-  Moon,
+  Shield,
 } from "lucide-react";
-
-
-
 
 type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
@@ -27,47 +19,83 @@ const ARTICLES = [
   {
     title: "7 Ways to Foster an Optimistic Mind",
     href: "https://sciencedivine.org/optimistic-mind/",
+    tag: "Mindset",
+    readTime: "7 min read",
     desc: "Learn to shift focus to positive options and consciously reprogram negative thought patterns.",
+    image: "/articles/optimistic-mind-ai.webp",
+    alt: "Young person in peaceful contemplation at sunrise reflecting on an optimistic mindset",
   },
   {
     title: "How to Be Conscious: Wake Up Your Mind Every Day",
     href: "https://sciencedivine.org/conscious/",
+    tag: "Awareness",
+    readTime: "8 min read",
     desc: "Cultivating presence to escape constant loops of anxiety and worry.",
+    image: "/articles/conscious-mind-ai.webp",
+    alt: "Person sitting mindfully by large sunlit window practicing conscious awareness",
   },
   {
     title: "How to Feel Calm: Easy Ways to Find Peace of Mind",
     href: "https://sciencedivine.org/what-is-peace-of-mind/",
+    tag: "Peace",
+    readTime: "6 min read",
     desc: "Simple somatic practices that immediately downregulate stress response in the body.",
+    image: "/articles/feel-calm-ai.webp",
+    alt: "Mindful hand mudra in warm peaceful sunlight representing calm and inner peace",
   },
   {
     title: "Why Should You Prioritize Your Mental Health Every Day?",
     href: "https://sciencedivine.org/what-is-mental-health/",
+    tag: "Wellness",
+    readTime: "6 min read",
     desc: "Understanding the balance between mental wellness, sleep, and physical breathing.",
+    image: "/articles/mental-health-ai.webp",
+    alt: "Young Indian professional woman taking a mindful break from laptop work near a window surrounded by plants",
   },
   {
     title: "Benefits of Yoga for Hypertension Management",
     href: "https://sciencedivine.org/yoga-for-hypertension/",
+    tag: "Yoga",
+    readTime: "8 min read",
     desc: "How dynamic alignment helps manage heart rate variability and blood pressure.",
+    image: "/articles/yoga-hypertension-ai.webp",
+    alt: "Middle-aged Indian man practicing gentle seated yoga pranayama in a peaceful sunlit living room",
   },
   {
     title: "Yoga Nidra: Mastering the Art of Conscious Relaxation",
     href: "https://sciencedivine.org/yoga-nidra/",
+    tag: "Relaxation",
+    readTime: "10 min read",
     desc: "Restorative deep relaxation method to clear chronic fatigue and mental tension.",
+    image: "/articles/yoga-nidra-ai.webp",
+    alt: "Indian woman in peaceful Shavasana Yoga Nidra pose on jute mat with soft candlelight and draped blanket",
   },
   {
     title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation",
     href: "https://sciencedivine.org/unveiling-the-harmony/",
+    tag: "Mindfulness",
+    readTime: "9 min read",
     desc: "Deep meditation and somatic stretching working together for balance.",
+    image: "/articles/yoga-mindfulness-ai.webp",
+    alt: "Indian woman in sage green kurta meditating peacefully in a lush sunlit garden path",
   },
   {
     title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging",
     href: "https://sciencedivine.org/meditation-for-seniors/",
+    tag: "Meditation",
+    readTime: "7 min read",
     desc: "Tailored meditation techniques suitable for senior practitioners.",
+    image: "/articles/meditation-seniors-ai.webp",
+    alt: "Graceful Indian senior woman in sari meditating joyfully in a sunlit home garden with greenery",
   },
   {
     title: "Harmonizing Mind and Body: The Transformative Power of Yoga and Meditation",
     href: "https://sciencedivine.org/harmonizing-mind-and-body/",
+    tag: "Healing",
+    readTime: "9 min read",
     desc: "A general guide to aligning biological energy paths.",
+    image: "/articles/mind-body-harmony-ai.webp",
+    alt: "Indian man in ivory linen meditating at sunrise on a terrace surrounded by terracotta pots and greenery",
   },
 ];
 
@@ -116,298 +144,643 @@ const PODCASTS = [
   },
 ];
 
+const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
+  { id: "articles", label: "Articles", icon: <BookOpen size={17} /> },
+  { id: "quotes", label: "Quotes", icon: <Quote size={17} /> },
+  { id: "videos", label: "Videos", icon: <PlayCircle size={17} /> },
+  { id: "podcasts", label: "Podcasts", icon: <Mic size={17} /> },
+];
+
 export default function Page() {
   const [tab, setTab] = useState<Tab>("articles");
+
   return (
     <>
+      {/* Hero Section */}
       <section
-        className="relative overflow-hidden pt-28 pb-16"
-        style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)" }}
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          paddingTop: "140px",
+          paddingBottom: "120px",
+          minHeight: "85vh",
+          display: "flex",
+          alignItems: "center",
+          background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%)",
+        }}
       >
-        {/* Decorative gold orbs */}
+        {/* Subtle gold glow orbs */}
         <div
-          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }}
+          style={{
+            position: "absolute",
+            top: "-100px",
+            right: "-100px",
+            width: "500px",
+            height: "500px",
+            background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
         />
         <div
-          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
+          style={{
+            position: "absolute",
+            bottom: "-80px",
+            left: "-60px",
+            width: "400px",
+            height: "400px",
+            background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
         />
 
-        <div className="container-page relative z-10">
-          {/* Top Row: Content & Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-            <div className="lg:col-span-7 space-y-6">
+        <div className="container-page" style={{ position: "relative", zIndex: 1, width: "100%" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
               {/* Eyebrow badge */}
               <div
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
                 style={{
-                  borderColor: "rgba(3, 105, 161, 0.2)",
-                  color: "#0369A1",
-                  background: "rgba(3, 105, 161, 0.08)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  background: "rgba(212,175,55,0.15)",
+                  border: "1px solid rgba(212,175,55,0.3)",
+                  borderRadius: "100px",
+                  padding: "6px 16px",
+                  marginBottom: "20px",
                 }}
               >
-                <Heart size={14} />
-                <span>SOLUTIONS · ANXIETY</span>
+                <Heart size={14} style={{ color: "#D4AF37" }} />
+                <span
+                  style={{
+                    color: "#D4AF37",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Solutions · Anxiety
+                </span>
               </div>
 
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
-                Calming the Mind: <span style={{ color: "#0369A1" }}>Overcoming Anxiety</span>
+              <h1
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)",
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                  lineHeight: 1.15,
+                  marginBottom: "20px",
+                }}
+              >
+                Calming the Mind:{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  Overcoming Anxiety
+                </span>
               </h1>
 
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
+              <p
+                style={{
+                  fontSize: "1.05rem",
+                  color: "rgba(255,255,255,0.8)",
+                  lineHeight: 1.8,
+                  maxWidth: "620px",
+                  marginBottom: "36px",
+                }}
+              >
                 If feeling anxious about what lies ahead or overwhelmed by constant worry makes you
                 feel lonely, then know that you are not alone. Under Sakshi Shree's guidance,
                 explore practical solutions and age-old wisdom to help calm your mind and ease your
                 worries.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
                 <Link
                   href="/book-session"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
                   style={{
-                    background: "linear-gradient(135deg, #0369A1, #D4AF37)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                    color: "#0F172A",
+                    padding: "14px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
+                    transition: "transform 0.2s ease",
                   }}
+                  className="hover:scale-105"
                 >
-                  Book Personal Session <ArrowRight size={15} />
+                  Book a Session <ArrowRight size={16} />
                 </Link>
                 <a
                   href="#explore"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all inline-flex items-center"
                   style={{
-                    borderColor: "rgba(3, 105, 161, 0.3)",
-                    color: "#0369A1",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "#FFFFFF",
+                    padding: "14px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 600,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    transition: "background 0.2s ease",
                   }}
+                  className="hover:bg-white/15"
                 >
-                  Explore Resources
+                  Explore Resources <ChevronRight size={16} />
                 </a>
               </div>
             </div>
-            {/* Right side image */}
-            <SolutionHeroImage
-              src="/premium-heroes/anxiety-hero.png"
-              alt="Overcoming anxiety"
-              themeColor="#0369A1"
-            />
-          </div>
 
-          {/* Second Row: Grid of 4 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
-            {[
-              {
-                title: "Mindful Breathing",
-                desc: "Somatic practices to immediately regulate your nervous system.",
-                icon: Heart,
-              },
-              {
-                title: "Cognitive Calm",
-                desc: "Break free from the loops of worry and future-oriented fear.",
-                icon: Compass,
-              },
-              {
-                title: "Present Awareness",
-                desc: "Anchor yourself in the now to quiet anxious thoughts.",
-                icon: Flower2,
-              },
-              {
-                title: "Emotional Release",
-                desc: "Safe guidance to process and release stored physical tension.",
-                icon: Sun,
-              },
-            ].map((card, idx) => {
-              const CardIcon = card.icon;
-              return (
-                <div key={idx} className="flex gap-4 items-start group">
-                  <div
-                    className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
-                    style={{
-                      background: "rgba(3, 105, 161, 0.08)",
-                      color: "#0369A1",
-                    }}
-                  >
-                    <CardIcon size={20} />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Third Row: Bottom Quote */}
-          <div className="flex items-center justify-center gap-2 py-4">
-            <Flower2 size={16} style={{ color: "#D4AF37" }} />
-            <span className="font-display text-sm md:text-base italic text-amber-800/80 font-medium text-center">
-              Breathe In Peace, Breathe Out Worry
-            </span>
-            <Flower2 size={16} style={{ color: "#D4AF37" }} />
+            {/* Right side topic image */}
+            <div className="lg:col-span-5 flex justify-center relative">
+              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37] hover:scale-105 transition-transform duration-700">
+                <img
+                  src="/articles/yoga-mindfulness-ai.webp"
+                  alt="Calming the Mind and Overcoming Anxiety"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Navigation Tabs Bar */}
+      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+        <div className="container-page">
+          <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
+            {TABS.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "16px 24px",
+                  border: "none",
+                  borderBottom: tab === t.id ? "3px solid #D4AF37" : "3px solid transparent",
+                  background: "transparent",
+                  color: tab === t.id ? "#D4AF37" : "#6B7280",
+                  fontWeight: tab === t.id ? 700 : 500,
+                  fontSize: "0.9rem",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  transition: "color 0.2s, border-color 0.2s",
+                }}
+              >
+                {t.icon} {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tab Content */}
       <section className="section-pad bg-white">
         <div className="container-page">
-          {/* Navigation Tab Bar */}
-          <div className="flex flex-wrap gap-2 justify-center mb-12">
-            <div className="flex flex-wrap gap-1 p-1.5 rounded-full bg-gray-100 shadow-inner">
-              <TabButton
-                active={tab === "articles"}
-                onClick={() => setTab("articles")}
-                icon={BookOpen}
-              >
-                Articles
-              </TabButton>
-              <TabButton active={tab === "quotes"} onClick={() => setTab("quotes")} icon={Quote}>
-                Quotes
-              </TabButton>
-              <TabButton
-                active={tab === "videos"}
-                onClick={() => setTab("videos")}
-                icon={PlayCircle}
-              >
-                Videos
-              </TabButton>
-              <TabButton active={tab === "podcasts"} onClick={() => setTab("podcasts")} icon={Mic}>
-                Testimonial Videos
-              </TabButton>
-            </div>
-          </div>
-
-          {/* Articles */}
           {tab === "articles" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-              {ARTICLES.map((a, i) => (
-                <a
-                  key={i}
-                  href={a.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="card-premium rounded-2xl p-6 group block"
-                >
-                  <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-                    Anxiety Solutions
-                  </div>
-                  <div
-                    className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
-                    style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }}
-                  />
-                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug group-hover:text-amber-700 transition-colors">
-                    {a.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 mb-4 leading-relaxed">{a.desc}</p>
-                  <span className="text-sm font-semibold text-amber-600 inline-flex items-center gap-1">
-                    Read Article <ArrowRight size={12} />
-                  </span>
-                </a>
-              ))}
+            <div>
+              <SectionHeading
+                eyebrow="Read & Heal"
+                title="Articles on Overcoming Anxiety"
+                subtitle="Wisdom-backed articles from Sakshi Shree to support your journey from fear to freedom."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+                  gap: "24px",
+                  marginTop: "40px",
+                }}
+              >
+                {ARTICLES.map((a, i) => (
+                  <a
+                    key={i}
+                    href={a.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      background: "#FFFFFF",
+                      border: "1px solid #E5E7EB",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      textDecoration: "none",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                      transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
+                      position: "relative",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.15)";
+                      el.style.borderColor = "#D4AF37";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
+                      el.style.borderColor = "#E5E7EB";
+                    }}
+                  >
+                    {/* Top gradient accent line */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "3px",
+                        background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                        zIndex: 2,
+                      }}
+                    />
+
+                    {/* Image */}
+                    <div className="relative aspect-[16/10] overflow-hidden bg-amber-50/40">
+                      <img
+                        src={a.image}
+                        alt={a.alt}
+                        loading={i < 3 ? "eager" : "lazy"}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
+                        <span
+                          style={{
+                            background: "rgba(212,175,55,0.12)",
+                            color: "#B45309",
+                            fontSize: "11px",
+                            fontWeight: 700,
+                            padding: "4px 10px",
+                            borderRadius: "100px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                          }}
+                        >
+                          {a.tag}
+                        </span>
+                        <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime}</span>
+                      </div>
+
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "1.1rem",
+                          fontWeight: 700,
+                          color: "#111827",
+                          lineHeight: 1.45,
+                          marginBottom: "12px",
+                          flex: 1,
+                        }}
+                      >
+                        {a.title}
+                      </h3>
+                      <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>
+                        {a.desc}
+                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          color: "#D4AF37",
+                          fontWeight: 700,
+                          fontSize: "0.875rem",
+                          marginTop: "auto",
+                        }}
+                      >
+                        Read Article <ArrowRight size={14} />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Quotes */}
           {tab === "quotes" && (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 animate-fade-in">
-              {QUOTES.map((src, i) => (
-                <a
-                  key={i}
-                  href={src}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl overflow-hidden hover-lift block"
-                >
-                  <img
-                    src={src}
-                    alt={`Anxiety quote ${i + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-square"
-                  />
-                </a>
-              ))}
+            <div>
+              <SectionHeading
+                eyebrow="Words of Wisdom"
+                title="Inspirational Quotes"
+                subtitle="Let these sacred words from Sakshi Shree light your path to inner peace."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                  gap: "20px",
+                  marginTop: "40px",
+                }}
+              >
+                {QUOTES.map((src, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      borderRadius: "16px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                      transition: "transform 0.3s, box-shadow 0.3s",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px) scale(1.01)";
+                      el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0) scale(1)";
+                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
+                    }}
+                  >
+                    <img
+                      src={src}
+                      alt={`Anxiety quote ${i + 1}`}
+                      loading="lazy"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Videos */}
           {tab === "videos" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-              {VIDEOS.map((v) => (
-                <YouTubeThumb key={v.id} id={v.id} title={v.title} />
-              ))}
+            <div>
+              <SectionHeading
+                eyebrow="Watch & Transform"
+                title="Video Teachings on Overcoming Anxiety"
+                subtitle="Powerful sessions from Sakshi Shree on dissolving anxiety, panic, and persistent fear."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))",
+                  gap: "28px",
+                  marginTop: "40px",
+                }}
+              >
+                {VIDEOS.map((v, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      background: "#FFFFFF",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                      border: "1px solid #E5E7EB",
+                      transition: "transform 0.25s, box-shadow 0.25s",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
+                    }}
+                  >
+                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${v.id}`}
+                        title={v.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+                      />
+                    </div>
+                    <div style={{ padding: "20px" }}>
+                      <span
+                        style={{
+                          background: "rgba(212,175,55,0.12)",
+                          color: "#B45309",
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "3px 10px",
+                          borderRadius: "100px",
+                          display: "inline-block",
+                          marginBottom: "8px",
+                        }}
+                      >
+                        Teachings
+                      </span>
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "0.95rem",
+                          fontWeight: 700,
+                          color: "#111827",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {v.title}
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Podcasts / Video Testimonials */}
           {tab === "podcasts" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in">
-              {PODCASTS.map((p) => (
-                <YouTubeThumb key={p.id} id={p.id} title={p.name} />
-              ))}
+            <div>
+              <SectionHeading
+                eyebrow="Real Stories"
+                title="Testimonials — Finding Calm & Peace"
+                subtitle="Watch how Sakshi Shree's teachings have helped seekers overcome anxiety and live freely."
+              />
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
+                  gap: "28px",
+                  marginTop: "40px",
+                }}
+              >
+                {PODCASTS.map((p, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      background: "#FFFFFF",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                      border: "1px solid #E5E7EB",
+                      transition: "transform 0.25s, box-shadow 0.25s",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.15)";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
+                    }}
+                  >
+                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${p.id}`}
+                        title={p.name}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+                      />
+                    </div>
+                    <div style={{ padding: "20px" }}>
+                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>
+                        {Array.from({ length: 5 }).map((_, si) => (
+                          <Heart key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />
+                        ))}
+                      </div>
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "1rem",
+                          fontWeight: 700,
+                          color: "#111827",
+                        }}
+                      >
+                        {p.name}
+                      </h3>
+                      <p style={{ color: "#6B7280", fontSize: "0.85rem", marginTop: "6px", lineHeight: 1.6 }}>
+                        {p.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section
-        className="section-pad"
-        style={{ background: "linear-gradient(135deg, #FFFBF0, #FFF3D0)" }}
+        style={{
+          background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 100%)",
+          padding: "80px 0",
+          position: "relative",
+          overflow: "hidden",
+        }}
       >
-        <div className="container-page text-center">
-          <SectionHeading
-            center
-            eyebrow="Take the Next Step"
-            title="Overcome anxiety & find peace"
-            subtitle="Book a personal session with Sakshi Shree ,  one hour that can change everything."
-          />
-          <div className="flex flex-wrap justify-center gap-4">
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "600px",
+            height: "600px",
+            background: "radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="container-page" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginBottom: "16px",
+            }}
+          >
+            Reclaim{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Your Life
+            </span>
+          </h2>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.65)",
+              fontSize: "1.05rem",
+              maxWidth: "540px",
+              margin: "0 auto 36px",
+              lineHeight: 1.75,
+            }}
+          >
+            Break free from the cycle of anxiety with Sakshi Shree's personal guidance, meditation, and spiritual tools proven to bring lasting transformation.
+          </p>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link
               href="/book-session"
-              className="btn-gold rounded-full px-8 py-3.5 font-semibold text-sm"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                color: "#0F172A",
+                padding: "16px 36px",
+                borderRadius: "100px",
+                fontWeight: 700,
+                fontSize: "1rem",
+                textDecoration: "none",
+                boxShadow: "0 8px 30px rgba(212,175,55,0.4)",
+              }}
             >
-              Book Personal Session
+              Book Personal Session <ArrowRight size={16} />
             </Link>
             <Link
-              href="/get-solutions-for"
-              className="btn-outline-gold rounded-full px-8 py-3.5 font-semibold text-sm"
+              href="/contact"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                color: "#FFFFFF",
+                padding: "16px 36px",
+                borderRadius: "100px",
+                fontWeight: 600,
+                fontSize: "1rem",
+                textDecoration: "none",
+              }}
             >
-              Explore Other Solutions
+              Contact Us
             </Link>
           </div>
         </div>
       </section>
     </>
-  );
-}
-
-function TabButton({
-  active,
-  onClick,
-  icon: Icon,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  icon: React.ComponentType<{ size?: number }>;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className="inline-flex items-center gap-2 rounded-full px-4 md:px-5 py-2 text-sm font-semibold transition-all"
-      style={
-        active
-          ? {
-              background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
-              color: "#1a1000",
-              boxShadow: "0 4px 12px rgba(212,175,55,0.35)",
-            }
-          : { color: "#6B7280", background: "transparent" }
-      }
-    >
-      <Icon size={15} /> {children}
-    </button>
   );
 }

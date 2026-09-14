@@ -1,25 +1,93 @@
 "use client";
 import Link from "next/link";
-
 import { SectionHeading } from "@/components/PageHero";
 import { useState } from "react";
 import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Shield, ChevronRight } from "lucide-react";
 
-
-
-
 type Tab = "articles" | "quotes" | "videos" | "podcasts";
 
 const ARTICLES = [
-  { title: "Meditation and Mental Health: Transformative Stories of Healing and Renewal", href: "https://sciencedivine.org/meditation-and-mental-health/", tag: "Healing", readTime: "10 min", desc: "How daily meditation practice rewires the brain's reward pathways and dissolves addictive patterns." },
-  { title: "The Basics of Conscious Mind and Subconscious Mind", href: "https://sciencedivine.org/conscious-mind-and-subconscious-mind/", tag: "Mind", readTime: "8 min", desc: "Understanding the subconscious roots of addiction and how to reprogram deeply ingrained behaviors." },
-  { title: "Yoga Poses for Peace of Mind", href: "https://sciencedivine.org/yoga-for-peace-of-mind/", tag: "Yoga", readTime: "7 min", desc: "Specific asana sequences that activate the parasympathetic nervous system, calming cravings naturally." },
-  { title: "How to Feel Calm: Easy Ways to Find Peace of Mind", href: "https://sciencedivine.org/what-is-peace-of-mind/", tag: "Peace", readTime: "6 min", desc: "Simple moment-to-moment practices for replacing the urge to escape with the ability to just be." },
-  { title: "Why Should You Prioritize Your Mental Health Every Day?", href: "https://sciencedivine.org/what-is-mental-health/", tag: "Mental Health", readTime: "6 min", desc: "Reconnecting with your mental wellness as the foundation for lasting freedom from addictive cycles." },
-  { title: "Yoga Nidra: Mastering the Art of Conscious Relaxation", href: "https://sciencedivine.org/yoga-nidra/", tag: "Relaxation", readTime: "10 min", desc: "The deep relaxation state of Yoga Nidra naturally satisfies the need for escape that drives addiction." },
-  { title: "The Transformative Health Benefits of Regular Yoga Practice", href: "https://sciencedivine.org/unlocking-wellness/", tag: "Wellness", readTime: "9 min", desc: "Evidence-based look at how consistent yoga practice rebuilds physical and mental health after addiction." },
-  { title: "The Ultimate Guide to Meditation for Better Sleep", href: "https://sciencedivine.org/unlock-restful-nights/", tag: "Sleep", readTime: "8 min", desc: "Healing disrupted sleep patterns ,  a key factor in addiction recovery and long-term sobriety." },
-  { title: "Mastering Meditation at Home: A Step-by-Step Guide to Inner Peace", href: "https://sciencedivine.org/meditation-at-home/", tag: "Meditation", readTime: "9 min", desc: "Build a sustainable home meditation practice that becomes your anchor during challenging moments." },
+  {
+    title: "Meditation and Mental Health: Transformative Stories of Healing and Renewal",
+    href: "https://sciencedivine.org/meditation-and-mental-health/",
+    tag: "Healing",
+    readTime: "10 min",
+    desc: "How daily meditation practice rewires the brain's reward pathways and dissolves addictive patterns.",
+    image: "/articles/mental-health-ai.webp",
+    alt: "Meditation and Mental Health Healing",
+  },
+  {
+    title: "The Basics of Conscious Mind and Subconscious Mind",
+    href: "https://sciencedivine.org/conscious-mind-and-subconscious-mind/",
+    tag: "Mind",
+    readTime: "8 min",
+    desc: "Understanding the subconscious roots of addiction and how to reprogram deeply ingrained behaviors.",
+    image: "/articles/conscious-mind-ai.webp",
+    alt: "Conscious and Subconscious Mind Awareness",
+  },
+  {
+    title: "Yoga Poses for Peace of Mind",
+    href: "https://sciencedivine.org/yoga-for-peace-of-mind/",
+    tag: "Yoga",
+    readTime: "7 min",
+    desc: "Specific asana sequences that activate the parasympathetic nervous system, calming cravings naturally.",
+    image: "/articles/yoga-hypertension-ai.webp",
+    alt: "Yoga Poses for Peace of Mind",
+  },
+  {
+    title: "How to Feel Calm: Easy Ways to Find Peace of Mind",
+    href: "https://sciencedivine.org/what-is-peace-of-mind/",
+    tag: "Peace",
+    readTime: "6 min",
+    desc: "Simple moment-to-moment practices for replacing the urge to escape with the ability to just be.",
+    image: "/articles/feel-calm-ai.webp",
+    alt: "How to Feel Calm and Mindful",
+  },
+  {
+    title: "Why Should You Prioritize Your Mental Health Every Day?",
+    href: "https://sciencedivine.org/what-is-mental-health/",
+    tag: "Mental Health",
+    readTime: "6 min",
+    desc: "Reconnecting with your mental wellness as the foundation for lasting freedom from addictive cycles.",
+    image: "/articles/mental-health-ai.webp",
+    alt: "Prioritizing Mental Health Every Day",
+  },
+  {
+    title: "Yoga Nidra: Mastering the Art of Conscious Relaxation",
+    href: "https://sciencedivine.org/yoga-nidra/",
+    tag: "Relaxation",
+    readTime: "10 min",
+    desc: "The deep relaxation state of Yoga Nidra naturally satisfies the need for escape that drives addiction.",
+    image: "/articles/yoga-nidra-ai.webp",
+    alt: "Yoga Nidra Conscious Relaxation",
+  },
+  {
+    title: "The Transformative Health Benefits of Regular Yoga Practice",
+    href: "https://sciencedivine.org/unlocking-wellness/",
+    tag: "Wellness",
+    readTime: "9 min",
+    desc: "Evidence-based look at how consistent yoga practice rebuilds physical and mental health after addiction.",
+    image: "/articles/yoga-mindfulness-ai.webp",
+    alt: "Transformative Health Benefits of Yoga",
+  },
+  {
+    title: "The Ultimate Guide to Meditation for Better Sleep",
+    href: "https://sciencedivine.org/unlock-restful-nights/",
+    tag: "Sleep",
+    readTime: "8 min",
+    desc: "Healing disrupted sleep patterns, a key factor in addiction recovery and long-term sobriety.",
+    image: "/articles/meditation-seniors-ai.webp",
+    alt: "Meditation for Better Sleep and Sobriety",
+  },
+  {
+    title: "Mastering Meditation at Home: A Step-by-Step Guide to Inner Peace",
+    href: "https://sciencedivine.org/meditation-at-home/",
+    tag: "Meditation",
+    readTime: "9 min",
+    desc: "Build a sustainable home meditation practice that becomes your anchor during challenging moments.",
+    image: "/articles/optimistic-mind-ai.webp",
+    alt: "Mastering Meditation at Home",
+  },
 ];
 
 const VIDEOS = [
@@ -58,7 +126,7 @@ export default function Page() {
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%)", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
@@ -123,18 +191,109 @@ export default function Page() {
               <SectionHeading eyebrow="Read & Heal" title="Articles on Overcoming Addiction" subtitle="Wisdom-backed articles from Sakshi Shree to support your journey from bondage to freedom." />
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
                 {ARTICLES.map((a, i) => (
-                  <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "20px", padding: "28px", textDecoration: "none", boxShadow: "0 2px 12px rgba(0,0,0,0.04)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(139,92,246,0.12)"; el.style.borderColor = "#8B5CF6"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; el.style.borderColor = "#E5E7EB"; }}
+                  <a
+                    key={i}
+                    href={a.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      background: "#FFFFFF",
+                      border: "1px solid #E5E7EB",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      textDecoration: "none",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                      transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
+                      position: "relative",
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(-6px)";
+                      el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.15)";
+                      el.style.borderColor = "#D4AF37";
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget as HTMLElement;
+                      el.style.transform = "translateY(0)";
+                      el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
+                      el.style.borderColor = "#E5E7EB";
+                    }}
                   >
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #8B5CF6, #D4AF37)", borderRadius: "20px 20px 0 0" }} />
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-                      <span style={{ background: "rgba(139,92,246,0.1)", color: "#7C3AED", fontSize: "11px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{a.tag}</span>
-                      <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
+                    {/* Top gradient accent line */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "3px",
+                        background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                        zIndex: 2,
+                      }}
+                    />
+
+                    {/* Image */}
+                    <div className="relative aspect-[16/10] overflow-hidden bg-amber-50/40">
+                      <img
+                        src={a.image}
+                        alt={a.alt}
+                        loading={i < 3 ? "eager" : "lazy"}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
                     </div>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#111827", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
-                    <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#8B5CF6", fontWeight: 700, fontSize: "0.875rem" }}>Read Article <ArrowRight size={14} /></div>
+
+                    {/* Content */}
+                    <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
+                        <span
+                          style={{
+                            background: "rgba(212,175,55,0.12)",
+                            color: "#B45309",
+                            fontSize: "11px",
+                            fontWeight: 700,
+                            padding: "4px 10px",
+                            borderRadius: "100px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                          }}
+                        >
+                          {a.tag}
+                        </span>
+                        <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
+                      </div>
+
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "1.05rem",
+                          fontWeight: 700,
+                          color: "#111827",
+                          lineHeight: 1.45,
+                          marginBottom: "12px",
+                          flex: 1,
+                        }}
+                      >
+                        {a.title}
+                      </h3>
+                      <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>
+                        {a.desc}
+                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          color: "#D4AF37",
+                          fontWeight: 700,
+                          fontSize: "0.875rem",
+                          marginTop: "auto",
+                        }}
+                      >
+                        Read Article <ArrowRight size={14} />
+                      </div>
+                    </div>
                   </a>
                 ))}
               </div>
@@ -147,7 +306,7 @@ export default function Page() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px", marginTop: "40px" }}>
                 {QUOTES.map((src, i) => (
                   <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", transition: "transform 0.3s, box-shadow 0.3s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px) scale(1.01)"; el.style.boxShadow = "0 16px 40px rgba(139,92,246,0.18)"; }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px) scale(1.01)"; el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.18)"; }}
                     onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0) scale(1)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
                   >
                     <img src={src} alt={`Quote ${i + 1}`} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
@@ -181,11 +340,11 @@ export default function Page() {
 
           {tab === "podcasts" && (
             <div>
-              <SectionHeading eyebrow="Real Stories" title="Testimonials ,  Real Freedom" subtitle="Watch how Sakshi Shree's teachings have helped real people overcome addiction and find lasting peace." />
+              <SectionHeading eyebrow="Real Stories" title="Testimonials · Real Freedom" subtitle="Watch how Sakshi Shree's teachings have helped real people overcome addiction and find lasting peace." />
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
                 {TESTIMONIALS.map((t, i) => (
                   <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(139,92,246,0.12)"; }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.12)"; }}
                     onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
                   >
                     <div style={{ position: "relative", paddingTop: "56.25%" }}>
@@ -235,3 +394,4 @@ export default function Page() {
     </>
   );
 }
+

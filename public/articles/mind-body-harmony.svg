@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.8"/>
+      <stop offset="35%" stop-color="#FDF4FF" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#FEF3C7" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ECFDF5" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="harmonyRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="50%" stop-color="#F472B6"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg9)"/>
+
+  <!-- Sacred Geometry / Harmony Mandala Rings -->
+  <g transform="translate(400, 235)">
+    <!-- Outermost Soft Ring -->
+    <circle cx="0" cy="0" r="195" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-dasharray="6 8" opacity="0.4"/>
+    <!-- Middle Harmony Arc -->
+    <circle cx="0" cy="0" r="150" fill="none" stroke="url(#harmonyRing)" stroke-width="3" opacity="0.6"/>
+    <!-- Inner Radiant Aura -->
+    <circle cx="0" cy="0" r="110" fill="#FEF08A" opacity="0.45"/>
+    <circle cx="0" cy="0" r="75" fill="#FFFFFF" opacity="0.6"/>
+
+    <!-- Subtle Yin-Yang / Balance Swirls -->
+    <path d="M 0 -150 A 75 75 0 0 1 0 0 A 75 75 0 0 0 0 150" stroke="#93C5FD" stroke-width="2" fill="none" opacity="0.5"/>
+  </g>
+
+  <!-- Floating Lotus Blossoms & Petals orbiting gracefully -->
+  <g transform="translate(210, 160) rotate(-15)">
+    <path d="M -20 15 C -15 -15, 15 -15, 20 15 Z" fill="#F472B6" opacity="0.7"/>
+    <path d="M -10 16 C -8 -5, 8 -5, 10 16 Z" fill="#FBCFE8"/>
+  </g>
+  <g transform="translate(590, 160) rotate(15)">
+    <path d="M -20 15 C -15 -15, 15 -15, 20 15 Z" fill="#C084FC" opacity="0.7"/>
+    <path d="M -10 16 C -8 -5, 8 -5, 10 16 Z" fill="#DDD6FE"/>
+  </g>
+  <g transform="translate(240, 340) rotate(25)">
+    <path d="M 0 0 C 25 -25, 40 5, 25 25 Z" fill="#6EE7B7" opacity="0.7"/>
+  </g>
+  <g transform="translate(560, 340) rotate(-25)">
+    <path d="M 0 0 C -25 -25, -40 5, -25 25 Z" fill="#FDE047" opacity="0.8"/>
+  </g>
+
+  <!-- Meditating Figure in Anjali Mudra (Prayer/Balance Hands at Heart) -->
+  <g transform="translate(400, 230)">
+    <!-- Base Shadow -->
+    <ellipse cx="0" cy="175" rx="115" ry="18" fill="#CBD5E1" opacity="0.4"/>
+
+    <!-- Full Lotus Legs in Soft Lavender -->
+    <path d="M -110 145 C -105 110, -45 115, 0 125 C 45 115, 105 110, 110 145 C 105 170, -105 170, -110 145 Z" fill="#C4B5FD"/>
+    <ellipse cx="-75" cy="145" rx="20" ry="12" fill="#A78BFA"/>
+    <ellipse cx="75" cy="145" rx="20" ry="12" fill="#A78BFA"/>
+
+    <!-- Torso in Mint/Teal Top -->
+    <path d="M -38 25 C -38 5, -26 -15, 0 -15 C 26 -15, 38 5, 38 25 L 45 120 C 22 125, -22 125, -45 120 Z" fill="#A7F3D0"/>
+
+    <!-- Arms bent meeting at heart center in Anjali Mudra -->
+    <path d="M -35 25 C -55 50, -40 85, -5 65" stroke="#FDBA74" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M 35 25 C 55 50, 40 85, 5 65" stroke="#FDBA74" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <!-- Prayer hands together at chest center -->
+    <path d="M -6 52 L 0 35 L 6 52 Z" fill="#FDBA74"/>
+    <ellipse cx="0" cy="56" rx="8" ry="12" fill="#FED7AA"/>
+
+    <!-- Head & Serene, Harmonious Expression -->
+    <rect x="-9" y="-24" width="18" height="18" rx="5" fill="#FED7AA"/>
+    <ellipse cx="0" cy="-56" rx="30" ry="34" fill="#FED7AA"/>
+    
+    <!-- Gentle closed eyes and warm smile -->
+    <circle cx="-14" cy="-52" r="6" fill="#FB7185" opacity="0.3"/>
+    <circle cx="14" cy="-52" r="6" fill="#FB7185" opacity="0.3"/>
+    <path d="M -20 -58 Q -14 -64 -8 -58" stroke="#3730A3" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M 8 -58 Q 14 -64 20 -58" stroke="#3730A3" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M -8 -40 Q 0 -33 8 -40" stroke="#3730A3" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+
+    <!-- Graceful Topknot Hair -->
+    <path d="M -30 -65 C -32 -98, 32 -98, 30 -65 C 22 -72, -22 -72, -30 -65 Z" fill="#1E1B4B"/>
+    <circle cx="0" cy="-96" r="14" fill="#1E1B4B"/>
+  </g>
+
+  <!-- Golden Balance Sparkles around the Crown -->
+  <path d="M 400 95 L 403 103 L 411 105 L 403 107 L 400 115 L 397 107 L 389 105 L 397 103 Z" fill="#FBBF24"/>
+  <circle cx="360" cy="115" r="3.5" fill="#67E8F9"/>
+  <circle cx="440" cy="115" r="3.5" fill="#F472B6"/>
+</svg>

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDE9FE" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#E0F2FE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ECFDF5" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="auraGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#93C5FD" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="lavenderTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C4B5FD"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="bluePants" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BAE6FD"/>
+      <stop offset="100%" stop-color="#7DD3FC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg2)"/>
+
+  <!-- Soft Dreamy Clouds in Background -->
+  <g fill="#FFFFFF" opacity="0.6">
+    <ellipse cx="160" cy="110" rx="70" ry="25"/>
+    <ellipse cx="200" cy="100" rx="50" ry="30"/>
+    <ellipse cx="640" cy="130" rx="80" ry="28"/>
+    <ellipse cx="600" cy="120" rx="55" ry="32"/>
+  </g>
+
+  <!-- Concentric Awareness / Calm Breathing Waves -->
+  <g transform="translate(400, 240)">
+    <circle cx="0" cy="0" r="180" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-dasharray="8 8" opacity="0.35"/>
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#67E8F9" stroke-width="2" opacity="0.4"/>
+    <circle cx="0" cy="0" r="105" fill="none" stroke="#FDE047" stroke-width="2.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="75" fill="url(#auraGlow)"/>
+  </g>
+
+  <!-- Floating Botanical Leaves (Present moment awareness) -->
+  <g transform="translate(220, 200) rotate(-25)">
+    <path d="M 0 0 C 25 -30, 45 -10, 40 15 C 20 20, 0 15, 0 0 Z" fill="#86EFAC" opacity="0.75"/>
+    <path d="M 5 0 Q 25 -5 35 12" stroke="#059669" stroke-width="1.5" fill="none" opacity="0.5"/>
+  </g>
+  <g transform="translate(560, 180) rotate(35)">
+    <path d="M 0 0 C 30 -20, 45 5, 30 25 C 10 20, 0 15, 0 0 Z" fill="#A7F3D0" opacity="0.8"/>
+  </g>
+  <g transform="translate(190, 310) rotate(15)">
+    <path d="M 0 0 C 20 -20, 35 0, 25 20 C 10 15, 0 10, 0 0 Z" fill="#DDD6FE" opacity="0.7"/>
+  </g>
+  <g transform="translate(580, 290) rotate(-20)">
+    <path d="M 0 0 C 22 -22, 38 0, 28 22 C 12 16, 0 10, 0 0 Z" fill="#BAE6FD" opacity="0.8"/>
+  </g>
+
+  <!-- Central Conscious Character -->
+  <g transform="translate(400, 235)">
+    <!-- Soft floor shadow -->
+    <ellipse cx="0" cy="185" rx="115" ry="18" fill="#CBD5E1" opacity="0.35"/>
+
+    <!-- Meditation Cushion (Zafu) -->
+    <ellipse cx="0" cy="175" rx="85" ry="22" fill="#DDD6FE"/>
+    <ellipse cx="0" cy="168" rx="80" ry="18" fill="#EDE9FE"/>
+
+    <!-- Legs in Half Lotus -->
+    <path d="M -110 150 C -105 110, -45 115, 0 128 C 45 115, 105 110, 110 150 C 105 175, -105 175, -110 150 Z" fill="url(#bluePants)"/>
+
+    <!-- Torso in Lavender Top -->
+    <path d="M -42 25 C -42 5, -28 -15, 0 -15 C 28 -15, 42 5, 42 25 L 50 125 C 25 130, -25 130, -50 125 Z" fill="url(#lavenderTop)"/>
+
+    <!-- Relaxed Hands resting gently on knees -->
+    <path d="M -38 20 C -70 40, -85 85, -70 135 C -65 140, -55 135, -60 125 C -70 85, -55 50, -28 30 Z" fill="#FBCFE8"/>
+    <path d="M 38 20 C 70 40, 85 85, 70 135 C 65 140, 55 135, 60 125 C 70 85, 55 50, 28 30 Z" fill="#FBCFE8"/>
+    <!-- Gyan Mudra (Thumb & Index touching) -->
+    <circle cx="-70" cy="138" r="9" fill="#FED7AA"/>
+    <circle cx="70" cy="138" r="9" fill="#FED7AA"/>
+
+    <!-- Neck & Head -->
+    <rect x="-10" y="-28" width="20" height="20" rx="5" fill="#FED7AA"/>
+    <ellipse cx="0" cy="-60" rx="32" ry="36" fill="#FED7AA"/>
+
+    <!-- Peaceful Facial Expression -->
+    <circle cx="-16" cy="-56" r="6" fill="#F472B6" opacity="0.3"/>
+    <circle cx="16" cy="-56" r="6" fill="#F472B6" opacity="0.3"/>
+    <!-- Relaxed closed eyes -->
+    <path d="M -22 -62 Q -15 -67 -8 -62" stroke="#581C87" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <path d="M 8 -62 Q 15 -67 22 -62" stroke="#581C87" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <!-- Serene gentle breath mouth -->
+    <path d="M -7 -46 Q 0 -41 7 -46" stroke="#581C87" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Sleek wavy hair -->
+    <path d="M -33 -68 C -35 -105, 35 -105, 33 -68 C 22 -75, -22 -75, -33 -68 Z" fill="#3B2F2F"/>
+    <path d="M -32 -60 C -38 -30, -32 0, -25 20 C -20 20, -24 -20, -28 -55 Z" fill="#3B2F2F"/>
+    <path d="M 32 -60 C 38 -30, 32 0, 25 20 C 20 20, 24 -20, 28 -55 Z" fill="#3B2F2F"/>
+  </g>
+
+  <!-- Glowing gentle light dots -->
+  <circle cx="400" cy="90" r="4" fill="#FDE047"/>
+  <circle cx="360" cy="75" r="3" fill="#67E8F9"/>
+  <circle cx="440" cy="75" r="3" fill="#F472B6"/>
+</svg>

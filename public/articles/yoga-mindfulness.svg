@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF4FF" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#FFF7ED" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#F0FDF4" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="lotusGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F472B6"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg7)"/>
+
+  <!-- Harmonic Circular Aura in Center -->
+  <g transform="translate(400, 240)">
+    <circle cx="0" cy="0" r="160" fill="#DDD6FE" opacity="0.2"/>
+    <circle cx="0" cy="0" r="120" fill="#BAE6FD" opacity="0.3"/>
+    <circle cx="0" cy="0" r="85" fill="#FEF08A" opacity="0.4"/>
+  </g>
+
+  <!-- Flowing Mindful Energy Arcs -->
+  <path d="M 160 380 C 180 200, 320 80, 480 90 C 640 100, 680 240, 640 380" stroke="#A7F3D0" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 220 380 C 240 240, 340 140, 460 150 C 580 160, 600 260, 580 380" stroke="#FBCFE8" stroke-width="2.5" stroke-dasharray="6 6" fill="none" opacity="0.6"/>
+
+  <!-- Elegant Lotus at base of meditation -->
+  <g transform="translate(400, 370)">
+    <path d="M -60 10 C -40 -30, -10 -40, 0 0 C 10 -40, 40 -30, 60 10 Z" fill="url(#lotusGrad)" opacity="0.3"/>
+    <path d="M -40 12 C -25 -20, -5 -30, 0 5 C 5 -30, 25 -20, 40 12 Z" fill="#F472B6" opacity="0.6"/>
+    <path d="M -20 15 C -12 -10, 0 -20, 0 10 C 0 -20, 12 -10, 20 15 Z" fill="#FBCFE8"/>
+  </g>
+
+  <!-- Person in Graceful Yoga Stretch + Meditation Pose -->
+  <g transform="translate(400, 230)">
+    <!-- Floor shadow -->
+    <ellipse cx="0" cy="165" rx="100" ry="16" fill="#CBD5E1" opacity="0.4"/>
+
+    <!-- Seated Lotus Base -->
+    <path d="M -95 135 C -90 105, -40 110, 0 120 C 40 110, 90 105, 95 135 C 90 155, -90 155, -95 135 Z" fill="#6EE7B7"/>
+
+    <!-- Torso in Lavender Top -->
+    <path d="M -34 25 C -34 5, -24 -15, 0 -15 C 24 -15, 34 5, 34 25 L 40 120 C 20 124, -20 124, -40 120 Z" fill="#C4B5FD"/>
+
+    <!-- Graceful arms extended upward in gentle crescent mudra (Anjali / upward reach) -->
+    <path d="M -30 20 C -65 -15, -45 -70, -20 -100 C -12 -105, -8 -95, -14 -90 C -35 -65, -45 -20, -20 28 Z" fill="#FED7AA"/>
+    <path d="M 30 20 C 65 -15, 45 -70, 20 -100 C 12 -105, 8 -95, 14 -90 C 35 -65, 45 -20, 20 28 Z" fill="#FED7AA"/>
+    <!-- Hands meeting gracefully above head -->
+    <circle cx="-14" cy="-98" r="7" fill="#FDBA74"/>
+    <circle cx="14" cy="-98" r="7" fill="#FDBA74"/>
+
+    <!-- Peaceful Head -->
+    <rect x="-8" y="-22" width="16" height="16" rx="4" fill="#FED7AA"/>
+    <ellipse cx="0" cy="-50" rx="26" ry="30" fill="#FED7AA"/>
+    
+    <!-- Peaceful serene face -->
+    <circle cx="-12" cy="-48" r="5" fill="#FB7185" opacity="0.3"/>
+    <circle cx="12" cy="-48" r="5" fill="#FB7185" opacity="0.3"/>
+    <path d="M -16 -53 Q -11 -58 -6 -53" stroke="#4C1D95" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M 6 -53 Q 11 -58 16 -53" stroke="#4C1D95" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M -6 -38 Q 0 -33 6 -38" stroke="#4C1D95" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Cute bun / hair -->
+    <path d="M -26 -58 C -28 -88, 28 -88, 26 -58 C 18 -64, -18 -64, -26 -58 Z" fill="#312E81"/>
+  </g>
+
+  <!-- Little glowing stars around hands -->
+  <circle cx="400" cy="115" r="4" fill="#FDE047"/>
+  <circle cx="370" cy="130" r="3" fill="#67E8F9"/>
+  <circle cx="430" cy="130" r="3" fill="#F472B6"/>
+</svg>
