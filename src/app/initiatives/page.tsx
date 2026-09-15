@@ -24,7 +24,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "shiksha-sewa",
-    image: "https://sciencedivine.org/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-04-at-1.02.45-PM.jpeg",
+    image: "/initiatives/shiksha-sewa.jpeg",
     imagePosition: "center 25%",
     desc: "Every child deserves the light of wisdom. Through Shiksha Sewa, we sponsor underprivileged children with free education, books, values, and holistic grooming.",
     bulletPoints: [
@@ -42,7 +42,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "dhyan-sewa",
-    image: "https://sciencedivine.org/wp-content/uploads/2023/06/young-img1.jpg",
+    image: "/initiatives/dhyan-sewa.jpg",
     imagePosition: "center 15%",
     desc: "Meditation is the universal doorway to health and joy. Dhyan Sewa organizes free community meditation workshops, youth camps, and stress-relief camps.",
     bulletPoints: [
@@ -60,7 +60,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "annapurna-sewa",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/gospelforasia-RT18-03070.jpeg",
+    image: "/initiatives/annapurna-sewa.jpeg",
     imagePosition: "center 20%",
     desc: "No soul should sleep hungry. Annapurna Sewa runs community kitchens offering hot, nutritious, hygienic meals to the needy, sadhus, and destitute families.",
     bulletPoints: [
@@ -78,7 +78,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "nirman-sewa",
-    image: "https://sciencedivine.org/wp-content/uploads/2023/06/2.jpg",
+    image: "/initiatives/nirman-sewa.jpg",
     imagePosition: "center center",
     desc: "Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan) where thousands come to meditate, heal, and experience spiritual awakening.",
     bulletPoints: [
@@ -99,23 +99,23 @@ const IMPACT_STATS = [
 
 const GALLERY = [
   {
-    url: "https://sciencedivine.org/wp-content/uploads/2025/03/AAP_0044-1-1.webp",
+    url: "/initiatives/gallery-children.webp",
     caption: "Empowering Underprivileged Children",
   },
   {
-    url: "https://sciencedivine.org/wp-content/uploads/2025/02/3-1.png",
+    url: "/initiatives/gallery-kitchen.png",
     caption: "Annapurna Kitchen Distribution",
   },
   {
-    url: "https://sciencedivine.org/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-04-at-1.02.45-PM.jpeg",
+    url: "/initiatives/shiksha-sewa.jpeg",
     caption: "Har Ghar Shiksha Classes",
   },
   {
-    url: "https://sciencedivine.org/wp-content/uploads/2025/02/3.webp",
+    url: "/initiatives/gallery-meditation.webp",
     caption: "Community Meditation Camps",
   },
   {
-    url: "https://sciencedivine.org/wp-content/uploads/2025/02/4-1.png",
+    url: "/initiatives/gallery-gathering.png",
     caption: "Sakshi Dhaam Spiritual Gathering",
   },
 ];
