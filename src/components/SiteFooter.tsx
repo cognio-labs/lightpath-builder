@@ -40,12 +40,13 @@ export function SiteFooter() {
               { to: "/about-movement", label: "About Us" },
               { to: "/about-sakshi-shree", label: "About Sakshi Shree" },
               { to: "/contact", label: "Contact" },
-              { to: "/shiksha-sewa", label: "Project Shiksha Sewa" },
+              { to: "/har-ghar-shiksha", label: "Har Ghar Shiksha" },
+              { to: "/podcast", label: "Podcast" },
               { to: "/events", label: "Events" },
               { to: "/courses", label: "Courses" },
               { to: "/blog", label: "Blog & Articles" },
               { to: "/subscribe-to-our-newsletter", label: "Newsletter" },
-              { to: "/initiatives", label: "Donate" },
+              { to: "/donation", label: "Donate" },
               { to: "/book-session", label: "Book Personal Session" },
               { to: "/shop", label: "Shop" },
             ].map((l) => (
@@ -138,7 +139,7 @@ export function SiteFooter() {
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
-          <p>© 2025 Science Divine Foundation. All Rights Reserved.</p>
+          <p>© 2026 Science Divine Foundation. All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-5">
             <Link href="/cancellation-policy" className="hover:text-white transition-colors">
               Cancellation and Refund Policy

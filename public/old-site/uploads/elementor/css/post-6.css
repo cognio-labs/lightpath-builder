@@ -1,0 +1,40 @@
+.elementor-kit-6{--e-global-color-primary:#AC7359;--e-global-color-secondary:#54595F;--e-global-color-text:#503B31;--e-global-color-accent:#61CE70;--e-global-typography-primary-font-family:"LT Remarks New";--e-global-typography-primary-font-weight:600;--e-global-typography-secondary-font-family:"LT Remarks New";--e-global-typography-secondary-font-weight:400;--e-global-typography-text-font-family:"Satoshi";--e-global-typography-text-font-size:20px;--e-global-typography-text-font-weight:400;--e-global-typography-text-line-height:24px;--e-global-typography-accent-font-family:"Satoshi";--e-global-typography-accent-font-weight:500;--e-global-typography-0cf7a50-font-family:"Roboto";--e-global-typography-0cf7a50-font-size:40px;--e-global-typography-0cf7a50-font-weight:600;}.elementor-kit-6 e-page-transition{background-color:#FFBC7D;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1270px;}.e-con{--container-max-width:1270px;}.elementor-widget:not(:last-child){margin-block-end:20px;}.elementor-element{--widgets-spacing:20px 20px;--widgets-spacing-row:20px;--widgets-spacing-column:20px;}{}h1.entry-title{display:var(--page-title-display);}.site-header .site-branding{flex-direction:column;align-items:stretch;}.site-header{padding-inline-end:0px;padding-inline-start:0px;}.site-footer .site-branding{flex-direction:column;align-items:stretch;}@media(max-width:1024px){.elementor-kit-6{--e-global-typography-text-font-size:16px;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}/* Start custom CSS */@media screen and (max-width: 1279px) and (min-width: 1025px){
+    .elementor-9 .elementor-element.elementor-element-1236eb4 .elementor-heading-title {
+        font-size: 82px;
+        line-height: 100px;
+    }
+    .elementor-9 .elementor-element.elementor-element-efc3f8f .elementor-heading-title {
+        font-size: 32px;
+        line-height: 0;
+    }
+    body:not(.rtl) .elementor-9 .elementor-element.elementor-element-efc3f8f {
+        left: 100px;
+    }
+    .elementor-9 .elementor-element.elementor-element-efc3f8f {
+        top: 140px;
+    }
+}
+.lt-normal,
+.lt-normal *{
+    font-family: 'LT Remark' !important;
+}
+.lt-bold,
+.lt-bold *{ 
+    font-family: 'LT Remark Bold' !important;
+}/* End custom CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'LT Remarks New';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://sciencedivine.org/wp-content/uploads/2024/04/LTRemark-Regular.ttf') format('truetype');
+}
+/* End Custom Fonts CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Satoshi';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://sciencedivine.org/wp-content/uploads/2024/04/Satoshi-Light.ttf') format('truetype');
+}
+/* End Custom Fonts CSS */

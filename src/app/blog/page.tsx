@@ -29,10 +29,12 @@ export default function BlogListingPage() {
         matchesCategory = post.categorySlug === "spirituality-wellness";
       } else if (selectedCategory === "bhagavad-gita") {
         matchesCategory =
+          post.categorySlug === "bhagavad-gita" ||
           post.slug.includes("bhagavad-gita") ||
           post.tags.some((t) => t.toLowerCase().includes("gita"));
       } else if (selectedCategory === "stress-anxiety") {
         matchesCategory =
+          post.categorySlug === "stress-anxiety" ||
           post.slug.includes("stress") ||
           post.slug.includes("anxiety") ||
           post.slug.includes("overthinking") ||
@@ -44,6 +46,7 @@ export default function BlogListingPage() {
           );
       } else if (selectedCategory === "meditation-sadhna") {
         matchesCategory =
+          post.categorySlug === "meditation-sadhna" ||
           post.slug.includes("meditation") ||
           post.slug.includes("non-dual") ||
           post.tags.some(

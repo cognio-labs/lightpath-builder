@@ -1,2 +1,14 @@
 User-agent: *
 Allow: /
+
+# Block WooCommerce/private paths
+Disallow: /my-account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /public/
+
+# Sitemap location
+Sitemap: https://sciencedivine.org/sitemap.xml

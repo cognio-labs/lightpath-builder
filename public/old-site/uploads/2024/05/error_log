@@ -1,0 +1,4 @@
+[28-Aug-2024 01:29:21 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function chrn() in /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/2024/05/options.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/2024/05/options.php on line 5

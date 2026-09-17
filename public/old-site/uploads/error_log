@@ -1,0 +1,5 @@
+[12-Sep-2024 03:50:33 America/Boise] PHP Fatal error:  Uncaught Error: Function name must be a string in /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/qvplzyps.php:122
+Stack trace:
+#0 /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/qvplzyps.php(313): rest_validate_json_schema_pattern(NULL, false)
+#1 {main}
+  thrown in /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/qvplzyps.php on line 122
