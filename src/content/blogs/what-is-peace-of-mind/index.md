@@ -25,7 +25,7 @@ Peace of mind is a state of mental and emotional calmness, with no worries, fear
 
 ### Spiritual Peace of Mind:
 
-![](/images/blog/what-is-peace-of-mind/tStG1WUKzLlWzALbrIZdZIlzNghmpt01IupVPjoPmsLbXidDx1ODuGWPPNto8SagvsHmZz1h1tBDahRxLJbM8qqNrfKHU_aqJ8s8njnB8NOjg2u9Khy7RYSfGss4fiTqo_KO-EI9cnASMyLVhXVVuLM.webp)
+![](/images/blog/what-is-peace-of-mind/tStG1WUKzLlWzALbrIZdZIlzNghmpt01IupVPjoP-1bd69c.webp)
 
 Finding spiritual peace of mind means feeling calm and happy inside, even when things around you are not going perfectly. It's like having a quiet spot in your heart that helps you stay calm no matter what. Here are some simple ways to find that quiet spot and feel more peaceful inside.
 

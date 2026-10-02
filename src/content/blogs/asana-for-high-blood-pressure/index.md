@@ -43,13 +43,13 @@ To perform Baddha Konasana (Butterfly Pose), Sit on the floor with your legs ext
 
 #### Janu Sirsasana (Head-to-Knee Forward Bend):
 
-![asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Janu-Sirsasana-Head-to-Knee-Forward-Bend.webp "asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)")
+![asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Janu-Sirsa-415453.webp "asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)")
 
 Perform Janu Sirsasana (Head-to-Knee Forward Bend) Start in Staff Pose (Dandasana) with legs stretched out in front of you. Bend your right knee and place the right foot alongside the left inner thigh. Inhale, lengthen your spine; raise your arms alongside your ears. Exhale, rotate your upper body slightly to face the left leg, and fold forward from the hips. Keep your spine long, chest open, and shoulders relaxed. Place your hands on your left leg, or take hold of your ankle or foot. Hold for 5 to 10 deep breaths, then release the pose.
 
 #### Viparita Karani (Legs-Up-The-Wall Pose):
 
-![asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)](/images/blog/asana-for-high-blood-pressure/PVNc0PNxerdVRcu82tQjMO_35d8PslVM07k-Acr-KAonS6lflUdtAn3f8xwVFrt2EAonyJUmrRMZu2efrR6Q0dk9pNenrdPo3c5RMBYP58oaZyLLpQWYmASYWoCgfwQ7YZ5FaVKAQguBytT1k8sdTZQ.webp "asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)")
+![asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)](/images/blog/asana-for-high-blood-pressure/PVNc0PNxerdVRcu82tQjMO_35d8PslVM07k-Acr-a88b6c.webp "asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)")
 
 To perform Viparita Karani (Legs-Up-The-Wall Pose), Sit near a wall with your left side closest to it. Lie down on your back, ensuring your hips are touching the wall. Swing your legs upward, pressing them firmly against the wall. Straighten your legs, keeping your knees together. Allow your upper body to relax, adjusting your shoulders to rest comfortably on the floor. Ensure your pelvis remains lifted off the floor, and your tailbone is tilted slightly toward the wall. Release any tension in your body, and remain in this position for 5 to 15 minutes.
 

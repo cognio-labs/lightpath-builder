@@ -4,13 +4,13 @@ date: "2024-07-11"
 datePublished: "2024-07-11T00:00:00.000Z"
 category: "Stress & Anxiety"
 categorySlug: "stress-anxiety"
-coverImage: "/images/blog/negativity-within-family/Negativity-Within-Family-What-it-Looks-Like-and-How-to-Find-Peace.webp"
+coverImage: "/images/blog/negativity-within-family/Negativity-Within-Family-What-it-Looks-L-42dfcd.webp"
 tags:
 
 ---
 
 
-![Negativity Within Family What it Looks Like and How to Find Peace](/images/blog/negativity-within-family/Negativity-Within-Family-What-it-Looks-Like-and-How-to-Find-Peace.webp "Negativity Within Family What it Looks Like and How to Find Peace")
+![Negativity Within Family What it Looks Like and How to Find Peace](/images/blog/negativity-within-family/Negativity-Within-Family-What-it-Looks-L-42dfcd.webp "Negativity Within Family What it Looks Like and How to Find Peace")
 
 In our mind, family is a sanctuary of love and support where we go when life pulls us down. People often relate ‘Negativity Within Family’ with a swirl of emotions, shaped by their childhood and current family dynamics. These feelings can range from incredibly positive to overwhelmingly negative emotions, or even a mix of both. The same relationships that provide comfort and support, shielding us from extremities of the world, can become negative when core connections strained.
 

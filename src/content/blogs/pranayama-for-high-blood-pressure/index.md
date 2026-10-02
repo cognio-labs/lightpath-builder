@@ -26,7 +26,7 @@ The essence of pranayama for high BP lies in its ability to regulate the body's 
 
 #### 1\. Anulom Vilom Pranayam for High Blood Pressure:
 
-![pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure](/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Anulom-Vilom-Pranayam-for-High-Blood-Pressure.webp "pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure")
+![pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure](/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Anulom-1a2202.webp "pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure")
 
 To practice Anulom Vilom Pranayam for high bp, sit comfortably with your spine straight, close your right nostril with your thumb, inhale deeply through your left nostril, then close it with your fingers, open your right nostril and exhale slowly. Repeat the process, alternating nostrils for 5-10 minutes daily, focusing on calm and deep breathing.
 

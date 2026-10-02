@@ -27,7 +27,7 @@ When we talk about positive thinking, we mean keeping your head filled with thou
 
 ### The Power of Positive Thinking:
 
-![](/images/blog/what-is-positive-thinking/h-zg4NsCXZwhRqj_Q59xjCh4qAj0phqpc08T8qkgoTSxrlpFQAUsLshJNrTUyAP6S4-IzKOc-7zZjz7VFlPj-t1Lx9LeZgHEslCFvBM7_kB7rL5xzO-hxzGtyfH2isDnA1femPUdU993YmzHFr1rmSo.webp)
+![](/images/blog/what-is-positive-thinking/h-zg4NsCXZwhRqj_Q59xjCh4qAj0phqpc08T8qkg-7feed6.webp)
 
 The Power of positive thinking can really change things for you. When you start thinking positive, you feel better and can handle tough stuff easier. The power of positive thinking isn't just about being happy. It's a way to see the good in everything and believe you can get through anything.
 
