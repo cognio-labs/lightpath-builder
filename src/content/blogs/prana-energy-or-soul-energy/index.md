@@ -4,7 +4,7 @@ date: "2024-07-11"
 datePublished: "2024-07-11T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/prana-energy-or-soul-energy/key-to-better-life.jpeg"
+coverImage: "/images/blog/prana-energy-or-soul-energy/key-to-better-life.webp"
 tags:
   - "better-life"
   - "power-of-spiritual-energy"
@@ -14,7 +14,7 @@ tags:
 ---
 
 
-![key-to-better-life](/blog/images/prana-energy-or-soul-energy/key-to-better-life.jpeg "key-to-better-life")
+![key-to-better-life](/images/blog/prana-energy-or-soul-energy/key-to-better-life.webp "key-to-better-life")
 
 Do you believe in a force that infuses all of existence? If you do, then imagine what would happen if you could tap into this energy. There is a "life breath" that flows through our bodies which is the gateway to the divine. We call it our prana energy or soul energy.
 

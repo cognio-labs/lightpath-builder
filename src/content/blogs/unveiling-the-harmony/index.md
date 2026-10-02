@@ -4,7 +4,7 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unveiling-the-harmony/Unveiling-the-Harmony.png"
+coverImage: "/images/blog/unveiling-the-harmony/Unveiling-the-Harmony.webp"
 tags:
   - "meditation"
   - "yoga"

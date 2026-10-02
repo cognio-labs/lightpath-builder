@@ -4,7 +4,7 @@ date: "2024-03-08"
 datePublished: "2024-03-08T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/anahata-chakra/Heart-Chakra.png"
+coverImage: "/images/blog/anahata-chakra/Heart-Chakra.webp"
 tags:
   - "anahata-chakra"
   - "anahata-chakra-benefits"
@@ -21,11 +21,11 @@ In the vast expanse of spiritual practice, the Anahata Chakra emerges as a beaco
 
 ### **What is Anahata Chakra?**
 
-![](/blog/images/anahata-chakra/Heart-Chakra.png) The Anahata Chakra, also known as the heart chakra, is the fourth primary chakra in the body's energy system. Representing the bridge between the lower chakras—associated with material existence—and the higher chakras—connected to consciousness and spirituality—the Anahata [**Chakra**](https://sciencedivine.org/7-chakras-of-body/) in body plays a pivotal role. It governs our ability to love unconditionally, empathize with others, and nurture a deep sense of peace and connectedness.
+![](/images/blog/anahata-chakra/Heart-Chakra.webp) The Anahata Chakra, also known as the heart chakra, is the fourth primary chakra in the body's energy system. Representing the bridge between the lower chakras—associated with material existence—and the higher chakras—connected to consciousness and spirituality—the Anahata [**Chakra**](https://sciencedivine.org/7-chakras-of-body/) in body plays a pivotal role. It governs our ability to love unconditionally, empathize with others, and nurture a deep sense of peace and connectedness.
 
 ### **Where is Anahata Chakra Location?**
 
-![](/blog/images/anahata-chakra/4-chakra.jpg) The Anahata Chakra is located at the center of the chest, near the heart. This central positioning underscores its significance in our emotional and spiritual life, serving as the heart of our energy system. The exact Anahata [**Chakra**](https://sciencedivine.org/chakras-in-human-body/) location is important for practices aimed at activating or balancing this energy center.
+![](/images/blog/anahata-chakra/4-chakra.webp) The Anahata Chakra is located at the center of the chest, near the heart. This central positioning underscores its significance in our emotional and spiritual life, serving as the heart of our energy system. The exact Anahata [**Chakra**](https://sciencedivine.org/chakras-in-human-body/) location is important for practices aimed at activating or balancing this energy center.
 
 ### **Anahata Chakra Benefits:**
 
@@ -33,7 +33,7 @@ Activating the Anahata Chakra offers a multitude of benefits. It enhances our ca
 
 ### **Anahata Chakra Mudra & Meditation:**
 
-![](/blog/images/anahata-chakra/Anahata-Chakra-Mudra-and-Meditation.jpg) One effective way to engage with the Anahata Chakra is through the Anahata Chakra mudra, a specific hand gesture that facilitates the flow of energy to this center. Coupling the mudra with meditation for Anahata Chakra can significantly amplify the effects. Such meditation often involves visualizing the color green—the chakra's color—or chanting the seed mantra "**YAM**" to resonate with and activate the heart chakra.
+![](/images/blog/anahata-chakra/Anahata-Chakra-Mudra-and-Meditation.webp) One effective way to engage with the Anahata Chakra is through the Anahata Chakra mudra, a specific hand gesture that facilitates the flow of energy to this center. Coupling the mudra with meditation for Anahata Chakra can significantly amplify the effects. Such meditation often involves visualizing the color green—the chakra's color—or chanting the seed mantra "**YAM**" to resonate with and activate the heart chakra.
 
 ### **How to Activate Anahata Chakra:**
 
@@ -41,19 +41,19 @@ Activating the Anahata Chakra requires a holistic approach, integrating physical
 
 #### **Camel Pose:**
 
-![](/blog/images/anahata-chakra/Poses-Camel-scaled.jpg)
+![](/images/blog/anahata-chakra/Poses-Camel-scaled.webp)
 
 #### **Cobra Pose:**
 
-![](/blog/images/anahata-chakra/Bhujangasana-Cobra-Pose.jpg)
+![](/images/blog/anahata-chakra/Bhujangasana-Cobra-Pose.webp)
 
 #### **Fish Pose:**
 
-![](/blog/images/anahata-chakra/Fish-Pose.jpg) **Practice Heart-Opening Yoga Poses:** Poses like **Camel**, **Cobra**, and **Fish** pose help open the chest area, promoting the flow of energy to the Anahata Chakra.
+![](/images/blog/anahata-chakra/Fish-Pose.webp) **Practice Heart-Opening Yoga Poses:** Poses like **Camel**, **Cobra**, and **Fish** pose help open the chest area, promoting the flow of energy to the Anahata Chakra.
 
 #### **Engage in Pranayama:**
 
-![](/blog/images/anahata-chakra/Breathing-Techniques-Pranayama-manipura-chakra.jpg) Breathing exercises like **Anulom Vilom (Alternate Nostril Breathing)** can balance and enhance the energy flow in the Anahata Chakra.
+![](/images/blog/anahata-chakra/Breathing-Techniques-Pranayama-manipura-chakra.webp) Breathing exercises like **Anulom Vilom (Alternate Nostril Breathing)** can balance and enhance the energy flow in the Anahata Chakra.
 
 **Embrace Loving-Kindness Meditation:** Cultivate feelings of love and compassion through meditation, focusing on sending positive energy to yourself and others.
 

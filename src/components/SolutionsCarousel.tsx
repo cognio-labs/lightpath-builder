@@ -6,13 +6,13 @@ import { SOLUTIONS_LIST } from "@/data/solutionsData";
 import { Sparkles } from "lucide-react";
 
 export const CATEGORY_IMAGE_MAP: Record<string, string> = {
-  depression: "/category-icons/family-150x150.webp",
-  anxiety: "/category-icons/headache-150x150.webp",
-  "sleeping-disorder": "/category-icons/sleeping-150x150.webp",
-  overthinking: "/category-icons/overthinking-150x150.webp",
-  parenting: "/category-icons/child-150x150.webp",
-  wellness: "/category-icons/yoga-150x150.webp",
-  relationships: "/category-icons/couple-150x150.webp",
+  depression: "/images/category-icons/family-150x150.webp",
+  anxiety: "/images/category-icons/headache-150x150.webp",
+  "sleeping-disorder": "/images/category-icons/sleeping-150x150.webp",
+  overthinking: "/images/category-icons/overthinking-150x150.webp",
+  parenting: "/images/category-icons/child-150x150.webp",
+  wellness: "/images/category-icons/yoga-150x150.webp",
+  relationships: "/images/category-icons/couple-150x150.webp",
 };
 
 const SEVEN_SLUGS = [
@@ -112,7 +112,7 @@ export default function SolutionsCarousel() {
           >
             {displayList.map((item, idx) => {
               const iconSrc =
-                CATEGORY_IMAGE_MAP[item.slug] || "/category-icons/family-150x150.webp";
+                CATEGORY_IMAGE_MAP[item.slug] || "/images/category-icons/family-150x150.webp";
 
               return (
                 <div

@@ -4,14 +4,14 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Yoga & Pranayama"
 categorySlug: "yoga-pranayama"
-coverImage: "/blog/images/yoga-for-flexibility/Yoga-for-Flexibility.png"
+coverImage: "/images/blog/yoga-for-flexibility/Yoga-for-Flexibility.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Yoga for Flexibility](/blog/images/yoga-for-flexibility/Yoga-for-Flexibility.png "Yoga for Flexibility")
+![Yoga for Flexibility](/images/blog/yoga-for-flexibility/Yoga-for-Flexibility.webp "Yoga for Flexibility")
 
 Embarking on a journey towards greater flexibility isn't just about stretching; it's about unlocking the untapped potential of your body and mind. Yoga, an ancient practice rooted in harmonising the physical and spiritual, offers a path to enhanced flexibility that goes beyond mere physical benefits. Embrace the opportunity to explore how Yoga for flexibility can not only transform your body but also bring a newfound sense of balance and peace to your life.
 

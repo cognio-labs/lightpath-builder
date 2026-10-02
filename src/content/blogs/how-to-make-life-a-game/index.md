@@ -4,13 +4,13 @@ date: "2024-07-23"
 datePublished: "2024-07-23T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/how-to-make-life-a-game/how-to-make-life-a-game.jpeg"
+coverImage: "/images/blog/how-to-make-life-a-game/how-to-make-life-a-game.webp"
 tags:
 
 ---
 
 
-![How-to-make-life-a-game](/blog/images/how-to-make-life-a-game/how-to-make-life-a-game.jpeg "How-to-make-life-a-game")
+![How-to-make-life-a-game](/images/blog/how-to-make-life-a-game/how-to-make-life-a-game.webp "How-to-make-life-a-game")
 
 Life can often feel like a series of challenges and obstacles. However, what if you could transform your life into a game? By adopting a playful mindset and embracing life's experiences with enthusiasm, you can create a more fulfilling and joyful existence. This approach is championed by spiritual leader Sakshi Shree, who teaches that viewing life as a game can lead to profound personal growth and happiness.
 

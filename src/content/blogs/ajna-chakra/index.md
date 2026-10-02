@@ -4,7 +4,7 @@ date: "2024-03-08"
 datePublished: "2024-03-08T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/ajna-chakra/Third-Eye-Chakra.jpg"
+coverImage: "/images/blog/ajna-chakra/Third-Eye-Chakra.webp"
 tags:
   - "ajna-chakra"
   - "ajna-chakra-benefits"
@@ -21,13 +21,13 @@ In the realm of spiritual development, the Ajna Chakra stands as a beacon of inn
 
 ### **What is Ajna Chakra?**
 
-![](/blog/images/ajna-chakra/Third-Eye-Chakra.jpg)
+![](/images/blog/ajna-chakra/Third-Eye-Chakra.webp)
 
 The Ajna [**Chakra**](https://sciencedivine.org/chakras-in-human-body/), positioned at the forefront of advancing spiritual practices, is the sixth primary chakra in the traditional Hindu system of Ayurveda. It serves as the gateway to higher consciousness, offering a bridge between the physical world and the vast expanse of the universe. Activation of this chakra promises enhanced intuition, insight, and spiritual growth.
 
 ### **Where is Ajna Chakra Location?**
 
-![](/blog/images/ajna-chakra/6-chakra.jpg)
+![](/images/blog/ajna-chakra/6-chakra.webp)
 
 Located between the eyebrows, slightly above the bridge of the nose, the Ajna [**Chakra**](https://sciencedivine.org/7-chakras-of-body/) is often associated with the pineal gland. This central position allows it to oversee the balance of duality within our lives, harmonizing the physical and spiritual aspects of our existence.
 
@@ -41,13 +41,13 @@ Activating the Ajna Chakra is a process that requires patience, practice, and de
 
 #### **Ajna Chakra Meditation:**
 
-![](/blog/images/ajna-chakra/Ajna-Chakra-third-eye-meditation.jpg)
+![](/images/blog/ajna-chakra/Ajna-Chakra-third-eye-meditation.webp)
 
 Meditation is a key tool in opening the Ajna Chakra. Focusing your attention on the point between the eyebrows during meditation can stimulate this energy center, facilitating a deeper connection to your inner self and enhancing your meditation benefits.
 
 #### **Ajna Chakra Mudra:**
 
-![](/blog/images/ajna-chakra/khechari-mudra.jpg)
+![](/images/blog/ajna-chakra/khechari-mudra.webp)
 
 Incorporating specific hand gestures or mudras into your practice can also aid in activating the Ajna Chakra. The Khechari Mudra, where the tongue is placed against the upper palate, is particularly effective in stimulating the third eye area.
 

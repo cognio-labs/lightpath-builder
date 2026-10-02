@@ -13,7 +13,7 @@ const GALLERY_IMAGES = [
     category: "Youth & Education",
   },
   {
-    src: "/guruji-namaste-new.png",
+    src: "/images/guruji-namaste-new.webp",
     title: "Divine Satsang & Blessings",
     category: "Sakshi Shree Satsang",
   },
@@ -28,7 +28,7 @@ const GALLERY_IMAGES = [
     category: "Community",
   },
   {
-    src: "/guruji-meditation-hd.png",
+    src: "/images/guruji-meditation-hd.webp",
     title: "Inner Transformation Session",
     category: "Deep Meditation",
   },
@@ -48,7 +48,7 @@ const GALLERY_IMAGES = [
     category: "Wisdom Talk",
   },
   {
-    src: "/about-self-realization.jpg",
+    src: "/images/about-self-realization.webp",
     title: "Self Realization Dhyan",
     category: "Sadhna",
   },

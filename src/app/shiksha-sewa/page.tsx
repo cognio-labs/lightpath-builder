@@ -26,17 +26,17 @@ const ABOUT_CARDS = [
 
 const PURPOSE_IMAGES = [
   {
-    src: "/purpose-cards/our-goal.png",
+    src: "/images/purpose-cards/our-goal.webp",
     title: "Our Goal",
     desc: "To create conscious individuals who live joyfully and meaningfully.",
   },
   {
-    src: "/purpose-cards/our-vision.png",
+    src: "/images/purpose-cards/our-vision.webp",
     title: "Our Vision",
     desc: "To provide quality education and meditation practices to those who need it most.",
   },
   {
-    src: "/purpose-cards/our-approach.png",
+    src: "/images/purpose-cards/our-approach.webp",
     title: "Our Approach",
     desc: "Guided by the wisdom and vision of Sakshi Shree to create positive change.",
   },

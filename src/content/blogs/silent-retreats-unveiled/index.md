@@ -4,14 +4,14 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/silent-retreats-unveiled/Silent-Retreats-Unveiled.png"
+coverImage: "/images/blog/silent-retreats-unveiled/Silent-Retreats-Unveiled.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Silent Retreats Unveiled](/blog/images/silent-retreats-unveiled/Silent-Retreats-Unveiled.png "Silent Retreats Unveiled")
+![Silent Retreats Unveiled](/images/blog/silent-retreats-unveiled/Silent-Retreats-Unveiled.webp "Silent Retreats Unveiled")
 
 In the unending cacophony of daily life, the concept of silence has become a luxury few can afford. Silent retreats, a sanctuary away from the noise, offer a unique opportunity to disconnect from the outer world and reconnect with the inner self. This deep dive into the serene world of meditation and solitude is not just a retreat, but a profound journey towards self-discovery and inner peace. Embrace the tranquil embrace of silence, and embark on a transformative journey with us.
 

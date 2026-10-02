@@ -4,7 +4,7 @@ date: "2024-03-23"
 datePublished: "2024-03-23T00:00:00.000Z"
 category: "Yoga & Pranayama"
 categorySlug: "yoga-pranayama"
-coverImage: "/blog/images/feminine-energy/Feminine-Energy.png"
+coverImage: "/images/blog/feminine-energy/Feminine-Energy.webp"
 tags:
   - "feminine"
   - "feminine-energy"
@@ -15,7 +15,7 @@ tags:
 ---
 
 
-![Feminine Energy](/blog/images/feminine-energy/Feminine-Energy.png "Feminine Energy")
+![Feminine Energy](/images/blog/feminine-energy/Feminine-Energy.webp "Feminine Energy")
 
 Feminine energy is this incredible force that's all about nurturing, intuition, and empathy. It is believed that everything is born out of this energy in the universe. The qualities of feminine energy include stillness, empathy, nurturing, spontaneity, receptivity, fluidity, sensitivity, multitasking, communalism, acceptance, and flexibility. But sometimes, with our busy lives and how society works, we forget about it. Having a balance of feminine and masculine energy is essential for growth and overall well being of an individual. It's super important to pause, breathe, and make sure we are taking care of ourselves, inside and out.
 

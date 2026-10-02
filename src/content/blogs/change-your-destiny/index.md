@@ -4,7 +4,7 @@ date: "2024-07-25"
 datePublished: "2024-07-25T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/change-your-destiny/Change-your-destiny.png"
+coverImage: "/images/blog/change-your-destiny/Change-your-destiny.webp"
 tags:
 
 ---
@@ -12,7 +12,7 @@ tags:
 
 # Can You Really Change Your Destiny?
 
-![Change-your-destiny](/blog/images/change-your-destiny/Change-your-destiny.png "Change-your-destiny")
+![Change-your-destiny](/images/blog/change-your-destiny/Change-your-destiny.webp "Change-your-destiny")
 
 Feeling stuck in life’s repetitive patterns? you are not alone. Many believe destiny is unchangeable, but the truth is, you hold the power to reshape your future. This isn't about magic or wishful thinking; it’s about practical steps that steer your life in a new direction.
 

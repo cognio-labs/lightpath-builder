@@ -4,7 +4,7 @@ date: "2024-03-14"
 datePublished: "2024-03-14T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-spiritual/How-to-become-a-spiritual-person.jpg"
+coverImage: "/images/blog/what-is-spiritual/How-to-become-a-spiritual-person.webp"
 tags:
   - "how-to-become-a-spiritual-person"
   - "spiritual"
@@ -18,7 +18,7 @@ Today, we focus a lot on things we can touch and see right away. But, getting in
 
 ### **What is Spirituality?**
 
-![](/blog/images/what-is-spiritual/What-is-Spirituality.png)
+![](/images/blog/what-is-spiritual/What-is-Spirituality.webp)
 
 At its core, spirituality is a broad concept with room for many perspectives. It involves the sense of connection to something greater than ourselves, often leading to a search for meaning in life. As such, understanding what is the spiritual means is the first step in unlocking its power. Spirituality can manifest in various forms, from traditional religious practices to personal meditations on nature and the universe. The essence of a spiritual life lies in the realization that we are part of a larger existence, encouraging us to live in harmony with the world around us.
 

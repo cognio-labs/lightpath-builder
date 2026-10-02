@@ -4,7 +4,7 @@ date: "2024-02-24"
 datePublished: "2024-02-24T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/yoga-for-hypertension/yoga-for-hypertension-cover.jpg"
+coverImage: "/images/blog/yoga-for-hypertension/yoga-for-hypertension-cover.webp"
 tags:
   - "asana-for-hypertension"
   - "pranayama-for-hypertension"
@@ -31,19 +31,19 @@ Incorporating specific yoga poses for hypertension into your daily routine can h
 
 ### Ardha Matsyendrasana (Half Spinal Twist):
 
-![yoga for hypertension - Ardha Matsyendrasana (Half Spinal Twist)](/blog/images/yoga-for-hypertension/yoga-for-hypertension-Ardha-Matsyendrasana-Half-Spinal-Twist.jpg "yoga for hypertension - Ardha Matsyendrasana (Half Spinal Twist)")
+![yoga for hypertension - Ardha Matsyendrasana (Half Spinal Twist)](/images/blog/yoga-for-hypertension/yoga-for-hypertension-Ardha-Matsyendrasana-Half-Spinal-Twist.webp "yoga for hypertension - Ardha Matsyendrasana (Half Spinal Twist)")
 
 To perform Ardha Matsyendrasana (Half Spinal Twist), start by sitting on the floor with your legs extended in front of you. Bend your right knee and place your right foot outside of your left knee. Twist your torso to the right, bringing your left elbow outside of your right knee, and place your right hand on the floor behind you for support. Keep your spine elongated and gaze over your right shoulder. Hold the pose for a few breaths, then release and repeat on the opposite side.
 
 ### Paschimottanasana (Seated Forward Bend):
 
-![yoga for hypertension - Paschimottanasana (Seated Forward Bend)](/blog/images/yoga-for-hypertension/yoga-for-hypertension-Paschimottanasana-Seated-Forward-Bend.jpeg "yoga for hypertension - Paschimottanasana (Seated Forward Bend)")
+![yoga for hypertension - Paschimottanasana (Seated Forward Bend)](/images/blog/yoga-for-hypertension/yoga-for-hypertension-Paschimottanasana-Seated-Forward-Bend.webp "yoga for hypertension - Paschimottanasana (Seated Forward Bend)")
 
 To perform Paschimottanasana (Seated Forward Bend), sit with your legs stretched out in front of you. Inhale and extend your arms overhead to lengthen your spine. As you exhale, hinge at the hips to fold forward, reaching towards your toes with your hands while keeping the spine elongated. Hold this position for a few breaths, gently deepening the stretch with each exhalation, then release and slowly sit back up.
 
 ### Virasana (Hero Pose):
 
-![yoga for hypertension - Virasana (Hero Pose)](/blog/images/yoga-for-hypertension/yoga-for-hypertension-Virasana-Hero-Pose.jpg "yoga for hypertension - Virasana (Hero Pose)")
+![yoga for hypertension - Virasana (Hero Pose)](/images/blog/yoga-for-hypertension/yoga-for-hypertension-Virasana-Hero-Pose.webp "yoga for hypertension - Virasana (Hero Pose)")
 
 To practice Virasana (Hero Pose), start by kneeling on the floor with your knees together and your feet slightly wider than your hips. Slowly lower your hips down, sitting between your feet, with your feet pointing straight back and the tops of your feet flat on the floor. Place your hands on your thighs, keep your spine straight and shoulders relaxed. Hold the pose for a few breaths, then gently release.
 

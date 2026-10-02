@@ -4,14 +4,14 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unlock-restful-nights/Unlock-Restful-Nights.png"
+coverImage: "/images/blog/unlock-restful-nights/Unlock-Restful-Nights.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Unlock Restful Nights](/blog/images/unlock-restful-nights/Unlock-Restful-Nights.png "Unlock Restful Nights")
+![Unlock Restful Nights](/images/blog/unlock-restful-nights/Unlock-Restful-Nights.webp "Unlock Restful Nights")
 
 In the hustle and bustle of modern life, finding a moment of tranquillity can feel like a distant dream, especially when it's time to wind down for the night. Yet, imagine a world where sleep comes naturally, cradled in the arms of inner peace. This isn't just a dream—it's the reality that meditation for better sleep can offer. Embracing the art of meditation before bedtime is more than a routine; it's a journey to the serene slumber you've been longing for. In this comprehensive guide, we'll unlock the secrets to transforming your nights from restless to restorative through the power of meditation.
 

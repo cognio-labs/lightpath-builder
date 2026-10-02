@@ -4,7 +4,7 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unlocking-wellness/Unlocking-Wellness-1.png"
+coverImage: "/images/blog/unlocking-wellness/Unlocking-Wellness-1.webp"
 tags:
   - "meditation"
   - "yoga"

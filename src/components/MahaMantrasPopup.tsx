@@ -111,7 +111,7 @@ export function MahaMantrasPopup() {
           {/* Left: Taller 3D Book on Altar */}
           <div className="w-[110px] sm:w-[118px] shrink-0 flex items-center justify-center">
             <img
-              src="/maha-mantras-book-left.png"
+              src="/images/maha-mantras-book-left.webp"
               alt="Maha Mantras Book by Sakshi Shree"
               className="w-full h-auto max-h-[148px] sm:max-h-[156px] object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.65)]"
             />

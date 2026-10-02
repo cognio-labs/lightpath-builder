@@ -4,20 +4,20 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unlock-a-productive-day/Unlock-a-Productive-Day-1.png"
+coverImage: "/images/blog/unlock-a-productive-day/Unlock-a-Productive-Day-1.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Unlock a Productive Day](/blog/images/unlock-a-productive-day/Unlock-a-Productive-Day-2.png "Unlock a Productive Day")
+![Unlock a Productive Day](/images/blog/unlock-a-productive-day/Unlock-a-Productive-Day-2.webp "Unlock a Productive Day")
 
 In the rush of our daily lives, mornings can either be a time of stress or a sanctuary of peace. Imagine starting your day not with chaos, but with a serene mind and a focused intent. Morning meditation rituals have been a cornerstone of successful individuals' routines, setting the tone for a productive and mindful day. This blog post will guide you through establishing a morning meditation ritual tailored to foster productivity, tranquillity, and a profound sense of well-being.
 
 ### Understanding the Power of Morning Meditation:
 
-![Unlock a Productive Day](/blog/images/unlock-a-productive-day/Unlock-a-Productive-Day-3.png "Unlock a Productive Day")
+![Unlock a Productive Day](/images/blog/unlock-a-productive-day/Unlock-a-Productive-Day-3.webp "Unlock a Productive Day")
 
 Discover the science and philosophy behind morning meditation, and why it's the secret weapon of many high achievers. Explore the benefits, from enhanced focus and clarity to reduced stress and anxiety, setting a positive trajectory for the day.
 

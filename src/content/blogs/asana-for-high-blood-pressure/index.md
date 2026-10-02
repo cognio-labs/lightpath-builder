@@ -4,7 +4,7 @@ date: "2024-02-24"
 datePublished: "2024-02-24T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/asana-for-high-blood-pressure/asana-for-high-blood-pressure-cover.png"
+coverImage: "/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-cover.webp"
 tags:
   - "asana-for-blood-pressure"
   - "asana-for-bp"
@@ -31,37 +31,37 @@ Yoga, with its roots deeply embedded in ancient Indian culture, has been scienti
 
 #### Shavasana (Corpse Pose):
 
-![asana for high blood pressure Shavasana (Corpse Pose)](/blog/images/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Shavasana-Corpse-Pose.png "asana for high blood pressure Shavasana (Corpse Pose)")
+![asana for high blood pressure Shavasana (Corpse Pose)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Shavasana-Corpse-Pose.webp "asana for high blood pressure Shavasana (Corpse Pose)")
 
 To perform Shavasana (Corpse Pose), Lie flat on your back with legs together but not touching, and arms close to the body with palms facing up. Close your eyes and take slow, deep breaths through your nose. Scan your body from head to toe, finding and releasing tension. Maintain this position for 5–15 minutes, focusing on complete relaxation.
 
 #### Baddha Konasana (Butterfly Pose):
 
-![asana for high blood pressure Baddha Konasana (Butterfly Pose)](/blog/images/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Baddha-Konasana-Butterfly-Pose.png "asana for high blood pressure Baddha Konasana (Butterfly Pose)")
+![asana for high blood pressure Baddha Konasana (Butterfly Pose)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Baddha-Konasana-Butterfly-Pose.webp "asana for high blood pressure Baddha Konasana (Butterfly Pose)")
 
 To perform Baddha Konasana (Butterfly Pose), Sit on the floor with your legs extended in front of you. Bend your knees and bring the soles of your feet together, allowing your knees to fall out to the sides. Hold onto your ankles or feet with your hands. Sit up tall and gently press your knees down towards the floor. Hold for up to one minute.
 
 #### Janu Sirsasana (Head-to-Knee Forward Bend):
 
-![asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)](/blog/images/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Janu-Sirsasana-Head-to-Knee-Forward-Bend.png "asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)")
+![asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Janu-Sirsasana-Head-to-Knee-Forward-Bend.webp "asana for high blood pressure Janu Sirsasana (Head-to-Knee Forward Bend)")
 
 Perform Janu Sirsasana (Head-to-Knee Forward Bend) Start in Staff Pose (Dandasana) with legs stretched out in front of you. Bend your right knee and place the right foot alongside the left inner thigh. Inhale, lengthen your spine; raise your arms alongside your ears. Exhale, rotate your upper body slightly to face the left leg, and fold forward from the hips. Keep your spine long, chest open, and shoulders relaxed. Place your hands on your left leg, or take hold of your ankle or foot. Hold for 5 to 10 deep breaths, then release the pose.
 
 #### Viparita Karani (Legs-Up-The-Wall Pose):
 
-![asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)](/blog/images/asana-for-high-blood-pressure/PVNc0PNxerdVRcu82tQjMO_35d8PslVM07k-Acr-KAonS6lflUdtAn3f8xwVFrt2EAonyJUmrRMZu2efrR6Q0dk9pNenrdPo3c5RMBYP58oaZyLLpQWYmASYWoCgfwQ7YZ5FaVKAQguBytT1k8sdTZQ.jpg "asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)")
+![asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)](/images/blog/asana-for-high-blood-pressure/PVNc0PNxerdVRcu82tQjMO_35d8PslVM07k-Acr-KAonS6lflUdtAn3f8xwVFrt2EAonyJUmrRMZu2efrR6Q0dk9pNenrdPo3c5RMBYP58oaZyLLpQWYmASYWoCgfwQ7YZ5FaVKAQguBytT1k8sdTZQ.webp "asana for high blood pressure - Viparita Karani (Legs-Up-The-Wall Pose)")
 
 To perform Viparita Karani (Legs-Up-The-Wall Pose), Sit near a wall with your left side closest to it. Lie down on your back, ensuring your hips are touching the wall. Swing your legs upward, pressing them firmly against the wall. Straighten your legs, keeping your knees together. Allow your upper body to relax, adjusting your shoulders to rest comfortably on the floor. Ensure your pelvis remains lifted off the floor, and your tailbone is tilted slightly toward the wall. Release any tension in your body, and remain in this position for 5 to 15 minutes.
 
 #### Setu Bandhasana (Bridge Pose):
 
-![asana for high blood pressure Setu Bandhasana (Bridge Pose)](/blog/images/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Setu-Bandhasana-Bridge-Pose.png "asana for high blood pressure Setu Bandhasana (Bridge Pose)")
+![asana for high blood pressure Setu Bandhasana (Bridge Pose)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Setu-Bandhasana-Bridge-Pose.webp "asana for high blood pressure Setu Bandhasana (Bridge Pose)")
 
 For Setu Bandhasana (Bridge Pose), Lie on your back with your knees bent and feet flat on the floor, hip-distance apart. Place your arms alongside your body, palms down. As you inhale, press your feet and arms into the floor and lift your hips up towards the ceiling. Keep your inner feet and thighs parallel and engage your glutes and hamstrings. Slide your shoulder blades down your back and interlace your fingers beneath your pelvis. Hold for 5 to 10 deep breaths, then release the pose.
 
 #### Tree Pose (Vrksasana):
 
-![asana for high blood pressure Tree Pose (Vrksasana)](/blog/images/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Tree-Pose-Vrksasana.png "asana for high blood pressure Tree Pose (Vrksasana)")
+![asana for high blood pressure Tree Pose (Vrksasana)](/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-Tree-Pose-Vrksasana.webp "asana for high blood pressure Tree Pose (Vrksasana)")
 
 For Tree Pose (Vrksasana), Begin in Mountain Pose (Tadasana). Shift your weight onto your left leg. Ground through the four corners of your left foot. Bend your right knee, reach down with your right hand, and clasp your ankle. Bend your right knee and place your right foot on the inside of your left leg, either above or below your knee joint. Press your foot against your inner thigh, and your inner thigh back into your foot. Keep your core muscles engaged. Firm your left hip in, lengthen your spine, soften your shoulders, and tuck your chin slightly in and back. Optionally, bring your hands in front of your heart in Anjali Mudra (prayer position) or lift your arms up to the ceiling. Hold for 30 seconds to 1 minute, then lower your leg and arms down as you exhale, returning to Tadasana. Repeat on the other side.
 

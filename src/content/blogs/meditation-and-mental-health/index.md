@@ -4,14 +4,14 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/meditation-and-mental-health/Meditation-and-Mental-Health-1.png"
+coverImage: "/images/blog/meditation-and-mental-health/Meditation-and-Mental-Health-1.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Meditation and Mental Health](/blog/images/meditation-and-mental-health/Meditation-and-Mental-Health-2.png "Meditation and Mental Health")
+![Meditation and Mental Health](/images/blog/meditation-and-mental-health/Meditation-and-Mental-Health-2.webp "Meditation and Mental Health")
 
 In the hustle and bustle of modern life, meditation emerges not just as a practice but as a sanctuary for mental health. This ancient tradition, now embraced by science, offers a gateway to tranquillity and a proven path to psychological transformation. In this post, we delve into the heartwarming stories of individuals who've found solace and strength in meditation, exploring how this practice has reshaped their mental landscape and infused their lives with a renewed sense of purpose and peace.
 

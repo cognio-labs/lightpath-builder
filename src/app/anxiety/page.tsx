@@ -22,7 +22,7 @@ const ARTICLES = [
     tag: "Mindset",
     readTime: "7 min read",
     desc: "Learn to shift focus to positive options and consciously reprogram negative thought patterns.",
-    image: "/articles/optimistic-mind-ai.webp",
+    image: "/images/articles/optimistic-mind-ai.webp",
     alt: "Young person in peaceful contemplation at sunrise reflecting on an optimistic mindset",
   },
   {
@@ -31,7 +31,7 @@ const ARTICLES = [
     tag: "Awareness",
     readTime: "8 min read",
     desc: "Cultivating presence to escape constant loops of anxiety and worry.",
-    image: "/articles/conscious-mind-ai.webp",
+    image: "/images/articles/conscious-mind-ai.webp",
     alt: "Person sitting mindfully by large sunlit window practicing conscious awareness",
   },
   {
@@ -40,7 +40,7 @@ const ARTICLES = [
     tag: "Peace",
     readTime: "6 min read",
     desc: "Simple somatic practices that immediately downregulate stress response in the body.",
-    image: "/articles/feel-calm-ai.webp",
+    image: "/images/articles/feel-calm-ai.webp",
     alt: "Mindful hand mudra in warm peaceful sunlight representing calm and inner peace",
   },
   {
@@ -49,7 +49,7 @@ const ARTICLES = [
     tag: "Wellness",
     readTime: "6 min read",
     desc: "Understanding the balance between mental wellness, sleep, and physical breathing.",
-    image: "/articles/mental-health-ai.webp",
+    image: "/images/articles/mental-health-ai.webp",
     alt: "Young Indian professional woman taking a mindful break from laptop work near a window surrounded by plants",
   },
   {
@@ -58,7 +58,7 @@ const ARTICLES = [
     tag: "Yoga",
     readTime: "8 min read",
     desc: "How dynamic alignment helps manage heart rate variability and blood pressure.",
-    image: "/articles/yoga-hypertension-ai.webp",
+    image: "/images/articles/yoga-hypertension-ai.webp",
     alt: "Middle-aged Indian man practicing gentle seated yoga pranayama in a peaceful sunlit living room",
   },
   {
@@ -67,7 +67,7 @@ const ARTICLES = [
     tag: "Relaxation",
     readTime: "10 min read",
     desc: "Restorative deep relaxation method to clear chronic fatigue and mental tension.",
-    image: "/articles/yoga-nidra-ai.webp",
+    image: "/images/articles/yoga-nidra-ai.webp",
     alt: "Indian woman in peaceful Shavasana Yoga Nidra pose on jute mat with soft candlelight and draped blanket",
   },
   {
@@ -76,7 +76,7 @@ const ARTICLES = [
     tag: "Mindfulness",
     readTime: "9 min read",
     desc: "Deep meditation and somatic stretching working together for balance.",
-    image: "/articles/yoga-mindfulness-ai.webp",
+    image: "/images/articles/yoga-mindfulness-ai.webp",
     alt: "Indian woman in sage green kurta meditating peacefully in a lush sunlit garden path",
   },
   {
@@ -85,7 +85,7 @@ const ARTICLES = [
     tag: "Meditation",
     readTime: "7 min read",
     desc: "Tailored meditation techniques suitable for senior practitioners.",
-    image: "/articles/meditation-seniors-ai.webp",
+    image: "/images/articles/meditation-seniors-ai.webp",
     alt: "Graceful Indian senior woman in sari meditating joyfully in a sunlit home garden with greenery",
   },
   {
@@ -94,7 +94,7 @@ const ARTICLES = [
     tag: "Healing",
     readTime: "9 min read",
     desc: "A general guide to aligning biological energy paths.",
-    image: "/articles/mind-body-harmony-ai.webp",
+    image: "/images/articles/mind-body-harmony-ai.webp",
     alt: "Indian man in ivory linen meditating at sunrise on a terrace surrounded by terracotta pots and greenery",
   },
 ];
@@ -311,7 +311,7 @@ export default function Page() {
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37] hover:scale-105 transition-transform duration-700">
                 <img
-                  src="/articles/yoga-mindfulness-ai.webp"
+                  src="/images/articles/yoga-mindfulness-ai.webp"
                   alt="Calming the Mind and Overcoming Anxiety"
                   className="w-full h-full object-cover object-center"
                 />

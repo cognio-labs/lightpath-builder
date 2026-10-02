@@ -4,14 +4,14 @@ date: "2024-02-06"
 datePublished: "2024-02-06T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/basics-of-meditation/basics-of-meditation.png"
+coverImage: "/images/blog/basics-of-meditation/basics-of-meditation.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![basics of meditation](/blog/images/basics-of-meditation/basics-of-meditation.png "basics of meditation")
+![basics of meditation](/images/blog/basics-of-meditation/basics-of-meditation.webp "basics of meditation")
 
 Embark on a transformative journey with the art of meditation, a practice that transcends time and culture, offering a refuge of peace in our bustling lives. This guide, "**Discovering the Basics of Meditation**," is meticulously crafted to help beginners navigate the serene realms of this ancient practice. Whether you're seeking stress relief, enhanced focus, or a deeper connection with your inner self, understanding the fundamentals of meditation can pave the way for a more mindful and tranquil existence.
 

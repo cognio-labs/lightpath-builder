@@ -21,7 +21,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "CloudSun",
     tagline: "Awaken Inner Light & Overcome Darkness",
     shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
-    heroImage: "/premium-heroes/depression-hero.png",
+    heroImage: "/images/premium-heroes/depression-hero.webp",
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
@@ -56,7 +56,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Brain",
     tagline: "Calm Panic, Release Fear & Rest in Awareness",
     shortDesc: "Overcome racing heartbeat, panic, and persistent worry with Sakshi Bhav and soothing breathwork.",
-    heroImage: "/premium-heroes/anxiety-hero.png",
+    heroImage: "/images/premium-heroes/anxiety-hero.webp",
     badge: "ANXIETY RELIEF & PEACE",
     themeColor: "#C79A2E",
     benefits: [
@@ -90,7 +90,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Moon",
     tagline: "Overcome Insomnia & Wake Up Deeply Refreshed",
     shortDesc: "Quiet bedtime mental chatter and restore natural sleep cycles through Yoga Nidra and deep relaxation.",
-    heroImage: "/premium-heroes/sleeping-disorder-hero.png",
+    heroImage: "/images/premium-heroes/sleeping-disorder-hero.webp",
     badge: "RESTFUL SLEEP SANCTUARY",
     themeColor: "#C79A2E",
     benefits: [
@@ -120,7 +120,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Activity",
     tagline: "Break Thought Swirls & Find Mental Silence",
     shortDesc: "Stop repetitive mental loops and quiet your busy mind with witness consciousness.",
-    heroImage: "/premium-heroes/depression-hero.png",
+    heroImage: "/images/premium-heroes/depression-hero.webp",
     badge: "MENTAL CLARITY & SILENCE",
     themeColor: "#C79A2E",
     benefits: [
@@ -147,7 +147,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Baby",
     tagline: "Conscious & Mindful Parenting for Joyful Homes",
     shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
-    heroImage: "/premium-heroes/parenting-hero.png",
+    heroImage: "/images/premium-heroes/parenting-hero.webp",
     badge: "MINDFUL PARENTING",
     themeColor: "#C79A2E",
     benefits: [
@@ -182,7 +182,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Flower2",
     tagline: "Holistic Health, Balance & Longevity",
     shortDesc: "Unify body, mind, and spirit into optimal wellness with daily conscious living and divine energy alignment.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "HOLISTIC WELLNESS & LIFESTYLE",
     themeColor: "#C79A2E",
     benefits: [
@@ -217,7 +217,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "HeartHandshake",
     tagline: "Nurture Love, Compassion & Mutual Harmony",
     shortDesc: "Heal interpersonal conflicts, deepen emotional intimacy, and build loving bonds through unconditional understanding.",
-    heroImage: "/premium-heroes/relationships-hero.png",
+    heroImage: "/images/premium-heroes/relationships-hero.webp",
     badge: "RELATIONSHIP & LOVE HARMONY",
     themeColor: "#C79A2E",
     benefits: [
@@ -252,7 +252,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Activity",
     tagline: "Find Your Calm & Release Chronic Tension",
     shortDesc: "Transform mental pressure into profound inner composure using Sakshi Bhav (Witness Consciousness) and scientific breathwork.",
-    heroImage: "/premium-heroes/depression-hero.png",
+    heroImage: "/images/premium-heroes/depression-hero.webp",
     badge: "WELLNESS & STRESS MANAGEMENT",
     themeColor: "#C79A2E",
     benefits: [
@@ -287,7 +287,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Brain",
     tagline: "Nurture Emotional Wellbeing & Inner Harmony",
     shortDesc: "Cultivate a balanced mind, self-compassion, and mental clarity through Sakshi Shree's timeless meditation practices.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "HOLISTIC MENTAL HEALTH",
     themeColor: "#C79A2E",
     benefits: [
@@ -322,7 +322,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Scale",
     tagline: "Mindful Weight Balance & Physical Vitality",
     shortDesc: "Achieve healthy body weight and natural vitality through conscious eating, yoga movement, and biological harmony.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "CONSCIOUS WELLNESS & FITNESS",
     themeColor: "#C79A2E",
     benefits: [
@@ -357,7 +357,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "CloudSun",
     tagline: "Awaken Inner Light & Overcome Darkness",
     shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
-    heroImage: "/premium-heroes/depression-hero.png",
+    heroImage: "/images/premium-heroes/depression-hero.webp",
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
@@ -392,7 +392,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Flame",
     tagline: "Master Anger & Channel Emotional Energy",
     shortDesc: "Convert fiery anger into creative energy, patience, and deep emotional composure with Sakshi Bhav techniques.",
-    heroImage: "/premium-heroes/anxiety-hero.png",
+    heroImage: "/images/premium-heroes/anxiety-hero.webp",
     badge: "EMOTIONAL MASTERY",
     themeColor: "#C79A2E",
     benefits: [
@@ -427,7 +427,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Moon",
     tagline: "Deep, Restorative Sleep & Nighttime Peace",
     shortDesc: "Overcome insomnia and restlessness with gentle evening Sadhna, relaxing breathwork, and peaceful mind cultivation.",
-    heroImage: "/premium-heroes/sleeping-disorder-hero.png",
+    heroImage: "/images/premium-heroes/sleeping-disorder-hero.webp",
     badge: "SLEEP & DEEP REST",
     themeColor: "#C79A2E",
     benefits: [
@@ -462,7 +462,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Flower2",
     tagline: "Holistic Health, Balance & Longevity",
     shortDesc: "Unify body, mind, and spirit into optimal wellness with daily conscious living and divine energy alignment.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "HOLISTIC WELLNESS & LIFESTYLE",
     themeColor: "#C79A2E",
     benefits: [
@@ -497,7 +497,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "HeartHandshake",
     tagline: "Nurture Love, Compassion & Mutual Harmony",
     shortDesc: "Heal interpersonal conflicts, deepen emotional intimacy, and build loving bonds through unconditional understanding.",
-    heroImage: "/premium-heroes/relationships-hero.png",
+    heroImage: "/images/premium-heroes/relationships-hero.webp",
     badge: "RELATIONSHIP & LOVE HARMONY",
     themeColor: "#C79A2E",
     benefits: [
@@ -532,7 +532,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Baby",
     tagline: "Conscious & Mindful Parenting for Joyful Homes",
     shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
-    heroImage: "/premium-heroes/parenting-hero.png",
+    heroImage: "/images/premium-heroes/parenting-hero.webp",
     badge: "MINDFUL PARENTING",
     themeColor: "#C79A2E",
     benefits: [
@@ -567,7 +567,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Accessibility",
     tagline: "Relieve Back Tension & Improve Spine Health",
     shortDesc: "Ease spine stiffness, lower back aches, and postural strain through gentle yoga therapy and body relaxation.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "SPINE HEALTH & PAIN RELIEF",
     themeColor: "#C79A2E",
     benefits: [
@@ -602,7 +602,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Zap",
     tagline: "Revitalize Energy & Overcome Chronic Exhaustion",
     shortDesc: "Recharge cellular stamina, restore biological vitality, and overcome daily lethargy with pranic energy techniques.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "ENERGY REVITALIZATION",
     themeColor: "#C79A2E",
     benefits: [
@@ -637,7 +637,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "ShieldCheck",
     tagline: "Strengthen Natural Body Defense & Vitality",
     shortDesc: "Boost your body's immune system, lymphatic flow, and disease resistance through holistic Sadhna and stress reduction.",
-    heroImage: "/premium-heroes/wellness-hero.png",
+    heroImage: "/images/premium-heroes/wellness-hero.webp",
     badge: "IMMUNE HEALTH & VITALITY",
     themeColor: "#C79A2E",
     benefits: [

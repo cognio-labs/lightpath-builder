@@ -4,7 +4,7 @@ date: "2024-03-07"
 datePublished: "2024-03-07T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/chakras-in-human-body/7-healing-benefits-of-chakra-alignment-cover.jpeg"
+coverImage: "/images/blog/chakras-in-human-body/7-healing-benefits-of-chakra-alignment-cover.webp"
 tags:
   - "benefits-of-balanced-chakras"
   - "chakras"
@@ -26,7 +26,7 @@ The human body is said to house seven major chakras, each located at a specific 
 
 ### **How to Unblock Chakras:**
 
-![](/blog/images/chakras-in-human-body/Benefits-of-Balanced-Chakras.jpg)
+![](/images/blog/chakras-in-human-body/Benefits-of-Balanced-Chakras.webp)
 
 Unblocking and opening chakras in the body can seem daunting, but it's a journey accessible to everyone, regardless of spiritual background. Techniques for aligning your chakras range from simple meditation and yoga practices to more in-depth healing therapies like reiki, sound healing, and aromatherapy. Regular engagement with these practices can help clear any blockages, allowing energy to flow freely, and open up each chakra. Visualization and affirmations specifically tailored to each chakra's needs can also play a crucial role in this transformative process.
 
@@ -40,43 +40,43 @@ Balancing your chakras does not require expensive tools or an extensively traine
 
 #### [**Root Chakra:**](https://sciencedivine.org/muladhara-chakra/)
 
-![](/blog/images/chakras-in-human-body/Root-Chakra.jpg)
+![](/images/blog/chakras-in-human-body/Root-Chakra.webp)
 
 Ground yourself through walking barefoot on grass, meditating on stability, and focusing on red-colored foods and objects.
 
 #### [**Sacral Chakra:**](https://sciencedivine.org/svadhisthana-chakra/)
 
-![](/blog/images/chakras-in-human-body/Sacral-Chakra.jpg)
+![](/images/blog/chakras-in-human-body/Sacral-Chakra.webp)
 
 Engage in creative activities, enjoy healthy pleasures, and incorporate orange hues in your life.
 
 #### [**Solar Plexus Chakra:**](https://sciencedivine.org/manipura-chakra/)
 
-![](/blog/images/chakras-in-human-body/Solar-Plexus-Chakra.jpg)
+![](/images/blog/chakras-in-human-body/Solar-Plexus-Chakra.webp)
 
 Empower yourself with challenging activities, affirm your self-worth, and surround yourself with yellow.
 
 #### [**Heart Chakra:**](https://sciencedivine.org/anahata-chakra/)
 
-![](/blog/images/chakras-in-human-body/Heart-Chakra.png)
+![](/images/blog/chakras-in-human-body/Heart-Chakra.webp)
 
 Practice self-love and forgiveness, connect with nature, and embrace green and pink colors.
 
 #### [**Throat Chakra:**](https://sciencedivine.org/vishuddha-chakra/)
 
-![](/blog/images/chakras-in-human-body/Throat-Chakra.jpg)
+![](/images/blog/chakras-in-human-body/Throat-Chakra.webp)
 
 Speak your truth, listen actively, and use blue decorations or clothing to enhance this chakra's energy.
 
 #### [**Third Eye Chakra:**](https://sciencedivine.org/ajna-chakra/)
 
-![](/blog/images/chakras-in-human-body/Third-Eye-Chakra.jpg)
+![](/images/blog/chakras-in-human-body/Third-Eye-Chakra.webp)
 
 Cultivate intuition through meditation, dream journaling, and focusing on indigo elements.
 
 #### [**Crown Chakra:**](https://sciencedivine.org/sahasrara-chakra/)
 
-![](/blog/images/chakras-in-human-body/Crown-Chakra.jpg)
+![](/images/blog/chakras-in-human-body/Crown-Chakra.webp)
 
 Seek spiritual connections, meditate on your higher purpose, and introduce violet or white into your surroundings.
 

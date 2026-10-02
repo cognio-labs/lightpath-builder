@@ -631,7 +631,7 @@ html.dark footer {
 .hero-luxury-bg {
   position: relative;
   background-color: #e8d5b0;
-  background-image: linear-gradient(rgba(255,248,230,0.45), rgba(255,248,230,0.45)), url('/hero-bg.jpg');
+  background-image: linear-gradient(rgba(255,248,230,0.45), rgba(255,248,230,0.45)), url('/images/hero-bg.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -639,7 +639,7 @@ html.dark footer {
 }
 .dark .hero-luxury-bg {
   background-color: #e8d5b0;
-  background-image: linear-gradient(rgba(255,248,230,0.35), rgba(255,248,230,0.35)), url('/hero-bg.jpg') !important;
+  background-image: linear-gradient(rgba(255,248,230,0.35), rgba(255,248,230,0.35)), url('/images/hero-bg.webp') !important;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

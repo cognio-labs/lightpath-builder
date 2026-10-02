@@ -4,13 +4,13 @@ date: "2024-07-17"
 datePublished: "2024-07-17T00:00:00.000Z"
 category: "Mindset & Manifestation"
 categorySlug: "mindset-manifestation"
-coverImage: "/blog/images/master-your-own-fate/master-your-own-fate.webp"
+coverImage: "/images/blog/master-your-own-fate/master-your-own-fate.webp"
 tags:
 
 ---
 
 
-![master-your-own-fate](/blog/images/master-your-own-fate/master-your-own-fate.webp "master-your-own-fate")
+![master-your-own-fate](/images/blog/master-your-own-fate/master-your-own-fate.webp "master-your-own-fate")
 
 **Have you ever found yourself asking the age-old question:** can I truly control my fate, or is it already written for me? It’s similar to the debate of what came first, the chicken or the egg. This eternal dilemma has always put everyone in a puzzle for centuries. Let me tell you a story that might shed some light on this quandary.
 

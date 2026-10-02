@@ -4,7 +4,7 @@ date: "2024-08-13"
 datePublished: "2024-08-13T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/gateway-to-nirvana/Gateway-to-Nirvana.webp"
+coverImage: "/images/blog/gateway-to-nirvana/Gateway-to-Nirvana.webp"
 tags:
 
 ---
@@ -12,7 +12,7 @@ tags:
 
 # Gateway to Nirvana: Meditation and Self Healing
 
-![Gateway-to-Nirvana](/blog/images/gateway-to-nirvana/Gateway-to-Nirvana.webp "Gateway-to-Nirvana")
+![Gateway-to-Nirvana](/images/blog/gateway-to-nirvana/Gateway-to-Nirvana.webp "Gateway-to-Nirvana")
 
 Let’s talk about Nirvana and no, not the ‘90s grunge band. When we hear the word **‘Nirvana,’** many of us imagine a tranquil, blissful paradise where all problems vanish. It often conjures images of serene landscapes, endless peace, and an almost magical state of happiness. However, the reality of Nirvana, in various spiritual traditions, is quite different and much deeper. Sure, it is a place where your mind is as still as a serene lake at dawn, undisturbed by the ripples of daily life. But the true essence of Nirvana is a state of ultimate peace and liberation. Different religions and philosophies have their interpretations of Nirvana. In Buddhism, it is the cessation of suffering and the end of the cycle of rebirth. Hinduism describes it as Moksha, the liberation of the soul from the bonds of karma. Even in modern spirituality, Nirvana is seen as reaching a pinnacle of inner peace and enlightenment.
 

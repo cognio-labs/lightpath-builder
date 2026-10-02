@@ -29,32 +29,32 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
   const getCardStyle = (index: number) => {
     const configs = [
       {
-        backgroundImage: "url('/feature-cards/sound-body.png')",
+        backgroundImage: "url('/images/feature-cards/sound-body.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/feature-cards/sound-mind.png')",
+        backgroundImage: "url('/images/feature-cards/sound-mind.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/feature-cards/self-realization.png')",
+        backgroundImage: "url('/images/feature-cards/self-realization.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/exclusive-meditation-woman.png')",
+        backgroundImage: "url('/images/exclusive-meditation-woman.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/about-sound-body.jpg')",
+        backgroundImage: "url('/images/about-sound-body.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/about-sound-mind.jpg')",
+        backgroundImage: "url('/images/about-sound-mind.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
@@ -65,17 +65,17 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
   const getPracticeStyle = (index: number) => {
     const configs = [
       {
-        backgroundImage: "url('/about-sound-body.jpg')",
+        backgroundImage: "url('/images/about-sound-body.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/about-sound-mind.jpg')",
+        backgroundImage: "url('/images/about-sound-mind.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
       {
-        backgroundImage: "url('/about-self-realization.jpg')",
+        backgroundImage: "url('/images/about-self-realization.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
       },
@@ -320,7 +320,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
       <section className="py-20 px-6 bg-gradient-to-r from-[#1A0A2E] via-[#2D1B4E] to-[#1A0A2E] text-white relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center"
-          style={{ backgroundImage: "url('/about-section-bg.png')" }}
+          style={{ backgroundImage: "url('/images/about-section-bg.webp')" }}
         />
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
           <Quote size={48} className="mx-auto text-[#D4AF37] opacity-80" />

@@ -65,7 +65,7 @@ export function PageHero({
     <section
       className="relative overflow-hidden"
       style={{
-        backgroundImage: "url('/clean-golden-bg.png')",
+        backgroundImage: "url('/images/clean-golden-bg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",

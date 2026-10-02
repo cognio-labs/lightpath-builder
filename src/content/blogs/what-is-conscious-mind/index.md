@@ -4,7 +4,7 @@ date: "2024-03-02"
 datePublished: "2024-03-02T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-conscious-mind/Conscious-Mind.png"
+coverImage: "/images/blog/what-is-conscious-mind/Conscious-Mind.webp"
 tags:
   - "conscious-mind"
   - "meditation-benefits-for-brain"
@@ -19,13 +19,13 @@ The conscious mind is an incredible force that shapes our reality, perceptions, 
 
 ### What is Conscious Mind?
 
-![what-is-Conscious-Mind](/blog/images/what-is-conscious-mind/what-is-Conscious-Mind.jpg)
+![what-is-Conscious-Mind](/images/blog/what-is-conscious-mind/what-is-Conscious-Mind.webp)
 
 The conscious mind is your awareness of yourself and the world around you. It encompasses everything you are currently thinking, feeling, and perceiving. This aspect of your mind is responsible for logic, reasoning, and voluntary actions. It's where you make decisions, contemplate life's questions, and direct your focus and attention. But what is the conscious mind's role in our overall mental framework?
 
 ### Power of Conscious Mind
 
-![Power-of-Conscious-Mind](/blog/images/what-is-conscious-mind/Power-of-Conscious-Mind.png)
+![Power-of-Conscious-Mind](/images/blog/what-is-conscious-mind/Power-of-Conscious-Mind.webp)
 
 The power of conscious mind lies in its ability to direct focus, make choices, and influence our subconscious patterns. It's the gatekeeper of our thoughts and perceptions, determining which experiences and memories take root in our subconscious mind. By harnessing the power of your conscious mind, you can effectively reprogram your thought patterns, beliefs, and behaviors, leading to profound changes in your life.
 

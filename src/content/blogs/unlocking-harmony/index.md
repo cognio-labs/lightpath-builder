@@ -4,7 +4,7 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unlocking-harmony/Unlocking-Harmony.png"
+coverImage: "/images/blog/unlocking-harmony/Unlocking-Harmony.webp"
 tags:
   - "meditation"
   - "yoga"
@@ -15,7 +15,7 @@ In the bustling rhythm of modern life, finding balance and inner peace is more c
 
 ### Understanding Chakras: The Energy Vortexes Within
 
-![Unlocking Harmony](/blog/images/unlocking-harmony/Unlocking-Harmony.png "Unlocking Harmony")
+![Unlocking Harmony](/images/blog/unlocking-harmony/Unlocking-Harmony.webp "Unlocking Harmony")
 
 **The Concept of Chakras:** Introduce the seven chakras, their locations, and their significance in maintaining energy flow and overall health.
 

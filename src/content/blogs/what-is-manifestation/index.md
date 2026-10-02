@@ -4,7 +4,7 @@ date: "2024-02-29"
 datePublished: "2024-02-29T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-manifestation/Manifestation-Cover.jpg"
+coverImage: "/images/blog/what-is-manifestation/Manifestation-Cover.webp"
 tags:
   - "how-does-manifestation-work"
   - "how-manifestation-works"
@@ -21,13 +21,13 @@ Have you ever wished for something so badly but didn't know how to make it come 
 
 ### What is Manifestation?
 
-![What is Manifestation](/blog/images/what-is-manifestation/What-is-Manifestation.png "What is Manifestation")
+![What is Manifestation](/images/blog/what-is-manifestation/What-is-Manifestation.webp "What is Manifestation")
 
 Manifestation is the process of bringing your desires and intentions into reality through the power of thought, belief, and action. It's based on the principle that your thoughts and feelings can influence the outcome of your life. By focusing on positive or specific goals, and believing in the possibility of achieving them, you align your energy with what you wish to attract. This concept is often associated with the Law of Attraction, which suggests that like attracts like—meaning positive thoughts will attract positive outcomes, and negative thoughts will attract negative outcomes. Manifestation encourages mindfulness and proactive behaviour towards achieving personal goals, emphasizing the power of individual thought and emotion in shaping one's reality.
 
 ### How Manifestation Works?
 
-![How Manifestation Works](/blog/images/what-is-manifestation/How-Manifestation-Works.png "How Manifestation Works")
+![How Manifestation Works](/images/blog/what-is-manifestation/How-Manifestation-Works.webp "How Manifestation Works")
 
 Think of your thoughts as magnets. If you keep thinking about what you want, you attract those things towards you. It's like when you're really focused on noticing red cars, and suddenly, you see red cars everywhere. Manifestation works in a similar way. By focusing on positive thoughts, you can bring good things into your life.
 
@@ -45,7 +45,7 @@ Think of your thoughts as magnets. If you keep thinking about what you want, you
 
 ### Why is My Manifestation not Working?
 
-![Why is My Manifestation not Working](/blog/images/what-is-manifestation/Why-is-My-Manifestation-not-Working.png "Why is My Manifestation not Working")
+![Why is My Manifestation not Working](/images/blog/what-is-manifestation/Why-is-My-Manifestation-not-Working.webp "Why is My Manifestation not Working")
 
 Sometimes, even when you try all the right steps, things don't happen right away. Here are a few reasons why:
 

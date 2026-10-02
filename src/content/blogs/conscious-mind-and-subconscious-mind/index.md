@@ -4,7 +4,7 @@ date: "2024-03-02"
 datePublished: "2024-03-02T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/conscious-mind-and-subconscious-mind/Conscious-mind-and-Subconscious-mind.jpg"
+coverImage: "/images/blog/conscious-mind-and-subconscious-mind/Conscious-mind-and-Subconscious-mind.webp"
 tags:
   - "become-conscious"
   - "conscious-and-subconscious"
@@ -32,7 +32,7 @@ So, when we talk about "what is conscious mind and subconscious mind," we're loo
 
 ### **Difference Between Conscious and Subconscious Mind:**
 
-![](/blog/images/conscious-mind-and-subconscious-mind/Difference-Between-Conscious-and-Subconscious-Mind.png)
+![](/images/blog/conscious-mind-and-subconscious-mind/Difference-Between-Conscious-and-Subconscious-Mind.webp)
 
 Firstly, the conscious mind is like the captain of a ship, aware and in control of what's happening right now. It's where you do all your thinking and planning. If you're deciding what to wear, figuring out a puzzle, or just choosing what to eat, that's your conscious mind at work. It deals with logic, reasoning, and the tasks you're actively focusing on. In contrast, the subconscious mind is like the crew below deck, running things without the captain's direct involvement. It stores all your memories, feelings, and learned habits. It controls the automatic stuff, like breathing and dreams, and influences your emotions and desires without you even realizing it. This is a major difference between conscious and subconscious mind.
 

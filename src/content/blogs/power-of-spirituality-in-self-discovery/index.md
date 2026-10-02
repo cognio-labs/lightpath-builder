@@ -4,7 +4,7 @@ date: "2024-07-25"
 datePublished: "2024-07-25T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/power-of-spirituality-in-self-discovery/Power_Of_Spirituality_In_Self_Discovery.png"
+coverImage: "/images/blog/power-of-spirituality-in-self-discovery/Power_Of_Spirituality_In_Self_Discovery.webp"
 tags:
 
 ---
@@ -12,7 +12,7 @@ tags:
 
 # Power Of Spirituality In Self Discovery
 
-![Power\_Of\_Spirituality\_In\_Self\_Discovery](/blog/images/power-of-spirituality-in-self-discovery/Power_Of_Spirituality_In_Self_Discovery.png "Power_Of_Spirituality_In_Self_Discovery")
+![Power\_Of\_Spirituality\_In\_Self\_Discovery](/images/blog/power-of-spirituality-in-self-discovery/Power_Of_Spirituality_In_Self_Discovery.webp "Power_Of_Spirituality_In_Self_Discovery")
 
 Ever feel like you are running on a treadmill that’s stuck on fast forward? You are out of breath, tired, want to rest but no time for that. Between the constant notifications, social media updates, work, and the endless to-do lists, finding time to just be can seem like a fantasy. Yet, in all this digital chaos, there is a growing curiosity about a quiet search for oneself. Unless we feel connected within, there cannot be any connection outside. This journey isn’t about packing bags for a distant land, it’s about exploring the most fascinating terrain of all - your own inner world.
 

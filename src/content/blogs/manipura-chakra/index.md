@@ -4,7 +4,7 @@ date: "2024-03-08"
 datePublished: "2024-03-08T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/manipura-chakra/Solar-Plexus-Chakra.jpg"
+coverImage: "/images/blog/manipura-chakra/Solar-Plexus-Chakra.webp"
 tags:
   - "how-to-activate-manipura-chakra"
   - "manipura-chakra"
@@ -21,7 +21,7 @@ In the intricate tapestry of energy that weaves through the human body, the Mani
 
 ### **What is Manipura Chakra?:**
 
-![](/blog/images/manipura-chakra/Solar-Plexus-Chakra.jpg)
+![](/images/blog/manipura-chakra/Solar-Plexus-Chakra.webp)
 
 The Manipura [**Chakra**](https://sciencedivine.org/chakras-in-human-body/), located at the navel center, is the third of the seven primary chakras in yogic tradition. It acts as the seat of personal power, self-esteem, and confidence. This energy center governs our ability to assert ourselves in the world, make decisions, and take responsibility for our life path. Understanding the Manipura Chakra's location and function is the first step in harnessing its transformative power.
 
@@ -35,7 +35,7 @@ Activating the Manipura Chakra offers a multitude of benefits, including improve
 
 ### **Manipura Chakra Location:**
 
-![](/blog/images/manipura-chakra/3-chakra.jpg)
+![](/images/blog/manipura-chakra/3-chakra.webp)
 
 The Manipura Chakra is located above the navel and below the rib cage. It is the central point where physical and spiritual energies converge, making its activation crucial for overall well-being and personal growth.
 
@@ -47,23 +47,23 @@ Activating the Manipura Chakra involves a combination of physical postures, brea
 
 #### **Bow pose:**
 
-![](/blog/images/manipura-chakra/Manipura-Chakra-Bow-Pose.jpg)
+![](/images/blog/manipura-chakra/Manipura-Chakra-Bow-Pose.webp)
 
 #### **Plank pose:**
 
-![](/blog/images/manipura-chakra/Manipura-Chakra-of-Plank-Pose.jpg)
+![](/images/blog/manipura-chakra/Manipura-Chakra-of-Plank-Pose.webp)
 
 Yoga asanas specifically designed for Manipura Chakra activation focus on strengthening the core and stimulating the abdominal area. Poses such as the Warrior series, **Plank pose**, and **Bow pose** are particularly beneficial. These asanas not only enhance physical strength but also encourage the flow of energy through the Manipura Chakra.
 
 ### **Manipura Chakra Meditation:**
 
-![](/blog/images/manipura-chakra/Manipura-Chakra-Meditation.png)
+![](/images/blog/manipura-chakra/Manipura-Chakra-Meditation.webp)
 
 Meditation techniques focusing on the Manipura Chakra involve visualizing a bright yellow light at the navel center, symbolizing the element of fire that governs this chakra. This practice can help clear blockages and stimulate the flow of energy, fostering a sense of inner power and resilience.
 
 ### **Breathing Techniques (Pranayama):**
 
-![](/blog/images/manipura-chakra/Breathing-Techniques-Pranayama-manipura-chakra.jpg)
+![](/images/blog/manipura-chakra/Breathing-Techniques-Pranayama-manipura-chakra.webp)
 
 Pranayama techniques such as Kapalabhati (Skull Shining Breath) and Bhastrika (Bellows Breath) are powerful tools for activating the Manipura Chakra. These breathing exercises generate heat in the body, awakening the dormant energy within the navel center and promoting vitality and strength.
 

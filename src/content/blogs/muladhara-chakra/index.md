@@ -4,7 +4,7 @@ date: "2024-03-07"
 datePublished: "2024-03-07T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/muladhara-chakra/Root-Chakra.jpg"
+coverImage: "/images/blog/muladhara-chakra/Root-Chakra.webp"
 tags:
   - "7-chakras"
   - "7-chakras-in-our-body"
@@ -26,13 +26,13 @@ In the journey of spiritual awakening and balance, understanding the Muladhara C
 
 ### **What is Muladhara Chakra?**
 
-![](/blog/images/muladhara-chakra/Root-Chakra.jpg)
+![](/images/blog/muladhara-chakra/Root-Chakra.webp)
 
 The Muladhara [Chakra](https://sciencedivine.org/seven-chakras/), or root chakra, is the first of the seven primary chakras in the human energy system. It is the grounding force that allows us to connect to the earth's energies and empower our being. Understanding the Muladhara Chakra is essential for anyone seeking to enhance their spiritual practice and achieve a balanced life.
 
 ### **Muladhara Chakra Location in the Human Body:**
 
-![](/blog/images/muladhara-chakra/1-chakra.jpg)
+![](/images/blog/muladhara-chakra/1-chakra.webp)
 
 The Muladhara **[Chakra](https://sciencedivine.org/chakras-in-human-body/)** location is at the base of the spine, in the tailbone area. This critical location serves as the foundation for the entire chakra system, supporting the body's energy flow upwards through the other chakras.
 
@@ -42,7 +42,7 @@ Activating the Muladhara Chakra involves practices that enhance your connection 
 
 ### **Muladhara Chakra Mudra:**
 
-![](/blog/images/muladhara-chakra/Jnana-Mudra-Mudra-of-Knowledge.png)
+![](/images/blog/muladhara-chakra/Jnana-Mudra-Mudra-of-Knowledge.webp)
 
 One effective method for engaging with the Muladhara Chakra is through the Muladhara Chakra Mudra. This involves specific hand positions that channel energy directly to the root chakra, facilitating grounding and strengthening of your foundational energies.
 

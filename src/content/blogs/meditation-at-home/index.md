@@ -4,14 +4,14 @@ date: "2024-02-06"
 datePublished: "2024-02-06T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/meditation-at-home/meditation-at-home.png"
+coverImage: "/images/blog/meditation-at-home/meditation-at-home.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Meditation at Home](/blog/images/meditation-at-home/meditation-at-home.png "Meditation at Home")
+![Meditation at Home](/images/blog/meditation-at-home/meditation-at-home.webp "Meditation at Home")
 
 In the hustle and bustle of modern life, finding tranquility can often seem like a distant dream. However, the ancient practice of meditation offers a beacon of calm in the midst of chaos. Meditating at home isn’t just about sitting quietly; it’s about transforming your living space into a sanctuary of serenity. Whether you’re a seasoned practitioner or a curious newbie, this guide will walk you through the steps to establish a meaningful meditation practice at home, ensuring that peace and mindfulness are just a breath away.
 

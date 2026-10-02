@@ -4,7 +4,7 @@ date: "2024-03-20"
 datePublished: "2024-03-20T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/stop-negative-thinking/10-Ways-to-Overcome-Negative-Thoughts.jpg"
+coverImage: "/images/blog/stop-negative-thinking/10-Ways-to-Overcome-Negative-Thoughts.webp"
 tags:
   - "10-ways-to-overcome-negative-thoughts"
   - "acknowledge"

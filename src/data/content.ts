@@ -460,7 +460,7 @@ export const EVENTS = [
     time: "10:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Completed" as const,
-    image: "/navvarsh-dhyan-real.jpg",
+    image: "/images/navvarsh-dhyan-real.webp",
     link: "/sunday-event-4-january",
   },
   {
@@ -471,7 +471,7 @@ export const EVENTS = [
     time: "09:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Completed" as const,
-    image: "/vasant-mahotsav-real.jpg",
+    image: "/images/vasant-mahotsav-real.webp",
     link: "/sunday-event-1-february",
   },
   {
@@ -482,7 +482,7 @@ export const EVENTS = [
     time: "10:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Completed" as const,
-    image: "/feature-self-realization.png",
+    image: "/images/feature-self-realization.webp",
     link: "/sunday-event-1-march",
   },
   {
@@ -493,7 +493,7 @@ export const EVENTS = [
     time: "10:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Available Now" as const,
-    image: "/guruji-hero-chakra-new.jpg",
+    image: "/images/guruji-hero-chakra-new.webp",
     link: "/sunday-event-5-april",
   },
   {

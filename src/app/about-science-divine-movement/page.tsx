@@ -404,7 +404,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
               <img
-                src="/about-sakshi-shree-new.png"
+                src="/images/about-sakshi-shree-new.webp"
                 alt="Sakshi Shree ,  Mission"
                 loading="lazy"
                 style={{

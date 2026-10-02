@@ -4,13 +4,13 @@ date: "2024-07-13"
 datePublished: "2024-07-13T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/deep-breathing-for-better-brain/deep-breathing-for-better-brain.png"
+coverImage: "/images/blog/deep-breathing-for-better-brain/deep-breathing-for-better-brain.webp"
 tags:
 
 ---
 
 
-![deep-breathing-for-better-brain](/blog/images/deep-breathing-for-better-brain/deep-breathing-for-better-brain.png "deep-breathing-for-better-brain")
+![deep-breathing-for-better-brain](/images/blog/deep-breathing-for-better-brain/deep-breathing-for-better-brain.webp "deep-breathing-for-better-brain")
 
 Our brain is one of the most incredibly fascinating organs of our body, the control center. So it’s a no-brainer that we should keep it healthy. Although scientific studies have shown that our brain cannot multitask, it manages everything from our thoughts and emotions to our physical movements and bodily functions. Taking care of our physical health is not enough, we need to pay attention to our mental well-being as well. When our brain is healthy, we think more clearly, manage stress better, and generally feel much happier.
 

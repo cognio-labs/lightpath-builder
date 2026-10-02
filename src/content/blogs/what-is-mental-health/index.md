@@ -4,7 +4,7 @@ date: "2024-02-29"
 datePublished: "2024-02-29T00:00:00.000Z"
 category: "Yoga & Pranayama"
 categorySlug: "yoga-pranayama"
-coverImage: "/blog/images/what-is-mental-health/Mental-Health.jpg"
+coverImage: "/images/blog/what-is-mental-health/Mental-Health.webp"
 tags:
   - "components-of-mental-health"
   - "concept-of-mental-health"
@@ -23,13 +23,13 @@ Taking care of our minds is just as important as looking after our bodies, but s
 
 ### What Is Mental Health?
 
-![What is Mental Health](/blog/images/what-is-mental-health/What-Is-Mental-Health.png "What Is Mental Health")
+![What is Mental Health](/images/blog/what-is-mental-health/What-Is-Mental-Health.webp "What Is Mental Health")
 
 Find out 'What Is Mental Health' with our easy guide. We talk about how important it is to feel good in your mind and how to deal with tough times. Thisi guide shows you simple ways to look after your mental health every day. When we talk about mental health, we’re talking about how we feel, think, and act. It’s about being happy, feeling good about ourselves, and getting along with others. Good mental health means we can deal with life’s ups and downs, make good choices, and live life to the fullest. Join us to learn 'What Is Mental Health' and start feeling better inside your head.
 
 ### Understand the Concept of Mental Health:
 
-![Understand the Concept of Mental Health](/blog/images/what-is-mental-health/Understand-the-Concept-of-Mental-Health.jpg "Understand the Concept of Mental Health")
+![Understand the Concept of Mental Health](/images/blog/what-is-mental-health/Understand-the-Concept-of-Mental-Health.webp "Understand the Concept of Mental Health")
 
 We show you why taking care of your mind is important and how it helps you feel happy and deal with problems. Concept of mental health is all about keeping your thoughts and feelings healthy. Our tips are simple and will help you understand the concept of mental health better. Start looking after your mind today by getting to know the concept of mental health.
 
@@ -67,7 +67,7 @@ Moving around and getting some exercise are great for your mental health. You do
 
 ### Yoga for Mental Health:
 
-![Yoga for Mental Health](/blog/images/what-is-mental-health/Yoga-for-Mental-Health.jpg "Yoga for Mental Health")
+![Yoga for Mental Health](/images/blog/what-is-mental-health/Yoga-for-Mental-Health.webp "Yoga for Mental Health")
 
 Yoga is a fun way to help your mind relax and feel good. It’s about slow movements, breathing deeply, and quieting your thoughts. Doing yoga can help you feel less stressed, more peaceful, and happier. It’s like giving your mind a mini-vacation!
 
@@ -91,7 +91,7 @@ Yoga for Mental Health is not just about doing poses; it's about making your min
 
 ### Types of Mental Health Disorders:
 
-![Types of Mental Health Disorders](/blog/images/what-is-mental-health/Types-of-Mental-Health-Disorders.png "Types of Mental Health Disorders")
+![Types of Mental Health Disorders](/images/blog/what-is-mental-health/Types-of-Mental-Health-Disorders.webp "Types of Mental Health Disorders")
 
 When we talk about "types of mental health disorders," we mean the different ways people can have trouble with their mental well-being. Here are some main types:
 

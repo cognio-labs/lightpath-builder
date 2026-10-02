@@ -4,7 +4,7 @@ date: "2024-03-20"
 datePublished: "2024-03-20T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/optimistic-mind/7-Ways-to-Foster-an-Optimistic-Mind.jpg"
+coverImage: "/images/blog/optimistic-mind/7-Ways-to-Foster-an-Optimistic-Mind.webp"
 tags:
   - "7-ways-to-foster-an-optimistic-mind"
   - "mental-health"

@@ -4,7 +4,7 @@ date: "2023-06-26"
 datePublished: "2023-06-26T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/power-of-manifestaion/silence1.jpg"
+coverImage: "/images/blog/power-of-manifestaion/silence1.webp"
 tags:
 
 ---

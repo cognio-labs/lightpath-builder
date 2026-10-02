@@ -4,7 +4,7 @@ date: "2024-03-02"
 datePublished: "2024-03-02T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-consciousness/What-is-Consciousness.jpeg"
+coverImage: "/images/blog/what-is-consciousness/What-is-Consciousness.webp"
 tags:
   - "become-conscious"
   - "benefits-of-higher-consciousness"
@@ -47,7 +47,7 @@ Consciousness evolves through various stages, from basic awareness to more profo
 
 ### **Spiritual Consciousness:**
 
-![Spiritual-Consciousness](/blog/images/what-is-consciousness/Spiritual-Consciousness.jpg)
+![Spiritual-Consciousness](/images/blog/what-is-consciousness/Spiritual-Consciousness.webp)
 
 [Spiritual consciousness](https://sciencedivine.org/conscious-mind-and-subconscious-mind/) represents a pinnacle in the journey of consciousness expansion. It's where one experiences a profound connection with the essence of life, leading to a transformation in how one perceives the world. Achieving spiritual consciousness often involves meditation, mindfulness, and other spiritual practices that help quiet the mind and foster a deep sense of peace and interconnectedness.
 
@@ -61,7 +61,7 @@ Increasing your consciousness can lead to greater self-awareness, empathy, and a
 
 ### **Benefits of Higher Consciousness:**
 
-![Benefits-of-Higher-Consciousness](/blog/images/what-is-consciousness/Benefits-of-Higher-Consciousness.png)
+![Benefits-of-Higher-Consciousness](/images/blog/what-is-consciousness/Benefits-of-Higher-Consciousness.webp)
 
 Embracing the journey towards higher consciousness comes with numerous benefits:
 

@@ -4,7 +4,7 @@ date: "2024-03-01"
 datePublished: "2024-03-01T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-peace-of-mind/Peace-of-Mind.jpg"
+coverImage: "/images/blog/what-is-peace-of-mind/Peace-of-Mind.webp"
 tags:
   - "how-to-get-peace-of-mind"
   - "meditation"
@@ -25,7 +25,7 @@ Peace of mind is a state of mental and emotional calmness, with no worries, fear
 
 ### Spiritual Peace of Mind:
 
-![](/blog/images/what-is-peace-of-mind/tStG1WUKzLlWzALbrIZdZIlzNghmpt01IupVPjoPmsLbXidDx1ODuGWPPNto8SagvsHmZz1h1tBDahRxLJbM8qqNrfKHU_aqJ8s8njnB8NOjg2u9Khy7RYSfGss4fiTqo_KO-EI9cnASMyLVhXVVuLM.png)
+![](/images/blog/what-is-peace-of-mind/tStG1WUKzLlWzALbrIZdZIlzNghmpt01IupVPjoPmsLbXidDx1ODuGWPPNto8SagvsHmZz1h1tBDahRxLJbM8qqNrfKHU_aqJ8s8njnB8NOjg2u9Khy7RYSfGss4fiTqo_KO-EI9cnASMyLVhXVVuLM.webp)
 
 Finding spiritual peace of mind means feeling calm and happy inside, even when things around you are not going perfectly. It's like having a quiet spot in your heart that helps you stay calm no matter what. Here are some simple ways to find that quiet spot and feel more peaceful inside.
 

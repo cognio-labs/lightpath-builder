@@ -4,7 +4,7 @@ date: "2023-06-12"
 datePublished: "2023-06-12T00:00:00.000Z"
 category: "Relationships"
 categorySlug: "relationships-family"
-coverImage: "/blog/images/silence-isnt-empty-its-full/silence2.jpg"
+coverImage: "/images/blog/silence-isnt-empty-its-full/silence2.webp"
 tags:
 
 ---

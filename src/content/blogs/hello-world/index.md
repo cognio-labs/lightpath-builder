@@ -4,7 +4,7 @@ date: "2023-06-05"
 datePublished: "2023-06-05T00:00:00.000Z"
 category: "Yoga & Pranayama"
 categorySlug: "yoga-pranayama"
-coverImage: "/guruji_sunrise_bg.jpg"
+coverImage: "/images/guruji_sunrise_bg.webp"
 tags:
 
 ---

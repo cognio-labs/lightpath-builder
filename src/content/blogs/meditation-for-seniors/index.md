@@ -4,14 +4,14 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/meditation-for-seniors/Meditation-for-Seniors-1.png"
+coverImage: "/images/blog/meditation-for-seniors/Meditation-for-Seniors-1.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Meditation for Seniors](/blog/images/meditation-for-seniors/Meditation-for-Seniors-2.png "Meditation for Seniors")
+![Meditation for Seniors](/images/blog/meditation-for-seniors/Meditation-for-Seniors-2.webp "Meditation for Seniors")
 
 As the golden years unfold, the pursuit of tranquillity and wellness becomes paramount. Meditation, an ancient practice deeply rooted in various cultures, emerges as a beacon of hope for seniors seeking a harmonious path to ageing gracefully. This blog post delves into the myriad benefits meditation offers to the elderly, addressing common concerns and illustrating how this gentle practice can be a cornerstone of a serene and healthful life.
 

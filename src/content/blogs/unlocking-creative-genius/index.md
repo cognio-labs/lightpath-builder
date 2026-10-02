@@ -4,7 +4,7 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unlocking-creative-genius/Unlocking-Creative-Genius.png"
+coverImage: "/images/blog/unlocking-creative-genius/Unlocking-Creative-Genius.webp"
 tags:
   - "meditation"
   - "yoga"

@@ -4,7 +4,7 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/meditation-for-kids/Meditation-for-Kids-1.png"
+coverImage: "/images/blog/meditation-for-kids/Meditation-for-Kids-1.webp"
 tags:
   - "meditation"
   - "yoga"
@@ -15,7 +15,7 @@ In the bustling world we live in, even children aren't immune to the stress and 
 
 ### Understanding Meditation for Kids:
 
-![Meditation for Kids](/blog/images/meditation-for-kids/Meditation-for-Kids-3.png "Meditation for Kids")
+![Meditation for Kids](/images/blog/meditation-for-kids/Meditation-for-Kids-3.webp "Meditation for Kids")
 
 In this section, we'll explore what meditation means for children and how it differs from adult practices. We'll look into age-appropriate techniques, the ideal duration for sessions, and how to create a conducive environment for meditation.
 
@@ -27,7 +27,7 @@ In this section, we'll explore what meditation means for children and how it dif
 
 ### The Benefits of Meditation for Children:
 
-![Meditation for Kids](/blog/images/meditation-for-kids/Meditation-for-Kids-2.png "Meditation for Kids")
+![Meditation for Kids](/images/blog/meditation-for-kids/Meditation-for-Kids-2.webp "Meditation for Kids")
 
 Meditation is not just a moment of peace; it's a journey into self-awareness and emotional regulation. This section highlights the science-backed benefits of meditation for children, including improved attention span, better stress management, and enhanced emotional well-being.
 

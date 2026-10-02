@@ -4,7 +4,7 @@ date: "2024-03-01"
 datePublished: "2024-03-01T00:00:00.000Z"
 category: "Mindset & Manifestation"
 categorySlug: "mindset-manifestation"
-coverImage: "/blog/images/what-is-positive-thinking/What-Is-Positive-Thinking.png"
+coverImage: "/images/blog/what-is-positive-thinking/What-Is-Positive-Thinking.webp"
 tags:
   - "benefits-of-positive-thinking"
   - "importance-of-positive-thinking"
@@ -27,7 +27,7 @@ When we talk about positive thinking, we mean keeping your head filled with thou
 
 ### The Power of Positive Thinking:
 
-![](/blog/images/what-is-positive-thinking/h-zg4NsCXZwhRqj_Q59xjCh4qAj0phqpc08T8qkgoTSxrlpFQAUsLshJNrTUyAP6S4-IzKOc-7zZjz7VFlPj-t1Lx9LeZgHEslCFvBM7_kB7rL5xzO-hxzGtyfH2isDnA1femPUdU993YmzHFr1rmSo.png)
+![](/images/blog/what-is-positive-thinking/h-zg4NsCXZwhRqj_Q59xjCh4qAj0phqpc08T8qkgoTSxrlpFQAUsLshJNrTUyAP6S4-IzKOc-7zZjz7VFlPj-t1Lx9LeZgHEslCFvBM7_kB7rL5xzO-hxzGtyfH2isDnA1femPUdU993YmzHFr1rmSo.webp)
 
 The Power of positive thinking can really change things for you. When you start thinking positive, you feel better and can handle tough stuff easier. The power of positive thinking isn't just about being happy. It's a way to see the good in everything and believe you can get through anything.
 

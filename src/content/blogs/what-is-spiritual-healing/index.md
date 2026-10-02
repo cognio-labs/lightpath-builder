@@ -4,7 +4,7 @@ date: "2024-03-11"
 datePublished: "2024-03-11T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-spiritual-healing/Spiritual-Healing.png"
+coverImage: "/images/blog/what-is-spiritual-healing/Spiritual-Healing.webp"
 tags:
   - "benefits-of-spiritual-healing"
   - "spiritual-healing"
@@ -17,7 +17,7 @@ In an age where stress and fast-paced lifestyles have become the norm, many are 
 
 ### **What is Spiritual Healing?**
 
-![](/blog/images/what-is-spiritual-healing/What-is-Spiritual-Healing.jpg)
+![](/images/blog/what-is-spiritual-healing/What-is-Spiritual-Healing.webp)
 
 Spiritual healing is a holistic practice that involves tapping into the unseen energies of the universe to restore balance and harmony within the individual. It transcends the physical, reaching deep into the emotional and [**spiritual**](https://sciencedivine.org/what-is-spiritual/) realms to heal from within. This form of healing can take many shapes, including meditation, Reiki, prayer, and energy work, among others. It's based on the belief that we are more than our physical bodies; we are beings of energy that, when misaligned, can lead to various forms of discomfort and disease.
 

@@ -4,7 +4,7 @@ date: "2024-03-07"
 datePublished: "2024-03-07T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/gomti-chakra/Gomti-Chakra.png"
+coverImage: "/images/blog/gomti-chakra/Gomti-Chakra.webp"
 tags:
   - "7-chakras"
   - "7-chakras-of-body"
@@ -22,7 +22,7 @@ In the realm of spiritual and healing practices, the magic of Gomti Chakra stand
 
 ### **What is Gomti Chakra?**
 
-![](/blog/images/gomti-chakra/What-is-Gomti-Chakra.jpg)
+![](/images/blog/gomti-chakra/What-is-Gomti-Chakra.webp)
 
 Gomti Chakra, a rare natural phenomenon, is found in the Gomti River and is considered a representation of the divine. These small, spiral-shaped stones are believed to embody the universe's mystical energy, making them powerful tools in Vedic rituals and healing practices. The Gomti Chakra tree benefits are also often highlighted, as these stones are said to grow on a tree within the river, adding to their spiritual significance.
 

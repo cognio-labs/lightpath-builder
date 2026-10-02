@@ -223,7 +223,7 @@ export default function Page() {
             </div>
             {/* Right side image */}
             <SolutionHeroImage
-              src="/premium-heroes/overthinking-hero.png"
+              src="/images/premium-heroes/overthinking-hero.webp"
               alt="Finding clarity from overthinking"
               themeColor="#4338CA"
             />
