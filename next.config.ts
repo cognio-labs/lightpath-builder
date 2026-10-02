@@ -1,4 +1,12 @@
 import type { NextConfig } from "next";
+import legacyBlogSlugs from "./src/data/legacyBlogSlugs.json";
+
+// The blog is hosted on Typeflo and served under /blog (replaces Typeflo's
+// Cloudflare Worker, which never ran because the domain isn't Cloudflare-proxied).
+const TYPEFLO_ORIGIN = "https://science-divine.typeflo.io";
+// Old WordPress posts that exist only in src/data/blogPosts.ts, not on Typeflo.
+// They keep being served by src/app/blog/[slug] so their indexed URLs don't break.
+const LEGACY_BLOG_SLUGS_PATTERN = (legacyBlogSlugs as string[]).join("|");
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.1.30"],
@@ -33,6 +41,23 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+  async rewrites() {
+    return {
+      // beforeFiles so these win over the local src/app/blog pages
+      beforeFiles: [
+        { source: "/blog", destination: `${TYPEFLO_ORIGIN}/blog` },
+        {
+          source: `/blog/:path((?!(?:${LEGACY_BLOG_SLUGS_PATTERN})$).+)`,
+          destination: `${TYPEFLO_ORIGIN}/blog/:path`,
+        },
+        // Typeflo pages load their fonts from this relative path
+        {
+          source: "/_next/static/custom/fonts/:path*",
+          destination: `${TYPEFLO_ORIGIN}/:path*`,
+        },
+      ],
+    };
   },
   async redirects() {
     return [
