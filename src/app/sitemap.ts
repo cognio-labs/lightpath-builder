@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { BLOG_POSTS } from "@/data/blogPosts";
+import { getAllPostSummaries } from "@/lib/blog.server";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -67,7 +67,10 @@ const P05_PATHS = [
   "/cancellation-policy",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Rebuilt hourly so new Typeflo posts get listed.
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const makeEntries = (
     paths: string[],
     priority: number,
@@ -80,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     }));
 
-  const blogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+  const blogEntries: MetadataRoute.Sitemap = (await getAllPostSummaries()).map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: post.datePublished ? new Date(post.datePublished) : new Date(),
     changeFrequency: "monthly" as const,

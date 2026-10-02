@@ -1,99 +1,65 @@
-"use client";
-
-import React, { useState, useMemo } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  Calendar,
-  Clock,
-  ChevronLeft,
-  ChevronRight,
-  Search,
-} from "lucide-react";
-import { BLOG_POSTS, BLOG_CATEGORIES } from "@/data/blogPosts";
+import { Calendar, Clock, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { BlogNewsletterForm } from "@/components/blog/BlogNewsletterForm";
+import { getAllPostSummaries, getCategories } from "@/lib/blog.server";
 
-export default function BlogListingPage() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+const POSTS_PER_PAGE = 12;
 
-  const filteredPosts = useMemo(() => {
-    return BLOG_POSTS.filter((post) => {
-      let matchesCategory = false;
-      if (selectedCategory === "all") {
-        matchesCategory = true;
-      } else if (selectedCategory === "festivals-traditions") {
-        matchesCategory = post.categorySlug === "festivals-traditions";
-      } else if (selectedCategory === "spirituality-wellness") {
-        matchesCategory = post.categorySlug === "spirituality-wellness";
-      } else if (selectedCategory === "bhagavad-gita") {
-        matchesCategory =
-          post.categorySlug === "bhagavad-gita" ||
-          post.slug.includes("bhagavad-gita") ||
-          post.tags.some((t) => t.toLowerCase().includes("gita"));
-      } else if (selectedCategory === "stress-anxiety") {
-        matchesCategory =
-          post.categorySlug === "stress-anxiety" ||
-          post.slug.includes("stress") ||
-          post.slug.includes("anxiety") ||
-          post.slug.includes("overthinking") ||
-          post.tags.some(
-            (t) =>
-              t.toLowerCase().includes("stress") ||
-              t.toLowerCase().includes("anxiety") ||
-              t.toLowerCase().includes("wellness")
-          );
-      } else if (selectedCategory === "meditation-sadhna") {
-        matchesCategory =
-          post.categorySlug === "meditation-sadhna" ||
-          post.slug.includes("meditation") ||
-          post.slug.includes("non-dual") ||
-          post.tags.some(
-            (t) =>
-              t.toLowerCase().includes("meditation") ||
-              t.toLowerCase().includes("peace")
-          );
-      } else {
-        matchesCategory = post.categorySlug === selectedCategory;
-      }
+export const metadata: Metadata = {
+  title: "Blog | Science Divine Foundation",
+  description:
+    "Explore Sakshi Shree's teachings on meditation, mindfulness, festivals and life transformation. Awaken inner peace with the Science Divine blog.",
+  alternates: { canonical: "/blog" },
+};
 
-      const query = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !query ||
-        post.title.toLowerCase().includes(query) ||
-        post.excerpt.toLowerCase().includes(query) ||
-        post.tags.some((t) => t.toLowerCase().includes(query));
+interface PageProps {
+  searchParams: Promise<{ category?: string; q?: string; page?: string }>;
+}
 
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, searchQuery]);
+function blogHref(params: { category?: string; q?: string; page?: number }) {
+  const sp = new URLSearchParams();
+  if (params.category && params.category !== "all") sp.set("category", params.category);
+  if (params.q) sp.set("q", params.q);
+  if (params.page && params.page > 1) sp.set("page", String(params.page));
+  const qs = sp.toString();
+  return qs ? `/blog?${qs}` : "/blog";
+}
 
-  const POSTS_PER_PAGE = 12;
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE) || 1;
-  const activePage = Math.min(currentPage, totalPages);
+/** 1 … 4 5 [6] 7 8 … 90 */
+function pageWindow(current: number, total: number): (number | "gap")[] {
+  const pages = new Set([1, total, current - 2, current - 1, current, current + 1, current + 2]);
+  const sorted = [...pages].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b);
+  const out: (number | "gap")[] = [];
+  sorted.forEach((n, i) => {
+    if (i > 0 && n - sorted[i - 1] > 1) out.push("gap");
+    out.push(n);
+  });
+  return out;
+}
 
-  const displayedPosts = useMemo(() => {
-    const start = (activePage - 1) * POSTS_PER_PAGE;
-    return filteredPosts.slice(start, start + POSTS_PER_PAGE);
-  }, [filteredPosts, activePage, POSTS_PER_PAGE]);
+export default async function BlogListingPage({ searchParams }: PageProps) {
+  const { category = "all", q = "", page = "1" } = await searchParams;
+  const query = q.trim();
 
-  const handleCategorySelect = (slug: string) => {
-    setSelectedCategory(slug);
-    setCurrentPage(1);
-  };
+  const allPosts = await getAllPostSummaries();
+  const categories = [{ name: "All Articles", slug: "all", count: allPosts.length }, ...getCategories(allPosts)];
 
-  const handleSearchChange = (val: string) => {
-    setSearchQuery(val);
-    setCurrentPage(1);
-  };
+  const needle = query.toLowerCase();
+  const filteredPosts = allPosts.filter((post) => {
+    const matchesCategory = category === "all" || post.categorySlug === category;
+    const matchesSearch =
+      !needle ||
+      post.title.toLowerCase().includes(needle) ||
+      post.excerpt.toLowerCase().includes(needle) ||
+      post.tags.some((t) => t.toLowerCase().includes(needle));
+    return matchesCategory && matchesSearch;
+  });
 
-  const handlePageChange = (pageNum: number) => {
-    setCurrentPage(pageNum);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 320, behavior: "smooth" });
-    }
-  };
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+  const activePage = Math.min(Math.max(1, parseInt(page, 10) || 1), totalPages);
+  const displayedPosts = filteredPosts.slice((activePage - 1) * POSTS_PER_PAGE, activePage * POSTS_PER_PAGE);
 
   return (
     <div className="min-h-screen bg-white text-[#1A202C] font-sans selection:bg-rose-100">
@@ -119,42 +85,42 @@ export default function BlogListingPage() {
       {/* ════════════════════════════════════
           CATEGORY & SEARCH BAR
       ════════════════════════════════════ */}
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+      <div id="articles" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 scroll-mt-24">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-gray-100 pb-6">
           {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 scrollbar-none">
-            {BLOG_CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.slug;
+          <nav aria-label="Blog categories" className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 scrollbar-none">
+            {categories.map((cat) => {
+              const isActive = category === cat.slug;
               return (
-                <button
+                <Link
                   key={cat.slug}
-                  onClick={() => handleCategorySelect(cat.slug)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                  href={`${blogHref({ category: cat.slug, q: query })}#articles`}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 ${
                     isActive
                       ? "bg-[#8B1515] text-white shadow-xs"
                       : "bg-gray-100/80 text-gray-700 hover:bg-gray-200/80 border border-gray-200/60"
                   }`}
                 >
                   {cat.name}
-                </button>
+                </Link>
               );
             })}
-          </div>
+          </nav>
 
-          {/* Search Box */}
-          <div className="relative w-full md:w-72">
-            <Search
-              size={15}
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
-            />
+          {/* Search Box — a plain GET form, works without JavaScript */}
+          <form action="/blog#articles" method="get" role="search" className="relative w-full md:w-72 shrink-0">
+            {category !== "all" && <input type="hidden" name="category" value={category} />}
+            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
             <input
-              type="text"
+              type="search"
+              name="q"
+              defaultValue={query}
               placeholder="Search articles..."
-              value={searchQuery}
-              onChange={(e) => handleSearchChange(e.target.value)}
+              aria-label="Search articles"
               className="w-full pl-9 pr-3 py-2 rounded-full bg-gray-50 border border-gray-200 text-xs font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#8B1515]"
             />
-          </div>
+          </form>
         </div>
       </div>
 
@@ -165,37 +131,27 @@ export default function BlogListingPage() {
         {filteredPosts.length === 0 ? (
           <div className="text-center py-16 bg-gray-50 rounded-2xl border border-gray-200 p-8 space-y-3">
             <p className="text-base font-bold text-gray-800">No articles found</p>
-            <p className="text-xs text-gray-500">
-              Try adjusting your search terms or category selection.
-            </p>
-            <button
-              onClick={() => {
-                setSelectedCategory("all");
-                setSearchQuery("");
-                setCurrentPage(1);
-              }}
-              className="px-5 py-2 rounded-full bg-[#8B1515] text-white font-bold text-xs hover:bg-[#701010] transition-colors cursor-pointer"
+            <p className="text-xs text-gray-500">Try adjusting your search terms or category selection.</p>
+            <Link
+              href="/blog#articles"
+              className="inline-block px-5 py-2 rounded-full bg-[#8B1515] text-white font-bold text-xs hover:bg-[#701010] transition-colors"
             >
               Reset Filters
-            </button>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {displayedPosts.map((post, idx) => (
-              <motion.article
+            {displayedPosts.map((post) => (
+              <article
                 key={post.slug}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.03 }}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Card Image */}
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="block relative aspect-[16/10] overflow-hidden bg-gray-100"
-                  >
-                    <img loading="lazy" decoding="async"
+                  <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-gray-100">
+                    <img
+                      loading="lazy"
+                      decoding="async"
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -219,89 +175,87 @@ export default function BlogListingPage() {
 
                     {/* Title */}
                     <h3 className="font-serif font-bold text-base sm:text-lg text-[#1A202C] group-hover:text-[#8B1515] transition-colors leading-snug line-clamp-2">
-                      <Link href={`/blog/${post.slug}`}>
-                        {post.title}
-                      </Link>
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed line-clamp-3">
-                      {post.excerpt}
-                    </p>
+                    <p className="text-xs sm:text-sm text-[#4A5568] leading-relaxed line-clamp-3">{post.excerpt}</p>
                   </div>
                 </div>
 
                 {/* Footer link */}
                 <div className="px-6 pb-6 pt-0">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#8B1515] hover:underline"
-                  >
+                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-1 text-xs font-bold text-[#8B1515] hover:underline">
                     Read Article →
                   </Link>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         )}
 
         {/* ════════════════════════════════════
-            REAL RECALCULATED PAGINATION
-            Shows only existing pages (12 posts/page)
+            PAGINATION (12 posts/page)
         ════════════════════════════════════ */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-2 pt-6">
-            <button
-              onClick={() => handlePageChange(Math.max(1, activePage - 1))}
-              disabled={activePage === 1}
-              aria-label="Previous page"
-              className={`w-8 h-8 rounded-lg border flex items-center justify-center text-xs transition-colors ${
-                activePage === 1
-                  ? "border-gray-100 text-gray-300 cursor-not-allowed"
-                  : "border-gray-200 text-gray-600 hover:bg-gray-100 cursor-pointer"
-              }`}
-            >
-              <ChevronLeft size={16} />
-            </button>
-
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
-              <button
-                key={num}
-                onClick={() => handlePageChange(num)}
-                aria-label={`Page ${num}`}
-                aria-current={activePage === num ? "page" : undefined}
-                className={`w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  activePage === num
-                    ? "bg-[#FDF0F0] text-[#8B1515] border border-rose-200 shadow-xs"
-                    : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
-                }`}
+          <nav aria-label="Pagination" className="flex flex-wrap items-center justify-center gap-2 pt-6">
+            {activePage > 1 ? (
+              <Link
+                href={`${blogHref({ category, q: query, page: activePage - 1 })}#articles`}
+                aria-label="Previous page"
+                className="w-8 h-8 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-100 flex items-center justify-center"
               >
-                {num}
-              </button>
-            ))}
+                <ChevronLeft size={16} />
+              </Link>
+            ) : (
+              <span aria-hidden="true" className="w-8 h-8 rounded-lg border border-gray-100 text-gray-300 flex items-center justify-center">
+                <ChevronLeft size={16} />
+              </span>
+            )}
 
-            <button
-              onClick={() => handlePageChange(Math.min(totalPages, activePage + 1))}
-              disabled={activePage === totalPages}
-              aria-label="Next page"
-              className={`w-8 h-8 rounded-lg border flex items-center justify-center text-xs transition-colors ${
-                activePage === totalPages
-                  ? "border-gray-100 text-gray-300 cursor-not-allowed"
-                  : "border-gray-200 text-gray-600 hover:bg-gray-100 cursor-pointer"
-              }`}
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
+            {pageWindow(activePage, totalPages).map((num, i) =>
+              num === "gap" ? (
+                <span key={`gap-${i}`} className="w-8 text-center text-xs text-gray-400">
+                  …
+                </span>
+              ) : (
+                <Link
+                  key={num}
+                  href={`${blogHref({ category, q: query, page: num })}#articles`}
+                  aria-label={`Page ${num}`}
+                  aria-current={activePage === num ? "page" : undefined}
+                  className={`min-w-8 h-8 px-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center ${
+                    activePage === num
+                      ? "bg-[#FDF0F0] text-[#8B1515] border border-rose-200 shadow-xs"
+                      : "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  {num}
+                </Link>
+              ),
+            )}
+
+            {activePage < totalPages ? (
+              <Link
+                href={`${blogHref({ category, q: query, page: activePage + 1 })}#articles`}
+                aria-label="Next page"
+                className="w-8 h-8 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-100 flex items-center justify-center"
+              >
+                <ChevronRight size={16} />
+              </Link>
+            ) : (
+              <span aria-hidden="true" className="w-8 h-8 rounded-lg border border-gray-100 text-gray-300 flex items-center justify-center">
+                <ChevronRight size={16} />
+              </span>
+            )}
+          </nav>
         )}
 
         {/* ════════════════════════════════════
             BOTTOM NEWSLETTER SIGNUP BOX
         ════════════════════════════════════ */}
         <div className="bg-[#F9FAFB] rounded-2xl p-8 lg:p-12 border border-gray-200/90 text-center max-w-2xl mx-auto space-y-4 shadow-xs">
-          <h3 className="font-serif font-bold text-2xl text-[#1A202C]">
-            Signup for the newsletter
-          </h3>
+          <h3 className="font-serif font-bold text-2xl text-[#1A202C]">Signup for the newsletter</h3>
           <p className="text-xs sm:text-sm text-[#718096] max-w-md mx-auto leading-relaxed">
             Stay up to date with transformative wisdom, festival insights, and meditation techniques directly from Sakshi Shree.
           </p>
