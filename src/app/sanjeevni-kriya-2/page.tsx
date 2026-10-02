@@ -8,22 +8,22 @@ import { Check, Star, Download, Sparkles, BookOpen, User, Briefcase, Heart, Arro
 
 const PILLARS = [
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc93c262ba8e696be1107_icon1-1.png",
+    icon: "/images/uploads/2024/03/651fc93c262ba8e696be1107_icon1-1.webp",
     title: "Cultivates Inner Peace and Clarity",
     desc: "Experience profound tranquility and mental clarity through Immortality Meditation, finding deep inner peace and focus."
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc89a25635db7a0e5309b_Frame-2-1.png",
+    icon: "/images/uploads/2024/03/651fc89a25635db7a0e5309b_Frame-2-1.webp",
     title: "Balances Energy Centers",
     desc: "Achieve harmony and balance in your body's energy centers, promoting overall physical health and subtle energy alignment."
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc915c87a9d5daaa98adb_Icon-3-1.png",
+    icon: "/images/uploads/2024/03/651fc915c87a9d5daaa98adb_Icon-3-1.webp",
     title: "Facilitates Self-Realization",
     desc: "Embark on a journey of self-discovery and spiritual growth with Immortality Meditation, connecting with your true divine nature."
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc9f32693b049340e24ae_icon-4-1.png",
+    icon: "/images/uploads/2024/03/651fc9f32693b049340e24ae_icon-4-1.webp",
     title: "Awakens the Heart Chakra",
     desc: "Open your heart to boundless love, compassion, and sensitivity as Immortality Meditation activates the heart chakra."
   }
@@ -45,25 +45,25 @@ function CompassIcon(props: any) {
 const MODULES = [
   {
     num: "1",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895910-research-shows-one-1.png",
+    img: "/images/uploads/2024/03/1693895910-research-shows-one-1.webp",
     title: "Manifest Your Reality",
     desc: "This part of the course likely delves into the power of manifestation, helping individuals understand how their thoughts, beliefs, and actions shape their reality. It includes techniques for setting clear intentions, visualization, and aligning one's mindset."
   },
   {
     num: "2",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895906-research-shows-two-1-1.png",
+    img: "/images/uploads/2024/03/1693895906-research-shows-two-1-1.webp",
     title: "Science of Thoughtfulness",
     desc: "This part could explore the psychology behind thought patterns and how they influence emotions, behaviors, and overall well-being. It may involve practices to cultivate positive thinking, mindfulness, and emotional intelligence."
   },
   {
     num: "3",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895901-research-shows-three-1.png",
+    img: "/images/uploads/2024/03/1693895901-research-shows-three-1.webp",
     title: "Secret of Blissful Living",
     desc: "This segment might focus on finding inner peace, happiness, and fulfillment. It could include teachings on gratitude, living in the present moment, and fostering a sense of contentment regardless of external circumstances."
   },
   {
     num: "4",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895903-research-shows-four-1.png",
+    img: "/images/uploads/2024/03/1693895903-research-shows-four-1.webp",
     title: "Art of Inner Cleansing",
     desc: "This part likely addresses the purification and healing of the mind, body, and spirit. Techniques for releasing negative energy, letting go of past traumas or limiting beliefs, and cultivating self-love and acceptance may be covered."
   }
@@ -114,7 +114,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", top: "-10px", left: "-10px", width: "100%", height: "100%", border: "2px solid #14B8A6", borderRadius: "24px", opacity: 0.15, pointerEvents: "none" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/04/pexels-min-an-1234035-1-1.png" alt="Sanjeevani Kriya" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/04/pexels-min-an-1234035-1-1.webp" alt="Sanjeevani Kriya" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function Page() {
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 12px 30px rgba(20,184,166,0.12)"; }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 15px rgba(0,0,0,0.02)"; }}
               >
-                <img src={p.icon} alt={p.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} />
+                <img loading="lazy" decoding="async" src={p.icon} alt={p.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} />
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, color: "#0F172A" }}>{p.title}</h3>
                 <p style={{ color: "#64748B", fontSize: "0.875rem", lineHeight: 1.65 }}>{p.desc}</p>
               </div>
@@ -183,7 +183,7 @@ export default function Page() {
         <div className="container-page">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
             <div style={{ textAlign: "center", background: "#FAF9F6", borderRadius: "24px", padding: "20px" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "340px", height: "auto", mixBlendMode: "multiply", margin: "0 auto", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "340px", height: "auto", mixBlendMode: "multiply", margin: "0 auto", display: "block" }} />
             </div>
             <div>
               <span style={{ fontSize: "12px", color: "#14B8A6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Words from the Master</span>
@@ -212,7 +212,7 @@ export default function Page() {
             {MODULES.map((m, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <img src={m.img} alt={m.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img loading="lazy" decoding="async" src={m.img} alt={m.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", top: "12px", left: "12px", background: "#14B8A6", color: "#FFFFFF", width: "28px", height: "28px", borderRadius: "100px", display: "grid", placeItems: "center", fontWeight: 800, fontSize: "14px" }}>
                     {m.num}
                   </div>
@@ -291,11 +291,11 @@ export default function Page() {
                 Download our empowering app to embark on a transformative journey of self-discovery. Unlock the secrets of manifestation, thought science, blissful living, and inner cleansing.
               </p>
               <a href="https://play.google.com/store/apps/details?id=com.sakshishree.learners&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block" }}>
-                <img src="https://sciencedivine.org/wp-content/uploads/2024/03/Group-2611.png" alt="Download on Google Play" style={{ height: "48px", display: "block" }} />
+                <img loading="lazy" decoding="async" src="/images/uploads/2024/03/Group-2611.webp" alt="Download on Google Play" style={{ height: "48px", display: "block" }} />
               </a>
             </div>
             <div style={{ textAlign: "center" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/03/Group-2622.png" alt="Science Divine Mobile App Mockup" style={{ width: "100%", maxWidth: "360px", height: "auto", margin: "0 auto", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/03/Group-2622.webp" alt="Science Divine Mobile App Mockup" style={{ width: "100%", maxWidth: "360px", height: "auto", margin: "0 auto", display: "block" }} />
             </div>
           </div>
         </div>

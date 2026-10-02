@@ -168,7 +168,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
             {/* Right side hero image */}
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20 hover:scale-105 transition-transform duration-700">
-                <img
+                <img loading="lazy" decoding="async"
                   src={solution.heroImage}
                   alt={solution.name}
                   className="w-full h-full object-cover object-center"

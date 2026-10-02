@@ -8,7 +8,7 @@ import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Image as ImageIcon, X } 
 
 const GALLERY_IMAGES = [
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp",
+    src: "/images/uploads/2025/02/mzlvjnkn-1-scaled.webp",
     title: "Shiksha Sewa Celebration",
     category: "Youth & Education",
   },
@@ -18,12 +18,12 @@ const GALLERY_IMAGES = [
     category: "Sakshi Shree Satsang",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg",
+    src: "/images/uploads/2024/05/aboutsakshishree.webp",
     title: "Sanjeevani Dhyan Retreat",
     category: "Meditation Camp",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2025/03/image-10.webp",
+    src: "/images/uploads/2025/03/image-10.webp",
     title: "Global Sangha Gathering",
     category: "Community",
   },
@@ -33,17 +33,17 @@ const GALLERY_IMAGES = [
     category: "Deep Meditation",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2023/06/young-img1.jpg",
+    src: "/images/uploads/2023/06/young-img1.webp",
     title: "Youth Awakening Workshop",
     category: "Consciousness",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2024/04/gospelforasia-RT18-03070.jpeg",
+    src: "/images/uploads/2024/04/gospelforasia-RT18-03070.webp",
     title: "Swastha Sewa Health Drive",
     category: "Social Service",
   },
   {
-    src: "https://sciencedivine.org/wp-content/uploads/2024/03/Self-Conscious.jpeg",
+    src: "/images/uploads/2024/03/Self-Conscious.webp",
     title: "Conscious Living Discourse",
     category: "Wisdom Talk",
   },
@@ -105,7 +105,7 @@ export default function Page() {
                 <div>
                   {/* Event Thumbnail */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-amber-50">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={e.image}
                       alt={e.title}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
@@ -212,7 +212,7 @@ export default function Page() {
             >
               <X size={20} />
             </button>
-            <img src={selectedImg.src} alt={selectedImg.title} className="w-full h-auto max-h-[75vh] object-contain rounded-2xl" />
+            <img loading="lazy" decoding="async" src={selectedImg.src} alt={selectedImg.title} className="w-full h-auto max-h-[75vh] object-contain rounded-2xl" />
             <div className="p-4 text-center text-white">
               <h3 className="font-serif text-xl font-bold text-amber-300">{selectedImg.title}</h3>
             </div>

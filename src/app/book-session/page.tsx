@@ -78,7 +78,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: "#FAFAFA" }}>
         <div className="container-page grid md:grid-cols-2 gap-12 items-center">
           <img
-            src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
+            src="/images/uploads/2024/05/aboutsakshishree.webp"
             alt="Sakshi Shree"
             className="rounded-3xl shadow-xl w-full"
             loading="lazy"

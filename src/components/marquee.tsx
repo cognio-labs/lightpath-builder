@@ -31,7 +31,7 @@ function Card({ t }: { t: Testimonial }) {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           {isUrl ? (
-            <img
+            <img loading="lazy" decoding="async"
               src={t.avatar}
               alt={t.author}
               style={{

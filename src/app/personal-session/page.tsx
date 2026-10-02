@@ -82,10 +82,10 @@ const VIDEOS = [
 ];
 
 const JHUGGI_IMAGES = [
-  "https://sciencedivine.org/wp-content/uploads/2024/12/IMG_1312-scaled.webp",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/IMG_1335-scaled.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/IMG_1379-scaled.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/IMG_1317-scaled.webp"
+  "/images/uploads/2024/12/IMG_1312-scaled.webp",
+  "/images/uploads/2024/12/IMG_1335-scaled.webp",
+  "/images/uploads/2024/12/IMG_1379-scaled.webp",
+  "/images/uploads/2024/12/IMG_1317-scaled.webp"
 ];
 
 export default function Page() {
@@ -120,7 +120,7 @@ export default function Page() {
               </div>
             </div>
             <div style={{ position: "relative", textAlign: "center" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/12/AAP_0044-1.webp.bv_resized_desktop.webp.bv_.webp" alt="Guru Ji Portrait" style={{ width: "100%", maxWidth: "380px", height: "auto", margin: "0 auto", display: "block", borderRadius: "24px" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/12/AAP_0044-1.webp" alt="Guru Ji Portrait" style={{ width: "100%", maxWidth: "380px", height: "auto", margin: "0 auto", display: "block", borderRadius: "24px" }} />
               <div style={{ position: "absolute", bottom: "-20px", left: "50%", transform: "translateX(-50%)", background: "rgba(15,23,42,0.9)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "100px", padding: "8px 24px", whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "8px" }}>
                 <ShieldCheck size={16} style={{ color: "#D4AF37" }} />
                 <span style={{ color: "#FFFFFF", fontSize: "12px", fontWeight: 700 }}>100% Privacy Guaranteed</span>
@@ -180,7 +180,7 @@ export default function Page() {
               </p>
             </div>
             <div style={{ position: "relative", textAlign: "center" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2023/06/IMG_3580-1-scaled.webp" alt="Guru Ji teaching" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 15px 35px rgba(0,0,0,0.06)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2023/06/IMG_3580-1-scaled.webp" alt="Guru Ji teaching" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 15px 35px rgba(0,0,0,0.06)" }} />
             </div>
           </div>
         </div>
@@ -241,7 +241,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
             {LEADERS.map((l, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 15px rgba(0,0,0,0.02)" }}>
-                <img src={l.image} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={l.image} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
                 <div style={{ padding: "20px" }}>
                   <h4 style={{ fontSize: "0.95rem", fontWeight: 800, color: "#0F172A" }}>{l.name}</h4>
                   <p style={{ color: "#64748B", fontSize: "0.75rem", marginTop: "4px" }}>{l.title}</p>
@@ -281,7 +281,7 @@ export default function Page() {
               {/* Photo grid */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 {JHUGGI_IMAGES.map((img, i) => (
-                  <img key={i} src={img} alt={`Slum education detail ${i + 1}`} style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "16px", boxShadow: "0 4px 10px rgba(0,0,0,0.04)" }} />
+                  <img loading="lazy" decoding="async" key={i} src={img} alt={`Slum education detail ${i + 1}`} style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "16px", boxShadow: "0 4px 10px rgba(0,0,0,0.04)" }} />
                 ))}
               </div>
             </div>
@@ -319,26 +319,26 @@ export default function Page() {
             {[
               {
                 step: "Step 1",
-                img: "https://sciencedivine.org/wp-content/uploads/2024/12/Step-01-1.webp",
+                img: "/images/uploads/2024/12/Step-01-1.webp",
                 title: "Confirm Your Participation",
                 desc: "Lock in your session by making a Contribution of ₹ 6100 for underprivileged kids' education. It's your first step towards transformation!"
               },
               {
                 step: "Step 2",
-                img: "https://sciencedivine.org/wp-content/uploads/2024/12/Step-02-1.webp",
+                img: "/images/uploads/2024/12/Step-02-1.webp",
                 title: "Schedule your meeting",
                 desc: "Our team will reach out to discuss your meeting preferences (online or face-to-face) and check your availability to find the perfect slot."
               },
               {
                 step: "Step 3",
-                img: "https://sciencedivine.org/wp-content/uploads/2024/12/Step-03-Copy-1.webp",
+                img: "/images/uploads/2024/12/Step-03-Copy-1.webp",
                 title: "Begin Your Transformation",
                 desc: "The big day is here! For in-person meetings, arrive 30 mins early. For online sessions, we'll ensure everything is set for a seamless experience."
               }
             ].map((s, i) => (
               <div key={i} style={{ background: "#FAF9F6", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <img src={s.img} alt={s.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img loading="lazy" decoding="async" src={s.img} alt={s.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", top: "12px", left: "12px", background: "#D4AF37", color: "#0F172A", padding: "4px 12px", borderRadius: "100px", fontWeight: 800, fontSize: "11px" }}>{s.step}</div>
                 </div>
                 <div style={{ padding: "24px" }}>

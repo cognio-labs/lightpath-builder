@@ -128,7 +128,7 @@ export default function FindSolutionsSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-100/30 via-sky-50/40 to-transparent pointer-events-none" />
 
               {/* HD Floating Sadguru Sakshi Shree Meditation Portrait */}
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/guruji-meditation-hd.webp"
                 alt="Sadguru Sakshi Shree Floating in Meditation"
                 className="relative z-10 w-full h-auto max-h-[520px] object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] transition-transform duration-700 group-hover:scale-105"

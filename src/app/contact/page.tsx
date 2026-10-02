@@ -79,7 +79,7 @@ export default function Page() {
             
             {/* Left Image Column */}
             <div className="w-full lg:w-[280px] xl:w-[310px] shrink-0 relative overflow-hidden min-h-[260px] lg:min-h-full bg-amber-50/50">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/contact-left-woman-cropped.webp"
                 alt="Science Divine Member holding Maha Mantras book"
                 className="w-full h-full object-cover object-top lg:object-center transition-all duration-300"

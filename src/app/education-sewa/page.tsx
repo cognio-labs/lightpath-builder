@@ -181,7 +181,7 @@ export default function Page() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 {GALLERY.map((img, i) => (
                   <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
-                    <img src={img.src} alt={img.label} style={{ width: "100%", height: "130px", objectFit: "cover" }} />
+                    <img loading="lazy" decoding="async" src={img.src} alt={img.label} style={{ width: "100%", height: "130px", objectFit: "cover" }} />
                   </div>
                 ))}
               </div>

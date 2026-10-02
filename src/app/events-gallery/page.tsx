@@ -8,15 +8,15 @@ import { ArrowLeft } from "lucide-react";
 
 
 const GALLERY = [
-  "https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp",
-  "https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/03/image-10.webp",
-  "https://sciencedivine.org/wp-content/uploads/2023/06/young-img1.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2024/04/gospelforasia-RT18-03070.jpeg",
-  "https://sciencedivine.org/wp-content/uploads/2024/03/Self-Conscious.jpeg",
-  "https://sciencedivine.org/wp-content/uploads/2023/06/3-scaled.webp",
-  "https://sciencedivine.org/wp-content/uploads/2023/06/4-scaled.webp",
-  "https://sciencedivine.org/wp-content/uploads/2023/06/1-scaled.webp",
+  "/images/uploads/2025/02/mzlvjnkn-1-scaled.webp",
+  "/images/uploads/2024/05/aboutsakshishree.webp",
+  "/images/uploads/2025/03/image-10.webp",
+  "/images/uploads/2023/06/young-img1.webp",
+  "/images/uploads/2024/04/gospelforasia-RT18-03070.webp",
+  "/images/uploads/2024/03/Self-Conscious.webp",
+  "/images/uploads/2023/06/3-scaled.webp",
+  "/images/uploads/2023/06/4-scaled.webp",
+  "/images/uploads/2023/06/1-scaled.webp",
 ];
 
 export default function Page() {

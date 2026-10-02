@@ -69,17 +69,17 @@ const SOLUTIONS = [
 
 const EVENTS = [
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2025/04/IMG_6954-1-scaled.webp",
+    img: "/images/uploads/2025/04/IMG_6954-1-scaled.webp",
     title: "Community Learning Circle",
     desc: "Children receive values-based education, meditation exposure, and personal attention in a safe learning space.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2025/04/IMG_1319-1-1-1-scaled.webp",
+    img: "/images/uploads/2025/04/IMG_1319-1-1-1-scaled.webp",
     title: "Creative Education Workshop",
     desc: "Hands-on activities build confidence, curiosity, teamwork, and joyful participation beyond regular classroom study.",
   },
   {
-    img: "https://sciencedivine.org/wp-content/uploads/2025/02/1-1.png",
+    img: "/images/uploads/2025/02/1-1.webp",
     title: "Focused Study Support",
     desc: "Students practice discipline, writing, reading, and mindful concentration with guidance from caring mentors.",
   },
@@ -101,8 +101,8 @@ const EVENTS = [
 ];
 
 const VOLUNTEERS = [
-  { name: "Ranjana Sharma", role: "Volunteer", img: "https://sciencedivine.org/wp-content/uploads/2025/09/ranjana.jpg" },
-  { name: "Archana Nirali", role: "Volunteer", img: "https://sciencedivine.org/wp-content/uploads/elementor/thumbs/archana-rch2fbwt9mgpew2j74mthaog953mpr0qr0affqqcjk.webp" },
+  { name: "Ranjana Sharma", role: "Volunteer", img: "/images/uploads/2025/09/ranjana.webp" },
+  { name: "Archana Nirali", role: "Volunteer", img: "/images/uploads/elementor/thumbs/archana-rch2fbwt9mgpew2j74mthaog953mpr0qr0affqqcjk.webp" },
 ];
 
 const STORIES = [
@@ -110,21 +110,21 @@ const STORIES = [
     quote: "Education is the key to achieving something bigger.",
     name: "Sneha Kumari",
     role: "Student",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/sneha.png",
+    img: "/images/uploads/2025/09/sneha.webp",
     desc: "At just 12 years old, Sneha Kumari already knows her life's purpose. Supported by her mother, who works as a housemaid in the city, and her father, who provides for the family from their village, Sneha has developed remarkable skills in mehndi art while nurturing a bigger dream: becoming a teacher.",
   },
   {
     quote: "I want to show that no matter where you come from, you can achieve great things with hard work and passion.",
     name: "Khushi Rajput",
     role: "Student",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/khushi.png",
+    img: "/images/uploads/2025/09/khushi.webp",
     desc: "Khushi Rajput, along with her three siblings, is raised by their father, a driver, and their mother, a homemaker. This talented young girl has already made her mark by winning first prize in the Sanskriti Art and Craft Competition.",
   },
   {
     quote: "When I'm on stage, I feel unstoppable. It's where I belong.",
     name: "Akhilesh",
     role: "Student",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/akhilesh.png",
+    img: "/images/uploads/2025/09/akhilesh.webp",
     desc: "From overcoming stage fright to becoming his school's most accomplished speaker, Akhilesh's journey exemplifies the power of determination. His breakthrough moment came during an Independence Day celebration, where he delivered a compelling speech to an audience of over 500 people.",
   },
 ];
@@ -133,30 +133,30 @@ const TESTIMONIALS = [
   {
     name: "Piyush Pasbola",
     quote: "Growing up in Dehradun, I searched for spiritual truth in ashrams and books, but something essential was always missing. The day I met Guruji, that missing piece was revealed, not through words but through presence.",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/guruji.jpg",
+    img: "/images/uploads/2025/09/guruji.webp",
   },
   {
     name: "Preeti Kimothi",
     quote: "After working in finance for years, I was looking for something meaningful. Thanks to my sister, I discovered Sakshi Shree and Gurudev's Sanjeevani Kriya. This meditation practice is remarkably easy to learn and quick to do, yet it offers deep benefits.",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/guruji.jpg",
+    img: "/images/uploads/2025/09/guruji.webp",
   },
   {
     name: "Tulika Sharma",
     quote: "After practicing Sanjeevani Kriya taught by Gurudev, I experienced feelings that are difficult to put into words. I felt an incredible sense of calm and a profound connection with my inner self.",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/09/guruji-1.jpg",
+    img: "/images/uploads/2025/09/guruji-1.webp",
   },
 ];
 
 const LEADER_IMGS = [
-  "https://sciencedivine.org/wp-content/uploads/2025/09/leader-1.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/09/leader-2.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/09/leader-4.jpg",
+  "/images/uploads/2025/09/leader-1.webp",
+  "/images/uploads/2025/09/leader-2.webp",
+  "/images/uploads/2025/09/leader-4.webp",
 ];
 
 const MEDIA_IMGS = [
-  "https://sciencedivine.org/wp-content/uploads/2025/09/media-1.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/09/media-2.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/09/guruji-1.jpg",
+  "/images/uploads/2025/09/media-1.webp",
+  "/images/uploads/2025/09/media-2.webp",
+  "/images/uploads/2025/09/guruji-1.webp",
 ];
 
 /* ─── Component ─── */
@@ -202,7 +202,7 @@ export default function Page() {
               </div>
             </div>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/09/guruji.webp" alt="Sakshi Shree" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/09/guruji.webp" alt="Sakshi Shree" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }} />
             </div>
           </div>
         </div>
@@ -228,7 +228,7 @@ export default function Page() {
               </div>
             </div>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/09/sakshi-shree.webp" alt="About Sakshi Shree" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.06)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/09/sakshi-shree.webp" alt="About Sakshi Shree" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.06)" }} />
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function Page() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center", marginBottom: "48px" }}>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/06/Har-Ghar-Shiksha.webp" alt="Har Ghar Shiksha" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.06)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/06/Har-Ghar-Shiksha.webp" alt="Har Ghar Shiksha" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.06)" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {ABOUT_CARDS.map((c, i) => (
@@ -277,7 +277,7 @@ export default function Page() {
                 onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 12px 34px rgba(15,23,42,0.06)"; }}
               >
                 <div style={{ height: "210px", width: "100%", overflow: "hidden", borderRadius: "20px", background: "#F8FAFC" }}>
-                  <img src={p.src} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.5s ease" }} onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")} onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
+                  <img loading="lazy" decoding="async" src={p.src} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.5s ease" }} onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")} onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")} />
                 </div>
                 <div style={{ padding: "24px 6px 4px", textAlign: "center", flex: 1 }}>
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.35rem", fontWeight: 700, color: "#0F172A", marginBottom: "10px" }}>{p.title}</h3>
@@ -324,7 +324,7 @@ export default function Page() {
             {SOLUTIONS.map((s, i) => (
               <div key={i} style={{ background: "#FAF9F6", border: "1px solid #E2E8F0", borderRadius: "20px", overflow: "hidden" }}>
                 <div style={{ height: "200px", overflow: "hidden" }}>
-                  <img src={s.img} alt={s.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img loading="lazy" decoding="async" src={s.img} alt={s.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
                 <div style={{ padding: "24px" }}>
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{s.title}</h3>
@@ -350,7 +350,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "22px" }}>
             {EVENTS.map((ev, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", boxShadow: "0 10px 28px rgba(15,23,42,0.06)", border: "1px solid #E2E8F0", minHeight: "340px" }}>
-                <img src={ev.img} alt={ev.title} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={ev.img} alt={ev.title} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
                 <div style={{ padding: "16px" }}>
                   <div style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>{ev.title}</div>
                   <div style={{ color: "#64748B", fontSize: "0.82rem", marginTop: "6px", lineHeight: 1.65 }}>{ev.desc}</div>
@@ -370,7 +370,7 @@ export default function Page() {
           <div style={{ display: "flex", justifyContent: "center", gap: "32px", flexWrap: "wrap" }}>
             {VOLUNTEERS.map((v, i) => (
               <div key={i} style={{ textAlign: "center" }}>
-                <img src={v.img} alt={v.name} style={{ width: "110px", height: "110px", borderRadius: "100px", objectFit: "cover", margin: "0 auto 10px", display: "block", border: "3px solid #D4AF37" }} />
+                <img loading="lazy" decoding="async" src={v.img} alt={v.name} style={{ width: "110px", height: "110px", borderRadius: "100px", objectFit: "cover", margin: "0 auto 10px", display: "block", border: "3px solid #D4AF37" }} />
                 <div style={{ fontWeight: 700, color: "#0F172A" }}>{v.name}</div>
                 <div style={{ fontSize: "0.75rem", color: "#64748B" }}>{v.role}</div>
               </div>
@@ -391,7 +391,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px", marginTop: "40px" }}>
             {STORIES.map((s, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
-                <img src={s.img} alt={s.name} style={{ width: "100%", height: "220px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={s.img} alt={s.name} style={{ width: "100%", height: "220px", objectFit: "cover" }} />
                 <div style={{ padding: "24px" }}>
                   <p style={{ fontStyle: "italic", color: "#B45309", fontWeight: 600, fontSize: "0.9rem", marginBottom: "12px" }}>"{s.quote}"</p>
                   <div style={{ fontWeight: 800, color: "#0F172A" }}>{s.name}</div>
@@ -416,7 +416,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", marginBottom: "40px" }}>
             {LEADER_IMGS.map((img, i) => (
               <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
-                <img src={img} alt={`Leader ${i + 1}`} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={img} alt={`Leader ${i + 1}`} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
               </div>
             ))}
           </div>
@@ -428,7 +428,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
             {MEDIA_IMGS.map((img, i) => (
               <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
-                <img src={img} alt={`Media coverage ${i + 1}`} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={img} alt={`Media coverage ${i + 1}`} style={{ width: "100%", height: "185px", objectFit: "cover" }} />
               </div>
             ))}
           </div>
@@ -461,7 +461,7 @@ export default function Page() {
             {TESTIMONIALS.map((t, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "28px", display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                  <img src={t.img} alt={t.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover", flexShrink: 0 }} />
+                  <img loading="lazy" decoding="async" src={t.img} alt={t.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover", flexShrink: 0 }} />
                   <div style={{ fontWeight: 700, color: "#B45309", fontSize: "0.85rem" }}>,  {t.name}</div>
                 </div>
                 <p style={{ color: "#475569", fontSize: "0.875rem", lineHeight: 1.65, fontStyle: "italic" }}>"{t.quote}"</p>
@@ -481,7 +481,7 @@ export default function Page() {
               <p style={{ color: "#64748B", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "24px" }}>
                 Your contribution helps provide quality education and meditation training to underprivileged children.
               </p>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/09/donation-956x1024.webp" alt="Donation" style={{ width: "100%", height: "auto", borderRadius: "20px" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/09/donation-956x1024.webp" alt="Donation" style={{ width: "100%", height: "auto", borderRadius: "20px" }} />
             </div>
 
             <div>

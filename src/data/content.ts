@@ -382,7 +382,7 @@ export const COURSES = [
     originalPrice: 5100,
     duration: "2 hours",
     level: "Beginner",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png",
+    image: "/images/uploads/2024/04/pexels-chetanvlad-2923157-1.webp",
     features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"],
     description:
       "A transformative journey through four modules that put you back in the driver's seat of your own life.",
@@ -409,7 +409,7 @@ export const COURSES = [
     duration: "2 hours",
     level: "Beginner",
     image:
-      "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-felipe-borges-964530-2597205-1.png",
+      "/images/uploads/2024/04/pexels-felipe-borges-964530-2597205-1.webp",
     features: [
       "Manifest Your Dreams",
       "Heightened Creativity",
@@ -428,7 +428,7 @@ export const COURSES = [
     originalPrice: 5100,
     duration: "2 hours",
     level: "Beginner",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/04/pexels-min-an-1234035-1-1.png",
+    image: "/images/uploads/2024/04/pexels-min-an-1234035-1-1.webp",
     features: [
       "Cultivates Inner Peace",
       "Balances Energy Centers",
@@ -449,7 +449,7 @@ export const EVENTS = [
     time: "10:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Completed" as const,
-    image: "https://sciencedivine.org/wp-content/uploads/2025/02/mzlvjnkn-1-scaled.webp",
+    image: "/images/uploads/2025/02/mzlvjnkn-1-scaled.webp",
     link: "/birthday-event",
   },
   {
@@ -504,7 +504,7 @@ export const EVENTS = [
     time: "10:00 AM",
     location: "Siddha Sudarshan Sakshi Dhaam, 9, Avantika, Chiranjeev Vihar, Ghaziabad",
     status: "Available Now" as const,
-    image: "https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg",
+    image: "/images/uploads/2024/05/aboutsakshishree.webp",
     link: "/sunday-event-3-may",
   },
 ];
@@ -576,22 +576,22 @@ export const LEADERS = [
   {
     name: "Hon'ble Shri Rajnath Singh",
     title: "Defence Minister of India",
-    image: "https://sciencedivine.org/wp-content/uploads/2023/06/3-scaled.webp",
+    image: "/images/uploads/2023/06/3-scaled.webp",
   },
   {
     name: "Dr. Vikram Sampat",
     title: "Historian & Author",
-    image: "https://sciencedivine.org/wp-content/uploads/2023/06/4-scaled.webp",
+    image: "/images/uploads/2023/06/4-scaled.webp",
   },
   {
     name: "Shri Ajay Bhatt",
     title: "Former Union Minister",
-    image: "https://sciencedivine.org/wp-content/uploads/2023/06/1-scaled.webp",
+    image: "/images/uploads/2023/06/1-scaled.webp",
   },
   {
     name: "Shri Anil Bachoo",
     title: "Former Health Minister, Mauritius",
-    image: "https://sciencedivine.org/wp-content/uploads/2023/06/2-scaled.webp",
+    image: "/images/uploads/2023/06/2-scaled.webp",
   },
 ];
 
@@ -623,37 +623,37 @@ export const SOLUTION_HUB_CARDS = [
   {
     slug: "overthinking",
     title: "Overthinking",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Overthinking-1024x683.jpg",
+    image: "/images/uploads/2024/03/Overthinking-1024x683.webp",
   },
   {
     slug: "addictions",
     title: "Addictions",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Addictions-1024x512.jpg",
+    image: "/images/uploads/2024/03/Addictions-1024x512.webp",
   },
   {
     slug: "parenting",
     title: "Parenting",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Parenting-1024x683.jpg",
+    image: "/images/uploads/2024/03/Parenting-1024x683.webp",
   },
   {
     slug: "stress",
     title: "Sleeping Disorder",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Sleeping-1024x683.jpg",
+    image: "/images/old-site/pages/get-solutions-for/Sleeping-Disorder-1024x683.webp",
   },
   {
     slug: "yoga",
     title: "Wellness",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Wellness-1024x683.jpg",
+    image: "/images/uploads/2024/03/Wellness-1024x683.webp",
   },
   {
     slug: "anxiety",
     title: "Anxiety",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Anxiety-1024x683.jpg",
+    image: "/images/uploads/2024/03/Anxiety-1024x683.webp",
   },
   {
     slug: "depression",
     title: "Depression",
-    image: "https://sciencedivine.org/wp-content/uploads/2024/03/Depression.jpg",
+    image: "/images/uploads/2024/03/Depression.webp",
   },
 ];
 
@@ -666,4 +666,4 @@ export const SOCIALS = {
   playstore: "https://play.google.com/store/apps/details?id=com.sakshishree.learners",
 };
 
-export const LOGO_URL = "https://sciencedivine.org/wp-content/uploads/2023/07/cropped-SD_logo.png";
+export const LOGO_URL = "/images/uploads/2023/07/cropped-SD_logo.webp";

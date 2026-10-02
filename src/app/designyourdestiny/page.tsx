@@ -80,7 +80,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", inset: "-10px", background: "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(212,175,55,0.15))", borderRadius: "30px", filter: "blur(16px)" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/12/AAP_0044-1.webp.bv_resized_desktop.webp.bv_.webp" alt="Sakshi Shree - Design Your Destiny" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.5)", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/12/AAP_0044-1.webp" alt="Sakshi Shree - Design Your Destiny" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.5)", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
               <div style={{ position: "absolute", bottom: "24px", right: "-16px", background: "linear-gradient(135deg, #7C3AED, #4C1D95)", borderRadius: "16px", padding: "16px 20px", boxShadow: "0 8px 24px rgba(124,58,237,0.4)", zIndex: 2 }}>
                 <div style={{ color: W, fontWeight: 800, fontSize: "1rem" }}>15+ Years</div>
                 <div style={{ color: "#C4B5FD", fontSize: "10px", fontWeight: 600 }}>of Guidance</div>
@@ -100,7 +100,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
             {PILLARS.map((p, i) => (
               <div key={i} style={{ background: W, border: `1px solid ${BrV}`, borderRadius: "24px", padding: "32px 24px", textAlign: "center", boxShadow: "0 6px 20px rgba(124,58,237,0.03)" }}>
-                <img src={p.img} alt={p.title} style={{ height: "64px", width: "auto", margin: "0 auto 20px auto", display: "block" }} />
+                <img loading="lazy" decoding="async" src={p.img} alt={p.title} style={{ height: "64px", width: "auto", margin: "0 auto 20px auto", display: "block" }} />
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: T, marginBottom: "12px" }}>{p.title}</h3>
                 <p style={{ color: TL, fontSize: "0.875rem", lineHeight: 1.6 }}>{p.desc}</p>
               </div>
@@ -119,7 +119,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px" }}>
             {TRANSFORMS.map((t, i) => (
               <div key={i} style={{ display: "flex", gap: "20px", alignItems: "flex-start", background: BG, border: `1px solid ${BrV}`, borderRadius: "20px", padding: "24px" }}>
-                <img src={t.img} alt={t.title} style={{ width: "48px", height: "48px", objectFit: "contain", flexShrink: 0 }} />
+                <img loading="lazy" decoding="async" src={t.img} alt={t.title} style={{ width: "48px", height: "48px", objectFit: "contain", flexShrink: 0 }} />
                 <div>
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: T, marginBottom: "8px" }}>{t.title}</h3>
                   <p style={{ color: TL, fontSize: "0.825rem", lineHeight: 1.5 }}>{t.desc}</p>
@@ -136,7 +136,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "56px", alignItems: "center" }}>
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", inset: "-6px", background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(212,175,55,0.15))", borderRadius: "30px", filter: "blur(12px)" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/12/AAP_0044-1.webp.bv_resized_desktop.webp.bv_.webp" alt="Sakshi Shree Guide" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/12/AAP_0044-1.webp" alt="Sakshi Shree Guide" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
             </div>
             <div>
               <span style={{ fontSize: "11px", color: V, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>The Guide</span>

@@ -427,7 +427,7 @@ export function SolutionHeroImage({
   return (
     <div className="lg:col-span-5 flex justify-center relative">
       <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40">
-        <img
+        <img loading="lazy" decoding="async"
           src={src}
           alt={alt}
           className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"

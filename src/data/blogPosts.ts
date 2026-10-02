@@ -79,7 +79,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/how-to-do-vishwakarma-puja-in-office-2026.webp",
     "content": "Vishwakarma Puja is one of the most significant festivals dedicated to Lord Vishwakarma, the divine architect and creator of the universe according to Hindu traditions. Every year, this auspicious occasion is celebrated by engineers, architects, craftsmen, factory owners, business owners, and professionals who work with tools, machines, technology, and equipment. In recent years, Vishwakarma Puja at office has become an important workplace tradition where companies worship their work tools, machinery, computers, and equipment while seeking blessings for success, growth, creativity, and prosperity. Employees come together to perform rituals and celebrate the contribution of skills, innovation, and craftsmanship in professional life. If you are wondering how to do Vishwakarma Puja in office , this complete guide explains the step-by-step puja vidhi, required samagri, workplace rituals, significance, and rules to follow during Vishwakarma Puja in office 2026 . Importance of Vishwakarma Pu...",
@@ -107,7 +107,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/navratri-vrat-rules-2026.webp",
     "content": "Navratri is one of the most sacred Hindu festivals dedicated to the worship of Goddess Durga and her nine divine forms. Devotees across the world observe fasting during these nine auspicious days to seek Maa Durga’s blessings, purify the body and mind, and deepen their spiritual connection. Following the right Navratri Vrat Rules 2026 helps devotees observe the fast with devotion, discipline, and awareness. Navratri fasting is not only about avoiding certain foods but also about controlling desires, maintaining purity of thoughts, and focusing on spiritual growth. The Navratri fasting rules for 9 days include guidelines about food, daily rituals, prayers, lifestyle habits, and things that should be avoided during the vrat. Whether you are observing Navratri fast for the first time or following this tradition every year, understanding the correct vrat niyam can help you complete the fast with devotion and positivity. What Are Navratri Vrat Rules 2026? Navratri Vrat Rules 2026 refer to t...",
@@ -135,7 +135,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/hartalika-teej-puja-items-list-2026.webp",
     "content": "Hartalika Teej is one of the most sacred Hindu festivals dedicated to the divine union of Lord Shiva and Goddess Parvati . Celebrated mainly by married women seeking marital happiness, prosperity, and the blessings of Goddess Parvati, this vrat holds immense spiritual significance. One of the most important parts of Hartalika Teej preparation is arranging all the required Hartalika Teej Puja Items List 2026 before beginning the rituals. Devotees prepare a special puja setup with sacred items, offerings, flowers, fruits, traditional decorations, and shringar materials to worship Lord Shiva, Goddess Parvati, and Lord Ganesha. Having the complete Hartalika Teej puja samagri list 2026 helps devotees perform the rituals with devotion and avoid missing any important item during the puja. This complete guide covers the essential Hartalika Teej puja items list , puja thali materials, shringar items, bhog offerings, and important preparations required for the auspicious vrat. Significance of Ha...",
@@ -163,7 +163,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/why-ganesh-visarjan-is-done-spiritual-meaning.webp",
     "content": "Ganesh Visarjan is one of the most emotional and spiritually significant rituals celebrated during Ganesh Chaturthi. After welcoming Lord Ganesha into homes, temples, and communities with devotion, devotees eventually perform the immersion of the idol in water. The moment is filled with prayers, chants of “Ganpati Bappa Morya” , celebrations, and a feeling of both gratitude and farewell. Many people participate in Ganesh Visarjan every year, but often wonder: why Ganesh Visarjan is done? Why do devotees immerse Lord Ganesha’s idol in water after worshipping Him for several days? The answer goes beyond a traditional ritual. Ganesh Visarjan carries a profound spiritual message about the nature of life, the importance of surrender, the cycle of creation and dissolution, and the understanding that divine presence exists beyond physical forms. The ritual teaches us that while idols help devotees connect with the divine through devotion and emotions, true spirituality lies in realizing that ...",
@@ -191,7 +191,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/how-to-reduce-stress-lord-ganesha-lessons.webp",
     "content": "Stress has become an unavoidable part of modern life. Whether it comes from work pressure, financial worries, family responsibilities, relationship challenges, health concerns, social comparison or uncertainty about the future, stress often begins when the mind becomes overloaded. Even when the body is resting, the mind may continue replaying conversations, predicting negative outcomes, remembering past mistakes or worrying about situations that have not yet happened. This is why learning how to reduce stress is not only about changing external circumstances. It is also about learning how to create a calmer, clearer and more balanced mind. Spiritual traditions have long emphasized that peace does not always come from eliminating every difficulty in life. Sometimes, peace comes from learning how to respond to difficulties differently. Lord Ganesha, one of the most widely revered deities in Hindu philosophy, represents wisdom, intelligence, auspicious beginnings and the removal of obstac...",
@@ -219,7 +219,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/how-to-stop-overthinking-bhagavad-gita.webp",
     "content": "Overthinking can turn even a small concern into an endless cycle of “what ifs.” You may replay an old conversation again and again, worry about decisions that have not yet been made, imagine negative future situations, or analyse the same problem repeatedly without finding clarity. If you are wondering how to stop overthinking , the Bhagavad Gita offers a deeply practical perspective on the restless mind and how it can gradually become calm, focused, and balanced. Thousands of years ago, Arjuna stood in a state of deep confusion. His mind was filled with doubt, fear, uncertainty, and questions about what he should do. Lord Krishna did not simply tell him to stop thinking. Instead, he helped Arjuna understand the nature of the mind, the importance of action, the need for detachment, and the value of inner awareness. These Bhagavad Gita teachings for anxiety and overthinking remain relevant even today because although our circumstances have changed, the basic nature of the human mind has...",
@@ -247,7 +247,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/how-to-control-anxiety-7-bhagavad-gita-w-d1bf18.webp",
     "content": "Anxiety has become one of the most common emotional struggles of modern life. The mind keeps moving from one thought to another, often worrying about situations that have not even happened yet. Questions such as “What if I fail?”, “What if something goes wrong?”, or “What if I am not able to handle the future?” can repeat themselves so often that they begin to disturb our peace. If you are searching for how to control anxiety , the first thing to understand is that anxiety is not always created by the situation itself. Very often, it is created by the way the mind repeatedly interprets, predicts and reacts to that situation. This is also why people who want to know how to calm your mind often discover that simply telling themselves to “stop thinking” does not work. The Bhagavad Gita offers a deeper approach. Instead of asking us to suppress thoughts, it teaches us how to understand the mind, observe it, train it and act with greater awareness. The Gita does not promise a life without c...",
@@ -275,7 +275,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/why-14-knots-tied-anant-sutra-anant-chaturdashi.webp",
     "content": "A sacred thread with 14 carefully tied knots is one of the most recognizable symbols associated with Anant Chaturdashi. But why exactly fourteen? Why not twelve, sixteen or any other number? The answer lies in the spiritual symbolism connected with Lord Vishnu in His Anant form , meaning the Infinite or Endless One. According to the most widely followed traditional interpretation, the 14 knots in Anant Sutra symbolize the 14 Lokas or realms described in Hindu cosmology . Together, they represent the entirety of creation over which the infinite presence of Lord Vishnu extends. The thread therefore becomes much more than a ritual object it symbolizes faith, continuity, divine protection and remembrance of the infinite. This is why understanding why 14 knots are tied in Anant Sutra can reveal the deeper philosophy hidden within a seemingly simple Anant Chaturdashi ritual. What Is Anant Sutra? The Anant Sutra , also called Anant Dora or Anant thread in different regions, is a sacred thread...",
@@ -303,7 +303,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/can-women-perform-shraddha-pitru-paksha.webp",
     "content": "Pitru Paksha is a sacred period dedicated to remembering ancestors with gratitude, prayer and traditional rituals such as Shraddha, Tarpan and Pind Daan . Yet one question arises frequently in many Hindu families: Can women perform Shraddha? The simple answer is that women can perform Shraddha in many Hindu traditions and circumstances , particularly when they are the appropriate family member to carry forward the ancestral remembrance. However, specific practices concerning who acts as the karta , which mantras are recited and how Tarpan or Pind Daan is performed can differ according to family tradition, region and sampradaya. Traditionally, the eldest son has often been given primary responsibility for ancestral rites. However, this does not mean that every Hindu tradition completely excludes women. Some ritual traditions recognize daughters, wives, mothers, daughters-in-law and other relatives as eligible to perform Shraddha under particular circumstances. Therefore, rather than ask...",
@@ -331,7 +331,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/vishwakarma-puja-mantra.webp",
     "content": "Lord Vishwakarma is revered in Hindu tradition as the divine architect and master craftsman, closely associated with creativity, construction, craftsmanship, engineering, tools and skilled work. Vishwakarma Puja therefore holds special significance for artisans, architects, engineers, technicians, business owners, factory workers and others whose livelihood depends upon skill, machinery or creative ability. One of the most meaningful ways to worship him is through a Vishwakarma Puja mantra . Devotees traditionally chant Vishwakarma mantras while offering flowers, incense and prayers, seeking blessings for wisdom, professional excellence, creativity and the safe use of tools and machinery. If you are looking for a Vishwakarma mantra in Hindi , a Vishwakarma mantra in Sanskrit , or want to understand the meaning and traditional benefits of these sacred chants, this guide brings together seven commonly recited forms. Mantras may differ slightly according to region, family tradition or spi...",
@@ -359,7 +359,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/hartalika-teej-2026-fasting-rules.webp",
     "content": "Hartalika Teej is one of the most significant Hindu vrats dedicated to Goddess Parvati and Lord Shiva . Observed on Bhadrapada Shukla Tritiya , the festival represents Goddess Parvati’s unwavering devotion, determination and tapasya to attain Lord Shiva as her husband. In 2026, Hartalika Teej will be observed in India on Monday, September 14, 2026 according to commonly followed Indian Panchang calculations. For Delhi, Tritiya Tithi begins at approximately 7:08 AM on September 13 and ends at 7:06 AM on September 14 . The Pratahkal Hartalika Puja Muhurat in Delhi is approximately 6:05 AM to 7:06 AM . Exact puja timings vary according to location, so devotees should check their local Panchang. Understanding the Hartalika Teej fasting rules 2026 is especially important because the traditional form of this vrat is considered rigorous. Many devotees observe a Nirjala vrat , abstaining from both food and water, while worshipping Shiva and Parvati with devotion. However, spiritual observance s...",
@@ -387,7 +387,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/why-modak-is-ganeshas-favourite-sweet.webp",
     "content": "The image of Lord Ganesha holding a modak is familiar to millions of devotees. During Ganesh Chaturthi, homes fill with the aroma of freshly prepared modaks, temples receive them as naivedya, and devotees lovingly offer the sweet before sharing it as prasad. But why is modak Ganesha&#x27;s favourite sweet? Why, among countless Indian sweets, did the humble modak become so closely associated with Ganpati Bappa? The answer lies in a beautiful combination of devotional tradition, symbolism, mythology and spiritual meaning . Lord Ganesha is traditionally praised as Modakapriya , meaning one who is fond of modak. The association is so deep that the modak has become one of the most recognisable symbols connected with him. Traditional Ganesha name lists also preserve the name Modakapriya, while the Ganapati Atharvashirsha explicitly refers to worshipping Ganapati with modakas. More importantly, the sweet carries a deeper message. Its pleasant filling hidden inside an outer covering is often i...",
@@ -415,7 +415,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/108-names-of-lord-ganesha-with-meaning.webp",
     "content": "Lord Ganesha, also known as Ganpati, Vighnaharta, Ekdant, and Vinayak , is one of the most beloved deities in Hindu spirituality. He is worshipped as the remover of obstacles, the symbol of wisdom, intellect, prosperity, and new beginnings. Among the many ways devotees connect with Lord Ganesha, chanting the 108 Names of Lord Ganesha holds a special spiritual importance. Each name represents a unique quality, divine energy, and aspect of Lord Ganesha’s consciousness. The practice of reciting Lord Ganesha 108 names is known as Ganesha Ashtottara Shatanamavali . Devotees believe that chanting these sacred names with devotion helps develop inner strength, remove negativity, improve focus, and invite divine blessings into life. In this article, we explore the complete significance of 108 Ganesh names with meaning , their spiritual benefits, and why these divine names are important for personal growth. What Are the 108 Names of Lord Ganesha? The 108 Names of Lord Ganesha are a collection of...",
@@ -443,7 +443,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/vishwakarma-puja-2026-muhurat-best-puja-time-date-and-vidhi.webp",
     "content": "Vishwakarma Puja 2026 is an important Hindu festival dedicated to Lord Vishwakarma , the divine architect and creator of the universe. Revered as the master craftsman of the gods, Lord Vishwakarma is believed to have designed celestial cities, divine weapons, palaces, and sacred structures mentioned in Hindu scriptures. This festival holds special importance among engineers, architects, artisans, craftsmen, factory owners, mechanics, industrial workers, and professionals associated with tools, machines, and technology. On this day, people worship their instruments, workplaces, and machinery, expressing gratitude for creativity, skill, and prosperity. Devotees searching for Vishwakarma Puja 2026 date, Vishwakarma Puja 2026 time, and Vishwakarma Puja 2026 Muhurat observe this day with prayers, rituals, and celebrations seeking success in their professions and businesses. Vishwakarma Puja 2026 Date and Time Vishwakarma Puja is generally celebrated on Kanya Sankranti , when the Sun enters ...",
@@ -471,7 +471,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/parsva-ekadashi-2026-vrat-katha-puja-vidhi.webp",
     "content": "Ekadashi fasting holds a special place in Hindu traditions as it is considered a sacred day dedicated to Lord Vishnu , the preserver of the universe. Among the twenty-four Ekadashis observed throughout the year, Parsva Ekadashi is considered highly auspicious because it marks the divine turning of Lord Vishnu during his cosmic sleep. Also known as Vamana Ekadashi and Parivartini Ekadashi , this vrat falls during the Shukla Paksha of the Bhadrapada month. Devotees observe this fast with devotion, perform Vishnu Puja, listen to the Parsva Ekadashi vrat katha 2026 , and seek blessings for prosperity, spiritual growth, and liberation from negative influences. Parsva Ekadashi 2026 Date and Time Parsva Ekadashi 2026 will be observed during the Shukla Paksha Ekadashi of Bhadrapada month according to the Hindu lunar calendar. The exact date and timings depend on the regional Panchang followed by devotees. The important timings include: Ekadashi Tithi Begins: As per regional Panchang Ekadashi T...",
@@ -499,7 +499,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/radha-krishna-marriage-story.webp",
     "content": "The love story of Radha and Krishna is considered one of the most profound symbols of divine love in Hindu spirituality. For centuries, devotees have celebrated their bond through songs, prayers, poetry, and festivals. However, one question continues to arise among millions of people: Did Radha and Krishna get married? The answer is not as simple as a worldly relationship because the connection between Radha and Krishna is understood differently in spiritual traditions. While historical and religious texts describe Krishna’s marriages with other queens, Radha is remembered as his eternal divine companion and the highest symbol of devotion ( bhakti ). The Radha Krishna marriage story is therefore not only about a wedding ceremony but about understanding the deeper meaning of love, devotion, and spiritual union. Who Were Radha and Krishna? Before understanding whether Radha and Krishna married, it is important to understand who they represent. Lord Krishna is worshipped as an incarnation...",
@@ -527,7 +527,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/hartalika-teej-story-parvati-tapasya-shiva.webp",
     "content": "Hartalika Teej is much more than a traditional festival or a day of fasting. At the heart of the celebration lies a powerful story of Goddess Parvati’s determination to unite with Lord Shiva. The Hartalika Teej story is remembered as an expression of devotion, patience, inner strength and unwavering commitment to one’s deepest spiritual resolve. For generations, devotees have listened to the Hartalika Teej vrat katha while worshipping Lord Shiva and Goddess Parvati. The story tells how Parvati refused to abandon her inner calling even when circumstances appeared to take her life in another direction. Instead, she withdrew into the forest and continued her tapasya for Shiva. The story therefore carries a meaning deeper than marriage alone. Parvati’s tapasya can also be understood spiritually as the determination of an individual soul to move beyond distraction, fear and external pressure in search of union with the Divine. Let us understand the complete Hartalika Teej Shiva Parvati stor...",
@@ -555,7 +555,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/why-durva-is-offered-to-ganesha.webp",
     "content": "Lord Ganesha is worshipped as the remover of obstacles, the giver of wisdom and the deity invoked before new beginnings. Devotees offer him modaks, flowers, fruits, incense and many other sacred items. Yet one of the simplest offerings associated with Lord Ganesha is also considered one of the most meaningful Durva grass . This often raises a fascinating question: Why is Durva offered to Ganesha? The answer lies in devotional tradition, an ancient story associated with the demon Analasura, and the deeper spiritual symbolism of Durva itself. The grass represents simplicity, resilience, surrender and purity. Its connection with Ganesha also explains why Ganesha loves Durva grass and why devotees continue to include it in Ganesh puja across generations. Durva is traditionally identified with Cynodon dactylon , commonly known as doob or Bermuda grass. It is a hardy perennial grass found widely in India and other warm regions. Botanical and Ayurvedic literature identifies Durva with Cynodon...",
@@ -583,7 +583,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/pitru-paksha-2026-meaning-significance-science-of-gratitude.webp",
     "content": "Introduction: Understanding the Deeper Meaning of Pitru Paksha Every individual carries a connection with the generations that came before them. The traditions we follow, the values we inherit, the knowledge we receive and even our existence itself are connected to the countless contributions of our ancestors. In Hindu philosophy, this connection is deeply honoured through the sacred observance of Pitru Paksha . Pitru Paksha 2026 is not merely a period of performing rituals; it is a time dedicated to remembrance, gratitude and acknowledging the role of ancestors in shaping our lives. It reminds us that our journey does not begin with us but continues through the wisdom, sacrifices and experiences of previous generations. In today’s fast-paced world, where people often focus on personal achievements and future goals, Pitru Paksha offers a moment of reflection. It encourages individuals to pause and appreciate the unseen support behind their lives. This ancient tradition beautifully conn...",
@@ -611,7 +611,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/shradh-puja-at-home-pitru-paksha-vidhi.webp",
     "content": "Pitru Paksha is a sacred period in Hindu tradition dedicated to remembering and expressing gratitude towards ancestors. During these days, families perform Shradh puja at home to honor departed family members, seek their blessings, and acknowledge the role they played in shaping our lives. The word Shradh comes from the Sanskrit word Shraddha , which means faith, devotion, and heartfelt respect. The ritual is not only about performing traditional ceremonies but also about cultivating gratitude, remembering our roots, and understanding the connection between generations. Many people search for how to perform Shradh puja at home because visiting pilgrimage places may not always be possible. According to Hindu traditions, performing Shradh with devotion and purity of intention at home can also become a meaningful spiritual practice. During Pitru Paksha , families perform rituals such as Tarpan, offering food, prayers, and remembering ancestors with love and respect. What Is Shradh Puja? S...",
@@ -639,7 +639,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/navratri-2026-date-puja-timings-significance.webp",
     "content": "Navratri 2026 is one of the most spiritually significant Hindu festivals dedicated to the worship of Maa Durga and the divine feminine energy, known as Shakti . Celebrated for nine sacred nights, Shardiya Navratri represents the victory of divine consciousness over negativity, ignorance, and inner limitations. Every year, millions of devotees search for Navratri 2026 date , when is Navratri 2026 , Navratri 2026 start date , and Navratri 2026 end date to prepare for fasting, prayers, and Maa Durga worship. Beyond rituals and celebrations, Navratri carries a deep spiritual message. The nine days symbolize an inner journey where a person moves from external distractions toward self-awareness, discipline, purity, and connection with the divine. When is Navratri 2026? Shardiya Navratri 2026 will begin in October 2026 and will be celebrated for nine days, concluding with Vijayadashami (Dussehra). The festival begins with Ghatasthapana , which marks the invocation of Maa Durga&#x27;s divine e...",
@@ -667,7 +667,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/radha-ashtami-wishes-2026.webp",
     "content": "The relationship between Radha Rani and Lord Krishna is considered one of the most profound spiritual symbols in Indian philosophy. Their divine bond represents the eternal connection between the individual soul and the Supreme Divine. Unlike ordinary relationships based on expectations and desires, Radha’s love for Krishna represents complete surrender, purity and unconditional devotion. Radha Rani’s devotion teaches us that true love is not about possession but about selflessness. Her love was free from ego and personal expectations. It was a love that existed purely for the joy and connection with the Divine. For devotees, remembering Radha Krishna together during Radha Ashtami is a reminder that spirituality is not separate from love. The path of devotion allows individuals to experience inner peace, compassion and a deeper connection with life. The celebration of Radha Ashtami encourages us to bring these qualities into our own lives to love more deeply, forgive more easily and li...",
@@ -695,7 +695,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/lord-ganesha-birth-story-ganesh-chaturthi.webp",
     "content": "Lord Ganesha, lovingly called Ganpati Bappa , is one of the most worshipped deities in Hindu tradition. Known as the Remover of Obstacles (Vighnaharta) , Lord Ganesha represents wisdom, intelligence, new beginnings, and spiritual awareness. Every year, millions of devotees celebrate Ganesh Chaturthi with devotion, bringing home Ganesha idols, performing prayers, and remembering the divine story of his birth. The Lord Ganesha birth story is not just a fascinating tale from Hindu mythology; it carries deep spiritual symbolism about creation, transformation, devotion, and the victory of divine wisdom over ego. According to ancient scriptures, Lord Ganesha was created by Goddess Parvati and later blessed by Lord Shiva, becoming one of the most revered gods in Hinduism. His unique appearance, especially his elephant head, holds profound meaning that continues to inspire generations. Lord Ganesha Birth Story: How Was Lord Ganesha Born? The story of Lord Ganesha’s birth begins with Goddess Pa...",
@@ -723,7 +723,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-non-dual-awareness.webp",
     "content": "In today’s fast-paced world, many people are searching for deeper meaning, inner peace, and freedom from constant mental activity. Beyond material success and external achievements, there is a growing desire to understand the nature of consciousness itself. One of the most profound concepts in spirituality is non-dual awareness . But what is non dual awareness, and why do spiritual traditions consider it a gateway to awakening? Non-dual awareness refers to a state of consciousness where the illusion of separation between the self and the world dissolves. It is the realization that everything exists as one interconnected reality. Instead of experiencing life through the limited perspective of “me” and “others,” one begins to experience existence with a sense of unity and oneness. Many ancient wisdom traditions, including Vedanta and teachings found in Indian spirituality, describe this as the recognition of our true nature beyond the mind, emotions, and ego. What Is Non Dual Awareness? ...",
@@ -751,7 +751,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/why-do-we-fast-during-navratri.webp",
     "content": "Introduction Navratri is one of the most spiritually significant festivals in Hindu tradition, celebrated for nine days to honour Goddess Durga and the divine feminine energy that represents strength, transformation, and inner awakening. One of the most important practices observed during this sacred period is fasting or vrat . But have you ever wondered — why do we fast during Navratri? For many people, Navratri fasting may appear to be a religious custom involving food restrictions. However, the deeper meaning of this ancient practice goes beyond simply avoiding certain foods. Navratri fasting is a journey of purification of the body, discipline of the mind, and elevation of consciousness. Ancient Indian wisdom viewed fasting as a powerful tool to create balance between the physical body, mental energy, and spiritual awareness. Modern science also recognizes several benefits of controlled fasting, including improved metabolism, better mental clarity, and enhanced self-control. The sc...",
@@ -779,7 +779,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/hartalika-teej-2026-date-time-puja-muhurat-vidhi.webp",
     "content": "Hartalika Teej is one of the most significant Hindu observances dedicated to the divine union of Lord Shiva and Goddess Parvati . Celebrated with devotion, fasting, prayer and spiritual discipline, the festival is particularly associated with Goddess Parvati&#x27;s unwavering determination and tapasya to attain Lord Shiva as her husband. In 2026, Hartalika Teej will be observed on Monday, September 14, 2026 . The festival falls on the Shukla Paksha Tritiya of the Bhadrapada month . According to the Panchang timings for Delhi, Tritiya Tithi begins at 7:08 AM on September 13 and ends at 7:06 AM on September 14, 2026 . Women traditionally observe the Hartalika Teej vrat and worship Lord Shiva and Goddess Parvati while praying for marital happiness, harmony and spiritual strength. Unmarried women may also observe the vrat as an expression of devotion and a prayer for a virtuous life partner. But beyond its association with marriage, Hartalika Teej carries a deeper message: clarity of inten...",
@@ -807,7 +807,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/bhagavad-gita-on-death-soul-after-death.webp",
     "content": "Death is one of humanity’s deepest mysteries. What happens when the body stops functioning? Does our existence end completely, or does something continue? And if the soul survives, where does it go? Thousands of years ago, the Bhagavad Gita addressed these very questions through the dialogue between Lord Krishna and Arjuna on the battlefield of Kurukshetra. Arjuna was overwhelmed by grief at the thought of the deaths that the coming battle would bring. Krishna responded by shifting his understanding from the temporary physical body to the eternal Atman, the true Self or soul . According to the Bhagavad Gita on death , the destruction of the physical body is not the destruction of the soul. Krishna describes the Atman as unborn, eternal and unaffected by bodily death in Bhagavad Gita 2.20. Understanding this distinction between body and Self is essential to understanding what happens to the soul after death according to the Bhagavad Gita . What Does the Bhagavad Gita Say About Death? Th...",
@@ -835,7 +835,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/shradh-puja-vidhi-at-home.webp",
     "content": "Shradh is an important Hindu tradition through which families remember departed ancestors with gratitude, prayer and sacred offerings. The word is closely associated with shraddha like faith and reverence and the ritual reminds us that our lives are connected to generations that came before us. During Pitru Paksha , many families perform Shradh, Tarpan, food offerings and acts of charity in remembrance of their ancestors. While elaborate ceremonies may be conducted under the guidance of a knowledgeable priest, families also commonly search for a simple Shradh puja vidhi at home when a full traditional ceremony is not possible. The exact Shradh vidhi can differ significantly by region, family lineage and tradition. For example, Pinda Daan receives particular importance in several North Indian traditions, while Tarpan has special prominence in parts of Bengal, Odisha and Assam. Therefore, the steps below should be understood as a simple devotional Shradh ritual at home rather than a repl...",
@@ -863,7 +863,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/ganesh-chaturthi-puja-vidhi-2026.webp",
     "content": "Ganesh Chaturthi is one of the most beloved Hindu festivals, dedicated to Lord Ganesha, the deity traditionally revered as Vighnaharta, the remover of obstacles, and associated with wisdom, auspicious beginnings and prosperity. In 2026, devotees across India will welcome Ganpati Bappa into their homes and temples on Monday, September 14, 2026 . Whether you are bringing home a Ganesh idol for the first time or have celebrated Ganeshotsav for years, understanding the correct Ganesh Chaturthi puja vidhi , puja samagri, mantras and auspicious puja time can make your worship more organised and meaningful. This complete guide explains the Ganesh Chaturthi 2026 puja , including Ganpati sthapana, the Ganesh Chaturthi puja samagri list 2026 , simple mantras and the Ganesh Chaturthi puja vidhi at home step by step. Ganesh Chaturthi 2026 Date and Puja Muhurat Ganesh Chaturthi 2026 Date: Monday, September 14, 2026 For New Delhi, Drik Panchang lists: Chaturthi Tithi Begins: 7:06 AM on September 14,...",
@@ -891,7 +891,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/aja-ekadashi-2026-date-time-parana-vrat-katha-puja-vidhi.webp",
     "content": "Aja Ekadashi 2026 is one of the sacred Ekadashi fasting days dedicated to Lord Vishnu. Observed during the Krishna Paksha of the Bhadrapada month, Aja Ekadashi holds deep spiritual significance for devotees seeking purification, devotion, self-discipline and freedom from negative karmic tendencies. In 2026, Aja Ekadashi will be observed on Monday, September 7, 2026 . For New Delhi, the Ekadashi Tithi begins at approximately 7:29 PM on September 6 and ends at approximately 5:03 PM on September 7 . The fast is traditionally concluded through Ekadashi Parana on September 8, 2026 . Because sunrise and Panchang calculations vary according to geographical location and tradition, devotees should confirm the exact Aja Ekadashi 2026 Parana time for their city before breaking the fast. This guide covers the Aja Ekadashi 2026 date and time, Aja Ekadashi 2026 tithi, Parana, vrat katha, puja vidhi, fasting rules and spiritual significance in detail. Aja Ekadashi 2026 Date and Time For devotees sear...",
@@ -919,7 +919,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/janmashtami-wishes-2026-family-friends.webp",
     "content": "Janmashtami is a beautiful celebration of devotion, love, joy and the divine wisdom of Lord Krishna. Every year, devotees celebrate the birth of Shri Krishna with prayers, bhajans, fasting, temple visits, beautiful jhankis and midnight celebrations. Krishna Janmashtami 2026 will be celebrated on Friday, September 4, 2026. Along with worship and celebration, Janmashtami is also a wonderful occasion to reconnect with the people who matter most in our lives. A thoughtful message carrying Krishna&#x27;s blessings can make your parents smile, strengthen a friendship or simply remind someone special that they are in your prayers. If you are searching for the best Janmashtami wishes 2026 for family and friends , this collection brings together heartfelt greetings, Krishna blessings, spiritual messages and short wishes that you can easily share through WhatsApp, Instagram, Facebook or a personal message. May these Janmashtami wishes help you spread devotion, positivity and Krishna&#x27;s timel...",
@@ -947,7 +947,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/ganpati-bappa-morya-status-2026-wishes-quotes-captions.webp",
     "content": "The arrival of Ganpati Bappa brings with it an atmosphere of devotion, celebration, hope and new beginnings. From beautifully decorated homes and pandals to the sound of aartis and chants of “Ganpati Bappa Morya,” Ganesh Chaturthi is a festival filled with faith and togetherness. In 2026, Ganesh Chaturthi will be celebrated on Monday, September 14, 2026 . As devotees welcome Lord Ganesha, social media also becomes filled with photographs of Bappa, family celebrations, puja moments, decorations, modaks, aartis and heartfelt messages. If you are searching for the perfect Ganpati Bappa Morya status 2026 , this collection brings together devotional wishes, short statuses, meaningful quotes and Ganpati Bappa captions for Instagram that you can share with family, friends and loved ones. Whether you want a simple WhatsApp status, a spiritual quote, an Instagram caption or a heartfelt Ganpati wish, choose words that reflect your devotion and the joy of welcoming Bappa. Why Do We Say “Ganpati B...",
@@ -975,7 +975,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/radha-krishna-love-story-spiritual-meaning-eternal-love.webp",
     "content": "The Radha Krishna love story has inspired saints, poets, devotees, artists, and spiritual seekers for generations. Their names are spoken together so naturally that for millions of devotees, Radha and Krishna have become an eternal symbol of love, devotion, surrender, and spiritual union. But the Radha Krishna love is not understood merely as an ordinary romantic relationship. Within many bhakti traditions, their connection points toward something much deeper, the longing of the individual soul for the Divine. Radha&#x27;s complete devotion to Krishna represents love without calculation, possession, or expectation. Krishna represents the Divine toward whom that love flows. Together, they reveal a form of Radha Krishna divine love that goes beyond physical presence and worldly definitions of relationships. This is why the Radha Krishna eternal love continues to hold such a powerful place in Indian spirituality. To understand their story fully, we must look beyond the question of romance...",
@@ -1003,7 +1003,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/anant-chaturdashi-2026-date-time-puja-muhurat-vrat-katha.webp",
     "content": "Anant Chaturdashi is an important Hindu festival dedicated primarily to Lord Vishnu in His Anant or infinite form . Observed on the Shukla Paksha Chaturdashi of the Bhadrapada month, the occasion represents devotion, spiritual discipline, protection and faith in the eternal nature of the Divine. In 2026, Anant Chaturdashi falls on Friday, September 25, 2026 . According to Panchang calculations, the Chaturdashi Tithi begins at 11:18 PM on September 24, 2026 and ends at 11:06 PM on September 25, 2026 . The festival is also closely associated with the conclusion of Ganesh Utsav. In many regions, especially Maharashtra, devotees perform Ganesh Visarjan on Anant Chaturdashi , making the day spiritually significant for followers of both Lord Vishnu and Lord Ganesha. For devotees observing the Anant Chaturdashi vrat 2026 , the day involves fasting, worship of Lord Vishnu, listening to the Anant Chaturdashi vrat katha and tying the sacred Anant Sutra. Anant Chaturdashi 2026 Date and Time Here ...",
@@ -1031,7 +1031,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/radha-ashtami-significance-meaning-story.webp",
     "content": "Radha Ashtami is one of the most cherished festivals for devotees of Radha and Krishna. Celebrated as the divine appearance day of Radha Rani , the festival represents far more than a traditional religious observance. It symbolizes pure devotion, selfless love, surrender and the soul&#x27;s longing for union with the Divine. Understanding the Radha Ashtami significance therefore requires looking beyond rituals and celebrations. Radha Rani is revered in several Vaishnava traditions as the embodiment of the highest form of devotion to Lord Krishna. Her love asks for nothing in return. It represents a state in which devotion itself becomes the purpose of life. In 2026, Radha Ashtami falls on Saturday, September 19 . The festival is traditionally observed on the Ashtami Tithi of Shukla Paksha in the Hindu month of Bhadrapada and is especially celebrated in the Braj region, including Barsana and Vrindavan. But what is the deeper Radha Ashtami spiritual meaning ? Why is Radha Rani&#x27;s app...",
@@ -1059,7 +1059,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/parsva-ekadashi-2026-date-time-parana-vrat-katha-puja-vidhi.webp",
     "content": "Parsva Ekadashi is one of the significant Ekadashi vrats dedicated to Lord Vishnu. Observed during the Shukla Paksha of the Bhadrapada month, this sacred day is associated with devotion, fasting, self-discipline and spiritual reflection. Devotees searching for the Parsva Ekadashi 2026 date , Parsva Ekadashi 2026 parana time , Parsva Ekadashi vrat katha , and Parsva Ekadashi puja vidhi observe the occasion by fasting, worshipping Lord Vishnu, chanting His names and engaging in devotional practices. Parsva Ekadashi is also popularly known as Parshva Ekadashi, Parivartini Ekadashi, Padma Ekadashi and Vamana Ekadashi in different traditions and regions. The name Parivartini is associated with the traditional belief that Lord Vishnu, who rests in Yoga Nidra during Chaturmas, changes His sleeping position on this Ekadashi. In 2026, Parsva Ekadashi will be observed on Tuesday, September 22, 2026 . For New Delhi, the Ekadashi Tithi begins at 8:00 PM on September 21 and ends at 9:43 PM on Septe...",
@@ -1087,7 +1087,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/7-chakras-of-body/Benefits-of-Balanced-Chakras.webp",
     "content": "In the quest for holistic health and spiritual awakening, the concept of the 7 chakras in our body plays a pivotal role. These energy centers, embedded in the ancient traditions of Eastern spirituality, are more than just metaphysical concepts. They are the roadmap to understanding our physical, emotional, and spiritual well-being. This article aims to demystify the 7 chakras of life and explore how they profoundly affect every aspect of our existence. What Are the 7 Chakras in Our Body ? : The ...",
@@ -1116,7 +1116,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/ajna-chakra/Third-Eye-Chakra.webp",
     "content": "In the realm of spiritual development, the Ajna Chakra stands as a beacon of inner insight and intuition. Often referred to as the \"third eye,\" this energy center is pivotal for those seeking to deepen their spiritual awareness and enhance their cognitive abilities. This comprehensive guide will explore what the Ajna Chakra is, its location, benefits, and powers, and provide detailed steps on how to activate the Ajna Chakra to tap into its profound meditation benefits. What is Ajna Chakra? The A...",
@@ -1147,7 +1147,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/anahata-chakra/Heart-Chakra.webp",
     "content": "In the vast expanse of spiritual practice, the Anahata Chakra emerges as a beacon of love, harmony, and healing. Positioned at the heart of our energy system, this chakra is not just a vital element of our spiritual anatomy; it's the core from which compassion, empathy, and unconditional love radiate. Unlocking the Anahata Chakra can transform lives, offering a pathway to profound emotional healing and a deeper connection with the universe. In this comprehensive guide, we will explore what the A...",
@@ -1178,7 +1178,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/asana-for-high-blood-pressure/asana-for-high-blood-pressure-cover.webp",
     "content": "High Blood pressure affects millions worldwide, yet managing it doesn't always require complex interventions. In fact, incorporating easy yoga poses into your daily routine can help lower blood pressure and improve overall wellbeing. This comprehensive guide will explore several effective yogic practices that may aid in hypertension management. The quest for natural remedies to manage and mitigate its effects brings us to the ancient practice of yoga. Specifically, certain easy asana for high bl...",
@@ -1209,7 +1209,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/basics-of-meditation/basics-of-meditation.webp",
     "content": "Embark on a transformative journey with the art of meditation, a practice that transcends time and culture, offering a refuge of peace in our bustling lives. This guide, \"Discovering the Basics of Meditation,\" is meticulously crafted to help beginners navigate the serene realms of this ancient practice. Whether you're seeking stress relief, enhanced focus, or a deeper connection with your inner self, understanding the fundamentals of meditation can pave the way for a more mindful and tranquil ex...",
@@ -1234,7 +1234,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/benefits-of-meditation/Meditation-cover.webp",
     "content": "In today's fast-paced world, Where each turn presents new challenges and stressors, a beacon of serenity shines brightly for those who seek it meditation. This ancient practice, with roots deeply embedded in the traditions of numerous cultures, offers a refuge for the mind, body, and spirit. Through meditation, individuals can unlock a profound sense of calm and clarity, navigating the tumults of life with grace and resilience. Let's understand the fundamentals of meditation, its countless benef...",
@@ -1266,7 +1266,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/build-mental-power/Build-Mental-Power-cover.webp",
     "content": "Daily Habits to Build Mental Power \"Mental toughness is essential to success.\" — Vince Lombardi Everything starts with our mind - it's our fortress. Serena Williams once said that tennis is mostly mental, and whether you win or lose is decided even before you step onto the court. In today’s fast-paced world, mental power is a crucial asset as it helps us manage stress, make better decisions, and build resilience. For leaders, mental strength is indispensable since decision making demands one to ...",
@@ -1288,7 +1288,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/chakras-in-human-body/7-healing-benefits-of-chakra-alignment-cover.webp",
     "content": "In the tapestry of holistic health and wellness, the concept of chakras plays a pivotal role, weaving ancient wisdom into the fabric of modern self-care practices. Originating from early Hinduism and Buddhism, chakras are often described as the swirling vortexes of energy that lie dormant within our bodies. They are the core energy centers that, when balanced, harmonize the physical, emotional, and spiritual aspects of our being. This simple guide aims to demystify chakras in the human body, off...",
@@ -1320,7 +1320,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/change-your-destiny/Change-your-destiny.webp",
     "content": "Can You Really Change Your Destiny? Feeling stuck in life’s repetitive patterns? you are not alone. Many believe destiny is unchangeable, but the truth is, you hold the power to reshape your future. This isn't about magic or wishful thinking; it’s about practical steps that steer your life in a new direction. As James Clear writes in Atomic Habits, \"You do not rise to the level of your goals, you fall to the level of your systems.\" Through new habits, taking responsibility for your actions, and ...",
@@ -1342,7 +1342,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/guruji_sunrise_bg.webp",
     "content": "Coming Soon......",
@@ -1364,7 +1364,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/connect-with-the-divine-power/Connect-with-the-divine-power.webp",
     "content": "Whether you call it God, the Universe, or a higher power, the pursuit of this connection is a common thread that weaves through the tapestry of human existence. Connecting with the divine power is a journey that transcends religious boundaries and touches the very essence of our being. This connection is about finding a deeper sense of purpose, peace, and understanding that goes beyond the physical world. Many ancient sages have cultivated many practices, beliefs, and spiritual disciplines for a...",
@@ -1386,7 +1386,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/conscious/Conscious.webp",
     "content": "Life is full of busy moments. Sometimes, we go through our days not really paying attention to what’s happening around us. But when we take time to be more conscious—really seeing, hearing, and feeling what’s around us—we can change how we live in amazing ways. This guide will show you simple steps to help your mind wake up every day, making life brighter and more interesting. Waking up isn't just about getting out of bed. It's about becoming conscious—fully aware and present in the moment. But ...",
@@ -1416,7 +1416,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/conscious-mind-and-subconscious-mind/Conscious-mind-and-Subconscious-mind.webp",
     "content": "The human mind is an enigma, a complex labyrinth of thoughts, emotions, and untapped potential. At the heart of this mystery lie two powerful entities: the conscious mind and the subconscious mind. Understanding these aspects of your mind is akin to holding a map to navigate your inner world, enabling you to harness their potential and transform your life. This article delves into the basics of what the conscious mind and subconscious mind are, explores the difference between conscious and subco...",
@@ -1450,7 +1450,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/declutter-your-mind-and-cleanse-your-soul/decluter-thumbnail.webp",
     "content": "In today's hectic world, taking time to cleanse the mind and soul is crucial for our well-being. Just as our bodies process the food and drink we consume, our minds constantly handle thoughts and emotions. Over time, these mental and emotional byproducts can accumulate, leading to overload. The constant influx of digital information, coupled with emotional and mental stress, clutters our souls. This can cause our minds to slow down and become less effective. Imagine a working mother, balancing h...",
@@ -1472,7 +1472,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/deep-breathing-for-better-brain/deep-breathing-for-better-brain.webp",
     "content": "Our brain is one of the most incredibly fascinating organs of our body, the control center. So it’s a no-brainer that we should keep it healthy. Although scientific studies have shown that our brain cannot multitask, it manages everything from our thoughts and emotions to our physical movements and bodily functions. Taking care of our physical health is not enough, we need to pay attention to our mental well-being as well. When our brain is healthy, we think more clearly, manage stress better, a...",
@@ -1494,7 +1494,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/deep-connection-between-meditation-and-the-soul/Deep-Connection-Between-Meditation-and-the-Soul.webp",
     "content": "The Deep Connection Between Meditation and the Soul What if you woke up one day with a feeling of complete clarity, as if a fog had lifted from your mind? You feel calm, centered, and in tune with the world around you. This is the kind of inner peace that meditation can bring, and it's not just about relaxing or taking a break from your busy life. It’s about diving deep into the core of your being - your soul. Meditation has been practiced for thousands of years, not just as a tool for stress re...",
@@ -1516,7 +1516,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/deepening-connection-in-marriage/Rekindling-Intimacy-and-Deepening-Connection-in-Marriage.webp",
     "content": "Marriage is a journey filled with love, companionship, and shared dreams, but it's not without its challenges. Over time, the daily grind and life’s responsibilities can take a toll on the intimacy and connection between spouses. Many couples find themselves drifting apart, yearning to rekindle the spark that once brought them together. If this sounds familiar, know that you're not alone. Every relationship goes through phases of closeness and distance. The good news is that with intentional eff...",
@@ -1538,7 +1538,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/embark-on-your-meditation-journey/Embark-on-Your-Meditation-Journey-1.webp",
     "content": "Embarking on a meditation journey can seem daunting, yet it promises a serene and transformative path for those who tread it. This ancient practice, rooted in mindfulness and self-awareness, offers numerous benefits, including reduced stress, enhanced concentration, and improved overall well-being. Whether you're seeking a moment of peace in a hectic schedule or a profound spiritual experience, this guide is your gateway to beginning a fulfilling meditation practice. Understanding Meditation and...",
@@ -1563,7 +1563,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/feminine-energy/Feminine-Energy.webp",
     "content": "Feminine energy is this incredible force that's all about nurturing, intuition, and empathy. It is believed that everything is born out of this energy in the universe. The qualities of feminine energy include stillness, empathy, nurturing, spontaneity, receptivity, fluidity, sensitivity, multitasking, communalism, acceptance, and flexibility. But sometimes, with our busy lives and how society works, we forget about it. Having a balance of feminine and masculine energy is essential for growth and...",
@@ -1592,7 +1592,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/five-effective-yoga-poses/5-Effective-Yoga-Poses.webp",
     "content": "In the whirlwind of modern life, finding a sanctuary of peace and relaxation is essential. Yoga, an ancient practice rooted in harmonising the body and mind, offers a serene escape from the stresses of daily life. This post delves into five transformative yoga poses specifically curated for stress relief and deep relaxation. Embrace these poses as your personal retreat, a place where tensions dissolve, and tranquillity prevails. Understanding Stress and the Yoga Connection In this section, discu...",
@@ -1617,7 +1617,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/gateway-to-nirvana/Gateway-to-Nirvana.webp",
     "content": "Gateway to Nirvana: Meditation and Self Healing Let’s talk about Nirvana and no, not the ‘90s grunge band. When we hear the word ‘Nirvana,’ many of us imagine a tranquil, blissful paradise where all problems vanish. It often conjures images of serene landscapes, endless peace, and an almost magical state of happiness. However, the reality of Nirvana, in various spiritual traditions, is quite different and much deeper. Sure, it is a place where your mind is as still as a serene lake at dawn, undi...",
@@ -1639,7 +1639,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/gomti-chakra/Gomti-Chakra.webp",
     "content": "In the realm of spiritual and healing practices, the magic of Gomti Chakra stands out as a beacon of positive energy, prosperity, and protection. This small, naturally-formed shell, named after the sacred Gomti River in Dwarka, India, holds ancient powers and secrets that have been revered for generations. But what is Gomti Chakra, and how can it change your life? This article will explore the mystical properties of Gomti Chakra, its benefits, and practical ways to harness its energy to transfor...",
@@ -1671,7 +1671,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/habits-that-can-change-your-life/habits-that-can-change-your-life.webp",
     "content": "Ever wondered how some people effortlessly achieve success and happiness while others struggle? It often boils down to their habits- the small, everyday choices that shape our lives more than we realize. As Aristotle wisely said, \"We are what we repeatedly do. Excellence, then, is not an act, but a habit.\" This sentiment echoes through time and across cultures, underscoring the profound impact habits have on our bodies, minds, and overall quality of life. Our habits are not just routines, they a...",
@@ -1693,7 +1693,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/harmonizing-mind-and-body/Harmonizing-Mind-and-Body-2.webp",
     "content": "Unveiling the Synergy of Yoga and Meditation: In our relentless pursuit of progress and productivity, we often neglect the delicate balance of our mind and body. Yoga and meditation emerge as beacons of harmony, offering a sanctuary for the soul and a respite for the body amidst the chaos of modern life. These time-honoured practices not only sculpt the physique and quiet the mind but also weave a tapestry of profound well-being, connecting the threads of mental clarity, emotional stability, and...",
@@ -1718,7 +1718,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/healing-after-failed-love/healing-after-failed-love.webp",
     "content": "Love is not just a feeling, it is a beautiful journey filled with joy, passion, and companionship. Despite the best intentions, many couples find themselves facing difficulties that lead to the breakdown of their relationship. As beautiful and transformative as it is, it doesn't always turn out the way we hope. Many people go through the heartache of losing a partner at least once in their lives. Even if it happens more than once, the pain stays the same, never gets easier. To get out of that is...",
@@ -1740,7 +1740,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/guruji_sunrise_bg.webp",
     "content": "Welcome to WordPress. This is your first post. Edit or delete it, then start writing!...",
@@ -1762,7 +1762,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/how-energy-flow-shapes-your-physical/How-Energy-Flow-Shapes-Your-Physical.webp",
     "content": "How Energy Flow Shapes Your Physical and Mental Well-Being Imagine sitting cross-legged in a quiet room, your eyes closed, breathing steady, when suddenly your face starts to turn to the right. No, it’s not some mysterious force playing tricks on you. This is just one of the many fascinating ways your body responds to energy flow during meditation. Ever wonder what’s really going on inside your body and mind during these moments? There is a whole mystical, yet very real, world of energy flow tha...",
@@ -1784,7 +1784,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/how-to-make-life-a-game/how-to-make-life-a-game.webp",
     "content": "Life can often feel like a series of challenges and obstacles. However, what if you could transform your life into a game? By adopting a playful mindset and embracing life's experiences with enthusiasm, you can create a more fulfilling and joyful existence. This approach is championed by spiritual leader Sakshi Shree, who teaches that viewing life as a game can lead to profound personal growth and happiness. Embrace a Playful Mindset The first step to making life a game is to adopt a playful min...",
@@ -1806,7 +1806,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/impact-of-spirituality-on-academic-pursuits/Impact-of-Spirituality.webp",
     "content": "In the bustling corridors of academia, where students juggle textbooks and deadlines, there exists a quiet force that often goes unnoticed yet profoundly shapes their lives: spirituality. Beyond the equations and essays, spirituality provides a compass, guiding students through the maze of uncertainties and challenges. Surveys reveal a growing trend of students seeking spiritual fulfillment alongside academic achievements, highlighting its positive impact on their well-being and success. From me...",
@@ -1837,7 +1837,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/manipura-chakra/Solar-Plexus-Chakra.webp",
     "content": "In the intricate tapestry of energy that weaves through the human body, the Manipura Chakra stands out as a beacon of personal power, confidence, and transformation. Known as the \"lustrous gem\" of our energy system, this chakra is pivotal in our quest for self-realization and inner strength. Whether you're new to the concept of chakras or a seasoned practitioner looking to deepen your understanding, this comprehensive guide to the Manipura Chakra will provide you with the knowledge and tools nee...",
@@ -1868,7 +1868,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/master-art-of-deep-relaxation/Master-the-Art-of-Deep-Relaxation-1.webp",
     "content": "In a world that’s always switched on, finding a sanctuary of calm is not just a luxury, it’s a necessity. The art of deep relaxation through guided meditation has emerged as a beacon of serenity in the tumultuous seas of daily stress and anxiety. If you’re on a quest to reclaim peace and cultivate a tranquil mind, you’re in the right place. This post delves into the heart of guided meditation, unravelling how this ancient practice can be your ultimate tool for stress relief and holistic well-bei...",
@@ -1893,7 +1893,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/master-your-own-fate/master-your-own-fate.webp",
     "content": "Have you ever found yourself asking the age-old question: can I truly control my fate, or is it already written for me? It’s similar to the debate of what came first, the chicken or the egg. This eternal dilemma has always put everyone in a puzzle for centuries. Let me tell you a story that might shed some light on this quandary. Once, there were two friends: one was considered smart, and the other, not so much. One day, they visited a wise sage who told them, \"The smarter one will succeed, and ...",
@@ -1915,7 +1915,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/mastering-calm/Mastering-Calm-1.webp",
     "content": "In our fast-paced world, the quest for peace can often seem like a distant dream. Yet, the ancient art of meditation offers a beacon of tranquillity amidst the chaos. This post delves into the heart of meditation practices, showcasing their profound ability to soothe stress and diminish anxiety. Whether you're a seasoned practitioner or a curious newcomer, join us on a journey to unlock the secrets of a calmer, more centred existence. Understanding the Impact of Stress and Anxiety Explore the ph...",
@@ -1940,7 +1940,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/mastering-life-s-challenges/Mastering-Lifes-Challenges-1.webp",
     "content": "In the tumultuous ocean of life's challenges, the twin anchors of Meditation and Emotional Intelligence (EI) offer not just solace but a profound strategy to navigate through storms. This isn't just about surviving; it's about thriving. By intertwining the introspective art of meditation with the nuanced understanding of emotional intelligence, we embark on a transformative journey. This journey not only enhances our ability to face life's adversities but also enriches our interactions, decision...",
@@ -1965,7 +1965,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/meditation-and-mental-health/Meditation-and-Mental-Health-1.webp",
     "content": "In the hustle and bustle of modern life, meditation emerges not just as a practice but as a sanctuary for mental health. This ancient tradition, now embraced by science, offers a gateway to tranquillity and a proven path to psychological transformation. In this post, we delve into the heartwarming stories of individuals who've found solace and strength in meditation, exploring how this practice has reshaped their mental landscape and infused their lives with a renewed sense of purpose and peace....",
@@ -1990,7 +1990,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/meditation-at-home/meditation-at-home.webp",
     "content": "In the hustle and bustle of modern life, finding tranquility can often seem like a distant dream. However, the ancient practice of meditation offers a beacon of calm in the midst of chaos. Meditating at home isn’t just about sitting quietly; it’s about transforming your living space into a sanctuary of serenity. Whether you’re a seasoned practitioner or a curious newbie, this guide will walk you through the steps to establish a meaningful meditation practice at home, ensuring that peace and mind...",
@@ -2015,7 +2015,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/meditation-for-kids/Meditation-for-Kids-1.webp",
     "content": "In the bustling world we live in, even children aren't immune to the stress and distractions that surround them. Meditation for kids offers a serene oasis of calm and focus amidst their busy lives. Embracing this ancient practice can empower our young ones with the tools to manage stress, enhance concentration, and cultivate a profound sense of self-awareness. This guide delves into the heart of child-friendly meditation, unfolding its myriad benefits and providing you with practical ways to int...",
@@ -2040,7 +2040,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/meditation-for-seniors/Meditation-for-Seniors-1.webp",
     "content": "As the golden years unfold, the pursuit of tranquillity and wellness becomes paramount. Meditation, an ancient practice deeply rooted in various cultures, emerges as a beacon of hope for seniors seeking a harmonious path to ageing gracefully. This blog post delves into the myriad benefits meditation offers to the elderly, addressing common concerns and illustrating how this gentle practice can be a cornerstone of a serene and healthful life. The Benefits of Meditation in Aging Gracefully: Medita...",
@@ -2065,7 +2065,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/meditation-into-your-daily-routine/Meditation-into-Your-Daily-Routine-1.webp",
     "content": "In the hustle and bustle of modern life, finding moments of peace can seem like searching for a needle in a haystack. Yet, the ancient practice of meditation offers a haven of tranquillity that's just a few breaths away. Incorporating meditation into your daily routine isn't just about quieting the mind for a few minutes; it's about transforming your entire day. From heightened focus to deeper relaxation, the benefits of meditation are as profound as they are profound. In this comprehensive guid...",
@@ -2090,7 +2090,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/muladhara-chakra/Root-Chakra.webp",
     "content": "In the journey of spiritual awakening and balance, understanding the Muladhara Chakra is paramount. Often referred to as the root chakra, the Muladhara Chakra is the foundation of your energy system, influencing your sense of security, stability, and basic needs. This comprehensive guide delves into what is Muladhara Chakra, its location in the human body, how to activate the Muladhara Chakra, and the profound benefits and powers it holds. What is Muladhara Chakra? The Muladhara Chakra, or root ...",
@@ -2126,7 +2126,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/negative-loop-of-mind/negative-loop-of-mind.webp",
     "content": "Negative self-talk is that little voice in our heads that often tells us we are not good enough, smart enough, or capable enough. No matter how much you achieve, it’s never enough for that voice. It's the critical inner dialogue that says things like \"I always mess things up,\" or \"I'll never succeed,\" “I’m not good enough,” “This achievement is not that great.” We have all been there! These negativity can really bring us down, affecting our self-esteem and overall mental health. The good news is...",
@@ -2148,7 +2148,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/negativity-within-family/Negativity-Within-Family-What-it-Looks-L-42dfcd.webp",
     "content": "In our mind, family is a sanctuary of love and support where we go when life pulls us down. People often relate ‘Negativity Within Family’ with a swirl of emotions, shaped by their childhood and current family dynamics. These feelings can range from incredibly positive to overwhelmingly negative emotions, or even a mix of both. The same relationships that provide comfort and support, shielding us from extremities of the world, can become negative when core connections strained. For many of us, f...",
@@ -2170,7 +2170,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/optimistic-mind/7-Ways-to-Foster-an-Optimistic-Mind.webp",
     "content": "Optimism isn't just a trait you're born with; it's a skill you can cultivate daily. It all starts in your mind. When it comes to how we perceive the world, we usually fall into one of two categories: optimists and pessimists. Successful individuals often attribute their achievements to optimism. The power of positive thinking enables us to navigate through unexpected changes, overwhelming stress, and inevitable disappointments, pushing us to learn from mistakes rather than succumb to them. Posit...",
@@ -2202,7 +2202,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/power-of-law-of-attraction/Power-of-law-of-attraction.webp",
     "content": "Is the Law of Attraction a Myth? The idea of getting whatever you want just thinking about it sounds too good to be true, doesn’t it? But if it is real? The Law of Attraction has fascinated people for years, promising that our thoughts can shape our reality. This concept was there for many decades but was brought into light by books like ‘The Secret’ by Rhonda Byrne. Particularly, in this book, the focus was on positive thoughts. It said that we can attract success, love, and happiness just by c...",
@@ -2224,7 +2224,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/power-of-manifestaion/silence1.webp",
     "content": "Generally, we are afraid of death. Barring a few enlightened men, no one wants to leave the body. Why such fear of death? In old age, the body becomes dilapidated, yet they desperately cling to it. They consider the death of the body as the end of their existence. We are a country with a continuous and uninterrupted tradition of the sages and enlightened masters. Still, it seems we have learned nothing. We don’t understand that life and death are two sides of the same coin. Would you be happy if...",
@@ -2246,7 +2246,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/power-of-manifestation-for-your-dream-life/Power-of-Manifestation-For-Your-Dream-Life.webp",
     "content": "People are much more similar than they accept. We all yearn for a comfortable, fulfilling, and abundant life. Whether it's a stable job, a loving life partner, or financial freedom, the desire for a better life is universal. What if we can get this life with a few simple methods? It is going to be quite popular, isn’t it? The best-selling book \"The Secret\" by Rhonda Byrne popularized the concept of manifestation, bringing it into the mainstream. Now, more and more people have started to believe ...",
@@ -2268,7 +2268,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/power-of-spirituality-in-self-discovery/Power_Of_Spirituality_In_Self_Discovery.webp",
     "content": "Power Of Spirituality In Self Discovery Ever feel like you are running on a treadmill that’s stuck on fast forward? You are out of breath, tired, want to rest but no time for that. Between the constant notifications, social media updates, work, and the endless to-do lists, finding time to just be can seem like a fantasy. Yet, in all this digital chaos, there is a growing curiosity about a quiet search for oneself. Unless we feel connected within, there cannot be any connection outside. This jour...",
@@ -2290,7 +2290,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/prana-energy-or-soul-energy/key-to-better-life.webp",
     "content": "Do you believe in a force that infuses all of existence? If you do, then imagine what would happen if you could tap into this energy. There is a \"life breath\" that flows through our bodies which is the gateway to the divine. We call it our prana energy or soul energy. What is Prana Energy? Prana is not merely a physical phenomenon, but a profound metaphysical reality that underpins our holistic well-being. When we start learning to consciously cultivate and direct this spiritual energy, we open ...",
@@ -2318,7 +2318,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-cover-scaled.webp",
     "content": "High blood pressure, a silent threat lurking in the lives of many, often goes unnoticed until it escalates into more serious health issues. Amidst the myriad of modern medical interventions, pranayama for high blood pressure emerges as a beacon of hope, offering a natural and holistic pathway to health and harmony. Pranayama, the ancient yogic practice of breath control, holds the key to unlocking profound health benefits, especially for those battling high BP. In this comprehensive guide, we de...",
@@ -2348,7 +2348,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/sahasrara-chakra/Crown-Chakra.webp",
     "content": "In the realm of spiritual awakening and energy healing, the Sahasrara Chakra stands as a beacon of divine connection and enlightenment. Also known as the crown chakra, this pivotal energy center is the gateway to higher consciousness, spiritual insight, and a profound sense of unity with the universe. In this comprehensive guide, we will explore the essence of the Sahasrara Chakra, including its location, unique powers, and the transformative benefits it offers. Most importantly, we will delve i...",
@@ -2379,7 +2379,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/seven-chakras/The-Seven-Chakras.webp",
     "content": "Are you seeking to unlock the full potential of your inner energy? The seven chakras of the body are key to achieving a balanced and harmonious life, acting as gateways to the vital energy that flows within us. This beginner's guide to the seven chakras will introduce you to the concept of seven chakra meditation, seven chakra healing, and how to open all seven chakras, enhancing your physical, emotional, and spiritual well-being. The Seven Chakras: The concept of the Seven Chakras in the human ...",
@@ -2413,7 +2413,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/silence-isnt-empty-its-full/silence2.webp",
     "content": "The strength of rebellion resides within the remarkable minds of the youth. It's important for them to discover the art of living daringly. This concept entails opting for the unconventional path when choices emerge, instead of consistently gravitating towards the easy, the comfortable, and the socially accepted norms. Developing the practice of selecting options that deeply resonate with the core of your being is essential. It involves embracing endeavors that you passionately desire to underta...",
@@ -2435,7 +2435,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/silence-isnt-empty-its-full-2/silence3.webp",
     "content": "The strength of rebellion resides within the remarkable minds of the youth. It's important for them to discover the art of living daringly. This concept entails opting for the unconventional path when choices emerge, instead of consistently gravitating towards the easy, the comfortable, and the socially accepted norms. Developing the practice of selecting options that deeply resonate with the core of your being is essential. It involves embracing endeavors that you passionately desire to underta...",
@@ -2457,7 +2457,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/silent-retreats-unveiled/Silent-Retreats-Unveiled.webp",
     "content": "In the unending cacophony of daily life, the concept of silence has become a luxury few can afford. Silent retreats, a sanctuary away from the noise, offer a unique opportunity to disconnect from the outer world and reconnect with the inner self. This deep dive into the serene world of meditation and solitude is not just a retreat, but a profound journey towards self-discovery and inner peace. Embrace the tranquil embrace of silence, and embark on a transformative journey with us. The Essence of...",
@@ -2482,7 +2482,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/spiritual-practises-to-tackle-loneliness/Spiritual-Practises.webp",
     "content": "We all feel lonely at some point in our lives; it is a normal human experience. Loneliness can strike when we least expect it, often leaving us feeling isolated and disconnected from those around us. This emotional state can arise from various situations, such as moving to a new place, ending a relationship, or simply feeling misunderstood. Understanding why we feel lonely is the first step in tackling it. By recognizing the causes and exploring ways to reconnect, we can manage and overcome lone...",
@@ -2504,7 +2504,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/spirituality-and-materialism/Spirituality-and-materialism.webp",
     "content": "Does Spirituality Require Renouncement of Materialism? When people think about spiritual enlightenment, a common question arises: does one need to give up material possessions and comforts to achieve true spirituality? This dilemma often confuses those who are starting their spiritual journey. The idea of renouncing worldly things is deeply rooted in many spiritual traditions, but modern views on spirituality are changing. After all, today, material success is often linked to personal happiness....",
@@ -2526,7 +2526,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/spiritualitys-role-in-healing-childhood-trauma/Spiritualitys-Role-in-Healing.webp",
     "content": "Do you struggle with deep-rooted fears or sudden bursts of anger, but don’t know where they come from? Then you are overcome with guilt but somehow end up doing the same despite your best efforts. Often, these feelings stem from experiences in childhood that leave lasting scars. But here's the thing these scars often stay hidden, making it hard to understand why we feel the way we do. That's where spirituality and therapy come in. By combining these two, we can explore our inner selves in a gent...",
@@ -2548,7 +2548,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/stop-negative-thinking/10-Ways-to-Overcome-Negative-Thoughts.webp",
     "content": "Your outlook shapes your world. If it's mostly negative, it can affect everything including your health, job, family, everything! Negative thoughts are like those pesky housemates who never tidy up and always bring everyone down. They mess with our heads, painting everything in shades of gloom. Physically, they are like a nagging headache, disrupting our sleep and feeding on our energy. Honestly, it doesn't stop there. Negative thoughts can snowball, attracting more negativity. And let's not eve...",
@@ -2585,7 +2585,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/stress-reduction/Stress-Reduction-e1707217709944.webp",
     "content": "Discover simple, yet powerful techniques to reduce stress in your daily life. From mindful breathing to time management, learn how to regain control and achieve tranquillity. Embrace a stress-free lifestyle today! In today's fast-paced world, stress can feel like an inevitable part of life, but it doesn't have to overwhelm you. Learning how to manage stress effectively is crucial for maintaining both your mental and physical health. This post explores simple techniques for stress reduction that ...",
@@ -2610,7 +2610,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/svadhisthana-chakra/Sacral-Chakra.webp",
     "content": "Starting your journey into the world of chakras can be an exciting path to finding out more about yourself and how to heal spiritually. The Svadhisthana Chakra is a key part of this adventure. It sits between your belly button and the base of your spine, and it's also known as the sacral chakra. This chakra is all about what makes us feel, create, connect with others, and enjoy life. Learning about this chakra and how to activate it can really change the way you feel about yourself and how you i...",
@@ -2645,7 +2645,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/the-art-of-observation/The-Art-of-Observation.webp",
     "content": "The Art of Observation If you are a fan of Sherlock Holmes, you must have wondered how he could deduce an entire life story from a single glance at a person’s shoes? While we may not be solving crimes, the ability to observe is a superpower in its own right. Observation isn't just about what you see, but how you see it. It’s the difference between glancing at a flower and noticing the intricate patterns of its petals, the subtle gradient of its colors, and the way it sways with the breeze. Obser...",
@@ -2667,7 +2667,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/the-science-of-breathing/2.webp",
     "content": "Spiritual Enlightenment: The Science of Breathing In a world that often rushes by in a whirlwind of responsibilities and distractions, finding moments of peace and clarity is pivotal. But it can sometimes seem like an elusive goal, especially if we say it is achievable through spiritual enlightenment. It is often perceived as a lofty or abstract concept. However, spiritual enlightenment can be grounded through a surprisingly simple practice: the science of breathing. What if someone tells you th...",
@@ -2689,7 +2689,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlock-a-productive-day/Unlock-a-Productive-Day-1.webp",
     "content": "In the rush of our daily lives, mornings can either be a time of stress or a sanctuary of peace. Imagine starting your day not with chaos, but with a serene mind and a focused intent. Morning meditation rituals have been a cornerstone of successful individuals' routines, setting the tone for a productive and mindful day. This blog post will guide you through establishing a morning meditation ritual tailored to foster productivity, tranquillity, and a profound sense of well-being. Understanding t...",
@@ -2714,7 +2714,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlock-restful-nights/Unlock-Restful-Nights.webp",
     "content": "In the hustle and bustle of modern life, finding a moment of tranquillity can feel like a distant dream, especially when it's time to wind down for the night. Yet, imagine a world where sleep comes naturally, cradled in the arms of inner peace. This isn't just a dream—it's the reality that meditation for better sleep can offer. Embracing the art of meditation before bedtime is more than a routine; it's a journey to the serene slumber you've been longing for. In this comprehensive guide, we'll un...",
@@ -2739,7 +2739,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlock-the-power-of-guided-meditation/Unlock-the-Power-of-Guided-Meditation-1.webp",
     "content": "In the hustle and bustle of modern life, finding a moment of peace can seem like a distant dream. Yet, the ancient practice of guided meditation offers a beacon of tranquillity, guiding individuals on a profound journey within. This holistic voyage is not just about relaxation; it's about self-discovery, healing, and harnessing an inner strength that we often forget we possess. In this comprehensive guide, we delve into the transformative power of guided meditation, exploring how it can illumina...",
@@ -2764,7 +2764,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlock-the-power-of-your-mind/Unlock-the-Power-of-Your-Mind-1.webp",
     "content": "In the labyrinth of life's challenges, Transcendental Meditation (TM) emerges as a beacon of inner tranquillity and heightened consciousness. This age-old technique, revered for its simplicity and profound impact, serves not just as a practice but as a pathway to unlocking the immense potential nestled within the human mind. By delving into the essence of TM, individuals embark on a transformative journey, navigating through the layers of their consciousness to uncover a reservoir of peace and c...",
@@ -2789,7 +2789,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlock-your-inner-harmony/Unlock-Your-Inner-Harmony-2.webp",
     "content": "In a world bustling with noise and relentless demands, the ancient practice of healing meditation emerges as a serene oasis, offering a pathway to rediscover the silent dialogue with our inner self. Engaging in this profound journey not only soothes the mind but also fortifies the soul, paving the way for a harmonious alignment of body, mind, and spirit. This guide invites you on an introspective adventure to unlock the potent benefits of healing meditation, fostering an intimate reconnection wi...",
@@ -2814,7 +2814,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlocking-creative-genius/Unlocking-Creative-Genius.webp",
     "content": "In an ever-accelerating world, finding the key to unlock our innermost potential is a quest many of us undertake. Meditation, often seen as a gateway to tranquillity, also holds the power to unleash a torrent of creativity. This blog explores the profound relationship between meditation and creativity, unravelling how quieting the mind can be the loudest call to your inner genius. Embrace this journey as we decode the synergy between mindfulness and innovation, guiding you to harness your untapp...",
@@ -2839,7 +2839,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlocking-harmony/Unlocking-Harmony.webp",
     "content": "In the bustling rhythm of modern life, finding balance and inner peace is more crucial than ever. Chakra Meditation emerges as a transformative practice, promising to align the swirling wheels of energy within your body, known as chakras. This ancient technique not only soothes the mind but also harmonises the body's energy centres, fostering physical, emotional, and spiritual well-being. Embark on this enlightening journey with us as we delve into the nuances of Chakra Meditation, unlocking the...",
@@ -2864,7 +2864,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unlocking-wellness/Unlocking-Wellness-1.webp",
     "content": "In the hustle and bustle of modern life, finding a sanctuary for peace and wellness is vital. Yoga, an ancient practice with a rich history, offers more than just a momentary retreat; it's a gateway to enduring health and harmony. Regular yoga practice is lauded not only for its physical benefits but also for its profound impact on mental and emotional well-being. Whether you're a seasoned yogi or a curious beginner, understanding the health benefits of practising yoga regularly can be the first...",
@@ -2889,7 +2889,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-1.webp",
     "content": "In the fast-paced rhythm of modern life, the quest for tranquillity and inner harmony has never been more pertinent. Meditation, a timeless practice deeply rooted in various cultures, emerges as a beacon of hope, offering a holistic approach to fortify the mind-body connection. This ancient technique not only quiets the mind but also orchestrates a symphony of benefits for the body, establishing a harmonious balance that resonates with the essence of holistic well-being. Embark on this enlighten...",
@@ -2914,7 +2914,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/unveiling-the-harmony/Unveiling-the-Harmony.webp",
     "content": "In the hustle and bustle of modern life, the quest for tranquillity and inner peace has led many to the ancient practices of Yoga and Mindfulness Meditation. These time-honoured traditions, though distinct, weave together in a tapestry of wellness, offering profound benefits for the mind, body, and spirit. This post delves into the symbiotic relationship between Yoga and Mindfulness Meditation, unravelling how their combined force can lead to an enriched life, marked by enhanced well-being and a...",
@@ -2939,7 +2939,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/vishuddha-chakra/Throat-Chakra.webp",
     "content": "The Vishuddha Chakra, also known as the throat chakra, is the fifth chakra in the body's energy system and plays a pivotal role in our ability to communicate effectively and express our true selves. This chakra is located in the throat and is associated with the color blue, symbolizing wisdom, trust, and communication. Activating the Vishuddha Chakra can lead to profound transformations in how we express ourselves and interact with the world. This comprehensive guide will delve into what the Vis...",
@@ -2970,7 +2970,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-brahma-muhurta/Brahma-Muhurta.webp",
     "content": "Imagine waking up to a time filled with endless possibilities - a time that sets you up for success, health, and inner peace. That time is the Brahma Muhurta. Ideal for meditation, planning your day, or simply enjoying the tranquility, understanding what is Brahma Muhurta and how to use it can be a life-changer. Let's dive into the world of Brahma Muhurta and explore how this ancient concept can bring remarkable benefits to your life, especially if you're just starting out. What is Brahma Muhurt...",
@@ -2998,7 +2998,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-conscious-mind/Conscious-Mind.webp",
     "content": "The conscious mind is an incredible force that shapes our reality, perceptions, and daily experiences. But what exactly is the conscious mind, and how can we leverage its power to transform our lives? This article delves into the essence of the conscious mind, exploring its capabilities, the different types of conscious awareness, and practical ways to harness its power for personal growth and fulfillment. By understanding and applying the principles of the conscious mind, you can unlock a world...",
@@ -3027,7 +3027,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-consciousness/What-is-Consciousness.webp",
     "content": "Have you ever pondered over the profound question, \"What is consciousness?\" This elusive concept has puzzled philosophers, scientists, and spiritual leaders for centuries. Consciousness is the very fabric of our existence, the inner experience that defines our thoughts, emotions, and perceptions. In this beginner's guide, we will embark on a journey to understand consciousness, exploring its various types, stages, and the paths to enriching our spiritual consciousness. Let's unravel the mysterie...",
@@ -3066,7 +3066,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-manifestation/Manifestation-Cover.webp",
     "content": "Have you ever wished for something so badly but didn't know how to make it come true? That's where the idea of manifestation comes in. Manifestation is like a magic recipe for bringing your dreams into your life. But how does manifestation work, and what do you mean by manifestation? It's all about believing in your dreams so much that they start to become real. Let's break down the basics of making your wishes come true without using any confusing words. What is Manifestation? Manifestation is ...",
@@ -3097,7 +3097,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-mental-health/Mental-Health.webp",
     "content": "Taking care of our minds is just as important as looking after our bodies, but sometimes we forget to do it. Keeping your mental health in check means you feel good, handle problems better, and enjoy life more. Let’s talk about easy ways to make sure our minds stay healthy every day. What Is Mental Health? Find out 'What Is Mental Health' with our easy guide. We talk about how important it is to feel good in your mind and how to deal with tough times. Thisi guide shows you simple ways to look af...",
@@ -3130,7 +3130,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-peace-of-mind/Peace-of-Mind.webp",
     "content": "In today's fast-paced world, the quest for serenity seems more challenging than ever. Yet, achieving peace of mind is not just a luxury; it's a necessity for our mental, emotional, and physical well-being. Whether you're overwhelmed by the daily grind or seeking a deeper sense of calm, understanding what is peace of mind and how to get peace of mind can transform your life. This comprehensive guide will walk you through easy, actionable steps to find peace of mind, offering both practical advice...",
@@ -3161,7 +3161,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-positive-thinking/What-Is-Positive-Thinking.webp",
     "content": "Have you ever heard about the power of positive thinking? It's a way of looking at the good side of things and believing good things will happen. This simple idea can really change your life. why some people seem to be happy and successful no matter what happens? A lot of it has to do with something called positive thinking. It's a powerful way to live your life, focusing on the good stuff and expecting things to work out. Here’s a closer look at what positive thinking is, why it’s so important,...",
@@ -3192,7 +3192,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-spiritual/How-to-become-a-spiritual-person.webp",
     "content": "Today, we focus a lot on things we can touch and see right away. But, getting interested in spiritual growth takes us into a world that's not about what we can physically touch or see. What does being spiritual really mean? It's about looking for a deeper connection with ourselves and everything around us. This guide is here to help anyone just starting out on their Spiritual Journey. We'll show you how to find and use your inner spiritual strength, leading you towards a life filled with calmnes...",
@@ -3220,7 +3220,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-spiritual-healing/Spiritual-Healing.webp",
     "content": "In an age where stress and fast-paced lifestyles have become the norm, many are turning to alternative methods to find balance and peace. Among these, spiritual healing emerges as a beacon of hope, offering solace and rejuvenation to those who seek it. Spiritual healing is not just about addressing physical ailments; it's about nurturing the soul, fostering emotional resilience, and unlocking a deeper connection with oneself and the universe. This guide delves into what spiritual healing is and ...",
@@ -3247,7 +3247,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/what-is-spirituality/What-is-Spirituality.webp",
     "content": "In a world teeming with myriad beliefs and practices, understanding what is spirituality can seem like navigating a vast, uncharted ocean. At its core, spirituality is the quest to understand our true selves, our connection to something greater, and the purpose of our existence. Whether you're taking your first steps on this journey or seeking to deepen your understanding, this guide is designed to illuminate the path of spirituality for beginners, offering insights into how to grow spiritually,...",
@@ -3275,7 +3275,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/why-no-one-understands-you/silence4.webp",
     "content": "Have you ever wondered why some people seem to achieve success effortlessly, while others struggle hard and barely make it? What is the key difference between these two types of people? The answer lies in the power of thought. Thoughts are the inner software of the human tree. Thoughts are the seeds that grow into giant trees within us. Thoughts are the most amazing power that we humans possess. Everything that exists in this world, exists twice; first as a thought in someone’s mind, and then in...",
@@ -3297,7 +3297,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-for-back-pain-relief/Yoga-for-Back-Pain-Relief.webp",
     "content": "Are you among the millions searching for a respite from nagging back pain? The ancient practice of yoga might hold your key to not just alleviating discomfort but also fundamentally healing and strengthening your spine. This post delves into the world of yoga as a therapeutic tool for back pain, providing you with practical, evidence-based guidance to restore your spine's health and vitality. Embrace the journey of transformation as we explore the best yoga poses for back pain relief and spine s...",
@@ -3322,7 +3322,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-for-flexibility/Yoga-for-Flexibility.webp",
     "content": "Embarking on a journey towards greater flexibility isn't just about stretching; it's about unlocking the untapped potential of your body and mind. Yoga, an ancient practice rooted in harmonising the physical and spiritual, offers a path to enhanced flexibility that goes beyond mere physical benefits. Embrace the opportunity to explore how Yoga for flexibility can not only transform your body but also bring a newfound sense of balance and peace to your life. Understanding Flexibility and Yoga Fle...",
@@ -3347,7 +3347,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-for-high-bp/yoga-for-high-bp-Cover-scaled.webp",
     "content": "In the hustle and bustle of modern life, hypertension, commonly known as high blood pressure (BP), has emerged as a prevalent health concern for many. With stress levels skyrocketing, finding natural and holistic ways to manage and lower high BP has become a priority for those seeking to improve their health and well-being. Yoga, an ancient practice known for its therapeutic benefits, stands out as a potent ally in the fight against hypertension. Incorporating yoga for high BP control into your ...",
@@ -3376,7 +3376,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-for-hypertension/yoga-for-hypertension-cover.webp",
     "content": "In the modern era, where stress is almost an inseparable part of life, hypertension, or high blood pressure, has become a prevalent health concern. Amidst various treatment modalities, yoga for hypertension emerges as a holistic and effective approach to not just manage, but potentially reverse the impacts of high blood pressure. This ancient practice, which encompasses yoga asana for hypertension, pranayama for hypertension, and meditation, offers a peaceful refuge from the chaos, promoting hea...",
@@ -3405,7 +3405,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-for-peace-of-mind/Yoga-Poses-for-Peace-of-Mind.webp",
     "content": "Life can get really busy and sometimes feels like a roller coaster. But guess what? Yoga for peace of mind can be like your calm in the storm. It's not just about twisting and turning your body; it's more about finding a quiet spot in your mind. This article is all about showing you how yoga poses for peace of mind can bring peace to your mind with easy steps. Whether it's through calming yoga moves, easy meditation, or simple hand gestures called mudras, you're on your way to feeling more relax...",
@@ -3436,7 +3436,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-for-weight-loss/Yoga-for-Weight-Loss.webp",
     "content": "Embark on a transformative journey with Yoga for Weight Loss, where the ancient practice of asanas meets modern wellness. Unlike fleeting diet trends, yoga offers a holistic approach to shedding pounds, sculpting your body, and nurturing your mental health. In this definitive guide, we unravel the synergy between yoga postures and a wholesome lifestyle, providing you with practical tips and insights to achieve your fitness goals harmoniously. Embrace the path of balance and rejuvenation, as we g...",
@@ -3461,7 +3461,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": {
       "name": "Sakshi Shree",
       "role": "Enlightened Master & Founder, Science Divine",
-      "avatar": "https://sciencedivine.org/wp-content/uploads/2024/03/Sakshi-Shree-Profile-1.webp"
+      "avatar": "/images/sakshi-shree-avatar.webp"
     },
     "image": "/images/blog/yoga-nidra/Yoga-Nidra.webp",
     "content": "In the hustle and bustle of modern life, finding true relaxation is often a luxury many can't afford. Enter Yoga Nidra, an ancient but increasingly popular practice, known as the art of conscious relaxation or ‘yogic sleep’. Unlike traditional meditation, Yoga Nidra guides practitioners into a deep state of relaxation while maintaining full consciousness, offering profound benefits for the body, mind, and soul. In this comprehensive guide, we will explore the transformative power of Yoga Nidra, ...",

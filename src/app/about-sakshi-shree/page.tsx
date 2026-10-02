@@ -9,16 +9,16 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 
 
 const SPEAKER_ORGS = [
-  { name: "National Dope Testing Laboratory New Delhi", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/National-Dope-Testing-Laboratory-New-Delhi-150x150.png" },
-  { name: "Indian Pharmacopoeia Commission", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Indian-Pharmacopoeia-Commission-150x150.png" },
-  { name: "Sanskar Educational Group", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Sanskar-Educational-Group.png" },
-  { name: "Pharmacopoeia Commission for Indian Medicine & Homoeopathy", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Pharmacopoeia-Commission-for-Indian-Medicine-Homoeopathy-150x150.png" },
-  { name: "Mewar Group of Institutions", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Mewar-Group-of-Institutions-150x150.gif" },
-  { name: "Jind Institute of Engineering & Technology", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Jind-Institute-of-Engineering-Technology-150x150.png" },
-  { name: "HRIT Group of Institutions", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/HRIT-Group-of-Institutions-150x150.png" },
-  { name: "Raj Kumar Goel Institute of Technology", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Raj-Kumar-Goel-Institute-of-Technology-150x150.png" },
-  { name: "ITS Ghaziabad", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Institute-of-Technology-Science-ITS-Ghaziabad-150x150.png" },
-  { name: "Akums Drugs & Pharmaceuticals", logo: "https://sciencedivine.org/wp-content/uploads/2024/06/Akums-Drugs-Pharmaceuticals-Ltd-150x150.png" },
+  { name: "National Dope Testing Laboratory New Delhi", logo: "/images/uploads/2024/06/National-Dope-Testing-Laboratory-New-Delhi-150x150.webp" },
+  { name: "Indian Pharmacopoeia Commission", logo: "/images/uploads/2024/06/Indian-Pharmacopoeia-Commission-150x150.webp" },
+  { name: "Sanskar Educational Group", logo: "/images/uploads/2024/06/Sanskar-Educational-Group.webp" },
+  { name: "Pharmacopoeia Commission for Indian Medicine & Homoeopathy", logo: "/images/uploads/2024/06/Pharmacopoeia-Commission-for-Indian-Medicine-Homoeopathy-150x150.webp" },
+  { name: "Mewar Group of Institutions", logo: "/images/uploads/2024/06/Mewar-Group-of-Institutions-150x150.gif" },
+  { name: "Jind Institute of Engineering & Technology", logo: "/images/uploads/2024/06/Jind-Institute-of-Engineering-Technology-150x150.webp" },
+  { name: "HRIT Group of Institutions", logo: "/images/uploads/2024/06/HRIT-Group-of-Institutions-150x150.webp" },
+  { name: "Raj Kumar Goel Institute of Technology", logo: "/images/uploads/2024/06/Raj-Kumar-Goel-Institute-of-Technology-150x150.webp" },
+  { name: "ITS Ghaziabad", logo: "/images/uploads/2024/06/Institute-of-Technology-Science-ITS-Ghaziabad-150x150.webp" },
+  { name: "Akums Drugs & Pharmaceuticals", logo: "/images/uploads/2024/06/Akums-Drugs-Pharmaceuticals-Ltd-150x150.webp" },
 ];
 
 const INITIATIVES_NUMBERED = [
@@ -139,7 +139,7 @@ export default function Page() {
           <div className="flex gap-8 animate-marquee">
             {[...SPEAKER_ORGS, ...SPEAKER_ORGS].map((org, i) => (
               <div key={i} className="flex items-center gap-3 card-premium rounded-xl px-5 py-3 shrink-0">
-                <img src={org.logo} alt={org.name} className="h-10 w-10 object-contain rounded" />
+                <img loading="lazy" decoding="async" src={org.logo} alt={org.name} className="h-10 w-10 object-contain rounded" />
                 <span className="text-xs font-semibold text-gray-700 whitespace-nowrap max-w-[160px] leading-tight">{org.name}</span>
               </div>
             ))}

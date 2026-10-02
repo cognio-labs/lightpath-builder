@@ -125,7 +125,7 @@ export function SiteNav() {
         
         {/* Brand Logo */}
         <Link href="/" className="flex items-center shrink-0 group py-1 mr-4 lg:mr-6 xl:mr-10">
-          <img
+          <img loading="eager" fetchPriority="high" decoding="async"
             src={LOGO_URL}
             alt="Science Divine Foundation"
             className="w-auto h-12 sm:h-13 lg:h-14 object-contain transition-transform duration-200 group-hover:scale-102"
@@ -285,7 +285,7 @@ export function SiteNav() {
                                 {topic.tagline || "Guided wisdom & practices"}
                               </div>
                             </div>
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={solutionImages[topic.slug]}
                               alt=""
                               aria-hidden="true"
@@ -356,7 +356,7 @@ export function SiteNav() {
                               {item.desc}
                             </div>
                           </div>
-                          <img src={item.image} alt="" aria-hidden="true" className="w-11 h-10 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
+                          <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className="w-11 h-10 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
@@ -426,7 +426,7 @@ export function SiteNav() {
                               {item.desc}
                             </div>
                           </div>
-                          <img src={item.image} alt="" aria-hidden="true" className="w-11 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
+                          <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className="w-11 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}

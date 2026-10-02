@@ -68,7 +68,7 @@ export default function ExclusiveContentCard() {
     <section className="exclusive-content-card relative overflow-hidden">
       {/* Left Visual Image Container with S-Wave Divider */}
       <div className="exclusive-content-visual relative">
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/exclusive-content-user-img.webp"
           alt="Science Divine community practicing yoga at sunrise"
         />
