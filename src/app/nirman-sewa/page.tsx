@@ -61,14 +61,14 @@ export default function Page() {
             <div>
               <div style={{ position: "relative" }}>
                 <div style={{ position: "absolute", inset: "-8px", background: "linear-gradient(135deg, rgba(212,175,55,0.2), rgba(59,130,246,0.15))", borderRadius: "28px", filter: "blur(14px)" }} />
-                <img src="https://assets.cdn.filesafe.space/z3Nz1DGIjH8cQEHGGNs5/media/693168430b0f9d1b2d8a1231.jpg" alt="Sakshidham International" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.5)", position: "relative", zIndex: 1 }} />
+                <img loading="lazy" decoding="async" src="https://assets.cdn.filesafe.space/z3Nz1DGIjH8cQEHGGNs5/media/693168430b0f9d1b2d8a1231.jpg" alt="Sakshidham International" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.5)", position: "relative", zIndex: 1 }} />
               </div>
             </div>
           </div>
 
           {/* Guruji quote card */}
           <div style={{ marginTop: "56px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px", alignItems: "center", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "24px", padding: "36px" }}>
-            <img src="https://assets.cdn.filesafe.space/z3Nz1DGIjH8cQEHGGNs5/media/68e1283030a9a9921940f4d6.png" alt="Sadguru Sakshi Shree Ji" style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover", border: `3px solid ${G}`, margin: "0 auto", display: "block" }} />
+            <img loading="lazy" decoding="async" src="https://assets.cdn.filesafe.space/z3Nz1DGIjH8cQEHGGNs5/media/68e1283030a9a9921940f4d6.png" alt="Sadguru Sakshi Shree Ji" style={{ width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover", border: `3px solid ${G}`, margin: "0 auto", display: "block" }} />
             <div>
               <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", color: "rgba(255,255,255,0.85)", fontSize: "1rem", lineHeight: 1.7, marginBottom: "10px" }}>
                 "The institution provides definite scientific techniques and spiritual practices that will be offered to the members for sound enlightenment, and for the sincere members, it will serve as a center for spiritual upliftment and enlightenment."
@@ -176,7 +176,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px" }}>
             {GALLERY.map((g, i) => (
               <div key={i} style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 6px 24px rgba(0,0,0,0.08)", position: "relative" }}>
-                <img src={g} alt={`Sakshidham Gallery ${i + 1}`} style={{ width: "100%", height: "220px", objectFit: "cover", display: "block" }} />
+                <img loading="lazy" decoding="async" src={g} alt={`Sakshidham Gallery ${i + 1}`} style={{ width: "100%", height: "220px", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, rgba(12,26,58,0.5), transparent)` }} />
               </div>
             ))}

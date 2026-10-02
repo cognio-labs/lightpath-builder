@@ -195,7 +195,7 @@ export default function BlogListingPage() {
                     href={`/blog/${post.slug}`}
                     className="block relative aspect-[16/10] overflow-hidden bg-gray-100"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

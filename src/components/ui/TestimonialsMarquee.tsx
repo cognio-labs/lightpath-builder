@@ -89,7 +89,7 @@ function Card({ card }: { card: (typeof CARDS)[0] }) {
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <img
+          <img loading="lazy" decoding="async"
             src={card.avatar}
             alt={card.name}
             style={{

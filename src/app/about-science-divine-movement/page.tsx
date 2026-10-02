@@ -442,7 +442,7 @@ export default function Page() {
           >
             <div style={{ position: "relative" }}>
               <img
-                src="https://sciencedivine.org/wp-content/uploads/2025/03/digital-composite-image-businessman-writing-vision-text-office-1-scaled.webp"
+                src="/images/uploads/2025/03/digital-composite-image-businessman-writing-vision-text-office-1-scaled.webp"
                 alt="Our Vision"
                 loading="lazy"
                 style={{

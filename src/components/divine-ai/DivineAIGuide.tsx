@@ -352,7 +352,7 @@ export function DivineAIGuide() {
             <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 opacity-40 blur-sm group-hover:opacity-80 animate-pulse transition duration-500 pointer-events-none" />
 
             <div className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden flex items-center justify-center p-0.5">
-              <img
+              <img loading="lazy" decoding="async"
                 src={LOGO_URL}
                 alt="Science Divine"
                 className="w-full h-full object-contain drop-shadow-sm"
@@ -375,7 +375,7 @@ export function DivineAIGuide() {
             <div className="px-3 py-2 bg-gradient-to-r from-[#5B1209] to-[#73190e] text-white flex items-center justify-between border-b border-amber-500/30 shrink-0">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-full p-0.5 grid place-items-center overflow-hidden shrink-0">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={LOGO_URL}
                     alt="Science Divine"
                     className="w-full h-full object-contain"

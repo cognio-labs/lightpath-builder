@@ -7,9 +7,9 @@ import { Calendar, Clock, MapPin, Leaf, ChevronDown, Star } from "lucide-react";
 
 
 const STORIES = [
-  { name: "Dheeraj Madaan", role: "IIT Roorkee, IIM Lucknow, Management Consultant", quote: "I cannot believe I didn't find this sooner. The clarity of life I found through Guruji's teachings and meditation techniques cannot be measured in terms of money. Highly recommend everyone to attend his meditation camp and experience it yourself.", img: "https://sciencedivine.org/wp-content/uploads/2024/12/Mask-group-7.png", stars: 5 },
-  { name: "Nancy Thakur", role: "SRCC, ISB, Conversion Optimization Lead", quote: "Guruji's meditation kriyas are extremely simple to follow. Sanjeevani kriya helped me get rid of the stress and negativity that was stopping me from going deep into meditation and made me an extremely calm minded person. Truly the best investment of my life on myself!", img: "https://sciencedivine.org/wp-content/uploads/2024/12/Mask-group-6.png", stars: 5 },
-  { name: "Dr. Vikram Sampath", role: "Top Indian Historian and Writer", quote: "Sakshi Shree's blessings and guidance have had a profound impact on my life, leading me towards growth and spiritual fulfillment. I am deeply grateful for Guruji's wisdom and presence in my journey.", img: "https://sciencedivine.org/wp-content/uploads/2025/01/Untitled-design-3-1.png", stars: 5 },
+  { name: "Dheeraj Madaan", role: "IIT Roorkee, IIM Lucknow, Management Consultant", quote: "I cannot believe I didn't find this sooner. The clarity of life I found through Guruji's teachings and meditation techniques cannot be measured in terms of money. Highly recommend everyone to attend his meditation camp and experience it yourself.", img: "/images/uploads/2024/12/Mask-group-7.webp", stars: 5 },
+  { name: "Nancy Thakur", role: "SRCC, ISB, Conversion Optimization Lead", quote: "Guruji's meditation kriyas are extremely simple to follow. Sanjeevani kriya helped me get rid of the stress and negativity that was stopping me from going deep into meditation and made me an extremely calm minded person. Truly the best investment of my life on myself!", img: "/images/uploads/2024/12/Mask-group-6.webp", stars: 5 },
+  { name: "Dr. Vikram Sampath", role: "Top Indian Historian and Writer", quote: "Sakshi Shree's blessings and guidance have had a profound impact on my life, leading me towards growth and spiritual fulfillment. I am deeply grateful for Guruji's wisdom and presence in my journey.", img: "/images/uploads/2025/01/Untitled-design-3-1.webp", stars: 5 },
 ];
 
 const LEARN_POINTS = [
@@ -19,18 +19,18 @@ const LEARN_POINTS = [
 ];
 
 const LEADERS = [
-  { name: "Hon'ble Shri Rajnath Singh", role: "Minister of Defence, Government of India", img: "https://sciencedivine.org/wp-content/uploads/2023/06/3-scaled.webp" },
-  { name: "Dr. Vikram Sampat", role: "Famous Indian Historian and seeker", img: "https://sciencedivine.org/wp-content/uploads/2023/06/4-scaled.webp" },
-  { name: "Shri Ajay Bhatt", role: "Ex-Union Minister of State for Defense and Tourism", img: "https://sciencedivine.org/wp-content/uploads/2023/06/1-scaled.webp" },
-  { name: "Shri Anil Bachoo", role: "Minister of Health and Wellness of Mauritius", img: "https://sciencedivine.org/wp-content/uploads/2023/06/2-scaled.webp" },
+  { name: "Hon'ble Shri Rajnath Singh", role: "Minister of Defence, Government of India", img: "/images/uploads/2023/06/3-scaled.webp" },
+  { name: "Dr. Vikram Sampat", role: "Famous Indian Historian and seeker", img: "/images/uploads/2023/06/4-scaled.webp" },
+  { name: "Shri Ajay Bhatt", role: "Ex-Union Minister of State for Defense and Tourism", img: "/images/uploads/2023/06/1-scaled.webp" },
+  { name: "Shri Anil Bachoo", role: "Minister of Health and Wellness of Mauritius", img: "/images/uploads/2023/06/2-scaled.webp" },
 ];
 
 const GALLERY = [
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-13-at-18.25.34_73815f1e-1-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-11.39.06_81ab3a55-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.20.57_e5bc8a98-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.22_a5b77f0a-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.24_2181c7cf-1.png",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-13-at-18.25.34_73815f1e-1-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-11.39.06_81ab3a55-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.20.57_e5bc8a98-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.22_a5b77f0a-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.24_2181c7cf-1.webp",
 ];
 
 const INCLUDED = [
@@ -100,7 +100,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", inset: "-8px", background: "linear-gradient(135deg, rgba(74,222,128,0.2), rgba(212,175,55,0.15))", borderRadius: "32px", filter: "blur(16px)" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/group-five-yogi-females-sitting-sukhasana-683x1024.webp" alt="Meditation May 2026" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.4)", position: "relative", zIndex: 1 }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/group-five-yogi-females-sitting-sukhasana-683x1024.webp" alt="Meditation May 2026" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.4)", position: "relative", zIndex: 1 }} />
               <div style={{ position: "absolute", bottom: "24px", left: "-20px", background: "rgba(255,255,255,0.95)", backdropFilter: "blur(16px)", borderRadius: "16px", padding: "16px 24px", boxShadow: "0 8px 30px rgba(0,0,0,0.12)", zIndex: 2 }}>
                 <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 800, color: "#16A34A" }}>130+</div>
                 <div style={{ fontSize: "11px", color: TL, fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.05em" }}>Events Organized</div>
@@ -166,7 +166,7 @@ export default function Page() {
                 <div style={{ display: "flex", gap: "2px" }}>{Array.from({ length: s.stars }).map((_, j) => <Star key={j} size={14} style={{ color: "#F59E0B", fill: "#F59E0B" }} />)}</div>
                 <p style={{ color: "#475569", fontSize: "0.875rem", lineHeight: 1.7, fontStyle: "italic", flex: 1 }}>"{s.quote}"</p>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: `1px solid ${BrG}`, paddingTop: "16px" }}>
-                  <img src={s.img} alt={s.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover", border: `2px solid ${BrG}` }} />
+                  <img loading="lazy" decoding="async" src={s.img} alt={s.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover", border: `2px solid ${BrG}` }} />
                   <div>
                     <div style={{ fontWeight: 800, color: T, fontSize: "0.85rem" }}>{s.name}</div>
                     <div style={{ fontSize: "0.7rem", color: TL }}>{s.role}</div>
@@ -224,7 +224,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "56px", alignItems: "center" }}>
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", inset: "-6px", background: "linear-gradient(135deg, rgba(74,222,128,0.2), rgba(212,175,55,0.15))", borderRadius: "30px", filter: "blur(12px)" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
             </div>
             <div>
               <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Your Guide</span>
@@ -255,7 +255,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px", marginBottom: "48px" }}>
             {LEADERS.map((l, i) => (
               <div key={i} style={{ background: BG, border: `1px solid ${BrG}`, borderRadius: "20px", overflow: "hidden" }}>
-                <img src={l.img} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={l.img} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
                 <div style={{ padding: "18px" }}>
                   <div style={{ fontWeight: 800, color: T, fontSize: "0.9rem" }}>{l.name}</div>
                   <p style={{ color: TL, fontSize: "0.75rem", marginTop: "4px", lineHeight: 1.4 }}>{l.role}</p>
@@ -264,7 +264,7 @@ export default function Page() {
             ))}
           </div>
           <div style={{ display: "flex", gap: "16px", overflowX: "auto", paddingBottom: "10px" }}>
-            {GALLERY.map((g, i) => <img key={i} src={g} alt={`Gallery ${i + 1}`} style={{ height: "180px", width: "auto", borderRadius: "16px", objectFit: "cover", flexShrink: 0 }} />)}
+            {GALLERY.map((g, i) => <img loading="lazy" decoding="async" key={i} src={g} alt={`Gallery ${i + 1}`} style={{ height: "180px", width: "auto", borderRadius: "16px", objectFit: "cover", flexShrink: 0 }} />)}
           </div>
         </div>
       </section>

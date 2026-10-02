@@ -13,7 +13,7 @@ export function SiteFooter() {
         {/* Column 1: Brand + Socials */}
         <div>
           <Link href="/" className="inline-block mb-3 transition-opacity hover:opacity-90">
-            <img
+            <img loading="lazy" decoding="async"
               src={LOGO_URL}
               alt="Science Divine Foundation"
               className="h-12 sm:h-14 w-auto object-contain"

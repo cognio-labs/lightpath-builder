@@ -337,7 +337,7 @@ export default function Page() {
               {/* Mobile Portrait attached flush to bottom edge */}
               <div className="lg:hidden mt-8 flex flex-col items-center w-full">
                 <div className="relative max-w-[360px] sm:max-w-[440px] w-full flex flex-col items-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src="/images/sakshi-shree-hero-portrait.webp"
                     alt="Sadguru Sakshi Shree"
                     className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
@@ -353,7 +353,7 @@ export default function Page() {
                     <p className="text-[7px] text-amber-950/85 font-semibold tracking-tight leading-tight pt-0.5 truncate w-full">
                       Founder, Science Divine Foundation
                     </p>
-                    <img
+                    <img loading="lazy" decoding="async"
                       src="/images/signature.webp"
                       alt="Sakshi Shree Signature"
                       className="h-3.5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-95"
@@ -373,7 +373,7 @@ export default function Page() {
         {/* Desktop Portrait attached flush to section bottom with generous breathing space on the right next to quick actions */}
         <div className="hidden lg:flex absolute bottom-0 right-[104px] lg:right-[116px] xl:right-[130px] 2xl:right-[150px] z-10 items-end pointer-events-none">
           <div className="relative flex items-end max-w-[440px] xl:max-w-[500px] 2xl:max-w-[540px]">
-            <img
+            <img loading="lazy" decoding="async"
               src="/images/sakshi-shree-hero-portrait.webp"
               alt="Sadguru Sakshi Shree"
               className="w-full h-auto max-h-[580px] xl:max-h-[640px] 2xl:max-h-[670px] object-contain object-bottom block drop-shadow-[0_16px_24px_rgba(55,35,20,0.18)]"
@@ -390,7 +390,7 @@ export default function Page() {
                 <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight pl-0.5 whitespace-nowrap">
                   Founder, Science Divine Foundation
                 </p>
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/signature.webp"
                   alt="Sakshi Shree Signature"
                   className="h-5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
@@ -530,7 +530,7 @@ export default function Page() {
 
           {/* Mobile Portrait placed flush at section bottom without empty space underneath */}
           <div className="lg:hidden mt-4 flex justify-center w-full relative z-20 -mb-1">
-            <img
+            <img loading="lazy" decoding="async"
               src="/images/about-sakshi-shree-user.webp"
               alt="Sadguru Sakshi Shree"
               className="w-full max-w-[340px] sm:max-w-[400px] h-auto object-contain object-bottom block drop-shadow-[0_16px_28px_rgba(40,20,10,0.18)]"
@@ -539,7 +539,7 @@ export default function Page() {
         </div>
 
         {/* Desktop Portrait — absolutely positioned at bottom right */}
-        <img
+        <img loading="lazy" decoding="async"
           src="/images/about-sakshi-shree-user.webp"
           alt="Sadguru Sakshi Shree"
           className="hidden lg:block absolute bottom-0 right-0 lg:right-10 xl:right-14
@@ -563,7 +563,7 @@ export default function Page() {
               >
                 {/* Landscape Image Container with clean breathing space */}
                 <div className="w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-2xl bg-amber-50 mb-5 sm:mb-6 border border-amber-200/60 shadow-xs">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={p.image}
                     alt={p.alt}
                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -615,7 +615,7 @@ export default function Page() {
                   className="absolute inset-x-4 top-4 bottom-0 rounded-t-[3rem] pointer-events-none opacity-40"
                   style={{ background: "radial-gradient(circle at 50% 30%, rgba(212,175,55,0.35), transparent 70%)" }}
                 />
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/words-of-divine-wisdom.webp"
                   alt="Sadguru Sakshi Shree - Words of Divine Wisdom"
                   className="relative z-10 w-full h-full max-h-[91%] object-contain object-bottom scale-[1.08] origin-bottom transition-transform duration-700 group-hover:scale-[1.12]"
@@ -970,7 +970,7 @@ export default function Page() {
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="https://sciencedivine.org/wp-content/uploads/elementor/thumbs/IMG_1317-scaled-qycnje1x5jro0x3zk3hzanf2tn181d8a1m064pjdls.webp"
+                  src="/images/uploads/elementor/thumbs/IMG_1317-scaled-qycnje1x5jro0x3zk3hzanf2tn181d8a1m064pjdls.webp"
                   alt="Shiksha Sewa - Free Education for Underprivileged Children"
                 />
               </div>
@@ -1006,7 +1006,7 @@ export default function Page() {
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="https://sciencedivine.org/wp-content/uploads/2024/04/IMG-20200818-WA0055.jpg"
+                  src="/images/uploads/2024/04/IMG-20200818-WA0055.webp"
                   alt="Annapurna Sewa - Free Meals for the Needy"
                 />
               </div>
@@ -1042,7 +1042,7 @@ export default function Page() {
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="https://sciencedivine.org/wp-content/uploads/elementor/thumbs/gospelforasia-RT18-03070-qvla74wkzfu03jfb5e7plwpddk8afeo1uqh0978hb4.jpeg"
+                  src="/images/uploads/elementor/thumbs/gospelforasia-RT18-03070-qvla74wkzfu03jfb5e7plwpddk8afeo1uqh0978hb4.webp"
                   alt="Swastha Sewa - Free Healthcare"
                 />
               </div>
@@ -1126,7 +1126,7 @@ export default function Page() {
                 <div>
                   {/* Event Card Image */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-amber-50">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={e.image}
                       alt={e.title}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"

@@ -59,7 +59,7 @@ export default function CategoryArchivePage() {
               >
                 <div>
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

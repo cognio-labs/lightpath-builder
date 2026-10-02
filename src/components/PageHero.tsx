@@ -47,7 +47,7 @@ export function PageHero({
               )}
             </div>
             <div className={`${imageSide === "left" ? "md:order-1" : "md:order-2"} flex justify-center`}>
-              <img
+              <img loading="eager" fetchPriority="high" decoding="async"
                 src={image}
                 alt="Sakshi Shree"
                 className="w-full max-w-md object-contain drop-shadow-2xl"

@@ -79,7 +79,7 @@ export default function Page() {
         <div className="container-page">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg" alt="Meditation camp" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 15px 35px rgba(0,0,0,0.06)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/05/aboutsakshishree.webp" alt="Meditation camp" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 15px 35px rgba(0,0,0,0.06)" }} />
             </div>
             <div>
               <div style={{ marginBottom: "32px" }}>

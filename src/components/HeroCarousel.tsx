@@ -121,7 +121,7 @@ export function HeroCarousel() {
             className="absolute inset-0"
           >
             {/* Background Image */}
-            <img
+            <img loading="eager" fetchPriority="high" decoding="async"
               src={current.image}
               alt={current.title}
               className="w-full h-full object-cover object-center"

@@ -69,7 +69,7 @@ export default function Page() {
             </Link>
           </div>
           <img
-            src="https://sciencedivine.org/wp-content/uploads/2024/05/aboutsakshishree.jpg"
+            src="/images/uploads/2024/05/aboutsakshishree.webp"
             alt="Sakshi Shree"
             className="rounded-3xl shadow-xl w-full object-cover"
             loading="lazy"
@@ -80,7 +80,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: "#FAFAFA" }}>
         <div className="container-page grid md:grid-cols-2 gap-12 items-center">
           <img
-            src="https://sciencedivine.org/wp-content/uploads/2024/06/DJI_0169-scaled.jpg"
+            src="/images/uploads/2024/06/DJI_0169-scaled.webp"
             alt="Vision"
             className="rounded-3xl shadow-xl w-full object-cover order-2 md:order-1"
             loading="lazy"

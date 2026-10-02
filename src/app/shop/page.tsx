@@ -12,7 +12,7 @@ const PRODUCTS = [
     title: "Science Divine Diamond Diary",
     price: 350,
     originalPrice: 600,
-    image: "https://sciencedivine.org/wp-content/uploads/2023/09/Daimond-Dairy-New-Cover-300x300.jpg",
+    image: "/images/uploads/2023/09/Daimond-Dairy-New-Cover-300x300.webp",
     badge: "Bestseller",
     description: "A premium guided diary for conscious reflection, goal-setting, and spiritual alignment. Crafted with wisdom by Sakshi Shree.",
     rating: 5,
@@ -53,7 +53,7 @@ export default function Page() {
               <div key={product.id} className="card-premium rounded-2xl overflow-hidden group">
                 {/* Product Image */}
                 <div className="relative aspect-square overflow-hidden bg-gray-50">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -159,7 +159,7 @@ export default function Page() {
               </div>
             </div>
             <div className="flex items-center justify-center p-10 bg-gradient-to-br from-amber-50 to-yellow-50">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://gitamahamantras.com/assets/maha-mantras-hero-ClQXnKFp.png"
                 alt="Maha Mantras Book by Sakshi Shree"
                 className="w-full max-w-xs object-contain drop-shadow-xl"
@@ -178,8 +178,8 @@ export default function Page() {
             target="_blank" rel="noreferrer"
             className="inline-block"
           >
-            <img
-              src="https://sciencedivine.org/wp-content/uploads/2023/08/image-16.png"
+            <img loading="lazy" decoding="async"
+              src="/images/uploads/2023/08/image-16.webp"
               alt="Get it on Google Play"
               className="h-14 mx-auto"
             />

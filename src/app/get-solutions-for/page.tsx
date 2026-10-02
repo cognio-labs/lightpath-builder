@@ -16,7 +16,7 @@ const SOLUTIONS = [
   {
     title: "Addictions",
     subtitle: "Find Your Freedom: Overcoming Addiction with Help and Hope",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/Addictions-1024x512.jpg",
+    img: "/images/uploads/2024/03/Addictions-1024x512.webp",
     slug: "addictions",
   },
   {
@@ -81,8 +81,8 @@ export default function Page() {
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
-                <img
-                  src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
+                <img loading="lazy" decoding="async"
+                  src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
                   alt="Get Solutions For Your Challenges"
                   className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700"
                 />

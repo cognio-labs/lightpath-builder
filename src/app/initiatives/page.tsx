@@ -172,7 +172,7 @@ export default function Page() {
               <div className="relative w-full max-w-lg group">
                 {/* Ambient Soft Glow background blending */}
                 <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#F59E0B]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                <img
+                <img loading="lazy" decoding="async"
                   src="/images/initiatives.webp"
                   alt="Science Divine Initiatives"
                   className="relative z-10 w-full h-auto rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
@@ -258,7 +258,7 @@ export default function Page() {
                 >
                   {/* Top Image & Badge */}
                   <div className="relative h-48 overflow-hidden bg-[#FFFBF2]">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={init.image}
                       alt={init.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -369,7 +369,7 @@ export default function Page() {
                 key={i}
                 className="relative w-[320px] sm:w-[400px] md:w-[450px] aspect-[16/10] rounded-[2rem] overflow-hidden shadow-lg group shrink-0 bg-gradient-to-b from-[#FFFDF9] via-[#FFF5E5] to-[#521623]/20 border-2 border-[#E8C969]/60 snap-start"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={g.url}
                   alt={g.caption}
                   className={`w-full h-full ${i === 0 ? "object-contain object-center py-1" : "object-cover object-center"} group-hover:scale-105 transition-transform duration-700`}

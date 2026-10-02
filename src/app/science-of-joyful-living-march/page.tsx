@@ -9,22 +9,22 @@ import { SectionHeading } from "@/components/PageHero";
 
 const PILLARS = [
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc93c262ba8e696be1107_icon1-1.png",
+    icon: "/images/uploads/2024/03/651fc93c262ba8e696be1107_icon1-1.webp",
     title: "Emotion Regulation",
     desc: "Discover techniques to manage emotions, fostering healthier relationships and inner balance through mindfulness and emotional intelligence."
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc89a25635db7a0e5309b_Frame-2-1.png",
+    icon: "/images/uploads/2024/03/651fc89a25635db7a0e5309b_Frame-2-1.webp",
     title: "Positive Mindset",
     desc: "Cultivate optimism, resilience, and gratitude, nurturing mental well-being and a fulfilling outlook on life's challenges."
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc915c87a9d5daaa98adb_Icon-3-1.png",
+    icon: "/images/uploads/2024/03/651fc915c87a9d5daaa98adb_Icon-3-1.webp",
     title: "Lasting Happiness",
     desc: "Explore inner joy sources, leading to sustained happiness and contentment independent of external circumstances."
   },
   {
-    icon: "https://sciencedivine.org/wp-content/uploads/2024/03/651fc9f32693b049340e24ae_icon-4-1.png",
+    icon: "/images/uploads/2024/03/651fc9f32693b049340e24ae_icon-4-1.webp",
     title: "Self-Discovery",
     desc: "Gain insights, enhance self-awareness, and unlock personal growth potential for a fulfilling life journey guided by purpose and authenticity."
   }
@@ -40,25 +40,25 @@ const AUDIENCE = [
 const MODULES = [
   {
     num: "1",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895910-research-shows-one-1.png",
+    img: "/images/uploads/2024/03/1693895910-research-shows-one-1.webp",
     title: "Manifest Your Reality",
     desc: "This part of the course delves into the power of manifestation, helping individuals understand how their thoughts, beliefs, and actions shape their reality. It includes techniques for setting clear intentions, visualization, and aligning one's mindset."
   },
   {
     num: "2",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895906-research-shows-two-1-1.png",
+    img: "/images/uploads/2024/03/1693895906-research-shows-two-1-1.webp",
     title: "The Science of Thoughtfulness",
     desc: "This section explores the psychology behind thought patterns and how they influence emotions, behaviors, and overall well-being. It involves practices to cultivate positive thinking, mindfulness, and emotional intelligence."
   },
   {
     num: "3",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895901-research-shows-three-1.png",
+    img: "/images/uploads/2024/03/1693895901-research-shows-three-1.webp",
     title: "The Secret of Blissful Living",
     desc: "This segment focuses on finding inner peace, happiness, and fulfillment. It includes teachings on gratitude, living in the present moment, and fostering a sense of contentment regardless of external circumstances."
   },
   {
     num: "4",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/1693895903-research-shows-four-1.png",
+    img: "/images/uploads/2024/03/1693895903-research-shows-four-1.webp",
     title: "The Art of Inner Cleansing",
     desc: "This part addresses the purification and healing of the mind, body, and spirit. It covers techniques for releasing negative energy, letting go of past traumas or limiting beliefs, and cultivating self-love and acceptance."
   }
@@ -69,31 +69,31 @@ const TESTIMONIALS = [
     text: "Attending Sakshi Shree's 'Design Your Destiny' course was a life-changing experience. His insights and guidance helped me transform my mindset and achieve my goals with clarity.",
     name: "Sanaya Aggarwal",
     role: "Banker",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/reema-singh.png"
+    img: "/images/uploads/2024/03/reema-singh.webp"
   },
   {
     text: "Sakshi Shree Ji's wisdom and guidance have been a beacon of light in my life. His teachings on mindfulness and self-discovery have helped me overcome personal challenges and find inner peace.",
     name: "Deepak Batra",
     role: "Product Manager",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.png"
+    img: "/images/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.53-PM.webp"
   },
   {
     text: "Attending Sakshi Shree Ji's workshops has been a transformative experience. Her insights into manifestation and positive thinking have empowered me to achieve my goals and live a more fulfilling life.",
     name: "Radhika Arya",
     role: "Entrepreneur",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.png"
+    img: "/images/uploads/2024/04/Screen-Shot-2024-04-28-at-11.57.39-PM.webp"
   },
   {
     text: "I highly recommend Sakshi Shree's events and courses. His insights and techniques have helped me achieve a work-life balance and enhance my overall well-being.",
     name: "Rajiv Mehta",
     role: "IT Professional",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/som-bansal.png"
+    img: "/images/uploads/2024/03/som-bansal.webp"
   },
   {
     text: "I had the privilege of attending Sakshi Shree's 'Manifest Your Reality' workshop. His wisdom and techniques empowered me to manifest my dreams and live a more fulfilling life.",
     name: "Priya Singh",
     role: "Marketing Professional",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/03/shikha-yadav.png"
+    img: "/images/uploads/2024/03/shikha-yadav.webp"
   }
 ];
 
@@ -135,7 +135,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", top: "-10px", left: "-10px", width: "100%", height: "100%", border: "2px solid #D4AF37", borderRadius: "24px", opacity: 0.15, pointerEvents: "none" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/04/pexels-chetanvlad-2923157-1.png" alt="Science Of Joyful Living" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/04/pexels-chetanvlad-2923157-1.webp" alt="Science Of Joyful Living" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function Page() {
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 12px 30px rgba(212,175,55,0.12)"; }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 15px rgba(0,0,0,0.02)"; }}
               >
-                <img src={p.icon} alt={p.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} />
+                <img loading="lazy" decoding="async" src={p.icon} alt={p.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} />
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 700, color: "#0F172A" }}>{p.title}</h3>
                 <p style={{ color: "#64748B", fontSize: "0.9rem", lineHeight: 1.65 }}>{p.desc}</p>
               </div>
@@ -204,7 +204,7 @@ export default function Page() {
         <div className="container-page">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
             <div style={{ textAlign: "center", background: "#FAF9F6", borderRadius: "24px", padding: "20px" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "340px", height: "auto", mixBlendMode: "multiply", margin: "0 auto", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "340px", height: "auto", mixBlendMode: "multiply", margin: "0 auto", display: "block" }} />
             </div>
             <div>
               <span style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Words from the Master</span>
@@ -233,7 +233,7 @@ export default function Page() {
             {MODULES.map((m, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <img src={m.img} alt={m.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img loading="lazy" decoding="async" src={m.img} alt={m.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", top: "12px", left: "12px", background: "#D4AF37", color: "#0F172A", width: "28px", height: "28px", borderRadius: "100px", display: "grid", placeItems: "center", fontWeight: 800, fontSize: "14px" }}>
                     {m.num}
                   </div>
@@ -264,7 +264,7 @@ export default function Page() {
                   "{t.text}"
                 </p>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <img src={t.img} alt={t.name} style={{ width: "48px", height: "48px", borderRadius: "100px", objectFit: "cover" }} />
+                  <img loading="lazy" decoding="async" src={t.img} alt={t.name} style={{ width: "48px", height: "48px", borderRadius: "100px", objectFit: "cover" }} />
                   <div>
                     <h4 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#0F172A" }}>{t.name}</h4>
                     <span style={{ fontSize: "0.75rem", color: "#8492A6", fontWeight: 600 }}>{t.role}</span>
@@ -305,11 +305,11 @@ export default function Page() {
                 Download our empowering app to embark on a transformative journey of self-discovery. Unlock the secrets of manifestation, thought science, blissful living, and inner cleansing.
               </p>
               <a href="https://play.google.com/store/apps/details?id=com.sakshishree.learners&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block" }}>
-                <img src="https://sciencedivine.org/wp-content/uploads/2024/03/Group-2611.png" alt="Download on Google Play" style={{ height: "48px", display: "block" }} />
+                <img loading="lazy" decoding="async" src="/images/uploads/2024/03/Group-2611.webp" alt="Download on Google Play" style={{ height: "48px", display: "block" }} />
               </a>
             </div>
             <div style={{ textAlign: "center" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2024/03/Group-2622.png" alt="Science Divine Mobile App Mockup" style={{ width: "100%", maxWidth: "360px", height: "auto", margin: "0 auto", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2024/03/Group-2622.webp" alt="Science Divine Mobile App Mockup" style={{ width: "100%", maxWidth: "360px", height: "auto", margin: "0 auto", display: "block" }} />
             </div>
           </div>
         </div>

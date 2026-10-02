@@ -15,10 +15,10 @@ const AGENDA = [
 ];
 
 const GALLERY = [
-  "https://sciencedivine.org/wp-content/uploads/2025/12/image-4.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/12/image-3.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/12/image-2.jpg",
-  "https://sciencedivine.org/wp-content/uploads/2025/12/image-1.jpg",
+  "/images/uploads/2025/12/image-4.webp",
+  "/images/uploads/2025/12/image-3.webp",
+  "/images/uploads/2025/12/image-2.webp",
+  "/images/uploads/2025/12/image-1.webp",
 ];
 
 export default function Page() {
@@ -67,8 +67,8 @@ export default function Page() {
 
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", inset: "-10px", background: `linear-gradient(135deg, ${Gd}, rgba(212,175,55,0.08))`, borderRadius: "30px", filter: "blur(14px)" }} />
-              <img
-                src="https://sciencedivine.org/wp-content/uploads/2025/03/Untitled-design-2-1.webp"
+              <img loading="lazy" decoding="async"
+                src="/images/uploads/2025/03/Untitled-design-2-1.webp"
                 alt="Shiksha Sewa Mahotsav"
                 style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.4)", position: "relative", zIndex: 1 }}
               />
@@ -127,7 +127,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px" }}>
             {GALLERY.map((g, i) => (
               <div key={i} style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 6px 24px rgba(0,0,0,0.08)", transition: "transform 0.2s" }}>
-                <img src={g} alt={`Sewa Glimpse ${i + 1}`} style={{ width: "100%", height: "220px", objectFit: "cover", display: "block" }} />
+                <img loading="lazy" decoding="async" src={g} alt={`Sewa Glimpse ${i + 1}`} style={{ width: "100%", height: "220px", objectFit: "cover", display: "block" }} />
               </div>
             ))}
           </div>
@@ -206,8 +206,8 @@ export default function Page() {
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/02/1-1024x542.webp" alt="Sewa Activity" style={{ width: "100%", borderRadius: "20px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }} />
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/02/2-1024x542.webp" alt="Education Initiative" style={{ width: "100%", borderRadius: "20px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/02/1-1024x542.webp" alt="Sewa Activity" style={{ width: "100%", borderRadius: "20px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/02/2-1024x542.webp" alt="Education Initiative" style={{ width: "100%", borderRadius: "20px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }} />
             </div>
           </div>
 

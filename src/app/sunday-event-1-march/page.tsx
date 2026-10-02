@@ -12,19 +12,19 @@ const STORIES = [
     name: "Dheeraj Madaan",
     role: "IIT Roorkee, IIM Lucknow, Management Consultant",
     quote: "I cannot believe I didn't find this sooner. The clarity of life I found through Guruji's teachings and meditation techniques cannot be measured in terms of money. Highly recommend everyone to attend his meditation camp and experience it yourself.",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/12/Mask-group-7.png",
+    img: "/images/uploads/2024/12/Mask-group-7.webp",
   },
   {
     name: "Nancy Thakur",
     role: "SRCC, ISB, Conversion Optimization Lead",
     quote: "Guruji's meditation kriyas are extremely simple to follow. Sanjeevani kriya helped me get rid of the stress & negativity that was stopping me from going deep into meditation and made me an extremely calm minded person. Truly the best investment of my life on myself!",
-    img: "https://sciencedivine.org/wp-content/uploads/2024/12/Mask-group-6.png",
+    img: "/images/uploads/2024/12/Mask-group-6.webp",
   },
   {
     name: "Dr. Vikram Sampath",
     role: "Top Indian Historian & Writer",
     quote: "Sakshi Shree's blessings and guidance have had a profound impact on my life, leading me towards growth and spiritual fulfillment. I am deeply grateful for Guruji's wisdom and presence in my journey.",
-    img: "https://sciencedivine.org/wp-content/uploads/2025/01/Untitled-design-3-1.png",
+    img: "/images/uploads/2025/01/Untitled-design-3-1.webp",
   },
 ];
 
@@ -47,31 +47,31 @@ const LEADERS = [
   {
     name: "Hon'ble Shri Rajnath Singh",
     role: "Minister of Defence, Government of India",
-    img: "https://sciencedivine.org/wp-content/uploads/2023/06/3-scaled.webp",
+    img: "/images/uploads/2023/06/3-scaled.webp",
   },
   {
     name: "Dr. Vikram Sampat",
     role: "Famous Indian Historian and seeker",
-    img: "https://sciencedivine.org/wp-content/uploads/2023/06/4-scaled.webp",
+    img: "/images/uploads/2023/06/4-scaled.webp",
   },
   {
     name: "Shri Ajay Bhatt",
     role: "Ex-Union Minister of State for Defense & Tourism",
-    img: "https://sciencedivine.org/wp-content/uploads/2023/06/1-scaled.webp",
+    img: "/images/uploads/2023/06/1-scaled.webp",
   },
   {
     name: "Shri Anil Bachoo",
     role: "Minister of Health and Wellness of Mauritius",
-    img: "https://sciencedivine.org/wp-content/uploads/2023/06/2-scaled.webp",
+    img: "/images/uploads/2023/06/2-scaled.webp",
   },
 ];
 
 const GALLERY = [
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-13-at-18.25.34_73815f1e-1-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-11.39.06_81ab3a55-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.20.57_e5bc8a98-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.22_a5b77f0a-1.png",
-  "https://sciencedivine.org/wp-content/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.24_2181c7cf-1.png",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-13-at-18.25.34_73815f1e-1-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-11.39.06_81ab3a55-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.20.57_e5bc8a98-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.22_a5b77f0a-1.webp",
+  "/images/uploads/2024/12/WhatsApp-Image-2024-07-26-at-12.35.24_2181c7cf-1.webp",
 ];
 
 const INCLUDED = [
@@ -179,7 +179,7 @@ export default function Page() {
               </div>
             </div>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/Untitled-design-3.png" alt="Meditation Class" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/Untitled-design-3.webp" alt="Meditation Class" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }} />
             </div>
           </div>
         </div>
@@ -265,7 +265,7 @@ export default function Page() {
               </div>
             </div>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/group-five-yogi-females-sitting-sukhasana-683x1024.webp" alt="Yogi group" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.06)" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/group-five-yogi-females-sitting-sukhasana-683x1024.webp" alt="Yogi group" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.06)" }} />
             </div>
           </div>
         </div>
@@ -276,7 +276,7 @@ export default function Page() {
         <div className="container-page">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
             <div>
-              <img src="https://sciencedivine.org/wp-content/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block" }} />
             </div>
             <div>
               <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>The Guide</span>
@@ -327,7 +327,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px", marginBottom: "48px" }}>
             {LEADERS.map((l, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden" }}>
-                <img src={l.img} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+                <img loading="lazy" decoding="async" src={l.img} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
                 <div style={{ padding: "16px" }}>
                   <div style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.9rem" }}>{l.name}</div>
                   <p style={{ color: "#64748B", fontSize: "0.75rem", marginTop: "4px" }}>{l.role}</p>
@@ -338,7 +338,7 @@ export default function Page() {
 
           <div style={{ display: "flex", gap: "16px", overflowX: "auto", paddingBottom: "10px" }}>
             {GALLERY.map((g, i) => (
-              <img key={i} src={g} alt={`Gallery ${i + 1}`} style={{ height: "180px", width: "auto", borderRadius: "16px", objectFit: "cover" }} />
+              <img loading="lazy" decoding="async" key={i} src={g} alt={`Gallery ${i + 1}`} style={{ height: "180px", width: "auto", borderRadius: "16px", objectFit: "cover" }} />
             ))}
           </div>
         </div>
@@ -410,7 +410,7 @@ export default function Page() {
               <div key={i} style={{ background: "#FAF9F6", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "28px" }}>
                 <p style={{ color: "#475569", fontSize: "0.875rem", lineHeight: 1.6, fontStyle: "italic", marginBottom: "20px" }}>"{s.quote}"</p>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <img src={s.img} alt={s.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover" }} />
+                  <img loading="lazy" decoding="async" src={s.img} alt={s.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover" }} />
                   <div>
                     <div style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.85rem" }}>{s.name}</div>
                     <div style={{ fontSize: "0.7rem", color: "#64748B" }}>{s.role}</div>

@@ -123,7 +123,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       url: "https://sciencedivine.org",
       logo: {
         "@type": "ImageObject",
-        url: "https://sciencedivine.org/wp-content/uploads/2024/03/Science-Divine-Logo.webp",
+        url: "https://sciencedivine.org/images/uploads/2023/07/cropped-SD_logo.webp",
       },
     },
     mainEntityOfPage: {
@@ -205,7 +205,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="flex flex-wrap items-center justify-between gap-4 pt-2 pb-4 border-b border-gray-100">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full overflow-hidden bg-rose-100 shrink-0 border border-rose-200">
-                <img
+                <img loading="lazy" decoding="async"
                   src={post.author.avatar}
                   alt={post.author.name}
                   className="w-full h-full object-cover"
@@ -235,7 +235,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Featured Cover Image */}
         <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-gray-100 shadow-sm border border-gray-200/80">
-          <img
+          <img loading="lazy" decoding="async"
             src={post.image}
             alt={post.title}
             className="w-full h-full object-cover"
@@ -326,7 +326,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               >
                 <div>
                   <Link href={`/blog/${related.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-gray-100">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={related.image}
                       alt={related.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
