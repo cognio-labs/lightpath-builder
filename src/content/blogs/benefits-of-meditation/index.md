@@ -4,7 +4,7 @@ date: "2024-02-24"
 datePublished: "2024-02-24T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/benefits-of-meditation/Meditation-cover.png"
+coverImage: "/images/blog/benefits-of-meditation/Meditation-cover.webp"
 tags:
   - "benefits-of-meditation"
   - "how-to-do-meditation"
@@ -30,13 +30,13 @@ At its heart, meditation is a practice of focus and mindfulness. It invites us t
 
 ### Types of Meditation
 
-![Types of Meditation](/blog/images/benefits-of-meditation/Types-of-Meditation.png "Types of Meditation")
+![Types of Meditation](/images/blog/benefits-of-meditation/Types-of-Meditation.webp "Types of Meditation")
 
 There are various types of meditation practices that cater to different preferences and goals. Understanding the types of meditation is crucial for beginners, as it highlights the practice's versatility and accessibility. Whether it's the gentle observation of mindfulness meditation, the focused repetition of a mantra in Transcendental Meditation, or the guided visualizations of guided meditation, there's a method to suit every preference and need. Zen meditation, with its emphasis on seated posture and mindfulness, offers another path to inner peace. These types of meditation underscore the practice's adaptability to individual lifestyles and goals.
 
 ### Meditation Benefits for Brain
 
-![Meditation Benefits for Brain](/blog/images/benefits-of-meditation/Meditation-Benefits-for-Brain.png "Meditation Benefits for Brain")
+![Meditation Benefits for Brain](/images/blog/benefits-of-meditation/Meditation-Benefits-for-Brain.webp "Meditation Benefits for Brain")
 
 The benefits of meditation extend far beyond temporary relaxation, impacting various aspects of physical and mental health. Regular practice can significantly reduce stress, making meditation a powerful tool in today's high-pressure society. Moreover, meditation benefits for brain include enhanced focus, memory, and cognitive flexibility. Physiologically, meditation can lower blood pressure, improve sleep, and bolster the immune system. Emotionally, it cultivates resilience, emotional intelligence, and a sense of well-being, underscoring the power of meditation to transform lives.
 
@@ -48,13 +48,13 @@ If you are new to meditation, starting with guided meditations or beginner-frien
 
 ### How to Do Meditation at Home
 
-![How to Do Meditation at Home](/blog/images/benefits-of-meditation/How-to-Do-Meditation-at-Home.png "How to Do Meditation at Home")
+![How to Do Meditation at Home](/images/blog/benefits-of-meditation/How-to-Do-Meditation-at-Home.webp "How to Do Meditation at Home")
 
 Meditation for beginners might seem intimidating, but the practice is remarkably accessible. How to do meditation at home requires no special equipment or extensive training, making it an ideal practice for individuals of all ages and backgrounds. By finding a quiet space, adopting a comfortable posture, and gently focusing on the breath, beginners can embark on their meditation journey. The key is consistency and patience, allowing the mind to become accustomed to periods of stillness and reflection.
 
 ### Power of Meditation
 
-![Power of Meditation](/blog/images/benefits-of-meditation/Power-of-Meditation.png "Power of Meditation")
+![Power of Meditation](/images/blog/benefits-of-meditation/Power-of-Meditation.webp "Power of Meditation")
 
 The true power of meditation lies in its ability to transform not just our minds but our entire being. By cultivating mindfulness and presence through regular practice, individuals can tap into their inner wisdom, enhance their emotional resilience, foster compassion towards themselves and others, and ultimately lead more fulfilling lives. The profound effects of meditation ripple outwards into all aspects of our existence.
 

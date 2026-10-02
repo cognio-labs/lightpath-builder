@@ -4,14 +4,14 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/five-effective-yoga-poses/5-Effective-Yoga-Poses.png"
+coverImage: "/images/blog/five-effective-yoga-poses/5-Effective-Yoga-Poses.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![5 Effective Yoga Poses](/blog/images/five-effective-yoga-poses/5-Effective-Yoga-Poses.png "5 Effective Yoga Poses")
+![5 Effective Yoga Poses](/images/blog/five-effective-yoga-poses/5-Effective-Yoga-Poses.webp "5 Effective Yoga Poses")
 
 In the whirlwind of modern life, finding a sanctuary of peace and relaxation is essential. Yoga, an ancient practice rooted in harmonising the body and mind, offers a serene escape from the stresses of daily life. This post delves into five transformative yoga poses specifically curated for stress relief and deep relaxation. Embrace these poses as your personal retreat, a place where tensions dissolve, and tranquillity prevails.
 

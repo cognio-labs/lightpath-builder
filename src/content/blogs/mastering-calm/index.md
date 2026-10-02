@@ -4,14 +4,14 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/mastering-calm/Mastering-Calm-1.png"
+coverImage: "/images/blog/mastering-calm/Mastering-Calm-1.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Mastering Calm](/blog/images/mastering-calm/Mastering-Calm-2.png "Mastering Calm")
+![Mastering Calm](/images/blog/mastering-calm/Mastering-Calm-2.webp "Mastering Calm")
 
 In our fast-paced world, the quest for peace can often seem like a distant dream. Yet, the ancient art of meditation offers a beacon of tranquillity amidst the chaos. This post delves into the heart of meditation practices, showcasing their profound ability to soothe stress and diminish anxiety. Whether you're a seasoned practitioner or a curious newcomer, join us on a journey to unlock the secrets of a calmer, more centred existence.
 

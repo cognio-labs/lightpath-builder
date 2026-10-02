@@ -4,14 +4,14 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/yoga-for-weight-loss/Yoga-for-Weight-Loss.png"
+coverImage: "/images/blog/yoga-for-weight-loss/Yoga-for-Weight-Loss.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Yoga for Weight Loss](/blog/images/yoga-for-weight-loss/Yoga-for-Weight-Loss.png "Yoga for Weight Loss")
+![Yoga for Weight Loss](/images/blog/yoga-for-weight-loss/Yoga-for-Weight-Loss.webp "Yoga for Weight Loss")
 
 Embark on a transformative journey with Yoga for Weight Loss, where the ancient practice of asanas meets modern wellness. Unlike fleeting diet trends, yoga offers a holistic approach to shedding pounds, sculpting your body, and nurturing your mental health. In this definitive guide, we unravel the synergy between yoga postures and a wholesome lifestyle, providing you with practical tips and insights to achieve your fitness goals harmoniously. Embrace the path of balance and rejuvenation, as we guide you through the art of combining yoga asanas with healthy living.
 

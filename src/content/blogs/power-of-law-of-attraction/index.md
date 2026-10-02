@@ -4,7 +4,7 @@ date: "2024-08-03"
 datePublished: "2024-08-03T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/power-of-law-of-attraction/Power-of-law-of-attraction.png"
+coverImage: "/images/blog/power-of-law-of-attraction/Power-of-law-of-attraction.webp"
 tags:
 
 ---
@@ -12,7 +12,7 @@ tags:
 
 # Is the Law of Attraction a Myth?
 
-![](/blog/images/power-of-law-of-attraction/3-300x159.png)
+![](/images/blog/power-of-law-of-attraction/3-300x159.webp)
 
 The idea of getting whatever you want just thinking about it sounds too good to be true, doesn’t it? But if it is real? The Law of Attraction has fascinated people for years, promising that our thoughts can shape our reality. This concept was there for many decades but was brought into light by books like ‘The Secret’ by Rhonda Byrne. Particularly, in this book, the focus was on positive thoughts. It said that we can attract success, love, and happiness just by constantly thinking about it. But does it truly work? Is it possible that our mindset can influence the universe in such profound ways, or is it merely a comforting belief? Well, there are certain principles behind the Law of Attraction.
 

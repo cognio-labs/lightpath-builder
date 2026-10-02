@@ -4,7 +4,7 @@ date: "2024-03-14"
 datePublished: "2024-03-14T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-brahma-muhurta/Brahma-Muhurta.jpg"
+coverImage: "/images/blog/what-is-brahma-muhurta/Brahma-Muhurta.webp"
 tags:
   - "brahma-muhurta"
   - "brahma-muhurta-benefits"
@@ -18,7 +18,7 @@ Imagine waking up to a time filled with endless possibilities - a time that sets
 
 ### **What is Brahma Muhurta?**
 
-![](/blog/images/what-is-brahma-muhurta/what-is-brahma-muhurta.jpg)
+![](/images/blog/what-is-brahma-muhurta/what-is-brahma-muhurta.webp)
 
 Brahma Muhurta, which translates to 'the time of Brahma', is a period that occurs in the pre-dawn hours, approximately 1 hour and 36 minutes before sunrise. This time is considered highly auspicious for meditation, yoga, prayer, and any practice aimed at spiritual growth or self-improvement. During Brahma Muhurta, the environment is said to be charged with a unique energy that supports mental clarity, spiritual awakening, and physical health.
 
@@ -28,7 +28,7 @@ The precise Brahma Muhurta time can vary depending on the geographic location an
 
 ### **Brahma Muhurta Benefits:**
 
-![](/blog/images/what-is-brahma-muhurta/Brahma-Muhurta-Benefits.png)
+![](/images/blog/what-is-brahma-muhurta/Brahma-Muhurta-Benefits.webp)
 
 The benefits of waking up during Brahma Muhurta are manifold. This time is ideal for enhancing focus, fostering creativity, and setting a positive tone for the day. Here are a few specific benefits that have been observed:
 

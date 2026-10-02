@@ -4,7 +4,7 @@ date: "2024-02-21"
 datePublished: "2024-02-21T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/yoga-for-high-bp/yoga-for-high-bp-Cover-scaled.jpg"
+coverImage: "/images/blog/yoga-for-high-bp/yoga-for-high-bp-Cover-scaled.webp"
 tags:
   - "high-blood-pressure-yoga-exercises"
   - "yoga"
@@ -25,31 +25,31 @@ High Blood pressure occurs when the force of your blood against the artery walls
 
 #### Bridge Pose (Setu Bandhasana):
 
-![yoga for high bp - Bridge Pose (Setu Bandhasana)](/blog/images/yoga-for-high-bp/8vW7z6ej9u1aVTE-mLlC_WZZBbMP6acFEsoutUqotQFD-s-ex4FOlFxS2e6aH3ZjKivmpy3G3Y19ykarJGXfnri4qVbdV05mAy_zWSHSj0rJxrMvS6qiH7ylTbAa3U_LW-e95O5YeNmgLoCj4dxvSnc.jpg "yoga for high bp - Bridge Pose (Setu Bandhasana)")
+![yoga for high bp - Bridge Pose (Setu Bandhasana)](/images/blog/yoga-for-high-bp/8vW7z6ej9u1aVTE-mLlC_WZZBbMP6acFEsoutUqo-2f0021.webp "yoga for high bp - Bridge Pose (Setu Bandhasana)")
 
 This gentle inversion works wonders in relaxing the nervous system and reducing stress, key components in managing high blood pressure. By lying on your back and lifting your hips, you encourage better blood flow and heart function.
 
 #### Child’s Pose (Balasana):
 
-![yoga for high bp - Child’s Pose (Balasana)](/blog/images/yoga-for-high-bp/yoga-for-high-bp-Child-pose-balasana.jpg "yoga for high bp - Child’s Pose (Balasana)")
+![yoga for high bp - Child’s Pose (Balasana)](/images/blog/yoga-for-high-bp/yoga-for-high-bp-Child-pose-balasana.webp "yoga for high bp - Child’s Pose (Balasana)")
 
 Known for its soothing effect on the mind and body, the Child’s Pose is a restful posture that helps in lowering high BP. It aids in releasing tension in the back, shoulders, and chest, areas often affected by stress.
 
 #### Legs-Up-The-Wall Pose (Viparita Karani):
 
-![yoga for high bp - Legs-Up-The-Wall Pose (Viparita Karani)](/blog/images/yoga-for-high-bp/PVNc0PNxerdVRcu82tQjMO_35d8PslVM07k-Acr-KAonS6lflUdtAn3f8xwVFrt2EAonyJUmrRMZu2efrR6Q0dk9pNenrdPo3c5RMBYP58oaZyLLpQWYmASYWoCgfwQ7YZ5FaVKAQguBytT1k8sdTZQ.jpg "yoga for high bp - Legs-Up-The-Wall Pose (Viparita Karani)")
+![yoga for high bp - Legs-Up-The-Wall Pose (Viparita Karani)](/images/blog/yoga-for-high-bp/PVNc0PNxerdVRcu82tQjMO_35d8PslVM07k-Acr-a88b6c.webp "yoga for high bp - Legs-Up-The-Wall Pose (Viparita Karani)")
 
 This restorative pose is excellent for reducing stress and lowering blood pressure. By elevating the legs, it encourages venous drainage and improves circulation, offering relief from swollen ankles and varicose veins, common issues in those with hypertension.
 
 #### Cat-Cow Stretch (Marjaryasana-Bitilasana):
 
-![yoga for high bp - Cat-Cow Stretch (Marjaryasana-Bitilasana)](/blog/images/yoga-for-high-bp/uXPA_bYosFwcO7717VLpktyynxCIrAMijAfan7OPNDAOcP5K0asHkvwuVqRGxrLqtSaTGjfljSywW4R3KfctSHXU1hWhsL04hjnTgI44xuQnikTrfpraNQBRPEdH6p_4DRTC0fC7l2EW7kCoYTvtux8.jpg "yoga for high bp - Cat-Cow Stretch (Marjaryasana-Bitilasana)")
+![yoga for high bp - Cat-Cow Stretch (Marjaryasana-Bitilasana)](/images/blog/yoga-for-high-bp/uXPA_bYosFwcO7717VLpktyynxCIrAMijAfan7OP-23d67d.webp "yoga for high bp - Cat-Cow Stretch (Marjaryasana-Bitilasana)")
 
 This gentle flow between two poses helps in releasing tension in the spine and neck, promoting flexibility, and stimulating the organs. The movement also aids in stress relief, which is crucial for high blood pressure management.
 
 #### Corpse Pose (Savasana):
 
-![yoga for high bp - Corpse Pose (Savasana)](/blog/images/yoga-for-high-bp/iBU4RjKJPHkVhSv1voOuNndGuGWE3cHN48Mi-ScQfXQyEQ92xkRmWIX1SUXbPj2UkgW8cevs45FNse42Oq_uIAB4EkvuAsO9aPnxj_Mjmm5r5V7Ccs1pL8i9O9VEdTIIMAkDOo5vgWP80CPp1XyFIAk.jpg "yoga for high bp - Corpse Pose (Savasana)")
+![yoga for high bp - Corpse Pose (Savasana)](/images/blog/yoga-for-high-bp/iBU4RjKJPHkVhSv1voOuNndGuGWE3cHN48Mi-ScQ-7830b3.webp "yoga for high bp - Corpse Pose (Savasana)")
 
 Perhaps the most important pose for those with hypertension, Savasana promotes deep relaxation and stress relief. Lying flat on your back with your body completely relaxed, this pose brings the body into a state of deep rest, reducing blood pressure naturally.
 

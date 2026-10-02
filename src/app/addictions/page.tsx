@@ -13,7 +13,7 @@ const ARTICLES = [
     tag: "Healing",
     readTime: "10 min",
     desc: "How daily meditation practice rewires the brain's reward pathways and dissolves addictive patterns.",
-    image: "/articles/mental-health-ai.webp",
+    image: "/images/articles/mental-health-ai.webp",
     alt: "Meditation and Mental Health Healing",
   },
   {
@@ -22,7 +22,7 @@ const ARTICLES = [
     tag: "Mind",
     readTime: "8 min",
     desc: "Understanding the subconscious roots of addiction and how to reprogram deeply ingrained behaviors.",
-    image: "/articles/conscious-mind-ai.webp",
+    image: "/images/articles/conscious-mind-ai.webp",
     alt: "Conscious and Subconscious Mind Awareness",
   },
   {
@@ -31,7 +31,7 @@ const ARTICLES = [
     tag: "Yoga",
     readTime: "7 min",
     desc: "Specific asana sequences that activate the parasympathetic nervous system, calming cravings naturally.",
-    image: "/articles/yoga-hypertension-ai.webp",
+    image: "/images/articles/yoga-hypertension-ai.webp",
     alt: "Yoga Poses for Peace of Mind",
   },
   {
@@ -40,7 +40,7 @@ const ARTICLES = [
     tag: "Peace",
     readTime: "6 min",
     desc: "Simple moment-to-moment practices for replacing the urge to escape with the ability to just be.",
-    image: "/articles/feel-calm-ai.webp",
+    image: "/images/articles/feel-calm-ai.webp",
     alt: "How to Feel Calm and Mindful",
   },
   {
@@ -49,7 +49,7 @@ const ARTICLES = [
     tag: "Mental Health",
     readTime: "6 min",
     desc: "Reconnecting with your mental wellness as the foundation for lasting freedom from addictive cycles.",
-    image: "/articles/mental-health-ai.webp",
+    image: "/images/articles/mental-health-ai.webp",
     alt: "Prioritizing Mental Health Every Day",
   },
   {
@@ -58,7 +58,7 @@ const ARTICLES = [
     tag: "Relaxation",
     readTime: "10 min",
     desc: "The deep relaxation state of Yoga Nidra naturally satisfies the need for escape that drives addiction.",
-    image: "/articles/yoga-nidra-ai.webp",
+    image: "/images/articles/yoga-nidra-ai.webp",
     alt: "Yoga Nidra Conscious Relaxation",
   },
   {
@@ -67,7 +67,7 @@ const ARTICLES = [
     tag: "Wellness",
     readTime: "9 min",
     desc: "Evidence-based look at how consistent yoga practice rebuilds physical and mental health after addiction.",
-    image: "/articles/yoga-mindfulness-ai.webp",
+    image: "/images/articles/yoga-mindfulness-ai.webp",
     alt: "Transformative Health Benefits of Yoga",
   },
   {
@@ -76,7 +76,7 @@ const ARTICLES = [
     tag: "Sleep",
     readTime: "8 min",
     desc: "Healing disrupted sleep patterns, a key factor in addiction recovery and long-term sobriety.",
-    image: "/articles/meditation-seniors-ai.webp",
+    image: "/images/articles/meditation-seniors-ai.webp",
     alt: "Meditation for Better Sleep and Sobriety",
   },
   {
@@ -85,7 +85,7 @@ const ARTICLES = [
     tag: "Meditation",
     readTime: "9 min",
     desc: "Build a sustainable home meditation practice that becomes your anchor during challenging moments.",
-    image: "/articles/optimistic-mind-ai.webp",
+    image: "/images/articles/optimistic-mind-ai.webp",
     alt: "Mastering Meditation at Home",
   },
 ];
@@ -158,7 +158,7 @@ export default function Page() {
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img
-                  src="/premium-heroes/wellness-hero.png"
+                  src="/images/premium-heroes/wellness-hero.webp"
                   alt="Overcoming Addiction and Healing"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />

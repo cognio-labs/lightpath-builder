@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       "Awaken your true potential with Science Divine Movement. Meditation and spiritual guidance by enlightened master Sakshi Shree.",
     images: [
       {
-        url: "/guruji-meditation-hd.png",
+        url: "/images/guruji-meditation-hd.webp",
         width: 1200,
         height: 630,
         alt: "Science Divine Foundation — Sakshi Shree",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@gurusakshishree",
-    images: ["/guruji-meditation-hd.png"],
+    images: ["/images/guruji-meditation-hd.webp"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -121,6 +121,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
           strategy="beforeInteractive"
+        />
+        {/* DataFast analytics */}
+        <Script
+          id="datafast"
+          src="https://datafa.st/js/script.js"
+          data-website-id="dfid_SM28U0HshmRfiuXSjfwKe"
+          data-domain="sciencedivine.org"
+          strategy="afterInteractive"
         />
       </head>
       <body>

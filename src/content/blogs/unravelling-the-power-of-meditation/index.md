@@ -4,14 +4,14 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-1.png"
+coverImage: "/images/blog/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-1.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Unravelling the Power of Meditation 2](/blog/images/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-2.png "Unravelling the Power of Meditation 2")
+![Unravelling the Power of Meditation 2](/images/blog/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-2.webp "Unravelling the Power of Meditation 2")
 
 In the fast-paced rhythm of modern life, the quest for tranquillity and inner harmony has never been more pertinent. Meditation, a timeless practice deeply rooted in various cultures, emerges as a beacon of hope, offering a holistic approach to fortify the mind-body connection. This ancient technique not only quiets the mind but also orchestrates a symphony of benefits for the body, establishing a harmonious balance that resonates with the essence of holistic well-being. Embark on this enlightening journey to explore how meditation can transform your life, weaving together the threads of mental clarity, emotional stability, and physical health.
 
@@ -23,7 +23,7 @@ In the fast-paced rhythm of modern life, the quest for tranquillity and inner ha
 
 **Techniques and Types:** Explore various meditation practices, from mindfulness to transcendental, and understand how each uniquely contributes to strengthening the mind-body nexus.
 
-![Unravelling the Power of Meditation 3](/blog/images/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-3.png "Unravelling the Power of Meditation 3")
+![Unravelling the Power of Meditation 3](/images/blog/unravelling-the-power-of-meditation/Unravelling-the-Power-of-Meditation-3.webp "Unravelling the Power of Meditation 3")
 
 ### The Holistic Impact of Meditation on Well-being:
 

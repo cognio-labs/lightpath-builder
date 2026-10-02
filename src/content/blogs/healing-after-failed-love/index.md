@@ -4,13 +4,13 @@ date: "2024-07-12"
 datePublished: "2024-07-12T00:00:00.000Z"
 category: "Stress & Anxiety"
 categorySlug: "stress-anxiety"
-coverImage: "/blog/images/healing-after-failed-love/healing-after-failed-love.jpeg"
+coverImage: "/images/blog/healing-after-failed-love/healing-after-failed-love.webp"
 tags:
 
 ---
 
 
-![healing-after-failed-love](/blog/images/healing-after-failed-love/healing-after-failed-love.jpeg "healing-after-failed-love")
+![healing-after-failed-love](/images/blog/healing-after-failed-love/healing-after-failed-love.webp "healing-after-failed-love")
 
 Love is not just a feeling, it is a beautiful journey filled with joy, passion, and companionship. Despite the best intentions, many couples find themselves facing difficulties that lead to the breakdown of their relationship. As beautiful and transformative as it is, it doesn't always turn out the way we hope. Many people go through the heartache of losing a partner at least once in their lives. Even if it happens more than once, the pain stays the same, never gets easier. To get out of that is always challenging, and can leave a lasting mark on your heart.
 

@@ -10,7 +10,7 @@ const SOLUTIONS = [
   {
     title: "Overthinking",
     subtitle: "Overthinking No More: Techniques for Clarity and Calm by Sakshi Shree",
-    img: "/premium-heroes/overthinking-hero.png",
+    img: "/images/premium-heroes/overthinking-hero.webp",
     slug: "overthinking",
   },
   {
@@ -22,37 +22,37 @@ const SOLUTIONS = [
   {
     title: "Parenting",
     subtitle: "Sakshi Shree's Guide to Parenting Through the Ages",
-    img: "/premium-heroes/parenting-hero.png",
+    img: "/images/premium-heroes/parenting-hero.webp",
     slug: "parenting",
   },
   {
     title: "Sleeping Disorder",
     subtitle: "Sleep Better Every Night: Simple Steps to Beat Sleep Problems with Sakshi Shree",
-    img: "/premium-heroes/sleeping-disorder-hero.png",
+    img: "/images/premium-heroes/sleeping-disorder-hero.webp",
     slug: "sleeping-disorder",
   },
   {
     title: "Wellness",
     subtitle: "Living Well: Mind, Body, and Soul with Sakshi Shree",
-    img: "/premium-heroes/wellness-hero.png",
+    img: "/images/premium-heroes/wellness-hero.webp",
     slug: "wellness",
   },
   {
     title: "Anxiety",
     subtitle: "Beating Anxiety Together: Simple Steps to Calm with Sakshi Shree",
-    img: "/premium-heroes/anxiety-hero.png",
+    img: "/images/premium-heroes/anxiety-hero.webp",
     slug: "anxiety",
   },
   {
     title: "Depression",
     subtitle: "Step by Step: Beating Depression with Sakshi Shree",
-    img: "/premium-heroes/depression-hero.png",
+    img: "/images/premium-heroes/depression-hero.webp",
     slug: "depression",
   },
   {
     title: "Relationships",
     subtitle: "Conscious Hearts, Sacred Connections",
-    img: "/premium-heroes/relationships-hero.png",
+    img: "/images/premium-heroes/relationships-hero.webp",
     slug: "relationship",
   },
 ];

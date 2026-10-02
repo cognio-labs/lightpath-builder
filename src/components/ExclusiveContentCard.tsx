@@ -69,7 +69,7 @@ export default function ExclusiveContentCard() {
       {/* Left Visual Image Container with S-Wave Divider */}
       <div className="exclusive-content-visual relative">
         <img
-          src="/exclusive-content-user-img.png"
+          src="/images/exclusive-content-user-img.webp"
           alt="Science Divine community practicing yoga at sunrise"
         />
 

@@ -4,14 +4,14 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/harmonizing-mind-and-body/Harmonizing-Mind-and-Body-2.png"
+coverImage: "/images/blog/harmonizing-mind-and-body/Harmonizing-Mind-and-Body-2.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Harmonizing Mind and Body](/blog/images/harmonizing-mind-and-body/Harmonizing-Mind-and-Body-1.png "Harmonizing Mind and Body")
+![Harmonizing Mind and Body](/images/blog/harmonizing-mind-and-body/Harmonizing-Mind-and-Body-1.webp "Harmonizing Mind and Body")
 
 ### Unveiling the Synergy of Yoga and Meditation:
 

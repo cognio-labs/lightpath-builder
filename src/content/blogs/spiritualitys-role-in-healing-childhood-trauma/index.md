@@ -4,13 +4,13 @@ date: "2024-05-18"
 datePublished: "2024-05-18T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/spiritualitys-role-in-healing-childhood-trauma/Spiritualitys-Role-in-Healing.png"
+coverImage: "/images/blog/spiritualitys-role-in-healing-childhood-trauma/Spiritualitys-Role-in-Healing.webp"
 tags:
 
 ---
 
 
-![Spiritualitys Role in Healing](/blog/images/spiritualitys-role-in-healing-childhood-trauma/Spiritualitys-Role-in-Healing.png "Spiritualitys Role in Healing")
+![Spiritualitys Role in Healing](/images/blog/spiritualitys-role-in-healing-childhood-trauma/Spiritualitys-Role-in-Healing.webp "Spiritualitys Role in Healing")
 
 Do you struggle with deep-rooted fears or sudden bursts of anger, but don’t know where they come from? Then you are overcome with guilt but somehow end up doing the same despite your best efforts. Often, these feelings stem from experiences in childhood that leave lasting scars. But here's the thing these scars often stay hidden, making it hard to understand why we feel the way we do. That's where spirituality and therapy come in. By combining these two, we can explore our inner selves in a gentle and holistic way. It's like shining a light into the dark corners of our minds, unraveling the knots of past hurts, and finding peace and healing along the way.
 

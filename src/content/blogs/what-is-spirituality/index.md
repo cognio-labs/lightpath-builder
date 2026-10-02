@@ -4,7 +4,7 @@ date: "2024-03-11"
 datePublished: "2024-03-11T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/what-is-spirituality/What-is-Spirituality.jpg"
+coverImage: "/images/blog/what-is-spirituality/What-is-Spirituality.webp"
 tags:
   - "how-to-grow-spiritually"
   - "importance-of-spirituality-in-education"

@@ -4,13 +4,13 @@ date: "2024-07-13"
 datePublished: "2024-07-13T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/habits-that-can-change-your-life/habits-that-can-change-your-life.jpeg"
+coverImage: "/images/blog/habits-that-can-change-your-life/habits-that-can-change-your-life.webp"
 tags:
 
 ---
 
 
-![habits-that-can-change-your-life](/blog/images/habits-that-can-change-your-life/habits-that-can-change-your-life.jpeg "habits-that-can-change-your-life")
+![habits-that-can-change-your-life](/images/blog/habits-that-can-change-your-life/habits-that-can-change-your-life.webp "habits-that-can-change-your-life")
 
 Ever wondered how some people effortlessly achieve success and happiness while others struggle? It often boils down to their habits- the small, everyday choices that shape our lives more than we realize. As Aristotle wisely said, "We are what we repeatedly do. Excellence, then, is not an act, but a habit." This sentiment echoes through time and across cultures, underscoring the profound impact habits have on our bodies, minds, and overall quality of life.
 

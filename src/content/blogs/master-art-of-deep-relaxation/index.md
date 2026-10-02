@@ -4,14 +4,14 @@ date: "2024-02-09"
 datePublished: "2024-02-09T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/master-art-of-deep-relaxation/Master-the-Art-of-Deep-Relaxation-1.png"
+coverImage: "/images/blog/master-art-of-deep-relaxation/Master-the-Art-of-Deep-Relaxation-1.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Master the Art of Deep Relaxation](/blog/images/master-art-of-deep-relaxation/Master-the-Art-of-Deep-Relaxation-2.png "Master the Art of Deep Relaxation")
+![Master the Art of Deep Relaxation](/images/blog/master-art-of-deep-relaxation/Master-the-Art-of-Deep-Relaxation-2.webp "Master the Art of Deep Relaxation")
 
 In a world that’s always switched on, finding a sanctuary of calm is not just a luxury, it’s a necessity. The art of deep relaxation through guided meditation has emerged as a beacon of serenity in the tumultuous seas of daily stress and anxiety. If you’re on a quest to reclaim peace and cultivate a tranquil mind, you’re in the right place. This post delves into the heart of guided meditation, unravelling how this ancient practice can be your ultimate tool for stress relief and holistic well-being.
 

@@ -4,7 +4,7 @@ date: "2023-06-12"
 datePublished: "2023-06-12T00:00:00.000Z"
 category: "Mindset & Manifestation"
 categorySlug: "mindset-manifestation"
-coverImage: "/blog/images/why-no-one-understands-you/silence4.jpg"
+coverImage: "/images/blog/why-no-one-understands-you/silence4.webp"
 tags:
 
 ---

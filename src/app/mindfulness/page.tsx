@@ -93,7 +93,7 @@ export default function Page() {
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img
-                  src="/sound_mind.png"
+                  src="/images/sound_mind.webp"
                   alt="Mindfulness & Inner Peace"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />

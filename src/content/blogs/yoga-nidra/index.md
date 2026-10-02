@@ -4,7 +4,7 @@ date: "2024-02-12"
 datePublished: "2024-02-12T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/yoga-nidra/Yoga-Nidra.png"
+coverImage: "/images/blog/yoga-nidra/Yoga-Nidra.webp"
 tags:
   - "meditation"
   - "yoga"

@@ -18,7 +18,7 @@ export interface HeroSlide {
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "vasant-mahotsav",
-    image: "/hero-slider/vasant-mahotsav.jpg",
+    image: "/images/hero-slider/vasant-mahotsav.webp",
     title: "Vasant Mahotsav & Divine Celebrations",
     subtitle: "Experience profound meditation, soul-touching kirtan, and Sakshi Shree's divine discourses.",
     tag: "Upcoming Event",
@@ -27,7 +27,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "new-year-dhyan",
-    image: "/hero-slider/new-year-dhyan.jpg",
+    image: "/images/hero-slider/new-year-dhyan.webp",
     title: "New Year Dhyan & Inner Transformation",
     subtitle: "Start your journey towards peace, vitality, and boundless joy with guided Sakshi Sadhna.",
     tag: "Special Sadhna",
@@ -36,7 +36,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "sd-main-banner",
-    image: "/hero-slider/sd-main-banner.jpg",
+    image: "/images/hero-slider/sd-main-banner.webp",
     title: "Science Divine Foundation",
     subtitle: "Spreading the message of love, awareness, and meditation worldwide under Sakshi Shree's guidance.",
     tag: "Global Movement",
@@ -45,7 +45,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "banner-1",
-    image: "/hero-slider/banner-1.webp",
+    image: "/images/hero-slider/banner-1.webp",
     title: "Sakshi Sadhna & Meditation Programs",
     subtitle: "Scientific meditation techniques for modern individuals to overcome stress and overthinking.",
     tag: "Spiritual Practice",
@@ -54,7 +54,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "banner-2",
-    image: "/hero-slider/banner-2.webp",
+    image: "/images/hero-slider/banner-2.webp",
     title: "Sanjeevani Kriya: Complete Vitality",
     subtitle: "A 15-minute scientific breathing and sound practice to revitalize mind and body daily.",
     tag: "Signature Kriya",
@@ -63,7 +63,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "banner-3",
-    image: "/hero-slider/banner-3.webp",
+    image: "/images/hero-slider/banner-3.webp",
     title: "Design Your Destiny Course",
     subtitle: "Unlock your full potential and align your subconscious mind with your highest aspirations.",
     tag: "Flagship Course",
@@ -72,7 +72,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "banner-4",
-    image: "/hero-slider/banner-4.webp",
+    image: "/images/hero-slider/banner-4.webp",
     title: "Science of Joyful Living",
     subtitle: "Transform your relationships, career, and inner health through practical spirituality.",
     tag: "Life Transformation",

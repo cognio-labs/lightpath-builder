@@ -24,7 +24,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "shiksha-sewa",
-    image: "/initiatives/shiksha-sewa.jpeg",
+    image: "/images/initiatives/shiksha-sewa.jpeg",
     imagePosition: "center 25%",
     desc: "Every child deserves the light of wisdom. Through Shiksha Sewa, we sponsor underprivileged children with free education, books, values, and holistic grooming.",
     bulletPoints: [
@@ -42,7 +42,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "dhyan-sewa",
-    image: "/initiatives/dhyan-sewa.jpg",
+    image: "/images/initiatives/dhyan-sewa.jpg",
     imagePosition: "center 15%",
     desc: "Meditation is the universal doorway to health and joy. Dhyan Sewa organizes free community meditation workshops, youth camps, and stress-relief camps.",
     bulletPoints: [
@@ -60,7 +60,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "annapurna-sewa",
-    image: "/initiatives/annapurna-sewa.jpeg",
+    image: "/images/initiatives/annapurna-sewa.jpeg",
     imagePosition: "center 20%",
     desc: "No soul should sleep hungry. Annapurna Sewa runs community kitchens offering hot, nutritious, hygienic meals to the needy, sadhus, and destitute families.",
     bulletPoints: [
@@ -78,7 +78,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "nirman-sewa",
-    image: "/initiatives/nirman-sewa.jpg",
+    image: "/images/initiatives/nirman-sewa.jpg",
     imagePosition: "center center",
     desc: "Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan) where thousands come to meditate, heal, and experience spiritual awakening.",
     bulletPoints: [
@@ -99,23 +99,23 @@ const IMPACT_STATS = [
 
 const GALLERY = [
   {
-    url: "/initiatives/gallery-children.webp",
+    url: "/images/initiatives/gallery-children.webp",
     caption: "Empowering Underprivileged Children",
   },
   {
-    url: "/initiatives/gallery-kitchen.png",
+    url: "/images/initiatives/gallery-kitchen.png",
     caption: "Annapurna Kitchen Distribution",
   },
   {
-    url: "/initiatives/shiksha-sewa.jpeg",
+    url: "/images/initiatives/shiksha-sewa.jpeg",
     caption: "Har Ghar Shiksha Classes",
   },
   {
-    url: "/initiatives/gallery-meditation.webp",
+    url: "/images/initiatives/gallery-meditation.webp",
     caption: "Community Meditation Camps",
   },
   {
-    url: "/initiatives/gallery-gathering.png",
+    url: "/images/initiatives/gallery-gathering.png",
     caption: "Sakshi Dhaam Spiritual Gathering",
   },
 ];
@@ -173,7 +173,7 @@ export default function Page() {
                 {/* Ambient Soft Glow background blending */}
                 <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#F59E0B]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <img
-                  src="/initiatives.png"
+                  src="/images/initiatives.webp"
                   alt="Science Divine Initiatives"
                   className="relative z-10 w-full h-auto rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
                 />

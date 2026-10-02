@@ -4,14 +4,14 @@ date: "2024-02-06"
 datePublished: "2024-02-06T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/stress-reduction/Stress-Reduction-e1707217709944.png"
+coverImage: "/images/blog/stress-reduction/Stress-Reduction-e1707217709944.webp"
 tags:
   - "meditation"
   - "yoga"
 ---
 
 
-![Stress Reduction](/blog/images/stress-reduction/Stress-Reduction-e1707217709944.png "Stress Reduction")
+![Stress Reduction](/images/blog/stress-reduction/Stress-Reduction-e1707217709944.webp "Stress Reduction")
 
 Discover simple, yet powerful techniques to reduce stress in your daily life. From mindful breathing to time management, learn how to regain control and achieve tranquillity. Embrace a stress-free lifestyle today!
 

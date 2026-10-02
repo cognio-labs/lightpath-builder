@@ -94,7 +94,7 @@ export default function Page() {
         <div className="container-page grid md:grid-cols-5 gap-12 items-start">
           <div className="md:col-span-2 space-y-4">
             <img
-              src="/about-sakshi-shree-new.png"
+              src="/images/about-sakshi-shree-new.webp"
               alt="Sakshi Shree"
               className="rounded-3xl shadow-xl w-full object-cover"
               loading="lazy"

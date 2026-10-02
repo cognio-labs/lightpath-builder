@@ -4,7 +4,7 @@ date: "2024-03-01"
 datePublished: "2024-03-01T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/yoga-for-peace-of-mind/Yoga-Poses-for-Peace-of-Mind.png"
+coverImage: "/images/blog/yoga-for-peace-of-mind/Yoga-Poses-for-Peace-of-Mind.webp"
 tags:
   - "how-to-get-peace-of-mind"
   - "mudra-for-peace-of-mind"
@@ -25,7 +25,7 @@ Yoga for peace of mind is about doing simple yoga moves, breathing in a certain 
 
 ### What is Peace of Mind Meditation?
 
-![What is Peace of Mind Meditation](/blog/images/yoga-for-peace-of-mind/What-is-Peace-of-Mind-Meditation.png)
+![What is Peace of Mind Meditation](/images/blog/yoga-for-peace-of-mind/What-is-Peace-of-Mind-Meditation.webp)
 
 Peace of mind meditation is about focusing your attention in a way that helps you feel calm and relaxed. It's about finding a quiet space within yourself, even when everything around you is chaotic. This type of meditation can help you feel more at ease with yourself and the world, making life's ups and downs easier to handle.
 
@@ -41,7 +41,7 @@ Peace of mind meditation is about focusing your attention in a way that helps yo
 
 ### Benefits of Meditation for Peace of Mind:
 
-![Benefits-of-Meditation-for-Peace-of-Mind](/blog/images/yoga-for-peace-of-mind/Benefits-of-Meditation-for-Peace-of-Mind.png)
+![Benefits-of-Meditation-for-Peace-of-Mind](/images/blog/yoga-for-peace-of-mind/Benefits-of-Meditation-for-Peace-of-Mind.webp)
 
 Meditation has numerous benefits for both mental and physical health. It can reduce stress, improve focus and concentration, enhance emotional well-being, and even improve sleep quality. Regular meditation practice can also lower blood pressure and strengthen the immune system.
 
@@ -55,35 +55,35 @@ Mudras, or hand gestures used in yoga, are powerful tools for achieving peace of
 
 ### 1\. Jnana Mudra (Mudra of Knowledge)
 
-![Jnana-Mudra-Mudra-of-Knowledge](/blog/images/yoga-for-peace-of-mind/Jnana-Mudra-Mudra-of-Knowledge.png)
+![Jnana-Mudra-Mudra-of-Knowledge](/images/blog/yoga-for-peace-of-mind/Jnana-Mudra-Mudra-of-Knowledge.webp)
 
 - **How to Do It:** Touch the tip of your index finger to the tip of your thumb, with the other three fingers straight but relaxed. Rest your hands on your thighs or in your lap.
 - **Benefits:** This mudra for peace of mind is comforting and helps focus inward, preparing you mentally for meditation or deep yoga practice. It's associated with wisdom and knowledge.
 
 ### 2\. Dhyani Mudra (Meditation Mudra)
 
-![Dhyani-Mudra-Meditation-Mudra](/blog/images/yoga-for-peace-of-mind/Dhyani-Mudra-Meditation-Mudra.png)
+![Dhyani-Mudra-Meditation-Mudra](/images/blog/yoga-for-peace-of-mind/Dhyani-Mudra-Meditation-Mudra.webp)
 
 - **How to Do It:** Sit with your right hand on your lap, palm facing up. Place your left hand on top of your right with your palms facing up, and gently touch the tips of your thumbs together.
 - **Benefits:** This mudra for peace of mind promotes a sense of centeredness and peace. It's traditionally used to bring about a state of deep meditation and to symbolize emptiness.
 
 ### 3\. Prithivi Mudra (Earth Mudra)
 
-![Prithivi-Mudra-Earth-Mudra](/blog/images/yoga-for-peace-of-mind/Prithivi-Mudra-Earth-Mudra.png)
+![Prithivi-Mudra-Earth-Mudra](/images/blog/yoga-for-peace-of-mind/Prithivi-Mudra-Earth-Mudra.webp)
 
 - **How to Do It:** Touch the tip of your ring finger to the tip of your thumb, with the other fingers extended. Perform this with both hands.
 - **Benefits:** It's believed to strengthen and restore the body, making you feel more connected and centered. This mudra for peace of mind is especially good if you need a "pick-me-up" or want to feel more grounded.
 
 ### 4\. Lotus Mudra
 
-![Lotus-Mudra-scaled](/blog/images/yoga-for-peace-of-mind/Lotus-Mudra-scaled.jpeg)
+![Lotus-Mudra-scaled](/images/blog/yoga-for-peace-of-mind/Lotus-Mudra-scaled.webp)
 
 - **How to Do It:** Bring your thumbs, pinkies, and the bases of your palms together. Separate the centers of your palms slightly while keeping the other fingers together, mimicking the opening of a lotus flower.
 - **Benefits:** The Lotus Mudra is a beautiful expression of love, purity, and the potential for enlightenment. It reminds us to stay open and receptive to the possibilities around us, serving as a mudra for peace of mind.
 
 ### 5\. Atmanjali Mudra (Namaste Mudra)
 
-![Atmanjali-Mudra-Namaste-Mudra](/blog/images/yoga-for-peace-of-mind/Atmanjali-Mudra-Namaste-Mudra.jpg)
+![Atmanjali-Mudra-Namaste-Mudra](/images/blog/yoga-for-peace-of-mind/Atmanjali-Mudra-Namaste-Mudra.webp)
 
 - **How to Do It:** Bring your palms to touch in front of your heart, fingers pointing upward, with the thumbs lightly touching the heart area.
 - **Benefits:** This mudra for peace of mind represents honor, gratitude, and the acknowledgment of the divinity in ourselves and others. It's a common way to end yoga classes, symbolizing respect and a shared spiritual connection.
@@ -94,15 +94,15 @@ Incorporating these mudras for peace of mind into your daily routine can help yo
 
 #### Apana Mudra: Helps promote inner peace and calmness, eliminates toxins, and balances the mind.
 
-![Apana-Mudra](/blog/images/yoga-for-peace-of-mind/Apana-Mudra.jpg)
+![Apana-Mudra](/images/blog/yoga-for-peace-of-mind/Apana-Mudra.webp)
 
 #### Adhi Mudra: Offers extra support and balance, supporting mental and physical relaxation.
 
-![Adhi-Mudra](/blog/images/yoga-for-peace-of-mind/Adhi-Mudra.jpg)
+![Adhi-Mudra](/images/blog/yoga-for-peace-of-mind/Adhi-Mudra.webp)
 
 #### Hridaya Mudra: For inner guidance, self-compassion, and stress relief. It supports the heart chakra.
 
-![Hridaya-Mudra](/blog/images/yoga-for-peace-of-mind/Hridaya-Mudra.png)
+![Hridaya-Mudra](/images/blog/yoga-for-peace-of-mind/Hridaya-Mudra.webp)
 
 Mudras can be practiced anywhere and at any time, making them a versatile addition to your wellness routine. Whether you're sitting in meditation, lying down, or even watching TV, incorporating these hand gestures can significantly enhance your mental and physical health. They are a testament to the power of our bodies to heal and calm the mind through simple, intentional movements.
 

@@ -4,13 +4,13 @@ date: "2024-07-10"
 datePublished: "2024-07-10T00:00:00.000Z"
 category: "Stress & Anxiety"
 categorySlug: "stress-anxiety"
-coverImage: "/blog/images/negative-loop-of-mind/negative-loop-of-mind.jpeg"
+coverImage: "/images/blog/negative-loop-of-mind/negative-loop-of-mind.webp"
 tags:
 
 ---
 
 
-![negative-loop-of-mind](/blog/images/negative-loop-of-mind/negative-loop-of-mind.jpeg "negative-loop-of-mind")
+![negative-loop-of-mind](/images/blog/negative-loop-of-mind/negative-loop-of-mind.webp "negative-loop-of-mind")
 
 Negative self-talk is that little voice in our heads that often tells us we are not good enough, smart enough, or capable enough. No matter how much you achieve, it’s never enough for that voice. It's the critical inner dialogue that says things like "I always mess things up," or "I'll never succeed," “I’m not good enough,” “This achievement is not that great.” We have all been there! These negativity can really bring us down, affecting our self-esteem and overall mental health. The good news is, we don’t have to let negative self-talk control our lives. Although it is almost impossible to let go of this voice, we can gain more power to challenge it. Start to change the narrative and it will lose its powers.
 

@@ -41,7 +41,7 @@ const SOLUTION_METAS: Record<
     themeColor: "#D4AF37", // Brand gold
     lightBgColor: "rgba(21, 128, 61, 0.08)",
     badgeText: "SOLUTIONS HUB",
-    image: "/premium-heroes/sleeping-disorder-hero.png",
+    image: "/images/premium-heroes/sleeping-disorder-hero.webp",
     bottomText: "A calm mind leads to a peaceful sleep and a beautiful life.",
     cards: [
       {
@@ -70,7 +70,7 @@ const SOLUTION_METAS: Record<
     themeColor: "#D4AF37", // Brand gold
     lightBgColor: "rgba(190, 18, 60, 0.08)",
     badgeText: "SOLUTIONS • WELLNESS",
-    image: "/premium-heroes/wellness-hero.png",
+    image: "/images/premium-heroes/wellness-hero.webp",
     bottomText: "Harmonizing Body, Mind, and Spirit",
     cards: [
       {
@@ -99,7 +99,7 @@ const SOLUTION_METAS: Record<
     themeColor: "#D4AF37", // Brand gold
     lightBgColor: "rgba(185, 28, 28, 0.08)",
     badgeText: "SOLUTIONS • RELATIONSHIPS",
-    image: "/premium-heroes/relationships-hero.png",
+    image: "/images/premium-heroes/relationships-hero.webp",
     bottomText: "Conscious Hearts, Sacred Connections",
     cards: [
       {
@@ -149,7 +149,7 @@ export function SolutionPageLayout({
   );
 
   const meta = SOLUTION_METAS[title] || SOLUTION_METAS["Wellness"];
-  const cardImages = ["/feature-cards/sound-body.png", "/feature-cards/sound-mind.png", "/feature-cards/self-realization.png", "/wellbeing-practices-ai.png"];
+  const cardImages = ["/images/feature-cards/sound-body.webp", "/images/feature-cards/sound-mind.webp", "/images/feature-cards/self-realization.webp", "/images/wellbeing-practices-ai.webp"];
 
   return (
     <>

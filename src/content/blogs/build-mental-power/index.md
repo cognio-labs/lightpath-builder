@@ -4,7 +4,7 @@ date: "2024-07-20"
 datePublished: "2024-07-20T00:00:00.000Z"
 category: "Meditation & Sadhna"
 categorySlug: "meditation-sadhna"
-coverImage: "/blog/images/build-mental-power/Build-Mental-Power-cover.webp"
+coverImage: "/images/blog/build-mental-power/Build-Mental-Power-cover.webp"
 tags:
 
 ---
@@ -12,7 +12,7 @@ tags:
 
 # Daily Habits to Build Mental Power
 
-![Build-Mental-Power](/blog/images/build-mental-power/Build-Mental-Power-2.webp "Build-Mental-Power")
+![Build-Mental-Power](/images/blog/build-mental-power/Build-Mental-Power-2.webp "Build-Mental-Power")
 
 ### "Mental toughness is essential to success." — Vince Lombardi
 
@@ -52,7 +52,7 @@ Set specific goals and create a routine that has breaks and healthy habits. For 
 
 ## Nurturing Emotional Well-being
 
-![Build-Mental-Power](/blog/images/build-mental-power/Build-Mental-Power-1.webp "Build-Mental-Power")
+![Build-Mental-Power](/images/blog/build-mental-power/Build-Mental-Power-1.webp "Build-Mental-Power")
 
 We take emotions for granted all the time. But their effects can sometimes leave a permanent mark on our lives. Often overlooked, but it is another pivotal component of mental power. Neglecting our emotional health for a long time results in burnout, anxiety, and depression. It's essential to pay attention to our emotions and take steps to nurture our emotional well-being.
 

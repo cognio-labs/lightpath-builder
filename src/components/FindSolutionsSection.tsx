@@ -94,7 +94,7 @@ export default function FindSolutionsSection() {
                     href={`/solutions/${card.slug}`}
                     className="group flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/80 shadow-[0_8px_20px_rgba(30,50,80,0.05)] hover:shadow-[0_14px_30px_rgba(30,50,80,0.12)] hover:-translate-y-1.5 transition-all duration-300 text-center"
                   >
-                    <img src={["/premium-heroes/depression-hero.png", "/premium-heroes/anxiety-hero.png", "/premium-heroes/sleeping-disorder-hero.png", "/premium-heroes/overthinking-hero.png", "/premium-heroes/parenting-hero.png", "/premium-heroes/wellness-hero.png", "/premium-heroes/relationships-hero.png"][idx]} alt="" className="mb-3 h-20 w-full rounded-xl object-cover" loading="lazy" />
+                    <img src={["/images/premium-heroes/depression-hero.webp", "/images/premium-heroes/anxiety-hero.webp", "/images/premium-heroes/sleeping-disorder-hero.webp", "/images/premium-heroes/overthinking-hero.webp", "/images/premium-heroes/parenting-hero.webp", "/images/premium-heroes/wellness-hero.webp", "/images/premium-heroes/relationships-hero.webp"][idx]} alt="" className="mb-3 h-20 w-full rounded-xl object-cover" loading="lazy" />
                     <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-3 group-hover:bg-amber-50 group-hover:border-amber-200 transition-colors">
                       <IconComponent
                         size={26}
@@ -129,7 +129,7 @@ export default function FindSolutionsSection() {
 
               {/* HD Floating Sadguru Sakshi Shree Meditation Portrait */}
               <img
-                src="/guruji-meditation-hd.png"
+                src="/images/guruji-meditation-hd.webp"
                 alt="Sadguru Sakshi Shree Floating in Meditation"
                 className="relative z-10 w-full h-auto max-h-[520px] object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] transition-transform duration-700 group-hover:scale-105"
               />

@@ -4,7 +4,7 @@ date: "2024-08-13"
 datePublished: "2024-08-13T00:00:00.000Z"
 category: "Spirituality & Wellness"
 categorySlug: "spirituality-wellness"
-coverImage: "/blog/images/the-art-of-observation/The-Art-of-Observation.webp"
+coverImage: "/images/blog/the-art-of-observation/The-Art-of-Observation.webp"
 tags:
 
 ---
@@ -12,7 +12,7 @@ tags:
 
 # The Art of Observation
 
-![The-Art-of-Observation](/blog/images/the-art-of-observation/The-Art-of-Observation.webp "The-Art-of-Observation")
+![The-Art-of-Observation](/images/blog/the-art-of-observation/The-Art-of-Observation.webp "The-Art-of-Observation")
 
 If you are a fan of Sherlock Holmes, you must have wondered how he could deduce an entire life story from a single glance at a person’s shoes? While we may not be solving crimes, the ability to observe is a superpower in its own right. Observation isn't just about what you see, but how you see it. It’s the difference between glancing at a flower and noticing the intricate patterns of its petals, the subtle gradient of its colors, and the way it sways with the breeze.
 

@@ -4,7 +4,7 @@ date: "2024-03-07"
 datePublished: "2024-03-07T00:00:00.000Z"
 category: "Chakras & Energy"
 categorySlug: "chakras"
-coverImage: "/blog/images/svadhisthana-chakra/Sacral-Chakra.jpg"
+coverImage: "/images/blog/svadhisthana-chakra/Sacral-Chakra.webp"
 tags:
   - "7-chakras"
   - "7-chakras-in-our-body"
@@ -25,13 +25,13 @@ Starting your journey into the world of chakras can be an exciting path to findi
 
 ### **What is Svadhisthana Chakra?**
 
-![](/blog/images/svadhisthana-chakra/Dhyani-Mudra-Meditation-Mudra.png)
+![](/images/blog/svadhisthana-chakra/Dhyani-Mudra-Meditation-Mudra.webp)
 
 The Svadhisthana **[Chakra](https://sciencedivine.org/7-chakras-of-body/)** is often associated with the water element, reflecting its qualities of fluidity, adaptability, and creativity. Its color is vibrant orange, symbolizing warmth, energy, and the glow of sunset. This chakra governs our emotional body, pleasure, and the ability to accept others and new experiences.
 
 ### **Svadhisthana Chakra Location and Its Importance:**
 
-![](/blog/images/svadhisthana-chakra/2nd_chakra.jpg)
+![](/images/blog/svadhisthana-chakra/2nd_chakra.webp)
 
 The Svadhisthana **[Chakra](https://sciencedivine.org/seven-chakras/)**'s location, between the base of the spine and the navel, makes it a vital energy center for our sense of identity, connection with others, and the enjoyment of life's pleasures. A balanced Svadhisthana Chakra allows for healthy relationships, creativity, and the ability to express emotions freely.
 
@@ -41,19 +41,19 @@ Several svadhisthana chakra yoga poses can stimulate and balance this energy cen
 
 ### **Bhujangasana (Cobra Pose):**
 
-![](/blog/images/svadhisthana-chakra/Bhujangasana-Cobra-Pose.jpg)
+![](/images/blog/svadhisthana-chakra/Bhujangasana-Cobra-Pose.webp)
 
 Strengthens the spine and soothes the sacral chakra.
 
 ### **Baddha Konasana (Butterfly Pose):**
 
-![](/blog/images/svadhisthana-chakra/Baddha-Konasana-Butterfly-Pose.jpg)
+![](/images/blog/svadhisthana-chakra/Baddha-Konasana-Butterfly-Pose.webp)
 
 Opens up the hips and stimulates the sacral area.
 
 ### **Supta Baddha Konasana (Reclining Bound Angle Pose):**
 
-![](/blog/images/svadhisthana-chakra/Supta-Baddha-Konasana-Reclining-Bound-Angle-Pose.jpg)
+![](/images/blog/svadhisthana-chakra/Supta-Baddha-Konasana-Reclining-Bound-Angle-Pose.webp)
 
 Promotes relaxation and healing in the sacral chakra.
 

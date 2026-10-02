@@ -4,7 +4,7 @@ date: "2024-02-22"
 datePublished: "2024-02-22T00:00:00.000Z"
 category: "Yoga & Pranayama"
 categorySlug: "yoga-pranayama"
-coverImage: "/blog/images/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-cover-scaled.jpg"
+coverImage: "/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-cover-scaled.webp"
 tags:
   - "meditation"
   - "pranayam-for-high-blood-pressure"
@@ -26,25 +26,25 @@ The essence of pranayama for high BP lies in its ability to regulate the body's 
 
 #### 1\. Anulom Vilom Pranayam for High Blood Pressure:
 
-![pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure](/blog/images/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Anulom-Vilom-Pranayam-for-High-Blood-Pressure.jpg "pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure")
+![pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure](/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Anulom-1a2202.webp "pranayama for high blood pressure - Anulom Vilom Pranayam for High Blood Pressure")
 
 To practice Anulom Vilom Pranayam for high bp, sit comfortably with your spine straight, close your right nostril with your thumb, inhale deeply through your left nostril, then close it with your fingers, open your right nostril and exhale slowly. Repeat the process, alternating nostrils for 5-10 minutes daily, focusing on calm and deep breathing.
 
 #### 2\. Bhramari Pranayam for High BP:
 
-![pranayama for high blood pressure - Bhramari Pranayam for High BP](/blog/images/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Bhramari-Pranayam.jpg "pranayama for high blood pressure - Bhramari Pranayam for High BP")
+![pranayama for high blood pressure - Bhramari Pranayam for High BP](/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Bhramari-Pranayam.webp "pranayama for high blood pressure - Bhramari Pranayam for High BP")
 
 To perform Bhramari Pranayam for high blood pressure, sit in a quiet, comfortable place with your eyes closed, place your thumbs on your ears to close them, rest your fingers lightly on your forehead, take a deep breath in, and as you exhale, make a gentle humming sound like a bee. Repeat this process for 5-10 minutes, focusing on the sound to calm your mind.
 
 #### 3\. Sheetali Pranayam for BP Control:
 
-![pranayama for high blood pressure - Sheetali Pranayam for BP Control](/blog/images/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Sheetali-Pranayam.jpg "pranayama for high blood pressure - Sheetali Pranayam for BP Control")
+![pranayama for high blood pressure - Sheetali Pranayam for BP Control](/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Sheetali-Pranayam.webp "pranayama for high blood pressure - Sheetali Pranayam for BP Control")
 
 To practice Sheetali Pranayam for blood pressure control, sit comfortably with your spine erect, stick out your tongue and roll it into a tube, inhale deeply through the tongue, close your mouth, and exhale through your nose. Repeat this cooling breath technique for 5-10 minutes daily to help lower blood pressure.
 
 #### 4\. Ujjayi Pranayam for High BP Management:
 
-![pranayama for high blood pressure - Ujjayi Pranayam for High BP Management](/blog/images/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Ujjayi-Pranayama.jpg "pranayama for high blood pressure - Ujjayi Pranayam for High BP Management")
+![pranayama for high blood pressure - Ujjayi Pranayam for High BP Management](/images/blog/pranayama-for-high-blood-pressure/pranayama-for-high-blood-pressure-Ujjayi-Pranayama.webp "pranayama for high blood pressure - Ujjayi Pranayam for High BP Management")
 
 To perform Ujjayi Pranayam for high blood pressure management, sit in a comfortable position, inhale deeply through your nose while constricting your throat to create a soft hissing sound, then exhale slowly through your nose, maintaining the constriction. Repeat this process for 5-10 minutes daily, focusing on steady, rhythmic breathing to help reduce blood pressure.
 

@@ -4,7 +4,7 @@ date: "2024-03-02"
 datePublished: "2024-03-02T00:00:00.000Z"
 category: "Stress & Anxiety"
 categorySlug: "stress-anxiety"
-coverImage: "/blog/images/conscious/Conscious.png"
+coverImage: "/images/blog/conscious/Conscious.webp"
 tags:
   - "become-conscious"
   - "conscious"
@@ -26,7 +26,7 @@ Consciousness is the state of being aware of and responsive to one's surrounding
 
 ### What is Self-Conscious?
 
-![](/blog/images/conscious/Self-Conscious.jpeg)
+![](/images/blog/conscious/Self-Conscious.webp)
 
 Being self-conscious involves a heightened awareness of oneself, particularly in social settings or when one's actions, appearance, or characteristics are subject to scrutiny by others. This state can lead to feelings of anxiety or embarrassment, as individuals become overly focused on how they are perceived by those around them. Understanding "what is self-conscious" means recognizing this internal experience as a common aspect of human psychology, one that can influence behavior, confidence, and interactions with others. While being self-conscious is often viewed negatively, it also reflects a person's capacity for self-reflection and social sensitivity, which, when managed effectively, can be harnessed to improve personal and interpersonal dynamics.
 
@@ -34,7 +34,7 @@ When we think consciously, we understand things better. We can make smarter choi
 
 ### How to Be More Conscious Every Day:
 
-![](/blog/images/conscious/How-to-Be-More-Conscious.png)
+![](/images/blog/conscious/How-to-Be-More-Conscious.webp)
 
 **Start Your Day Quietly:** Begin with a few minutes of quiet time. Maybe take deep breaths or sit still and notice the morning sounds. This helps get your mind ready for a great day.
 

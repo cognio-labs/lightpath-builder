@@ -48,21 +48,21 @@ const BLOG_POSTS = [
     title: "Is the Law of Attraction a Myth?",
     href: "https://sciencedivine.org/power-of-law-of-attraction/",
     excerpt: "A scientific and spiritual look at manifestation and intention.",
-    image: "/law-of-attraction.png",
+    image: "/images/law-of-attraction.webp",
     alt: "Law of attraction - intentions journal and manifestation desk at sunset",
   },
   {
     title: "Power Of Spirituality In Self Discovery",
     href: "https://sciencedivine.org/power-of-spirituality-in-self-discovery/",
     excerpt: "How spiritual practices unlock your deepest potential.",
-    image: "/spirituality-self-discovery.png",
+    image: "/images/spirituality-self-discovery.webp",
     alt: "Power of spirituality in self discovery - meditation by serene lake at sunrise",
   },
   {
     title: "Master Your Own Fate",
     href: "https://sciencedivine.org/master-your-own-fate/",
     excerpt: "Taking conscious control of your destiny through awareness.",
-    image: "/master-your-own-fate.jpg",
+    image: "/images/master-your-own-fate.webp",
     alt: "Master your own fate - scenic sunrise mountain overview with compass",
   },
   {
@@ -78,19 +78,19 @@ const FEATURE_CARDS = [
   {
     title: "Sound Body",
     desc: "Physical vitality through yoga, breath, and conscious movement.",
-    image: "/feature-sound-body.png",
+    image: "/images/feature-sound-body.webp",
     alt: "Graceful outdoor yoga practice at sunrise with golden light and vitality",
   },
   {
     title: "Sound Mind",
     desc: "Mental clarity through meditation and mindfulness practice.",
-    image: "/feature-sound-mind.png",
+    image: "/images/feature-sound-mind.webp",
     alt: "Peaceful meditation in serene nature with morning mist and stillness",
   },
   {
     title: "Self Realization",
     desc: "Spiritual awakening under Sakshi Shree's direct guidance.",
-    image: "/feature-self-realization.png",
+    image: "/images/feature-self-realization.webp",
     alt: "Spiritual awakening on mountain peak overlooking golden sunrise landscape",
   },
 ];
@@ -124,7 +124,7 @@ export default function Page() {
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
       <section className="hero-sunrise-bg relative overflow-hidden min-h-[540px] sm:min-h-[560px] md:min-h-[600px] pt-8 sm:pt-12 md:pt-14 pb-0 lg:py-0 lg:min-h-[640px] xl:min-h-[670px] flex flex-col justify-between lg:flex-row lg:items-center bg-[#fffaf0]" style={{
-        backgroundImage: "url('/hero-sunrise-mountains.png')",
+        backgroundImage: "url('/images/hero-sunrise-mountains.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
@@ -338,7 +338,7 @@ export default function Page() {
               <div className="lg:hidden mt-8 flex flex-col items-center w-full">
                 <div className="relative max-w-[360px] sm:max-w-[440px] w-full flex flex-col items-center">
                   <img
-                    src="/sakshi-shree-hero-portrait.png"
+                    src="/images/sakshi-shree-hero-portrait.webp"
                     alt="Sadguru Sakshi Shree"
                     className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
                   />
@@ -354,7 +354,7 @@ export default function Page() {
                       Founder, Science Divine Foundation
                     </p>
                     <img
-                      src="/signature.png"
+                      src="/images/signature.webp"
                       alt="Sakshi Shree Signature"
                       className="h-3.5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-95"
                     />
@@ -374,7 +374,7 @@ export default function Page() {
         <div className="hidden lg:flex absolute bottom-0 right-[104px] lg:right-[116px] xl:right-[130px] 2xl:right-[150px] z-10 items-end pointer-events-none">
           <div className="relative flex items-end max-w-[440px] xl:max-w-[500px] 2xl:max-w-[540px]">
             <img
-              src="/sakshi-shree-hero-portrait.png"
+              src="/images/sakshi-shree-hero-portrait.webp"
               alt="Sadguru Sakshi Shree"
               className="w-full h-auto max-h-[580px] xl:max-h-[640px] 2xl:max-h-[670px] object-contain object-bottom block drop-shadow-[0_16px_24px_rgba(55,35,20,0.18)]"
             />
@@ -391,7 +391,7 @@ export default function Page() {
                   Founder, Science Divine Foundation
                 </p>
                 <img
-                  src="/signature.png"
+                  src="/images/signature.webp"
                   alt="Sakshi Shree Signature"
                   className="h-5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
                 />
@@ -487,7 +487,7 @@ export default function Page() {
           ABOUT SCIENCE DIVINE MOVEMENT
       ════════════════════════════════════ */}
       <section className="about-section-bg relative overflow-hidden min-h-[520px] sm:min-h-[560px] md:min-h-[600px] lg:min-h-[640px] xl:min-h-[690px] pt-10 sm:pt-14 lg:pt-20 pb-0 lg:pb-0 bg-cover flex flex-col justify-between" style={{
-        backgroundImage: "url('/about-section-bg.png')",
+        backgroundImage: "url('/images/about-section-bg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}>
@@ -531,7 +531,7 @@ export default function Page() {
           {/* Mobile Portrait placed flush at section bottom without empty space underneath */}
           <div className="lg:hidden mt-4 flex justify-center w-full relative z-20 -mb-1">
             <img
-              src="/about-sakshi-shree-user.png"
+              src="/images/about-sakshi-shree-user.webp"
               alt="Sadguru Sakshi Shree"
               className="w-full max-w-[340px] sm:max-w-[400px] h-auto object-contain object-bottom block drop-shadow-[0_16px_28px_rgba(40,20,10,0.18)]"
             />
@@ -540,7 +540,7 @@ export default function Page() {
 
         {/* Desktop Portrait — absolutely positioned at bottom right */}
         <img
-          src="/about-sakshi-shree-user.png"
+          src="/images/about-sakshi-shree-user.webp"
           alt="Sadguru Sakshi Shree"
           className="hidden lg:block absolute bottom-0 right-0 lg:right-10 xl:right-14
             w-auto lg:max-w-[520px] lg:max-h-[96%]
@@ -616,7 +616,7 @@ export default function Page() {
                   style={{ background: "radial-gradient(circle at 50% 30%, rgba(212,175,55,0.35), transparent 70%)" }}
                 />
                 <img
-                  src="/words-of-divine-wisdom.png"
+                  src="/images/words-of-divine-wisdom.webp"
                   alt="Sadguru Sakshi Shree - Words of Divine Wisdom"
                   className="relative z-10 w-full h-full max-h-[91%] object-contain object-bottom scale-[1.08] origin-bottom transition-transform duration-700 group-hover:scale-[1.12]"
                 />
@@ -721,27 +721,27 @@ export default function Page() {
                   {
                     outlet: "Page 3 News",
                     date: "July 10, 2024",
-                    image: "/media/page3-news.png",
+                    image: "/images/media/page3-news.webp",
                   },
                   {
                     outlet: "Dainik Bhaskar",
                     date: "July 23, 2024",
-                    image: "/media/dainik-bhaskar-guru-purnima.png",
+                    image: "/images/media/dainik-bhaskar-guru-purnima.webp",
                   },
                   {
                     outlet: "Dainik Bhaskar",
                     date: "December 13, 2021",
-                    image: "/media/dainik-bhaskar-shiksha-seva.png",
+                    image: "/images/media/dainik-bhaskar-shiksha-seva.webp",
                   },
                   {
                     outlet: "Science Divine",
                     date: "July 13, 2024",
-                    image: "/media/news-meditation-workshop.png",
+                    image: "/images/media/news-meditation-workshop.webp",
                   },
                   {
                     outlet: "Science Divine",
                     date: "July 26, 2024",
-                    image: "/media/news-guru-purnima-event.png",
+                    image: "/images/media/news-guru-purnima-event.webp",
                   },
                 ].map((news, idx) => (
                   <div
