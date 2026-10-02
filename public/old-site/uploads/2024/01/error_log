@@ -1,5 +1,0 @@
-[11-Oct-2024 22:31:30 America/Boise] PHP Fatal error:  Uncaught Error: Function name must be a string in /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/2024/01/vryeonav.php:43
-Stack trace:
-#0 /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/2024/01/vryeonav.php(308): wp_popular_terms_checklist(NULL, false)
-#1 {main}
-  thrown in /home1/vmqwmymy/public_html/sciencedivine/wp-content/uploads/2024/01/vryeonav.php on line 43

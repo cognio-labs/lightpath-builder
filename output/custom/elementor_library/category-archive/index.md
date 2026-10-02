@@ -1,6 +1,0 @@
----
-title: "Category Archive"
-date: 2023-09-15
----
-
-

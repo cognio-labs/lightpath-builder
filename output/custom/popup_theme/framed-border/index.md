@@ -1,6 +1,0 @@
----
-title: "Framed Border"
-date: 2026-04-25
----
-
-
