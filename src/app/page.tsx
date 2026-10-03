@@ -1,8 +1,9 @@
-"use client";
 import Link from "next/link";
 
 import * as React from "react";
 import { SectionHeading } from "@/components/PageHero";
+import { NewsCarouselArrow } from "@/components/NewsCarouselArrow";
+import { getAllPostSummaries } from "@/lib/blog.server";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { Counter } from "@/lib/useCounter";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
@@ -29,50 +30,9 @@ import { Facebook, Youtube, Instagram, Linkedin } from "@/components/SocialIcons
 
 
 
-const BLOG_POSTS = [
-  {
-    title: "Does Spirituality Require Renouncement of Materialism?",
-    href: "https://sciencedivine.org/spirituality-and-materialism/",
-    excerpt: "Exploring the balance between material life and spiritual awakening.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
-    alt: "Balance between materialism and spirituality - peaceful lotus meditation",
-  },
-  {
-    title: "Spiritual Enlightenment: The Science of Breathing",
-    href: "https://sciencedivine.org/the-science-of-breathing/",
-    excerpt: "Ancient breath techniques that transform body and mind.",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
-    alt: "Science of breathing - pranayama meditation in tranquil nature",
-  },
-  {
-    title: "Is the Law of Attraction a Myth?",
-    href: "https://sciencedivine.org/power-of-law-of-attraction/",
-    excerpt: "A scientific and spiritual look at manifestation and intention.",
-    image: "/images/law-of-attraction.webp",
-    alt: "Law of attraction - intentions journal and manifestation desk at sunset",
-  },
-  {
-    title: "Power Of Spirituality In Self Discovery",
-    href: "https://sciencedivine.org/power-of-spirituality-in-self-discovery/",
-    excerpt: "How spiritual practices unlock your deepest potential.",
-    image: "/images/spirituality-self-discovery.webp",
-    alt: "Power of spirituality in self discovery - meditation by serene lake at sunrise",
-  },
-  {
-    title: "Master Your Own Fate",
-    href: "https://sciencedivine.org/master-your-own-fate/",
-    excerpt: "Taking conscious control of your destiny through awareness.",
-    image: "/images/master-your-own-fate.webp",
-    alt: "Master your own fate - scenic sunrise mountain overview with compass",
-  },
-  {
-    title: "Easy Habits That Can Change Your Life In a Month",
-    href: "https://sciencedivine.org/habits-that-can-change-your-life/",
-    excerpt: "Simple daily practices for lasting transformation.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
-    alt: "Easy habits that change your life - morning wellness meditation routine",
-  },
-];
+export const revalidate = 300;
+
+const HOME_BLOG_COUNT = 6;
 
 const FEATURE_CARDS = [
   {
@@ -117,7 +77,9 @@ function LotusIcon({ size = 20, color = "#C9910B", className = "" }: { size?: nu
   );
 }
 
-export default function Page() {
+export default async function Page() {
+  const latestPosts = (await getAllPostSummaries()).slice(0, HOME_BLOG_COUNT);
+
   return (
     <>
       {/* ════════════════════════════════════
@@ -326,11 +288,11 @@ export default function Page() {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full sm:w-auto">
-                <Link href="#teachings" className="btn-explore w-full sm:w-auto">
-                  EXPLORE THE TEACHINGS <ArrowRight size={16} />
+                <Link href="/courses" className="btn-explore w-full sm:w-auto">
+                  EXPLORE PROGRAM <ArrowRight size={16} />
                 </Link>
-                <Link href="#events" className="btn-experience w-full sm:w-auto">
-                  JOIN AN EXPERIENCE <Calendar size={16} className="text-[#B8860B]" />
+                <Link href="/events" className="btn-experience w-full sm:w-auto">
+                  JOIN AN EVENT <Calendar size={16} className="text-[#B8860B]" />
                 </Link>
               </div>
 
@@ -417,9 +379,7 @@ export default function Page() {
             {[
               {
                 title: "Awareness",
-                subtitle: "Sakshi Bhav",
-                href: "/about",
-                icon: (
+                subtitle: "Sakshi Bhav",                icon: (
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
                     <circle cx="12" cy="12" r="3" />
@@ -428,15 +388,11 @@ export default function Page() {
               },
               {
                 title: "Wisdom",
-                subtitle: "Bhagavad Gita",
-                href: "/courses",
-                icon: <BookOpen size={24} className="text-[#4E1321]" />,
+                subtitle: "Bhagavad Gita",                icon: <BookOpen size={24} className="text-[#4E1321]" />,
               },
               {
                 title: "Practice",
-                subtitle: "Sakshi Sadhna",
-                href: "/practices",
-                icon: (
+                subtitle: "Sakshi Sadhna",                icon: (
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                   </svg>
@@ -444,9 +400,7 @@ export default function Page() {
               },
               {
                 title: "Purpose",
-                subtitle: "Conscious Living",
-                href: "/about-movement",
-                icon: (
+                subtitle: "Conscious Living",                icon: (
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="5" />
                     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
@@ -455,15 +409,12 @@ export default function Page() {
               },
               {
                 title: "Seva",
-                subtitle: "Serving Humanity",
-                href: "/initiatives",
-                icon: <Heart size={24} className="text-[#4E1321]" />,
+                subtitle: "Serving Humanity",                icon: <Heart size={24} className="text-[#4E1321]" />,
               },
-            ].map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.href}
-                className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1.5"
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group flex flex-col items-center text-center cursor-default transition-transform duration-300 hover:-translate-y-1.5"
               >
                 <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white border-2 border-[#D4AF37] shadow-md flex items-center justify-center mb-3 transition-shadow group-hover:shadow-lg group-hover:border-[#B8860B]">
                   {item.icon}
@@ -474,10 +425,7 @@ export default function Page() {
                 <p className="text-xs font-medium text-[#8B6914] mb-1">
                   {item.subtitle}
                 </p>
-                <span className="text-xs text-[#C79A2E] transition-transform duration-300 group-hover:translate-x-1">
-                  &rarr;
-                </span>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -697,19 +645,7 @@ export default function Page() {
           {/* Newspaper Media Cards – Horizontal Carousel */}
           <div className="pt-6 border-t border-amber-200/50">
             <div className="relative">
-              {/* Left Arrow */}
-              <button
-                onClick={() => {
-                  const el = document.getElementById("news-carousel");
-                  if (el) el.scrollBy({ left: -320, behavior: "smooth" });
-                }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-10 h-10 rounded-full bg-white border border-amber-300 shadow-md flex items-center justify-center hover:bg-amber-50 hover:shadow-lg transition-all duration-200 group"
-                aria-label="Previous"
-              >
-                <svg className="w-5 h-5 text-[#521623] group-hover:text-[#B8860B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
+              <NewsCarouselArrow direction="left" />
 
               {/* Scrollable Cards Row */}
               <div
@@ -762,19 +698,7 @@ export default function Page() {
                 ))}
               </div>
 
-              {/* Right Arrow */}
-              <button
-                onClick={() => {
-                  const el = document.getElementById("news-carousel");
-                  if (el) el.scrollBy({ left: 320, behavior: "smooth" });
-                }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-10 h-10 rounded-full bg-white border border-amber-300 shadow-md flex items-center justify-center hover:bg-amber-50 hover:shadow-lg transition-all duration-200 group"
-                aria-label="Next"
-              >
-                <svg className="w-5 h-5 text-[#521623] group-hover:text-[#B8860B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              <NewsCarouselArrow direction="right" />
             </div>
           </div>
         </div>
@@ -1205,24 +1129,22 @@ export default function Page() {
         <div className="container-page relative z-10">
           <SectionHeading
             center
-            eyebrow="Sakshi Wisdom"
+            eyebrow="Blog"
             title="From the Pen of Sakshi Shree"
             subtitle="Delve into profound insights and teachings. Explore mindfulness, personal growth, and spiritual enlightenment."
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {BLOG_POSTS.map((post) => (
-              <a
-                key={post.title}
-                href={post.href}
-                target="_blank"
-                rel="noreferrer"
+            {latestPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
                 className="card-premium rounded-[1.75rem] overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col h-full bg-white border border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(82,22,35,0.14)]"
               >
                 {/* Blog Card Image Container */}
                 <div className="w-full aspect-[16/10] overflow-hidden bg-amber-50 relative border-b border-amber-100">
                   <img
                     src={post.image}
-                    alt={post.alt}
+                    alt={post.title}
                     loading="lazy"
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
@@ -1235,7 +1157,7 @@ export default function Page() {
                     <h3 className="font-serif text-xl font-bold text-[#521623] mb-2.5 leading-tight group-hover:text-[#B8860B] transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-5 font-normal">
+                    <p className="text-sm text-gray-600 leading-relaxed mb-5 font-normal line-clamp-3">
                       {post.excerpt}
                     </p>
                   </div>
@@ -1243,9 +1165,10 @@ export default function Page() {
                     <span className="text-xs font-bold uppercase tracking-wider text-[#8B6914] group-hover:text-[#521623] transition-colors inline-flex items-center gap-1.5">
                       Read Article <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
                     </span>
+                    <span className="text-xs text-gray-500">{post.date}</span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
