@@ -23,15 +23,14 @@ import {
   Utensils,
   GraduationCap,
   Users,
-  UserCheck,
   ArrowRight,
   ShieldAlert,
 } from "lucide-react";
 import { LOGO_URL, SOLUTION_TOPICS } from "@/data/content";
 
 const aboutLinks = [
-  { href: "/about-movement", label: "About the Movement", desc: "Our origin, vision & global mission", icon: Users },
-  { href: "/about-sakshi-shree", label: "About Sakshi Shree", desc: "Enlightened master & founder", icon: UserCheck },
+  { href: "/about-movement", label: "About Science Divine", desc: "Our origin, vision & global mission", image: "/favicon.ico", imageClass: "object-contain p-1" },
+  { href: "/about-sakshi-shree", label: "About Sakshi Shree", desc: "Enlightened master & founder", image: "/images/sakshi-shree-hero-portrait.webp", imageClass: "object-cover object-top" },
 ];
 
 const initiativeLinks = [
@@ -179,7 +178,6 @@ export function SiteNav() {
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {aboutLinks.map((item) => {
-                      const Icon = item.icon;
                       return (
                         <Link
                           key={item.href}
@@ -187,8 +185,8 @@ export function SiteNav() {
                           onClick={() => setActiveDropdown(null)}
                           className="flex items-start gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
-                            <Icon size={17} />
+                          <div className="w-9 h-9 rounded-xl bg-white border border-amber-400/40 overflow-hidden shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:border-amber-500/70 transition-all duration-200">
+                            <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className={`w-full h-full ${item.imageClass}`} />
                           </div>
                           <div>
                             <div className="text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">

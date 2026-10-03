@@ -275,7 +275,9 @@ html.dark footer {
     width: 100%;
     max-width: 100%;
     scroll-behavior: smooth;
+    /* clip, not hidden: hidden turns html/body into scroll containers and breaks the sticky SiteNav */
     overflow-x: hidden;
+    overflow-x: clip;
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -290,6 +292,7 @@ html.dark footer {
     text-rendering: optimizeLegibility;
     line-height: 1.65;
     overflow-x: hidden;
+    overflow-x: clip;
     transition: background-color 0.4s ease, color 0.4s ease;
   }
   img,

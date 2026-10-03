@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 
 export function parseStatValue(str: string): { to: number; suffix: string; prefix: string } {
