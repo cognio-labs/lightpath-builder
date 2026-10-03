@@ -6,6 +6,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
 import { QuickActionBar } from "@/components/QuickActionBar";
+import { BookingModalHost } from "@/components/personal-session/BookingModal";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -162,6 +163,7 @@ export default function RootLayout({
             <QuickActionBar />
             <SiteFooter />
             <MahaMantrasPopup />
+            <BookingModalHost />
           </div>
         </Providers>
       </body>
