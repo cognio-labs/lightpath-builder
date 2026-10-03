@@ -595,6 +595,18 @@ export const LEADERS = [
   },
 ];
 
+/** Scrolling testimonial cards (homepage + Personal Session page). */
+export const MARQUEE_TESTIMONIALS = [
+  { quote: "Sakshi Shree's guidance changed how I see my anxiety. I finally feel completely free, grounded, and focused in life.",       author: "Sanaya Aggarwal",    role: "Student & Practitioner",   avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" },
+  { quote: "The scientific approach of Sakshi Sadhna transformed both my high-stress medical profession and my inner well-being.",        author: "Dr. Rajesh Verma",   role: "Senior Cardiologist",      avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&q=80" },
+  { quote: "Total participation in worldly life with complete inner peace — Sakshi Shree's teachings are pure gold for modern seekers.", author: "Priya Sharma",       role: "Enterprise Architect",     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" },
+  { quote: "Every teaching of Sakshi Shree has a scientific basis. I use these practices daily to lead my team with calm and clarity.",  author: "Amit Sharma",        role: "Technology Consultant",    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" },
+  { quote: "The Inner Cleansing Kriya revitalized my energy and brought lasting emotional healing into my everyday routine.",            author: "Neha Kapoor",        role: "Wellness Practitioner",    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=80" },
+  { quote: "Meditation techniques here provide unmatched mental poise and calm even during the most intense professional challenges.",    author: "Arjun Mehta",        role: "Business Professional",    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80" },
+  { quote: "Spiritual grounding cleared my mental clutter completely. My creativity now flows effortlessly and abundantly every day.",   author: "Riya Malhotra",      role: "Creative Director",        avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80" },
+  { quote: "Practicing Mind Power Meditation helped me overcome burnout and discover the clarity I needed in both work and personal life.",author: "Vivek Singh",        role: "Senior Manager",           avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" },
+];
+
 export const TESTIMONIAL_VIDEOS = [
   { id: "QLmL230dApk", title: "Swaparna Testimonial" },
   { id: "EiFMTSo8Yws", title: "Helen Testimonial" },

@@ -1475,4 +1475,105 @@ main :is(.rounded-2xl, .rounded-3xl) {
   scroll-margin-top: 6rem;
 }
 
+/* ============================================================
+   Personal Session page (/book-session, src/components/personal-session)
+   Light Science Divine palette: cream paper, gold accents, maroon ink.
+   ============================================================ */
+
+@theme {
+  --color-gold-50: #fdf6e7;
+  --color-gold-100: #f8e6bf;
+  --color-gold-200: #f0d191;
+  --color-gold-300: #e6b95f;
+  --color-gold-400: #dda63c;
+  --color-gold-500: #cf8f22;
+  --color-gold-600: #b3771a;
+  --color-gold-700: #8d5c15;
+
+  --color-cream-50: #fefbf5;
+  --color-cream-100: #fcf7ed;
+  --color-cream-200: #f7efe0;
+  --color-cream-300: #ecdfc9;
+
+  --color-ink-900: #521623;
+  --color-ink-700: #4a403e;
+  --color-ink-500: #6b5b57;
+
+  --color-maroon-950: #2a0a12;
+  --color-maroon-900: #3b0f19;
+  --color-maroon-800: #521623;
+  --color-maroon-700: #5a1525;
+  --color-maroon-600: #7a1f33;
+
+  --shadow-ps-card: 0 1px 2px rgba(82, 22, 35, 0.04), 0 8px 24px -12px rgba(82, 22, 35, 0.14);
+  --shadow-ps-gold: 0 10px 30px -10px rgba(207, 143, 34, 0.55);
+}
+
+@utility sd-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Warm dawn behind the hero */
+@utility sd-dawn {
+  background-color: var(--color-cream-100);
+  background-image:
+    radial-gradient(110% 85% at 80% 90%, rgba(226, 176, 74, 0.22) 0%, rgba(226, 176, 74, 0.06) 40%, transparent 70%),
+    radial-gradient(80% 60% at 10% 0%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
+    linear-gradient(165deg, #fefbf5 0%, #fcf7ed 55%, #f7efe0 100%);
+}
+
+/* Brand maroon for the small accent cards */
+@utility sd-maroon {
+  background-color: var(--color-maroon-900);
+  background-image:
+    radial-gradient(120% 90% at 85% 100%, rgba(226, 176, 74, 0.22) 0%, rgba(226, 176, 74, 0.05) 40%, transparent 70%),
+    linear-gradient(160deg, #5a1525 0%, #3b0f19 60%, #2a0a12 100%);
+}
+
+@utility sd-hairline {
+  border: 1px solid rgba(207, 143, 34, 0.3);
+}
+
+@utility sd-gold-text {
+  background: linear-gradient(100deg, #b8860b 0%, #d59a2c 50%, #b3771a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility sd-gold-btn {
+  background-image: linear-gradient(100deg, #e9b955 0%, #d59a2c 45%, #c07f1c 100%);
+  color: #22160a;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, var(--shadow-ps-gold);
+}
+
+@utility sd-paper {
+  background-color: var(--color-cream-100);
+  background-image: radial-gradient(60% 40% at 50% 0%, rgba(207, 143, 34, 0.06) 0%, transparent 70%);
+}
+
+@keyframes sd-pulse-ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+@keyframes sd-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@utility sd-rise {
+  animation: sd-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* The global `main p/img/a/button/h1/h2` rules above are unlayered and beat Tailwind
+   utilities; inside this page, hand those properties back to the utilities. */
+main .ps-root p { max-width: revert-layer; }
+main .ps-root img { height: revert-layer; }
+main .ps-root :is(a, button) { min-height: revert-layer; }
+main .ps-root :is(h1, h2, h3) { font-size: revert-layer; }
+
 
