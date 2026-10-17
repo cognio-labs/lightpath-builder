@@ -38,6 +38,7 @@ const initiativeLinks = [
   { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen, image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=240&q=80&auto=format&fit=crop" },
   { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils, image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=240&q=80&auto=format&fit=crop" },
   { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2, image: "/images/initiatives/nirman-sewa.jpg" },
+  { href: "/living-the-moment", label: "Living the Moment", desc: "Present-moment awareness & conscious living", icon: Sparkles, image: "/images/about-movement/gita-bg.jpg" },
 ];
 
 const practiceLinks = [
@@ -401,7 +402,7 @@ export function SiteNav() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="absolute top-full left-0 pt-2 z-50 w-72"
+                  className="absolute top-full left-0 pt-2 z-50 w-80"
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {/* All Initiatives button placed at the top */}

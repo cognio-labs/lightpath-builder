@@ -278,7 +278,8 @@ function LegacyNirmanSewaPage() {
 }
 
 const templeImage = "/images/nirman-sewa/vrindavan-temple-card.webp";
-const templeLandscape = "/images/nirman-sewa/vrindavan-temple-card.webp";
+const transformationTempleBg = "/images/nirman-sewa/transformation-single-temple.webp";
+const sacredSpaceTempleBg = "/images/nirman-sewa/sacred-space-mandir.webp";
 const guruImage = "/images/guruji-namaste-new.webp";
 
 const plannedFacilities = [
@@ -324,10 +325,12 @@ export default function NirmanSewaPage() {
     <section className={styles.visionDonation}>
       <div className={styles.vision}>
         <div className={styles.visionCopy}>
-          <p className={styles.sectionLabel}>OUR VISION</p>
-          <h2>A GLOBAL SPIRITUAL CENTER IN THE HEART OF VRINDAVAN</h2>
-          <p>Sakshi Dham International is being developed as a sacred ashram in Vrindavan to offer a peaceful space for meditation, dhyan, Gita wisdom, retreats, and community living.</p>
-          <p>It will welcome seekers from all walks of life to experience inner transformation and contribute to a more conscious, compassionate and harmonious world.</p>
+          <div>
+            <p className={styles.sectionLabel}>OUR VISION</p>
+            <h2>A GLOBAL SPIRITUAL CENTER<br />IN THE HEART OF VRINDAVAN</h2>
+            <p>Sakshi Dham International is being developed as a sacred ashram in Vrindavan to offer a peaceful space for meditation, dhyan, Gita wisdom, retreats, and community living.</p>
+            <p>It will welcome seekers from all walks of life to experience inner transformation and contribute to a more conscious, compassionate and harmonious world.</p>
+          </div>
           <blockquote className={styles.visionQuote}>
             Sakshi Dham will be a living example of how spiritual wisdom can create a better individual, a better family and a better society.
             <cite>— Sadguru Sakshi Shree</cite>
@@ -339,8 +342,25 @@ export default function NirmanSewaPage() {
     <section className={styles.support}><div className={styles.centerHeading}><h2>WHAT YOUR SUPPORT WILL HELP CREATE</h2><p>Your contribution will help us build and develop this divine ashram with essential facilities for spiritual learning, meditation, retreats, and community living.</p></div><div className={styles.facilityGrid}>{plannedFacilities.map(({ title, description, image, icon: Icon }) => <article className={styles.facilityCard} key={title}><img src={image} alt={`${title} proposed design`} /><div><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></div></article>)}</div></section>
     <section className={styles.membership}><div className={styles.centerHeading}><h2>MEMBERSHIP DETAILS</h2><p>Become a valued member and support the creation of Sakshi Dham International.<br />Membership is available at the following contribution amounts:</p></div><div className={styles.membershipGrid}>{membershipPlans.map(({ title, amount: membershipAmount, icon: Icon }) => <article key={title}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{membershipAmount}</strong></div></article>)}</div></section>
     <section className={styles.highlights}><div className={styles.centerHeading}><h2>PROJECT HIGHLIGHTS</h2></div><div>{projectHighlights.map(({ label, icon: Icon }) => <article key={label}><Icon aria-hidden="true" /><p>{label}</p></article>)}</div></section>
-    <section className={styles.transformation} style={{ backgroundImage: `url(${templeLandscape})` }}><div className={styles.transformationCopy}><h2>A PLACE FOR<br />INNER TRANSFORMATION</h2><p>Sakshi Dham International is envisioned as a space for meditation, self-discovery, Gita wisdom, spiritual retreats, and community living.</p><p>Inspired by India&apos;s timeless knowledge traditions, the ashram aims to nurture a more conscious way of living and encourage positive change in individuals, families, and society.</p><a href="/about-movement">KNOW MORE ABOUT THE PROJECT <ArrowRight size={17} /></a></div><blockquote>More than a building, Sakshi Dham is a movement towards a more awakened and compassionate world.</blockquote></section>
-    <section className={styles.finalCta} style={{ backgroundImage: `url(${templeLandscape})` }}><div><h2>LET&apos;S BUILD A SACRED SPACE<br />FOR A MORE CONSCIOUS WORLD</h2><p>Your contribution will help develop Sakshi Dham International in Vrindavan — a spiritual center dedicated to wisdom, inner transformation, and compassionate living.</p><a href="#contribute">DONATE NOW <ArrowRight size={19} /></a></div><p className={styles.finalNote}>A brighter,<br />more conscious<br />tomorrow ♡</p></section>
-    <div className={styles.minimalFooter} role="contentinfo"><span>Sakshi Dham International</span><a href="mailto:info@sciencedivine.org">info@sciencedivine.org</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms-conditions">Terms &amp; Conditions</a><a href="/cancellation-and-refund-policy">Donation &amp; Refund Policy</a></div>
+    <div className={styles.bottomCardsSection}>
+      <section className={styles.transformation} style={{ backgroundImage: `url(${transformationTempleBg})` }}>
+        <div className={styles.transformationCopy}>
+          <h2>A PLACE FOR<br />INNER TRANSFORMATION</h2>
+          <p>Sakshi Dham International is envisioned as a space for meditation, self-discovery, Gita wisdom, spiritual retreats, and community living.</p>
+          <p>Inspired by India&apos;s timeless knowledge traditions, the ashram aims to nurture a more conscious way of living and encourage positive change in individuals, families, and society.</p>
+          <a href="/about-movement">KNOW MORE ABOUT THE PROJECT <ArrowRight size={17} /></a>
+        </div>
+        <blockquote>More than a building, Sakshi Dham is a movement towards a more awakened and compassionate world.</blockquote>
+      </section>
+
+      <section className={styles.finalCta} style={{ backgroundImage: `url(${sacredSpaceTempleBg})` }}>
+        <div>
+          <h2>LET&apos;S BUILD A SACRED SPACE<br />FOR A MORE CONSCIOUS WORLD</h2>
+          <p>Your contribution will help develop Sakshi Dham International in Vrindavan — a spiritual center dedicated to wisdom, inner transformation, and compassionate living.</p>
+          <a href="#contribute">DONATE NOW <ArrowRight size={19} /></a>
+        </div>
+        <p className={styles.finalNote}>A brighter,<br />more conscious<br />tomorrow ♡</p>
+      </section>
+    </div>
   </div>;
 }

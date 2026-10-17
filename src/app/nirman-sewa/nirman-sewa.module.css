@@ -160,13 +160,19 @@
   background-position: center right;
   position: relative;
   overflow: hidden;
+  margin-left: -220px;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.95) 70%, black 85%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.95) 70%, black 85%);
 }
 
 .heroTemple::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #57120c 0%, rgba(87, 18, 12, 0.65) 25%, transparent 65%);
+  background: 
+    linear-gradient(90deg, rgba(62, 11, 8, 0.75) 0%, rgba(62, 11, 8, 0.35) 30%, transparent 65%),
+    linear-gradient(180deg, rgba(27, 5, 3, 0.35) 0%, transparent 35%, rgba(37, 6, 4, 0.45) 100%);
   pointer-events: none;
 }
 
@@ -189,96 +195,103 @@
    OUR VISION & DONATION SECTION - Matches Reference Card Design
    ========================================================================== */
 .visionDonation {
-  max-width: 1420px;
+  max-width: 1240px;
   margin: auto;
-  padding: 48px clamp(20px, 5vw, 70px);
+  padding: 34px clamp(16px, 4vw, 48px);
   display: grid;
-  grid-template-columns: 1.34fr 0.9fr;
-  gap: 32px;
+  grid-template-columns: 1.3fr 0.88fr;
+  gap: 24px;
+  align-items: stretch;
   background: radial-gradient(circle at 20% 20%, #fff 0, transparent 30%), var(--cream);
 }
 
-/* Full card with Mandir image prominently showing on the right */
+/* Full card with Mandir image prominently showing on the right matching reference image */
 .vision {
   min-width: 0;
+  min-height: 410px;
   position: relative;
   background-color: #fffdf8;
   background-image: url('/images/nirman-sewa/vrindavan-vision-card-bg.webp');
   background-position: right center;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1.5px solid #ecd7b4;
-  border-radius: 18px;
-  padding: 38px 42px;
-  box-shadow: 0 12px 36px rgba(91, 18, 15, 0.07);
+  border: 1.5px solid #ebd8be;
+  border-radius: 16px;
+  padding: 26px 30px;
+  box-shadow: 0 10px 28px rgba(91, 18, 15, 0.06);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   overflow: hidden;
 }
 
 .visionCopy {
-  max-width: 54%;
+  max-width: 44%;
+  width: 100%;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sectionLabel {
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: #9e2621;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: #8c211e;
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .vision h2 {
-  color: #8c211e;
-  line-height: 1.1;
-  font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+  color: #851c19;
+  line-height: 1.18;
+  font-size: clamp(1.15rem, 1.45vw, 1.44rem);
   font-weight: 700;
-  margin: 6px 0 14px;
+  margin: 4px 0 8px;
+  letter-spacing: -0.01em;
 }
 
-.visionCopy > p:not(.sectionLabel) {
-  font-size: 1.08rem;
-  line-height: 1.55;
+.visionCopy > div > p {
+  font-size: 0.83rem;
+  line-height: 1.44;
   color: #431615;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 /* Floating quote card on bottom-left */
 .visionQuote {
-  margin-top: 24px !important;
-  padding: 16px 20px 16px 48px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid #ebd8be;
-  border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(82, 34, 13, 0.06);
-  font-size: 0.98rem;
+  margin-top: 14px !important;
+  padding: 10px 14px 10px 36px;
+  background: #ffffff;
+  border: 1px solid #ead6bc;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(82, 34, 13, 0.05);
+  font-size: 0.77rem;
   font-style: italic;
-  line-height: 1.42;
+  line-height: 1.38;
   position: relative;
-  max-width: 480px;
+  max-width: 350px;
   color: #4a1714;
-  backdrop-filter: blur(6px);
 }
 
 .visionQuote::before {
   content: "“";
   position: absolute;
-  left: 14px;
-  top: 6px;
-  font-size: 2.6rem;
+  left: 10px;
+  top: 2px;
+  font-size: 2rem;
   color: #e69c2e;
   font-family: Georgia, serif;
   line-height: 1;
 }
 
 .visionQuote cite {
+  display: block;
+  margin-top: 4px;
   color: #8c211e;
   font-style: normal;
   font-weight: 700;
+  font-size: 0.73rem;
 }
 
 /* ==========================================================================
@@ -286,34 +299,35 @@
    ========================================================================== */
 .donationCard {
   align-self: center;
-  padding: 31px 28px 23px;
+  padding: 24px 22px 18px;
   background: linear-gradient(155deg, #5e110d, #3f0908);
-  border: 7px solid #fff5d7;
+  border: 6px solid #fff5d7;
   outline: 1px solid #8c241b;
-  border-radius: 10px;
+  border-radius: 12px;
   color: white;
   text-align: center;
-  box-shadow: 0 12px 28px rgba(71, 14, 9, 0.25);
+  box-shadow: 0 10px 24px rgba(71, 14, 9, 0.22);
 }
 
 .donationKicker {
   color: #f2c253;
-  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  font-size: clamp(1.2rem, 1.6vw, 1.55rem);
   font-weight: bold;
 }
 
 .donationCard > p:not(.donationKicker) {
-  margin: 4px 0 24px;
+  margin: 4px 0 16px;
   color: #fae4b3;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .donationCard label {
   text-align: left;
   display: block;
   color: #fff2d0;
-  margin: 0 0 7px 3px;
-  font-size: 0.9rem;
+  margin: 0 0 6px 2px;
+  font-size: 0.82rem;
   font-weight: bold;
 }
 
@@ -321,8 +335,8 @@
   display: flex;
   align-items: center;
   background: white;
-  border-radius: 5px;
-  padding: 0 13px;
+  border-radius: 6px;
+  padding: 0 12px;
   color: #9a3024;
 }
 
@@ -332,17 +346,17 @@
   border: 0;
   outline: 0;
   background: transparent;
-  padding: 15px 10px;
-  font: 600 1rem Inter, sans-serif;
+  padding: 11px 8px;
+  font: 600 0.94rem Inter, sans-serif;
 }
 
 .donationCard small {
   display: block;
   color: #fae4b3;
-  margin: 10px 0 17px;
+  margin: 8px 0 14px;
   font-family: Inter, sans-serif;
-  font-size: 0.72rem;
-  line-height: 1.4;
+  font-size: 0.7rem;
+  line-height: 1.35;
 }
 
 .donationCard button,
@@ -581,26 +595,39 @@
 }
 
 /* ==========================================================================
-   TRANSFORMATION & FINAL CTA
+   TRANSFORMATION & FINAL CTA - SEPARATE CARDS
    ========================================================================== */
-.transformation,
-.finalCta {
+.bottomCardsSection {
   max-width: 1420px;
-  margin: auto;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  color: white;
+  margin: 0 auto;
+  padding: 24px clamp(20px, 4.5vw, 60px) 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
 .transformation {
-  min-height: 310px;
-  padding: 29px clamp(25px, 5vw, 70px);
+  width: 100%;
+  min-height: 380px;
+  padding: 42px clamp(28px, 4vw, 64px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 35px;
   isolation: isolate;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid #ecd7b4;
+  box-shadow: 0 14px 38px rgba(91, 18, 15, 0.08);
+  background-size: cover;
+  background-position: right center;
+  position: relative;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.transformation:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(91, 18, 15, 0.13);
 }
 
 .transformation::before {
@@ -608,55 +635,85 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(255, 245, 211, 0.95) 0%, rgba(255, 245, 211, 0.92) 31%, rgba(77, 15, 6, 0.03) 73%);
+  background: linear-gradient(90deg, rgba(255, 246, 224, 0.94) 0%, rgba(255, 245, 211, 0.85) 36%, rgba(255, 245, 211, 0.3) 65%, transparent 100%);
 }
 
 .transformationCopy {
-  width: min(435px, 55%);
+  width: min(480px, 56%);
   color: #5b1d14;
 }
 
 .transformation h2 {
   font-size: clamp(1.45rem, 2.6vw, 2.3rem);
-  line-height: 0.98;
+  line-height: 1.05;
   color: #5b120f;
 }
 
 .transformation p {
   font-size: 1rem;
-  line-height: 1.08;
-  margin-top: 11px;
+  line-height: 1.5;
+  margin-top: 12px;
+  color: #551d18;
 }
 
 .transformation a {
-  margin-top: 15px;
-  padding: 12px 17px;
+  margin-top: 18px;
+  padding: 13px 24px;
   color: #592018;
   background: #f5b939;
-  font-size: 0.84rem;
-  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(245, 185, 57, 0.35);
+  transition: all 0.22s ease;
+}
+
+.transformation a:hover {
+  background: #f8c857;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 185, 57, 0.45);
 }
 
 .transformation blockquote {
   align-self: flex-start;
-  width: min(255px, 28%);
-  margin-top: 13px;
-  color: #6d291c;
+  width: min(280px, 30%);
+  margin-top: 12px;
+  color: #5b120f;
   font-family: "Philosopher", cursive;
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 1.3vw, 1.3rem);
   font-weight: bold;
-  line-height: 1.1;
-  transform: rotate(-4deg);
+  line-height: 1.25;
+  transform: rotate(-3deg);
+  background: rgba(255, 253, 248, 0.82);
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(236, 215, 180, 0.85);
+  box-shadow: 0 4px 16px rgba(91, 18, 15, 0.06);
+  backdrop-filter: blur(6px);
 }
 
 .finalCta {
-  min-height: 275px;
+  width: 100%;
+  min-height: 390px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 35px 130px;
+  padding: 50px clamp(24px, 6vw, 110px);
   text-align: center;
   isolation: isolate;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid rgba(243, 202, 102, 0.45);
+  box-shadow: 0 18px 48px rgba(53, 7, 3, 0.26);
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.finalCta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 56px rgba(53, 7, 3, 0.34);
 }
 
 .finalCta::before {
@@ -664,7 +721,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(53, 7, 3, 0.78), rgba(92, 15, 6, 0.88), rgba(56, 4, 2, 0.74));
+  background: linear-gradient(180deg, rgba(53, 7, 3, 0.65) 0%, rgba(92, 15, 6, 0.78) 50%, rgba(53, 7, 3, 0.82) 100%);
 }
 
 .finalCta > div {
@@ -674,28 +731,37 @@
 .finalCta h2 {
   color: #f5cc6d;
   font-size: clamp(1.65rem, 3vw, 2.75rem);
-  line-height: 1.03;
+  line-height: 1.08;
 }
 
 .finalCta p {
   color: #ffedbd;
   font-size: 1.1rem;
-  line-height: 1.13;
-  margin: 12px auto 17px;
+  line-height: 1.45;
+  margin: 14px auto 20px;
 }
 
 .finalCta a {
   background: #ffce57;
   color: #5d190e;
-  padding: 13px 34px;
-  border-radius: 4px;
+  padding: 14px 38px;
+  border-radius: 8px;
   font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(255, 206, 87, 0.35);
+  transition: all 0.22s ease;
+}
+
+.finalCta a:hover {
+  background: #ffd973;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 206, 87, 0.5);
 }
 
 .finalNote {
   position: absolute;
-  right: 5%;
-  bottom: 32px;
+  right: 4%;
+  bottom: 26px;
   text-align: left;
   color: #fff3d2 !important;
   font-family: "Philosopher", cursive;
@@ -703,42 +769,6 @@
   transform: rotate(-7deg);
 }
 
-.minimalFooter {
-  background: #32100d;
-  color: #f9e2ac;
-  min-height: 70px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  padding: 18px 20px;
-  font: 500 0.78rem Inter, sans-serif;
-  flex-wrap: wrap;
-}
-
-.minimalFooter span {
-  color: #f2bd50;
-  font-family: "Playfair Display", serif;
-  font-size: 1rem;
-}
-
-.minimalFooter a {
-  color: #fff3d2;
-  text-decoration: none;
-}
-
-.minimalFooter a:hover {
-  color: #f6c251;
-}
-
-:global(body:has(.sakshi-dham-page) footer),
-:global(body:has(.sakshi-dham-page) .site-quick-actions) {
-  display: none !important;
-}
-
-:global(body:has(.sakshi-dham-page) main) {
-  padding-bottom: 0 !important;
-}
 
 /* ==========================================================================
    RESPONSIVE DESIGN
@@ -788,6 +818,8 @@
     min-height: 260px;
     margin: 10px 20px 20px;
     border-radius: 12px;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .heroNote {
     position: static;
@@ -796,10 +828,15 @@
     font-size: 1.1rem;
   }
   .vision {
-    padding: 28px 20px;
+    padding: 32px 20px 24px;
     background: 
-      linear-gradient(180deg, #fff9ed 0%, #fff9ed 62%, rgba(255, 249, 237, 0.9) 82%, rgba(255, 249, 237, 0.3) 100%),
-      url('/images/nirman-sewa/vrindavan-temple-card.webp') bottom center / cover no-repeat;
+      linear-gradient(180deg, #fffdf8 0%, #fffdf8 56%, rgba(255, 253, 248, 0.95) 76%, rgba(255, 253, 248, 0.45) 100%),
+      url('/images/nirman-sewa/vrindavan-vision-card-bg.webp') right bottom / cover no-repeat;
+    min-height: auto;
+  }
+  .visionCopy {
+    max-width: 100%;
+    min-height: auto;
   }
   .visionQuote {
     max-width: 100%;
@@ -837,23 +874,31 @@
   .highlights article:last-child {
     grid-column: 1 / -1;
   }
+  .bottomCardsSection {
+    padding: 16px 14px 40px;
+    gap: 22px;
+  }
   .transformation {
-    min-height: 500px;
+    min-height: auto;
     display: block;
-    padding-top: 26px;
+    padding: 28px 18px 32px;
+    border-radius: 18px;
   }
   .transformationCopy {
     width: 100%;
   }
   .transformation blockquote {
-    width: 70%;
-    margin: 38px 0 0 auto;
-    color: #fff3d3;
-    font-size: 1.12rem;
+    width: 100%;
+    margin: 24px 0 0;
+    color: #5b120f;
+    font-size: 1.15rem;
+    transform: none;
+    text-shadow: none;
   }
   .finalCta {
-    min-height: 310px;
-    padding: 33px 20px 68px;
+    min-height: auto;
+    padding: 34px 18px 64px;
+    border-radius: 18px;
   }
   .finalCta h2 {
     font-size: 1.62rem;
@@ -865,10 +910,6 @@
     right: 18px;
     bottom: 4px;
     font-size: 1rem !important;
-  }
-  .minimalFooter {
-    justify-content: flex-start;
-    gap: 12px 17px;
   }
 }
 
