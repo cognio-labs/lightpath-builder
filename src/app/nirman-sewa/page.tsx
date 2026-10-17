@@ -1,6 +1,26 @@
 "use client";
 
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { FormEvent, useState } from "react";
+import {
+  ArrowRight,
+  BadgeIndianRupee,
+  BookOpen,
+  Building2,
+  Flower2,
+  Heart,
+  HeartHandshake,
+  Landmark,
+  Leaf,
+  LockKeyhole,
+  Medal,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  UsersRound,
+  WalletCards,
+} from "lucide-react";
+import styles from "./nirman-sewa.module.css";
 
 
 
@@ -52,7 +72,7 @@ const GALLERY = [
   "https://assets.cdn.filesafe.space/z3Nz1DGIjH8cQEHGGNs5/media/693176d7f3fe2a69ab6e64fa.jpg",
 ];
 
-export default function Page() {
+function LegacyNirmanSewaPage() {
   const H = "#551628"; const H2 = "#3D0E1B";
   const G = "#D4AF37"; const Gd = "rgba(212,175,55,0.15)"; const Gb = "rgba(212,175,55,0.35)";
   const T = "#1E293B"; const TL = "#64748B"; const W = "#FFFFFF";
@@ -255,4 +275,72 @@ export default function Page() {
       </section>
     </div>
   );
+}
+
+const templeImage = "/images/nirman-sewa/vrindavan-temple-card.webp";
+const templeLandscape = "/images/nirman-sewa/vrindavan-temple-card.webp";
+const guruImage = "/images/guruji-namaste-new.webp";
+
+const plannedFacilities = [
+  { title: "Temple & Prayer Halls", description: "A serene space for meditation, reflection, spiritual learning, and gatherings.", image: "/images/nirman-sewa/vrindavan-temple-card.webp", icon: Landmark },
+  { title: "Accommodation", description: "Comfortable accommodation facilities for seekers, volunteers, and retreat participants.", image: "/images/nirman-sewa/apartment.jpg", icon: Building2 },
+  { title: "Learning & Retreat Spaces", description: "Dedicated spaces for Gita classes, meditation sessions, workshops, and retreats.", image: "/images/nirman-sewa/auditorium.jpg", icon: BookOpen },
+  { title: "Sustainable & Green Campus", description: "A peaceful, eco-friendly environment designed for conscious living and connection with nature.", image: "/images/nirman-sewa/wellness.jpg", icon: Leaf },
+  { title: "Community Facilities", description: "Essential shared spaces for ashram activities, dining, gatherings, and community living.", image: "/images/nirman-sewa/restaurant.jpg", icon: UsersRound },
+];
+
+const membershipPlans = [
+  { title: "Founder Member", amount: "₹ 11,00,000/-", icon: Flower2 }, { title: "Co-Founder Member", amount: "₹ 5,00,000/-", icon: UsersRound }, { title: "Diamond Member", amount: "₹ 2,00,000/-", icon: Sparkles }, { title: "Life Member", amount: "₹ 1,00,000/-", icon: Star }, { title: "Special Member", amount: "₹ 51,000/-", icon: Medal }, { title: "General Member", amount: "₹ 21,000/-", icon: UsersRound },
+];
+
+const projectHighlights = [
+  { label: "Spiritual Campus in Vrindavan", icon: Landmark }, { label: "Eco-Friendly & Sustainable Design", icon: Leaf }, { label: "Community & Spiritual Learning", icon: UsersRound }, { label: "Gita Wisdom & Meditation Programs", icon: BookOpen }, { label: "Open to Diverse Communities", icon: HeartHandshake },
+];
+
+export default function NirmanSewaPage() {
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
+  const submitDonation = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!Number.isFinite(Number(amount)) || Number(amount) <= 0) { setError("Please enter a valid contribution amount."); return; }
+    setError("");
+    window.open(RAZORPAY_DONATION_LINK, "_blank", "noopener,noreferrer");
+  };
+
+  return <div className={`${styles.page} sakshi-dham-page`}>
+    <section className={styles.hero}>
+      <div className={styles.heroGuruWrap}>
+        <img className={styles.heroGuru} src={guruImage} alt="Sadguru Sakshi Shree" />
+      </div>
+      <div className={styles.heroCopy}>
+        <p className={styles.eyebrow}>A DIVINE ABODE FOR<br />A BRIGHTER TOMORROW</p>
+        <h1>SAKSHI DHAM <span>INTERNATIONAL</span></h1>
+        <p className={styles.heroLead}>A Spiritual Center in Vrindavan for Inner Transformation and a More Conscious World.</p>
+        <blockquote>Sakshi Dham will be a place where ancient wisdom meets modern living — a space to awaken the divine within and create a more compassionate, peaceful and harmonious world.<cite>— Sadguru Sakshi Shree</cite></blockquote>
+      </div>
+      <div className={styles.heroTemple} style={{ backgroundImage: `url(${templeImage})` }} aria-label="Proposed Sakshi Dham temple architectural rendering" role="img" />
+      <p className={styles.heroNote}>A Place of<br />Peace, Wisdom<br />and Positive<br />Change. ♡</p>
+    </section>
+    <section className={styles.visionDonation}>
+      <div className={styles.vision}>
+        <div className={styles.visionCopy}>
+          <p className={styles.sectionLabel}>OUR VISION</p>
+          <h2>A GLOBAL SPIRITUAL CENTER IN THE HEART OF VRINDAVAN</h2>
+          <p>Sakshi Dham International is being developed as a sacred ashram in Vrindavan to offer a peaceful space for meditation, dhyan, Gita wisdom, retreats, and community living.</p>
+          <p>It will welcome seekers from all walks of life to experience inner transformation and contribute to a more conscious, compassionate and harmonious world.</p>
+          <blockquote className={styles.visionQuote}>
+            Sakshi Dham will be a living example of how spiritual wisdom can create a better individual, a better family and a better society.
+            <cite>— Sadguru Sakshi Shree</cite>
+          </blockquote>
+        </div>
+      </div>
+      <form id="contribute" className={styles.donationCard} onSubmit={submitDonation} noValidate><p className={styles.donationKicker}>MAKE A CONTRIBUTION</p><p>Be a part of this sacred initiative and help create a lasting legacy.</p><label htmlFor="contribution-amount">Enter your contribution amount (₹)</label><div className={styles.amountField}><BadgeIndianRupee size={20} aria-hidden="true" /><input id="contribution-amount" type="number" min="1" inputMode="numeric" value={amount} onChange={(event) => { setAmount(event.target.value); setError(""); }} placeholder="Enter amount of your choice" required /></div><small>Contribute an amount of your choice towards the development of Sakshi Dham International.</small>{error && <p className={styles.formError} role="alert">{error}</p>}<button type="submit"><LockKeyhole size={18} /> DONATE SECURELY <ArrowRight size={18} /></button><div className={styles.trustRow}><span><ShieldCheck />Secure<br />Payments</span><span><WalletCards />Instant<br />Confirmation</span><span><Heart />Support a<br />Lasting Legacy</span></div></form>
+    </section>
+    <section className={styles.support}><div className={styles.centerHeading}><h2>WHAT YOUR SUPPORT WILL HELP CREATE</h2><p>Your contribution will help us build and develop this divine ashram with essential facilities for spiritual learning, meditation, retreats, and community living.</p></div><div className={styles.facilityGrid}>{plannedFacilities.map(({ title, description, image, icon: Icon }) => <article className={styles.facilityCard} key={title}><img src={image} alt={`${title} proposed design`} /><div><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></div></article>)}</div></section>
+    <section className={styles.membership}><div className={styles.centerHeading}><h2>MEMBERSHIP DETAILS</h2><p>Become a valued member and support the creation of Sakshi Dham International.<br />Membership is available at the following contribution amounts:</p></div><div className={styles.membershipGrid}>{membershipPlans.map(({ title, amount: membershipAmount, icon: Icon }) => <article key={title}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{membershipAmount}</strong></div></article>)}</div></section>
+    <section className={styles.highlights}><div className={styles.centerHeading}><h2>PROJECT HIGHLIGHTS</h2></div><div>{projectHighlights.map(({ label, icon: Icon }) => <article key={label}><Icon aria-hidden="true" /><p>{label}</p></article>)}</div></section>
+    <section className={styles.transformation} style={{ backgroundImage: `url(${templeLandscape})` }}><div className={styles.transformationCopy}><h2>A PLACE FOR<br />INNER TRANSFORMATION</h2><p>Sakshi Dham International is envisioned as a space for meditation, self-discovery, Gita wisdom, spiritual retreats, and community living.</p><p>Inspired by India&apos;s timeless knowledge traditions, the ashram aims to nurture a more conscious way of living and encourage positive change in individuals, families, and society.</p><a href="/about-movement">KNOW MORE ABOUT THE PROJECT <ArrowRight size={17} /></a></div><blockquote>More than a building, Sakshi Dham is a movement towards a more awakened and compassionate world.</blockquote></section>
+    <section className={styles.finalCta} style={{ backgroundImage: `url(${templeLandscape})` }}><div><h2>LET&apos;S BUILD A SACRED SPACE<br />FOR A MORE CONSCIOUS WORLD</h2><p>Your contribution will help develop Sakshi Dham International in Vrindavan — a spiritual center dedicated to wisdom, inner transformation, and compassionate living.</p><a href="#contribute">DONATE NOW <ArrowRight size={19} /></a></div><p className={styles.finalNote}>A brighter,<br />more conscious<br />tomorrow ♡</p></section>
+    <div className={styles.minimalFooter} role="contentinfo"><span>Sakshi Dham International</span><a href="mailto:info@sciencedivine.org">info@sciencedivine.org</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms-conditions">Terms &amp; Conditions</a><a href="/cancellation-and-refund-policy">Donation &amp; Refund Policy</a></div>
+  </div>;
 }

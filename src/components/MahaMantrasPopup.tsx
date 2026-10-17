@@ -10,50 +10,45 @@ export function MahaMantrasPopup() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("mm-dismissed")) return;
+    if (
+      localStorage.getItem("mm-dismissed") ||
+      sessionStorage.getItem("mm-dismissed") ||
+      sessionStorage.getItem("mm-shown")
+    ) {
+      return;
+    }
 
     let hideTimer: NodeJS.Timeout;
-    let showTimer: NodeJS.Timeout;
 
-    const startCycle = () => {
+    // Show once after initial delay
+    const initialDelay = setTimeout(() => {
       setOpen(true);
       setIsExiting(false);
       setProgressKey((prev) => prev + 1);
+      sessionStorage.setItem("mm-shown", "1");
 
-      // 1. Visible for 10 seconds
+      // Auto-hide after 10 seconds once (no repeating loop)
       hideTimer = setTimeout(() => {
         setIsExiting(true);
         setTimeout(() => {
           setOpen(false);
-
-          // 2. Hide for 12 seconds, then show again
-          showTimer = setTimeout(() => {
-            if (!sessionStorage.getItem("mm-dismissed")) {
-              startCycle();
-            }
-          }, 12000);
         }, 400);
       }, 10000);
-    };
-
-    // Initial show after 1.5s
-    const initialDelay = setTimeout(() => {
-      startCycle();
-    }, 1500);
+    }, 2000);
 
     return () => {
       clearTimeout(initialDelay);
       clearTimeout(hideTimer);
-      clearTimeout(showTimer);
     };
   }, []);
 
   const close = () => {
     setIsExiting(true);
     setUserDismissed(true);
+    sessionStorage.setItem("mm-dismissed", "1");
+    localStorage.setItem("mm-dismissed", "1");
     setTimeout(() => {
       setOpen(false);
-      sessionStorage.setItem("mm-dismissed", "1");
     }, 300);
   };
 
