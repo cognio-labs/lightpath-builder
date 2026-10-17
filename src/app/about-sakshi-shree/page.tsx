@@ -7,7 +7,7 @@ import { LEADERS } from "@/data/content";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import SplitText from "@/components/ui/SplitText";
 
-const handleAnimationComplete = () => {};
+const handleAnimationComplete = () => { };
 
 const INITIATIVES_NUMBERED = [
   {
@@ -18,7 +18,7 @@ const INITIATIVES_NUMBERED = [
   },
   {
     num: "02",
-    title: "Jhuggi Jhopadi Shiksha Sewa Mission",
+    title: "Jhuggi Jhopadi Shiksha Sewa Missions",
     desc: "A registered non-profit NGO working since 2010 to alleviate living conditions of children living in slum clusters by providing them with modern education free of cost.",
     href: "http://jhuggijhopadi.org/",
     external: true,
