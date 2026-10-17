@@ -103,7 +103,7 @@ export default function Page() {
               </div>
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 3.8rem)", fontWeight: 800, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "16px" }}>
                 Unlock the Life <br />
-                <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                <span style={{ background: "linear-gradient(90deg, #521623, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                   You Truly Desire
                 </span>
               </h1>
@@ -111,7 +111,7 @@ export default function Page() {
                 Feeling stuck or facing challenges? Sakshi Shree reads your past, present, and future like an open book. Without you saying a single word, he writes down the main problems in your life and provides powerful, effective remedies.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center" }}>
-                <a href="#payment" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+                <a href="#payment" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
                   Book Your Slot <ArrowRight size={16} />
                 </a>
                 <a href="#consultation" style={{ color: "#FFFFFF", fontSize: "0.95rem", fontWeight: 600, textDecoration: "underline" }}>
@@ -136,7 +136,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "28px", textAlign: "center" }}>
             {STATS.map((s, i) => (
               <div key={i}>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 800, color: "#B45309" }}>{s.value}</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 800, color: "#521623" }}>{s.value}</div>
                 <div style={{ fontSize: "12px", color: "#64748B", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
@@ -171,7 +171,7 @@ export default function Page() {
             <div>
               <span style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>The Guide</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "20px" }}>Meet Sakshi Shree</h2>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#B45309", marginBottom: "16px" }}>Enlightened Spiritual Master</h3>
+              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#521623", marginBottom: "16px" }}>Enlightened Spiritual Master</h3>
               <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "16px" }}>
                 Sakshi Shree is a world-renowned mystic and an enlightened spiritual master with over 40 years of intense research and experience personally guiding seekers on the path of designing their destiny.
               </p>
@@ -200,7 +200,7 @@ export default function Page() {
               <thead>
                 <tr style={{ borderBottom: "2px solid #E2E8F0" }}>
                   <th style={{ padding: "16px", textAlign: "left", color: "#0F172A" }}>Feature</th>
-                  <th style={{ padding: "16px", textAlign: "left", color: "#B45309", fontWeight: 800 }}>Sakshi Shree's Approach</th>
+                  <th style={{ padding: "16px", textAlign: "left", color: "#521623", fontWeight: 800 }}>Sakshi Shree's Approach</th>
                   <th style={{ padding: "16px", textAlign: "left", color: "#94A3B8" }}>Generic Astrology / Palmistry</th>
                 </tr>
               </thead>
@@ -271,7 +271,7 @@ export default function Page() {
                   { t: "Skill Development", d: "Vocational training opportunities" }
                 ].map((item, i) => (
                   <div key={i} style={{ background: "#FFFDF9", border: "1px solid #F1E9D2", borderRadius: "12px", padding: "16px" }}>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "#B45309", marginBottom: "4px" }}>{item.t}</div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "#521623", marginBottom: "4px" }}>{item.t}</div>
                     <div style={{ fontSize: "0.75rem", color: "#64748B" }}>{item.d}</div>
                   </div>
                 ))}
@@ -295,12 +295,12 @@ export default function Page() {
           <span style={{ fontSize: "12px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Reserve Slot</span>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "28px" }}>To Book the session</h2>
           <div style={{ background: "#FFFFFF", border: "2px dashed #D4AF37", borderRadius: "24px", padding: "40px", boxShadow: "0 10px 30px rgba(212,175,55,0.06)" }}>
-            <div style={{ fontSize: "2.5rem", fontWeight: 900, color: "#B45309", marginBottom: "8px" }}>₹ 6,100</div>
+            <div style={{ fontSize: "2.5rem", fontWeight: 900, color: "#521623", marginBottom: "8px" }}>₹ 6,100</div>
             <p style={{ color: "#64748B", fontSize: "0.85rem", fontWeight: 600, marginBottom: "24px" }}>
               Contribution for Jhuggi Jhopdi Shiksha Sewa Mission <br />
               <span style={{ color: "#10B981" }}>*Tax Exemption is applicable for all donations under Section 80G</span>
             </p>
-            <a href={RAZORPAY_PERSONAL_SESSION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
+            <a href={RAZORPAY_PERSONAL_SESSION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
               Book Your Slot
             </a>
           </div>
@@ -403,15 +403,15 @@ export default function Page() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <div style={{ width: "36px", height: "36px", borderRadius: "100px", background: "rgba(212,175,55,0.1)", display: "grid", placeItems: "center", color: "#B45309" }}><Mail size={16} /></div>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "100px", background: "rgba(212,175,55,0.1)", display: "grid", placeItems: "center", color: "#521623" }}><Mail size={16} /></div>
                   <span style={{ fontSize: "0.9rem", color: "#475569", fontWeight: 600 }}>info@sciencedivine.org</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <div style={{ width: "36px", height: "36px", borderRadius: "100px", background: "rgba(212,175,55,0.1)", display: "grid", placeItems: "center", color: "#B45309" }}><Phone size={16} /></div>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "100px", background: "rgba(212,175,55,0.1)", display: "grid", placeItems: "center", color: "#521623" }}><Phone size={16} /></div>
                   <span style={{ fontSize: "0.9rem", color: "#475569", fontWeight: 600 }}>+91 93159 44774</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <div style={{ width: "36px", height: "36px", borderRadius: "100px", background: "rgba(212,175,55,0.1)", display: "grid", placeItems: "center", color: "#B45309" }}><MapPin size={16} /></div>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "100px", background: "rgba(212,175,55,0.1)", display: "grid", placeItems: "center", color: "#521623" }}><MapPin size={16} /></div>
                   <span style={{ fontSize: "0.85rem", color: "#475569", fontWeight: 600, lineHeight: 1.4 }}>
                     Siddha Sudarshan Sakshi Dhaam, 8, Avantika, Chiranjeev Vihar, Ghaziabad
                   </span>
@@ -488,7 +488,7 @@ function CallbackForm() {
         <input required id="phone" name="phone" placeholder="+91 99999 99999" style={{ width: "100%", background: "#FAF9F6", border: "1px solid #E2E8F0", borderRadius: "12px", padding: "12px 16px", fontSize: "0.9rem", outline: "none" }} />
       </div>
       {err && <p style={{ color: "#EF4444", fontSize: "0.85rem" }}>{err}</p>}
-      <button type="submit" disabled={busy} style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", border: "none", borderRadius: "100px", padding: "14px 28px", fontWeight: 800, fontSize: "0.95rem", cursor: "pointer", transition: "opacity 0.2s" }}>
+      <button type="submit" disabled={busy} style={{ background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", border: "none", borderRadius: "100px", padding: "14px 28px", fontWeight: 800, fontSize: "0.95rem", cursor: "pointer", transition: "opacity 0.2s" }}>
         {busy ? "Sending Request..." : "Submit"}
       </button>
     </form>

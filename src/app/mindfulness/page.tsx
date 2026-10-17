@@ -4,11 +4,12 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/PageHero";
 import { useState } from "react";
 import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Eye, ChevronRight } from "lucide-react";
+import { FastVideoCard, FastTestimonialCard } from "@/components/FastMediaCards";
 
 
 
 
-type Tab = "articles" | "quotes" | "videos" | "podcasts";
+type Tab = "articles" | "quotes" | "videos";
 
 const ARTICLES = [
   { title: "Spirituality’s Role in Healing Childhood Trauma", href: "https://sciencedivine.org/spiritualitys-role-in-healing-childhood-trauma/", tag: "Healing", readTime: "12 min", desc: "Understanding the healing power of yoga and spiritual reflection in clearing old emotional trauma." },
@@ -33,7 +34,7 @@ const VIDEOS = [
   { id: "zBSylD0ojlQ", title: "4 Deep Breathing Techniques To Reduce Stress | लंबी गहरी सांस के चार महासूत्र", lang: "Hindi" },
 ];
 
-const QUOTES = Array.from({ length: 9 }, (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`);
+const QUOTES = Array.from({ length: 9 }, (_, i) => `/images/old-site/pages/mindfulness/Anxiety-Quote-${i + 1}.webp`);
 
 const TESTIMONIALS = [
   { id: "QLmL230dApk", name: "Swaparna Testimonial" },
@@ -46,12 +47,11 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: "articles", label: "Articles", icon: <BookOpen size={17} /> },
   { id: "quotes", label: "Quotes", icon: <Quote size={17} /> },
   { id: "videos", label: "Videos", icon: <PlayCircle size={17} /> },
-  { id: "podcasts", label: "Podcasts", icon: <Mic size={17} /> },
 ];
 
 const LANG_COLORS: Record<string, { bg: string; text: string }> = {
   English: { bg: "rgba(59,130,246,0.1)", text: "#2563EB" },
-  Hindi: { bg: "rgba(212,175,55,0.12)", text: "#B45309" },
+  Hindi: { bg: "rgba(75,16,27,0.1)", text: "#4B101B" },
 };
 
 export default function Page() {
@@ -60,9 +60,9 @@ export default function Page() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: "linear-gradient(135deg, #022C22 0%, #115E59 50%, #022C22 100%)", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <section style={{ background: "linear-gradient(135deg, #4B101B 0%, #2E070F 50%, #4B101B 100%)", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(75,16,27,0.4) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
@@ -72,15 +72,15 @@ export default function Page() {
               </div>
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "20px" }}>
                 Unlock the Mind’s{" "}
-                <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                <span style={{ background: "linear-gradient(90deg, #D4AF37, #FDE68A)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                   True Potential
                 </span>
               </h1>
-              <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "32px" }}>
+              <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "32px" }}>
                 Mind is our most powerful tool that can make or break our life. Under control, it’s a great ally, out of control, your worst enemy. Tame the chaos within, cultivate inner peace, and embrace the present moment with Sakshi Shree’s guidance.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                <Link href="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
+                <Link href="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #D4AF37, #B8860B)", color: "#2E070F", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
                   Book a Session <ArrowRight size={16} />
                 </Link>
                 <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
@@ -121,112 +121,76 @@ export default function Page() {
       <section className="section-pad bg-white">
         <div className="container-page">
 
-          {tab === "articles" && (
-            <div>
-              <SectionHeading eyebrow="Read & Practice" title="Articles on Mindfulness & Consciousness" subtitle="Learn to step out of thought patterns and anchor yourself in the present moment." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
-                {ARTICLES.map((a, i) => (
-                  <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "20px", padding: "28px", textDecoration: "none", boxShadow: "0 2px 12px rgba(0,0,0,0.04)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(13,148,136,0.12)"; el.style.borderColor = "#0D9488"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; el.style.borderColor = "#E5E7EB"; }}
-                  >
-                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #0D9488, #D4AF37)", borderRadius: "20px 20px 0 0" }} />
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
-                      <span style={{ background: "rgba(13,148,136,0.1)", color: "#0D9488", fontSize: "11px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{a.tag}</span>
-                      <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
-                    </div>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#111827", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
-                    <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#0D9488", fontWeight: 700, fontSize: "0.875rem" }}>Read Article <ArrowRight size={14} /></div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {tab === "quotes" && (
-            <div>
-              <SectionHeading eyebrow="Words of Wisdom" title="Inspirational Quotes" subtitle="Inspirational mantras from Sakshi Shree on silence, presence, and witnessing thoughts." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px", marginTop: "40px" }}>
-                {QUOTES.map((src, i) => (
-                  <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", transition: "transform 0.3s, box-shadow 0.3s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px) scale(1.01)"; el.style.boxShadow = "0 16px 40px rgba(13,148,136,0.18)"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0) scale(1)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
-                  >
-                    <img src={src} alt={`Mindfulness Quote ${i + 1}`} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
+          <div style={{ display: tab === "articles" ? "block" : "none" }}>
+            <SectionHeading eyebrow="Read & Practice" title="Articles on Mindfulness & Consciousness" subtitle="Learn to step out of thought patterns and anchor yourself in the present moment." />
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
+              {ARTICLES.map((a, i) => (
+                <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "20px", padding: "28px", textDecoration: "none", boxShadow: "0 2px 12px rgba(0,0,0,0.04)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(75,16,27,0.12)"; el.style.borderColor = "#4B101B"; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; el.style.borderColor = "#E5E7EB"; }}
+                >
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #4B101B, #D4AF37)", borderRadius: "20px 20px 0 0" }} />
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
+                    <span style={{ background: "rgba(75,16,27,0.1)", color: "#4B101B", fontSize: "11px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{a.tag}</span>
+                    <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
                   </div>
-                ))}
-              </div>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#4B101B", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
+                  <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#4B101B", fontWeight: 700, fontSize: "0.875rem" }}>Read Article <ArrowRight size={14} /></div>
+                </a>
+              ))}
             </div>
-          )}
+          </div>
 
-          {tab === "videos" && (
-            <div>
-              <SectionHeading eyebrow="Watch & Practice" title="Videos on Mindfulness & Presence" subtitle="8 detailed video teachings from Sakshi Shree on thoughtless mind, correct breathing, and living in the present." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: "28px", marginTop: "40px" }}>
-                {VIDEOS.map((v, i) => (
-                  <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
-                  >
-                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
-                    </div>
-                    <div style={{ padding: "20px" }}>
-                      <span style={{ background: LANG_COLORS[v.lang]?.bg, color: LANG_COLORS[v.lang]?.text, fontSize: "11px", fontWeight: 700, padding: "3px 10px", borderRadius: "100px", display: "inline-block", marginBottom: "8px" }}>{v.lang}</span>
-                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.95rem", fontWeight: 700, color: "#111827", lineHeight: 1.5 }}>{v.title}</h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div style={{ display: tab === "quotes" ? "block" : "none" }}>
+            <SectionHeading eyebrow="Words of Wisdom" title="Inspirational Quotes" subtitle="Inspirational mantras from Sakshi Shree on silence, presence, and witnessing thoughts." />
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px", marginTop: "40px" }}>
+              {QUOTES.map((src, i) => (
+                <div key={i} style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", transition: "transform 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px) scale(1.01)"; el.style.boxShadow = "0 16px 40px rgba(75,16,27,0.18)"; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0) scale(1)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
+                >
+                  <img src={src} alt={`Mindfulness Quote ${i + 1}`} decoding="async" style={{ width: "100%", height: "auto", display: "block" }} />
+                </div>
+              ))}
             </div>
-          )}
+          </div>
 
-          {tab === "podcasts" && (
-            <div>
-              <SectionHeading eyebrow="Real Transformation" title="Mindfulness Testimonials" subtitle="Real stories from our community members about how mindfulness unlocked peace and reduced daily stress." />
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "28px", marginTop: "40px" }}>
-                {TESTIMONIALS.map((t, i) => (
-                  <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", border: "1px solid #E5E7EB", transition: "transform 0.25s, box-shadow 0.25s" }}
-                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 50px rgba(13,148,136,0.12)"; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
-                  >
-                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
-                    </div>
-                    <div style={{ padding: "20px" }}>
-                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}</div>
-                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", fontWeight: 700, color: "#111827" }}>{t.name}</h3>
-                      <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>Science Divine Community Member</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ textAlign: "center", marginTop: "48px" }}>
-                <Link href="/latest-testimonials-videos" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.3)" }}>
-                  Watch All Testimonials <ArrowRight size={16} />
-                </Link>
-              </div>
+          <div style={{ display: tab === "videos" ? "block" : "none" }}>
+            <SectionHeading eyebrow="Watch & Practice" title="Videos on Mindfulness & Presence" subtitle="8 detailed video teachings from Sakshi Shree on thoughtless mind, correct breathing, and living in the present." />
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: "28px", marginTop: "40px" }}>
+              {VIDEOS.map((v, i) => (
+                <FastVideoCard
+                  key={i}
+                  id={v.id}
+                  title={v.title}
+                  lang={v.lang}
+                  langBg={LANG_COLORS[v.lang]?.bg}
+                  langColor={LANG_COLORS[v.lang]?.text}
+                />
+              ))}
             </div>
-          )}
+          </div>
+
+          
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ background: "linear-gradient(135deg, #022C22 0%, #115E59 100%)", padding: "80px 0", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "linear-gradient(135deg, #4B101B 0%, #2E070F 100%)", padding: "80px 0", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 700, color: "#FFFFFF", marginBottom: "16px" }}>
             Rewrite the Script{" "}
-            <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+            <span style={{ background: "linear-gradient(90deg, #D4AF37, #FDE68A)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
               of Your Life
             </span>
           </h2>
-          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.05rem", maxWidth: "540px", margin: "0 auto 36px", lineHeight: 1.75 }}>
+          <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "1.05rem", maxWidth: "540px", margin: "0 auto 36px", lineHeight: 1.75 }}>
             Tame the chaos within, cultivate inner peace, and embrace the present moment. Start your journey today and book a personal session with Sakshi Shree.
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.4)" }}>
+            <Link href="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #D4AF37, #B8860B)", color: "#2E070F", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.4)" }}>
               Book Personal Session <ArrowRight size={16} />
             </Link>
             <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "16px 36px", borderRadius: "100px", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>

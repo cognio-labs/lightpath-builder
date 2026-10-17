@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
 import { SectionHeading } from "@/components/PageHero";
-import { useState } from "react";
+import InspirationalQuotesSection from "@/components/InspirationalQuotesSection";
+import VideoCard from "@/components/VideoCard";
+import { useState, useCallback } from "react";
 import {
   BookOpen,
   Quote,
@@ -11,91 +13,93 @@ import {
   ChevronRight,
   Heart,
   Shield,
+  X,
+  ZoomIn,
 } from "lucide-react";
 
-type Tab = "articles" | "quotes" | "videos" | "podcasts";
+type Tab = "articles" | "quotes" | "videos";
 
 const ARTICLES = [
   {
-    title: "7 Ways to Foster an Optimistic Mind",
-    href: "https://sciencedivine.org/optimistic-mind/",
-    tag: "Mindset",
-    readTime: "7 min read",
-    desc: "Learn to shift focus to positive options and consciously reprogram negative thought patterns.",
-    image: "/images/articles/optimistic-mind-ai.webp",
-    alt: "Young person in peaceful contemplation at sunrise reflecting on an optimistic mindset",
+    title: "Social Media Anxiety: How to Stop Comparing Yourself to Others",
+    href: "https://sciencedivine.org/blog/social-media-anxiety-stop-comparing-yourself",
+    tag: "Bhagavad Gita & Anxiety",
+    readTime: "11 min read",
+    desc: "Social media makes it easy to compare your everyday life with curated highlights. Discover why comparison fuels anxiety and how to find self-worth beyond external validation.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/dfc2c65b-7abb-4dbd-aaad-8a65de158919/featuredImg/hd.webp?1789981589957",
+    alt: "Social Media Anxiety How to Stop Comparing Yourself to Others",
   },
   {
-    title: "How to Be Conscious: Wake Up Your Mind Every Day",
-    href: "https://sciencedivine.org/conscious/",
-    tag: "Awareness",
+    title: "How to Control Anxiety: 7 Bhagavad Gita Ways to Calm Your Mind and Find Inner Peace",
+    href: "https://sciencedivine.org/blog/how-to-control-anxiety-7-bhagavad-gita-ways-to-calm-your-mind-and-find-inner-peace",
+    tag: "Spirituality & Wellness",
+    readTime: "11 min read",
+    desc: "Struggling with anxiety, constant worry or overthinking? Discover seven practical teachings from the Bhagavad Gita that help you understand your mind and find inner peace.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/45ec8a3c-1a2a-4e55-9148-955458ca2eb3/featuredImg/hd.webp?1789114087888",
+    alt: "How to Control Anxiety Bhagavad Gita Ways to Calm Your Mind",
+  },
+  {
+    title: "Krishna’s Wisdom and Psychology: Managing Desire, Fear, and Anxiety",
+    href: "https://sciencedivine.org/blog/krishnas-wisdom-modern-psychology-anxiety",
+    tag: "Spirituality & Psychology",
     readTime: "8 min read",
-    desc: "Cultivating presence to escape constant loops of anxiety and worry.",
-    image: "/images/articles/conscious-mind-ai.webp",
-    alt: "Person sitting mindfully by large sunlit window practicing conscious awareness",
+    desc: "Discover how Krishna’s teachings and modern psychology offer practical ways to understand desire, release fear, manage anxiety, and cultivate inner peace.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/234fb590-35f8-4b40-9fd0-e7fc6e9d111f/featuredImg/hd.webp?1782732217415",
+    alt: "Krishna’s Wisdom and Psychology Managing Desire Fear Anxiety",
   },
   {
-    title: "How to Feel Calm: Easy Ways to Find Peace of Mind",
-    href: "https://sciencedivine.org/what-is-peace-of-mind/",
-    tag: "Peace",
-    readTime: "6 min read",
-    desc: "Simple somatic practices that immediately downregulate stress response in the body.",
-    image: "/images/articles/feel-calm-ai.webp",
-    alt: "Mindful hand mudra in warm peaceful sunlight representing calm and inner peace",
+    title: "Fear, Anxiety and Mind: What Science and Spirituality Reveal",
+    href: "https://sciencedivine.org/blog/fear-anxiety-mind-science-spirituality",
+    tag: "Anxiety & Science",
+    readTime: "11 min read",
+    desc: "Fear and anxiety can make the mind feel restless and exhausted. Explore what science reveals about anxiety and what spirituality teaches about inner peace.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/b0a4c816-dd08-4582-8191-53bf2f68aaba/featuredImg/hd.webp?1782727855712",
+    alt: "Fear Anxiety and Mind Science and Spirituality",
   },
   {
-    title: "Why Should You Prioritize Your Mental Health Every Day?",
-    href: "https://sciencedivine.org/what-is-mental-health/",
-    tag: "Wellness",
-    readTime: "6 min read",
-    desc: "Understanding the balance between mental wellness, sleep, and physical breathing.",
-    image: "/images/articles/mental-health-ai.webp",
-    alt: "Young Indian professional woman taking a mindful break from laptop work near a window surrounded by plants",
+    title: "Spiritual Lessons Hidden Behind Anxiety and Overthinking",
+    href: "https://sciencedivine.org/blog/spiritual-lessons-behind-anxiety-overthinking",
+    tag: "Spiritual Healing",
+    readTime: "11 min read",
+    desc: "Anxiety and overthinking can feel overwhelming, but they may also reveal important inner lessons. Discover gentle ways to return to calm and inner peace.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/fb8c1753-cebc-47df-b0f0-e0a6096366f9/featuredImg/hd.webp?1782463966158",
+    alt: "Spiritual Lessons Hidden Behind Anxiety and Overthinking",
   },
   {
-    title: "Benefits of Yoga for Hypertension Management",
-    href: "https://sciencedivine.org/yoga-for-hypertension/",
-    tag: "Yoga",
-    readTime: "8 min read",
-    desc: "How dynamic alignment helps manage heart rate variability and blood pressure.",
-    image: "/images/articles/yoga-hypertension-ai.webp",
-    alt: "Middle-aged Indian man practicing gentle seated yoga pranayama in a peaceful sunlit living room",
-  },
-  {
-    title: "Yoga Nidra: Mastering the Art of Conscious Relaxation",
-    href: "https://sciencedivine.org/yoga-nidra/",
-    tag: "Relaxation",
+    title: "How Yoga Helps You Deal with Stress, Anxiety and Overthinking",
+    href: "https://sciencedivine.org/blog/how-yoga-helps-stress-anxiety-overthinking",
+    tag: "Anxiety & Stress",
     readTime: "10 min read",
-    desc: "Restorative deep relaxation method to clear chronic fatigue and mental tension.",
-    image: "/images/articles/yoga-nidra-ai.webp",
-    alt: "Indian woman in peaceful Shavasana Yoga Nidra pose on jute mat with soft candlelight and draped blanket",
+    desc: "Discover how yoga reduces stress, calms anxiety, and stops overthinking. Learn simple yoga poses, breathing, and mindfulness for a peaceful mind.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/4afc40a6-7c46-4eeb-9517-93dbbd06bfc1/featuredImg/hd.webp?1781247089548",
+    alt: "How Yoga Helps Deal with Stress Anxiety and Overthinking",
   },
   {
-    title: "Exploring the Symbiotic Connection Between Yoga and Mindfulness Meditation",
-    href: "https://sciencedivine.org/unveiling-the-harmony/",
-    tag: "Mindfulness",
+    title: "Spiritual Meaning of Anxiety: A Soul Healing Guide",
+    href: "https://sciencedivine.org/blog/spiritual-meaning-of-anxiety-soul-healing",
+    tag: "Anxiety & Soul Healing",
     readTime: "9 min read",
-    desc: "Deep meditation and somatic stretching working together for balance.",
-    image: "/images/articles/yoga-mindfulness-ai.webp",
-    alt: "Indian woman in sage green kurta meditating peacefully in a lush sunlit garden path",
+    desc: "Anxiety is not always just fear or overthinking. Sometimes, it can also be your inner self asking for attention, healing and deeper spiritual awareness.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/1305dd5d-d37c-449e-b8c7-1a0bade36d43/featuredImg/hd.webp?1779959929675",
+    alt: "Spiritual Meaning of Anxiety Soul Healing Guide",
   },
   {
-    title: "Meditation for Seniors: Embrace a Journey to Serenity and Healthy Aging",
-    href: "https://sciencedivine.org/meditation-for-seniors/",
-    tag: "Meditation",
-    readTime: "7 min read",
-    desc: "Tailored meditation techniques suitable for senior practitioners.",
-    image: "/images/articles/meditation-seniors-ai.webp",
-    alt: "Graceful Indian senior woman in sari meditating joyfully in a sunlit home garden with greenery",
+    title: "Stress and Panic: Why the Mind Won’t Calm Down",
+    href: "https://sciencedivine.org/blog/when-the-mind-wont-calm-down-stress-panic",
+    tag: "Stress & Panic",
+    readTime: "6 min read",
+    desc: "Learn why the mind won’t calm down. Discover causes of stress, panic, and racing thoughts, with natural techniques to heal anxiety.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/0590a90e-4439-4663-8d2e-3e7e67cfa68a/featuredImg/hd.webp?1778576035837",
+    alt: "Stress and Panic Why the Mind Won’t Calm Down",
   },
   {
-    title: "Harmonizing Mind and Body: The Transformative Power of Yoga and Meditation",
-    href: "https://sciencedivine.org/harmonizing-mind-and-body/",
-    tag: "Healing",
-    readTime: "9 min read",
-    desc: "A general guide to aligning biological energy paths.",
-    image: "/images/articles/mind-body-harmony-ai.webp",
-    alt: "Indian man in ivory linen meditating at sunrise on a terrace surrounded by terracotta pots and greenery",
+    title: "Sleep Problems: Hidden Reasons You Missed",
+    href: "https://sciencedivine.org/blog/sleep-problems-hidden-causes",
+    tag: "Anxiety & Sleep",
+    readTime: "4 min read",
+    desc: "Struggling with sleep problems, insomnia, or nighttime anxiety? Discover hidden causes and natural ways to calm your racing mind and rest better.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/8d2a61f1-2578-4af6-8756-19a0ef3b2572/featuredImg/hd.webp?1777012808322",
+    alt: "Sleep Problems Hidden Reasons You Missed",
   },
 ];
 
@@ -116,10 +120,17 @@ const VIDEOS = [
   { id: "paffCWKd720", title: "चिंता तनाव और भय से मुक्त होने की महत्वपूर्ण तकनीक" },
 ];
 
-const QUOTES = Array.from(
-  { length: 9 },
-  (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`,
-);
+const QUOTES = [
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-1.webp", label: "Inner Wisdom",       theme: "ivory" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-2.webp", label: "Intelligent Living",  theme: "burgundy" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-3.webp", label: "Learn from Mistakes", theme: "cream" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-4.webp", label: "Become Your Best Self",theme: "burgundy" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-5.webp", label: "Master Your Mind",    theme: "taupe" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-6.webp", label: "Power of Inspiration",theme: "charcoal" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-7.webp", label: "Learn from Others",   theme: "ivory" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-8.webp", label: "Positive Mindset",    theme: "burgundy" },
+  { src: "/images/old-site/pages/anxiety/Anxiety-Quote-9.webp", label: "Continuous Growth",   theme: "cream" },
+];
 
 const PODCASTS = [
   {
@@ -148,11 +159,11 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: "articles", label: "Articles", icon: <BookOpen size={17} /> },
   { id: "quotes", label: "Quotes", icon: <Quote size={17} /> },
   { id: "videos", label: "Videos", icon: <PlayCircle size={17} /> },
-  { id: "podcasts", label: "Podcasts", icon: <Mic size={17} /> },
 ];
 
 export default function Page() {
   const [tab, setTab] = useState<Tab>("articles");
+  const [selectedQuote, setSelectedQuote] = useState<string | null>(null);
 
   return (
     <>
@@ -166,7 +177,7 @@ export default function Page() {
           minHeight: "85vh",
           display: "flex",
           alignItems: "center",
-          background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%)",
+          background: "linear-gradient(135deg, #521623 0%, #3D0E18 50%, #521623 100%)",
         }}
       >
         {/* Subtle gold glow orbs */}
@@ -356,7 +367,7 @@ export default function Page() {
       {/* Tab Content */}
       <section className="section-pad bg-white">
         <div className="container-page">
-          {tab === "articles" && (
+          <div style={{ display: tab === "articles" ? "block" : "none" }}>
             <div>
               <SectionHeading
                 eyebrow="Read & Heal"
@@ -431,7 +442,7 @@ export default function Page() {
                         <span
                           style={{
                             background: "rgba(212,175,55,0.12)",
-                            color: "#B45309",
+                            color: "#521623",
                             fontSize: "11px",
                             fontWeight: 700,
                             padding: "4px 10px",
@@ -479,11 +490,11 @@ export default function Page() {
                 ))}
               </div>
             </div>
-          )}
+          </div>
 
           {/* Quotes */}
-          {tab === "quotes" && (
-            <div>
+          <div style={{ display: tab === "quotes" ? "block" : "none" }}>
+            <div className="animate-fade-in">
               <SectionHeading
                 eyebrow="Words of Wisdom"
                 title="Inspirational Quotes"
@@ -492,46 +503,83 @@ export default function Page() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-                  gap: "20px",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+                  gap: "24px",
                   marginTop: "40px",
                 }}
               >
-                {QUOTES.map((src, i) => (
+                {QUOTES.map((q, i) => (
                   <div
                     key={i}
+                    onClick={() => setSelectedQuote(q.src)}
                     style={{
-                      borderRadius: "16px",
+                      borderRadius: "20px",
                       overflow: "hidden",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                      transition: "transform 0.3s, box-shadow 0.3s",
+                      boxShadow: "0 6px 24px rgba(0,0,0,0.08)",
+                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                      cursor: "pointer",
+                      background: "#FFFFFF",
+                      border: "1px solid rgba(212,175,55,0.2)",
+                      position: "relative",
                     }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(-6px) scale(1.01)";
-                      el.style.boxShadow = "0 16px 40px rgba(212,175,55,0.2)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(0) scale(1)";
-                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
-                    }}
+                    className="group hover:-translate-y-2 hover:shadow-2xl"
                   >
-                    <img
-                      src={src}
-                      alt={`Anxiety quote ${i + 1}`}
-                      loading="lazy"
-                      style={{ width: "100%", height: "auto", display: "block" }}
-                    />
+                    <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", overflow: "hidden" }}>
+                      <img
+                        src={q.src}
+                        alt={`Sakshi Shree Quote ${i + 1}`}
+                        loading="eager"
+                        decoding="async"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          display: "block",
+                          transition: "transform 0.5s ease",
+                        }}
+                        className="group-hover:scale-105"
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)",
+                          opacity: 0,
+                          transition: "opacity 0.3s ease",
+                          display: "flex",
+                          alignItems: "flex-end",
+                          justifyContent: "space-between",
+                          padding: "16px 20px",
+                        }}
+                        className="group-hover:opacity-100"
+                      >
+                        <span style={{ color: "#FFF", fontSize: "13px", fontWeight: 600 }}>{q.label}</span>
+                        <span
+                          style={{
+                            background: "rgba(255,255,255,0.95)",
+                            color: "#521623",
+                            borderRadius: "100px",
+                            padding: "6px 14px",
+                            fontSize: "12px",
+                            fontWeight: 700,
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "6px",
+                          }}
+                        >
+                          <ZoomIn size={14} /> View Quote
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          )}
+          </div>
 
           {/* Videos */}
-          {tab === "videos" && (
-            <div>
+          <div style={{ display: tab === "videos" ? "block" : "none" }}>
+            <div className="animate-fade-in">
               <SectionHeading
                 eyebrow="Watch & Transform"
                 title="Video Teachings on Overcoming Anxiety"
@@ -546,150 +594,28 @@ export default function Page() {
                 }}
               >
                 {VIDEOS.map((v, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      background: "#FFFFFF",
-                      borderRadius: "20px",
-                      overflow: "hidden",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                      border: "1px solid #E5E7EB",
-                      transition: "transform 0.25s, box-shadow 0.25s",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(-6px)";
-                      el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(0)";
-                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
-                    }}
-                  >
-                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe
-                        src={`https://www.youtube.com/embed/${v.id}`}
-                        title={v.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
-                      />
-                    </div>
-                    <div style={{ padding: "20px" }}>
-                      <span
-                        style={{
-                          background: "rgba(212,175,55,0.12)",
-                          color: "#B45309",
-                          fontSize: "11px",
-                          fontWeight: 700,
-                          padding: "3px 10px",
-                          borderRadius: "100px",
-                          display: "inline-block",
-                          marginBottom: "8px",
-                        }}
-                      >
-                        Teachings
-                      </span>
-                      <h3
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          fontSize: "0.95rem",
-                          fontWeight: 700,
-                          color: "#111827",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {v.title}
-                      </h3>
-                    </div>
-                  </div>
+                  <VideoCard
+                    key={v.id}
+                    id={v.id}
+                    title={v.title}
+                    category="Teachings"
+                    index={i}
+                    isPriority={i === 0}
+                  />
                 ))}
               </div>
             </div>
-          )}
+          </div>
 
           {/* Podcasts / Video Testimonials */}
-          {tab === "podcasts" && (
-            <div>
-              <SectionHeading
-                eyebrow="Real Stories"
-                title="Testimonials — Finding Calm & Peace"
-                subtitle="Watch how Sakshi Shree's teachings have helped seekers overcome anxiety and live freely."
-              />
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
-                  gap: "28px",
-                  marginTop: "40px",
-                }}
-              >
-                {PODCASTS.map((p, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      background: "#FFFFFF",
-                      borderRadius: "20px",
-                      overflow: "hidden",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                      border: "1px solid #E5E7EB",
-                      transition: "transform 0.25s, box-shadow 0.25s",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(-6px)";
-                      el.style.boxShadow = "0 20px 50px rgba(212,175,55,0.15)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(0)";
-                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
-                    }}
-                  >
-                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe
-                        src={`https://www.youtube.com/embed/${p.id}`}
-                        title={p.name}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
-                      />
-                    </div>
-                    <div style={{ padding: "20px" }}>
-                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>
-                        {Array.from({ length: 5 }).map((_, si) => (
-                          <Heart key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />
-                        ))}
-                      </div>
-                      <h3
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          fontSize: "1rem",
-                          fontWeight: 700,
-                          color: "#111827",
-                        }}
-                      >
-                        {p.name}
-                      </h3>
-                      <p style={{ color: "#6B7280", fontSize: "0.85rem", marginTop: "6px", lineHeight: 1.6 }}>
-                        {p.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          
         </div>
       </section>
 
       {/* CTA Section */}
       <section
         style={{
-          background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 100%)",
+          background: "linear-gradient(135deg, #521623 0%, #3D0E18 100%)",
           padding: "80px 0",
           position: "relative",
           overflow: "hidden",
@@ -781,6 +707,63 @@ export default function Page() {
           </div>
         </div>
       </section>
+          {/* Fullscreen Quote Lightbox Modal */}
+      {selectedQuote && (
+        <div
+          onClick={() => setSelectedQuote(null)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(15, 23, 42, 0.88)",
+            backdropFilter: "blur(10px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              position: "relative",
+              maxWidth: "640px",
+              width: "100%",
+              borderRadius: "24px",
+              overflow: "hidden",
+              boxShadow: "0 25px 60px rgba(0,0,0,0.6)",
+              background: "#000",
+            }}
+          >
+            <button
+              onClick={() => setSelectedQuote(null)}
+              style={{
+                position: "absolute",
+                top: "16px",
+                right: "16px",
+                zIndex: 10,
+                width: "42px",
+                height: "42px",
+                borderRadius: "50%",
+                background: "rgba(0,0,0,0.65)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                color: "#FFFFFF",
+                display: "grid",
+                placeItems: "center",
+                cursor: "pointer",
+              }}
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={selectedQuote}
+              alt="Sakshi Shree Inspirational Quote"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

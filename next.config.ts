@@ -256,8 +256,8 @@ const nextConfig: NextConfig = {
       { source: "/session/", destination: "/personal-session", permanent: true },
       { source: "/relationship", destination: "/relationships", permanent: true },
       { source: "/relationship/", destination: "/relationships", permanent: true },
-      { source: "/new-har-ghar-shiksha", destination: "/har-ghar-shiksha", permanent: true },
-      { source: "/new-har-ghar-shiksha/", destination: "/har-ghar-shiksha", permanent: true },
+      { source: "/new-har-ghar-shiksha", destination: "/shiksha-sewa", permanent: true },
+      { source: "/new-har-ghar-shiksha/", destination: "/shiksha-sewa", permanent: true },
 
       // ─────────────────────────────────────────────
       // PHASE 3 — Duplicate / Alias Consolidation
@@ -284,9 +284,6 @@ const nextConfig: NextConfig = {
       { source: "/mind-power-meditation-2/", destination: "/mind-power-meditation", permanent: true },
       { source: "/mind-power-meditation-landing-page", destination: "/mind-power-meditation", permanent: true },
       { source: "/mind-power-meditation-landing-page/", destination: "/mind-power-meditation", permanent: true },
-      // shiksha-sewa → har-ghar-shiksha (merged initiative)
-      { source: "/shiksha-sewa", destination: "/har-ghar-shiksha", permanent: true },
-      { source: "/shiksha-sewa/", destination: "/har-ghar-shiksha", permanent: true },
 
       // ─────────────────────────────────────────────
       // PHASE 3 — Obsolete / WooCommerce-only pages

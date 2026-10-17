@@ -2,6 +2,7 @@
 import { PageHero, SectionHeading } from "@/components/PageHero";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { TESTIMONIAL_VIDEOS, type COURSES } from "@/data/content";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 import { Check, Clock, Users } from "lucide-react";
 
 type Course = (typeof COURSES)[number];
@@ -22,7 +23,12 @@ export function CourseTemplate({
         title={course.title}
         subtitle={course.tagline}
       >
-        <a href="#enroll" className="btn-gold rounded-full px-7 py-3 font-semibold text-sm">
+        <a
+          href={RAZORPAY_DONATION_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-gold rounded-full px-7 py-3 font-semibold text-sm"
+        >
           Buy Now, ₹{course.price}
         </a>
       </PageHero>
@@ -62,9 +68,14 @@ export function CourseTemplate({
                   </span>
                 </div>
               </div>
-              <button className="btn-gradient rounded-full px-7 py-3 font-semibold text-sm">
-                Enroll Now
-              </button>
+              <a
+                href={RAZORPAY_DONATION_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gradient rounded-full px-7 py-3 font-semibold text-sm inline-block text-center"
+              >
+                Enroll Now - ₹{course.price}
+              </a>
             </div>
           </div>
         </div>

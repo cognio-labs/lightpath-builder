@@ -32,7 +32,7 @@ export function PageHero({
             <div className={`space-y-4 ${imageSide === "left" ? "md:order-2" : "md:order-1"}`}>
               {eyebrow && (
                 <div className="inline-flex items-center gap-2">
-                  <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
+                  <div className="w-8 h-0.5" style={{ background: "linear-gradient(90deg, #521623, #D4AF37)" }} />
                   <span className="text-xs font-bold uppercase tracking-widest text-amber-700">{eyebrow}</span>
                 </div>
               )}
@@ -79,14 +79,14 @@ export function PageHero({
       <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse"
         style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }} />
       <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
-        style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }} />
+        style={{ background: "radial-gradient(circle, #521623, transparent 70%)" }} />
 
       <div className="container-page relative py-10 md:py-14 text-center max-w-4xl mx-auto">
         {eyebrow && (
           <div className="inline-flex items-center gap-2 mb-3 animate-fade-in">
-            <div className="w-6 h-0.5" style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
+            <div className="w-6 h-0.5" style={{ background: "linear-gradient(90deg, #521623, #D4AF37)" }} />
             <span className="text-xs font-bold uppercase tracking-widest text-amber-700">{eyebrow}</span>
-            <div className="w-6 h-0.5" style={{ background: "linear-gradient(90deg, #D4AF37, #F59E0B)" }} />
+            <div className="w-6 h-0.5" style={{ background: "linear-gradient(90deg, #D4AF37, #521623)" }} />
           </div>
         )}
         <h1 className="font-display text-3xl md:text-5xl font-bold text-gray-900 leading-[1.1] animate-fade-in">

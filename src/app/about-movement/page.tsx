@@ -25,22 +25,6 @@ function LotusIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function Mandala({ className = "" }: { className?: string }) {
-  const petals = Array.from({ length: 24 }, (_, i) => i * 15);
-  return (
-    <svg viewBox="0 0 400 400" fill="none" stroke="currentColor" strokeWidth={0.8} className={className} aria-hidden="true">
-      {[190, 160, 128, 96, 64, 34].map((r) => (
-        <circle key={r} cx="200" cy="200" r={r} />
-      ))}
-      {petals.map((deg) => (
-        <g key={deg} transform={`rotate(${deg} 200 200)`}>
-          <path d="M200 40c14 26 14 56 0 88-14-32-14-62 0-88Z" />
-          <path d="M200 136c8 14 8 30 0 46-8-16-8-32 0-46Z" />
-        </g>
-      ))}
-    </svg>
-  );
-}
 
 function Reveal({
   children,
@@ -59,8 +43,8 @@ function Reveal({
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: EASE, delay }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.6, ease: EASE, delay }}
     >
       {children}
     </motion.div>
@@ -106,14 +90,6 @@ function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-[#FCF8F1]">
-      <motion.div
-        aria-hidden="true"
-        className="hidden lg:block absolute right-[20%] top-1/2 -translate-y-1/2 w-[640px] h-[640px] text-[#D4AF37]/10 pointer-events-none"
-        animate={reduce ? undefined : { rotate: 360 }}
-        transition={{ duration: 240, repeat: Infinity, ease: "linear" }}
-      >
-        <Mandala className="w-full h-full" />
-      </motion.div>
       <div
         aria-hidden="true"
         className="absolute -left-32 -top-32 w-[460px] h-[460px] rounded-full pointer-events-none"
@@ -266,7 +242,7 @@ const SERVICES = [
     icon: <CookingPot size={22} strokeWidth={1.6} />,
   },
   {
-    title: "Eint Daan Sewa",
+    title: "Nirman Sewa",
     desc: "Building a better Vrindavan.",
     href: "/nirman-sewa",
     image: "/images/about-movement/eint-daan.jpg",
@@ -402,8 +378,6 @@ function ServiceInitiatives() {
 
             <motion.div {...cardEnter(SERVICES.length)} className={CARD_WIDTH}>
               <div className="relative flex h-full flex-col justify-center gap-7 overflow-hidden rounded-xl border border-[#EADFC9] bg-[#FFFCF6] p-5 shadow-[0_10px_26px_rgba(82,22,35,0.06)]">
-                <Mandala className="absolute -right-10 -top-10 w-36 h-36 text-[#D4AF37]/15" />
-                <Mandala className="absolute -left-10 -bottom-10 w-36 h-36 text-[#D4AF37]/15" />
                 <div className="relative flex items-center gap-3">
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E2C98A] bg-white text-[#B8860B] shadow-[0_4px_12px_rgba(184,134,11,0.18)]">
                     <House size={28} strokeWidth={1.4} />
@@ -723,27 +697,27 @@ function LivingTheGita() {
         style={{ ...FILL, scale }}
         className="absolute inset-0 w-full object-cover object-[78%_center]"
       />
-      <div className="absolute inset-0 bg-[#4A0C1A]/70 lg:bg-gradient-to-r lg:from-[#4A0C1A]/60 lg:via-transparent lg:to-transparent" />
+      <div className="absolute inset-0 bg-[#4A0C1A]/75 backdrop-blur-[1px]" />
 
-      <div className="container-page relative py-20 sm:py-24 lg:py-28">
-        <div style={{ maxWidth: "44rem" }}>
+      <div className="container-page relative py-20 sm:py-24 lg:py-28 flex justify-center">
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           <Reveal>
-            <Eyebrow light>Living the Gita Movement</Eyebrow>
+            <Eyebrow light center>Living the Gita Movement</Eyebrow>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 style={SERIF} className="mt-5 font-medium leading-[1.05] text-[#FBF3E4] text-[clamp(2.4rem,5vw,3.9rem)]">
+            <h2 style={SERIF} className="mt-5 font-medium leading-[1.1] text-[#FBF3E4] text-[clamp(2.4rem,5vw,3.9rem)] text-center">
               From knowing the wisdom
               <br />
               <span className="italic text-[#E9B949]">to living it.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p style={{ maxWidth: "26rem" }} className="mt-5 text-base sm:text-lg leading-relaxed text-[#F3E6D2]">
+            <p className="mt-5 text-base sm:text-lg leading-relaxed text-[#F3E6D2] text-center max-w-xl mx-auto">
               Discover timeless Gita wisdom for a more aware, purposeful everyday life.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="mt-8">
+            <div className="mt-8 flex justify-center">
               <PrimaryButton href="/courses" variant="gold">
                 Discover the Movement
               </PrimaryButton>

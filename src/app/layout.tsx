@@ -121,12 +121,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         />
         {/* Organization + WebSite structured data — global across all pages */}
-        <Script
-          id="schema-org-global"
+        <script
+          key="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-          strategy="beforeInteractive"
+          suppressHydrationWarning
         />
+      </head>
+      <body>
         {/* Google tag (gtag.js) — GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SQT5YHQSLK"
@@ -154,8 +156,6 @@ export default function RootLayout({
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "yregp2mxge");`}
         </Script>
-      </head>
-      <body>
         <Providers>
           <div className="flex min-h-dvh flex-col bg-white">
             <SiteNav />

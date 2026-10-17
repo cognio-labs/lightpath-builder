@@ -128,8 +128,11 @@ export default function SolutionsCarousel() {
                       <img
                         src={iconSrc}
                         alt={item.name}
+                        width={56}
+                        height={56}
+                        loading="eager"
+                        decoding="async"
                         className="w-11 h-11 sm:w-14 sm:h-14 object-contain transition-transform duration-300 group-hover:scale-110"
-                        loading="lazy"
                       />
                     </div>
 

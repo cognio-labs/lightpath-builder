@@ -124,7 +124,7 @@ export default function Page() {
             Education as Enlightenment 📖
           </h2>
           <p style={{ color: "#475569", fontSize: "1.1rem", lineHeight: 1.8, fontStyle: "italic" }}>
-            "Guided by the compassionate teachings of <span style={{ color: "#B45309", fontWeight: 700 }}>Guru Sakshi Shree</span>, <span style={{ fontWeight: 700 }}>Shiksha Seva</span> reaches the hearts of children who have long been forgotten by fortune, making every classroom a <span style={{ color: "#B45309", fontWeight: 700 }}>temple of learning</span>, every lesson a <span style={{ color: "#B45309", fontWeight: 700 }}>path toward self-realization</span>."
+            "Guided by the compassionate teachings of <span style={{ color: "#521623", fontWeight: 700 }}>Guru Sakshi Shree</span>, <span style={{ fontWeight: 700 }}>Shiksha Seva</span> reaches the hearts of children who have long been forgotten by fortune, making every classroom a <span style={{ color: "#521623", fontWeight: 700 }}>temple of learning</span>, every lesson a <span style={{ color: "#521623", fontWeight: 700 }}>path toward self-realization</span>."
           </p>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function Page() {
             {METRICS.map((m, i) => (
               <div key={i} style={{ background: "#FAF9F6", border: "1px solid #E2E8F0", borderRadius: "20px", padding: "28px 20px", textAlign: "center" }}>
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{m.icon}</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 800, color: "#B45309" }}>{m.value}</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 800, color: "#521623" }}>{m.value}</div>
                 <div style={{ fontSize: "0.9rem", fontWeight: 800, color: "#0F172A", marginTop: "4px" }}>{m.label}</div>
                 <p style={{ color: "#64748B", fontSize: "0.8rem", marginTop: "8px", lineHeight: 1.45 }}>{m.desc}</p>
               </div>
@@ -204,11 +204,11 @@ export default function Page() {
               <div key={i} style={{ background: d.highlight ? "#FFFDF9" : "#FFFFFF", border: d.highlight ? "2px solid #D4AF37" : "1px solid #E2E8F0", borderRadius: "20px", padding: "32px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 8px 24px rgba(0,0,0,0.02)", position: "relative" }}>
                 <div>
                   <span style={{ position: "absolute", top: "16px", right: "16px", background: d.highlight ? "#D4AF37" : "#F1F5F9", color: d.highlight ? "#0F172A" : "#64748B", fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase" }}>{d.badge}</span>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "#B45309", marginBottom: "6px", marginTop: "12px" }}>{d.amount}</div>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "#521623", marginBottom: "6px", marginTop: "12px" }}>{d.amount}</div>
                   <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{d.title}</h4>
                   <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5, marginBottom: "24px" }}>{d.desc}</p>
                 </div>
-                <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", background: d.highlight ? "linear-gradient(135deg, #F59E0B, #D4AF37)" : "#FAF9F6", border: d.highlight ? "none" : "1px solid #D2D6DC", color: d.highlight ? "#0F172A" : "#0F172A", padding: "12px", borderRadius: "100px", fontWeight: 800, fontSize: "0.85rem", textDecoration: "none", boxShadow: d.highlight ? "0 4px 15px rgba(212,175,55,0.2)" : "none" }}>
+                <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", background: d.highlight ? "#551628" : "#FAF9F6", border: d.highlight ? "none" : "1px solid #D2D6DC", color: d.highlight ? "#FFFFFF" : "#551628", padding: "12px", borderRadius: "100px", fontWeight: 800, fontSize: "0.85rem", textDecoration: "none", boxShadow: d.highlight ? "0 6px 20px rgba(85,22,40,0.3)" : "none" }}>
                   Donate {d.amount}
                 </a>
               </div>
@@ -227,7 +227,6 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
             {[
               { title: "Annapurna Sewa", desc: "Feeding Hearts, Nourishing Souls through sacred food offerings.", link: "/annapurna-sewa" },
-              { title: "Dhyan Sewa", desc: "Empowering lives through knowledge, health, and holistic well-being.", link: "/dhyan-sewa" },
               { title: "Nirman Sewa", desc: "The Spiritual Retreat & Wellness Center, established to help you achieve personal guidance, grace, and blessings.", link: "/nirman-sewa" },
             ].map((init, i) => (
               <div key={i} style={{ background: "#FAF9F6", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
@@ -235,7 +234,7 @@ export default function Page() {
                   <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{init.title}</h4>
                   <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.5, marginBottom: "16px" }}>{init.desc}</p>
                 </div>
-                <Link href={init.link} style={{ color: "#B45309", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                <Link href={init.link} style={{ color: "#521623", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
                   Explore Initiative <ArrowRight size={14} />
                 </Link>
               </div>

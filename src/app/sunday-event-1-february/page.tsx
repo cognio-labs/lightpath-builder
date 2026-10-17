@@ -173,7 +173,7 @@ export default function Page() {
               </div>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "center" }}>
-                <a href="#register" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+                <a href="#register" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
                   Join Now for FREE <span style={{ textDecoration: "line-through", color: "rgba(15,23,42,0.6)", fontSize: "0.85rem", marginLeft: "4px" }}>₹199</span>
                 </a>
               </div>
@@ -195,7 +195,7 @@ export default function Page() {
               { val: "9/10", label: "Feel inner peace and clarity" },
             ].map((s, i) => (
               <div key={i}>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 800, color: "#B45309" }}>{s.val}</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 800, color: "#521623" }}>{s.val}</div>
                 <div style={{ fontSize: "11px", color: "#64748B", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
@@ -234,7 +234,7 @@ export default function Page() {
               <p style={{ fontSize: "10px", color: "#64748B", lineHeight: 1.5, marginTop: "8px" }}>
                 By registering for the above, you confirm that you agree to the Terms of Use & the Privacy Policy as well as receiving notification for future events. You can withdraw your consent at any time by unsubscribing.
               </p>
-              <button type="submit" style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", border: "none", borderRadius: "100px", padding: "14px", fontWeight: 800, fontSize: "0.95rem", cursor: "pointer", transition: "opacity 0.2s" }}>
+              <button type="submit" style={{ background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", border: "none", borderRadius: "100px", padding: "14px", fontWeight: 800, fontSize: "0.95rem", cursor: "pointer", transition: "opacity 0.2s" }}>
                 Reserve My Spot Now
               </button>
             </form>
@@ -255,7 +255,7 @@ export default function Page() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {LEARN_POINTS.map((lp, i) => (
                   <div key={i} style={{ display: "flex", gap: "12px" }}>
-                    <div style={{ width: "24px", height: "24px", borderRadius: "100px", background: "rgba(212,175,55,0.15)", display: "grid", placeItems: "center", color: "#B45309", flexShrink: 0 }}><Check size={14} /></div>
+                    <div style={{ width: "24px", height: "24px", borderRadius: "100px", background: "rgba(212,175,55,0.15)", display: "grid", placeItems: "center", color: "#521623", flexShrink: 0 }}><Check size={14} /></div>
                     <div>
                       <h4 style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>{lp.title}</h4>
                       <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5, marginTop: "4px" }}>{lp.desc}</p>
@@ -296,7 +296,7 @@ export default function Page() {
                   { t: "Former Civil Servant", d: "Served as esteemed RTO officer before mission." }
                 ].map((item, i) => (
                   <div key={i} style={{ background: "#FAF9F6", border: "1px solid #E2E8F0", borderRadius: "12px", padding: "16px" }}>
-                    <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#B45309", marginBottom: "4px" }}>{item.t}</div>
+                    <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#521623", marginBottom: "4px" }}>{item.t}</div>
                     <div style={{ fontSize: "0.75rem", color: "#64748B" }}>{item.d}</div>
                   </div>
                 ))}

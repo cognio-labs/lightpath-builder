@@ -69,7 +69,7 @@ export function MahaMantrasPopup() {
       }`}
     >
       {/* Outer ambient golden halo glow */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-[#D4AF37]/25 via-[#F59E0B]/30 to-[#D4AF37]/25 rounded-2xl blur-md pointer-events-none" />
+      <div className="absolute -inset-1 bg-gradient-to-r from-[#D4AF37]/25 via-[#521623]/30 to-[#D4AF37]/25 rounded-2xl blur-md pointer-events-none" />
 
       {/* Luxury Sacred Card Container */}
       <div
@@ -83,7 +83,7 @@ export function MahaMantrasPopup() {
         <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-amber-950/40 z-30">
           <div
             key={progressKey}
-            className="h-full bg-gradient-to-r from-[#FDE68A] via-[#F59E0B] to-[#D97706]"
+            className="h-full bg-gradient-to-r from-[#FDE68A] via-[#521623] to-[#D97706]"
             style={{
               animation: "shrinkBar 10s linear forwards",
             }}

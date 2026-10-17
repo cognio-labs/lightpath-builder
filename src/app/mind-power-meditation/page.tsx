@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Check, Star, Download, Sparkles, BookOpen, User, Briefcase, Target, ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/PageHero";
+import TextLoop from "@/components/ui/TextLoop";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 
 
@@ -86,12 +88,12 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px", alignItems: "center" }}>
             <div>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.2)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
-                <Sparkles size={14} style={{ color: "#8B5CF6" }} />
-                <span style={{ color: "#7C3AED", fontSize: "11px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Manifestation Program</span>
+                <Sparkles size={14} style={{ color: "#521623" }} />
+                <span style={{ color: "#521623", fontSize: "11px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Manifestation Program</span>
               </div>
-              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.3rem, 4.5vw, 3.6rem)", fontWeight: 800, color: "#0F172A", lineHeight: 1.15, marginBottom: "16px" }}>
+              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.3rem, 4.5vw, 3.6rem)", fontWeight: 800, color: "#521623", lineHeight: 1.15, marginBottom: "16px" }}>
                 Empower Your Mind <br />
-                <span style={{ background: "linear-gradient(90deg, #8B5CF6, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                <span style={{ color: "#521623" }}>
                   Through Meditation
                 </span>
               </h1>
@@ -99,46 +101,53 @@ export default function Page() {
                 Explore Mind Power Meditation to enhance focus, creativity, and manifest your desires with clarity and effectiveness.
               </p>
               <div style={{ display: "flex", gap: "16px", alignItems: "center", marginBottom: "24px" }}>
-                <a href="https://sciencedivine.org/coming-soon-course/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
-                  Start Course <ArrowRight size={16} />
+                <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+                  Start Course - ₹999 <ArrowRight size={16} />
                 </a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <div style={{ display: "flex", gap: "2px" }}>
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="#521623" style={{ color: "#521623" }} />)}
                 </div>
                 <span style={{ fontSize: "13px", color: "#64748B", fontWeight: 600 }}>Trusted By 10,000+ Students</span>
               </div>
             </div>
             <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", top: "-10px", left: "-10px", width: "100%", height: "100%", border: "2px solid #8B5CF6", borderRadius: "24px", opacity: 0.15, pointerEvents: "none" }} />
-              <img loading="lazy" decoding="async" src="/images/uploads/2024/04/pexels-felipe-borges-964530-2597205-1.webp" alt="Mind Power Meditation" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
+
+              <img loading="lazy" decoding="async" src="/power-meditation.png" alt="Mind Power Meditation" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Marquee Ticker */}
-      <div style={{ background: "#8B5CF6", color: "#FFFFFF", overflow: "hidden", padding: "12px 0", whiteSpace: "nowrap" }}>
-        <div style={{ display: "inline-block", animation: "marquee 25s linear infinite" }}>
-          {Array.from({ length: 4 }).flatMap(() => KEYWORDS).map((k, i) => (
-            <span key={i} style={{ fontSize: "14px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 24px" }}>• {k}</span>
-          ))}
-        </div>
+      {/* React Bits TextLoop Straight Ribbon */}
+      <div style={{ width: "100%", overflow: "hidden", background: "#521623", padding: "0" }}>
+        <TextLoop
+          text="Meditation • Yoga • Mindfulness • Spirituality • Wellness • Enlightenment"
+          shape="line"
+          speed={65}
+          direction="forward"
+          separator="•"
+          fontSize={15}
+          fontWeight={800}
+          letterSpacing={2}
+          uppercase
+          color="#ffffff"
+          ribbon
+          ribbonColor="#521623"
+          ribbonWidth={46}
+          pauseOnHover
+          viewWidth={1440}
+          viewHeight={46}
+          style={{ width: "100%", height: "46px" }}
+        />
       </div>
-
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-25%, 0, 0); }
-        }
-      `}</style>
 
       {/* Overview Block */}
       <section className="section-pad" style={{ background: "#FFFFFF" }}>
         <div className="container-page">
           <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 50px" }}>
-            <span style={{ fontSize: "12px", color: "#8B5CF6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Course Introduction</span>
+            <span style={{ fontSize: "12px", color: "#521623", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Course Introduction</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "16px" }}>What is Mind Power Meditation?</h2>
             <p style={{ color: "#475569", fontSize: "1.05rem", lineHeight: 1.7 }}>
               Step into a three-phase manifestation journey, where clarity of intention, alignment with desires, and unwavering belief converge to manifest your dreams into reality. Harness the untapped potential of your mind to unlock focus, clarity, and manifestation abilities.
@@ -184,11 +193,11 @@ export default function Page() {
               <img loading="lazy" decoding="async" src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "340px", height: "auto", mixBlendMode: "multiply", margin: "0 auto", display: "block" }} />
             </div>
             <div>
-              <span style={{ fontSize: "12px", color: "#8B5CF6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Words from the Master</span>
+              <span style={{ fontSize: "12px", color: "#521623", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Words from the Master</span>
               <blockquote style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.65rem", fontStyle: "italic", fontWeight: 600, color: "#0F172A", lineHeight: 1.45, margin: "16px 0 24px 0", position: "relative" }}>
                 “Staying motivated can be hard – sometimes. I made my life mission to give you that first push of motivation.”
               </blockquote>
-              <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#8B5CF6" }}>,  Sakshi Shree</h4>
+              <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#521623" }}>,  Sakshi Shree</h4>
               <p style={{ color: "#64748B", fontSize: "0.9rem", marginTop: "4px" }}>Enlightened Spiritual Master & Divine Messenger</p>
             </div>
           </div>
@@ -199,7 +208,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: "#FAF9F6" }}>
         <div className="container-page">
           <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 50px" }}>
-            <span style={{ fontSize: "12px", color: "#8B5CF6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Curriculum</span>
+            <span style={{ fontSize: "12px", color: "#521623", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Curriculum</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "16px" }}>Course Structure And Process</h2>
             <p style={{ color: "#64748B", fontSize: "1rem" }}>
               Embark on a transformative journey through Mind Power Meditation, unlocking personal empowerment and inner harmony for joyful living.
@@ -211,7 +220,7 @@ export default function Page() {
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "20px", overflow: "hidden", border: "1px solid #E2E8F0", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
                   <img loading="lazy" decoding="async" src={m.img} alt={m.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div style={{ position: "absolute", top: "12px", left: "12px", background: "#8B5CF6", color: "#FFFFFF", width: "28px", height: "28px", borderRadius: "100px", display: "grid", placeItems: "center", fontWeight: 800, fontSize: "14px" }}>
+                  <div style={{ position: "absolute", top: "12px", left: "12px", background: "#521623", color: "#FFFFFF", width: "28px", height: "28px", borderRadius: "100px", display: "grid", placeItems: "center", fontWeight: 800, fontSize: "14px" }}>
                     {m.num}
                   </div>
                 </div>
@@ -228,12 +237,12 @@ export default function Page() {
       {/* Testimonials */}
       <section className="section-pad" style={{ background: "#FFFFFF" }}>
         <div className="container-page" style={{ textAlign: "center" }}>
-          <span style={{ fontSize: "12px", color: "#8B5CF6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Success Stories</span>
+          <span style={{ fontSize: "12px", color: "#521623", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Success Stories</span>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "16px" }}>10000+ Lives Changed</h2>
           <p style={{ color: "#64748B", fontSize: "1rem", maxWidth: "600px", margin: "0 auto 36px" }}>
             Over 10,000 lives have been positively changed by Mind Power Meditation. Come be a part of our community and start your journey to a brighter future!
           </p>
-          <a href="https://sciencedivine.org/latest-testimonials-videos/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 40px", borderRadius: "100px", fontWeight: 700, fontSize: "1.05rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
+          <a href="https://sciencedivine.org/latest-testimonials-videos/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 40px", borderRadius: "100px", fontWeight: 700, fontSize: "1.05rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
             Watch All Testimonials <ArrowRight size={18} />
           </a>
         </div>
@@ -242,17 +251,17 @@ export default function Page() {
       {/* Enroll Widget */}
       <section style={{ background: "linear-gradient(135deg, #FAF8FF 0%, #FAF6FF 100%)", padding: "80px 0", borderTop: "1px solid #E9D5FF", borderBottom: "1px solid #E9D5FF" }}>
         <div className="container-page" style={{ maxWidth: "700px", textAlign: "center" }}>
-          <span style={{ fontSize: "12px", color: "#8B5CF6", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Enroll Today</span>
+          <span style={{ fontSize: "12px", color: "#521623", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>Enroll Today</span>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: "#0F172A", marginTop: "8px", marginBottom: "16px" }}>TAKE CONTROL OF YOUR LIFE</h2>
-          <div style={{ background: "#FFFFFF", border: "2px dashed #8B5CF6", borderRadius: "24px", padding: "40px", boxShadow: "0 10px 30px rgba(139,92,246,0.06)" }}>
+          <div style={{ background: "#FFFFFF", border: "2px dashed #521623", borderRadius: "24px", padding: "40px", boxShadow: "0 10px 30px rgba(139,92,246,0.06)" }}>
             <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "#0F172A", marginBottom: "12px" }}>Mind Power Meditation Course</h3>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "baseline", gap: "8px", marginBottom: "12px" }}>
-              <span style={{ fontSize: "2rem", fontWeight: 900, color: "#7C3AED" }}>₹999/-</span>
+              <span style={{ fontSize: "2rem", fontWeight: 900, color: "#521623" }}>₹999/-</span>
               <span style={{ textDecoration: "line-through", color: "#94A3B8", fontSize: "1.1rem" }}>₹5,100/-</span>
             </div>
             <p style={{ color: "#64748B", fontSize: "0.85rem", fontWeight: 600, marginBottom: "28px" }}>Lifetime Access + Guided Manifestation Audio Exercises Included</p>
-            <a href="https://sciencedivine.org/coming-soon-course/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
-              BUY NOW
+            <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
+              BUY NOW - ₹999/-
             </a>
           </div>
         </div>

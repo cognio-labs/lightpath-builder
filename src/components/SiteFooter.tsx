@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "@/components/SocialIcons";
 import { LOGO_URL, SOCIALS, COURSES } from "@/data/content";

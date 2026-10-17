@@ -126,14 +126,14 @@ export default function Page() {
                       <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.3rem", fontWeight: 700, color: "#0F172A", marginBottom: "6px" }}>{s.title}</h3>
                       <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.5 }}>{s.subtitle}</p>
                     </div>
-                    <div style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", borderRadius: "100px", display: "grid", placeItems: "center", flexShrink: 0, marginLeft: "12px" }}>
+                    <div style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #521623, #D4AF37)", borderRadius: "100px", display: "grid", placeItems: "center", flexShrink: 0, marginLeft: "12px" }}>
                       <ArrowRight size={16} style={{ color: "#0F172A" }} />
                     </div>
                   </div>
 
                   {/* Know More link */}
                   <div style={{ padding: "0 28px 20px" }}>
-                    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: "#B45309", fontWeight: 700, fontSize: "0.85rem" }}>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", color: "#521623", fontWeight: 700, fontSize: "0.85rem" }}>
                       Know More <ArrowRight size={13} />
                     </span>
                   </div>
@@ -151,7 +151,7 @@ export default function Page() {
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "1rem", lineHeight: 1.7, marginBottom: "28px" }}>
             Book a personal session with Sakshi Shree for a customized one-on-one reading that uncovers your unique challenges and path to healing.
           </p>
-          <Link href="/personal-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+          <Link href="/personal-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
             Book Personal Session <ArrowRight size={16} />
           </Link>
         </div>

@@ -29,7 +29,7 @@ export default function Page() {
           {PATHS.map((p) => (
             <Link key={p.title} href={p.href} className="card-premium rounded-2xl p-6 group">
               <div className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
-                style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }} />
+                style={{ background: "linear-gradient(90deg, #521623, #D4AF37)" }} />
               <h3 className="font-display font-bold text-gray-900 text-lg mb-2">{p.title}</h3>
               <p className="text-sm text-gray-500 mb-5 leading-relaxed">{p.desc}</p>
               <span className="text-sm font-semibold text-amber-600 inline-flex items-center gap-1">

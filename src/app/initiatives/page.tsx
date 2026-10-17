@@ -35,24 +35,6 @@ const INITIATIVES = [
     ],
   },
   {
-    icon: Brain,
-    title: "Dhyan Sewa",
-    tagline: "Spreading the Gift of Meditation & Inner Peace",
-    achieved: 500000,
-    goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
-    knowMoreSlug: "dhyan-sewa",
-    image: "/images/initiatives/dhyan-sewa.jpg",
-    imagePosition: "center 15%",
-    desc: "Meditation is the universal doorway to health and joy. Dhyan Sewa organizes free community meditation workshops, youth camps, and stress-relief camps.",
-    bulletPoints: [
-      "Free public meditation and pranayama camps",
-      "Practical techniques to dissolve stress, panic & anxiety",
-      "Mind Power Meditation workshops in schools & colleges",
-      "Awakening collective peace and social harmony",
-    ],
-  },
-  {
     icon: UtensilsCrossed,
     title: "Annapurna Sewa",
     tagline: "Nourishing Communities — Food for All",
@@ -129,7 +111,7 @@ export default function Page() {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#FFFDF9] via-[#FFF8EB] to-[#FFF4DE] text-[#521623] overflow-hidden border-b border-[#E8C969]/40">
         {/* Background Sacred Aura Orbs & Glow */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-[#F59E0B]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-[#521623]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-page relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -171,10 +153,10 @@ export default function Page() {
             <div className="lg:col-span-5 flex justify-center items-center relative">
               <div className="relative w-full max-w-lg group">
                 {/* Ambient Soft Glow background blending */}
-                <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#F59E0B]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#521623]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <img loading="lazy" decoding="async"
-                  src="/images/initiatives.webp"
-                  alt="Science Divine Initiatives"
+                  src="/images/initiatives.png"
+                  alt="Science Divine Initiatives - Sadguru Sakshi Shree"
                   className="relative z-10 w-full h-auto rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
@@ -245,7 +227,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {INITIATIVES.map((init, idx) => {
               const percent = Math.min(100, Math.round((init.achieved / init.goal) * 100));
               const IconComp = init.icon;
@@ -312,7 +294,7 @@ export default function Page() {
                         </div>
                         <div className="w-full h-2.5 bg-[#FFF4CF] border border-[#E8C969]/50 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-[#D7A316] to-[#F59E0B] rounded-full transition-all duration-700"
+                            className="h-full bg-gradient-to-r from-[#D7A316] to-[#521623] rounded-full transition-all duration-700"
                             style={{ width: `${percent}%` }}
                           />
                         </div>
@@ -372,7 +354,7 @@ export default function Page() {
                 <img loading="lazy" decoding="async"
                   src={g.url}
                   alt={g.caption}
-                  className={`w-full h-full ${i === 0 ? "object-contain object-center py-1" : "object-cover object-center"} group-hover:scale-105 transition-transform duration-700`}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#521623]/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-5 right-5 text-white z-10">
@@ -405,7 +387,7 @@ export default function Page() {
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-sm shadow-lg transition-all transform hover:scale-105 active:scale-95"
             >
-              Donate Now via Razorpay
+              Donate Now
             </a>
             <Link
               href="/contact"

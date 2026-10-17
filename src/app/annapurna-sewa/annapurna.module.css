@@ -1,0 +1,765 @@
+.page {
+  --wine: #651820;
+  --deep: #310d10;
+  --gold: #e7ae4e;
+  --orange: #cf712e;
+  --cream: #fff9ed;
+  color: #30201d;
+  background: #fffaf1;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: Georgia, serif;
+}
+.page * {
+  box-sizing: border-box;
+}
+
+.hero {
+  min-height: 480px;
+  width: 100%;
+  position: relative;
+  background: url('/images/annapurna-sewa/nano-hero.webp') center 43%/cover no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, #27050720 20%, #260406c0 35%, #280606c0 65%, #20030415 80%, transparent 100%);
+}
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  width: min(92%, 620px);
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.eyebrow {
+  font: 700 11px Arial, sans-serif;
+  letter-spacing: 0.25em;
+  color: #f9d89b;
+  display: block;
+}
+.hindi {
+  font-family: Georgia, serif;
+  color: #f6c870;
+  font-size: clamp(42px, 5.8vw, 78px);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 6px 0 2px;
+  text-shadow: 0 2px 14px #1b0506;
+}
+.hero h1 {
+  font-size: clamp(30px, 3.4vw, 50px);
+  line-height: 1.05;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+}
+.hero h2 {
+  font-size: clamp(14px, 1.45vw, 20px);
+  letter-spacing: 0.04em;
+  margin: 10px 0 16px;
+  font-weight: 600;
+}
+.heroCopy p {
+  max-width: 440px;
+  margin: 0 auto 22px;
+  line-height: 1.5;
+  font-size: clamp(13px, 1.05vw, 15px);
+  color: #fff8ed;
+}
+.goldButton {
+  border: 1px solid #f5cc7c;
+  background: linear-gradient(#f8d578, #db9e3e);
+  color: #34160c;
+  padding: 13px 30px;
+  min-width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  font: 700 13px Georgia, serif;
+  letter-spacing: 0.04em;
+  box-shadow: 0 5px 16px #1b040655;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  border-radius: 4px;
+}
+.goldButton:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.heroTagline, .finalTagline {
+  position: absolute;
+  right: 3.5%;
+  bottom: 34px;
+  z-index: 1;
+  font: italic 22px/1.05 Georgia, serif;
+  text-align: center;
+  color: white;
+  transform: rotate(-8deg);
+  text-shadow: 0 2px 8px #1b050b;
+}
+.heroTagline span {
+  font-size: 36px;
+  display: block;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff9ee;
+  border-bottom: 1px solid #eadcc6;
+  padding: 28px max(24px, calc((100% - 1320px) / 2));
+}
+.pillar {
+  text-align: center;
+  padding: 0 16px;
+  border-right: 1px solid #e6d4b9;
+}
+.pillar:last-child {
+  border: 0;
+}
+.pillar svg {
+  color: var(--orange);
+  fill: #d7833330;
+  stroke-width: 2.3;
+}
+.pillar h3 {
+  margin: 6px 0 3px;
+  font-size: 15px;
+  color: #5e1b1c;
+}
+.pillar p {
+  font-size: 12px;
+  margin: 0;
+  color: #77645b;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.05fr 0.85fr 1.15fr;
+  gap: 24px;
+  padding: 36px max(24px, calc((100% - 1320px) / 2));
+  background: radial-gradient(circle at 7% 20%, #f7e4c977, transparent 24%), #fffaf1;
+  align-items: start;
+}
+.introText h2, .contribution h2, .sectionHeading h2, .finalCta h2 {
+  font-size: clamp(25px, 2.3vw, 34px);
+  line-height: 1.08;
+  margin: 0 0 12px;
+  color: #741e23;
+  font-weight: 700;
+}
+.introText p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.introText blockquote {
+  margin: 16px 0 0;
+  border: 1px solid #eadac3;
+  background: #fffefa;
+  padding: 16px 18px 16px 42px;
+  position: relative;
+  box-shadow: 0 4px 14px #6e2a1410;
+  border-radius: 4px;
+}
+.introText blockquote span {
+  position: absolute;
+  left: 10px;
+  top: 4px;
+  color: #d28c43;
+  font-size: 48px;
+}
+.introText blockquote p {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.introText cite {
+  font: bold 12px Georgia, serif;
+  color: #712022;
+  font-style: normal;
+}
+.introPhoto {
+  min-height: 360px;
+  height: 100%;
+  border-radius: 6px;
+  background: url('/images/annapurna-sewa/nano-children.webp') 58% center/cover no-repeat;
+  box-shadow: 0 4px 20px #542b141f;
+}
+.contribution {
+  background: linear-gradient(155deg, #681b22, #3d0e13);
+  padding: 18px;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px #4d111030;
+  scroll-margin-top: 100px;
+}
+.contribution h2 {
+  color: #f5cf80;
+  font-size: 23px;
+  margin: 0 0 4px;
+}
+.contribution > p {
+  font-size: 12px;
+  margin: 0 0 12px;
+  color: #fff4e5;
+}
+.donationPanel {
+  background: #fffaf3;
+  padding: 12px;
+  border-radius: 5px;
+  color: #30201d;
+}
+.frequency {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #e5d7ca;
+  border-radius: 4px;
+  padding: 3px;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+.frequency button {
+  border: 0;
+  background: none;
+  color: #55423b;
+  padding: 8px 4px;
+  font: 12px Georgia, serif;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.frequency button.active {
+  background: #8b1d26;
+  color: white;
+}
+.amountGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.amountGrid > button, .customAmount {
+  min-height: 56px;
+  border: 1px solid #e2d8ca;
+  background: #fffdfa;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  color: #2a1b17;
+  transition: all 0.2s;
+}
+.amountGrid > button strong {
+  font: 700 19px Georgia, serif;
+}
+.amountGrid > button span {
+  font-size: 11px;
+}
+.amountGrid > button.selected, .customAmount.selected {
+  background: #811c23;
+  color: #fff;
+  border-color: #811c23;
+}
+.customAmount {
+  grid-column: span 2;
+  padding: 4px 8px;
+}
+.customAmount > span {
+  font-size: 13px;
+  font-weight: bold;
+}
+.customAmount input {
+  border: 0;
+  background: transparent;
+  text-align: center;
+  width: 100%;
+  font: 12px Georgia, serif;
+  color: inherit;
+  outline: none;
+}
+.customAmount input::placeholder {
+  color: #756763;
+}
+.customAmount.selected input::placeholder {
+  color: #f8d8cd;
+}
+.validation {
+  color: #a21d25;
+  font: 11px Arial, sans-serif;
+  margin: 6px 0 0;
+}
+.secureButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(95deg, #dda54a, #f7d071, #dda54a);
+  color: #40200e;
+  text-decoration: none;
+  margin-top: 12px;
+  min-height: 40px;
+  font: bold 12px Georgia, serif;
+  letter-spacing: 0.03em;
+  border-radius: 4px;
+  transition: filter 0.2s;
+}
+.secureButton:hover {
+  filter: brightness(1.06);
+}
+.secureButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.paymentBenefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 10px;
+}
+.paymentBenefits span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: 9px/1.2 Arial, sans-serif;
+  border-right: 1px solid #e1d2bd;
+}
+.paymentBenefits span:last-child {
+  border: 0;
+}
+.paymentBenefits svg {
+  width: 18px;
+  height: 18px;
+  color: #8a1b25;
+  flex-shrink: 0;
+}
+
+.supportSection, .stories, .help {
+  padding: 36px max(24px, calc((100% - 1320px) / 2));
+  background: #fffaf1;
+  border-top: 1px solid #edddc5;
+}
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.sectionHeading h2 {
+  font-size: clamp(24px, 2.2vw, 32px);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.sectionHeading p {
+  font-size: 13.5px;
+  margin: 0 auto;
+  color: #6d5b54;
+  text-align: center;
+  max-width: 680px;
+}
+
+.supportGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.supportCard {
+  background: white;
+  border: 1px solid #ecdfca;
+  border-radius: 6px;
+  box-shadow: 0 3px 12px #5a260914;
+  overflow: hidden;
+}
+.supportPhoto {
+  height: 140px;
+  background-image: url('/images/annapurna-sewa/nano-children.webp');
+  background-size: cover;
+}
+.supportCard:nth-child(3) .supportPhoto {
+  background-image: url('/images/annapurna-sewa/nano-learning.webp');
+}
+.supportCard:nth-child(4) .supportPhoto {
+  background-image: url('/images/annapurna-sewa/nano-hero.webp');
+  background-position: 95% center !important;
+}
+.supportCardBody {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 12px 18px;
+  min-height: 96px;
+}
+.roundIcon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  background: #ce7832;
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.supportCard h3 {
+  font-size: 13px;
+  margin: 0 0 5px;
+  color: #60191c;
+}
+.supportCard p {
+  font-size: 11.5px;
+  line-height: 1.35;
+  margin: 0;
+  color: #6a5a50;
+}
+
+.impact {
+  padding: 44px max(24px, calc((100% - 1320px) / 2));
+  color: #fff;
+  background: linear-gradient(90deg, #2b080ad9, #360b10eb 45%, #370d11a6), url('/images/annapurna-sewa/nano-temple.webp') center/cover no-repeat;
+}
+.impact .sectionHeading {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 28px;
+}
+.impact .sectionHeading h2 {
+  color: #fce2b8 !important;
+  text-align: center !important;
+  margin: 0 auto 8px !important;
+}
+.impact .sectionHeading p {
+  color: #f8e3d2 !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: 650px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border-right: 1px solid #ead5bd63;
+  padding: 6px 14px;
+}
+.stat:last-child {
+  border: 0;
+}
+.stat svg {
+  color: #f5c665;
+  fill: #f5c66533;
+}
+.stat strong {
+  font: 700 32px Georgia, serif;
+  color: #f6ca77;
+}
+.stat span {
+  font-size: 12.5px;
+}
+.stories {
+  padding-bottom: 30px;
+}
+.storyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.story {
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  background: #fffdf9;
+  border: 1px solid #ecddc8;
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 135px;
+  box-shadow: 0 2px 8px #5a26090e;
+}
+.storyPhoto {
+  width: 92px;
+  flex: 0 0 92px;
+  border-radius: 4px;
+  background-image: url('/images/annapurna-sewa/nano-children.webp');
+  background-size: cover;
+}
+.quoteMark {
+  font: 44px/0.65 Georgia, serif;
+  color: #d69040;
+  float: left;
+  margin: 10px 6px 0 0;
+}
+.story p {
+  font: italic 12.5px/1.4 Georgia, serif;
+  margin: 10px 0 6px;
+}
+.story cite {
+  font: bold 10.5px Georgia, serif;
+  color: #712022;
+  font-style: normal;
+}
+.story:nth-child(2) .storyPhoto {
+  background-image: url('/images/annapurna-sewa/nano-learning.webp');
+}
+.story:nth-child(3) .storyPhoto {
+  background-image: url('/images/annapurna-sewa/nano-hero.webp');
+  background-position: 95% center !important;
+}
+
+.help {
+  padding-top: 24px;
+}
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.helpCard {
+  text-decoration: none;
+  text-align: center;
+  background: #fffdf9;
+  border: 1px solid #ecddc8;
+  border-radius: 6px;
+  padding: 16px 14px 18px;
+  min-height: 120px;
+  color: #33221d;
+  transition: all 0.2s;
+}
+.helpCard:hover {
+  border-color: #d2934c;
+  box-shadow: 0 6px 18px #561d0b1b;
+  transform: translateY(-2px);
+}
+.helpCard svg {
+  color: #d07a32;
+  fill: #d07a3230;
+}
+.helpCard h3 {
+  font-size: 13.5px;
+  margin: 4px 0 3px;
+  color: #651820;
+}
+.helpCard p {
+  font-size: 11.5px;
+  line-height: 1.35;
+  margin: 0;
+  color: #66564f;
+}
+
+.finalCta {
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: linear-gradient(90deg, #2706078d 0%, #340b0bf0 25%, #340a0cf0 75%, #28070775 100%), url('/images/annapurna-sewa/nano-temple.webp') center/cover no-repeat;
+  padding: 36px max(24px, calc((100% - 1320px) / 2));
+}
+.finalText {
+  max-width: 720px;
+}
+.finalCta h2 {
+  color: #fff0d5;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.finalText p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 auto 16px;
+  max-width: 600px;
+}
+.finalCta .goldButton {
+  padding: 12px 28px;
+}
+.finalTagline {
+  right: 4%;
+  bottom: 24px;
+  font-size: 20px;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    min-height: 420px;
+  }
+  .heroCopy {
+    width: 65%;
+  }
+  .intro {
+    grid-template-columns: 1fr 1fr;
+  }
+  .introText {
+    grid-column: 1;
+  }
+  .introPhoto {
+    grid-column: 2;
+  }
+  .contribution {
+    grid-column: 1 / -1;
+    max-width: 550px;
+    width: 100%;
+    justify-self: center;
+  }
+  .supportGrid {
+    gap: 12px;
+  }
+  .supportCardBody {
+    flex-direction: column;
+  }
+  .storyPhoto {
+    width: 75px;
+    flex-basis: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 520px;
+    background-color: #2b070a;
+    background-size: cover;
+    background-position: center top;
+    align-items: flex-end;
+    padding-bottom: 30px;
+  }
+  .heroShade {
+    background: linear-gradient(0deg, #280509 0%, #280509 40%, #28050999 60%, transparent 80%);
+  }
+  .heroCopy {
+    width: 100%;
+    max-width: 460px;
+    padding: 0 16px;
+  }
+  .hindi {
+    font-size: 46px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .heroTagline {
+    display: none;
+  }
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 0;
+    padding: 24px 16px;
+  }
+  .pillar:nth-child(2) {
+    border: 0;
+  }
+  .pillar h3 {
+    font-size: 13px;
+  }
+  .pillar p {
+    font-size: 11px;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 16px;
+  }
+  .introText, .introPhoto, .contribution {
+    grid-column: 1;
+  }
+  .introPhoto {
+    min-height: 260px;
+  }
+  .supportGrid, .helpGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .supportPhoto {
+    height: 130px;
+  }
+  .supportCardBody {
+    flex-direction: row;
+  }
+  .storyGrid {
+    grid-template-columns: 1fr;
+  }
+  .storyPhoto {
+    width: 90px;
+    flex-basis: 90px;
+  }
+  .finalCta {
+    padding: 32px 16px;
+    min-height: 220px;
+  }
+  .finalTagline {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 540px;
+  }
+  .heroCopy p {
+    font-size: 12px;
+  }
+  .supportGrid {
+    gap: 10px;
+  }
+  .supportCardBody {
+    display: block;
+  }
+  .roundIcon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+  .roundIcon svg {
+    width: 18px;
+  }
+  .supportCard h3 {
+    font-size: 11.5px;
+  }
+  .supportCard p {
+    font-size: 10.5px;
+  }
+  .supportPhoto {
+    height: 110px;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 0;
+  }
+  .stat:nth-child(2) {
+    border: 0;
+  }
+  .helpGrid {
+    gap: 10px;
+  }
+  .helpCard h3 {
+    font-size: 12px;
+  }
+  .helpCard p {
+    font-size: 10.5px;
+  }
+  .sectionHeading h2 {
+    font-size: 22px;
+  }
+}

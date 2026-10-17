@@ -1,189 +1,157 @@
 "use client";
-import Link from "next/link";
 
-import { ArrowRight, Sprout, UtensilsCrossed } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowRight, BookOpen, Heart, LockKeyhole, MapPin, Megaphone, ShieldCheck, Soup, UsersRound, Wallet, Handshake } from "lucide-react";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import styles from "./annapurna.module.css";
 
-
-
-
-const DONATIONS = [
-  {
-    amount: "₹500",
-    title: "Meal Seva",
-    desc: "Sponsor basic ingredients for a day of community meals.",
-    link: RAZORPAY_DONATION_LINK,
-    badge: "Essential Support",
-  },
-  {
-    amount: "₹2,500",
-    title: "Kitchen Sustainer",
-    desc: "Contribute to the daily running costs of the Annapurna kitchen.",
-    link: RAZORPAY_DONATION_LINK,
-    badge: "Sustainer",
-  },
-  {
-    amount: "₹5,000",
-    title: "PRASAD SPONSOR",
-    desc: "Sponsor all the food and resources for one full day of sacred offering.",
-    link: RAZORPAY_DONATION_LINK,
-    badge: "Most Impact",
-    highlight: true,
-  },
-  {
-    amount: "Custom",
-    title: "Divine Abundance",
-    desc: "Support the long-term growth of Annapurna Sewa initiatives.",
-    link: RAZORPAY_DONATION_LINK,
-    badge: "Growth Fund",
-  },
+const amounts = [
+  { value: 501, meals: "10 Meals" }, { value: 1100, meals: "25 Meals" },
+  { value: 5100, meals: "125 Meals" }, { value: 11000, meals: "300 Meals" },
+];
+const pillars = [
+  { icon: Soup, title: "Nutritious Meals", body: "for underprivileged children" },
+  { icon: UsersRound, title: "Support Slum Communities", body: "in cities and villages" },
+  { icon: Heart, title: "Better Health & Learning", body: "through proper nutrition" },
+  { icon: BookOpen, title: "Inspired by Gita Values", body: "of compassion and selfless service" },
+];
+const support = [
+  { icon: Soup, title: "NUTRITIOUS MEALS", body: "Fresh, wholesome and balanced food for children every day.", position: "54% 50%" },
+  { icon: UsersRound, title: "SUPPORT SLUM CHILDREN", body: "Reaching children in jhuggi jhopdi and underserved areas.", position: "28% 48%" },
+  { icon: BookOpen, title: "BETTER HEALTH & LEARNING", body: "Good nutrition helps children stay healthy, attend school and focus on their future.", position: "74% 50%" },
+  { icon: Heart, title: "A BRIGHTER TOMORROW", body: "Your support empowers children to dream, learn and build a better life.", position: "91% 50%" },
+];
+const stats = [
+  { icon: Soup, target: 500000, number: "5,00,000+", label: "Meals Served" },
+  { icon: UsersRound, target: 10000, number: "10,000+", label: "Children Benefited" },
+  { icon: MapPin, target: 50, number: "50+", label: "Locations" },
+  { icon: Heart, target: 100, number: "100+", label: "Dedicated Volunteers" },
 ];
 
-export default function Page() {
+function AnimatedCountUp({ target, fallback }: { target: number; fallback: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let startTime: number | null = null;
+    let frameId: number;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          startTime = null;
+          const duration = 2200;
+          const step = (ts: number) => {
+            if (!startTime) startTime = ts;
+            const progress = Math.min((ts - startTime) / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(ease * target));
+            if (progress < 1) {
+              frameId = requestAnimationFrame(step);
+            } else {
+              setCount(target);
+            }
+          };
+          frameId = requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      if (frameId) cancelAnimationFrame(frameId);
+    };
+  }, [target]);
+
   return (
-    <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif" }}>
-
-      {/* Hero Header */}
-      <section style={{ background: "linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #1E1B4B 100%)", paddingTop: "140px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
-            <UtensilsCrossed size={14} style={{ color: "#D4AF37" }} />
-            <span style={{ color: "#D4AF37", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>Sacred Food Offering</span>
-          </div>
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 5vw, 3.8rem)", fontWeight: 800, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "16px" }}>
-            Annapurna Sewa
-          </h1>
-          <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.85)", fontWeight: 600, letterSpacing: "0.02em", maxWidth: "700px", margin: "0 auto" }}>
-            Feeding Hearts, Nourishing Souls
-          </p>
-        </div>
-      </section>
-
-      {/* The Sacred Offering Quote */}
-      <section className="section-pad" style={{ background: "#FFFDF9" }}>
-        <div className="container-page" style={{ maxWidth: "800px", textAlign: "center" }}>
-          <div style={{ width: "56px", height: "56px", borderRadius: "999px", margin: "0 auto 22px", display: "grid", placeItems: "center", background: "linear-gradient(135deg, #FEF3C7, #D4AF37)", boxShadow: "0 10px 28px rgba(212,175,55,0.28)" }}><Sprout size={28} color="#1E1B4B" strokeWidth={2.2} /></div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 700, color: "#1E1B4B", lineHeight: 1.5, marginBottom: "24px" }}>
-            "Food is not merely nourishment here; it is <span style={{ color: "#D4AF37" }}>prasad</span> ,  a sacred offering. Each meal is served with folded hands, reminding us that in feeding another, we honor the Divine within them."
-          </h2>
-          <div style={{ width: "60px", height: "3px", background: "linear-gradient(90deg, #F59E0B, #D4AF37)", margin: "0 auto" }} />
-        </div>
-      </section>
-
-      {/* Features layout */}
-      <section className="section-pad" style={{ background: "#FFFFFF" }}>
-        <div className="container-page">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
-            <div>
-              <img loading="lazy" decoding="async" src="/images/uploads/2024/04/gospelforasia-RT18-03070.webp" alt="Annapurna kitchen" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 15px 35px rgba(0,0,0,0.06)" }} />
-            </div>
-            <div>
-              <div style={{ marginBottom: "32px" }}>
-                <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>The Act of Devotion</span>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginTop: "4px", marginBottom: "12px" }}>Cooked and Served with Love</h3>
-                <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
-                  Each day, volunteers of the Science Divine Foundation cook and serve meals infused with devotion. The air fills with the aroma of fresh food and the warmth of selfless service. This act is the bedrock of Annapurna Sewa.
-                </p>
-              </div>
-
-              <div>
-                <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Welcome Without Distinction</span>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginTop: "4px", marginBottom: "12px" }}>Universal Compassion</h3>
-                <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
-                  From seekers attending meditation shivirs to villagers passing by, from elders to children ,  everyone is welcomed without question or distinction. The service is universal, reflecting unconditional compassion.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quote Banner */}
-      <section style={{ background: "linear-gradient(135deg, #1E1B4B, #312E81)", padding: "60px 0", textAlign: "center" }}>
-        <div className="container-page" style={{ maxWidth: "700px" }}>
-          <p style={{ color: "#E0E7FF", fontSize: "1.25rem", fontStyle: "italic", lineHeight: 1.6, marginBottom: "16px" }}>
-            "Serving food is serving the Divine in its most humble form."
-          </p>
-          <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>,  Sadhguru Sakshi Shree</p>
-        </div>
-      </section>
-
-      {/* Impact & Foundation */}
-      <section className="section-pad" style={{ background: "#FAF9F6" }}>
-        <div className="container-page">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
-            <div>
-              <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Affirmation of Humanity</span>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 700, color: "#0F172A", marginTop: "4px", marginBottom: "16px" }}>Impact, Dignity, and Soul Nourishment 💖</h3>
-              <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "20px" }}>
-                Through Annapurna Sewa, hunger is not just cured ,  hearts are nourished, dignity is restored, and humanity is reaffirmed. It is a transformation that begins with a simple meal and extends to the soul.
-              </p>
-              <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
-                This initiative runs entirely on love, faith, and the contributions of generous souls who believe that no act of kindness is too small when done with pure intention. Your support ensures the continuous, selfless service of this sacred mission.
-              </p>
-            </div>
-            <div>
-              <img loading="lazy" decoding="async" src="/images/uploads/2024/04/IMG-20200818-WA0055.webp" alt="Feeding community" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 15px 35px rgba(0,0,0,0.06)" }} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donation Cards */}
-      <section className="section-pad" style={{ background: "#FFFFFF" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 48px" }}>
-            <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Join the Mission</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "4px" }}>Mission of Selfless Service</h2>
-            <p style={{ color: "#64748B", fontSize: "0.95rem", marginTop: "8px" }}>Be a part of this profound act of compassion. Your contribution directly ensures that food is served freely, lovingly, and abundantly.</p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "28px" }}>
-            {DONATIONS.map((d, i) => (
-              <div key={i} style={{ background: d.highlight ? "#FFFDF9" : "#FFFFFF", border: d.highlight ? "2px solid #D4AF37" : "1px solid #E2E8F0", borderRadius: "20px", padding: "32px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 8px 24px rgba(0,0,0,0.02)", position: "relative" }}>
-                <div>
-                  <span style={{ position: "absolute", top: "16px", right: "16px", background: d.highlight ? "#D4AF37" : "#F1F5F9", color: d.highlight ? "#0F172A" : "#64748B", fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase" }}>{d.badge}</span>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "#B45309", marginBottom: "6px", marginTop: "12px" }}>{d.amount}</div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{d.title}</h4>
-                  <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5, marginBottom: "24px" }}>{d.desc}</p>
-                </div>
-                <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", background: d.highlight ? "linear-gradient(135deg, #F59E0B, #D4AF37)" : "#FAF9F6", border: d.highlight ? "none" : "1px solid #D2D6DC", color: d.highlight ? "#0F172A" : "#0F172A", padding: "12px", borderRadius: "100px", fontWeight: 800, fontSize: "0.85rem", textDecoration: "none", boxShadow: d.highlight ? "0 4px 15px rgba(212,175,55,0.2)" : "none" }}>
-                  Donate {d.amount}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Explore Other Initiatives */}
-      <section className="section-pad" style={{ background: "#FAF9F6", borderTop: "1px solid #E2E8F0" }}>
-        <div className="container-page">
-          <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A" }}>More about Sakshi Shree & Science Divine Initiatives</h3>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
-            {[
-              { title: "Dhyan Sewa", desc: "The core mission of illuminating minds through education and knowledge.", link: "/dhyan-sewa" },
-              { title: "Shiksha Sewa", desc: "The core mission of illuminating minds through education and knowledge.", link: "/education-sewa" },
-              { title: "Nirman Sewa", desc: "The Spiritual Retreat & Wellness Center, established to help you achieve personal guidance, grace, and blessings.", link: "/nirman-sewa" },
-            ].map((init, i) => (
-              <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                <div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{init.title}</h4>
-                  <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.5, marginBottom: "16px" }}>{init.desc}</p>
-                </div>
-                <Link href={init.link} style={{ color: "#B45309", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                  Explore Initiative <ArrowRight size={14} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+    <span ref={ref}>
+      {count > 0 ? `${count.toLocaleString("en-IN")}+` : fallback}
+    </span>
   );
 }
+const stories = [
+  { quote: "The meals help me stay healthy and give me energy to study. I want to become a teacher one day.", by: "A Young Beneficiary", position: "54% 50%" },
+  { quote: "Earlier I used to skip meals often. Now I get good food and can focus on my studies. Thank you for supporting us.", by: "A Student from Slum Community", position: "30% 50%" },
+  { quote: "These meals not only fill our stomachs but also give us hope for a better future.", by: "A Young Beneficiary", position: "86% 50%" },
+];
+const help = [
+  { icon: Wallet, title: "Make a Donation", body: "Contribute to serve more meals.", href: "#make-contribution" },
+  { icon: UsersRound, title: "Sponsor a Meal Program", body: "Support regular food distribution for children in slums.", href: "#make-contribution" },
+  { icon: Handshake, title: "Volunteer with Us", body: "Offer your time and service.", href: "/contact" },
+  { icon: Megaphone, title: "Spread the Word", body: "Help us reach more children and supporters.", href: "/contact" },
+];
 
+export default function AnnapurnaSewaPage() {
+  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
+  const [amount, setAmount] = useState<number | "custom">(1100);
+  const [customAmount, setCustomAmount] = useState("");
+  const customInvalid = amount === "custom" && (!Number.isFinite(Number(customAmount)) || Number(customAmount) < 1);
+  const goToDonation = () => document.getElementById("make-contribution")?.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  return <div className={`annapurna-redesign ${styles.page}`}>
+    <section className={styles.hero} aria-labelledby="annapurna-title">
+      <div className={styles.heroShade}/><div className={styles.heroCopy}>
+        <span className={styles.eyebrow}>LIVING THE GITA MOVEMENT</span>
+        <div className={styles.hindi}>अन्नपूर्णा सेवा</div><h1 id="annapurna-title">ANNAPURNA SEWA</h1>
+        <h2>A MEAL TODAY, A BRIGHTER TOMORROW</h2>
+        <p>Let us come together to ensure that no child goes to bed hungry. Your support helps us provide nutritious meals to underprivileged children living in slums and underserved communities.</p>
+        <button className={styles.goldButton} onClick={goToDonation}>DONATE NOW <ArrowRight size={18}/></button>
+      </div><p className={styles.heroTagline}>Positively<br/>Nourishing<br/>Brighter<br/>Futures <span>♡</span></p>
+    </section>
+
+    <section className={styles.pillars} aria-label="Annapurna Sewa values">{pillars.map(({icon: Icon, title, body}) => <div className={styles.pillar} key={title}><Icon aria-hidden size={31}/><h3>{title}</h3><p>{body}</p></div>)}</section>
+
+    <section className={styles.intro} id="why-annapurna">
+      <div className={styles.introText}><h2>WHY<br/>ANNAPURNA SEWA?</h2>
+        <p>Every child deserves a nutritious meal. Through Annapurna Sewa, we provide wholesome and balanced food to children living in jhuggi jhopdi (slums) and other underserved communities.</p>
+        <p>A simple meal brings health, happiness and the strength to study, learn and build a better future.</p>
+        <blockquote><span>“</span><p>When a child is well nourished, their mind can learn, their heart can dream and their future can be brighter.</p><cite>— Sadguru Sakshi Shree</cite></blockquote>
+      </div>
+      <div className={styles.introPhoto} role="img" aria-label="Children enjoying nourishing meals together"/>
+      <div className={styles.contribution} id="make-contribution"><h2>MAKE A CONTRIBUTION</h2><p>Help us serve nutritious meals to underprivileged children.</p>
+        <div className={styles.donationPanel}>
+          <div className={styles.frequency} role="group" aria-label="Donation type">
+            <button type="button" aria-pressed={frequency === "one-time"} className={frequency === "one-time" ? styles.active : ""} onClick={() => setFrequency("one-time")}>One-time Donation</button>
+            <button type="button" aria-pressed={frequency === "monthly"} className={frequency === "monthly" ? styles.active : ""} onClick={() => setFrequency("monthly")}>Monthly Donation</button>
+          </div>
+          <div className={styles.amountGrid} role="group" aria-label="Donation amount">
+            {amounts.map(tier => <button key={tier.value} type="button" aria-pressed={amount === tier.value} className={amount === tier.value ? styles.selected : ""} onClick={() => setAmount(tier.value)}><strong>₹{tier.value.toLocaleString("en-IN")}</strong><span>{tier.meals}</span></button>)}
+            <label className={`${styles.customAmount} ${amount === "custom" ? styles.selected : ""}`}><span>₹ &nbsp;Other Amount</span><input type="number" min="1" inputMode="numeric" placeholder="Enter amount of your choice" value={customAmount} onFocus={() => setAmount("custom")} onChange={(event) => {setCustomAmount(event.target.value); setAmount("custom");}} aria-label="Other donation amount in rupees"/></label>
+          </div>
+          {customInvalid && <p className={styles.validation}>Enter an amount of at least ₹1 to continue.</p>}
+          <a className={`${styles.secureButton} ${customInvalid ? styles.disabled : ""}`} href={customInvalid ? undefined : RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" aria-disabled={customInvalid} onClick={customInvalid ? (event) => event.preventDefault() : undefined}><LockKeyhole size={16}/> DONATE SECURELY <ArrowRight size={18}/></a>
+          <div className={styles.paymentBenefits}><span><ShieldCheck/>100% Secure<br/>Payments</span><span><Wallet/>Instant<br/>Confirmation</span><span><Heart/>Support a Child&apos;s<br/>Future</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section className={styles.supportSection} id="what-we-provide"><div className={styles.sectionHeading}><h2>WHAT YOUR SUPPORT PROVIDES</h2><p>Your contribution helps us provide daily nutritious meals to children in jhuggi jhopdi and underserved communities.</p></div>
+      <div className={styles.supportGrid}>{support.map(({icon: Icon, title, body, position}) => <article className={styles.supportCard} key={title}><div className={styles.supportPhoto} style={{backgroundPosition: position}}/><div className={styles.supportCardBody}><span className={styles.roundIcon}><Icon size={24}/></span><div><h3>{title}</h3><p>{body}</p></div></div></article>)}</div>
+    </section>
+    <section className={styles.impact} id="our-impact">
+      <div className={styles.sectionHeading}>
+        <h2>OUR IMPACT SO FAR</h2>
+        <p>With your support, we are bringing nutrition, smiles and hope to thousands of children.</p>
+      </div>
+      <div className={styles.stats}>
+        {stats.map(({ icon: Icon, target, number, label }) => (
+          <div className={styles.stat} key={label}>
+            <Icon size={37} />
+            <strong>
+              <AnimatedCountUp target={target} fallback={number} />
+            </strong>
+            <span>{label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section className={styles.stories} id="stories"><div className={styles.sectionHeading}><h2>STORIES OF HOPE</h2><p>Real children. Real smiles. Real change.</p></div><div className={styles.storyGrid}>{stories.map(({quote, by, position}, index) => <blockquote className={styles.story} key={index}><div className={styles.storyPhoto} style={{backgroundPosition: position}} role="img" aria-label="Smiling child"/><div><span className={styles.quoteMark}>“</span><p>“{quote}”</p><cite>— {by}</cite></div></blockquote>)}</div></section>
+    <section className={styles.help} id="how-to-help"><div className={styles.sectionHeading}><h2>HOW YOU CAN HELP</h2><p>There are many ways to be a part of Annapurna Sewa.</p></div><div className={styles.helpGrid}>{help.map(({icon: Icon, title, body, href}) => <a className={styles.helpCard} href={href} key={title}><Icon size={34}/><h3>{title}</h3><p>{body}</p></a>)}</div></section>
+    <section className={styles.finalCta}><div className={styles.finalText}><h2>LET’S FILL PLATES. LET’S FILL FUTURES.</h2><p>Your support to Annapurna Sewa can bring nutrition, hope and opportunities to thousands of children living in jhuggi jhopdi communities.</p><button className={styles.goldButton} onClick={goToDonation}>DONATE NOW <ArrowRight size={18}/></button></div><p className={styles.finalTagline}>A<br/>Hunger-Free<br/>Tomorrow<br/>is Possible ♡</p></section>
+  </div>;
+}

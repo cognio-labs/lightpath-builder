@@ -1,6 +1,7 @@
 "use client";
 
 ﻿import { Check, Star, Zap, Heart, Brain, Sun, Shield, Sparkles, Award, ArrowRight } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 
 
@@ -40,7 +41,7 @@ const MODULES = [
 export default function Page() {
   const H = "#1A0533"; const H2 = "#2E0A5C";
   const G = "#D4AF37"; const Gd = "rgba(212,175,55,0.12)"; const Gb = "rgba(212,175,55,0.25)";
-  const V = "#7C3AED"; const Vd = "rgba(124,58,237,0.12)"; const Vb = "rgba(124,58,237,0.25)";
+  const V = "#521623"; const Vd = "rgba(124,58,237,0.12)"; const Vb = "rgba(124,58,237,0.25)";
   const T = "#1E0533"; const TL = "#64748B"; const W = "#FFFFFF";
   const BG = "#F5F0FF"; const BrV = "#DDD6FE";
 
@@ -60,16 +61,16 @@ export default function Page() {
                 <span style={{ color: "#A78BFA", fontSize: "11px", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.07em" }}>Life-Transforming Program</span>
               </div>
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)", fontWeight: 900, color: W, lineHeight: 1.10, marginBottom: "16px" }}>
-                Design Your<br /><span style={{ background: `linear-gradient(135deg, ${G}, #F59E0B)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Destiny</span>
+                Design Your<br /><span style={{ background: `linear-gradient(135deg, ${G}, #521623)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Destiny</span>
               </h1>
               <p style={{ fontSize: "1.1rem", fontWeight: 600, color: "rgba(255,255,255,0.70)", marginBottom: "12px" }}>A Life-Transforming Program by Sakshi Shree</p>
               <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "36px" }}>
                 Unlock your true potential and create a life you love. Discover the power within you to transform your reality and step into your highest self through ancient wisdom and modern practices.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
-                <a href="https://sciencedivine.graphy.com/courses/Design-Your-Destiny" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: `linear-gradient(135deg, ${G}, #F59E0B)`, color: H, padding: "16px 38px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.35)" }}>
+                <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: `linear-gradient(135deg, ${G}, #521623)`, color: H, padding: "16px 38px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.35)" }}>
                   <Zap size={16} />
-                  ENROLL NOW
+                  ENROLL NOW - ₹1,999
                 </a>
                 <div style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "100px", padding: "10px 20px" }}>
                   <span style={{ color: W, fontWeight: 700, fontSize: "0.9rem" }}>₹1,999 </span>
@@ -81,7 +82,7 @@ export default function Page() {
             <div style={{ position: "relative" }}>
               <div style={{ position: "absolute", inset: "-10px", background: "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(212,175,55,0.15))", borderRadius: "30px", filter: "blur(16px)" }} />
               <img loading="lazy" decoding="async" src="/images/uploads/2024/12/AAP_0044-1.webp" alt="Sakshi Shree - Design Your Destiny" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.5)", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
-              <div style={{ position: "absolute", bottom: "24px", right: "-16px", background: "linear-gradient(135deg, #7C3AED, #4C1D95)", borderRadius: "16px", padding: "16px 20px", boxShadow: "0 8px 24px rgba(124,58,237,0.4)", zIndex: 2 }}>
+              <div style={{ position: "absolute", bottom: "24px", right: "-16px", background: "linear-gradient(135deg, #521623, #4C1D95)", borderRadius: "16px", padding: "16px 20px", boxShadow: "0 8px 24px rgba(124,58,237,0.4)", zIndex: 2 }}>
                 <div style={{ color: W, fontWeight: 800, fontSize: "1rem" }}>15+ Years</div>
                 <div style={{ color: "#C4B5FD", fontSize: "10px", fontWeight: 600 }}>of Guidance</div>
               </div>
@@ -141,7 +142,7 @@ export default function Page() {
             <div>
               <span style={{ fontSize: "11px", color: V, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>The Guide</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: T, marginTop: "6px" }}>Meet Your Guide</h2>
-              <h3 style={{ color: "#7C3AED", fontSize: "1.1rem", fontWeight: 700, margin: "6px 0 20px 0" }}>Sakshi Shree · Spiritual Teacher & Life Transformation Expert</h3>
+              <h3 style={{ color: "#521623", fontSize: "1.1rem", fontWeight: 700, margin: "6px 0 20px 0" }}>Sakshi Shree · Spiritual Teacher & Life Transformation Expert</h3>
               <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "20px" }}>
                 With over 15 years of experience in spiritual guidance and personal transformation, Sakshi Shree has helped thousands of individuals worldwide unlock their true potential and design their destiny.
               </p>
@@ -166,7 +167,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px" }}>
             {TESTIMONIALS.map((s, i) => (
               <div key={i} style={{ background: BG, border: `1px solid ${BrV}`, borderRadius: "20px", padding: "28px", display: "flex", flexDirection: "column", gap: "16px" }}>
-                <div style={{ display: "flex", gap: "2px" }}>{Array.from({ length: s.stars }).map((_, j) => <Star key={j} size={14} style={{ color: "#F59E0B", fill: "#F59E0B" }} />)}</div>
+                <div style={{ display: "flex", gap: "2px" }}>{Array.from({ length: s.stars }).map((_, j) => <Star key={j} size={14} style={{ color: "#521623", fill: "#521623" }} />)}</div>
                 <p style={{ color: "#475569", fontSize: "0.875rem", lineHeight: 1.7, fontStyle: "italic", flex: 1 }}>"{s.quote}"</p>
                 <div style={{ display: "flex", flexDirection: "column", borderTop: `1px solid ${BrV}`, paddingTop: "16px" }}>
                   <div style={{ fontWeight: 800, color: T, fontSize: "0.85rem" }}>{s.name}</div>
@@ -218,8 +219,8 @@ export default function Page() {
                 <span style={{ fontSize: "1.3rem", color: "rgba(255,255,255,0.4)", textDecoration: "line-through" }}>₹5,000</span>
               </div>
               <p style={{ color: "#4ADE80", fontSize: "0.85rem", fontWeight: 700, marginBottom: "24px" }}>Save 60% Today!</p>
-              <a href="https://sciencedivine.graphy.com/courses/Design-Your-Destiny" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", background: `linear-gradient(135deg, ${G}, #F59E0B)`, color: H, padding: "16px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 6px 20px rgba(212,175,55,0.3)" }}>
-                GET STARTED TODAY
+              <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", background: `linear-gradient(135deg, ${G}, #521623)`, color: H, padding: "16px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 6px 20px rgba(212,175,55,0.3)" }}>
+                GET STARTED TODAY - ₹1,999
                 <ArrowRight size={16} />
               </a>
             </div>

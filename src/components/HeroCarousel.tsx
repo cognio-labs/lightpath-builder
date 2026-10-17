@@ -149,7 +149,7 @@ export function HeroCarousel() {
               <div className="pt-2">
                 <Link
                   href={current.link}
-                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-[#521623] font-extrabold text-xs sm:text-sm shadow-xl transition-all transform hover:scale-105 active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#521623] hover:bg-[#D97706] text-[#521623] font-extrabold text-xs sm:text-sm shadow-xl transition-all transform hover:scale-105 active:scale-95"
                 >
                   <span>{current.buttonText}</span>
                   <ChevronRight size={16} strokeWidth={3} />
@@ -187,7 +187,7 @@ export function HeroCarousel() {
             aria-label={`Go to slide ${idx + 1}`}
             className={`transition-all duration-300 cursor-pointer ${
               currentIndex === idx
-                ? "w-6 sm:w-8 h-1.5 sm:h-2 bg-[#F59E0B] rounded-full"
+                ? "w-6 sm:w-8 h-1.5 sm:h-2 bg-[#521623] rounded-full"
                 : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-amber-200/40 hover:bg-amber-200/70 rounded-full"
             }`}
           />
