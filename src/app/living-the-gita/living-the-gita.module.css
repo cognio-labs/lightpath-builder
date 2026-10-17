@@ -22,18 +22,18 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   1. HERO SECTION - Matches Nirman Sewa 3-Column Design
+   1. HERO SECTION - Living the Gita Book Showcase
    ══════════════════════════════════════════════════════════════════════════ */
 .hero {
-  min-height: 520px;
+  min-height: 540px;
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(240px, 0.85fr) minmax(380px, 1.35fr) minmax(320px, 1fr);
-  align-items: stretch;
   isolation: isolate;
   background: linear-gradient(105deg, #1b0503 0%, #3e0b08 28%, #57120c 56%, #3a0b08 85%, #2a0705 100%);
   color: #fff5d4;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 56px 0 48px;
 }
 
 .hero::after {
@@ -41,36 +41,28 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 18% 50%, rgba(212, 175, 55, 0.18) 0%, transparent 45%);
+  background: 
+    radial-gradient(circle at 75% 50%, rgba(244, 175, 45, 0.22) 0%, rgba(212, 175, 55, 0.08) 45%, transparent 65%),
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 45%);
 }
 
-.heroGuruWrap {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.heroContainer {
+  width: min(1340px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(420px, 1.28fr) minmax(320px, 0.88fr);
+  gap: 48px;
+  align-items: center;
   position: relative;
   z-index: 2;
-  padding-left: 20px;
-}
-
-.heroGuru {
-  width: 100%;
-  max-width: 360px;
-  height: 100%;
-  max-height: 540px;
-  object-fit: contain;
-  object-position: bottom center;
-  align-self: flex-end;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
 }
 
 .heroCopy {
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 38px 14px;
+  align-items: flex-start;
   position: relative;
   z-index: 3;
 }
@@ -78,11 +70,11 @@
 .heroEyebrow {
   color: #f6cf70;
   font-family: "Cinzel", "Playfair Display", serif;
-  font-size: clamp(0.68rem, 0.92vw, 0.82rem);
+  font-size: clamp(0.72rem, 0.95vw, 0.85rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   line-height: 1.4;
 }
 
@@ -92,18 +84,18 @@
 }
 
 .hero h1 {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   color: #f8c54d;
   background: linear-gradient(135deg, #fff7df 0%, #fbd574 45%, #e8a934 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(2rem, 3.8vw, 3.5rem);
-  letter-spacing: 0.02em;
-  line-height: 1.02;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
   text-shadow: 0 4px 18px rgba(25, 4, 3, 0.6);
   font-weight: 800;
-  text-align: center;
+  text-align: left;
 }
 
 .goldTitle {
@@ -113,21 +105,21 @@
   margin-top: 4px;
 }
 
-.heroLead {
-  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
-  line-height: 1.42;
+.heroIntro {
+  font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+  line-height: 1.6;
   color: #fff4dc;
-  margin: 0 auto 16px;
-  max-width: 500px;
-  text-align: center;
+  margin: 0 0 24px;
+  max-width: 580px;
+  text-align: left;
 }
 
 .heroActions {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
+  justify-content: flex-start;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 
@@ -135,21 +127,21 @@
   background: linear-gradient(135deg, #f4af2d, #ffd66b);
   color: #521623 !important;
   font-weight: 800;
-  font-size: 12.5px;
-  padding: 12px 24px;
+  font-size: 13px;
+  padding: 13px 28px;
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
   transition: transform 0.2s, box-shadow 0.2s;
   letter-spacing: 0.02em;
 }
 
 .goldButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 8px 26px rgba(212, 175, 55, 0.5);
 }
 
 .outlineButton {
@@ -157,8 +149,8 @@
   border: 1.5px solid rgba(255, 235, 195, 0.65);
   color: #fff6e2 !important;
   font-weight: 600;
-  font-size: 12.5px;
-  padding: 12px 22px;
+  font-size: 13px;
+  padding: 13px 26px;
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
@@ -171,66 +163,24 @@
   border-color: #fff6e2;
 }
 
-.heroQuoteBox {
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto 16px !important;
-  padding: 10px 16px;
-  background: rgba(25, 5, 4, 0.35);
-  border: 1px solid rgba(246, 207, 112, 0.22);
-  border-left: 3px solid #f6cf70;
-  border-radius: 6px;
-  color: #fff6e0;
-  position: relative;
-}
-
-.hindiShloka {
-  display: block;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #f6c44d;
-  letter-spacing: 0.04em;
-  margin-bottom: 4px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.heroQuoteBox p {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #fff5e0;
-  margin: 0 0 4px;
-}
-
-.heroQuoteBox cite {
-  display: block;
-  color: #f3ca66;
-  font-size: 0.8rem;
-  font-style: normal;
-  font-weight: 700;
-}
-
 .benefits {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0;
-  padding-top: 12px;
-  border-top: 1px solid rgba(246, 207, 112, 0.22);
+  padding-top: 18px;
+  border-top: 1px solid rgba(246, 207, 112, 0.25);
   width: 100%;
-  max-width: 500px;
+  max-width: 580px;
 }
 
 .benefits span {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 14px;
+  padding: 0 16px;
   color: #fff5e4;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   line-height: 1.25;
   border-right: 1px solid rgba(246, 207, 112, 0.3);
@@ -252,41 +202,72 @@
   flex-shrink: 0;
 }
 
-.heroTemple {
-  min-height: 520px;
-  background-size: cover;
-  background-position: center right;
+/* Book on Right */
+.heroBookWrap {
   position: relative;
-  overflow: hidden;
-  margin-left: -220px;
-  z-index: 1;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.95) 70%, black 85%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.95) 70%, black 85%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
-.heroTemple::before {
-  content: "";
+.heroBookGlow {
   position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(90deg, rgba(62, 11, 8, 0.75) 0%, rgba(62, 11, 8, 0.35) 30%, transparent 65%),
-    linear-gradient(180deg, rgba(27, 5, 3, 0.35) 0%, transparent 35%, rgba(37, 6, 4, 0.45) 100%);
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(244, 175, 45, 0.32) 0%, rgba(212, 175, 55, 0.12) 45%, transparent 70%);
+  border-radius: 50%;
   pointer-events: none;
+  filter: blur(24px);
 }
 
-.heroNote {
-  position: absolute;
-  right: 2.5%;
-  top: 6%;
-  color: #fde89c;
-  font-family: "Philosopher", "Playfair Display", cursive;
-  font-style: italic;
+.heroBook {
+  max-height: 470px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.65)) drop-shadow(0 6px 16px rgba(244, 175, 45, 0.25));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.heroBook:hover {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.75)) drop-shadow(0 8px 24px rgba(244, 175, 45, 0.4));
+}
+
+.heroBookBadge {
+  margin-top: 18px;
+  text-align: center;
+  background: rgba(25, 5, 4, 0.45);
+  border: 1px solid rgba(246, 207, 112, 0.3);
+  border-radius: 100px;
+  padding: 6px 20px;
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 2;
+}
+
+.heroBookBadge span {
+  display: block;
+  font-size: 11px;
   font-weight: 700;
-  transform: rotate(-6deg);
-  font-size: clamp(0.95rem, 1.4vw, 1.3rem);
-  line-height: 1.2;
-  z-index: 4;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 16px rgba(244, 206, 112, 0.45);
+  color: #f6cf70;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.heroBookBadge strong {
+  display: block;
+  font-size: 12px;
+  color: #fff6e0;
+  font-weight: 600;
+  margin-top: 2px;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -993,36 +974,41 @@
    ══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .hero {
-    display: flex;
-    flex-direction: column;
     min-height: auto;
-    padding-top: 36px;
+    padding: 44px 0 40px;
     text-align: center;
   }
-  .heroGuruWrap {
-    order: 3;
-    padding: 0;
-  }
-  .heroGuru {
-    max-height: 340px;
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
   }
   .heroCopy {
-    order: 1;
-    padding: 0 20px 20px;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
   }
-  .heroTemple {
+  .heroEyebrow,
+  .heroIntro,
+  .hero h1 {
+    text-align: center;
+  }
+  .heroActions {
+    justify-content: center;
+  }
+  .benefits {
+    justify-content: center;
+  }
+  .heroBookWrap {
     order: 2;
-    min-height: 260px;
-    margin: 10px 20px 20px;
-    border-radius: 12px;
-    -webkit-mask-image: none;
-    mask-image: none;
+    padding: 10px 0;
   }
-  .heroNote {
-    position: static;
-    transform: none;
-    margin-bottom: 12px;
-    font-size: 1.1rem;
+  .heroBook {
+    max-height: 380px;
+  }
+  .heroBookGlow {
+    width: 320px;
+    height: 320px;
   }
 }
 

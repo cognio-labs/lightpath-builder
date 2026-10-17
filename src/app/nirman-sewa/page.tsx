@@ -278,8 +278,8 @@ function LegacyNirmanSewaPage() {
 }
 
 const templeImage = "/images/nirman-sewa/vrindavan-temple-card.webp";
-const transformationTempleBg = "/images/nirman-sewa/transformation-single-temple.webp";
-const sacredSpaceTempleBg = "/images/nirman-sewa/sacred-space-mandir.webp";
+const transformationTempleBg = "/images/nirman-sewa/transformation-pond-bg.webp";
+const sacredSpaceTempleBg = "/images/nirman-sewa/final-cta-sunset-bg.webp";
 const guruImage = "/images/guruji-namaste-new.webp";
 
 const plannedFacilities = [
@@ -310,14 +310,10 @@ export default function NirmanSewaPage() {
 
   return <div className={`${styles.page} sakshi-dham-page`}>
     <section className={styles.hero}>
-      <div className={styles.heroGuruWrap}>
-        <img className={styles.heroGuru} src={guruImage} alt="Sadguru Sakshi Shree" />
-      </div>
       <div className={styles.heroCopy}>
         <p className={styles.eyebrow}>A DIVINE ABODE FOR<br />A BRIGHTER TOMORROW</p>
         <h1>SAKSHI DHAM <span>INTERNATIONAL</span></h1>
         <p className={styles.heroLead}>A Spiritual Center in Vrindavan for Inner Transformation and a More Conscious World.</p>
-        <blockquote>Sakshi Dham will be a place where ancient wisdom meets modern living — a space to awaken the divine within and create a more compassionate, peaceful and harmonious world.<cite>— Sadguru Sakshi Shree</cite></blockquote>
       </div>
       <div className={styles.heroTemple} style={{ backgroundImage: `url(${templeImage})` }} aria-label="Proposed Sakshi Dham temple architectural rendering" role="img" />
       <p className={styles.heroNote}>A Place of<br />Peace, Wisdom<br />and Positive<br />Change. ♡</p>

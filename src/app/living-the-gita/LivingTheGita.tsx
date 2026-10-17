@@ -144,68 +144,56 @@ export default function LivingTheGita() {
     <div className={`${styles.page} gita-page`}>
       {/* 1. HERO SECTION */}
       <section className={styles.hero} id="top">
-        {/* Left: Guruji */}
-        <div className={styles.heroGuruWrap}>
-          <img
-            className={styles.heroGuru}
-            src="/images/guruji-namaste-new.webp"
-            alt="Sadguru Sakshi Shree greeting with folded hands"
-          />
-        </div>
-
-        {/* Center: Headings & Content */}
-        <div className={styles.heroCopy}>
-          <p className={styles.heroEyebrow}>
-            TIMELESS WISDOM <span>|</span> STRONGER SOCIETY <span>|</span> BRIGHTER TOMORROW
-          </p>
-          <h1>
-            HELP THE GITA<br />
-            <span className={styles.goldTitle}>REACH EVERY HOME</span>
-          </h1>
-          <p className={styles.heroLead}>
-            Your contribution helps us take practical Gita wisdom, learning programs and community initiatives to millions of people across India and beyond.
-          </p>
-
-          <div className={styles.heroActions}>
-            <a className={styles.goldButton} href="#donate">
-              CONTRIBUTE TODAY <ArrowRight size={17} />
-            </a>
-            <a className={styles.outlineButton} href="#vision">
-              BE A PART OF THE MOVEMENT
-            </a>
-          </div>
-
-          <blockquote className={styles.heroQuoteBox}>
-            <div className={styles.hindiShloka}>“ ज्ञानः समेताः श्रीकृष्ण वचनम् ”</div>
-            <p>
-              “When the wisdom of the Gita reaches every home, individuals transform, families grow stronger and society becomes more conscious.”
+        <div className={styles.heroContainer}>
+          {/* Left: Headings & Content */}
+          <div className={styles.heroCopy}>
+            <p className={styles.heroEyebrow}>
+              TIMELESS WISDOM <span>|</span> STRONGER SOCIETY <span>|</span> BRIGHTER TOMORROW
             </p>
-            <cite>— Sadguru Sakshi Shree</cite>
-          </blockquote>
+            <h1>
+              HELP THE GITA<br />
+              <span className={styles.goldTitle}>REACH EVERY HOME</span>
+            </h1>
+            <p className={styles.heroIntro}>
+              Your contribution helps us take practical Gita wisdom, learning programs and community initiatives to millions of people across India and beyond.
+            </p>
 
-          <div className={styles.benefits}>
-            <span>
-              <Users size={18} /> More<br />People
-            </span>
-            <span>
-              <BookOpen size={18} /> More<br />Learning
-            </span>
-            <span>
-              <Flower2 size={18} /> More<br />Positive Change
-            </span>
+            <div className={styles.heroActions}>
+              <a className={styles.goldButton} href="#donate">
+                CONTRIBUTE TODAY <ArrowRight size={17} />
+              </a>
+              <a className={styles.outlineButton} href="#vision">
+                BE A PART OF THE MOVEMENT
+              </a>
+            </div>
+
+            <div className={styles.benefits}>
+              <span>
+                <Users size={18} /> More<br />People
+              </span>
+              <span>
+                <BookOpen size={18} /> More<br />Learning
+              </span>
+              <span>
+                <Flower2 size={18} /> More<br />Positive Change
+              </span>
+            </div>
+          </div>
+
+          {/* Right: The Book */}
+          <div className={styles.heroBookWrap}>
+            <div className={styles.heroBookGlow} />
+            <img
+              className={styles.heroBook}
+              src="/images/living-the-moment/book-living-the-gita.webp"
+              alt="Life-Changing Maha Mantras: The Art of Living the Gita by Sakshi Shree"
+            />
+            <div className={styles.heroBookBadge}>
+              <span>The Art of Living the Gita</span>
+              <strong>By Sadguru Sakshi Shree</strong>
+            </div>
           </div>
         </div>
-
-        {/* Right: Mandir */}
-        <div
-          className={styles.heroTemple}
-          style={{ backgroundImage: "url(/images/nirman-sewa/vrindavan-temple-card.webp)" }}
-          aria-label="Proposed Sacred Temple Architectural Rendering"
-          role="img"
-        />
-        <p className={styles.heroNote}>
-          A Place of<br />Peace, Wisdom<br />and Positive<br />Change. ♡
-        </p>
       </section>
 
       {/* 2. OUR VISION */}
