@@ -19,75 +19,94 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
+import { FastVideoCard, FastTestimonialCard } from "@/components/FastMediaCards";
 
 
 
 
-type Tab = "articles" | "quotes" | "videos" | "podcasts";
+type Tab = "articles" | "quotes" | "videos";
 
 const ARTICLES = [
   {
-    title: "Understanding Feminine Energy and 6 Ways to Reclaim it",
-    href: "https://sciencedivine.org/feminine-energy/",
-    tag: "Energy",
-    readTime: "9 min",
-    desc: "How reconnecting with intuitive, receptive energy naturally quiets the analytical overdrive of overthinking.",
+    title: "How to Stop Overthinking: 7 Bhagavad Gita Lessons",
+    href: "https://sciencedivine.org/blog/how-to-stop-overthinking-bhagavad-gita",
+    tag: "Bhagavad Gita Wisdom",
+    readTime: "14 min read",
+    desc: "Discover how to stop overthinking through 7 Bhagavad Gita lessons on mind control, detachment, Sakshi Bhav, meditation and lasting inner peace.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/5b2558fa-24ca-469d-a05f-2ec4b71c7437/featuredImg/hd.webp?1789112544660",
+    alt: "How to Stop Overthinking Bhagavad Gita Lessons",
   },
   {
-    title: "7 Ways to Foster an Optimistic Mind",
-    href: "https://sciencedivine.org/optimistic-mind/",
-    tag: "Mindset",
-    readTime: "7 min",
-    desc: "Practical daily habits for shifting from catastrophic thinking loops to a solution-oriented, positive mindset.",
+    title: "Witness Consciousness for Overthinking Relief",
+    href: "https://sciencedivine.org/blog/witness-consciousness-overthinking-emotional-stress",
+    tag: "Consciousness & Mind",
+    readTime: "10 min read",
+    desc: "Discover how witness consciousness reduces overthinking, emotional stress and negative thoughts by helping you observe the mind without reacting.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/2dec8965-48ae-4ff3-a895-598fac5bee46/featuredImg/hd.webp?1783932963071",
+    alt: "Witness Consciousness for Overthinking Relief",
   },
   {
-    title: "10 Ways to Overcome Negative Thoughts",
-    href: "https://sciencedivine.org/stop-negative-thinking/",
-    tag: "Negativity",
-    readTime: "8 min",
-    desc: "Evidence-based spiritual techniques for interrupting negative thought spirals before they gain momentum.",
+    title: "Spiritual Healing for Stress & Overthinking",
+    href: "https://sciencedivine.org/blog/why-your-soul-feels-tired-spiritual-healing",
+    tag: "Spiritual Healing",
+    readTime: "10 min read",
+    desc: "Discover why your soul feels tired from stress and overthinking, and how spiritual healing can restore inner peace, emotional balance and calm.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/507003de-2ddc-402d-80bb-7ef8b89a87d1/featuredImg/hd.webp?1779951502590",
+    alt: "Spiritual Healing for Stress and Overthinking",
   },
   {
-    title: "What is Spirituality & How to Grow it?",
-    href: "https://sciencedivine.org/what-is-spirituality/",
-    tag: "Spirituality",
-    readTime: "10 min",
-    desc: "Understanding how spiritual depth creates the inner spaciousness that makes overthinking simply fall away.",
+    title: "Stop Overthinking & Protect Peace of Mind",
+    href: "https://sciencedivine.org/blog/how-to-stop-overthinking-protect-peace-of-mind",
+    tag: "Peace of Mind",
+    readTime: "11 min read",
+    desc: "Learn how to stop overthinking, calm your mind, protect your peace of mind, and find inner peace through mindfulness and spiritual awareness.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/27ff193c-ef3c-43a1-b8e9-84bdc7121b68/featuredImg/hd.webp?1779698633076",
+    alt: "Stop Overthinking and Protect Peace of Mind",
   },
   {
-    title: "What is Consciousness: A Beginner's Guide",
-    href: "https://sciencedivine.org/what-is-consciousness/",
-    tag: "Consciousness",
-    readTime: "8 min",
-    desc: "An accessible introduction to the witness state ,  the awareness that watches thoughts without being swept away.",
+    title: "Meditation for Overthinking & Inner Peace",
+    href: "https://sciencedivine.org/blog/meditation-for-overthinking-inner-peace",
+    tag: "Meditation & Calm",
+    readTime: "11 min read",
+    desc: "Learn how meditation for overthinking helps calm your mind, reduce stress, and bring inner peace, mental clarity, and emotional balance.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/ae9717ef-8276-4580-b490-eeb600d846ec/featuredImg/hd.webp?1779275544606",
+    alt: "Meditation for Overthinking and Inner Peace",
   },
   {
-    title: "The Basics of Conscious Mind and Subconscious Mind",
-    href: "https://sciencedivine.org/conscious-mind-and-subconscious-mind/",
-    tag: "Mind",
-    readTime: "8 min",
-    desc: "Understanding why the subconscious mind runs repetitive thought loops ,  and how to reprogram them.",
+    title: "Stop Overthinking with These Powerful Gita Quotes",
+    href: "https://sciencedivine.org/blog/bhagavad-gita-quotes-stop-overthinking",
+    tag: "Gita Quotes",
+    readTime: "4 min read",
+    desc: "Discover powerful Bhagavad Gita quotes to reduce stress, anxiety, and overthinking. Find peace, clarity, and inner calm with timeless wisdom.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/a205d1ea-9be9-45e8-a9fd-360271c00c84/featuredImg/hd.webp?1777554180027",
+    alt: "Stop Overthinking with Powerful Gita Quotes",
   },
   {
-    title: "What Your Conscious Mind Can Do: Simply Explained",
-    href: "https://sciencedivine.org/what-is-conscious-mind/",
-    tag: "Awareness",
-    readTime: "7 min",
-    desc: "Harnessing the directing power of the conscious mind to steer mental energy toward clarity and action.",
+    title: "Stop Overthinking Instantly with Mystic Flow",
+    href: "https://sciencedivine.org/blog/stop-overthinking-instantly-mystic-flow",
+    tag: "Mystic Flow",
+    readTime: "4 min read",
+    desc: "Learn how to stop overthinking instantly using Mystic Flow. Discover simple techniques to calm your mind, reduce stress, and find inner peace naturally.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/485bb5f6-815d-4061-b578-6b22f3366da3/featuredImg/hd.webp?1777366490740",
+    alt: "Stop Overthinking Instantly with Mystic Flow",
   },
   {
-    title: "How to Be Conscious: Wake Up Your Mind Every Day",
-    href: "https://sciencedivine.org/conscious/",
-    tag: "Daily Practice",
-    readTime: "9 min",
-    desc: "A morning-to-evening protocol for maintaining present-moment awareness and preventing thought spiraling.",
+    title: "Stop Overthinking & Trust Your Intuition",
+    href: "https://sciencedivine.org/blog/stop-overthinking-trust-intuition",
+    tag: "Intuition & Clarity",
+    readTime: "5 min read",
+    desc: "Learn how to stop overthinking and trust your intuition for mental peace. Simple techniques to calm your mind and reduce anxiety naturally.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/762a3ecb-a147-4edd-9e69-ab91c4bab593/featuredImg/hd.webp?1776769215190",
+    alt: "Stop Overthinking and Trust Your Intuition",
   },
   {
-    title: "Why Should You Prioritize Your Mental Health Every Day?",
-    href: "https://sciencedivine.org/what-is-mental-health/",
-    tag: "Mental Health",
-    readTime: "6 min",
-    desc: "How daily mental wellness practices directly reduce the cognitive load that triggers overthinking.",
+    title: "Trying Mindfulness but Still Overthinking?",
+    href: "https://sciencedivine.org/blog/mindfulness-not-working-stop-overthinking",
+    tag: "Mindfulness Insights",
+    readTime: "4 min read",
+    desc: "Trying mindfulness but still overthinking? Learn why mindfulness isn’t working and how to stop overthinking with simple, practical techniques.",
+    image: "https://auth.typeflo.io/storage/v1/object/public/posts/public/6eae6931-f95c-4bcd-b740-e9c3acce8146/d826c2db-7115-4ebd-90a7-34e823bcc62f/featuredImg/hd.webp?1775802058928",
+    alt: "Trying Mindfulness but Still Overthinking",
   },
 ];
 
@@ -128,7 +147,7 @@ const VIDEOS = [
 
 const QUOTES = Array.from(
   { length: 9 },
-  (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`,
+  (_, i) => `/images/old-site/pages/overthinking/Anxiety-Quote-${i + 1}.webp`,
 );
 
 const TESTIMONIALS = [
@@ -142,13 +161,12 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: "articles", label: "Articles", icon: <BookOpen size={17} /> },
   { id: "quotes", label: "Quotes", icon: <Quote size={17} /> },
   { id: "videos", label: "Videos", icon: <PlayCircle size={17} /> },
-  { id: "podcasts", label: "Podcasts", icon: <Mic size={17} /> },
 ];
 
 const LANG_COLORS: Record<string, { bg: string; text: string }> = {
-  English: { bg: "rgba(59,130,246,0.1)", text: "#2563EB" },
-  Hindi: { bg: "rgba(212,175,55,0.12)", text: "#B45309" },
-  Bilingual: { bg: "rgba(16,185,129,0.1)", text: "#059669" },
+  English: { bg: "rgba(212,175,55,0.15)", text: "#8B6914" },
+  Hindi: { bg: "rgba(75,16,27,0.1)", text: "#4B101B" },
+  Bilingual: { bg: "rgba(75,16,27,0.1)", text: "#4B101B" },
 };
 
 export default function Page() {
@@ -168,7 +186,7 @@ export default function Page() {
         />
         <div
           className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #521623, transparent 70%)" }}
         />
 
         <div className="container-page relative z-10">
@@ -179,9 +197,9 @@ export default function Page() {
               <div
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
                 style={{
-                  borderColor: "rgba(67, 56, 202, 0.2)",
-                  color: "#4338CA",
-                  background: "rgba(67, 56, 202, 0.08)",
+                  borderColor: "rgba(212, 175, 55, 0.4)",
+                  color: "#D4AF37",
+                  background: "rgba(75, 16, 27, 0.08)",
                 }}
               >
                 <Brain size={14} />
@@ -189,7 +207,7 @@ export default function Page() {
               </div>
 
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.15]">
-                Overthinking <span style={{ color: "#4338CA" }}>No More</span>: Clarity &amp; Calm
+                Overthinking <span style={{ color: "#4B101B" }}>No More</span>: Clarity &amp; Calm
               </h1>
 
               <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
@@ -204,7 +222,9 @@ export default function Page() {
                   href="/book-session"
                   className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
                   style={{
-                    background: "linear-gradient(135deg, #4338CA, #D4AF37)",
+                    background: "linear-gradient(135deg, #4B101B, #6B1727)",
+                    border: "1px solid rgba(212,175,55,0.5)",
+                    boxShadow: "0 6px 25px rgba(75,16,27,0.35)",
                   }}
                 >
                   Book a Session <ArrowRight size={15} />
@@ -213,8 +233,8 @@ export default function Page() {
                   href="#explore"
                   className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all inline-flex items-center"
                   style={{
-                    borderColor: "rgba(67, 56, 202, 0.3)",
-                    color: "#4338CA",
+                    borderColor: "rgba(75, 16, 27, 0.3)",
+                    color: "#4B101B",
                   }}
                 >
                   Explore Resources
@@ -225,7 +245,7 @@ export default function Page() {
             <SolutionHeroImage
               src="/images/premium-heroes/overthinking-hero.webp"
               alt="Finding clarity from overthinking"
-              themeColor="#4338CA"
+              themeColor="#4B101B"
             />
           </div>
 
@@ -259,14 +279,14 @@ export default function Page() {
                   <div
                     className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{
-                      background: "rgba(67, 56, 202, 0.08)",
-                      color: "#4338CA",
+                      background: "rgba(75, 16, 27, 0.08)",
+                      color: "#4B101B",
                     }}
                   >
                     <CardIcon size={20} />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">
+                    <h3 className="font-semibold text-[#4B101B] text-sm md:text-base">
                       {card.title}
                     </h3>
                     <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
@@ -321,7 +341,7 @@ export default function Page() {
       {/* Tab Content */}
       <section className="section-pad bg-white">
         <div className="container-page">
-          {tab === "articles" && (
+          <div style={{ display: tab === "articles" ? "block" : "none" }}>
             <div>
               <SectionHeading
                 eyebrow="Read & Reflect"
@@ -348,18 +368,17 @@ export default function Page() {
                       background: "#FFFFFF",
                       border: "1px solid #E5E7EB",
                       borderRadius: "20px",
-                      padding: "28px",
+                      overflow: "hidden",
                       textDecoration: "none",
                       boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                       transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
                       position: "relative",
-                      overflow: "hidden",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(-6px)";
-                      el.style.boxShadow = "0 16px 40px rgba(16,185,129,0.12)";
-                      el.style.borderColor = "#10B981";
+                      el.style.boxShadow = "0 16px 40px rgba(75,16,27,0.14)";
+                      el.style.borderColor = "#4B101B";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
@@ -375,76 +394,88 @@ export default function Page() {
                         left: 0,
                         right: 0,
                         height: "3px",
-                        background: "linear-gradient(90deg, #10B981, #D4AF37)",
-                        borderRadius: "20px 20px 0 0",
+                        background: "linear-gradient(90deg, #4B101B, #D4AF37)",
+                        zIndex: 2,
                       }}
                     />
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        marginBottom: "14px",
-                      }}
-                    >
-                      <span
+                    {a.image && (
+                      <div className="relative aspect-[16/10] overflow-hidden bg-amber-50/40">
+                        <img
+                          src={a.image}
+                          alt={a.alt || a.title}
+                          loading={i < 3 ? "eager" : "lazy"}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
+                      </div>
+                    )}
+                    <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
+                      <div
                         style={{
-                          background: "rgba(16,185,129,0.1)",
-                          color: "#059669",
-                          fontSize: "11px",
-                          fontWeight: 700,
-                          padding: "4px 10px",
-                          borderRadius: "100px",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.05em",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          marginBottom: "14px",
                         }}
                       >
-                        {a.tag}
-                      </span>
-                      <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
-                    </div>
-                    <h3
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: "1.05rem",
-                        fontWeight: 700,
-                        color: "#111827",
-                        lineHeight: 1.45,
-                        marginBottom: "12px",
-                        flex: 1,
-                      }}
-                    >
-                      {a.title}
-                    </h3>
-                    <p
-                      style={{
-                        color: "#6B7280",
-                        fontSize: "0.875rem",
-                        lineHeight: 1.7,
-                        marginBottom: "20px",
-                      }}
-                    >
-                      {a.desc}
-                    </p>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        color: "#10B981",
-                        fontWeight: 700,
-                        fontSize: "0.875rem",
-                      }}
-                    >
-                      Read Article <ArrowRight size={14} />
+                        <span
+                          style={{
+                            background: "rgba(75,16,27,0.1)",
+                            color: "#4B101B",
+                            fontSize: "11px",
+                            fontWeight: 700,
+                            padding: "4px 10px",
+                            borderRadius: "100px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                          }}
+                        >
+                          {a.tag}
+                        </span>
+                        <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime}</span>
+                      </div>
+                      <h3
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "1.05rem",
+                          fontWeight: 700,
+                          color: "#4B101B",
+                          lineHeight: 1.45,
+                          marginBottom: "12px",
+                          flex: 1,
+                        }}
+                      >
+                        {a.title}
+                      </h3>
+                      <p
+                        style={{
+                          color: "#6B7280",
+                          fontSize: "0.875rem",
+                          lineHeight: 1.7,
+                          marginBottom: "20px",
+                        }}
+                      >
+                        {a.desc}
+                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          color: "#4B101B",
+                          fontWeight: 700,
+                          fontSize: "0.875rem",
+                        }}
+                      >
+                        Read Article <ArrowRight size={14} />
+                      </div>
                     </div>
                   </a>
                 ))}
               </div>
             </div>
-          )}
+          </div>
 
-          {tab === "quotes" && (
+          <div style={{ display: tab === "quotes" ? "block" : "none" }}>
             <div>
               <SectionHeading
                 eyebrow="Words of Wisdom"
@@ -471,7 +502,7 @@ export default function Page() {
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
                       el.style.transform = "translateY(-6px) scale(1.01)";
-                      el.style.boxShadow = "0 16px 40px rgba(16,185,129,0.18)";
+                      el.style.boxShadow = "0 16px 40px rgba(75,16,27,0.18)";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
@@ -482,16 +513,17 @@ export default function Page() {
                     <img
                       src={src}
                       alt={`Quote ${i + 1}`}
-                      loading="lazy"
+                      loading="eager"
+                      decoding="async"
                       style={{ width: "100%", height: "auto", display: "block" }}
                     />
                   </div>
                 ))}
               </div>
             </div>
-          )}
+          </div>
 
-          {tab === "videos" && (
+          <div style={{ display: tab === "videos" ? "block" : "none" }}>
             <div>
               <SectionHeading
                 eyebrow="Watch & Transform"
@@ -507,181 +539,27 @@ export default function Page() {
                 }}
               >
                 {VIDEOS.map((v, i) => (
-                  <div
+                  <FastVideoCard
                     key={i}
-                    style={{
-                      background: "#FFFFFF",
-                      borderRadius: "20px",
-                      overflow: "hidden",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                      border: "1px solid #E5E7EB",
-                      transition: "transform 0.25s, box-shadow 0.25s",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(-6px)";
-                      el.style.boxShadow = "0 20px 50px rgba(0,0,0,0.12)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(0)";
-                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
-                    }}
-                  >
-                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe
-                        src={`https://www.youtube.com/embed/${v.id}`}
-                        title={v.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        style={{
-                          position: "absolute",
-                          inset: 0,
-                          width: "100%",
-                          height: "100%",
-                          border: 0,
-                        }}
-                      />
-                    </div>
-                    <div style={{ padding: "20px" }}>
-                      <span
-                        style={{
-                          background: LANG_COLORS[v.lang]?.bg,
-                          color: LANG_COLORS[v.lang]?.text,
-                          fontSize: "11px",
-                          fontWeight: 700,
-                          padding: "3px 10px",
-                          borderRadius: "100px",
-                          display: "inline-block",
-                          marginBottom: "8px",
-                        }}
-                      >
-                        {v.lang}
-                      </span>
-                      <h3
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          fontSize: "0.95rem",
-                          fontWeight: 700,
-                          color: "#111827",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {v.title}
-                      </h3>
-                    </div>
-                  </div>
+                    id={v.id}
+                    title={v.title}
+                    lang={v.lang}
+                    langBg={LANG_COLORS[v.lang]?.bg}
+                    langColor={LANG_COLORS[v.lang]?.text}
+                  />
                 ))}
               </div>
             </div>
-          )}
+          </div>
 
-          {tab === "podcasts" && (
-            <div>
-              <SectionHeading
-                eyebrow="Real Transformation"
-                title="Testimonials ,  From Chaos to Calm"
-                subtitle="Real people sharing how Sakshi Shree's teachings stopped the overthinking spiral."
-              />
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
-                  gap: "28px",
-                  marginTop: "40px",
-                }}
-              >
-                {TESTIMONIALS.map((t, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      background: "#FFFFFF",
-                      borderRadius: "20px",
-                      overflow: "hidden",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                      border: "1px solid #E5E7EB",
-                      transition: "transform 0.25s, box-shadow 0.25s",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(-6px)";
-                      el.style.boxShadow = "0 20px 50px rgba(16,185,129,0.12)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.transform = "translateY(0)";
-                      el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
-                    }}
-                  >
-                    <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                      <iframe
-                        src={`https://www.youtube.com/embed/${t.id}`}
-                        title={t.name}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        style={{
-                          position: "absolute",
-                          inset: 0,
-                          width: "100%",
-                          height: "100%",
-                          border: 0,
-                        }}
-                      />
-                    </div>
-                    <div style={{ padding: "20px" }}>
-                      <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>
-                        {Array.from({ length: 5 }).map((_, si) => (
-                          <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />
-                        ))}
-                      </div>
-                      <h3
-                        style={{
-                          fontFamily: "'Playfair Display', serif",
-                          fontSize: "1rem",
-                          fontWeight: 700,
-                          color: "#111827",
-                        }}
-                      >
-                        {t.name}
-                      </h3>
-                      <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>
-                        Science Divine Community Member
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ textAlign: "center", marginTop: "48px" }}>
-                <Link
-                  href="/latest-testimonials-videos"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
-                    color: "#0F172A",
-                    padding: "14px 32px",
-                    borderRadius: "100px",
-                    fontWeight: 700,
-                    fontSize: "0.95rem",
-                    textDecoration: "none",
-                    boxShadow: "0 4px 20px rgba(212,175,55,0.3)",
-                  }}
-                >
-                  Watch All Testimonials <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          )}
+          
         </div>
       </section>
 
       {/* CTA */}
       <section
         style={{
-          background: "linear-gradient(135deg, #052E16 0%, #14532D 100%)",
+          background: "linear-gradient(135deg, #4B101B 0%, #2E070F 100%)",
           padding: "80px 0",
           position: "relative",
           overflow: "hidden",
@@ -716,7 +594,7 @@ export default function Page() {
             Reclaim{" "}
             <span
               style={{
-                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                background: "linear-gradient(90deg, #D4AF37, #FDE68A)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
@@ -744,14 +622,15 @@ export default function Page() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
-                color: "#0F172A",
+                background: "linear-gradient(135deg, #4B101B, #6B1727)",
+                border: "1px solid #D4AF37",
+                color: "#FFFFFF",
                 padding: "16px 36px",
                 borderRadius: "100px",
                 fontWeight: 700,
                 fontSize: "1rem",
                 textDecoration: "none",
-                boxShadow: "0 8px 30px rgba(212,175,55,0.4)",
+                boxShadow: "0 8px 30px rgba(75,16,27,0.5)",
               }}
             >
               Book Personal Session <ArrowRight size={16} />

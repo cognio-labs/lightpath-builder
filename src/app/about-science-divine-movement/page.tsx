@@ -30,7 +30,7 @@ const TIMELINE = [
     title: "Sakshi Dham International, Vrindavan",
     desc: "The monumental event of August 2017 witnessed the laying of the foundation stone for Sakshi Dham International in Vrindavan ,  a sacred sanctuary to inspire spiritual seekers and promote unity, peace, and harmony.",
     icon: <Globe size={20} />,
-    color: "#8B5CF6",
+    color: "#521623",
   },
   {
     date: "Jan 2024",
@@ -80,7 +80,7 @@ const PILLARS = [
     icon: "✨",
     color: "rgba(139,92,246,0.08)",
     border: "rgba(139,92,246,0.3)",
-    accent: "#8B5CF6",
+    accent: "#521623",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function Page() {
             }}
           >
             <Sparkles size={14} style={{ color: "#D4AF37" }} />
-            <span style={{ color: "#B45309", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            <span style={{ color: "#521623", fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
               Our Story Since 1999
             </span>
           </div>
@@ -159,7 +159,7 @@ export default function Page() {
                 Science Divine{" "}
                 <span
                   style={{
-                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                    background: "linear-gradient(90deg, #521623, #D4AF37)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -201,7 +201,7 @@ export default function Page() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "8px",
-                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                    background: "linear-gradient(135deg, #521623, #D4AF37)",
                     color: "#0F172A",
                     padding: "14px 28px",
                     borderRadius: "100px",
@@ -230,7 +230,7 @@ export default function Page() {
                     gap: "8px",
                     background: "transparent",
                     border: "2px solid rgba(212,175,55,0.5)",
-                    color: "#B45309",
+                    color: "#521623",
                     padding: "14px 28px",
                     borderRadius: "100px",
                     fontWeight: 700,
@@ -244,7 +244,7 @@ export default function Page() {
                   }}
                   onMouseLeave={e => {
                     (e.currentTarget as HTMLElement).style.borderColor = "rgba(212,175,55,0.5)";
-                    (e.currentTarget as HTMLElement).style.color = "#B45309";
+                    (e.currentTarget as HTMLElement).style.color = "#521623";
                   }}
                 >
                   Join the Movement
@@ -266,7 +266,7 @@ export default function Page() {
       </section>
 
       {/* ─── Stats Strip ──────────────────────────────────────── */}
-      <section style={{ background: "linear-gradient(135deg, #F59E0B 0%, #D4AF37 100%)", padding: "48px 0" }}>
+      <section style={{ background: "linear-gradient(135deg, #521623 0%, #D4AF37 100%)", padding: "48px 0" }}>
         <div className="container-page">
           <div
             style={{
@@ -351,7 +351,7 @@ export default function Page() {
                   marginBottom: "20px",
                 }}
               >
-                <span style={{ color: "#B45309", fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                <span style={{ color: "#521623", fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   Our Mission
                 </span>
               </div>
@@ -368,7 +368,7 @@ export default function Page() {
                 Igniting a{" "}
                 <span
                   style={{
-                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                    background: "linear-gradient(90deg, #521623, #D4AF37)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -389,7 +389,7 @@ export default function Page() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                  background: "linear-gradient(135deg, #521623, #D4AF37)",
                   color: "#0F172A",
                   padding: "14px 28px",
                   borderRadius: "100px",
@@ -458,7 +458,7 @@ export default function Page() {
                   position: "absolute",
                   bottom: "-24px",
                   right: "-24px",
-                  background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                  background: "linear-gradient(135deg, #521623, #D4AF37)",
                   borderRadius: "20px",
                   padding: "20px 24px",
                   maxWidth: "220px",
@@ -496,7 +496,7 @@ export default function Page() {
                   marginBottom: "20px",
                 }}
               >
-                <span style={{ color: "#B45309", fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                <span style={{ color: "#521623", fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   Our Vision
                 </span>
               </div>
@@ -513,7 +513,7 @@ export default function Page() {
                 A{" "}
                 <span
                   style={{
-                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                    background: "linear-gradient(90deg, #521623, #D4AF37)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -625,7 +625,7 @@ export default function Page() {
                 top: 0,
                 bottom: 0,
                 width: "2px",
-                background: "linear-gradient(180deg, #F59E0B 0%, #D4AF37 50%, rgba(212,175,55,0.2) 100%)",
+                background: "linear-gradient(180deg, #521623 0%, #D4AF37 50%, rgba(212,175,55,0.2) 100%)",
                 transform: "translateX(-50%)",
               }}
             />
@@ -820,7 +820,7 @@ export default function Page() {
             Begin Your Journey of{" "}
             <span
               style={{
-                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                background: "linear-gradient(90deg, #521623, #D4AF37)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
@@ -847,7 +847,7 @@ export default function Page() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
+                background: "linear-gradient(135deg, #521623, #D4AF37)",
                 color: "#0F172A",
                 padding: "16px 36px",
                 borderRadius: "100px",

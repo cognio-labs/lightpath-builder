@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Star, Download, Sparkles, BookOpen, User, Briefcase, Home, Compass, ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/PageHero";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 
 
@@ -110,11 +111,11 @@ export default function Page() {
             <div>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.2)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
                 <Sparkles size={14} style={{ color: "#D4AF37" }} />
-                <span style={{ color: "#B45309", fontSize: "11px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Best Seller Course</span>
+                <span style={{ color: "#521623", fontSize: "11px", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Best Seller Course</span>
               </div>
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)", fontWeight: 800, color: "#0F172A", lineHeight: 1.15, marginBottom: "16px" }}>
                 Embrace Joy, <br />
-                <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                <span style={{ background: "linear-gradient(90deg, #521623, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                   Live Your Life.
                 </span>
               </h1>
@@ -122,19 +123,18 @@ export default function Page() {
                 Discover the keys to joy and fulfillment through practical, science-backed strategies under the guidance of Sakshi Shree.
               </p>
               <div style={{ display: "flex", gap: "16px", alignItems: "center", marginBottom: "24px" }}>
-                <a href="https://sciencedivine.graphy.com/courses/The-Science-of-Joyful-Living" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
-                  Start Course <ArrowRight size={16} />
+                <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+                  Start Course - ₹499 <ArrowRight size={16} />
                 </a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <div style={{ display: "flex", gap: "2px" }}>
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="#521623" style={{ color: "#521623" }} />)}
                 </div>
                 <span style={{ fontSize: "13px", color: "#64748B", fontWeight: 600 }}>Trusted By 10,000+ Students</span>
               </div>
             </div>
             <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", top: "-10px", left: "-10px", width: "100%", height: "100%", border: "2px solid #D4AF37", borderRadius: "24px", opacity: 0.15, pointerEvents: "none" }} />
               <img loading="lazy" decoding="async" src="/images/uploads/2024/04/pexels-chetanvlad-2923157-1.webp" alt="Science Of Joyful Living" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
             </div>
           </div>
@@ -142,7 +142,7 @@ export default function Page() {
       </section>
 
       {/* Marquee Ticker */}
-      <div style={{ background: "#F59E0B", color: "#0F172A", overflow: "hidden", padding: "12px 0", whiteSpace: "nowrap" }}>
+      <div style={{ background: "#521623", color: "#0F172A", overflow: "hidden", padding: "12px 0", whiteSpace: "nowrap" }}>
         <div style={{ display: "inline-block", animation: "marquee 25s linear infinite" }}>
           {Array.from({ length: 4 }).flatMap(() => KEYWORDS).map((k, i) => (
             <span key={i} style={{ fontSize: "14px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", margin: "0 24px" }}>• {k}</span>
@@ -284,12 +284,12 @@ export default function Page() {
           <div style={{ background: "#FFFFFF", border: "2px dashed #D4AF37", borderRadius: "24px", padding: "40px", boxShadow: "0 10px 30px rgba(212,175,55,0.06)", position: "relative" }}>
             <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "#0F172A", marginBottom: "12px" }}>Design Your Destiny / Science of Joyful Living</h3>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "baseline", gap: "8px", marginBottom: "12px" }}>
-              <span style={{ fontSize: "2rem", fontWeight: 900, color: "#B45309" }}>₹499/-</span>
+              <span style={{ fontSize: "2rem", fontWeight: 900, color: "#521623" }}>₹499/-</span>
               <span style={{ textDecoration: "line-through", color: "#94A3B8", fontSize: "1.1rem" }}>₹5,100/-</span>
             </div>
             <p style={{ color: "#64748B", fontSize: "0.85rem", fontWeight: 600, marginBottom: "28px" }}>Lifetime Access + Personalized Meditation Tools & Digital Kit Included</p>
-            <a href="https://sciencedivine.graphy.com/courses/Design-Your-Destiny" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
-              BUY NOW
+            <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
+              BUY NOW - ₹499/-
             </a>
           </div>
         </div>

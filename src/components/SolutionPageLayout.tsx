@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { SectionHeading } from "@/components/PageHero";
+import InspirationalQuotesSection from "@/components/InspirationalQuotesSection";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
 import { ARTICLES_BY_TOPIC, VIDEOS_BY_TOPIC, type SolutionSlug } from "@/data/content";
 import { useState } from "react";
@@ -145,7 +146,7 @@ export function SolutionPageLayout({
 
   const quoteImages = Array.from(
     { length: 9 },
-    (_, i) => `https://sciencedivine.org/wp-content/uploads/2024/04/Anxiety-Quote-${i + 1}.jpg`,
+    (_, i) => `/images/old-site/pages/${slug}/Anxiety-Quote-${i + 1}.webp`,
   );
 
   const meta = SOLUTION_METAS[title] || SOLUTION_METAS["Wellness"];
@@ -155,7 +156,7 @@ export function SolutionPageLayout({
     <>
       <section
         className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 text-white"
-        style={{ background: "linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 50%, #1A0A2E 100%)" }}
+        style={{ background: "linear-gradient(135deg, #521623 0%, #3D0E18 50%, #521623 100%)" }}
       >
         {/* Decorative gold orbs */}
         <div
@@ -164,7 +165,7 @@ export function SolutionPageLayout({
         />
         <div
           className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-20 animate-glow-pulse"
-          style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #521623, transparent 70%)" }}
         />
 
         <div className="container-page relative z-10">
@@ -185,13 +186,11 @@ export function SolutionPageLayout({
               </div>
 
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15]">
-                {tagline.split(":")[0]}
-                {tagline.includes(":") && (
+                {tagline.includes(":") ? (
                   <>
-                    : <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">{tagline.split(":")[1]}</span>
+                    {tagline.split(":")[0]}: <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">{tagline.split(":")[1]}</span>
                   </>
-                )}
-                {!tagline.includes(":") && (
+                ) : (
                   <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">{tagline}</span>
                 )}
               </h1>
@@ -298,9 +297,9 @@ export function SolutionPageLayout({
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
               {articles.map((a, i) => (
                 <article key={i} className="card-premium rounded-2xl p-6 group overflow-hidden">
-                  <img src={cardImages[i % cardImages.length]} alt="" className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] object-cover" loading="lazy" />
+                  <img src={a.image || cardImages[i % cardImages.length]} alt={a.title} className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] object-cover" loading="lazy" />
                   <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-                    {title}
+                    {a.tag || title}
                   </div>
                   <div
                     className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
@@ -310,32 +309,46 @@ export function SolutionPageLayout({
                     {a.title}
                   </h3>
                   <p className="text-sm text-gray-500 mb-4 leading-relaxed">{a.excerpt}</p>
-                  <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
-                    Read More <ArrowRight size={12} />
-                  </button>
+                  {a.href ? (
+                    <a
+                      href={a.href}
+                      target={a.href.startsWith("http") ? "_blank" : undefined}
+                      rel={a.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1"
+                    >
+                      Read More <ArrowRight size={12} />
+                    </a>
+                  ) : (
+                    <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
+                      Read More <ArrowRight size={12} />
+                    </button>
+                  )}
                 </article>
               ))}
             </div>
           )}
 
           {tab === "quotes" && (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 animate-fade-in">
-              {quoteImages.map((src, i) => (
-                <a
-                  key={i}
-                  href={src}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl overflow-hidden hover-lift block"
-                >
-                  <img
-                    src={src}
-                    alt={`${title} quote ${i + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-square"
-                  />
-                </a>
-              ))}
+            <div className="animate-fade-in">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {quoteImages.map((src, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block bg-white border border-amber-200/40 relative group"
+                  >
+                    <img
+                      src={src}
+                      alt={`${title} quote ${i + 1}`}
+                      loading="lazy"
+                      onError={(e) => {
+                        // Fallback to anxiety quote if specific slug image is not found
+                        (e.currentTarget as HTMLImageElement).src = `/images/old-site/pages/anxiety/Anxiety-Quote-${i + 1}.webp`;
+                      }}
+                      className="w-full h-auto aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 

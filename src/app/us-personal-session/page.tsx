@@ -60,7 +60,7 @@ export default function Page() {
           ].map((f) => (
             <div key={f.title} className="card-premium rounded-2xl p-6 text-center">
               <div className="w-14 h-14 mx-auto rounded-2xl text-white grid place-items-center mb-4"
-                style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)" }}>
+                style={{ background: "linear-gradient(135deg, #521623, #D4AF37)" }}>
                 <f.icon />
               </div>
               <h3 className="font-display font-bold text-gray-900 text-lg mb-2">{f.title}</h3>
@@ -160,7 +160,7 @@ export default function Page() {
             ].map((s) => (
               <div key={s.n} className="card-premium rounded-2xl p-6 bg-white">
                 <div className="w-14 h-14 rounded-full text-white grid place-items-center font-display text-2xl font-bold mb-4"
-                  style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)" }}>
+                  style={{ background: "linear-gradient(135deg, #521623, #D4AF37)" }}>
                   {s.n}
                 </div>
                 <h3 className="font-display font-bold text-gray-900 text-lg mb-2">{s.title}</h3>

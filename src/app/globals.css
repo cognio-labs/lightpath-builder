@@ -998,39 +998,39 @@ main :is(.rounded-2xl, .rounded-3xl) {
   }
 }
 
-/* Shared responsive action rail and intentional motion-free presentation */
+/* Shared responsive action rail — compact & elegant across all devices */
 .site-quick-actions {
   position: fixed;
-  right: 12px;
+  right: 8px;
   top: 50%;
   z-index: 120;
-  width: 86px;
+  width: 58px;
   transform: translateY(-50%);
   overflow: hidden;
-  border: 1.5px solid rgba(212, 175, 55, 0.65);
-  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  border-radius: 14px;
   background: rgba(255, 253, 249, 0.98);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 12px 32px rgba(82, 22, 35, 0.18);
+  box-shadow: 0 8px 24px rgba(82, 22, 35, 0.16);
 }
 .site-quick-action {
-  min-height: 92px;
+  min-height: 52px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 13px 6px;
+  gap: 3px;
+  padding: 6px 2px;
   border-bottom: 1px solid rgba(212, 175, 55, 0.25);
   color: #521623;
   text-align: center;
   text-decoration: none;
 }
 .site-quick-action:last-child { border-bottom: 0; }
-.site-quick-action svg { width: 21px; height: 21px; stroke-width: 1.8; }
-.site-quick-action span { font-size: 10px; line-height: 1.18; font-weight: 700; }
+.site-quick-action svg { width: 16px; height: 16px; stroke-width: 1.8; }
+.site-quick-action span { font-size: 7.5px; line-height: 1.12; font-weight: 700; }
 .site-quick-action:hover,
 .site-quick-action:focus-visible { background: #fff4cf; color: #521623; }
 
@@ -1047,30 +1047,30 @@ main :is(.rounded-2xl, .rounded-3xl) {
 @media (max-width: 767px) {
   .site-quick-actions {
     position: fixed;
-    right: 8px;
-    top: 42%;
+    right: 4px;
+    top: 55%;
     z-index: 120;
-    width: 76px;
+    width: 48px;
     transform: translateY(-50%);
     overflow: hidden;
-    border: 1.5px solid rgba(212, 175, 55, 0.65);
-    border-radius: 18px;
+    border: 1px solid rgba(212, 175, 55, 0.65);
+    border-radius: 12px;
     background: rgba(255, 253, 249, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 10px 28px rgba(82, 22, 35, 0.16);
+    box-shadow: 0 6px 20px rgba(82, 22, 35, 0.16);
     display: flex;
     flex-direction: column;
   }
   .site-quick-action {
-    min-height: 72px;
+    min-height: 44px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    padding: 9px 4px;
+    gap: 2.5px;
+    padding: 4px 1.5px;
     border-bottom: 1px solid rgba(212, 175, 55, 0.25);
     border-right: 0;
     color: #521623;
@@ -1082,13 +1082,13 @@ main :is(.rounded-2xl, .rounded-3xl) {
     border-right: 0;
   }
   .site-quick-action svg {
-    width: 19px;
-    height: 19px;
+    width: 14px;
+    height: 14px;
     stroke-width: 1.8;
   }
   .site-quick-action span {
-    font-size: 8.5px;
-    line-height: 1.15;
+    font-size: 6.5px;
+    line-height: 1.1;
     font-weight: 700;
   }
 }
@@ -1577,3 +1577,6 @@ main .ps-root :is(a, button) { min-height: revert-layer; }
 main .ps-root :is(h1, h2, h3) { font-size: revert-layer; }
 
 
+body:has(.annapurna-redesign) .site-quick-actions {
+  display: none;
+}

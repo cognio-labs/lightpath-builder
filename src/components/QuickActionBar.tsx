@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { CalendarDays, BookOpen, Mail, MessageCircle } from "lucide-react";
 import { QuickActionBookLink } from "@/components/QuickActionBookLink";
 

@@ -10,50 +10,45 @@ export function MahaMantrasPopup() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("mm-dismissed")) return;
+    if (
+      localStorage.getItem("mm-dismissed") ||
+      sessionStorage.getItem("mm-dismissed") ||
+      sessionStorage.getItem("mm-shown")
+    ) {
+      return;
+    }
 
     let hideTimer: NodeJS.Timeout;
-    let showTimer: NodeJS.Timeout;
 
-    const startCycle = () => {
+    // Show once after initial delay
+    const initialDelay = setTimeout(() => {
       setOpen(true);
       setIsExiting(false);
       setProgressKey((prev) => prev + 1);
+      sessionStorage.setItem("mm-shown", "1");
 
-      // 1. Visible for 10 seconds
+      // Auto-hide after 10 seconds once (no repeating loop)
       hideTimer = setTimeout(() => {
         setIsExiting(true);
         setTimeout(() => {
           setOpen(false);
-
-          // 2. Hide for 12 seconds, then show again
-          showTimer = setTimeout(() => {
-            if (!sessionStorage.getItem("mm-dismissed")) {
-              startCycle();
-            }
-          }, 12000);
         }, 400);
       }, 10000);
-    };
-
-    // Initial show after 1.5s
-    const initialDelay = setTimeout(() => {
-      startCycle();
-    }, 1500);
+    }, 2000);
 
     return () => {
       clearTimeout(initialDelay);
       clearTimeout(hideTimer);
-      clearTimeout(showTimer);
     };
   }, []);
 
   const close = () => {
     setIsExiting(true);
     setUserDismissed(true);
+    sessionStorage.setItem("mm-dismissed", "1");
+    localStorage.setItem("mm-dismissed", "1");
     setTimeout(() => {
       setOpen(false);
-      sessionStorage.setItem("mm-dismissed", "1");
     }, 300);
   };
 
@@ -69,7 +64,7 @@ export function MahaMantrasPopup() {
       }`}
     >
       {/* Outer ambient golden halo glow */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-[#D4AF37]/25 via-[#F59E0B]/30 to-[#D4AF37]/25 rounded-2xl blur-md pointer-events-none" />
+      <div className="absolute -inset-1 bg-gradient-to-r from-[#D4AF37]/25 via-[#521623]/30 to-[#D4AF37]/25 rounded-2xl blur-md pointer-events-none" />
 
       {/* Luxury Sacred Card Container */}
       <div
@@ -83,7 +78,7 @@ export function MahaMantrasPopup() {
         <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-amber-950/40 z-30">
           <div
             key={progressKey}
-            className="h-full bg-gradient-to-r from-[#FDE68A] via-[#F59E0B] to-[#D97706]"
+            className="h-full bg-gradient-to-r from-[#FDE68A] via-[#521623] to-[#D97706]"
             style={{
               animation: "shrinkBar 10s linear forwards",
             }}

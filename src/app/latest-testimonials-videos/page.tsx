@@ -63,7 +63,7 @@ export default function Page() {
                 <div style={{ padding: "24px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>
-                      {Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}
+                      {Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#521623" style={{ color: "#521623" }} />)}
                     </div>
                     <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.45 }}>{t.title}</h3>
                   </div>

@@ -25,6 +25,7 @@ import {
   Users,
   ArrowRight,
   ShieldAlert,
+  Building2,
 } from "lucide-react";
 import { LOGO_URL, SOLUTION_TOPICS } from "@/data/content";
 
@@ -34,10 +35,9 @@ const aboutLinks = [
 ];
 
 const initiativeLinks = [
-  { href: "/initiatives", label: "All Initiatives", desc: "Complete overview of our social impact", icon: Globe, image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=240&q=80&auto=format&fit=crop" },
   { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen, image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=240&q=80&auto=format&fit=crop" },
   { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils, image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=240&q=80&auto=format&fit=crop" },
-  { href: "/dhyan-sewa", label: "Dhyan Sewa", desc: "Meditation and inner peace programs", icon: Sparkles, image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=240&q=80&auto=format&fit=crop" },
+  { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2, image: "/images/initiatives/nirman-sewa.jpg" },
 ];
 
 const practiceLinks = [
@@ -114,10 +114,10 @@ export function SiteNav() {
 
   return (
     <header
-      className={`sticky top-0 z-[100] w-full transition-colors duration-300 py-3 ${
+      className={`sticky top-0 z-[100] w-full transition-colors duration-200 py-3 bg-white ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.08)]"
-          : "bg-white border-b border-amber-100/90"
+          ? "border-b border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.08)]"
+          : "border-b border-amber-100/90 shadow-xs"
       }`}
     >
       <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between">
@@ -404,6 +404,21 @@ export function SiteNav() {
                   className="absolute top-full left-0 pt-2 z-50 w-72"
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
+                    {/* All Initiatives button placed at the top */}
+                    <div className="pb-1.5 mb-1 border-b border-amber-300/50 px-0.5">
+                      <Link
+                        href="/initiatives"
+                        onClick={() => setActiveDropdown(null)}
+                        className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-gradient-to-r from-amber-100/80 to-[#FFF4D0] hover:from-[#521623] hover:to-[#3B0F19] text-[#521623] hover:text-[#FFF8E8] font-serif font-bold text-xs sm:text-sm border border-amber-300/60 shadow-xs transition-all duration-200 group"
+                      >
+                        <span className="flex items-center gap-2">
+                          <Globe size={15} className="text-[#8B6914] group-hover:text-amber-300" />
+                          <span>All Initiatives</span>
+                        </span>
+                        <ArrowRight size={14} className="text-[#8B6914] group-hover:text-amber-300 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+
                     {initiativeLinks.map((item) => {
                       const Icon = item.icon;
                       return (
@@ -475,8 +490,7 @@ export function SiteNav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: "easeInOut" }}
-            className="lg:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white/98 backdrop-blur-2xl overflow-y-auto border-t border-amber-200/80 shadow-2xl"
+            className="lg:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl"
           >
             <div className="container-page py-6 px-4 flex flex-col gap-3 pb-24">
               
@@ -560,6 +574,13 @@ export function SiteNav() {
               </Link>
 
               <MobileGroup label="Seva Initiatives">
+                <Link
+                  href="/initiatives"
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2.5 text-sm font-bold text-[#521623] hover:text-amber-800 hover:bg-amber-100/60 rounded-xl border-b border-amber-200/50 mb-1"
+                >
+                  All Initiatives →
+                </Link>
                 {initiativeLinks.map((l) => (
                   <Link
                     key={l.href}

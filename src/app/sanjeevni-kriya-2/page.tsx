@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, Star, Download, Sparkles, BookOpen, User, Briefcase, Heart, ArrowRight } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 
 
@@ -101,19 +102,18 @@ export default function Page() {
                 Discover Sanjeevani Kriya's transformative power for holistic well-being, revitalizing body, mind, and spirit to achieve your utmost potential.
               </p>
               <div style={{ display: "flex", gap: "16px", alignItems: "center", marginBottom: "24px" }}>
-                <a href="https://sciencedivine.org/coming-soon-course/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
-                  Start Course <ArrowRight size={16} />
+                <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 36px", borderRadius: "100px", fontWeight: 700, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(212,175,55,0.3)" }}>
+                  Start Course - ₹999 <ArrowRight size={16} />
                 </a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <div style={{ display: "flex", gap: "2px" }}>
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={15} fill="#521623" style={{ color: "#521623" }} />)}
                 </div>
                 <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", fontWeight: 600 }}>Trusted By 10,000+ Students</span>
               </div>
             </div>
             <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", top: "-10px", left: "-10px", width: "100%", height: "100%", border: "2px solid #14B8A6", borderRadius: "24px", opacity: 0.15, pointerEvents: "none" }} />
               <img loading="lazy" decoding="async" src="/images/uploads/2024/04/pexels-min-an-1234035-1-1.webp" alt="Sanjeevani Kriya" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function Page() {
                   <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
                 </div>
                 <div style={{ padding: "20px" }}>
-                  <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#F59E0B" style={{ color: "#F59E0B" }} />)}</div>
+                  <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#521623" style={{ color: "#521623" }} />)}</div>
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1rem", fontWeight: 700, color: "#111827" }}>{t.name}</h3>
                   <p style={{ color: "#9CA3AF", fontSize: "0.8rem", marginTop: "4px" }}>Science Divine Community Member</p>
                 </div>
@@ -255,7 +255,7 @@ export default function Page() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: "48px" }}>
-            <a href="https://sciencedivine.org/latest-testimonials-videos/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.3)" }}>
+            <a href="https://sciencedivine.org/latest-testimonials-videos/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "14px 32px", borderRadius: "100px", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.3)" }}>
               Watch All Testimonials <ArrowRight size={16} />
             </a>
           </div>
@@ -274,8 +274,8 @@ export default function Page() {
               <span style={{ textDecoration: "line-through", color: "#94A3B8", fontSize: "1.1rem" }}>₹5,100/-</span>
             </div>
             <p style={{ color: "#64748B", fontSize: "0.85rem", fontWeight: 600, marginBottom: "28px" }}>Lifetime Access + Dedicated Kriya Meditation Video Guides Included</p>
-            <a href="https://sciencedivine.org/coming-soon-course/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
-              BUY NOW
+            <a href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#0F172A", padding: "16px 48px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 25px rgba(212,175,55,0.3)" }}>
+              BUY NOW - ₹999/-
             </a>
           </div>
         </div>

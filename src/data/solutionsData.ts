@@ -7,9 +7,9 @@ export interface SolutionData {
   heroImage: string;
   badge: string;
   themeColor: string;
-  benefits: { title: string; desc: string; icon: string }[];
+  benefits: { title: string; desc: string; icon: string; image?: string }[];
   symptoms: { title: string; desc: string }[];
-  practices: { title: string; duration: string; desc: string }[];
+  practices: { title: string; duration: string; desc: string; image?: string }[];
   quote: { text: string; author: string };
   faqs: { question: string; answer: string }[];
 }
@@ -25,10 +25,30 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
-      { title: "Renewed Joy & Purpose", desc: "Reconnect with the natural joy of existing and find meaningful purpose.", icon: "Sun" },
-      { title: "Emotional Liberation", desc: "Gently release stored grief, trauma, and emotional numbness.", icon: "Heart" },
-      { title: "Vital Life Energy", desc: "Awaken dormant energy through pranas and uplifting spiritual community.", icon: "Sparkles" },
-      { title: "Mindful Presence", desc: "Shift away from past regrets and future anxiety into peaceful present awareness.", icon: "Shield" },
+      {
+        title: "Renewed Joy & Purpose",
+        desc: "Reconnect with the natural joy of existing and find meaningful purpose.",
+        icon: "Sun",
+        image: "/images/solutions/depression/benefit-renewed-joy.webp",
+      },
+      {
+        title: "Emotional Liberation",
+        desc: "Gently release stored grief, trauma, and emotional numbness.",
+        icon: "Heart",
+        image: "/images/solutions/depression/benefit-emotional-liberation.webp",
+      },
+      {
+        title: "Vital Life Energy",
+        desc: "Awaken dormant energy through pranas and uplifting spiritual community.",
+        icon: "Sparkles",
+        image: "/images/solutions/depression/benefit-vital-energy.webp",
+      },
+      {
+        title: "Mindful Presence",
+        desc: "Shift away from past regrets and future anxiety into peaceful present awareness.",
+        icon: "Shield",
+        image: "/images/solutions/depression/benefit-mindful-presence.webp",
+      },
     ],
     symptoms: [
       { title: "Persistent Sadness & Numbness", desc: "Feeling disconnected, empty, or unmotivated." },
@@ -36,9 +56,24 @@ export const SOLUTIONS_LIST: SolutionData[] = [
       { title: "Low Energy & Fatigue", desc: "Feeling heavy and depleted even after sleeping." },
     ],
     practices: [
-      { title: "Sunlight & Prana Sadhna", duration: "15 Mins / Morning", desc: "Absorb morning sunlight while practicing rhythmic breathing." },
-      { title: "Gratitude & Joy Meditation", duration: "15 Mins / Day", desc: "Cultivate appreciation for life's small blessings." },
-      { title: "Chanting & Sound Vibrations", duration: "10 Mins / Day", desc: "Elevate your bio-energy with sacred sound frequencies." },
+      {
+        title: "Sunlight & Prana Sadhna",
+        duration: "15 Mins / Morning",
+        desc: "Absorb morning sunlight while practicing rhythmic breathing.",
+        image: "/images/solutions/depression/practice-sunlight-prana.webp",
+      },
+      {
+        title: "Gratitude & Joy Meditation",
+        duration: "15 Mins / Day",
+        desc: "Cultivate appreciation for life's small blessings.",
+        image: "/images/solutions/depression/practice-gratitude-joy.webp",
+      },
+      {
+        title: "Chanting & Sound Vibrations",
+        duration: "10 Mins / Day",
+        desc: "Elevate your bio-energy with sacred sound frequencies.",
+        image: "/images/solutions/depression/practice-chanting-sound.webp",
+      },
     ],
     quote: {
       text: "Behind every cloud of darkness lies your eternal sun of awareness. You are not your feelings; you are the light.",

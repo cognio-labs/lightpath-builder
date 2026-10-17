@@ -1,0 +1,879 @@
+.page {
+  --maroon: #5b120f;
+  --maroon-dark: #380a08;
+  --gold: #e9ad39;
+  --gold-light: #fbe69e;
+  --cream: #fff9ed;
+  --cream-card: #fffdf8;
+  --ink: #431615;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  overflow: hidden;
+}
+
+.page :is(h1, h2, h3, p, blockquote) {
+  margin: 0;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page strong,
+.sectionLabel,
+.donationKicker {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ==========================================================================
+   HERO SECTION - Matches Sakshi Dham Vrindavan Banner
+   ========================================================================== */
+.hero {
+  min-height: 520px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(380px, 1.25fr) minmax(320px, 1fr);
+  align-items: stretch;
+  isolation: isolate;
+  background: linear-gradient(105deg, #1b0503 0%, #3e0b08 28%, #57120c 56%, #3a0b08 85%, #2a0705 100%);
+  color: #fff5d4;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 18% 50%, rgba(212, 175, 55, 0.18) 0%, transparent 45%);
+}
+
+.heroGuruWrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding-left: 20px;
+}
+
+.heroGuru {
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  max-height: 540px;
+  object-fit: contain;
+  object-position: bottom center;
+  align-self: flex-end;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+}
+
+.heroCopy {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 15px;
+  position: relative;
+  z-index: 3;
+}
+
+.eyebrow {
+  font-family: "Cinzel", "Playfair Display", serif;
+  color: #f6cf70;
+  letter-spacing: 0.22em;
+  font-size: clamp(0.7rem, 1vw, 0.88rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin-top: 14px;
+  color: #f8c54d;
+  background: linear-gradient(135deg, #fff7df 0%, #fbd574 45%, #e8a934 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.2rem, 4.4vw, 4.1rem);
+  letter-spacing: 0.04em;
+  line-height: 0.96;
+  text-shadow: 0 4px 18px rgba(25, 4, 3, 0.6);
+  font-weight: 800;
+}
+
+.hero h1 span {
+  display: block;
+  font-size: 0.65em;
+  letter-spacing: 0.07em;
+  margin-top: 6px;
+}
+
+.heroLead {
+  max-width: 440px;
+  margin: 16px auto 0 !important;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff4dc;
+}
+
+.hero blockquote {
+  text-align: left;
+  max-width: 440px;
+  margin: 18px auto 0 !important;
+  padding: 10px 14px 10px 32px;
+  background: rgba(25, 5, 4, 0.32);
+  border-left: 2.5px solid #f6cf70;
+  border-radius: 4px;
+  color: #fff6e0;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.32;
+  position: relative;
+}
+
+.hero blockquote::before {
+  content: "“";
+  color: #f7ca52;
+  position: absolute;
+  left: 9px;
+  top: 4px;
+  font-size: 2.2rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.hero cite,
+.visionQuote cite {
+  display: block;
+  margin-top: 6px;
+  color: #f3ca66;
+  font-size: 0.88rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.heroTemple {
+  min-height: 520px;
+  background-size: cover;
+  background-position: center right;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroTemple::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #57120c 0%, rgba(87, 18, 12, 0.65) 25%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroNote {
+  position: absolute;
+  right: 2.5%;
+  top: 6%;
+  color: #fde89c;
+  font-family: "Philosopher", "Playfair Display", cursive;
+  font-style: italic;
+  font-weight: 700;
+  transform: rotate(-6deg);
+  font-size: clamp(0.95rem, 1.4vw, 1.3rem);
+  line-height: 1.2;
+  z-index: 4;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 16px rgba(244, 206, 112, 0.45);
+}
+
+/* ==========================================================================
+   OUR VISION & DONATION SECTION - Matches Reference Card Design
+   ========================================================================== */
+.visionDonation {
+  max-width: 1420px;
+  margin: auto;
+  padding: 48px clamp(20px, 5vw, 70px);
+  display: grid;
+  grid-template-columns: 1.34fr 0.9fr;
+  gap: 32px;
+  background: radial-gradient(circle at 20% 20%, #fff 0, transparent 30%), var(--cream);
+}
+
+/* Full card with Mandir image prominently showing on the right */
+.vision {
+  min-width: 0;
+  position: relative;
+  background-color: #fffdf8;
+  background-image: url('/images/nirman-sewa/vrindavan-vision-card-bg.webp');
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1.5px solid #ecd7b4;
+  border-radius: 18px;
+  padding: 38px 42px;
+  box-shadow: 0 12px 36px rgba(91, 18, 15, 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.visionCopy {
+  max-width: 54%;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionLabel {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: #9e2621;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vision h2 {
+  color: #8c211e;
+  line-height: 1.1;
+  font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+  font-weight: 700;
+  margin: 6px 0 14px;
+}
+
+.visionCopy > p:not(.sectionLabel) {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: #431615;
+  margin: 10px 0;
+}
+
+/* Floating quote card on bottom-left */
+.visionQuote {
+  margin-top: 24px !important;
+  padding: 16px 20px 16px 48px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #ebd8be;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(82, 34, 13, 0.06);
+  font-size: 0.98rem;
+  font-style: italic;
+  line-height: 1.42;
+  position: relative;
+  max-width: 480px;
+  color: #4a1714;
+  backdrop-filter: blur(6px);
+}
+
+.visionQuote::before {
+  content: "“";
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  font-size: 2.6rem;
+  color: #e69c2e;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.visionQuote cite {
+  color: #8c211e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   DONATION CARD
+   ========================================================================== */
+.donationCard {
+  align-self: center;
+  padding: 31px 28px 23px;
+  background: linear-gradient(155deg, #5e110d, #3f0908);
+  border: 7px solid #fff5d7;
+  outline: 1px solid #8c241b;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(71, 14, 9, 0.25);
+}
+
+.donationKicker {
+  color: #f2c253;
+  font-size: clamp(1.45rem, 2.3vw, 2rem);
+  font-weight: bold;
+}
+
+.donationCard > p:not(.donationKicker) {
+  margin: 4px 0 24px;
+  color: #fae4b3;
+  font-size: 1rem;
+}
+
+.donationCard label {
+  text-align: left;
+  display: block;
+  color: #fff2d0;
+  margin: 0 0 7px 3px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.amountField {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+  padding: 0 13px;
+  color: #9a3024;
+}
+
+.amountField input {
+  width: 100%;
+  color: #3c1711;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 15px 10px;
+  font: 600 1rem Inter, sans-serif;
+}
+
+.donationCard small {
+  display: block;
+  color: #fae4b3;
+  margin: 10px 0 17px;
+  font-family: Inter, sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.donationCard button,
+.finalCta a,
+.transformation a {
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+.donationCard button {
+  width: 100%;
+  padding: 14px 12px;
+  background: linear-gradient(90deg, #f4af2d, #ffd66b);
+  color: #6d2114;
+  font-size: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 6px 13px #31050470;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.donationCard button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px #31050490;
+}
+
+.formError {
+  color: #ffe281 !important;
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem !important;
+  margin: 8px 0 0 !important;
+}
+
+.trustRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 22px;
+  font: 600 0.68rem / 1.05 Inter, sans-serif;
+  color: #ffe9ba;
+}
+
+.trustRow span {
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.trustRow svg {
+  width: 27px;
+  height: 27px;
+  color: #f9cb5e;
+  flex: none;
+}
+
+/* ==========================================================================
+   SUPPORT / MEMBERSHIP / HIGHLIGHTS
+   ========================================================================== */
+.support,
+.membership,
+.highlights {
+  max-width: 1420px;
+  margin: auto;
+  padding: 45px clamp(20px, 5vw, 70px);
+  background: var(--cream);
+}
+
+.centerHeading {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto 26px;
+}
+
+.centerHeading h2 {
+  color: #8c211e;
+  font-size: clamp(1.5rem, 2.4vw, 2.35rem);
+}
+
+.centerHeading p {
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.facilityGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 13px;
+}
+
+.facilityCard {
+  background: #fffdf8;
+  border: 1px solid #e7d7bd;
+  box-shadow: 0 4px 13px #7747210d;
+  min-width: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.facilityCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(91, 18, 15, 0.1);
+}
+
+.facilityCard > img {
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+  display: block;
+}
+
+.facilityCard > div {
+  text-align: center;
+  padding: 12px 9px 15px;
+}
+
+.facilityCard svg {
+  width: 27px;
+  height: 27px;
+  padding: 5px;
+  border-radius: 50%;
+  background: #e99c22;
+  color: white;
+  vertical-align: middle;
+}
+
+.facilityCard h3 {
+  display: inline;
+  color: #8b2920;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.facilityCard p {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  line-height: 1.08;
+}
+
+.membership {
+  padding-top: 16px;
+}
+
+.membership .centerHeading {
+  margin-bottom: 18px;
+}
+
+.membershipGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.membershipGrid article {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 93px;
+  padding: 15px 20px;
+  border: 1px solid #ecd7b4;
+  background: #fffdf8;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.membershipGrid article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(91, 18, 15, 0.08);
+}
+
+.membershipGrid svg {
+  width: 43px;
+  height: 43px;
+  color: #d27210;
+  fill: #d27210;
+  stroke-width: 1.4;
+  flex: none;
+}
+
+.membershipGrid h3 {
+  color: #812a21;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.membershipGrid strong {
+  display: block;
+  color: #8e241d;
+  font-size: 1.47rem;
+  line-height: 1.13;
+}
+
+.highlights {
+  padding-top: 17px;
+  padding-bottom: 42px;
+}
+
+.highlights .centerHeading {
+  margin-bottom: 19px;
+}
+
+.highlights > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.highlights article {
+  min-height: 90px;
+  text-align: center;
+  padding: 5px 16px;
+  border-right: 1px solid #dabd95;
+}
+
+.highlights article:last-child {
+  border-right: none;
+}
+
+.highlights svg {
+  color: #a34c1c;
+  width: 33px;
+  height: 33px;
+}
+
+.highlights p {
+  font-size: 1rem;
+  line-height: 1.05;
+  margin-top: 5px;
+}
+
+/* ==========================================================================
+   TRANSFORMATION & FINAL CTA
+   ========================================================================== */
+.transformation,
+.finalCta {
+  max-width: 1420px;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+}
+
+.transformation {
+  min-height: 310px;
+  padding: 29px clamp(25px, 5vw, 70px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  isolation: isolate;
+}
+
+.transformation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(255, 245, 211, 0.95) 0%, rgba(255, 245, 211, 0.92) 31%, rgba(77, 15, 6, 0.03) 73%);
+}
+
+.transformationCopy {
+  width: min(435px, 55%);
+  color: #5b1d14;
+}
+
+.transformation h2 {
+  font-size: clamp(1.45rem, 2.6vw, 2.3rem);
+  line-height: 0.98;
+  color: #5b120f;
+}
+
+.transformation p {
+  font-size: 1rem;
+  line-height: 1.08;
+  margin-top: 11px;
+}
+
+.transformation a {
+  margin-top: 15px;
+  padding: 12px 17px;
+  color: #592018;
+  background: #f5b939;
+  font-size: 0.84rem;
+  border-radius: 4px;
+}
+
+.transformation blockquote {
+  align-self: flex-start;
+  width: min(255px, 28%);
+  margin-top: 13px;
+  color: #6d291c;
+  font-family: "Philosopher", cursive;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.1;
+  transform: rotate(-4deg);
+}
+
+.finalCta {
+  min-height: 275px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 130px;
+  text-align: center;
+  isolation: isolate;
+}
+
+.finalCta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(53, 7, 3, 0.78), rgba(92, 15, 6, 0.88), rgba(56, 4, 2, 0.74));
+}
+
+.finalCta > div {
+  max-width: 720px;
+}
+
+.finalCta h2 {
+  color: #f5cc6d;
+  font-size: clamp(1.65rem, 3vw, 2.75rem);
+  line-height: 1.03;
+}
+
+.finalCta p {
+  color: #ffedbd;
+  font-size: 1.1rem;
+  line-height: 1.13;
+  margin: 12px auto 17px;
+}
+
+.finalCta a {
+  background: #ffce57;
+  color: #5d190e;
+  padding: 13px 34px;
+  border-radius: 4px;
+  font-size: 1.05rem;
+}
+
+.finalNote {
+  position: absolute;
+  right: 5%;
+  bottom: 32px;
+  text-align: left;
+  color: #fff3d2 !important;
+  font-family: "Philosopher", cursive;
+  font-size: 1.25rem !important;
+  transform: rotate(-7deg);
+}
+
+.minimalFooter {
+  background: #32100d;
+  color: #f9e2ac;
+  min-height: 70px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 20px;
+  font: 500 0.78rem Inter, sans-serif;
+  flex-wrap: wrap;
+}
+
+.minimalFooter span {
+  color: #f2bd50;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+}
+
+.minimalFooter a {
+  color: #fff3d2;
+  text-decoration: none;
+}
+
+.minimalFooter a:hover {
+  color: #f6c251;
+}
+
+:global(body:has(.sakshi-dham-page) footer),
+:global(body:has(.sakshi-dham-page) .site-quick-actions) {
+  display: none !important;
+}
+
+:global(body:has(.sakshi-dham-page) main) {
+  padding-bottom: 0 !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: minmax(200px, 0.7fr) 1fr minmax(240px, 0.85fr);
+    min-height: 480px;
+  }
+  .visionDonation {
+    grid-template-columns: 1fr;
+  }
+  .donationCard {
+    max-width: 610px;
+    width: 100%;
+    margin: auto;
+  }
+  .facilityGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .facilityCard:last-child {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 820px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 36px;
+    text-align: center;
+  }
+  .heroGuruWrap {
+    order: 3;
+    padding: 0;
+  }
+  .heroGuru {
+    max-height: 340px;
+  }
+  .heroCopy {
+    order: 1;
+    padding: 0 20px 20px;
+  }
+  .heroTemple {
+    order: 2;
+    min-height: 260px;
+    margin: 10px 20px 20px;
+    border-radius: 12px;
+  }
+  .heroNote {
+    position: static;
+    transform: none;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+  }
+  .vision {
+    padding: 28px 20px;
+    background: 
+      linear-gradient(180deg, #fff9ed 0%, #fff9ed 62%, rgba(255, 249, 237, 0.9) 82%, rgba(255, 249, 237, 0.3) 100%),
+      url('/images/nirman-sewa/vrindavan-temple-card.webp') bottom center / cover no-repeat;
+  }
+  .visionQuote {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .visionDonation,
+  .support,
+  .membership,
+  .highlights {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+  .facilityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .facilityCard:last-child {
+    grid-column: auto;
+  }
+  .facilityCard > img {
+    height: 110px;
+  }
+  .membershipGrid {
+    grid-template-columns: 1fr;
+  }
+  .highlights > div:last-child {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .highlights article {
+    border-right: 0;
+    border-bottom: 1px solid #dabd95;
+    padding: 10px;
+  }
+  .highlights article:last-child {
+    grid-column: 1 / -1;
+  }
+  .transformation {
+    min-height: 500px;
+    display: block;
+    padding-top: 26px;
+  }
+  .transformationCopy {
+    width: 100%;
+  }
+  .transformation blockquote {
+    width: 70%;
+    margin: 38px 0 0 auto;
+    color: #fff3d3;
+    font-size: 1.12rem;
+  }
+  .finalCta {
+    min-height: 310px;
+    padding: 33px 20px 68px;
+  }
+  .finalCta h2 {
+    font-size: 1.62rem;
+  }
+  .finalCta p {
+    font-size: 1rem;
+  }
+  .finalNote {
+    right: 18px;
+    bottom: 4px;
+    font-size: 1rem !important;
+  }
+  .minimalFooter {
+    justify-content: flex-start;
+    gap: 12px 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    scroll-behavior: auto !important;
+  }
+}

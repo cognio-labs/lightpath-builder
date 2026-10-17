@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Clock, ShieldCheck, Sparkles, Star, ArrowRight } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 const COURSES_DATA = [
   {
@@ -13,7 +14,8 @@ const COURSES_DATA = [
     duration: "2 hours",
     price: 499,
     originalPrice: 5100,
-    image: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1000&q=90&fit=crop",
+    image: "/images/courses/design-your-destiny.jpg",
+    objectPosition: "center 25%",
     features: ["Manifest Dreams", "Emotional Balance", "Unlock Potential", "Daily Habits"],
   },
   {
@@ -26,7 +28,8 @@ const COURSES_DATA = [
     duration: "2 hours",
     price: 459,
     originalPrice: 5100,
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1000&q=90&fit=crop",
+    image: "/images/courses/science-of-joyful-living.jpg",
+    objectPosition: "center 25%",
     features: ["Emotion Regulation", "Positive Mindset", "Lasting Happiness", "Self-Discovery"],
   },
   {
@@ -39,7 +42,8 @@ const COURSES_DATA = [
     duration: "2 hours",
     price: 499,
     originalPrice: 5100,
-    image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=1000&q=90&fit=crop",
+    image: "/images/courses/mind-power-meditation.jpg",
+    objectPosition: "center 30%",
     features: ["Manifest Your Reality", "Thought Science", "Blissful Living", "Inner Cleansing"],
   },
   {
@@ -52,7 +56,8 @@ const COURSES_DATA = [
     duration: "2 hours",
     price: 459,
     originalPrice: 5100,
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1000&q=90&fit=crop",
+    image: "/images/courses/sanjeevani-kriya.jpg",
+    objectPosition: "center 25%",
     features: ["Inner Peace & Clarity", "Balance Energy Centers", "Self-Realization", "Heart Chakra Activation"],
   },
 ];
@@ -119,22 +124,23 @@ export default function Page() {
             </p>
           </div>
 
-          {/* 2-Column Landscape Cards Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 xl:gap-10">
+          {/* 2-Column Equal Height Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 xl:gap-10 items-stretch">
             {COURSES_DATA.map((c, i) => {
               const discountPercent = Math.round((1 - c.price / c.originalPrice) * 100);
 
               return (
                 <div
                   key={i}
-                  className="group rounded-3xl bg-[#FFFDF9] border-2 border-[#E8C969]/40 hover:border-[#D4AF37] shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(212,175,55,0.18)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col sm:flex-row h-full"
+                  className="group rounded-3xl bg-[#FFFDF9] border-2 border-[#E8C969]/40 hover:border-[#D4AF37] shadow-[0_10px_30px_rgba(82,22,35,0.06)] hover:shadow-[0_20px_45px_rgba(212,175,55,0.18)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden flex flex-col md:flex-row items-stretch h-full min-h-[320px]"
                 >
-                  {/* Left Column: Landscape Image filling 100% height */}
-                  <div className="relative w-full sm:w-[42%] aspect-[16/10] sm:aspect-auto min-h-[220px] sm:min-h-full flex-shrink-0 self-stretch overflow-hidden bg-amber-50">
+                  {/* Left Column: Portrait-style image wrapper filling 100% height */}
+                  <div className="relative shrink-0 w-full h-64 md:h-auto md:w-[38%] md:min-w-[170px] self-stretch overflow-hidden">
                     <img
                       src={c.image}
                       alt={c.title}
-                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: c.objectPosition }}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="eager"
                     />
 
@@ -152,7 +158,7 @@ export default function Page() {
                   </div>
 
                   {/* Right Column: Course Details */}
-                  <div className="w-full sm:w-[56%] p-6 sm:p-7 flex flex-col justify-between">
+                  <div className="flex-1 min-w-0 p-6 sm:p-7 flex flex-col justify-between self-stretch">
                     <div>
                       {/* Category Label */}
                       <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#B8860B] block mb-1">
@@ -174,12 +180,12 @@ export default function Page() {
                         {c.desc}
                       </p>
 
-                      {/* Feature Tags */}
-                      <div className="flex flex-wrap gap-1.5 mb-5">
+                      {/* Feature Tags with wrapping */}
+                      <div className="flex flex-wrap gap-2 mb-5">
                         {c.features.map((feat, fi) => (
                           <span
                             key={fi}
-                            className="inline-block px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#FFF8E7] text-[#8B6914] border border-[#E8C969]/60 shadow-2xs"
+                            className="inline-block px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#FFF8E7] text-[#8B6914] border border-[#E8C969]/60 shadow-2xs whitespace-normal"
                           >
                             {feat}
                           </span>
@@ -202,13 +208,23 @@ export default function Page() {
                         </span>
                       </div>
 
-                      {/* Start Course Button */}
-                      <Link
-                        href={`/${c.slug}` as any}
-                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95"
-                      >
-                        Start Course <ArrowRight size={14} />
-                      </Link>
+                      {/* Action Buttons */}
+                      <div className="flex items-center gap-2">
+                        <Link
+                          href={`/${c.slug}` as any}
+                          className="px-3 py-2 rounded-xl border border-amber-200 text-[#521623] hover:bg-amber-50 font-bold text-xs uppercase tracking-wider transition-all"
+                        >
+                          Details
+                        </Link>
+                        <a
+                          href={RAZORPAY_DONATION_LINK}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95"
+                        >
+                          Enroll Now - ₹{c.price} <ArrowRight size={14} />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

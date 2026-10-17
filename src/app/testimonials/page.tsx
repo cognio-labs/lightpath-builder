@@ -15,7 +15,7 @@ export default function Page() {
             Transformative{" "}
             <span
               style={{
-                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                background: "linear-gradient(90deg, #521623, #D4AF37)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",

@@ -2,6 +2,7 @@
 
 import { PageHero } from "@/components/PageHero";
 import { ShoppingCart, Zap, Star } from "lucide-react";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 
 
@@ -18,7 +19,7 @@ const PRODUCTS = [
     rating: 5,
     reviews: 124,
     cartUrl: "https://sciencedivine.org/shop/?add-to-cart=4848",
-    buyUrl: "https://sciencedivine.org/checkout/?wc-quick-buy-now=4848&quantity=1",
+    buyUrl: RAZORPAY_DONATION_LINK,
   },
 ];
 
@@ -32,7 +33,7 @@ export default function Page() {
             Shop{" "}
             <span
               style={{
-                background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
+                background: "linear-gradient(90deg, #521623, #D4AF37)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
@@ -60,7 +61,7 @@ export default function Page() {
                   />
                   {product.badge && (
                     <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest"
-                      style={{ background: "linear-gradient(135deg, #F59E0B, #D4AF37)", color: "#1a1000" }}>
+                      style={{ background: "linear-gradient(135deg, #521623, #D4AF37)", color: "#1a1000" }}>
                       {product.badge}
                     </div>
                   )}
@@ -100,7 +101,7 @@ export default function Page() {
                       rel="noreferrer"
                       className="btn-gold rounded-xl py-2.5 text-sm font-semibold text-center flex items-center justify-center gap-2"
                     >
-                      <Zap size={14} /> Buy Now
+                      <Zap size={14} /> Buy Now - ₹{product.price}
                     </a>
                     <a
                       href={product.cartUrl}
@@ -139,7 +140,7 @@ export default function Page() {
               </div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
                 Transform Your Life With{" "}
-                <span style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                <span style={{ background: "linear-gradient(90deg, #521623, #D4AF37)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                   Ancient Wisdom
                 </span>
               </h2>

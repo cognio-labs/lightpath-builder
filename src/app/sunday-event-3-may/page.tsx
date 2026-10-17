@@ -92,7 +92,7 @@ export default function Page() {
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}><MapPin size={16} style={{ color: G, flexShrink: 0, marginTop: "2px" }} /><span>Siddha Sudarshan Sakshi Dham 9, Avanthika Rd, Chiranjiv Vihar, Shastri Nagar, Ghaziabad, UP 201002</span></div>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
-                <a href="#register" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #22C55E, #16A34A)", color: W, padding: "16px 38px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(34,197,94,0.35)" }}>
+                <a href="#register" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #22C55E, #521623)", color: W, padding: "16px 38px", borderRadius: "100px", fontWeight: 800, fontSize: "1rem", textDecoration: "none", boxShadow: "0 8px 30px rgba(34,197,94,0.35)" }}>
                   Join Now for FREE <span style={{ textDecoration: "line-through", color: "rgba(255,255,255,0.55)", fontSize: "0.85rem", marginLeft: "4px" }}>&#8377;199</span>
                 </a>
                 <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem" }}>Registration is limited</span>
@@ -102,7 +102,7 @@ export default function Page() {
               <div style={{ position: "absolute", inset: "-8px", background: "linear-gradient(135deg, rgba(74,222,128,0.2), rgba(212,175,55,0.15))", borderRadius: "32px", filter: "blur(16px)" }} />
               <img loading="lazy" decoding="async" src="/images/uploads/2025/01/group-five-yogi-females-sitting-sukhasana-683x1024.webp" alt="Meditation May 2026" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 24px 60px rgba(0,0,0,0.4)", position: "relative", zIndex: 1 }} />
               <div style={{ position: "absolute", bottom: "24px", left: "-20px", background: "rgba(255,255,255,0.95)", backdropFilter: "blur(16px)", borderRadius: "16px", padding: "16px 24px", boxShadow: "0 8px 30px rgba(0,0,0,0.12)", zIndex: 2 }}>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 800, color: "#16A34A" }}>130+</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 800, color: "#521623" }}>130+</div>
                 <div style={{ fontSize: "11px", color: TL, fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.05em" }}>Events Organized</div>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function Page() {
             {[{ val: "10M+", label: "Students Impacted Worldwide", icon: "🌍" }, { val: "130+", label: "Events Organized Globally", icon: "🗓️" }, { val: "9/10", label: "Feel inner peace and clarity", icon: "☮️" }].map((s, i) => (
               <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
                 <div style={{ fontSize: "1.4rem", marginBottom: "4px" }}>{s.icon}</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 800, color: "#16A34A" }}>{s.val}</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 800, color: "#521623" }}>{s.val}</div>
                 <div style={{ fontSize: "11px", color: TL, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>{s.label}</div>
               </div>
             ))}
@@ -129,7 +129,7 @@ export default function Page() {
       <section id="register" className="section-pad" style={{ background: W }}>
         <div className="container-page" style={{ maxWidth: "640px" }}>
           <div style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Limited Time Offer</span>
+            <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Limited Time Offer</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.9rem", fontWeight: 700, color: T, marginTop: "6px" }}>Submit this form to book your spot</h2>
           </div>
           {sent ? (
@@ -147,7 +147,7 @@ export default function Page() {
                 </div>
               ))}
               <p style={{ fontSize: "10px", color: TL, lineHeight: 1.6, marginTop: "4px" }}>By registering, you confirm that you agree to the Terms of Use and the Privacy Policy as well as receiving notification for future events.</p>
-              <button type="submit" style={{ background: "linear-gradient(135deg, #22C55E, #16A34A)", color: W, border: "none", borderRadius: "100px", padding: "16px", fontWeight: 800, fontSize: "1rem", cursor: "pointer", boxShadow: "0 6px 20px rgba(22,163,74,0.3)" }}>Reserve My Spot Now</button>
+              <button type="submit" style={{ background: "linear-gradient(135deg, #22C55E, #521623)", color: W, border: "none", borderRadius: "100px", padding: "16px", fontWeight: 800, fontSize: "1rem", cursor: "pointer", boxShadow: "0 6px 20px rgba(22,163,74,0.3)" }}>Reserve My Spot Now</button>
             </form>
           )}
         </div>
@@ -157,13 +157,13 @@ export default function Page() {
       <section className="section-pad" style={{ background: BG }}>
         <div className="container-page">
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Seeker Success Stories</span>
+            <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Seeker Success Stories</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: T, marginTop: "6px" }}>What seekers say after meeting Sakshi Shree</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px" }}>
             {STORIES.map((s, i) => (
               <div key={i} style={{ background: W, border: `1px solid ${BrG}`, borderRadius: "20px", padding: "28px", display: "flex", flexDirection: "column", gap: "16px" }}>
-                <div style={{ display: "flex", gap: "2px" }}>{Array.from({ length: s.stars }).map((_, j) => <Star key={j} size={14} style={{ color: "#F59E0B", fill: "#F59E0B" }} />)}</div>
+                <div style={{ display: "flex", gap: "2px" }}>{Array.from({ length: s.stars }).map((_, j) => <Star key={j} size={14} style={{ color: "#521623", fill: "#521623" }} />)}</div>
                 <p style={{ color: "#475569", fontSize: "0.875rem", lineHeight: 1.7, fontStyle: "italic", flex: 1 }}>"{s.quote}"</p>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: `1px solid ${BrG}`, paddingTop: "16px" }}>
                   <img loading="lazy" decoding="async" src={s.img} alt={s.name} style={{ width: "44px", height: "44px", borderRadius: "100px", objectFit: "cover", border: `2px solid ${BrG}` }} />
@@ -183,7 +183,7 @@ export default function Page() {
         <div className="container-page">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "56px", alignItems: "center" }}>
             <div>
-              <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Masterclass Agenda</span>
+              <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Masterclass Agenda</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: T, marginTop: "6px", marginBottom: "20px" }}>What you will learn</h2>
               <p style={{ color: TL, fontSize: "1rem", lineHeight: 1.7, marginBottom: "32px" }}>What if your mind held the key to creating the life you have always wanted? Learn how to transform every area of your life, health, wealth, love, and happiness.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -198,7 +198,7 @@ export default function Page() {
                 ))}
               </div>
               <div style={{ marginTop: "32px" }}>
-                <a href="#register" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #22C55E, #16A34A)", color: W, padding: "14px 32px", borderRadius: "100px", fontWeight: 800, fontSize: "0.95rem", textDecoration: "none" }}>
+                <a href="#register" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #22C55E, #521623)", color: W, padding: "14px 32px", borderRadius: "100px", fontWeight: 800, fontSize: "0.95rem", textDecoration: "none" }}>
                   Join Now for FREE <span style={{ textDecoration: "line-through", color: "rgba(255,255,255,0.6)", marginLeft: "4px" }}>&#8377;199</span>
                 </a>
               </div>
@@ -227,7 +227,7 @@ export default function Page() {
               <img loading="lazy" decoding="async" src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp" alt="Sakshi Shree Ji" style={{ width: "100%", maxWidth: "380px", height: "auto", borderRadius: "24px", margin: "0 auto", display: "block", position: "relative", zIndex: 1, mixBlendMode: "multiply" as const }} />
             </div>
             <div>
-              <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Your Guide</span>
+              <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Your Guide</span>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: T, marginTop: "6px", marginBottom: "20px" }}>Meet Sakshi Shree</h2>
               <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "20px" }}>Sakshi Shree is a world-renowned mystic and enlightened spiritual master with over 40 years of intense research and experience guiding people to harness the power of spirituality and meditation for profound self-discovery, and a life of purpose.</p>
               <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.7, marginBottom: "32px" }}>As the founder of the Science Divine Foundation, Sakshi Shree's transformative techniques are uniquely designed to empower each person to tap into their innate, limitless potential, achieving both material success and spiritual heights.</p>
@@ -235,7 +235,7 @@ export default function Page() {
                 {[{ t: "40+ Years of Expertise", d: "A seasoned guide in spirituality and meditation.", emoji: "🧘" }, { t: "Science Divine Founder", d: "Spreading conscious living globally.", emoji: "🌍" }, { t: "Societal Welfare", d: "Free school for underprivileged children.", emoji: "🏫" }, { t: "Former Civil Servant", d: "Served as RTO officer before his mission.", emoji: "🏛️" }].map((item, i) => (
                   <div key={i} style={{ background: W, border: `1px solid ${BrG}`, borderRadius: "14px", padding: "16px" }}>
                     <div style={{ fontSize: "1.2rem", marginBottom: "6px" }}>{item.emoji}</div>
-                    <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#16A34A", marginBottom: "4px" }}>{item.t}</div>
+                    <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#521623", marginBottom: "4px" }}>{item.t}</div>
                     <div style={{ fontSize: "0.75rem", color: TL, lineHeight: 1.4 }}>{item.d}</div>
                   </div>
                 ))}
@@ -249,7 +249,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: W }}>
         <div className="container-page">
           <div style={{ textAlign: "center", marginBottom: "44px" }}>
-            <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Recognition</span>
+            <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Recognition</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: T, marginTop: "6px" }}>Recognized by Top Leaders and Media</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px", marginBottom: "48px" }}>
@@ -273,7 +273,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: BG }}>
         <div className="container-page">
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Curriculum Details</span>
+            <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Curriculum Details</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: T, marginTop: "6px" }}>What's Included</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
@@ -282,7 +282,7 @@ export default function Page() {
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{inc.emoji}</div>
                 <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: T, marginBottom: "16px" }}>{inc.title}</h4>
                 <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#EF4444", textTransform: "uppercase" as const }}>Problem</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.prob}</p></div>
-                <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#16A34A", textTransform: "uppercase" as const }}>Solution</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.sol}</p></div>
+                <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#521623", textTransform: "uppercase" as const }}>Solution</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.sol}</p></div>
                 <div><span style={{ fontSize: "10px", fontWeight: 800, color: Au, textTransform: "uppercase" as const }}>Benefit</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.benefit}</p></div>
               </div>
             ))}
@@ -294,7 +294,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: W }}>
         <div className="container-page">
           <div style={{ textAlign: "center", marginBottom: "44px" }}>
-            <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Seeker Experiences</span>
+            <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Seeker Experiences</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: T, marginTop: "6px" }}>Voice of Transformation</h2>
             <p style={{ color: TL, marginTop: "10px", fontSize: "0.95rem" }}>See what people are saying after meeting Sakshi Shree</p>
           </div>
@@ -315,7 +315,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: BG }}>
         <div className="container-page" style={{ maxWidth: "800px" }}>
           <div style={{ textAlign: "center", marginBottom: "44px" }}>
-            <span style={{ fontSize: "11px", color: "#16A34A", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Have Questions?</span>
+            <span style={{ fontSize: "11px", color: "#521623", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Have Questions?</span>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, color: T, marginTop: "6px" }}>FAQs</h2>
             <p style={{ color: TL, marginTop: "8px" }}>Have a specific question? Check out our Support Center</p>
           </div>
@@ -348,7 +348,7 @@ export default function Page() {
                 </div>
               ))}
               <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>By registering, you confirm that you agree to the Terms of Use and the Privacy Policy and consent to receiving notifications for future events.</p>
-              <button type="submit" style={{ background: "linear-gradient(135deg, #22C55E, #16A34A)", color: W, border: "none", borderRadius: "100px", padding: "16px", fontWeight: 800, fontSize: "1rem", cursor: "pointer", boxShadow: "0 8px 24px rgba(22,163,74,0.4)" }}>Reserve My Spot Now</button>
+              <button type="submit" style={{ background: "linear-gradient(135deg, #22C55E, #521623)", color: W, border: "none", borderRadius: "100px", padding: "16px", fontWeight: 800, fontSize: "1rem", cursor: "pointer", boxShadow: "0 8px 24px rgba(22,163,74,0.4)" }}>Reserve My Spot Now</button>
             </form>
           )}
         </div>

@@ -323,7 +323,7 @@ step,old_location,new_location,note
 1-site-images,public/initiatives/gallery-meditation.webp,public/images/initiatives/gallery-meditation.webp,compressed
 1-site-images,public/initiatives/nirman-sewa.jpg,public/images/initiatives/nirman-sewa.jpg,compressed
 1-site-images,public/initiatives/shiksha-sewa.jpeg,public/images/initiatives/shiksha-sewa.jpeg,compressed
-1-site-images,public/initiatives.png,public/images/initiatives.webp,compressed
+1-site-images,public/initiatives.png,public/,compressed
 1-site-images,public/law-of-attraction.png,public/images/law-of-attraction.webp,compressed
 1-site-images,public/maha-mantras-book-left.png,public/images/maha-mantras-book-left.webp,compressed
 1-site-images,public/master-your-own-fate.jpg,public/images/master-your-own-fate.webp,compressed

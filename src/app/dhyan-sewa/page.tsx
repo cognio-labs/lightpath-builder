@@ -44,8 +44,8 @@ export default function Page() {
     <div style={{ background: "#FFFFFF", color: "#1E293B", fontFamily: "'Inter', sans-serif" }}>
 
       {/* Hero Header */}
-      <section style={{ background: "linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #1E1B4B 100%)", paddingTop: "140px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <section style={{ background: "linear-gradient(135deg, #4B101B 0%, #2E070F 50%, #4B101B 100%)", paddingTop: "140px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
             <Brain size={14} style={{ color: "#D4AF37" }} />
@@ -64,7 +64,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: "#FFFDF9" }}>
         <div className="container-page" style={{ maxWidth: "800px", textAlign: "center" }}>
           <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Spreading the Light of Inner Peace</span>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 700, color: "#1E1B4B", lineHeight: 1.5, marginTop: "12px", marginBottom: "24px" }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", fontWeight: 700, color: "#4B101B", lineHeight: 1.5, marginTop: "12px", marginBottom: "24px" }}>
             "In a world that never stops talking, Dhyan Sewa invites you to listen ,  not to the noise outside, but to the silence within."
           </h2>
           <blockquote style={{ color: "#475569", fontSize: "1.1rem", fontStyle: "italic", marginBottom: "16px" }}>
@@ -83,21 +83,21 @@ export default function Page() {
             </div>
             <div>
               <div style={{ marginBottom: "32px" }}>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginBottom: "12px" }}>Where Stillness Becomes a Celebration</h3>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#4B101B", marginBottom: "12px" }}>Where Stillness Becomes a Celebration</h3>
                 <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
                   Through 1-day meditation workshops and 3-day shivirs held in spiritually charged locations like Haridwar, Rishikesh, and Vrindavan, Sadhguru Sakshi Shree gently awakens people to the forgotten art of being.
                 </p>
               </div>
 
               <div style={{ marginBottom: "32px" }}>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginBottom: "12px" }}>The Transformative Power</h3>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#4B101B", marginBottom: "12px" }}>The Transformative Power</h3>
                 <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
                   In these gatherings, laughter replaces stress, tears turn into release, and silence becomes strength. It's not about renouncing life, it's about rediscovering it, deeply, consciously, joyfully.
                 </p>
               </div>
 
               <div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A", marginBottom: "12px" }}>Mission of Dhyan Sewa</h3>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#4B101B", marginBottom: "12px" }}>Mission of Dhyan Sewa</h3>
                 <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.75 }}>
                   The purpose is simple yet profound, to make meditation accessible, practical, and transformative for all. Every shivir is conducted as an act of compassion, ensuring no soul is denied the path to peace.
                 </p>
@@ -108,9 +108,9 @@ export default function Page() {
       </section>
 
       {/* Quote Banner 2 */}
-      <section style={{ background: "linear-gradient(135deg, #1E1B4B, #312E81)", padding: "60px 0", textAlign: "center" }}>
+      <section style={{ background: "linear-gradient(135deg, #4B101B, #2E070F)", padding: "60px 0", textAlign: "center" }}>
         <div className="container-page" style={{ maxWidth: "700px" }}>
-          <p style={{ color: "#E0E7FF", fontSize: "1.25rem", fontStyle: "italic", lineHeight: 1.6, marginBottom: "16px" }}>
+          <p style={{ color: "#FFFFFF", fontSize: "1.25rem", fontStyle: "italic", lineHeight: 1.6, marginBottom: "16px" }}>
             "From the outside, we look for peace. From the inside, we realize we are peace."
           </p>
           <p style={{ color: "#D4AF37", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.05em" }}>,  Sadhguru Sakshi Shree</p>
@@ -122,7 +122,7 @@ export default function Page() {
         <div className="container-page">
           <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 48px" }}>
             <span style={{ fontSize: "11px", color: "#D4AF37", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>Support The Cause</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#0F172A", marginTop: "4px" }}>Join the Mission of Awakening</h2>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.2rem", fontWeight: 700, color: "#4B101B", marginTop: "4px" }}>Join the Mission of Awakening</h2>
             <p style={{ color: "#64748B", fontSize: "0.95rem", marginTop: "8px" }}>Be a part of this profound act of compassion. Your contribution directly fuels the expansion of both Dhyan and Gyan Sewa globally.</p>
           </div>
 
@@ -131,11 +131,11 @@ export default function Page() {
               <div key={i} style={{ background: d.highlight ? "#FFFDF9" : "#FFFFFF", border: d.highlight ? "2px solid #D4AF37" : "1px solid #E2E8F0", borderRadius: "20px", padding: "32px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 8px 24px rgba(0,0,0,0.02)", position: "relative" }}>
                 <div>
                   <span style={{ position: "absolute", top: "16px", right: "16px", background: d.highlight ? "#D4AF37" : "#F1F5F9", color: d.highlight ? "#0F172A" : "#64748B", fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase" }}>{d.badge}</span>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "#B45309", marginBottom: "6px", marginTop: "12px" }}>{d.amount}</div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{d.title}</h4>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "#4B101B", marginBottom: "6px", marginTop: "12px" }}>{d.amount}</div>
+                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#4B101B", marginBottom: "8px" }}>{d.title}</h4>
                   <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5, marginBottom: "24px" }}>{d.desc}</p>
                 </div>
-                <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", background: d.highlight ? "linear-gradient(135deg, #F59E0B, #D4AF37)" : "#FAF9F6", border: d.highlight ? "none" : "1px solid #D2D6DC", color: d.highlight ? "#0F172A" : "#0F172A", padding: "12px", borderRadius: "100px", fontWeight: 800, fontSize: "0.85rem", textDecoration: "none", boxShadow: d.highlight ? "0 4px 15px rgba(212,175,55,0.2)" : "none" }}>
+                <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", background: d.highlight ? "linear-gradient(135deg, #4B101B, #721C2C)" : "#FAF9F6", border: d.highlight ? "none" : "1px solid #D2D6DC", color: d.highlight ? "#FFFFFF" : "#4B101B", padding: "12px", borderRadius: "100px", fontWeight: 800, fontSize: "0.85rem", textDecoration: "none", boxShadow: d.highlight ? "0 4px 15px rgba(75,16,27,0.3)" : "none" }}>
                   Donate {d.amount}
                 </a>
               </div>
@@ -148,7 +148,7 @@ export default function Page() {
       <section className="section-pad" style={{ background: "#FAF9F6", borderTop: "1px solid #E2E8F0" }}>
         <div className="container-page">
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#0F172A" }}>Explore Other Science Divine Initiatives</h3>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.6rem", fontWeight: 700, color: "#4B101B" }}>Explore Other Science Divine Initiatives</h3>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
@@ -159,10 +159,10 @@ export default function Page() {
             ].map((init, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#0F172A", marginBottom: "8px" }}>{init.title}</h4>
+                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#4B101B", marginBottom: "8px" }}>{init.title}</h4>
                   <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.5, marginBottom: "16px" }}>{init.desc}</p>
                 </div>
-                <Link href={init.link} style={{ color: "#B45309", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                <Link href={init.link} style={{ color: "#4B101B", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
                   Explore Initiative <ArrowRight size={14} />
                 </Link>
               </div>
