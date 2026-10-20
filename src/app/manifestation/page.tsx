@@ -94,7 +94,7 @@ export default function Page() {
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-square overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img loading="lazy" decoding="async"
-                  src="/images/manifestation-hero.jpg"
+                  src="/images/manifestation-energy.jpg"
                   alt="Manifest Your Success"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />

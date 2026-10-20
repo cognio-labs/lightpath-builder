@@ -90,9 +90,9 @@ export default function Page() {
 
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
+              <div className="relative w-full max-w-[480px] aspect-square overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img loading="lazy" decoding="async"
-                  src="/images/sound_body.webp"
+                  src="/images/positive-thinking-hero.jpg"
                   alt="The Power of Positive Thinking"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />

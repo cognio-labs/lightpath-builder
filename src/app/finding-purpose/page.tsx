@@ -91,11 +91,11 @@ export default function Page() {
 
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
+              <div className="relative w-full max-w-[480px] aspect-square overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img loading="lazy" decoding="async"
-                  src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
+                  src="/images/finding-purpose-hero.jpg"
                   alt="Finding Your Purpose"
-                  className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
