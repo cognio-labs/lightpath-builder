@@ -211,7 +211,7 @@ export default function Page() {
                 <div style={{ display: "flex", gap: "10px" }}><MapPin size={16} style={{ color: G, flexShrink: 0, marginTop: "1px" }} /><span>Siddha Sudarshan Sakshi Dham 9, Avanthika Rd, Chiranjiv Vihar, Shastri Nagar, Ghaziabad, UP 201002</span></div>
               </div>
               <div style={{ position: "relative", paddingTop: "56.25%", background: "#000", borderRadius: "16px", overflow: "hidden" }}>
-                <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
               </div>
             </div>
           </div>

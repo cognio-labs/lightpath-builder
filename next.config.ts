@@ -36,6 +36,12 @@ const nextConfig: NextConfig = {
           { key: "X-XSS-Protection", value: "1; mode=block" },
         ],
       },
+      {
+        source: "/:path(.*\\.(?:avif|gif|ico|jpg|jpeg|png|svg|webp|mp4|webm))",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
     ];
   },
   async rewrites() {

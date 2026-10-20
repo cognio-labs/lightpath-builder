@@ -134,7 +134,7 @@ export function SiteNav() {
 
         {/* Desktop Navigation Links */}
         <nav
-          className="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-3.5 relative"
+          className="hidden xl:flex items-center gap-1 xl:gap-2.5 2xl:gap-3.5 relative"
           onMouseLeave={() => {
             setHoveredNav(null);
             setActiveDropdown(null);
@@ -473,7 +473,7 @@ export function SiteNav() {
 
           {/* Mobile Hamburger Menu Toggle */}
           <button
-            className="lg:hidden rounded-full w-11 h-11 flex items-center justify-center bg-amber-50 hover:bg-amber-100 text-[#521623] border border-amber-200 shadow-xs transition-colors cursor-pointer"
+            className="xl:hidden rounded-full w-11 h-11 flex items-center justify-center bg-amber-50 hover:bg-amber-100 text-[#521623] border border-amber-200 shadow-xs transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation menu"
             aria-expanded={open}
@@ -491,7 +491,7 @@ export function SiteNav() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl"
+            className="xl:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl"
           >
             <div className="container-page py-6 px-4 flex flex-col gap-3 pb-24">
               

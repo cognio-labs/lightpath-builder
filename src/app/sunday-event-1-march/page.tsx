@@ -311,7 +311,7 @@ export default function Page() {
         <div className="container-page" style={{ maxWidth: "800px" }}>
           <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", color: "#FFFFFF", marginBottom: "24px" }}>Watch Guruji's Message</h3>
           <div style={{ position: "relative", paddingTop: "56.25%", background: "#000", borderRadius: "24px", overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,0.5)" }}>
-            <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
           </div>
         </div>
       </section>

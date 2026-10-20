@@ -12,7 +12,6 @@ export const TYPEFLO_REVALIDATE = 300;
 
 // 50 posts ≈ 700 KB per response, safely under the 2 MB per-entry fetch cache limit.
 const PAGE_SIZE = 50;
-const PARALLEL_PAGES = 4;
 
 /**
  * Share one in-flight/recent result per server process. Without this, every
@@ -96,7 +95,7 @@ export interface TypefloBlogPost extends BlogPost {
 const RETRY_STATUSES = new Set([406, 408, 425, 429, 500, 502, 503, 504]);
 const RETRY_DELAYS_MS = [500, 1500, 4000];
 
-async function api<T>(path: string): Promise<T | null> {
+async function api<T>(path: string, { allowNotAcceptable = false }: { allowNotAcceptable?: boolean } = {}): Promise<T | null> {
   const key = process.env.TYPEFLO_CONTENT_API_KEY;
   if (!key) return null;
   for (let attempt = 0; ; attempt++) {
@@ -106,6 +105,10 @@ async function api<T>(path: string): Promise<T | null> {
     });
     // The API answers 404 for "No posts found for the specified filters".
     if (res.status === 404) return null;
+    // Some Typeflo projects return 406 instead of 404 when a pagination range
+    // begins after the final post. Keep retrying it first (406 is also used for
+    // transient throttling), then treat it as the end only for post pagination.
+    if (allowNotAcceptable && res.status === 406 && attempt >= RETRY_DELAYS_MS.length) return null;
     if (res.ok) return res.json() as Promise<T>;
     if (!RETRY_STATUSES.has(res.status) || attempt >= RETRY_DELAYS_MS.length) {
       throw new Error(`Typeflo API ${path} responded ${res.status}`);
@@ -137,20 +140,16 @@ function isPublished(p: TfPost): p is TfPost & { slug: string; title: string } {
 /** Every published Typeflo post, newest first (includes content). */
 const getRawPosts = cache(async (): Promise<TfPost[]> => {
   const all: TfPost[] = [];
-  for (let first = 0; ; first += PARALLEL_PAGES) {
-    const pages = await Promise.all(
-      Array.from({ length: PARALLEL_PAGES }, (_, i) => {
-        const start = (first + i) * PAGE_SIZE;
-        return api<{ data: TfPost[] }>(`/posts?start_range=${start}&end_range=${start + PAGE_SIZE - 1}`);
-      }),
+  // Fetch ranges serially: that avoids a speculative burst of requests beyond
+  // the final range, which Typeflo can reject with 406 rather than 404.
+  for (let start = 0; ; start += PAGE_SIZE) {
+    const page = await api<{ data: TfPost[] }>(
+      `/posts?start_range=${start}&end_range=${start + PAGE_SIZE - 1}`,
+      { allowNotAcceptable: true },
     );
-    let done = false;
-    for (const page of pages) {
-      const rows = page?.data ?? [];
-      all.push(...rows);
-      if (rows.length < PAGE_SIZE) done = true;
-    }
-    if (done) break;
+    const rows = page?.data ?? [];
+    all.push(...rows);
+    if (rows.length < PAGE_SIZE) break;
   }
   const seen = new Set<string>();
   return all

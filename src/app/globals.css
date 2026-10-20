@@ -135,6 +135,15 @@
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Keep the initial viewport responsive even on long, media-rich pages. The
+   browser lays out below-the-fold sections only as they approach the viewport. */
+@supports (content-visibility: auto) {
+  main > section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}
+
 /* ── Dark Mode custom variables ── */
 .dark {
   --background: #0a0f1e;

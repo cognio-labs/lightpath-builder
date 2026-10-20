@@ -32,10 +32,10 @@
   min-height: 520px;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(460px, 1.3fr) minmax(360px, 1fr);
+  grid-template-columns: minmax(420px, 1fr) minmax(480px, 1.35fr);
   align-items: stretch;
   isolation: isolate;
-  background: linear-gradient(105deg, #1b0503 0%, #3e0b08 28%, #57120c 56%, #3a0b08 85%, #2a0705 100%);
+  background: linear-gradient(105deg, #1b0503 0%, #350906 35%, #460c07 100%);
   color: #fff5d4;
   overflow: hidden;
 }
@@ -74,7 +74,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 30px 50px 48px;
+  padding: 50px 36px;
   position: relative;
   z-index: 3;
 }
@@ -157,23 +157,17 @@
 .heroTemple {
   min-height: 520px;
   background-size: cover;
-  background-position: center right;
+  background-position: center center;
   position: relative;
   overflow: hidden;
-  margin-left: -100px;
+  margin-left: 0;
   z-index: 1;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.95) 70%, black 85%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.55) 42%, rgba(0, 0, 0, 0.95) 70%, black 85%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 4%, black 12%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 4%, black 12%);
 }
 
 .heroTemple::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(90deg, rgba(62, 11, 8, 0.75) 0%, rgba(62, 11, 8, 0.35) 30%, transparent 65%),
-    linear-gradient(180deg, rgba(27, 5, 3, 0.35) 0%, transparent 35%, rgba(37, 6, 4, 0.45) 100%);
-  pointer-events: none;
+  display: none;
 }
 
 .heroNote {
@@ -725,21 +719,21 @@
 }
 
 .finalCta h2 {
-  color: #f7ca55;
+  color: #ffffff;
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.6rem, 2.6vw, 2.4rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: 0.02em;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 185, 57, 0.3);
+  text-shadow: none;
 }
 
 .finalCta p {
-  color: #ffebc0;
+  color: #fff9ed;
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.45;
   margin: 14px auto 22px;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: none;
 }
 
 .finalCta a {
@@ -812,9 +806,12 @@
   }
   .heroTemple {
     order: 2;
-    min-height: 260px;
+    min-height: 290px;
     margin: 10px 20px 20px;
-    border-radius: 12px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(243, 202, 102, 0.45);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+    background-position: center center;
     -webkit-mask-image: none;
     mask-image: none;
   }

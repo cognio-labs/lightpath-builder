@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import * as React from "react";
 import { SectionHeading } from "@/components/PageHero";
@@ -86,12 +87,15 @@ export default async function Page() {
       {/* ════════════════════════════════════
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
-      <section className="hero-sunrise-bg relative overflow-hidden min-h-[540px] sm:min-h-[560px] md:min-h-[600px] pt-8 sm:pt-12 md:pt-14 pb-0 lg:py-0 lg:min-h-[640px] xl:min-h-[670px] flex flex-col justify-between lg:flex-row lg:items-center bg-[#fffaf0]" style={{
-        backgroundImage: "url('/images/hero-sunrise-mountains.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-      }}>
+      <section className="hero-sunrise-bg relative overflow-hidden min-h-[540px] sm:min-h-[560px] md:min-h-[600px] pt-8 sm:pt-12 md:pt-14 pb-0 lg:py-0 lg:min-h-[640px] xl:min-h-[670px] flex flex-col justify-between lg:flex-row lg:items-center bg-[#fffaf0]">
+        <Image
+          src="/images/hero-sunrise-mountains.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <style>{`
           .hero-badge-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
@@ -300,7 +304,7 @@ export default async function Page() {
               {/* Mobile Portrait attached flush to bottom edge */}
               <div className="lg:hidden mt-8 flex flex-col items-center w-full">
                 <div className="relative max-w-[360px] sm:max-w-[440px] w-full flex flex-col items-center">
-                  <img loading="lazy" decoding="async"
+                  <img loading="eager" fetchPriority="high" decoding="async"
                     src="/images/sakshi-shree-hero-portrait.webp"
                     alt="Sadguru Sakshi Shree"
                     className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
@@ -336,7 +340,7 @@ export default async function Page() {
         {/* Desktop Portrait attached flush to section bottom with generous breathing space on the right next to quick actions */}
         <div className="hidden lg:flex absolute bottom-0 right-[104px] lg:right-[116px] xl:right-[130px] 2xl:right-[150px] z-10 items-end pointer-events-none">
           <div className="relative flex items-end max-w-[440px] xl:max-w-[500px] 2xl:max-w-[540px]">
-            <img loading="lazy" decoding="async"
+            <img loading="eager" fetchPriority="high" decoding="async"
               src="/images/sakshi-shree-hero-portrait.webp"
               alt="Sadguru Sakshi Shree"
               className="w-full h-auto max-h-[580px] xl:max-h-[640px] 2xl:max-h-[670px] object-contain object-bottom block drop-shadow-[0_16px_24px_rgba(55,35,20,0.18)]"

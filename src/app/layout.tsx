@@ -144,8 +144,9 @@ export default function RootLayout({
         <Script
           id="datafast"
           src="https://datafa.st/js/script.js"
-          data-website-id="dfid_SM28U0HshmRfiuXSjfwKe"
-          data-domain="sciencedivine.org"
+          data-website-id={process.env.NEXT_PUBLIC_DATAFAST_WEBSITE_ID || "dfid_SM28U0HshmRfiuXSjfwKe"}
+          data-domain={process.env.NEXT_PUBLIC_DATAFAST_DOMAIN || "sciencedivine.org"}
+          data-allow-localhost={process.env.NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST || "true"}
           strategy="afterInteractive"
         />
         {/* Microsoft Clarity */}

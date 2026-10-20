@@ -21,7 +21,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "CloudSun",
     tagline: "Awaken Inner Light & Overcome Darkness",
     shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/depression.jpeg",
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
@@ -182,7 +182,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Baby",
     tagline: "Conscious & Mindful Parenting for Joyful Homes",
     shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
-    heroImage: "/images/premium-heroes/parenting-hero.webp",
+    heroImage: "/images/premium-heroes/parenting.jpeg",
     badge: "MINDFUL PARENTING",
     themeColor: "#C79A2E",
     benefits: [
@@ -287,7 +287,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Activity",
     tagline: "Find Your Calm & Release Chronic Tension",
     shortDesc: "Transform mental pressure into profound inner composure using Sakshi Bhav (Witness Consciousness) and scientific breathwork.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/stress.jpeg",
     badge: "WELLNESS & STRESS MANAGEMENT",
     themeColor: "#C79A2E",
     benefits: [

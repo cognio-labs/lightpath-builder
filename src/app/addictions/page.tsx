@@ -167,7 +167,7 @@ export default function Page() {
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img loading="lazy" decoding="async"
-                  src="/images/premium-heroes/wellness-hero.webp"
+                  src="/images/premium-heroes/addictions.jpeg"
                   alt="Overcoming Addiction and Healing"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
