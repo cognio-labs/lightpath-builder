@@ -24,7 +24,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "shiksha-sewa",
-    image: "/images/initiatives/shiksha-sewa.jpeg",
+    image: "/images/initiatives/shiksha-sewa-study.jpg",
     imagePosition: "center 25%",
     desc: "Every child deserves the light of wisdom. Through Shiksha Sewa, we sponsor underprivileged children with free education, books, values, and holistic grooming.",
     bulletPoints: [
@@ -42,7 +42,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "annapurna-sewa",
-    image: "/images/initiatives/annapurna-sewa.jpeg",
+    image: "/images/initiatives/annapurna-sewa-serving.jpg",
     imagePosition: "center 20%",
     desc: "No soul should sleep hungry. Annapurna Sewa runs community kitchens offering hot, nutritious, hygienic meals to the needy, sadhus, and destitute families.",
     bulletPoints: [
@@ -60,7 +60,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "nirman-sewa",
-    image: "/images/initiatives/nirman-sewa.jpg",
+    image: "/images/initiatives/nirman-sewa-mandir.png",
     imagePosition: "center center",
     desc: "Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan) where thousands come to meditate, heal, and experience spiritual awakening.",
     bulletPoints: [
@@ -68,6 +68,24 @@ const INITIATIVES = [
       "Free stay and accommodation for serious spiritual seekers",
       "Hosting annual spiritual mahotsavs and live satsangs",
       "Sanctuaries of peace, energy, and deep transformation",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Living the Gita movement",
+    tagline: "Timeless Wisdom for Conscious Living",
+    achieved: 450000,
+    goal: 1000000,
+    donateUrl: RAZORPAY_DONATION_LINK,
+    knowMoreSlug: "living-the-gita",
+    image: "/images/initiatives/living-the-gita.jpg",
+    imagePosition: "center center",
+    desc: "Bringing the practical wisdom of the Bhagavad Gita into modern daily life through guided meditations, enlightening discourses, and self-realization workshops.",
+    bulletPoints: [
+      "Spreading practical wisdom of Bhagavad Gita to every household",
+      "Youth & family conscious living workshops and discourses",
+      "Mind-power meditation and self-transformation sessions",
+      "Free distribution of Gita literature & wisdom guides",
     ],
   },
 ];
@@ -227,7 +245,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
             {INITIATIVES.map((init, idx) => {
               const percent = Math.min(100, Math.round((init.achieved / init.goal) * 100));
               const IconComp = init.icon;

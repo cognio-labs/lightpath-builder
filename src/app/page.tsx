@@ -24,7 +24,7 @@ import {
   SOCIALS,
   LEADERS,
 } from "@/data/content";
-import { ArrowRight, Calendar, MapPin, Clock, Heart, BookOpen, Droplets, Sparkles, Users, User, Mail, MessageCircle, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Clock, Heart, BookOpen, Building2, Sparkles, Users, User, Mail, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Facebook, Youtube, Instagram, Linkedin } from "@/components/SocialIcons";
 
 
@@ -881,16 +881,16 @@ export default async function Page() {
               center
               eyebrow="Science Divine Foundation"
               title="Our Initiatives"
-              subtitle="Enriching Lives Through Compassionate Initiatives ,  Empowering Education, Nourishing Communities, and Ensuring Health Equity."
+              subtitle="Enriching Lives Through Compassionate Initiatives — Empowering Education, Nourishing Communities, Ashram Sanctuaries, and Conscious Living."
             />
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mt-6 md:mt-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mt-6 md:mt-8">
             {/* Shiksha Sewa */}
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="/images/uploads/elementor/thumbs/IMG_1317-scaled-qycnje1x5jro0x3zk3hzanf2tn181d8a1m064pjdls.webp"
+                  src="/images/initiatives/shiksha-sewa-study.jpg"
                   alt="Shiksha Sewa - Free Education for Underprivileged Children"
                 />
               </div>
@@ -926,7 +926,7 @@ export default async function Page() {
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="/images/uploads/2024/04/IMG-20200818-WA0055.webp"
+                  src="/images/initiatives/annapurna-sewa-serving.jpg"
                   alt="Annapurna Sewa - Free Meals for the Needy"
                 />
               </div>
@@ -958,12 +958,12 @@ export default async function Page() {
               </div>
             </div>
 
-            {/* Swastha Sewa */}
+            {/* Nirman Sewa */}
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="/images/uploads/elementor/thumbs/gospelforasia-RT18-03070-qvla74wkzfu03jfb5e7plwpddk8afeo1uqh0978hb4.webp"
-                  alt="Swastha Sewa - Free Healthcare"
+                  src="/images/initiatives/nirman-sewa-mandir.png"
+                  alt="Nirman Sewa - Spiritual Retreat & Meditation Ashrams"
                 />
               </div>
               <div className="p-6 flex flex-col flex-1">
@@ -972,16 +972,51 @@ export default async function Page() {
                     className="w-8 h-8 rounded-lg grid place-items-center"
                     style={{ background: "rgba(212,175,55,0.15)" }}
                   >
-                    <Droplets size={16} className="text-amber-600" />
+                    <Building2 size={16} className="text-amber-600" />
                   </div>
-                  <h3 className="font-display font-bold text-gray-900">Swastha Sewa</h3>
+                  <h3 className="font-display font-bold text-gray-900">Nirman Sewa</h3>
                 </div>
                 <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">
-                  Healthcare for all, no exceptions
+                  Spiritual Retreat & Meditation Ashrams
                 </p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
-                  Through Swastha Sewa, Science Divine provides free healthcare services, promoting
-                  well-being and ensuring access to essential medical care for all.
+                  Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan)
+                  where thousands come to meditate, heal, and experience spiritual awakening.
+                </p>
+                <a
+                  href={RAZORPAY_DONATION_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
+                >
+                  Donate Now
+                </a>
+              </div>
+            </div>
+
+            {/* Living the Gita movement */}
+            <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
+              <div className="aspect-[16/10] overflow-hidden">
+                <LensImage
+                  src="/images/initiatives/living-the-gita.jpg"
+                  alt="Living the Gita movement - Practical Gita Wisdom"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center gap-2 mb-3">
+                  <div
+                    className="w-8 h-8 rounded-lg grid place-items-center"
+                    style={{ background: "rgba(212,175,55,0.15)" }}
+                  >
+                    <Sparkles size={16} className="text-amber-600" />
+                  </div>
+                  <h3 className="font-display font-bold text-gray-900">Living the Gita movement</h3>
+                </div>
+                <p className="text-xs text-amber-700 uppercase tracking-wider font-semibold mb-2">
+                  Timeless wisdom for conscious living
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
+                  Bringing the practical wisdom of the Bhagavad Gita into modern daily life through guided meditations, enlightening discourses, and self-realization workshops.
                 </p>
                 <a
                   href={RAZORPAY_DONATION_LINK}
@@ -1002,147 +1037,6 @@ export default async function Page() {
             >
               <span>Explore All Initiatives</span>
               <ArrowRight size={15} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════
-          LIVING THE GITA MOVEMENT
-      ════════════════════════════════════ */}
-      <section
-        id="living-the-gita"
-        className="section-pad relative overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #FFFDF9 0%, #FFF8E8 40%, #FFFDF5 100%)",
-          borderTop: "1px solid rgba(212,175,55,0.25)",
-          borderBottom: "1px solid rgba(212,175,55,0.25)",
-        }}
-      >
-        {/* Ambient subtle glow light orbs */}
-        <div
-          className="absolute -top-20 -right-20 w-80 h-80 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 70%)" }}
-        />
-        <div
-          className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(82,22,35,0.08) 0%, transparent 70%)" }}
-        />
-
-        <div className="container-page relative z-10">
-          {/* Centered Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/60 shadow-xs">
-              <Sparkles size={14} className="text-[#B8860B]" />
-              <span className="text-[11px] font-bold text-[#521623] tracking-wider uppercase">
-                Science Divine Movement
-              </span>
-            </div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#521623] leading-[1.15]">
-              Living the Gita <span className="text-[#B8860B] italic">Movement</span>
-            </h2>
-
-            <p className="text-base sm:text-lg text-amber-950/80 font-medium leading-relaxed max-w-2xl mx-auto">
-              Moving beyond mere recitation — bringing the eternal, practical wisdom of the Bhagavad Gita into everyday thoughts, relationships, and conscious action.
-            </p>
-          </div>
-
-          {/* Pillars and Image Side-by-Side Grid */}
-          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-            
-            {/* Left: 4 Feature Pillars in 2x2 grid */}
-            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
-              <div className="p-5 rounded-2xl bg-white/85 border border-amber-200/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-[#521623] grid place-items-center shrink-0">
-                    <CheckCircle2 size={18} className="text-[#8B6914]" />
-                  </div>
-                  <h3 className="font-serif font-bold text-[#521623] text-base">Sakshi Bhav</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-amber-950/70 leading-relaxed font-medium">
-                  Cultivate the witness attitude to observe anxious thoughts calmly without being pulled into mental chaos.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white/85 border border-amber-200/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-[#521623] grid place-items-center shrink-0">
-                    <CheckCircle2 size={18} className="text-[#8B6914]" />
-                  </div>
-                  <h3 className="font-serif font-bold text-[#521623] text-base">Nishkama Karma</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-amber-950/70 leading-relaxed font-medium">
-                  Engage in wholehearted, purposeful action in the present moment, free from the paralyzing fear of outcomes.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white/85 border border-amber-200/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-[#521623] grid place-items-center shrink-0">
-                    <CheckCircle2 size={18} className="text-[#8B6914]" />
-                  </div>
-                  <h3 className="font-serif font-bold text-[#521623] text-base">Sthitaprajna State</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-amber-950/70 leading-relaxed font-medium">
-                  Develop an unshakable inner equilibrium that stays centered through life's praise, blame, gains, and losses.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-white/85 border border-amber-200/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-amber-100 text-[#521623] grid place-items-center shrink-0">
-                    <CheckCircle2 size={18} className="text-[#8B6914]" />
-                  </div>
-                  <h3 className="font-serif font-bold text-[#521623] text-base">Daily Living Sadhna</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-amber-950/70 leading-relaxed font-medium">
-                  Guided meditative techniques and community sessions with enlightened master Sakshi Shree.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: Image with Divine Border & Quote Card */}
-            <div className="lg:col-span-5 relative flex flex-col">
-              <div className="relative flex-1 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(82,22,35,0.15)] border-2 border-amber-300/50 bg-[#FFFDF9] min-h-[280px] sm:min-h-[320px] group flex flex-col justify-end">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src="/images/about-movement/gita-bg.jpg"
-                  alt="Living the Gita Movement"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#521623]/85 via-[#521623]/35 to-transparent pointer-events-none" />
-
-                {/* Floating quote card on the image */}
-                <div className="relative z-10 m-4 sm:m-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-amber-200/80 shadow-lg">
-                  <p className="text-xs sm:text-sm font-serif italic text-[#521623] leading-relaxed">
-                    "When fear and anxiety arise, that is precisely when the Bhagavad Gita needs to be lived."
-                  </p>
-                  <div className="mt-2.5 flex items-center justify-between text-[11px] font-bold text-amber-800">
-                    <span>– Sadguru Sakshi Shree</span>
-                    <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-amber-100 text-[#521623]">Sample Preview</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Centered Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
-            <Link
-              href="/courses"
-              className="btn-gold rounded-full px-8 py-3.5 text-sm font-bold shadow-md hover:scale-105 transition-all inline-flex items-center gap-2"
-            >
-              <span>Join the Movement</span>
-              <ArrowRight size={15} />
-            </Link>
-            <Link
-              href="/about-movement"
-              className="btn-outline-gold rounded-full px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2 bg-white/80 hover:bg-white transition-all shadow-xs"
-            >
-              <span>Explore Teachings</span>
             </Link>
           </div>
         </div>

@@ -21,6 +21,8 @@ import {
   Check,
   Copy,
   QrCode,
+  Lock,
+  X,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────
@@ -168,6 +170,8 @@ function PillarLotusIcon({ className = "w-8 h-8 text-[#54121E]" }: { className?:
   );
 }
 
+const DONATION_PRESETS = [500, 1100, 2100, 5100, 11000, 21000];
+
 /* ─────────────────────────────────────────────
    MAIN SHIKSHA SEWA PAGE
 ───────────────────────────────────────────── */
@@ -177,6 +181,7 @@ export default function ShikshaSewaPage() {
   const [isOther, setIsOther] = useState(false);
   const [customAmount, setCustomAmount] = useState("");
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   const amounts = frequency === "monthly" ? MONTHLY_AMOUNTS : YEARLY_AMOUNTS;
 
@@ -356,89 +361,48 @@ export default function ShikshaSewaPage() {
             </h2>
           </div>
 
-          {/* 3 Pillars Cards — Reference Screenshot Compositions */}
+          {/* 3 Pillars Cards — Replicated to match the reference design */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
 
-            {/* Card 1: EDUCATION (Horizontal on desktop, stacked on mobile; Boy 100% visible with full head and hair) */}
-            <div className="group rounded-3xl bg-[#52121E] text-white overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center justify-between min-h-[380px] sm:min-h-[400px] lg:min-h-[420px]">
-              {/* Meditating Boy Photo — Full body and head fully visible with generous headroom */}
-              <div className="relative w-full sm:w-[50%] flex items-center justify-center pt-7 pb-2 px-4 sm:p-0 sm:h-full sm:min-h-[320px] flex-shrink-0">
-                <img
-                  src="/images/shiksha-sewa/approach-education.png"
-                  alt="Education"
-                  className="w-auto h-56 sm:h-72 max-h-[280px] sm:max-h-none sm:w-full object-contain object-center sm:object-bottom pointer-events-none drop-shadow-xl"
-                />
-              </div>
-
-              {/* Icon Badge + Heading + Description */}
-              <div className="flex-1 p-5 sm:p-5 lg:p-6 text-left flex flex-col justify-center">
-                {/* Cream Icon Badge */}
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FCECD8] shadow-md flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300">
-                  <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 text-[#52121E]" strokeWidth={2.2} />
-                </div>
-                <h3 className="font-sans text-lg sm:text-2xl font-bold tracking-wider uppercase text-white mb-2 sm:mb-2.5">
-                  EDUCATION
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
-                  Providing access to quality schools, transportation and learning materials for life, especially to those children who live in Jhuggi Jhopadi's and never see the inside of a classroom.
-                </p>
-              </div>
+            {/* Card 1: EDUCATION */}
+            <div className="group rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 bg-transparent flex flex-col">
+              <img
+                src="/images/shiksha-sewa/approach-education-card.png"
+                alt="EDUCATION: Providing access to quality schools, transportation and learning materials for life, especially to those children who live in Jhuggi Jhopadi's and never see the inside of a classroom."
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-500 group-hover:scale-[1.02] shadow-md"
+              />
             </div>
 
-            {/* Card 2: VOCATION (Vertical composition: Schoolchildren top, Pure Golden-Orange bottom, Full Image, Badge on seam) */}
-            <div className="group rounded-3xl bg-[#BF7428] text-white overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[380px] sm:min-h-[400px] lg:min-h-[420px] relative">
-              {/* Top: Schoolchildren Photo covering full width — 16:9 on mobile so sides don't get cut */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-auto sm:h-64 overflow-hidden bg-[#BF7428]">
-                <img
-                  src="/images/shiksha-sewa/approach-vocation.png"
-                  alt="Vocational Training"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              {/* Centered Cream Icon Badge Overlapping Seam */}
-              <div className="absolute top-[40%] sm:top-64 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#FCECD8] shadow-xl flex items-center justify-center border-2 border-[#BF7428] group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-6 h-6 sm:w-7 sm:h-7 text-[#52121E]" strokeWidth={2.2} />
-              </div>
-
-              {/* Bottom: Golden-Orange Content Section — Pure Warm Tone */}
-              <div className="flex-1 bg-[#BF7428] pt-8 sm:pt-10 pb-6 sm:pb-7 px-5 sm:px-7 text-center flex flex-col justify-center items-center">
-                <h3 className="font-sans text-lg sm:text-2xl font-bold tracking-wider uppercase text-white mb-2">
-                  VOCATION
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/95 leading-relaxed font-normal max-w-xs mx-auto">
-                  Age-appropriate skills development preparing children for self-reliance and dignified livelihoods.
-                </p>
-              </div>
+            {/* Card 2: VOCATION */}
+            <div className="group rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 bg-transparent flex flex-col">
+              <img
+                src="/images/shiksha-sewa/approach-vocation-card.png"
+                alt="VOCATION: Age-appropriate skills development preparing children for self-reliance and dignified livelihoods."
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-500 group-hover:scale-[1.02] shadow-md"
+              />
             </div>
 
-            {/* Card 3: MEDITATION (New Group Image: All people clearly visible across width, Lotus Badge + Content) */}
-            <div className="group rounded-3xl bg-[#52121E] text-white overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[380px] sm:min-h-[400px] lg:min-h-[420px] relative">
-              {/* Upper Visual Area — Full width showing all children/people meditating */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-auto sm:h-64 overflow-hidden bg-[#52121E]">
-                <img
-                  src="/images/shiksha-sewa/approach-meditation.png"
-                  alt="Meditation"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-
-                {/* Cream Icon Badge on Top-Left */}
-                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#FCECD8] shadow-md flex items-center justify-center border-2 border-white/20 group-hover:scale-105 transition-transform duration-300">
-                  <PillarLotusIcon className="w-6 h-6 sm:w-7 sm:h-7 text-[#52121E]" />
-                </div>
-              </div>
-
-              {/* Content Area */}
-              <div className="px-5 sm:px-7 pb-6 pt-4 sm:pt-5 text-left flex-1 flex flex-col justify-center bg-[#52121E]">
-                <h3 className="font-sans text-lg sm:text-2xl font-bold tracking-wider uppercase text-white mb-2">
-                  MEDITATION
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal max-w-sm">
-                  Mind power techniques that develop focus, emotional resilience, and inner strength.
-                </p>
-              </div>
+            {/* Card 3: MEDITATION */}
+            <div className="group rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 bg-transparent flex flex-col">
+              <img
+                src="/images/shiksha-sewa/approach-meditation-card.png"
+                alt="MEDITATION: Mind power techniques that develop focus, emotional resilience, and inner strength."
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-500 group-hover:scale-[1.02] shadow-md"
+              />
             </div>
 
+          </div>
+
+          {/* Centered Donate Now Button Below Cards */}
+          <div className="flex justify-center mt-10 sm:mt-12">
+            <a
+              href="#donate"
+              className="inline-flex items-center justify-center gap-2.5 px-8 sm:px-11 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#52121E] via-[#6E1828] to-[#52121E] text-[#FFF8E8] font-bold text-sm sm:text-base tracking-wide uppercase shadow-[0_10px_25px_rgba(82,18,30,0.32)] hover:shadow-[0_14px_34px_rgba(82,18,30,0.45)] hover:scale-105 active:scale-95 border border-amber-400/40 transition-all duration-300 group cursor-pointer"
+            >
+              <Heart className="w-5 h-5 text-amber-300 fill-amber-300 group-hover:scale-110 transition-transform" />
+              <span>Donate Now</span>
+              <ArrowRight className="w-4 h-4 text-amber-300 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </section>
@@ -551,221 +515,284 @@ export default function ShikshaSewaPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          7. JOIN OUR MOVEMENT / DONATION SECTION
+          7. JOIN OUR MOVEMENT / DONATION SECTION — Replicated to match Reference Image
       ══════════════════════════════════════════════════════ */}
-      <section id="donate" className="py-14 sm:py-20 lg:py-28 bg-[#FFFDF9] relative">
+      <section id="donate" className="py-14 sm:py-20 lg:py-24 bg-[#FAF6F0] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main Deep Maroon Card Container */}
-          <div className="rounded-3xl bg-[#521623] text-white p-5 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+          {/* Main Deep Maroon Banner Card */}
+          <div className="rounded-[32px] bg-[#4E0E18] text-white shadow-2xl relative overflow-hidden border border-amber-900/30 p-4 sm:p-6 lg:p-7">
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-4 relative z-10">
 
-              {/* Left Column: Boy Photo (Frameless, background se connected) + Quote */}
-              <div className="lg:col-span-3 flex items-center sm:items-end gap-3 sm:gap-4">
-                {/* Image — NO frame card, seamlessly blended into maroon background with radial gradient mask */}
-                <div className="flex-shrink-0 w-32 sm:w-36 lg:w-40 overflow-hidden">
-                  <img
-                    src="/images/shiksha-sewa/donation-schoolboy.png"
-                    alt="Hopeful Schoolboy"
-                    className="w-full h-auto object-contain pointer-events-none select-none"
-                    style={{
-                      display: "block",
-                      maskImage: "radial-gradient(ellipse at 50% 48%, black 42%, transparent 75%)",
-                      WebkitMaskImage: "radial-gradient(ellipse at 50% 48%, black 42%, transparent 75%)",
-                    }}
-                  />
-                </div>
-                <div className="font-serif italic text-amber-300 text-base sm:text-lg lg:text-xl font-bold leading-snug pb-2">
-                  Your<br />Support<br />Builds<br />Their ♡<br />Tomorrow
-                </div>
+              {/* Left Column: Schoolboy Photo + "Your Support Builds Their Tomorrow" + Wave */}
+              <div className="w-full lg:w-[38%] max-w-[430px] flex justify-center shrink-0">
+                <img
+                  src="/images/shiksha-sewa/donation-left-banner.png"
+                  alt="Your Support Builds Their Tomorrow - Give them access to quality education, life skills and a brighter future"
+                  className="w-full h-auto object-contain rounded-2xl select-none pointer-events-none drop-shadow-md"
+                />
               </div>
 
-              {/* Center Column: Donation Form (Exact match to Image 2) */}
-              <div className="lg:col-span-4 space-y-4">
-                <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">
-                    Join Our Movement
-                  </h3>
-                  <p className="text-xs sm:text-sm text-white/80">
-                    Your contribution creates lasting impact.
-                  </p>
-                </div>
+              {/* Center Column: White/Cream Donation Form Card */}
+              <div className="w-full lg:w-[42%] max-w-[430px] shrink-0">
+                <div className="bg-[#FFFDF9] rounded-[28px] p-5 sm:p-6 lg:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.35)] text-center border border-amber-100 flex flex-col justify-between">
+                  <div>
+                    {/* Top Icon Badge: Golden circular badge with hands holding heart */}
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#F5B544] border border-amber-300 shadow-md flex items-center justify-center mx-auto mb-2 text-[#4A0E17]">
+                      <Heart className="w-5 h-5 sm:w-6 sm:h-6 fill-[#4A0E17]/25 text-[#4A0E17]" strokeWidth={2.2} />
+                    </div>
 
-                <div className="space-y-3">
-                  <p className="text-xs font-bold text-amber-300 tracking-wider uppercase">
-                    CHOOSE YOUR PREFERRED AMOUNT:
-                  </p>
+                    {/* Title */}
+                    <h3 className="font-serif font-bold text-2xl sm:text-[26px] text-[#4A0E17] tracking-tight leading-tight">
+                      Join Our Movement
+                    </h3>
+                    <p className="text-xs text-[#7A5A60] mt-1">
+                      Your contribution creates lasting impact.
+                    </p>
 
-                  {/* Amount Grid — 2 columns × 2 lines (Pill buttons matching Image 2) */}
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {[
-                      { value: 500, label: "₹500" },
-                      { value: 1100, label: "₹1100" },
-                      { value: 2100, label: "₹2100" },
-                      { value: 0, label: "Other Amount" },
-                    ].map((opt, idx) => {
-                      const isSelected =
-                        opt.value === 0 ? isOther : selectedAmount === opt.value && !isOther;
-                      return (
+                    {/* Golden Lotus Divider */}
+                    <div className="flex items-center justify-center my-2 text-amber-500">
+                      <PillarLotusIcon className="w-5 h-5 text-amber-500" />
+                    </div>
+
+                    {/* Choose Amount Section */}
+                    <div className="text-left mt-3">
+                      <span className="text-[10px] font-bold tracking-wider text-[#6B2D38] uppercase block mb-1.5">
+                        CHOOSE AMOUNT
+                      </span>
+                      <div className="grid grid-cols-3 gap-2">
+                        {DONATION_PRESETS.map((amt) => {
+                          const isSelected = !isOther && selectedAmount === amt;
+                          return (
+                            <button
+                              key={amt}
+                              type="button"
+                              onClick={() => {
+                                setSelectedAmount(amt);
+                                setIsOther(false);
+                              }}
+                              className={`py-2 px-1 rounded-xl text-xs sm:text-sm font-bold transition-all text-center border cursor-pointer ${
+                                isSelected
+                                  ? "bg-[#F5B544] text-[#4A0E17] border-[#E5A430] shadow-sm font-extrabold scale-[1.02]"
+                                  : "bg-[#FDF9F3] hover:bg-[#F7EFE4] text-[#4A0E17] border-amber-200/80 hover:border-amber-300"
+                              }`}
+                            >
+                              ₹{amt}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Custom amount toggle */}
+                      {isOther ? (
+                        <div className="mt-2 relative">
+                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-bold text-xs">₹</span>
+                          <input
+                            type="number"
+                            value={customAmount}
+                            onChange={(e) => setCustomAmount(e.target.value)}
+                            placeholder="Enter custom amount"
+                            className="w-full pl-7 pr-3 py-1.5 text-xs rounded-xl bg-white border border-amber-300 text-[#4A0E17] font-bold focus:outline-none focus:ring-1 focus:ring-amber-500"
+                            autoFocus
+                          />
+                        </div>
+                      ) : (
                         <button
-                          key={idx}
                           type="button"
-                          onClick={() => {
-                            if (opt.value === 0) {
-                              setIsOther(true);
-                            } else {
-                              setIsOther(false);
-                              setSelectedAmount(opt.value);
-                            }
-                          }}
-                          className={`py-2.5 px-4 rounded-full text-xs sm:text-sm font-bold border transition-all text-center ${
-                            isSelected
-                              ? "bg-[#EBA528] text-[#3B0910] border-[#EBA528] shadow-md scale-[1.02]"
-                              : "bg-black/25 border-white/20 text-white hover:bg-white/10 hover:border-white/35"
+                          onClick={() => setIsOther(true)}
+                          className="text-[10px] text-amber-800 hover:text-amber-950 font-semibold underline mt-1.5 block text-center w-full cursor-pointer"
+                        >
+                          Or enter custom amount
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Choose Frequency Section */}
+                    <div className="text-left mt-3">
+                      <span className="text-[10px] font-bold tracking-wider text-[#6B2D38] uppercase block mb-1.5">
+                        CHOOSE FREQUENCY
+                      </span>
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setFrequency("monthly")}
+                          className={`py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-center border cursor-pointer ${
+                            frequency === "monthly"
+                              ? "bg-[#F5B544] text-[#4A0E17] border-[#E5A430] shadow-sm font-extrabold scale-[1.02]"
+                              : "bg-[#FDF9F3] hover:bg-[#F7EFE4] text-[#4A0E17] border-amber-200/80 hover:border-amber-300"
                           }`}
                         >
-                          {opt.label}
+                          Monthly
                         </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Custom Amount Input if 'Other Amount' is selected */}
-                  {isOther && (
-                    <div className="pt-0.5">
-                      <div className="relative">
-                        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/70 font-semibold text-sm">₹</span>
-                        <input
-                          type="number"
-                          value={customAmount}
-                          onChange={(e) => setCustomAmount(e.target.value)}
-                          placeholder="Enter custom amount"
-                          className="w-full pl-8 pr-4 py-2 rounded-full bg-black/30 border border-white/30 text-white text-xs sm:text-sm placeholder-white/50 focus:outline-none focus:border-amber-300"
-                          autoFocus
-                        />
+                        <button
+                          type="button"
+                          onClick={() => setFrequency("yearly")}
+                          className={`py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-center border cursor-pointer ${
+                            frequency === "yearly"
+                              ? "bg-[#F5B544] text-[#4A0E17] border-[#E5A430] shadow-sm font-extrabold scale-[1.02]"
+                              : "bg-[#FDF9F3] hover:bg-[#F7EFE4] text-[#4A0E17] border-amber-200/80 hover:border-amber-300"
+                          }`}
+                        >
+                          Yearly
+                        </button>
                       </div>
                     </div>
-                  )}
+                  </div>
 
-                  {/* Frequency Toggle — Monthly / Yearly in 1 row (Pill buttons matching Image 2) */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-1">
+                  {/* Donate Now Button */}
+                  <div className="mt-4 pt-1">
                     <button
                       type="button"
-                      onClick={() => setFrequency("monthly")}
-                      className={`py-2.5 px-4 rounded-full text-xs sm:text-sm font-bold transition-all text-center border ${
-                        frequency === "monthly"
-                          ? "bg-[#EBA528] text-[#3B0910] border-[#EBA528] shadow-md scale-[1.02]"
-                          : "bg-black/25 border-white/20 text-white hover:bg-white/10 hover:border-white/35"
-                      }`}
+                      onClick={() => setShowPaymentModal(true)}
+                      className="w-full py-3 px-6 rounded-full bg-gradient-to-r from-[#4A0E17] via-[#5C131F] to-[#3B0910] hover:from-[#3B0910] hover:to-[#220409] text-white font-bold text-sm sm:text-base shadow-[0_8px_20px_rgba(74,14,23,0.38)] hover:shadow-xl hover:scale-[1.02] active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer group"
                     >
-                      Monthly
+                      <span>Donate Now</span>
+                      <span className="w-6 h-6 rounded-full bg-[#F5B544] text-[#4A0E17] flex items-center justify-center ml-1 group-hover:translate-x-0.5 transition-transform">
+                        <ArrowRight size={13} strokeWidth={2.5} />
+                      </span>
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => setFrequency("yearly")}
-                      className={`py-2.5 px-4 rounded-full text-xs sm:text-sm font-bold transition-all text-center border ${
-                        frequency === "yearly"
-                          ? "bg-[#EBA528] text-[#3B0910] border-[#EBA528] shadow-md scale-[1.02]"
-                          : "bg-black/25 border-white/20 text-white hover:bg-white/10 hover:border-white/35"
-                      }`}
-                    >
-                      Yearly
-                    </button>
+
+                    <div className="flex items-center justify-center gap-1.5 text-[11px] text-gray-500 font-medium pt-2">
+                      <Lock className="w-3.5 h-3.5 text-gray-400" />
+                      <span>100% Secure Payment</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Bank Details + UPI — LANDSCAPE (1 line side-by-side) */}
-              <div className="lg:col-span-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 items-stretch">
-
-                  {/* Bank Details Card */}
-                  <div className="bg-white text-[#2C1810] rounded-2xl p-4 shadow-xl flex flex-col justify-between space-y-2">
-                    <div>
-                      <div className="flex items-center gap-1.5 text-[#4A0E17] font-bold text-sm border-b border-gray-100 pb-2">
-                        <HomeIcon className="w-4 h-4 text-[#4A0E17] flex-shrink-0" />
-                        <span>Bank Details</span>
-                      </div>
-                      <div className="text-[11px] space-y-1.5 text-[#473034] pt-2">
-                        <p className="leading-tight">
-                          <strong className="text-[#2C1810]">Account Name:</strong><br />
-                          Jhuggi Jhopadi Shiksha Sewa Samiti
-                        </p>
-                        <p className="leading-tight">
-                          <strong className="text-[#2C1810]">Bank:</strong> Bank of India<br />
-                          <strong className="text-[#2C1810]">Branch:</strong> Harsuan, Ghaziabad
-                        </p>
-                        <div className="flex items-center justify-between pt-0.5">
-                          <p className="font-mono text-[10px]">
-                            <strong className="text-[#2C1810] font-sans">A/C:</strong> 7111201100000139
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => handleCopy("7111201100000139", "acc")}
-                            className="text-[9px] text-[#5E1522] hover:text-amber-700 flex items-center gap-0.5 font-bold ml-1 px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200"
-                            title="Copy Account Number"
-                          >
-                            {copiedField === "acc" ? (
-                              <><Check className="w-2.5 h-2.5 text-green-600" /> Copied</>
-                            ) : (
-                              <><Copy className="w-2.5 h-2.5" /> Copy</>
-                            )}
-                          </button>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <p className="font-mono text-[10px]">
-                            <strong className="text-[#2C1810] font-sans">IFSC:</strong> BKID0007111
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => handleCopy("BKID0007111", "ifsc")}
-                            className="text-[9px] text-[#5E1522] hover:text-amber-700 flex items-center gap-0.5 font-bold ml-1 px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200"
-                            title="Copy IFSC Code"
-                          >
-                            {copiedField === "ifsc" ? (
-                              <><Check className="w-2.5 h-2.5 text-green-600" /> Copied</>
-                            ) : (
-                              <><Copy className="w-2.5 h-2.5" /> Copy</>
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-[9px] text-[#7A6165] italic pt-1.5 border-t border-gray-100 leading-snug">
-                      80(G) tax-exempt under IT Act 1962.
-                    </p>
-                  </div>
-
-                  {/* Scan & Pay with UPI Card */}
-                  <div className="bg-white text-[#2C1810] rounded-2xl p-4 shadow-xl flex flex-col items-center justify-between text-center space-y-2">
-                    <div className="font-bold text-sm text-[#4A0E17]">
-                      Scan & Pay with UPI
-                    </div>
-                    {/* QR Frame with scan brackets */}
-                    <div className="relative w-28 h-28 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 flex flex-col items-center justify-center p-1.5 group hover:border-[#4A0E17] transition-colors">
-                      <div className="absolute top-1 left-1 w-3.5 h-3.5 border-t-2 border-l-2 border-[#4A0E17]" />
-                      <div className="absolute top-1 right-1 w-3.5 h-3.5 border-t-2 border-r-2 border-[#4A0E17]" />
-                      <div className="absolute bottom-1 left-1 w-3.5 h-3.5 border-b-2 border-l-2 border-[#4A0E17]" />
-                      <div className="absolute bottom-1 right-1 w-3.5 h-3.5 border-b-2 border-r-2 border-[#4A0E17]" />
-                      <QrCode className="w-10 h-10 text-[#4A0E17]/85 mb-0.5" />
-                      <span className="text-[9px] font-bold text-gray-500 uppercase tracking-wide text-center leading-tight">
-                        QR CODE<br />PLACEHOLDER
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-[#6B5357] font-medium leading-tight">
-                      Scan & Pay with any UPI app.
-                    </p>
-                  </div>
-
-                </div>
+              {/* Right Column: 4 Feature Badges + "Small Support, Big Change" */}
+              <div className="w-full lg:w-[20%] max-w-[210px] flex justify-center shrink-0">
+                <img
+                  src="/images/shiksha-sewa/donation-right-banner.png"
+                  alt="Quality Education, Life Skills Development, Better Opportunities, Brighter Futures - Small Support, Big Change"
+                  className="w-full max-w-[190px] lg:max-w-none h-auto object-contain rounded-2xl select-none pointer-events-none drop-shadow-md"
+                />
               </div>
 
             </div>
           </div>
         </div>
       </section>
+
+      {/* Payment Details Modal */}
+      {showPaymentModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="relative w-full max-w-xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-amber-200 text-[#2C1810]">
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setShowPaymentModal(false)}
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-amber-50 hover:bg-amber-100 text-[#4A0E17] flex items-center justify-center transition-colors cursor-pointer"
+              title="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Modal Header */}
+            <div className="text-center pb-4 border-b border-amber-100">
+              <span className="text-[11px] font-bold tracking-wider text-amber-700 uppercase">
+                COMPLETE YOUR CONTRIBUTION
+              </span>
+              <h3 className="font-serif text-2xl font-bold text-[#4A0E17] mt-0.5">
+                Jhuggi Jhopadi Shiksha Sewa
+              </h3>
+              <div className="inline-block mt-2 px-4 py-1.5 rounded-full bg-amber-100/70 text-[#4A0E17] font-bold text-sm">
+                Amount: ₹{isOther && customAmount ? customAmount : selectedAmount} ({frequency === "monthly" ? "Monthly" : "Yearly"})
+              </div>
+            </div>
+
+            {/* Bank & UPI side-by-side */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-5 items-stretch">
+              {/* Bank Details Card */}
+              <div className="bg-[#FAF6F0] rounded-2xl p-4 border border-amber-200/60 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-1.5 text-[#4A0E17] font-bold text-sm border-b border-amber-200/60 pb-2">
+                    <HomeIcon className="w-4 h-4 text-[#4A0E17]" />
+                    <span>Direct Bank Transfer</span>
+                  </div>
+                  <div className="text-[12px] space-y-1.5 text-[#473034] pt-2.5">
+                    <p className="leading-snug">
+                      <strong className="text-[#2C1810]">Account Name:</strong><br />
+                      Jhuggi Jhopadi Shiksha Sewa Samiti
+                    </p>
+                    <p className="leading-snug">
+                      <strong className="text-[#2C1810]">Bank:</strong> Bank of India<br />
+                      <strong className="text-[#2C1810]">Branch:</strong> Harsuan, Ghaziabad
+                    </p>
+                    <div className="flex items-center justify-between pt-1">
+                      <p className="font-mono text-[11px]">
+                        <strong>A/C:</strong> 7111201100000139
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => handleCopy("7111201100000139", "acc")}
+                        className="text-[10px] text-[#5E1522] hover:text-amber-800 flex items-center gap-1 font-bold px-2 py-0.5 rounded bg-white border border-amber-300 shadow-xs cursor-pointer"
+                      >
+                        {copiedField === "acc" ? (
+                          <><Check className="w-3 h-3 text-green-600" /> Copied</>
+                        ) : (
+                          <><Copy className="w-3 h-3" /> Copy</>
+                        )}
+                      </button>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className="font-mono text-[11px]">
+                        <strong>IFSC:</strong> BKID0007111
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => handleCopy("BKID0007111", "ifsc")}
+                        className="text-[10px] text-[#5E1522] hover:text-amber-800 flex items-center gap-1 font-bold px-2 py-0.5 rounded bg-white border border-amber-300 shadow-xs cursor-pointer"
+                      >
+                        {copiedField === "ifsc" ? (
+                          <><Check className="w-3 h-3 text-green-600" /> Copied</>
+                        ) : (
+                          <><Copy className="w-3 h-3" /> Copy</>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-[10px] text-gray-500 italic pt-2 border-t border-amber-200/50 mt-2">
+                  80(G) tax-exempt under IT Act 1962.
+                </p>
+              </div>
+
+              {/* UPI QR Card */}
+              <div className="bg-[#FAF6F0] rounded-2xl p-4 border border-amber-200/60 flex flex-col items-center justify-between text-center">
+                <div className="font-bold text-sm text-[#4A0E17]">
+                  Scan &amp; Pay with UPI
+                </div>
+                <div className="relative w-32 h-32 border-2 border-dashed border-amber-400 rounded-xl bg-white flex flex-col items-center justify-center p-2 my-2 shadow-xs">
+                  <div className="absolute top-1 left-1 w-3.5 h-3.5 border-t-2 border-l-2 border-[#4A0E17]" />
+                  <div className="absolute top-1 right-1 w-3.5 h-3.5 border-t-2 border-r-2 border-[#4A0E17]" />
+                  <div className="absolute bottom-1 left-1 w-3.5 h-3.5 border-b-2 border-l-2 border-[#4A0E17]" />
+                  <div className="absolute bottom-1 right-1 w-3.5 h-3.5 border-b-2 border-r-2 border-[#4A0E17]" />
+                  <QrCode className="w-12 h-12 text-[#4A0E17]" />
+                  <span className="text-[10px] font-bold text-gray-600 uppercase tracking-wide mt-1">
+                    UPI SCAN &amp; PAY
+                  </span>
+                </div>
+                <p className="text-[11px] text-[#473034] font-medium">
+                  Scan using GPay, PhonePe, Paytm or any UPI app.
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center pt-4">
+              <button
+                type="button"
+                onClick={() => setShowPaymentModal(false)}
+                className="text-xs text-gray-500 hover:text-gray-800 font-semibold underline cursor-pointer"
+              >
+                Close Window
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

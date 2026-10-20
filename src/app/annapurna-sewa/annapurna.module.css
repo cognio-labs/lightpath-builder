@@ -406,15 +406,8 @@
 }
 .supportPhoto {
   height: 140px;
-  background-image: url('/images/annapurna-sewa/nano-children.webp');
   background-size: cover;
-}
-.supportCard:nth-child(3) .supportPhoto {
-  background-image: url('/images/annapurna-sewa/nano-learning.webp');
-}
-.supportCard:nth-child(4) .supportPhoto {
-  background-image: url('/images/annapurna-sewa/nano-hero.webp');
-  background-position: 95% center !important;
+  background-position: center;
 }
 .supportCardBody {
   display: flex;
@@ -448,7 +441,7 @@
 .impact {
   padding: 44px max(24px, calc((100% - 1320px) / 2));
   color: #fff;
-  background: linear-gradient(90deg, #2b080ad9, #360b10eb 45%, #370d11a6), url('/images/annapurna-sewa/nano-temple.webp') center/cover no-repeat;
+  background: linear-gradient(135deg, #2b080a 0%, #440e14 50%, #1e0508 100%);
 }
 .impact .sectionHeading {
   text-align: center !important;
@@ -518,11 +511,13 @@
   box-shadow: 0 2px 8px #5a26090e;
 }
 .storyPhoto {
-  width: 92px;
-  flex: 0 0 92px;
-  border-radius: 4px;
-  background-image: url('/images/annapurna-sewa/nano-children.webp');
+  width: 105px;
+  flex: 0 0 105px;
+  min-height: 115px;
+  align-self: stretch;
+  border-radius: 6px;
   background-size: cover;
+  background-position: center;
 }
 .quoteMark {
   font: 44px/0.65 Georgia, serif;
@@ -538,13 +533,6 @@
   font: bold 10.5px Georgia, serif;
   color: #712022;
   font-style: normal;
-}
-.story:nth-child(2) .storyPhoto {
-  background-image: url('/images/annapurna-sewa/nano-learning.webp');
-}
-.story:nth-child(3) .storyPhoto {
-  background-image: url('/images/annapurna-sewa/nano-hero.webp');
-  background-position: 95% center !important;
 }
 
 .help {
@@ -595,7 +583,7 @@
   justify-content: center;
   text-align: center;
   color: white;
-  background: linear-gradient(90deg, #2706078d 0%, #340b0bf0 25%, #340a0cf0 75%, #28070775 100%), url('/images/annapurna-sewa/nano-temple.webp') center/cover no-repeat;
+  background: linear-gradient(90deg, #270607dd 0%, #340b0bf0 35%, #340a0ce0 75%, #280707c0 100%), url('/images/initiatives/annapurna-sewa-serving.jpg') center/cover no-repeat;
   padding: 36px max(24px, calc((100% - 1320px) / 2));
 }
 .finalText {

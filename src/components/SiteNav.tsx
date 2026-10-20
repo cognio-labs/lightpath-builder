@@ -35,30 +35,21 @@ const aboutLinks = [
 ];
 
 const initiativeLinks = [
-  { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen, image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=240&q=80&auto=format&fit=crop" },
-  { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils, image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=240&q=80&auto=format&fit=crop" },
-  { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2, image: "/images/initiatives/nirman-sewa.jpg" },
-  { href: "/living-the-moment", label: "Living the Moment", desc: "Present-moment awareness & conscious living", icon: Sparkles, image: "/images/about-movement/gita-bg.jpg" },
+  { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen },
+  { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils },
+  { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2 },
+  { href: "/living-the-gita", label: "Living the Gita", desc: "Present-moment awareness & Gita wisdom", icon: Sparkles },
 ];
 
 const practiceLinks = [
-  { href: "/meditation", label: "Meditation", icon: Headphones, image: "https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=240&q=80&auto=format&fit=crop", desc: "Guided Sakshi Sadhna & silence" },
-  { href: "/yoga", label: "Yoga", icon: Flower2, image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=240&q=80&auto=format&fit=crop", desc: "Asanas & physical alignment" },
-  { href: "/mindfulness", label: "Mindfulness", icon: Sun, image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=240&q=80&auto=format&fit=crop", desc: "Present-moment awareness in action" },
-  { href: "/gratitude", label: "Gratitude", icon: Heart, image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=240&q=80&auto=format&fit=crop", desc: "Heart opening and appreciation" },
-  { href: "/manifestation", label: "Manifestation", icon: Sparkles, image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=240&q=80&auto=format&fit=crop", desc: "Aligning thoughts with reality" },
-  { href: "/positive-thinking", label: "Positive Thinking", icon: Smile, image: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=240&q=80&auto=format&fit=crop", desc: "Rewiring mind patterns for joy" },
-  { href: "/finding-purpose", label: "Finding Purpose", icon: Compass, image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=240&q=80&auto=format&fit=crop", desc: "Discovering your divine path" },
+  { href: "/meditation", label: "Meditation", icon: Headphones, desc: "Guided Sakshi Sadhna & silence" },
+  { href: "/yoga", label: "Yoga", icon: Flower2, desc: "Asanas & physical alignment" },
+  { href: "/mindfulness", label: "Mindfulness", icon: Sun, desc: "Present-moment awareness in action" },
+  { href: "/gratitude", label: "Gratitude", icon: Heart, desc: "Heart opening and appreciation" },
+  { href: "/manifestation", label: "Manifestation", icon: Sparkles, desc: "Aligning thoughts with reality" },
+  { href: "/positive-thinking", label: "Positive Thinking", icon: Smile, desc: "Rewiring mind patterns for joy" },
+  { href: "/finding-purpose", label: "Finding Purpose", icon: Compass, desc: "Discovering your divine path" },
 ];
-
-const solutionImages: Record<string, string> = {
-  stress: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=240&q=80&auto=format&fit=crop",
-  anxiety: "https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=240&q=80&auto=format&fit=crop",
-  depression: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=240&q=80&auto=format&fit=crop",
-  parenting: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=240&q=80&auto=format&fit=crop",
-  addictions: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=240&q=80&auto=format&fit=crop",
-  overthinking: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=240&q=80&auto=format&fit=crop",
-};
 // Helper icon mapping for solutions mega menu
 const getSolutionIcon = (slug: string) => {
   switch (slug) {
@@ -271,12 +262,12 @@ export function SiteNav() {
                             key={topic.slug}
                             href={`/${topic.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-gradient-to-r hover:from-amber-100/80 hover:to-amber-50/60 border border-amber-200/50 hover:border-amber-300/80 shadow-xs hover:shadow-md transition-all duration-200 group transform hover:-translate-y-0.5"
+                            className="flex items-center gap-3 p-3 rounded-xl bg-white/60 hover:bg-gradient-to-r hover:from-amber-100/80 hover:to-amber-50/60 border border-amber-200/50 hover:border-amber-300/80 shadow-xs hover:shadow-md transition-all duration-200 group transform hover:-translate-y-0.5"
                           >
-                            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
                               <IconComponent size={16} />
                             </div>
-                            <div className="min-w-0">
+                            <div className="flex-1 min-w-0">
                               <div className="text-xs sm:text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors truncate">
                                 {topic.title}
                               </div>
@@ -284,12 +275,6 @@ export function SiteNav() {
                                 {topic.tagline || "Guided wisdom & practices"}
                               </div>
                             </div>
-                            <img loading="lazy" decoding="async"
-                              src={solutionImages[topic.slug]}
-                              alt=""
-                              aria-hidden="true"
-                              className="w-12 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm"
-                            />
                           </Link>
                         );
                       })}
@@ -344,18 +329,17 @@ export function SiteNav() {
                           onClick={() => setActiveDropdown(null)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] transition-all duration-200">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] transition-all duration-200">
                             <Icon size={15} />
                           </div>
-                          <div>
+                          <div className="flex-1 min-w-0">
                             <div className="text-xs sm:text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[10px] text-amber-950/70 font-medium leading-none mt-0.5">
+                            <div className="text-[10px] text-amber-950/70 font-medium leading-none mt-0.5 truncate">
                               {item.desc}
                             </div>
                           </div>
-                          <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className="w-11 h-10 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
@@ -427,12 +411,12 @@ export function SiteNav() {
                           key={item.href}
                           href={item.href}
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
+                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
                             <Icon size={17} />
                           </div>
-                          <div>
+                          <div className="flex-1 min-w-0">
                             <div className="text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
@@ -440,7 +424,6 @@ export function SiteNav() {
                               {item.desc}
                             </div>
                           </div>
-                          <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className="w-11 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
