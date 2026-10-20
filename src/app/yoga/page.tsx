@@ -89,9 +89,9 @@ export default function Page() {
 
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
+              <div className="relative w-full max-w-[480px] aspect-square overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img loading="lazy" decoding="async"
-                  src="/images/uploads/2025/01/group-five-yogi-females-sitting-sukhasana-683x1024.webp"
+                  src="/images/yoga-hero.jpg"
                   alt="Easy Yoga for Everyday Peace"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
@@ -103,7 +103,7 @@ export default function Page() {
       </section>
 
       {/* Tabs */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map(t => (

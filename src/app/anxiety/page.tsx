@@ -173,22 +173,22 @@ export default function Page() {
           position: "relative",
           overflow: "hidden",
           paddingTop: "140px",
-          paddingBottom: "120px",
-          minHeight: "85vh",
+          paddingBottom: "100px",
+          minHeight: "75vh",
           display: "flex",
           alignItems: "center",
-          background: "linear-gradient(135deg, #521623 0%, #3D0E18 50%, #521623 100%)",
+          background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)",
         }}
       >
         {/* Subtle gold glow orbs */}
         <div
           style={{
             position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "500px",
-            height: "500px",
-            background: "radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)",
+            top: "-80px",
+            right: "-80px",
+            width: "360px",
+            height: "360px",
+            background: "radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%)",
             borderRadius: "50%",
             pointerEvents: "none",
           }}
@@ -196,11 +196,11 @@ export default function Page() {
         <div
           style={{
             position: "absolute",
-            bottom: "-80px",
-            left: "-60px",
-            width: "400px",
-            height: "400px",
-            background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)",
+            bottom: "-60px",
+            left: "-40px",
+            width: "300px",
+            height: "300px",
+            background: "radial-gradient(circle, rgba(82,22,35,0.08) 0%, transparent 70%)",
             borderRadius: "50%",
             pointerEvents: "none",
           }}
@@ -215,8 +215,8 @@ export default function Page() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "rgba(212,175,55,0.15)",
-                  border: "1px solid rgba(212,175,55,0.3)",
+                  background: "rgba(75, 16, 27, 0.08)",
+                  border: "1px solid rgba(212, 175, 55, 0.4)",
                   borderRadius: "100px",
                   padding: "6px 16px",
                   marginBottom: "20px",
@@ -227,7 +227,7 @@ export default function Page() {
                   style={{
                     color: "#D4AF37",
                     fontSize: "12px",
-                    fontWeight: 600,
+                    fontWeight: 700,
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                   }}
@@ -241,20 +241,13 @@ export default function Page() {
                   fontFamily: "'Playfair Display', serif",
                   fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)",
                   fontWeight: 700,
-                  color: "#FFFFFF",
+                  color: "#111827",
                   lineHeight: 1.15,
                   marginBottom: "20px",
                 }}
               >
                 Calming the Mind:{" "}
-                <span
-                  style={{
-                    background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
+                <span style={{ color: "#4B101B" }}>
                   Overcoming Anxiety
                 </span>
               </h1>
@@ -262,71 +255,60 @@ export default function Page() {
               <p
                 style={{
                   fontSize: "1.05rem",
-                  color: "rgba(255,255,255,0.8)",
+                  color: "#4B5563",
                   lineHeight: 1.8,
                   maxWidth: "620px",
-                  marginBottom: "36px",
+                  marginBottom: "32px",
                 }}
               >
                 If feeling anxious about what lies ahead or overwhelmed by constant worry makes you
-                feel lonely, then know that you are not alone. Under Sakshi Shree's guidance,
+                feel lonely, then know that you are not alone. Under Sakshi Shree&apos;s guidance,
                 explore practical solutions and age-old wisdom to help calm your mind and ease your
                 worries.
               </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "14px" }}>
                 <Link
                   href="/book-session"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    background: "linear-gradient(135deg, #F59E0B, #D4AF37)",
-                    color: "#0F172A",
-                    padding: "14px 28px",
-                    borderRadius: "100px",
-                    fontWeight: 700,
-                    fontSize: "0.9rem",
-                    textDecoration: "none",
-                    boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
-                    transition: "transform 0.2s ease",
+                    background: "linear-gradient(135deg, #4B101B, #6B1727)",
+                    border: "1px solid rgba(212,175,55,0.5)",
+                    boxShadow: "0 6px 25px rgba(75,16,27,0.35)",
                   }}
-                  className="hover:scale-105"
                 >
                   Book a Session <ArrowRight size={16} />
                 </Link>
-                <a
-                  href="#explore"
+                <Link
+                  href="/events"
+                  className="rounded-full px-8 py-3.5 text-sm font-bold border-2 border-[#521623] bg-white text-[#521623] hover:bg-[#521623] hover:text-white transition-all inline-flex items-center gap-2 shadow-sm hover:scale-105"
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    color: "#FFFFFF",
-                    padding: "14px 28px",
-                    borderRadius: "100px",
-                    fontWeight: 600,
-                    fontSize: "0.9rem",
-                    textDecoration: "none",
-                    transition: "background 0.2s ease",
+                    color: "#521623",
+                    background: "#FFFFFF",
                   }}
-                  className="hover:bg-white/15"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#521623";
+                    e.currentTarget.style.color = "#FFFFFF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFFFFF";
+                    e.currentTarget.style.color = "#521623";
+                  }}
                 >
                   Explore Resources <ChevronRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37] hover:scale-105 transition-transform duration-700">
+              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40 hover:scale-105 transition-transform duration-700">
                 <img loading="lazy" decoding="async"
                   src="/images/premium-heroes/anxiety.jpeg"
                   alt="Calming the Mind and Overcoming Anxiety"
                   className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
@@ -334,7 +316,7 @@ export default function Page() {
       </section>
 
       {/* Navigation Tabs Bar */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map((t) => (

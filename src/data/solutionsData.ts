@@ -91,7 +91,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Brain",
     tagline: "Calm Panic, Release Fear & Rest in Awareness",
     shortDesc: "Overcome racing heartbeat, panic, and persistent worry with Sakshi Bhav and soothing breathwork.",
-    heroImage: "/images/premium-heroes/anxiety-hero.webp",
+    heroImage: "/images/premium-heroes/anxiety.jpeg",
     badge: "ANXIETY RELIEF & PEACE",
     themeColor: "#C79A2E",
     benefits: [
@@ -155,7 +155,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Activity",
     tagline: "Break Thought Swirls & Find Mental Silence",
     shortDesc: "Stop repetitive mental loops and quiet your busy mind with witness consciousness.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/overthinking.jpeg",
     badge: "MENTAL CLARITY & SILENCE",
     themeColor: "#C79A2E",
     benefits: [
@@ -392,7 +392,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "CloudSun",
     tagline: "Awaken Inner Light & Overcome Darkness",
     shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/depression.jpeg",
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
@@ -567,7 +567,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Baby",
     tagline: "Conscious & Mindful Parenting for Joyful Homes",
     shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
-    heroImage: "/images/premium-heroes/parenting-hero.webp",
+    heroImage: "/images/premium-heroes/parenting.jpeg",
     badge: "MINDFUL PARENTING",
     themeColor: "#C79A2E",
     benefits: [

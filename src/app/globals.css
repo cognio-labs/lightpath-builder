@@ -862,7 +862,7 @@ div[style*="scrollbarWidth: none"]::-webkit-scrollbar {
    Logo-derived palette only: ivory, saffron-gold and maroon.
 ═══════════════════════════════════════════════════ */
 :root {
-  --background: #fff9ed;
+  --background: #ffffff;
   --foreground: #533c3f;
   --card: #fffdf8;
   --card-foreground: #521623;
@@ -885,13 +885,13 @@ div[style*="scrollbarWidth: none"]::-webkit-scrollbar {
 
 html {
   color-scheme: light;
-  background: #fff9ed;
+  background: #ffffff;
 }
 
 body,
 html.dark,
 html.dark body {
-  background: #fff9ed !important;
+  background: #ffffff !important;
   color: #533c3f !important;
 }
 
@@ -914,9 +914,9 @@ html.dark body {
 }
 
 /* Remap legacy near-black/navy surfaces to the logo's deep maroon. */
-main [class*="bg-black"],
-main [class*="bg-slate-9"],
-main [class*="bg-[#0"],
+main [class~="bg-black"],
+main [class~="bg-slate-900"],
+main [class~="bg-slate-950"],
 main [style*="background: #0F172A"],
 main [style*="background:#0F172A"],
 main [style*="background-color: #0F172A"],

@@ -133,45 +133,68 @@ export default function Page() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: "linear-gradient(135deg, #4B101B 0%, #2E070F 50%, #4B101B 100%)", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(75,16,27,0.4) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <section style={{ background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)", paddingTop: "140px", paddingBottom: "100px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", background: "radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-60px", left: "-40px", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(82,22,35,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(212,175,55,0.15)", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(75, 16, 27, 0.08)", border: "1px solid rgba(212, 175, 55, 0.4)", borderRadius: "100px", padding: "6px 16px", marginBottom: "20px" }}>
                 <Shield size={14} style={{ color: "#D4AF37" }} />
-                <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions · Addictions</span>
+                <span style={{ color: "#D4AF37", fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>Solutions · Addictions</span>
               </div>
-              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.15, marginBottom: "20px" }}>
+              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 4.5vw, 3.8rem)", fontWeight: 700, color: "#111827", lineHeight: 1.15, marginBottom: "20px" }}>
                 Find Your{" "}
-                <span style={{ background: "linear-gradient(90deg, #D4AF37, #FDE68A)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                <span style={{ color: "#4B101B" }}>
                   Freedom
                 </span>
                 : Overcoming Addiction
               </h1>
-              <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "32px" }}>
-                Addiction can happen for many reasons — often as a way to cope with difficult emotions. With compassion, understanding, and under Sakshi Shree's guidance, we offer a helping hand. Break free from the grip of addiction and reclaim control of your life.
+              <p style={{ fontSize: "1.05rem", color: "#4B5563", lineHeight: 1.8, maxWidth: "620px", marginBottom: "32px" }}>
+                Addiction can happen for many reasons — often as a way to cope with difficult emotions. With compassion, understanding, and under Sakshi Shree&apos;s guidance, we offer a helping hand. Break free from the grip of addiction and reclaim control of your life.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-                <Link href="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #D4AF37, #B8860B)", color: "#2E070F", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "14px" }}>
+                <Link
+                  href="/book-session"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
+                  style={{
+                    background: "linear-gradient(135deg, #4B101B, #6B1727)",
+                    border: "1px solid rgba(212,175,55,0.5)",
+                    boxShadow: "0 6px 25px rgba(75,16,27,0.35)",
+                  }}
+                >
                   Book a Session <ArrowRight size={16} />
                 </Link>
-                <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
+                <Link
+                  href="/events"
+                  className="rounded-full px-8 py-3.5 text-sm font-bold border-2 border-[#521623] bg-white text-[#521623] hover:bg-[#521623] hover:text-white transition-all inline-flex items-center gap-2 shadow-sm hover:scale-105"
+                  style={{
+                    color: "#521623",
+                    background: "#FFFFFF",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#521623";
+                    e.currentTarget.style.color = "#FFFFFF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFFFFF";
+                    e.currentTarget.style.color = "#521623";
+                  }}
+                >
                   Explore Resources <ChevronRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
+              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40 hover:scale-105 transition-transform duration-700">
                 <img loading="lazy" decoding="async"
                   src="/images/premium-heroes/addictions.jpeg"
                   alt="Overcoming Addiction and Healing"
-                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
@@ -179,7 +202,7 @@ export default function Page() {
       </section>
 
       {/* Tabs */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map(t => (

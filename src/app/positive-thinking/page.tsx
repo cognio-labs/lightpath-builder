@@ -104,7 +104,7 @@ export default function Page() {
       </section>
 
       {/* Tabs */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map(t => (

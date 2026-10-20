@@ -128,7 +128,7 @@ export default function RootLayout({
           suppressHydrationWarning
         />
       </head>
-      <body>
+      <body className="bg-white">
         {/* Google tag (gtag.js) — GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SQT5YHQSLK"
@@ -160,7 +160,7 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-dvh flex-col bg-white">
             <SiteNav />
-            <main className="flex-1 pb-6 lg:pb-0">{children}</main>
+            <main className="flex-1 w-full bg-white pb-6 lg:pb-0">{children}</main>
             <QuickActionBar />
             <SiteFooter />
             <MahaMantrasPopup />

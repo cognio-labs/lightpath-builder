@@ -20,6 +20,7 @@ const INITIATIVES_NUMBERED: {
     num: "01",
     title: "Science Divine Foundation",
     desc: "Science Divine spreads the message of love and meditation the world over and creates a new humanity of self-realized souls with sound body and sound mind.",
+    href: "/about-movement",
   },
   {
     num: "02",

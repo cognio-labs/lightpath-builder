@@ -191,7 +191,7 @@ export default function Page() {
 
         <div className="container-page relative z-10">
           {/* Top Row: Content & Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
               {/* Eyebrow badge */}
               <div
@@ -229,16 +229,24 @@ export default function Page() {
                 >
                   Book a Session <ArrowRight size={15} />
                 </Link>
-                <a
-                  href="#explore"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all inline-flex items-center"
+                <Link
+                  href="/events"
+                  className="rounded-full px-8 py-3.5 text-sm font-bold border-2 border-[#521623] bg-white text-[#521623] hover:bg-[#521623] hover:text-white transition-all inline-flex items-center gap-2 shadow-sm hover:scale-105"
                   style={{
-                    borderColor: "rgba(75, 16, 27, 0.3)",
-                    color: "#4B101B",
+                    color: "#521623",
+                    background: "#FFFFFF",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#521623";
+                    e.currentTarget.style.color = "#FFFFFF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFFFFF";
+                    e.currentTarget.style.color = "#521623";
                   }}
                 >
-                  Explore Resources
-                </a>
+                  Explore Resources <ChevronRight size={16} />
+                </Link>
               </div>
             </div>
             {/* Right side image */}
@@ -248,67 +256,11 @@ export default function Page() {
               themeColor="#4B101B"
             />
           </div>
-
-          {/* Second Row: Grid of 4 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
-            {[
-              {
-                title: "Thought Witnessing",
-                desc: "Learn to watch your thoughts without being swept away by them.",
-                icon: Brain,
-              },
-              {
-                title: "Mind Reprogramming",
-                desc: "Reprogram the subconscious habits that run repetitive loops.",
-                icon: Compass,
-              },
-              {
-                title: "Present Action",
-                desc: "Shift your mental energy from contemplation into conscious action.",
-                icon: Flower2,
-              },
-              {
-                title: "Daily Protocol",
-                desc: "A structured routine to maintain awareness and prevent spirals.",
-                icon: Sun,
-              },
-            ].map((card, idx) => {
-              const CardIcon = card.icon;
-              return (
-                <div key={idx} className="flex gap-4 items-start group">
-                  <div
-                    className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
-                    style={{
-                      background: "rgba(75, 16, 27, 0.08)",
-                      color: "#4B101B",
-                    }}
-                  >
-                    <CardIcon size={20} />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold text-[#4B101B] text-sm md:text-base">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Third Row: Bottom Quote */}
-          <div className="flex items-center justify-center gap-2 py-4">
-            <Flower2 size={16} style={{ color: "#D4AF37" }} />
-            <span className="font-display text-sm md:text-base italic text-amber-800/80 font-medium text-center">
-              Still the Mind, Awaken the Soul
-            </span>
-            <Flower2 size={16} style={{ color: "#D4AF37" }} />
-          </div>
         </div>
       </section>
 
       {/* Tabs */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map((t) => (

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { animate, motion, useInView, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, BookOpen, ChevronLeft, ChevronRight, CookingPot, House, Landmark, School } from "lucide-react";
+import { ArrowRight, BookOpen, ChevronLeft, ChevronRight, CookingPot, Landmark, School } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -253,9 +253,8 @@ const SERVICES = [
     title: "Living the Gita Movement",
     desc: "From knowing the wisdom to living it.",
     href: "/courses",
-    // Transparent book cutout: show it whole instead of cropping.
-    image: "/images/about-movement/maha-mantras-book.png",
-    contain: true,
+    image: "/images/about-movement/living-the-gita.jpg",
+    contain: false,
     icon: <BookOpen size={22} strokeWidth={1.6} />,
   },
 ];
@@ -321,7 +320,7 @@ function ServiceInitiatives() {
           <div
             ref={trackRef}
             onScroll={updateArrows}
-            className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory pt-8 pb-4 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pt-0 lg:pb-0"
+            className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory pt-8 pb-4 lg:grid lg:grid-cols-4 lg:overflow-visible lg:pt-0 lg:pb-0"
           >
             {SERVICES.map((s, i) => (
               <motion.div key={s.title} {...cardEnter(i)} className={CARD_WIDTH}>
@@ -329,40 +328,16 @@ function ServiceInitiatives() {
                   href={s.href}
                   className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#EADFC9] bg-white shadow-[0_10px_26px_rgba(82,22,35,0.06)] transition-[translate,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:border-[#D4AF37]/70 hover:shadow-[0_22px_45px_rgba(184,134,11,0.16)]"
                 >
-                  {s.contain ? (
-                    // Fills the slot's height and dips into the space beside the icon badge, staying inside the card.
-                    <div className="relative z-10 aspect-[5/4]">
-                      <img
-                        src={s.image}
-                        alt={s.title}
-                        loading="lazy"
-                        decoding="async"
-                        style={{
-                          position: "absolute",
-                          top: 12,
-                          left: "63%",
-                          height: "calc(100% + 12px)",
-                          width: "auto",
-                          maxWidth: "none",
-                          transform: "translateX(-50%)",
-                          transformOrigin: "bottom center",
-                          filter: "drop-shadow(0 12px 16px rgba(82,22,35,0.22))",
-                        }}
-                        className="transition-[scale] duration-700 group-hover:scale-[1.04]"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-[5/4] overflow-hidden rounded-t-xl bg-[#FFFBEB]">
-                      <img
-                        src={s.image}
-                        alt={s.title}
-                        loading="lazy"
-                        decoding="async"
-                        style={FILL}
-                        className="w-full object-cover transition-[scale] duration-700 group-hover:scale-110"
-                      />
-                    </div>
-                  )}
+                  <div className="aspect-[5/4] overflow-hidden rounded-t-xl bg-[#FFFBEB]">
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      loading="lazy"
+                      decoding="async"
+                      style={FILL}
+                      className="w-full object-cover transition-[scale] duration-700 group-hover:scale-110"
+                    />
+                  </div>
                   <div className="flex flex-1 flex-col px-4 pb-6">
                     <div className="-mt-6 mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-[#E2C98A] bg-[#FFFBF2] text-[#B8860B] shadow-[0_4px_12px_rgba(184,134,11,0.18)] transition-[rotate,background-color,color] duration-500 group-hover:rotate-[10deg] group-hover:bg-[#5A1525] group-hover:text-[#E2B04A]">
                       {s.icon}
@@ -375,30 +350,18 @@ function ServiceInitiatives() {
                 </Link>
               </motion.div>
             ))}
+          </div>
 
-            <motion.div {...cardEnter(SERVICES.length)} className={CARD_WIDTH}>
-              <div className="relative flex h-full flex-col justify-center gap-7 overflow-hidden rounded-xl border border-[#EADFC9] bg-[#FFFCF6] p-5 shadow-[0_10px_26px_rgba(82,22,35,0.06)]">
-                <div className="relative flex items-center gap-3">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#E2C98A] bg-white text-[#B8860B] shadow-[0_4px_12px_rgba(184,134,11,0.18)]">
-                    <House size={28} strokeWidth={1.4} />
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#5D4B47]">Run by</div>
-                    <div style={SERIF} className="text-lg font-semibold leading-tight text-[#521623]">
-                      Jhuggi Jhopadi Shiksha Sewa Samiti
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="/initiatives"
-                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#5A1525] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(82,22,35,0.25)]"
-                >
-                  <span aria-hidden="true" className="absolute inset-0 origin-left scale-x-0 bg-[#7A1F33] transition-transform duration-500 ease-out group-hover:scale-x-100" />
-                  <span className="relative">Explore Our Initiatives</span>
-                  <ArrowRight size={15} className="relative transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </motion.div>
+          {/* Centered Explore Our Initiatives Button */}
+          <div className="mt-10 sm:mt-12 flex justify-center">
+            <Link
+              href="/initiatives"
+              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#521623] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(82,22,35,0.25)] hover:bg-[#6B1727] transition-all hover:scale-105"
+            >
+              <span aria-hidden="true" className="absolute inset-0 origin-left scale-x-0 bg-[#7A1F33] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+              <span className="relative">Explore Our Initiatives</span>
+              <ArrowRight size={15} className="relative transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </div>
