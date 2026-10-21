@@ -4,6 +4,8 @@ import { SectionHeading } from "@/components/PageHero";
 import { useState } from "react";
 import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Shield, ChevronRight } from "lucide-react";
 import { FastVideoCard, FastTestimonialCard } from "@/components/FastMediaCards";
+import SolutionBenefits from "@/components/SolutionBenefits";
+import SolutionsCarousel from "@/components/SolutionsCarousel";
 
 type Tab = "articles" | "quotes" | "videos";
 
@@ -181,7 +183,7 @@ export default function Page() {
                     e.currentTarget.style.color = "#521623";
                   }}
                 >
-                  Explore Resources <ChevronRight size={16} />
+                  Explore Events <ChevronRight size={16} />
                 </Link>
               </div>
             </div>
@@ -365,6 +367,14 @@ export default function Page() {
           
         </div>
       </section>
+
+      <SolutionBenefits topic="Addiction Recovery" cards={[
+        { title: "Understanding Addiction", desc: "See the patterns beneath compulsive behavior with honesty and care.", image: "/images/premium-heroes/addictions.jpeg", icon: "shield" },
+        { title: "Find Your Freedom: Overcoming Addiction", desc: "Discover compassionate support for choosing freedom one day at a time.", image: "/images/old-site/pages/addictions/Addictions-scaled.webp", icon: "sparkles" },
+        { title: "Breaking Unhealthy Habits", desc: "Replace automatic cycles with mindful, nourishing choices.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
+        { title: "Building a Healthier Lifestyle", desc: "Create rhythms that protect your energy, relationships, and wellbeing.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
+      ]} />
+      <SolutionsCarousel />
 
       {/* CTA */}
       <section style={{ background: "linear-gradient(135deg, #4B101B 0%, #2E070F 100%)", padding: "80px 0", position: "relative", overflow: "hidden" }}>

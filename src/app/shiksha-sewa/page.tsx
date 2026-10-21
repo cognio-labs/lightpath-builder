@@ -258,14 +258,14 @@ export default function ShikshaSewaPage() {
 
             {/* Button */}
             <div className="pt-1.5 sm:pt-2">
-              <button
-                onClick={() => scrollTo("donate")}
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#EBA528] hover:bg-[#D9941C] text-[#3B0910] font-bold text-xs sm:text-sm shadow-lg shadow-amber-900/40 transition-all duration-200 active:scale-95"
               >
                 <Heart className="w-4 h-4 fill-current" />
                 <span>Join Our Movement</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

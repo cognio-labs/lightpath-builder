@@ -718,7 +718,7 @@ function JourneyCta() {
         </Reveal>
         <Reveal delay={0.3}>
           <div className="mt-8 flex justify-center">
-            <PrimaryButton href="/courses">Join the Movement</PrimaryButton>
+            <PrimaryButton href="/contact">Join the Movement</PrimaryButton>
           </div>
         </Reveal>
       </div>

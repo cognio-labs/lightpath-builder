@@ -319,15 +319,13 @@ export default function Page() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-2.5 pt-1">
-                        <a
-                          href={init.donateUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Link
+                          href={`/${init.knowMoreSlug}` as any}
                           className="text-center py-2.5 px-3 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] text-xs font-bold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5"
                         >
                           <Heart size={13} className="fill-[#521623]" />
-                          <span>Donate</span>
-                        </a>
+                          <span>Donate Now</span>
+                        </Link>
                         <Link
                           href={`/${init.knowMoreSlug}` as any}
                           className="text-center py-2.5 px-3 rounded-full bg-white hover:bg-[#FFF4CF] text-[#521623] text-xs font-bold transition-all border-2 border-[#521623] flex items-center justify-center"
@@ -347,7 +345,7 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* 📸 5. LIVE SEWA GALLERY SLIDER */}
       {/* ========================================================================= */}
-      <section className="py-16 bg-[#FFFDF9] border-y border-[#E8C969]/50">
+      {false && <section className="py-16 bg-[#FFFDF9] border-y border-[#E8C969]/50">
         <div className="container-page">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
             <div>
@@ -382,7 +380,7 @@ export default function Page() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ========================================================================= */}
       {/* 🤝 6. CALL TO ACTION BANNER */}

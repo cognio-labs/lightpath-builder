@@ -20,6 +20,8 @@ import {
   Moon,
 } from "lucide-react";
 import { FastVideoCard, FastTestimonialCard } from "@/components/FastMediaCards";
+import SolutionBenefits from "@/components/SolutionBenefits";
+import SolutionsCarousel from "@/components/SolutionsCarousel";
 
 
 
@@ -245,7 +247,7 @@ export default function Page() {
                     e.currentTarget.style.color = "#521623";
                   }}
                 >
-                  Explore Resources <ChevronRight size={16} />
+                  Explore Events <ChevronRight size={16} />
                 </Link>
               </div>
             </div>
@@ -507,6 +509,14 @@ export default function Page() {
           
         </div>
       </section>
+
+      <SolutionBenefits topic="Overthinking" cards={[
+        { title: "Understanding Overthinking", desc: "Notice repetitive thought loops without letting them define your day.", image: "/images/premium-heroes/overthinking.jpeg", icon: "shield" },
+        { title: "Overthinking No More: Techniques for Mental Clarity", desc: "Simple awareness tools make space for clearer, calmer decisions.", image: "/images/old-site/pages/overthinking/Overthinking-scaled.webp", icon: "sparkles" },
+        { title: "Quiet Your Mind", desc: "Learn to rest attention in the stillness behind passing thoughts.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
+        { title: "Simple Practices for Inner Peace", desc: "Bring breath, gratitude, and mindful pauses into each day.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
+      ]} />
+      <SolutionsCarousel />
 
       {/* CTA */}
       <section

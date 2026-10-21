@@ -131,182 +131,60 @@ export default function AnnapurnaSewaPage() {
 
   return <div className={`annapurna-redesign ${styles.page}`}>
     {/* ══════════════════════════════════════════════════════
-        HERO SECTION — Real Working Component (Full Bleed Right Image, Copyable Headings, Real Button)
+        HERO SECTION — 1:1 Exact Match of Reference Design (Image 3)
+        Authentic panoramic banner artwork with seamless gold swoop wave,
+        lotus watermark, Hindi calligraphy, and interactive donate action
     ══════════════════════════════════════════════════════ */}
     <section
       id="hero"
-      className="relative overflow-hidden w-full text-white"
-      style={{
-        background: "linear-gradient(110deg, #270407 0%, #36070C 35%, #460C14 65%, #36070C 100%)",
-      }}
-      aria-labelledby="annapurna-title"
+      className="relative w-full overflow-hidden bg-[#270407]"
+      aria-label="Annapurna Sewa Banner"
     >
-      {/* Desktop Full-Bleed Right-Side Photo: Stretches 100% all the way to the right screen edge */}
-      <div className="hidden md:block absolute top-0 right-0 h-full w-[52%] lg:w-[56%] xl:w-[58%] 2xl:w-[60%] z-0 overflow-hidden">
-        <img
-          src="/images/annapurna-sewa/hero-girl-serving.png"
-          alt="अन्नपूर्णा सेवा - Annapurna Sewa - Children receiving nutritious meals"
-          className="w-full h-full object-cover object-right md:object-center select-auto block"
-          loading="eager"
-          fetchPriority="high"
-        />
-        {/* Smooth seamless blend on the left edge into the maroon background */}
-        <div
-          className="absolute inset-y-0 left-0 w-28 sm:w-36 lg:w-48 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to right, #36070C 0%, rgba(54,7,12,0.85) 30%, rgba(54,7,12,0.2) 65%, transparent 100%)",
-          }}
-        />
+      {/* Hidden semantic accessibility and SEO headings */}
+      <div className="sr-only">
+        <h1>अन्नपूर्णा सेवा — ANNAPURNA SEWA</h1>
+        <p>A MEAL TODAY, A BRIGHTER TOMORROW</p>
+        <p>
+          Let us come together to ensure that no child goes to bed hungry. Your support helps us
+          provide nutritious meals to underprivileged children living in slums and underserved communities.
+        </p>
       </div>
 
-      {/* Top-left subtle botanical leaves watermark */}
-      <div className="absolute top-0 left-0 w-40 sm:w-56 h-40 sm:h-56 pointer-events-none opacity-20 -translate-x-4 -translate-y-4">
-        <svg viewBox="0 0 200 200" fill="none" className="w-full h-full text-[#DF9E38]">
-          <path d="M20,20 Q60,10 90,40 T140,90 Q120,130 90,140 T40,90 Q10,60 20,20 Z" stroke="#F5C75A" strokeWidth="1.5" />
-          <path d="M30,30 Q80,20 110,60 T160,120" stroke="#F5C75A" strokeWidth="1" strokeDasharray="3 3" />
-        </svg>
-      </div>
-
-      {/* Bottom-left Gold Design: Lotus Mandala Watermark + Curved Gold Swoop Ribbon matching Image 1 */}
-      <div className="absolute bottom-0 left-0 w-full sm:w-[90%] md:w-[70%] lg:w-[62%] h-28 sm:h-36 md:h-44 pointer-events-none z-10 overflow-hidden">
-        <svg
-          viewBox="0 0 650 200"
-          fill="none"
-          className="w-full h-full"
-          preserveAspectRatio="none"
-        >
-          {/* Lotus Flower Line-Art Watermark in Bottom-Left Corner */}
-          <g transform="translate(48, 165) scale(1.15)" stroke="#F5C75A" strokeWidth="1.6" opacity="0.45" fill="none">
-            {/* Central Petal */}
-            <path d="M0 0 C -12 -28, -8 -58, 0 -78 C 8 -58, 12 -28, 0 0 Z" />
-            <path d="M0 0 C -5 -22, -3 -45, 0 -62 C 3 -45, 5 -22, 0 0 Z" />
-            {/* Inner Petals */}
-            <path d="M0 0 C -22 -22, -32 -46, -22 -66 C -8 -50, 0 -26, 0 0 Z" />
-            <path d="M0 0 C 22 -22, 32 -46, 22 -66 C 8 -50, 0 -26, 0 0 Z" />
-            {/* Outer Petals */}
-            <path d="M0 0 C -40 -14, -54 -32, -45 -50 C -26 -38, -12 -22, 0 0 Z" />
-            <path d="M0 0 C 40 -14, 54 -32, 45 -50 C 26 -38, 12 -22, 0 0 Z" />
-            {/* Base Foundation Arc */}
-            <path d="M-55 0 C -35 -10, 35 -10, 55 0" />
-            <circle cx="0" cy="-30" r="2.5" fill="#F5C75A" />
-          </g>
-
-          {/* Golden Swoop Body matching Image 1 */}
-          <path
-            d="M-20 200 L -20 80 C 80 120, 220 168, 480 180 C 540 183, 595 190, 660 200 Z"
-            fill="url(#goldSwoopFill)"
-            opacity="0.95"
-          />
-
-          {/* Golden Swoop Glowing Upper Edge matching Image 1 */}
-          <path
-            d="M-20 80 C 80 120, 220 168, 480 180 C 540 183, 595 190, 660 200"
-            stroke="url(#goldSwoopEdge)"
-            strokeWidth="2.8"
-            strokeLinecap="round"
-            fill="none"
-          />
-
-          {/* Subtle Secondary Golden Under-Ribbon for rich depth */}
-          <path
-            d="M-20 105 C 90 142, 230 178, 510 188 L 660 200 L -20 200 Z"
-            fill="url(#goldSwoopSubtle)"
-            opacity="0.5"
-          />
-
-          <defs>
-            <linearGradient id="goldSwoopFill" x1="0%" y1="0%" x2="100%" y2="80%">
-              <stop offset="0%" stopColor="#DF9E38" stopOpacity="0.95" />
-              <stop offset="35%" stopColor="#F5C75A" stopOpacity="0.98" />
-              <stop offset="70%" stopColor="#D48B25" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#9C5914" stopOpacity="0.85" />
-            </linearGradient>
-            <linearGradient id="goldSwoopEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FFECA8" />
-              <stop offset="30%" stopColor="#FFD875" />
-              <stop offset="70%" stopColor="#F5C75A" />
-              <stop offset="100%" stopColor="#FFE896" />
-            </linearGradient>
-            <linearGradient id="goldSwoopSubtle" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#B36B15" />
-              <stop offset="50%" stopColor="#DF9E38" />
-              <stop offset="100%" stopColor="#FAD877" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-12 lg:py-16 z-10 flex flex-col md:flex-row items-center justify-between min-h-[380px] sm:min-h-[420px] lg:min-h-[460px]">
-        {/* Left Column: Centered Elements matching Image 2 */}
-        <div className="w-full md:max-w-[48%] lg:max-w-[46%] z-20 flex flex-col justify-center items-center text-center mx-auto md:mx-0">
-          {/* Steaming Food Bowl Icon in Rich Warm Gold — Centered */}
-          <div className="flex justify-center mb-1.5">
-            <img
-              src="/images/annapurna-sewa/annapurna-bowl-clean.png"
-              alt="अन्नपूर्णा सेवा"
-              className="w-14 sm:w-16 h-auto block drop-shadow-[0_2px_10px_rgba(247,207,103,0.35)]"
-            />
-          </div>
-
-          {/* Hindi Heading — Centered with rich golden styling */}
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] font-bold text-center text-[#F7CF67] tracking-wide leading-tight select-text drop-shadow-[0_2px_12px_rgba(247,207,103,0.3)]">
-            अन्नपूर्णा सेवा
-          </h2>
-
-          {/* Delicate Lotus Divider between Hindi and English titles matching Image 2 */}
-          <div className="flex items-center justify-center gap-2.5 my-1.5 w-full max-w-[260px] mx-auto opacity-85">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#F7CF67]" />
-            <svg width="18" height="13" viewBox="0 0 24 16" fill="none" className="text-[#F7CF67] shrink-0">
-              <path d="M12 1C10 5 7 10 3 12C6 13 10 12 12 15C14 12 18 13 21 12C17 10 14 5 12 1Z" fill="#F7CF67" />
-              <path d="M12 6C11 9 9 12 6 13C8 14 11 13 12 15C13 13 16 14 18 13C15 12 13 9 12 6Z" fill="#FFEAA8" />
-            </svg>
-            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#F7CF67]" />
-          </div>
-
-          {/* English Heading — Centered crisp white */}
-          <h1 id="annapurna-title" className="font-serif text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-center text-white tracking-[0.14em] uppercase leading-tight select-text">
-            ANNAPURNA SEWA
-          </h1>
-
-          {/* Subtitle — Centered warm gold */}
-          <p className="font-sans text-[10.5px] sm:text-xs lg:text-[12.5px] font-semibold text-center tracking-[0.24em] text-[#E6BB6B] uppercase mt-1 select-text">
-            A MEAL TODAY, A BRIGHTER TOMORROW
-          </p>
-
-          {/* Paragraph — Centered */}
-          <p className="text-xs sm:text-[13.5px] lg:text-[14.5px] text-[#F5EBE6] text-center leading-relaxed font-sans max-w-lg mx-auto mt-3.5 sm:mt-4 select-text">
-            Let us come together to ensure that{" "}
-            <strong className="text-[#F7CF67] font-semibold">no child goes to bed hungry</strong>.
-            <br className="hidden sm:inline" />
-            {" "}Your support helps us provide nutritious meals to underprivileged children living in slums and underserved communities.
-          </p>
-
-          {/* Real Interactive DONATE NOW Button — Centered */}
-          <div className="pt-5 sm:pt-6 flex justify-center">
-            <a
-              href={RAZORPAY_DONATION_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 sm:gap-3 px-8 sm:px-10 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#F7CF67] via-[#F4B944] to-[#DF9727] text-[#36080D] font-serif font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_4px_22px_rgba(244,185,68,0.45)] hover:shadow-[0_8px_32px_rgba(244,185,68,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 group cursor-pointer"
-              aria-label="Donate Now to Annapurna Sewa"
-            >
-              <Heart className="w-4 h-4 sm:w-[18px] sm:h-[18px] fill-[#36080D] text-[#36080D] transition-transform duration-300 group-hover:scale-110" />
-              <span className="font-bold">DONATE NOW</span>
-              <ArrowRight className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-[#36080D] transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </div>
-        </div>
-
-        {/* Mobile-only Image (full width, edge to edge) */}
-        <div className="md:hidden relative w-full aspect-[16/10] overflow-hidden mt-6 rounded-xl shadow-lg">
+      {/* Main banner image container matching exact 3:1 reference layout */}
+      <div className="relative w-full max-w-[1920px] mx-auto select-none">
+        <picture>
+          <source srcSet="/images/annapurna-sewa/annapurna-hero-2x.webp" type="image/webp" />
           <img
-            src="/images/annapurna-sewa/hero-girl-serving.png"
-            alt="अन्नपूर्णा सेवा - Annapurna Sewa - Children receiving nutritious meals"
-            className="w-full h-full object-cover object-center select-auto"
+            src="/images/annapurna-sewa/annapurna-hero-2x.png"
+            alt="Annapurna Sewa — A Meal Today, A Brighter Tomorrow. Nutritious meals for underprivileged children"
+            className="w-full h-auto block object-cover"
+            width={2048}
+            height={682}
+            loading="eager"
+            fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#270407] via-transparent to-transparent pointer-events-none" />
-        </div>
+        </picture>
+
+        {/* Interactive "DONATE NOW" button overlay positioned precisely over the graphic button */}
+        <a
+          href={RAZORPAY_DONATION_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute rounded-full cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F5C75A] focus:ring-offset-2 focus:ring-offset-[#270407] group"
+          style={{
+            left: "17.14%",
+            top: "73.31%",
+            width: "19.38%",
+            height: "11.14%",
+          }}
+          aria-label="Donate Now to Annapurna Sewa"
+          title="Donate Now to Annapurna Sewa"
+        >
+          {/* Hover highlight with gentle golden glow */}
+          <span className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/20 transition-all duration-300 shadow-none group-hover:shadow-[0_0_24px_rgba(247,207,103,0.85)] group-active:scale-95" />
+          {/* Expanded tap target for effortless touch on mobile/tablet */}
+          <span className="absolute -inset-2 sm:-inset-1 pointer-events-auto rounded-full" />
+        </a>
       </div>
     </section>
 

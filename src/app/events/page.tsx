@@ -1,62 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { PageHero, SectionHeading } from "@/components/PageHero";
+import { PageHero } from "@/components/PageHero";
 import { EVENTS } from "@/data/content";
-import { Calendar, MapPin, Clock, ArrowRight, Sparkles, Image as ImageIcon, X } from "lucide-react";
-
-const GALLERY_IMAGES = [
-  {
-    src: "/images/uploads/2025/02/mzlvjnkn-1-scaled.webp",
-    title: "Shiksha Sewa Celebration",
-    category: "Youth & Education",
-  },
-  {
-    src: "/images/guruji-namaste-new.webp",
-    title: "Divine Satsang & Blessings",
-    category: "Sakshi Shree Satsang",
-  },
-  {
-    src: "/images/uploads/2024/05/aboutsakshishree.webp",
-    title: "Sanjeevani Dhyan Retreat",
-    category: "Meditation Camp",
-  },
-  {
-    src: "/images/uploads/2025/03/image-10.webp",
-    title: "Global Sangha Gathering",
-    category: "Community",
-  },
-  {
-    src: "/images/guruji-meditation-hd.webp",
-    title: "Inner Transformation Session",
-    category: "Deep Meditation",
-  },
-  {
-    src: "/images/uploads/2023/06/young-img1.webp",
-    title: "Youth Awakening Workshop",
-    category: "Consciousness",
-  },
-  {
-    src: "/images/uploads/2024/04/gospelforasia-RT18-03070.webp",
-    title: "Swastha Sewa Health Drive",
-    category: "Social Service",
-  },
-  {
-    src: "/images/uploads/2024/03/Self-Conscious.webp",
-    title: "Conscious Living Discourse",
-    category: "Wisdom Talk",
-  },
-  {
-    src: "/images/about-self-realization.webp",
-    title: "Self Realization Dhyan",
-    category: "Sadhna",
-  },
-];
+import { Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export default function Page() {
-  const [selectedImg, setSelectedImg] = useState<{ src: string; title: string } | null>(null);
-
   return (
     <>
       <PageHero
@@ -161,64 +111,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Events Gallery Section */}
-      <section className="section-pad relative overflow-hidden bg-[#FAF7F2] border-t border-amber-200/60">
-        <div className="container-page relative z-10">
-          <SectionHeading
-            center
-            eyebrow="Events Gallery"
-            title="Moments from Past Gatherings"
-            subtitle="Glance through sacred moments of meditation, satsang, volunteer seva, and community joy."
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-            {GALLERY_IMAGES.map((img, idx) => (
-              <div
-                key={idx}
-                onClick={() => setSelectedImg({ src: img.src, title: img.title })}
-                className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-md border border-amber-200/70 cursor-pointer bg-white"
-              >
-                <img
-                  src={img.src}
-                  alt={img.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-amber-300 mb-1">
-                    {img.category}
-                  </span>
-                  <h4 className="font-serif text-lg font-bold drop-shadow-sm flex items-center justify-between">
-                    <span>{img.title}</span>
-                    <ImageIcon size={18} className="text-amber-300" />
-                  </h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Modal Lightbox */}
-      {selectedImg && (
-        <div
-          className="fixed inset-0 z-[99999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setSelectedImg(null)}
-        >
-          <div className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-amber-400/40 shadow-2xl p-2 animate-fade-in" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setSelectedImg(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-rose-600 transition-colors"
-            >
-              <X size={20} />
-            </button>
-            <img loading="lazy" decoding="async" src={selectedImg.src} alt={selectedImg.title} className="w-full h-auto max-h-[75vh] object-contain rounded-2xl" />
-            <div className="p-4 text-center text-white">
-              <h3 className="font-serif text-xl font-bold text-amber-300">{selectedImg.title}</h3>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

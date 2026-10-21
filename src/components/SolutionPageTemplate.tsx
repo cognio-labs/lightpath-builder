@@ -104,27 +104,6 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
     return configs[index % configs.length];
   };
 
-  const getPracticeStyle = (index: number) => {
-    const configs = [
-      {
-        backgroundImage: "url('/images/about-sound-body.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-      },
-      {
-        backgroundImage: "url('/images/about-sound-mind.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-      },
-      {
-        backgroundImage: "url('/images/about-self-realization.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-      },
-    ];
-    return configs[index % configs.length];
-  };
-
   return (
     <div className="bg-white text-slate-800 min-h-screen">
 
@@ -222,7 +201,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
                     e.currentTarget.style.color = "#521623";
                   }}
                 >
-                  Explore Resources <ChevronRight size={16} />
+                  Explore Events <ChevronRight size={16} />
                 </Link>
               </div>
             </div>
@@ -581,65 +560,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* 4. RECOMMENDED PRACTICES */}
-      <section className="w-full bg-white section-pad px-4 sm:px-6">
-        <div className="max-w-[1280px] mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
-          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
-            DAILY SADHNA & ROUTINES
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#111827]">
-            Recommended Practices for {solution.name}
-          </h2>
-          <p className="text-slate-600 text-sm md:text-base font-medium">
-            Perform these simple daily practices to cultivate lasting vitality, inner quietude, and happiness.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
-          {solution.practices.map((p, i) => (
-            <div
-              key={i}
-              className="rounded-3xl bg-white border border-[#E5E7EB] hover:border-[#D4AF37] shadow-sm overflow-hidden flex flex-col"
-            >
-              <div
-                className="h-48 bg-no-repeat overflow-hidden"
-                role="img"
-                aria-label={`${p.title} guided practice`}
-                style={
-                  p.image
-                    ? {
-                        backgroundImage: `url('${p.image}')`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }
-                    : getPracticeStyle(i)
-                }
-              />
-              <div className="p-6 sm:p-7 space-y-4 flex-1">
-                <span className="inline-block px-3 py-1 rounded-full bg-[rgba(212,175,55,0.12)] text-[#521623] font-bold text-xs">
-                  {p.duration}
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-[#111827]">
-                  {p.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600 font-medium">
-                  {p.desc}
-                </p>
-              </div>
-              <div className="px-6 sm:px-7 pb-6">
-                <Link
-                  href="/book-session"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#521623] hover:text-[#B8860B] transition-colors"
-                >
-                  Learn Guided Technique <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-        </div>
-      </section>
 
 
 

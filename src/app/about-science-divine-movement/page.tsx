@@ -223,7 +223,7 @@ export default function Page() {
                   Meet Sakshi Shree <ArrowRight size={16} />
                 </Link>
                 <Link
-                  href="/book-session"
+                  href="/contact"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",

@@ -383,72 +383,95 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   3. YOUR SUPPORT CREATES REAL IMPACT + DONATION CARD (Matches Screenshot 3 Middle)
+   3. YOUR SUPPORT CREATES REAL IMPACT + DONATION CARD
    ══════════════════════════════════════════════════════════════════════════ */
 .support {
-  padding: 48px 0;
-  background: linear-gradient(180deg, #fffcf7 0%, #faf3e6 100%);
+  padding: 56px 0;
+  background: #fffaf2;
   border-bottom: 1px solid #ebd8be;
 }
 
 .supportGrid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
   align-items: stretch;
 }
 
-.supportStory {
-  display: flex;
-  flex-direction: column;
-}
-
-.supportStory h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  font-weight: 800;
-  color: #521623;
-  line-height: 1.15;
-  margin: 0 0 10px;
-}
-
-.supportStory > p {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #5a4542;
-  margin-bottom: 18px;
-}
-
-.supportPhoto {
+/* Left Side: Impact Card with Audience Background */
+.supportImpactCard {
   position: relative;
-  flex: 1;
-  min-height: 380px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 14px;
+  min-height: 540px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(71, 14, 9, 0.12);
+  box-shadow: 0 12px 36px rgba(60, 12, 8, 0.16);
+  background-image: 
+    linear-gradient(105deg, rgba(38, 7, 5, 0.96) 0%, rgba(56, 10, 7, 0.90) 52%, rgba(26, 5, 3, 0.72) 100%),
+    url('/images/living-the-moment/support-impact-audience.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 38px 36px;
+}
+
+.supportImpactContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.supportEyebrow {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #f7d481;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.supportHeading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 2.7vw, 44px);
+  font-weight: 800;
+  color: #fbd675;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.supportText {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #fff1db;
+  margin: 0 0 22px;
+  max-width: 520px;
 }
 
 .supportQuoteCard {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 248, 233, 0.96);
   backdrop-filter: blur(8px);
   border: 1px solid #ebd8be;
+  border-left: 4px solid #d97706;
   border-radius: 12px;
-  padding: 12px 16px 12px 38px;
+  padding: 14px 18px 14px 38px;
   position: relative;
-  max-width: 320px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  max-width: 480px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  margin-bottom: 24px;
 }
 
 .supportQuoteMark {
   position: absolute;
-  left: 10px;
-  top: 2px;
+  left: 12px;
+  top: 4px;
   font-size: 2.2rem;
   color: #d97706;
   font-family: Georgia, serif;
@@ -458,37 +481,48 @@
 .supportQuoteCard blockquote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.45;
   color: #4a1714;
-  margin: 0 0 4px;
+  margin: 0 0 5px;
 }
 
 .supportQuoteCard cite {
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 11.5px;
   color: #8c211e;
   display: block;
 }
 
-.supportOverlayText {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: 24px;
-  line-height: 1.15;
-  color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+.supportDonateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  border-radius: 99px;
+  color: #641812 !important;
+  text-decoration: none;
+  background: linear-gradient(135deg, #f5bc3e, #ffe07e);
+  font: 800 13px/1 'Playfair Display', Georgia, serif;
+  box-shadow: 0 5px 16px rgba(245, 188, 62, 0.35);
+  width: fit-content;
+  transition: transform 0.2s, box-shadow 0.2s;
   margin-top: auto;
-  padding-top: 20px;
 }
 
-/* Right Side: Donation Card */
+.supportDonateBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(245, 188, 62, 0.5);
+}
+
+/* Right Side: Donation Card (Compact & Balanced) */
 .donationCard {
   background: #ffffff;
   border: 1.5px solid #ebd8be;
-  border-radius: 14px;
-  padding: 24px;
+  border-radius: 18px;
+  padding: 22px 22px 18px;
   box-shadow: 0 10px 30px rgba(91, 18, 15, 0.08);
   text-align: center;
   display: flex;
@@ -498,33 +532,33 @@
 
 .donationCard h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   color: #521623;
   margin: 0 0 4px;
 }
 
 .donationSub {
-  font-size: 12.5px;
+  font-size: 12px;
   color: #715d56;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 
 .typeToggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .typeToggle button {
-  padding: 10px;
+  padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #ebd8be;
   background: #ffffff;
   color: #521623;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 11.5px;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -538,15 +572,15 @@
 .amountGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .amountCard {
   border: 1.5px solid #ebd8be;
   border-radius: 8px;
   background: #fffdf9;
-  padding: 10px 8px;
+  padding: 8px 6px;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -555,18 +589,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 58px;
 }
 
 .amountCard strong {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #521623;
   display: block;
 }
 
 .amountCard span {
-  font-size: 10px;
+  font-size: 9.5px;
   line-height: 1.25;
   color: #715d56;
   margin-top: 2px;
@@ -588,8 +623,8 @@
 
 .amountCheck {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 4px;
+  right: 4px;
   color: #f4af2d;
 }
 
@@ -603,12 +638,12 @@
 }
 
 .customInput {
-  width: 90%;
-  margin-top: 6px;
-  padding: 6px 8px;
+  width: 92%;
+  margin-top: 4px;
+  padding: 5px 8px;
   border: 1px solid #ebd8be;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 11.5px;
   color: #521623;
 }
 
@@ -618,15 +653,15 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px;
+  padding: 12px;
   border-radius: 6px;
   background: linear-gradient(135deg, #f4af2d, #ffd66b);
   color: #521623 !important;
   font-weight: 800;
-  font-size: 13.5px;
+  font-size: 13px;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   transition: all 0.2s;
 }
 
@@ -643,16 +678,16 @@
 .paymentBenefits {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 6px;
   border-top: 1px solid #f0e2cf;
-  padding-top: 14px;
+  padding-top: 10px;
 }
 
 .paymentBenefits span {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 10.5px;
+  gap: 6px;
+  font-size: 9.5px;
   font-weight: 600;
   line-height: 1.2;
   color: #66524e;
@@ -662,6 +697,8 @@
 .paymentBenefits svg {
   color: #d97706;
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -1078,3 +1115,58 @@
     grid-column: span 1;
   }
 }
+
+/* Reference-led Living the Gita refresh */
+.hero {
+  min-height: 600px;
+  background: linear-gradient(90deg, #280604 0%, rgba(62, 10, 6, .94) 38%, rgba(59, 11, 6, .22) 74%), url('/images/living-the-moment/real-impact-community.jpg') center / cover;
+}
+
+.heroBookWrap { display: none; }
+.heroContainer { grid-template-columns: minmax(0, 650px); }
+.goldButton, .impactDonate, .initiativesDonate { animation: gitaCtaPulse 2.7s ease-in-out infinite; }
+.goldButton:hover, .impactDonate:hover, .initiativesDonate:hover { animation-play-state: paused; transform: translateY(-3px) scale(1.02); }
+
+.pillars { padding: 62px 0; background: radial-gradient(circle at 50% 0, #fff 0, #fff6e6 60%, #f8ecd8 100%); }
+.pillarsHeading { text-align: center; color: #7a241f; }
+.pillarsHeading > span { font: 700 12px/1 "Cinzel", serif; letter-spacing: .24em; color: #ad7829; }
+.pillarsHeading h2 { margin: 8px 0 14px; font: 800 clamp(28px, 3.2vw, 48px)/1.04 "Playfair Display", Georgia, serif; color: #641612; }
+.pillarsHeading p { display: inline-flex; gap: 18px; align-items: center; padding: 9px 30px; border: 1px solid #ead2a3; border-radius: 99px; color: #814620; font: 700 12px/1.2 "Cinzel", serif; letter-spacing: .12em; }
+.pillarGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 30px; }
+.pillarCard { position: relative; padding: 14px 22px 24px; text-align: center; background: rgba(255,253,248,.84); border: 1px solid #e2c48d; border-radius: 22px; box-shadow: 0 12px 30px rgba(88, 34, 12, .1); transition: transform .25s, box-shadow .25s; }
+.pillarCard:hover { transform: translateY(-7px); box-shadow: 0 18px 36px rgba(88, 34, 12, .16); }
+.pillarCard img { display: block; width: 100%; aspect-ratio: 1.7; object-fit: cover; border-radius: 14px; }
+.pillarIcon { width: 54px; height: 54px; display: grid; place-items: center; margin: -28px auto 10px; position: relative; border-radius: 50%; color: #fff; background: #a95714; border: 4px solid #fff9eb; box-shadow: 0 4px 12px rgba(94, 27, 8, .25); }
+.pillarCard > span { display: block; color: #a56b25; font: 700 12px/1.2 "Cinzel", serif; letter-spacing: .1em; }
+.pillarCard h3 { margin: 8px 0; min-height: 52px; font: 800 24px/1.02 "Playfair Display", Georgia, serif; color: #741c19; }
+.pillarCard p { min-height: 42px; margin: 0 0 16px; color: #715a52; font-size: 14px; line-height: 1.35; }
+.pillarCard a, .impactDonate, .initiativesDonate { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 29px; border-radius: 99px; color: #fff !important; text-decoration: none; background: linear-gradient(135deg, #7b160f, #a72d19); font: 800 13px/1 "Playfair Display", serif; box-shadow: 0 5px 14px rgba(102,21,10,.25); }
+
+.support { padding: 60px 0; background: #fffaf2; }
+.supportGrid { display: grid; }
+.impactFeature { display: none; }
+.impactFeatureCopy { width: min(560px, 48%); margin-left: clamp(30px, 6vw, 80px); color: #fff5dc; }
+.impactFeatureCopy > span { letter-spacing: .25em; color: #f7d481; font: 700 14px/1 "Cinzel", serif; }
+.impactFeatureCopy h2 { margin: 16px 0; color: #fbd675; font: 800 clamp(48px, 5vw, 76px)/.93 "Playfair Display", Georgia, serif; }
+.impactFeatureCopy > p { font: 20px/1.38 "Playfair Display", Georgia, serif; }
+.impactFeatureCopy blockquote { width: min(100%, 500px); margin: 28px 0; padding: 22px 28px; color: #55201c; border-radius: 14px; background: #fff8e9; font: italic 17px/1.4 "Playfair Display", Georgia, serif; }
+.impactFeatureCopy cite { display: block; margin-top: 10px; color: #85221b; font: 700 14px/1.3 Inter, sans-serif; font-style: normal; }
+.impactDonate { padding: 17px 38px; color: #641812 !important; background: linear-gradient(135deg, #f5bc3e, #ffe07e); font-size: 17px; }
+
+.initiatives { padding: 62px 0 38px; background: linear-gradient(#fffdfa, #fbf0da); }
+.sectionTitle h2 { font-size: clamp(28px, 3vw, 46px); }
+.initiativeCard { border-radius: 18px; text-align: center; overflow: visible; }
+.initiativeImage { height: 175px; border-radius: 17px 17px 0 0; }
+.initiativeBody { padding: 17px 15px 13px; }
+.initiativeBody h3 { font-size: 16px; }
+.initiativeMetrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 15px; margin-top: 13px; border-top: 1px solid #ecd6b8; }
+.initiativeMetrics span { display: grid; grid-template-columns: 22px 1fr; text-align: left; column-gap: 6px; color: #7c211c; }
+.initiativeMetrics svg { grid-row: span 2; margin-top: 2px; color: #9b391f; }
+.initiativeMetrics b { font: 800 16px/1 "Playfair Display", serif; }
+.initiativeMetrics small { font-size: 10px; color: #6a554e; }
+.initiativesDonate { display: flex; width: max-content; min-width: 250px; margin: 28px auto 0; }
+
+@keyframes gitaCtaPulse { 0%,100% { box-shadow: 0 5px 14px rgba(102,21,10,.25); } 50% { box-shadow: 0 0 0 7px rgba(246,189,61,.2), 0 9px 22px rgba(102,21,10,.38); } }
+@media (max-width: 900px) { .hero { min-height: 530px; } .pillarGrid { grid-template-columns: 1fr; max-width: 540px; margin-inline: auto; } .supportImpactCard { min-height: auto; padding: 32px 24px; } }
+@media (max-width: 640px) { .hero { background-position: 62% center; } .heroContainer { width: calc(100% - 32px); } .pillars { padding: 42px 0; } .pillarsHeading p { gap: 8px; padding: 9px 12px; font-size: 9px; } .supportImpactCard { padding: 26px 18px; min-height: auto; } .supportHeading { font-size: 28px; } .supportText { font-size: 13.5px; } }
+@media (prefers-reduced-motion: reduce) { .goldButton, .impactDonate, .initiativesDonate { animation: none; } }

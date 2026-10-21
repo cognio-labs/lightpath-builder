@@ -15,6 +15,9 @@ import {
   ShieldCheck,
   Users,
   Globe2,
+  MapPin,
+  Download,
+  Presentation,
 } from "lucide-react";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 import styles from "./living-the-gita.module.css";
@@ -47,21 +50,25 @@ const initiatives = [
     image: "/images/living-the-moment/learning-sessions.jpg",
     title: "GITA LEARNING SESSIONS",
     text: "Conducting sessions, workshops and study circles for all age groups across cities and villages.",
+    metrics: [["25,000+", "People Reached"], ["120+", "Cities & Villages"]],
   },
   {
     image: "/images/living-the-moment/books-resources.jpg",
     title: "BOOKS & LEARNING RESOURCES",
     text: "Creating and distributing books, study material and digital content in simple and practical formats.",
+    metrics: [["1,00,000+", "Books Distributed"], ["500+", "Digital Resources"]],
   },
   {
     image: "/images/living-the-moment/youth-outreach.jpg",
     title: "YOUTH OUTREACH",
     text: "Special programs for students and young professionals to build a positive mindset and value-based living.",
+    metrics: [["10,000+", "Students Engaged"], ["200+", "Workshops Conducted"]],
   },
   {
     image: "/images/living-the-moment/digital-reach.jpg",
     title: "DIGITAL REACH & COMMUNITY EVENTS",
     text: "Expanding our online content, community initiatives and awareness programs to reach every home.",
+    metrics: [["5,00,000+", "Online Viewers"], ["300+", "Community Events"]],
   },
 ];
 
@@ -142,57 +149,55 @@ export default function LivingTheGita() {
 
   return (
     <div className={`${styles.page} gita-page`}>
-      {/* 1. HERO SECTION */}
-      <section className={styles.hero} id="top">
-        <div className={styles.heroContainer}>
-          {/* Left: Headings & Content */}
-          <div className={styles.heroCopy}>
-            <p className={styles.heroEyebrow}>
-              TIMELESS WISDOM <span>|</span> STRONGER SOCIETY <span>|</span> BRIGHTER TOMORROW
-            </p>
-            <h1>
-              HELP THE GITA<br />
-              <span className={styles.goldTitle}>REACH EVERY HOME</span>
-            </h1>
-            <p className={styles.heroIntro}>
-              Your contribution helps us take practical Gita wisdom, learning programs and community initiatives to millions of people across India and beyond.
-            </p>
+      {/* 1. HERO SECTION — Full Panoramic Banner matching reference design with audience & Guruji */}
+      <section
+        id="top"
+        className="relative w-full overflow-hidden bg-[#240407]"
+        aria-label="Living the Gita Movement Banner"
+      >
+        <div className="sr-only">
+          <h1>HELP THE GITA REACH EVERY HOME</h1>
+          <p>TIMELESS WISDOM | STRONGER SOCIETY | BRIGHTER TOMORROW</p>
+          <p>
+            Your contribution helps us take practical Gita wisdom, learning programs and community
+            initiatives to millions of people across India and beyond.
+          </p>
+        </div>
 
-            <div className={styles.heroActions}>
-              <a className={styles.goldButton} href="#donate">
-                CONTRIBUTE TODAY <ArrowRight size={17} />
-              </a>
-              <a className={styles.outlineButton} href="#vision">
-                BE A PART OF THE MOVEMENT
-              </a>
-            </div>
-
-            <div className={styles.benefits}>
-              <span>
-                <Users size={18} /> More<br />People
-              </span>
-              <span>
-                <BookOpen size={18} /> More<br />Learning
-              </span>
-              <span>
-                <Flower2 size={18} /> More<br />Positive Change
-              </span>
-            </div>
-          </div>
-
-          {/* Right: The Book */}
-          <div className={styles.heroBookWrap}>
-            <div className={styles.heroBookGlow} />
+        <div className="relative w-full max-w-[1920px] mx-auto select-none">
+          <picture>
+            <source srcSet="/images/living-the-moment/living-the-gita-hero-2x.webp" type="image/webp" />
             <img
-              className={styles.heroBook}
-              src="/images/living-the-moment/book-living-the-gita.webp"
-              alt="Life-Changing Maha Mantras: The Art of Living the Gita by Sakshi Shree"
+              src="/images/living-the-moment/living-the-gita-hero-2x.png"
+              alt="Help the Gita Reach Every Home — Living the Gita Movement with Sadguru Sakshi Shree addressing a massive audience"
+              className="w-full h-auto block object-cover"
+              width={2048}
+              height={768}
+              loading="eager"
+              fetchPriority="high"
             />
-            <div className={styles.heroBookBadge}>
-              <span>The Art of Living the Gita</span>
-              <strong>By Sadguru Sakshi Shree</strong>
-            </div>
-          </div>
+          </picture>
+
+          {/* Interactive "DONATE NOW" button hotspot directly over the graphic button */}
+          <a
+            href={RAZORPAY_DONATION_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute rounded-full cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F5C75A] focus:ring-offset-2 focus:ring-offset-[#240407] group"
+            style={{
+              left: "7.03%",
+              top: "68.10%",
+              width: "19.78%",
+              height: "16.67%",
+            }}
+            aria-label="Donate Now to Living the Gita Movement"
+            title="Donate Now to Living the Gita Movement"
+          >
+            {/* Subtle hover golden sheen */}
+            <span className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/20 transition-all duration-300 shadow-none group-hover:shadow-[0_0_24px_rgba(247,207,103,0.85)] group-active:scale-95" />
+            {/* Expanded touch target for mobile devices */}
+            <span className="absolute -inset-2.5 sm:-inset-1 pointer-events-auto rounded-full" />
+          </a>
         </div>
       </section>
 
@@ -228,21 +233,45 @@ export default function LivingTheGita() {
         </div>
       </section>
 
+      <section className={styles.pillars} aria-labelledby="pillars-title">
+        <div className={styles.container}>
+          <div className={styles.pillarsHeading}>
+            <span>THE 3 PILLARS OF</span>
+            <h2 id="pillars-title">LIVING THE GITA MOVEMENT</h2>
+            <p>FROM KNOWLEDGE <ArrowRight size={15} /> PRACTICE <ArrowRight size={15} /> COMMUNITY</p>
+          </div>
+          <div className={styles.pillarGrid}>
+            {[
+              ["/images/living-the-moment/pillar-knowledge-books.jpg?v=2", "01 · KNOWLEDGE", "LIFE-CHANGING MAHA MANTRAS", "Discover the timeless wisdom of the Gita and learn how to live it every day.", "#initiatives", BookOpen],
+              ["/images/living-the-moment/pillar-practice-meditation.jpg?v=2", "02 · PRACTICE", "SAKSHI SADHANA", "Go beyond reading the Gita and experience its wisdom in life.", "#vision", Flower2],
+              ["/images/living-the-moment/pillar-community-circle.jpg?v=2", "03 · COMMUNITY", "GITA CIRCLE", "Learn, discuss, practise and grow together with a community of like-minded seekers.", "#initiatives", Users],
+            ].map(([image, label, title, text, href, Icon]) => {
+              const PillarIcon = Icon as typeof BookOpen;
+              return <article className={styles.pillarCard} key={String(label)}>
+                <img src={String(image)} alt={String(title)} loading="lazy" />
+                <div className={styles.pillarIcon}><PillarIcon size={25} /></div>
+                <span>{String(label)}</span><h3>{String(title)}</h3><p>{String(text)}</p>
+                <a href={String(href)}>EXPLORE <ArrowRight size={16} /></a>
+              </article>;
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* 3. YOUR SUPPORT CREATES REAL IMPACT + MAKE A DIFFERENCE TODAY */}
       <section className={styles.support} id="donate">
         <div className={styles.container}>
           <div className={styles.supportGrid}>
-            {/* Left Column: Impact Story & Photo */}
-            <div className={styles.supportStory}>
-              <span className={styles.eyebrow}>YOUR SUPPORT</span>
-              <h2>CREATES REAL IMPACT</h2>
-              <p>
-                Your contribution helps us conduct Gita learning sessions, create educational resources, reach youth and communities, and take this timeless wisdom to every corner of society.
-              </p>
-              <div
-                className={styles.supportPhoto}
-                style={{ backgroundImage: `url('/images/living-the-moment/real-impact-community.jpg')` }}
-              >
+            {/* Left Column: Impact Card with Audience Background */}
+            <article className={styles.supportImpactCard}>
+              <div className={styles.supportImpactContent}>
+                <span className={styles.supportEyebrow}>YOUR SUPPORT</span>
+                <h2 className={styles.supportHeading}>
+                  CREATES<br />REAL IMPACT
+                </h2>
+                <p className={styles.supportText}>
+                  Your contribution helps us conduct Gita learning sessions, create educational resources, reach youth and communities, and take this timeless wisdom to every corner of society.
+                </p>
                 <div className={styles.supportQuoteCard}>
                   <span className={styles.supportQuoteMark}>“</span>
                   <blockquote>
@@ -250,13 +279,16 @@ export default function LivingTheGita() {
                   </blockquote>
                   <cite>— Sadguru Sakshi Shree</cite>
                 </div>
-                <span className={styles.supportOverlayText}>
-                  Real People.<br />
-                  Real Learning.<br />
-                  A Better Tomorrow
-                </span>
+                <a
+                  className={styles.supportDonateBtn}
+                  href={RAZORPAY_DONATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DONATE NOW <ArrowRight size={18} />
+                </a>
               </div>
-            </div>
+            </article>
 
             {/* Right Column: Donation Card */}
             <div className={styles.donationCard}>
@@ -364,7 +396,7 @@ export default function LivingTheGita() {
             <p>Your support enables multiple initiatives that take Gita wisdom to individuals and communities.</p>
           </div>
           <div className={styles.initiativeGrid}>
-            {initiatives.map((item) => (
+            {initiatives.map((item, index) => (
               <article className={styles.initiativeCard} key={item.title}>
                 <div className={styles.initiativeImage}>
                   <img src={item.image} alt={item.title} loading="lazy" />
@@ -372,10 +404,16 @@ export default function LivingTheGita() {
                 <div className={styles.initiativeBody}>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
+                  <div className={styles.initiativeMetrics}>
+                    {item.metrics.map(([number, label], metricIndex) => (
+                      <span key={label}>{metricIndex === 0 ? <Users size={20} /> : index === 0 ? <MapPin size={20} /> : index === 1 ? <Download size={20} /> : index === 2 ? <Presentation size={20} /> : <Globe2 size={20} />}<b>{number}</b><small>{label}</small></span>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
+          <a className={styles.initiativesDonate} href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer">DONATE NOW <ArrowRight size={19} /></a>
         </div>
       </section>
 
@@ -467,7 +505,7 @@ export default function LivingTheGita() {
             Your support helps spread the timeless wisdom of the Gita to more people,<br />
             more communities and every home.
           </p>
-          <a className={styles.goldButton} href="#donate">
+          <a className={styles.goldButton} href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer">
             MAKE YOUR CONTRIBUTION <ArrowRight size={18} />
           </a>
         </div>

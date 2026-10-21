@@ -277,10 +277,10 @@ function LegacyNirmanSewaPage() {
   );
 }
 
-const templeImage = "/images/nirman-sewa/vrindavan-temple-card.webp";
-const transformationTempleBg = "/images/nirman-sewa/transformation-pond-bg.webp";
-const sacredSpaceTempleBg = "/images/nirman-sewa/final-cta-sunset-bg.webp";
-const guruImage = "/images/guruji-namaste-new.webp";
+const heroReferenceImage = "/images/nirman-sewa/sakshi-dham-hero-reference.png";
+const visionReferenceImage = "/images/nirman-sewa/sakshi-dham-vision-reference.png";
+const transformationReferenceImage = "/images/nirman-sewa/sakshi-dham-transformation-reference.png";
+const donateReferenceImage = "/images/nirman-sewa/sakshi-dham-donate-reference.png";
 
 const plannedFacilities = [
   { title: "Temple & Prayer Halls", description: "A serene space for meditation, reflection, spiritual learning, and gatherings.", image: "/images/nirman-sewa/vrindavan-temple-card.webp", icon: Landmark },
@@ -298,6 +298,8 @@ const projectHighlights = [
   { label: "Spiritual Campus in Vrindavan", icon: Landmark }, { label: "Eco-Friendly & Sustainable Design", icon: Leaf }, { label: "Community & Spiritual Learning", icon: UsersRound }, { label: "Gita Wisdom & Meditation Programs", icon: BookOpen }, { label: "Open to Diverse Communities", icon: HeartHandshake },
 ];
 
+const PRESET_AMOUNTS = [500, 1100, 2100, 5100, 11000, 21000];
+
 export default function NirmanSewaPage() {
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
@@ -309,53 +311,95 @@ export default function NirmanSewaPage() {
   };
 
   return <div className={`${styles.page} sakshi-dham-page`}>
-    <section className={styles.hero}>
-      <div className={styles.heroCopy}>
-        <p className={styles.eyebrow}>A DIVINE ABODE FOR<br />A BRIGHTER TOMORROW</p>
-        <h1>SAKSHI DHAM <span>INTERNATIONAL</span></h1>
-        <p className={styles.heroLead}>A Spiritual Center in Vrindavan for Inner Transformation and a More Conscious World.</p>
-      </div>
-      <div className={styles.heroTemple} style={{ backgroundImage: `url(${templeImage})` }} aria-label="Proposed Sakshi Dham temple architectural rendering" role="img" />
-      <p className={styles.heroNote}>A Place of<br />Peace, Wisdom<br />and Positive<br />Change. ♡</p>
+    <section className={styles.referenceHero} aria-labelledby="nirman-title">
+      <h1 id="nirman-title" className={styles.srOnly}>Sakshi Dham International</h1>
+      <img src={heroReferenceImage} alt="Sakshi Dham International at sunset" />
+      <a className={styles.heroDonateHotspot} href="#contribute" aria-label="Donate now to Sakshi Dham International" />
     </section>
-    <section className={styles.visionDonation}>
-      <div className={styles.vision}>
-        <div className={styles.visionCopy}>
-          <div>
-            <p className={styles.sectionLabel}>OUR VISION</p>
-            <h2>A GLOBAL SPIRITUAL CENTER<br />IN THE HEART OF VRINDAVAN</h2>
-            <p>Sakshi Dham International is being developed as a sacred ashram in Vrindavan to offer a peaceful space for meditation, dhyan, Gita wisdom, retreats, and community living.</p>
-            <p>It will welcome seekers from all walks of life to experience inner transformation and contribute to a more conscious, compassionate and harmonious world.</p>
-          </div>
-          <blockquote className={styles.visionQuote}>
-            Sakshi Dham will be a living example of how spiritual wisdom can create a better individual, a better family and a better society.
-            <cite>— Sadguru Sakshi Shree</cite>
-          </blockquote>
-        </div>
+    {/* ── OUR VISION: A Global Spiritual Center (Large Showcase Card) ── */}
+    <section className={styles.visionContribution} aria-labelledby="vision-title">
+      <div className={styles.visionLargeCard}>
+        <h2 id="vision-title" className={styles.srOnly}>
+          Our vision: a global spiritual center in the heart of Vrindavan
+        </h2>
+        <picture className={styles.visionPicture}>
+          <source srcSet="/images/nirman-sewa/sakshi-dham-vision-2x.webp" type="image/webp" />
+          <img
+            src="/images/nirman-sewa/sakshi-dham-vision-2x.png"
+            alt="Our vision: A Global Spiritual Center in the heart of Vrindavan — Sakshi Dham International"
+            className={styles.visionImage}
+            loading="eager"
+            width={3200}
+            height={1792}
+          />
+        </picture>
       </div>
-      <form id="contribute" className={styles.donationCard} onSubmit={submitDonation} noValidate><p className={styles.donationKicker}>MAKE A CONTRIBUTION</p><p>Be a part of this sacred initiative and help create a lasting legacy.</p><label htmlFor="contribution-amount">Enter your contribution amount (₹)</label><div className={styles.amountField}><BadgeIndianRupee size={20} aria-hidden="true" /><input id="contribution-amount" type="number" min="1" inputMode="numeric" value={amount} onChange={(event) => { setAmount(event.target.value); setError(""); }} placeholder="Enter amount of your choice" required /></div><small>Contribute an amount of your choice towards the development of Sakshi Dham International.</small>{error && <p className={styles.formError} role="alert">{error}</p>}<button type="submit"><LockKeyhole size={18} /> DONATE SECURELY <ArrowRight size={18} /></button><div className={styles.trustRow}><span><ShieldCheck />Secure<br />Payments</span><span><WalletCards />Instant<br />Confirmation</span><span><Heart />Support a<br />Lasting Legacy</span></div></form>
+
+    {/* ── MAKE A CONTRIBUTION (Centered Donation Card) ── */}
+    <div className={styles.donationInline}>
+      <form id="contribute" className={styles.donationCard} onSubmit={submitDonation} noValidate>
+        <p className={styles.donationKicker}>MAKE A CONTRIBUTION</p>
+        <p>Be a part of this sacred initiative and help create a lasting legacy.</p>
+        <label htmlFor="contribution-amount">Select or enter contribution amount (₹)</label>
+        <div className={styles.presetGrid} role="group" aria-label="Select contribution amount">
+          {PRESET_AMOUNTS.map((val) => {
+            const isSelected = Number(amount) === val;
+            return (
+              <button
+                key={val}
+                type="button"
+                className={`${styles.presetBtn} ${isSelected ? styles.presetBtnActive : ""}`}
+                onClick={() => {
+                  setAmount(String(val));
+                  setError("");
+                }}
+                aria-pressed={isSelected}
+              >
+                ₹{val.toLocaleString("en-IN")}
+              </button>
+            );
+          })}
+        </div>
+        <div className={styles.amountField}>
+          <BadgeIndianRupee size={20} aria-hidden="true" />
+          <input
+            id="contribution-amount"
+            type="number"
+            min="1"
+            inputMode="numeric"
+            value={amount}
+            onChange={(event) => { setAmount(event.target.value); setError(""); }}
+            placeholder="Enter amount of your choice"
+            required
+          />
+        </div>
+        <small>Contribute an amount of your choice towards the development of Sakshi Dham International.</small>
+        {error && <p className={styles.formError} role="alert">{error}</p>}
+        <button type="submit" className={styles.submitButton}>
+          <LockKeyhole size={18} /> DONATE SECURELY <ArrowRight size={18} />
+        </button>
+        <div className={styles.trustRow}>
+          <span><ShieldCheck />Secure<br />Payments</span>
+          <span><WalletCards />Instant<br />Confirmation</span>
+          <span><Heart />Support a<br />Lasting Legacy</span>
+        </div>
+      </form>
+    </div>
     </section>
     <section className={styles.support}><div className={styles.centerHeading}><h2>WHAT YOUR SUPPORT WILL HELP CREATE</h2><p>Your contribution will help us build and develop this divine ashram with essential facilities for spiritual learning, meditation, retreats, and community living.</p></div><div className={styles.facilityGrid}>{plannedFacilities.map(({ title, description, image, icon: Icon }) => <article className={styles.facilityCard} key={title}><img src={image} alt={`${title} proposed design`} /><div><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></div></article>)}</div></section>
     <section className={styles.membership}><div className={styles.centerHeading}><h2>MEMBERSHIP DETAILS</h2><p>Become a valued member and support the creation of Sakshi Dham International.<br />Membership is available at the following contribution amounts:</p></div><div className={styles.membershipGrid}>{membershipPlans.map(({ title, amount: membershipAmount, icon: Icon }) => <article key={title}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{membershipAmount}</strong></div></article>)}</div></section>
     <section className={styles.highlights}><div className={styles.centerHeading}><h2>PROJECT HIGHLIGHTS</h2></div><div>{projectHighlights.map(({ label, icon: Icon }) => <article key={label}><Icon aria-hidden="true" /><p>{label}</p></article>)}</div></section>
     <div className={styles.bottomCardsSection}>
-      <section className={styles.transformation} style={{ backgroundImage: `url(${transformationTempleBg})` }}>
-        <div className={styles.transformationCopy}>
-          <h2>A PLACE FOR<br />INNER TRANSFORMATION</h2>
-          <p>Sakshi Dham International is envisioned as a space for meditation, self-discovery, Gita wisdom, spiritual retreats, and community living.</p>
-          <p>Inspired by India&apos;s timeless knowledge traditions, the ashram aims to nurture a more conscious way of living and encourage positive change in individuals, families, and society.</p>
-          <a href="/about-movement">KNOW MORE ABOUT THE PROJECT <ArrowRight size={17} /></a>
-        </div>
-        <blockquote>More than a building, Sakshi Dham is a movement towards a more awakened and compassionate world.</blockquote>
+      <section className={styles.referenceVisual} aria-labelledby="transformation-title">
+        <h2 id="transformation-title" className={styles.srOnly}>A place for inner transformation</h2>
+        <img src={transformationReferenceImage} alt="Sakshi Dham International, a place for inner transformation" />
+        <a className={styles.transformationDonateHotspot} href="#contribute" aria-label="Donate now" />
       </section>
 
-      <section className={styles.finalCta} style={{ backgroundImage: `url(${sacredSpaceTempleBg})` }}>
-        <div>
-          <h2>LET&apos;S BUILD A SACRED SPACE<br />FOR A MORE CONSCIOUS WORLD</h2>
-          <p>Your contribution will help develop Sakshi Dham International in Vrindavan — a spiritual center dedicated to wisdom, inner transformation, and compassionate living.</p>
-          <a href="#contribute">DONATE NOW <ArrowRight size={19} /></a>
-        </div>
-        <p className={styles.finalNote}>A brighter,<br />more conscious<br />tomorrow ♡</p>
+      <section className={styles.referenceVisual} aria-labelledby="build-title">
+        <h2 id="build-title" className={styles.srOnly}>Let us build a sacred space for a more conscious world</h2>
+        <img src={donateReferenceImage} alt="Support Sakshi Dham International and help build a sacred space" />
+        <a className={styles.finalDonateHotspot} href="#contribute" aria-label="Donate now" />
       </section>
     </div>
   </div>;

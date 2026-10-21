@@ -3,6 +3,8 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/PageHero";
 import InspirationalQuotesSection from "@/components/InspirationalQuotesSection";
 import VideoCard from "@/components/VideoCard";
+import SolutionBenefits from "@/components/SolutionBenefits";
+import SolutionsCarousel from "@/components/SolutionsCarousel";
 import { useState, useCallback } from "react";
 import {
   BookOpen,
@@ -295,7 +297,7 @@ export default function Page() {
                     e.currentTarget.style.color = "#521623";
                   }}
                 >
-                  Explore Resources <ChevronRight size={16} />
+                  Explore Events <ChevronRight size={16} />
                 </Link>
               </div>
             </div>
@@ -593,6 +595,14 @@ export default function Page() {
           
         </div>
       </section>
+
+      <SolutionBenefits topic="Anxiety" cards={[
+        { title: "Understanding Anxiety", desc: "Recognize worry patterns with kindness instead of judgment.", image: "/images/premium-heroes/anxiety.jpeg", icon: "shield" },
+        { title: "Beating Anxiety Together: Simple Steps to Calm", desc: "Use small, practical tools to slow the body and steady the mind.", image: "/images/old-site/pages/anxiety/Anxiety-scaled.webp", icon: "sparkles" },
+        { title: "Find Your Inner Peace", desc: "Return to a calm, grounded awareness in the present moment.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
+        { title: "Daily Practices for Emotional Balance", desc: "Build a reliable routine of breath, awareness, and self-care.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
+      ]} />
+      <SolutionsCarousel />
 
       {/* CTA Section */}
       <section

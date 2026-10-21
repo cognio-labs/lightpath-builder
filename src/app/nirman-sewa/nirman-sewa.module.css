@@ -353,7 +353,50 @@
   line-height: 1.35;
 }
 
-.donationCard button,
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.presetBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(242, 194, 83, 0.45);
+  border-radius: 8px;
+  color: #fae4b3;
+  padding: 10px 4px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  outline: none;
+}
+
+.presetBtn:hover {
+  background: rgba(242, 194, 83, 0.2);
+  border-color: #f2c253;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.presetBtnActive {
+  background: linear-gradient(135deg, #f4af2d, #ffd66b) !important;
+  color: #59170e !important;
+  border-color: #ffe89c !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 14px rgba(244, 175, 45, 0.35);
+  transform: scale(1.02);
+}
+
+.donationCard button.submitButton,
+.donationCard button[type="submit"],
 .finalCta a,
 .transformation a {
   border: 0;
@@ -367,7 +410,8 @@
   font-weight: bold;
 }
 
-.donationCard button {
+.donationCard button.submitButton,
+.donationCard button[type="submit"] {
   width: 100%;
   padding: 14px 12px;
   background: linear-gradient(90deg, #f4af2d, #ffd66b);
@@ -378,7 +422,8 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.donationCard button:hover {
+.donationCard button.submitButton:hover,
+.donationCard button[type="submit"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 18px #31050490;
 }
@@ -926,5 +971,329 @@
 @media (prefers-reduced-motion: reduce) {
   .page * {
     scroll-behavior: auto !important;
+  }
+}
+
+/* Approved page artwork: each supplied layout is preserved at its native aspect ratio. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.referenceHero {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  width: 100%;
+  background: #fff9ed;
+}
+
+.referenceVisual {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  border-radius: 24px;
+  border: 1.5px solid #ebd8be;
+  box-shadow: 0 10px 32px rgba(91, 18, 15, 0.08);
+  background: #fffdf8;
+}
+
+.referenceHero > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.referenceVisual > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+}
+
+.visionSection {
+  width: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 36px clamp(16px, 4vw, 48px) 16px;
+}
+
+.visionLargeCard {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(71, 14, 9, 0.12);
+  border: 1.5px solid #ebd8be;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visionPicture {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.visionImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Vision and contribution belong to one shared desktop section in one line. */
+.visionContribution {
+  width: min(1560px, 100%);
+  margin: 0 auto;
+  padding: 36px clamp(16px, 3.5vw, 44px) 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 0.95fr);
+  gap: 28px;
+  align-items: stretch;
+  background: var(--cream);
+}
+
+.donationInline {
+  display: flex;
+}
+
+.donationInline .donationCard {
+  width: 100%;
+  margin: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 3vw, 38px);
+}
+
+@media (max-width: 960px) {
+  .visionContribution {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 22px 16px 32px;
+  }
+
+  .visionPicture {
+    display: block;
+    height: auto;
+  }
+
+  .visionImage {
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.donationSection {
+  width: 100%;
+  max-width: 720px;
+  margin: 20px auto 44px;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+.donationSection .donationCard {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.bottomCardsSection {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 4vw, 48px) 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heroDonateHotspot,
+.transformationDonateHotspot,
+.finalDonateHotspot {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  border-radius: 999px;
+  cursor: pointer;
+  animation: donatePulse 2.4s ease-in-out infinite;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.heroDonateHotspot::after,
+.transformationDonateHotspot::after,
+.finalDonateHotspot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgba(255, 215, 103, 0.92);
+  border-radius: inherit;
+  opacity: 0;
+  animation: donateRipple 2.4s ease-out infinite;
+}
+
+.heroDonateHotspot {
+  left: 12.5%;
+  top: 72%;
+  width: 17%;
+  height: 11%;
+}
+
+.transformationDonateHotspot {
+  left: 5.5%;
+  top: 59%;
+  width: 23%;
+  height: 13%;
+}
+
+.finalDonateHotspot {
+  left: 11.5%;
+  top: 58%;
+  width: 18%;
+  height: 11%;
+}
+
+.heroDonateHotspot:hover,
+.transformationDonateHotspot:hover,
+.finalDonateHotspot:hover {
+  animation-play-state: paused;
+  transform: scale(1.045) translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.heroDonateHotspot:active,
+.transformationDonateHotspot:active,
+.finalDonateHotspot:active {
+  transform: scale(0.97);
+}
+
+.donationCard button.submitButton,
+.donationCard button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  animation: donatePulse 2.4s ease-in-out infinite;
+}
+
+.donationCard button.submitButton::after,
+.donationCard button[type="submit"]::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -35%;
+  width: 22%;
+  height: 220%;
+  background: rgba(255, 255, 255, 0.38);
+  transform: rotate(24deg);
+  animation: donateShine 3.2s ease-in-out infinite;
+}
+
+.donationCard button.submitButton:hover,
+.donationCard button[type="submit"]:hover {
+  animation-play-state: paused;
+}
+
+.donationCard button.submitButton:active,
+.donationCard button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+@keyframes donatePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(247, 190, 64, 0), 0 6px 16px rgba(101, 31, 12, 0.22); }
+  50% { box-shadow: 0 0 0 7px rgba(247, 190, 64, 0.22), 0 10px 22px rgba(101, 31, 12, 0.32); }
+}
+
+@keyframes donateRipple {
+  0%, 44% { opacity: 0; transform: scale(0.96); }
+  52% { opacity: 0.85; }
+  100% { opacity: 0; transform: scale(1.16); }
+}
+
+@keyframes donateShine {
+  0%, 58% { transform: translateX(0) rotate(24deg); opacity: 0; }
+  64% { opacity: 0.9; }
+  84%, 100% { transform: translateX(700%) rotate(24deg); opacity: 0; }
+}
+
+.heroDonateHotspot:focus-visible,
+.transformationDonateHotspot:focus-visible,
+.finalDonateHotspot:focus-visible {
+  outline: 3px solid #5b120f;
+  outline-offset: 4px;
+}
+
+@media (max-width: 680px) {
+  .visionSection,
+  .donationSection,
+  .bottomCardsSection {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .visionSection {
+    padding-top: 18px;
+    padding-bottom: 20px;
+  }
+
+  .visionLargeCard {
+    border-radius: 14px;
+  }
+
+  .donationSection {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 0 12px;
+  }
+
+  .donationSection .donationCard {
+    width: 100%;
+    padding: 20px 16px 16px;
+  }
+
+  .presetGrid {
+    gap: 6px;
+    margin: 8px 0 12px;
+  }
+
+  .presetBtn {
+    padding: 8px 3px;
+    font-size: 0.88rem;
+  }
+
+  .bottomCardsSection {
+    gap: 18px;
+    padding-top: 18px;
+    padding-bottom: 30px;
+  }
+
+  .referenceVisual {
+    border-radius: 18px;
+  }
+
+  .referenceVisual > img {
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroDonateHotspot,
+  .transformationDonateHotspot,
+  .finalDonateHotspot,
+  .heroDonateHotspot::after,
+  .transformationDonateHotspot::after,
+  .finalDonateHotspot::after,
+  .donationCard button.submitButton,
+  .donationCard button[type="submit"],
+  .donationCard button.submitButton::after,
+  .donationCard button[type="submit"]::after {
+    animation: none;
   }
 }

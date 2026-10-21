@@ -57,6 +57,8 @@ const nextConfig: NextConfig = {
       // ─────────────────────────────────────────────
       { source: "/public/dominoqq", destination: "/410", permanent: false },
       { source: "/public/dominoqq/", destination: "/410", permanent: false },
+      { source: "/content", destination: "/contact", permanent: false },
+      { source: "/content/", destination: "/contact", permanent: false },
 
       // ─────────────────────────────────────────────
       // PHASE 3 — Blog Posts: /{slug}/ → /blog/{slug}/
