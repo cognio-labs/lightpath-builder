@@ -6,6 +6,7 @@ import { BookOpen, Quote, PlayCircle, Mic, ArrowRight, Star, Shield, ChevronRigh
 import { FastVideoCard, FastTestimonialCard } from "@/components/FastMediaCards";
 import SolutionBenefits from "@/components/SolutionBenefits";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
+import TopicSections from "@/components/TopicSections";
 
 type Tab = "articles" | "quotes" | "videos";
 
@@ -368,6 +369,42 @@ export default function Page() {
         </div>
       </section>
 
+      <TopicSections
+        symptomsIntro="If you recognise any of these patterns in yourself or a loved one, Sakshi Shree's guided Sadhna offers compassionate, steady support toward lasting freedom."
+        symptoms={[
+          {
+            title: "Loss of Control Over Use",
+            desc: "Finding it impossible to stop or limit a substance or behaviour despite repeated attempts.",
+          },
+          {
+            title: "Withdrawal & Craving",
+            desc: "Intense urges or physical discomfort when the addictive habit is paused or reduced.",
+          },
+          {
+            title: "Neglecting Relationships & Responsibilities",
+            desc: "Allowing the addiction to erode work performance, family bonds, and self-care routines.",
+          },
+        ]}
+        quoteText="True freedom is freedom from the chains of your own mind. When awareness awakens, every habit loses its grip."
+        quoteAuthor="Sadguru Sakshi Shree"
+        faqs={[
+          {
+            question: "How does Sakshi Sadhna support addiction recovery?",
+            answer:
+              "Spiritual practice elevates bio-energy, reduces the mental craving loop, and restores a sense of inner fulfilment — naturally reducing the pull towards external substances or behaviours. Daily breathwork and Sakshi Bhav create a powerful inner anchor.",
+          },
+          {
+            question: "Can I practice these techniques alongside a formal treatment programme?",
+            answer:
+              "Absolutely. Mindfulness, breathwork, and spiritual practices integrate powerfully with counselling, rehabilitation, and medical treatment. Always keep your healthcare team informed.",
+          },
+          {
+            question: "When should I seek professional help for addiction?",
+            answer:
+              "If the addiction involves substances like alcohol, drugs, or prescription medications, or if it is causing harm to your health, relationships, or livelihood, please seek support from a qualified addiction counsellor or medical professional without delay.",
+          },
+        ]}
+      />
       <SolutionBenefits topic="Addiction Recovery" cards={[
         { title: "Understanding Addiction", desc: "See the patterns beneath compulsive behavior with honesty and care.", image: "/images/premium-heroes/addictions.jpeg", icon: "shield" },
         { title: "Find Your Freedom: Overcoming Addiction", desc: "Discover compassionate support for choosing freedom one day at a time.", image: "/images/old-site/pages/addictions/Addictions-scaled.webp", icon: "sparkles" },

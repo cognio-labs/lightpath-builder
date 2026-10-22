@@ -114,7 +114,7 @@ export default function Page() {
             </div>
             <div style={{ position: "relative" }}>
 
-              <img loading="lazy" decoding="async" src="/power-meditation.png" alt="Mind Power Meditation" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
+              <img loading="lazy" decoding="async" src="/power-meditation.webp" alt="Mind Power Meditation" style={{ width: "100%", height: "auto", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block" }} />
             </div>
           </div>
         </div>

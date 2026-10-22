@@ -338,7 +338,7 @@ function ServiceInitiatives() {
                       className="w-full object-cover transition-[scale] duration-700 group-hover:scale-110"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col px-4 pb-6">
+                  <div className="flex flex-1 flex-col items-center px-4 pb-6 text-center">
                     <div className="-mt-6 mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-[#E2C98A] bg-[#FFFBF2] text-[#B8860B] shadow-[0_4px_12px_rgba(184,134,11,0.18)] transition-[rotate,background-color,color] duration-500 group-hover:rotate-[10deg] group-hover:bg-[#5A1525] group-hover:text-[#E2B04A]">
                       {s.icon}
                     </div>

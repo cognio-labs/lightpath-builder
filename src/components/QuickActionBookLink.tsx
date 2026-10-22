@@ -2,7 +2,7 @@
 
 import type { MouseEvent, ReactNode } from "react";
 import Link from "next/link";
-import { openBookingModal } from "@/components/personal-session/BookingModal";
+import { openBookingModal } from "@/components/personal-session/booking-events";
 
 /** Opens the booking popup in place; modified clicks (new tab/window) still follow the link. */
 export function QuickActionBookLink({ href, className, children }: { href: string; className: string; children: ReactNode }) {

@@ -32,7 +32,7 @@ export const video = {
 
 export const images = {
   /** Sadguru Sakshi Shree seated, cut out on a transparent background. */
-  heroPortrait: "/images/book-session/sakshi-shree-hero.png",
+  heroPortrait: "/images/book-session/sakshi-shree-hero.webp",
   /** Temple at sunset behind the hero. */
   heroBackdrop: "/images/book-session/hero-backdrop.jpg",
   videoThumb: "/images/uploads/2024/05/aboutsakshishree.webp",

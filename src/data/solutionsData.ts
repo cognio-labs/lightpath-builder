@@ -163,7 +163,9 @@ export const SOLUTIONS_LIST: SolutionData[] = [
       { title: "Quiet Internal Noise", desc: "Cultivate quiet mental spaciousness for clear intuition.", icon: "Sun" },
     ],
     symptoms: [
-      { title: "Analysis Paralysis", desc: "Inability to decide due to excessive mental scenarios." },
+      { title: "Analysis Paralysis", desc: "Inability to make decisions because the mind endlessly replays every possible scenario." },
+      { title: "Rumination & Replaying the Past", desc: "Constantly revisiting past conversations or mistakes, draining present-moment energy." },
+      { title: "Bedtime Mind Racing", desc: "Lying awake at night unable to switch off a stream of thoughts and worries." },
     ],
     practices: [
       { title: "Thought Witnessing Sadhna", duration: "15 Mins / Day", desc: "Watch thoughts objectively without getting pulled into stories." },
@@ -173,7 +175,18 @@ export const SOLUTIONS_LIST: SolutionData[] = [
       author: "Sadguru Sakshi Shree",
     },
     faqs: [
-      { question: "How to stop overthinking at night?", answer: "Write down your open tasks on paper, then practice 10 minutes of Sakshi Bhav breathing." },
+      {
+        question: "How to stop overthinking at night?",
+        answer: "Write down your open tasks on paper before bed to clear mental RAM. Then practice 10 minutes of Sakshi Bhav breathing — slow inhales and extended exhales — to shift your nervous system into rest mode.",
+      },
+      {
+        question: "What practical technique breaks a thought loop during the day?",
+        answer: "Try the 5-4-3-2-1 grounding technique: name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This anchors awareness in the body and breaks the thought spiral immediately.",
+      },
+      {
+        question: "When should I seek professional support for chronic overthinking?",
+        answer: "If overthinking is accompanied by persistent anxiety, inability to function at work or in relationships, or feelings of hopelessness, please consult a qualified mental health professional. Spiritual practices work best as a complement to, not a replacement for, appropriate clinical care.",
+      },
     ],
   },
   {

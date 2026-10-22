@@ -60,7 +60,7 @@ const INITIATIVES = [
     goal: 1000000,
     donateUrl: RAZORPAY_DONATION_LINK,
     knowMoreSlug: "nirman-sewa",
-    image: "/images/initiatives/nirman-sewa-mandir.png",
+    image: "/images/nirman-sewa/vrindavan-ashram-building.webp",
     imagePosition: "center center",
     desc: "Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan) where thousands come to meditate, heal, and experience spiritual awakening.",
     bulletPoints: [

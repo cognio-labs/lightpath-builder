@@ -3,7 +3,9 @@ import Link from "next/link";
 
 import { SectionHeading } from "@/components/PageHero";
 import { SolutionHeroImage } from "@/components/SolutionPageLayout";
+import TopicSections from "@/components/TopicSections";
 import { useState } from "react";
+
 import {
   BookOpen,
   Quote,
@@ -510,6 +512,42 @@ export default function Page() {
         </div>
       </section>
 
+      <TopicSections
+        symptomsIntro="If you recognise any of these patterns in your daily thinking, Sakshi Shree's guided Sadhna gently shows you how to step back and observe your mind rather than being lost inside it."
+        symptoms={[
+          {
+            title: "Analysis Paralysis",
+            desc: "Inability to make decisions because the mind endlessly replays every possible scenario.",
+          },
+          {
+            title: "Rumination & Replaying the Past",
+            desc: "Constantly revisiting past conversations or mistakes, draining present-moment energy.",
+          },
+          {
+            title: "Bedtime Mind Racing",
+            desc: "Lying awake at night unable to switch off a relentless stream of thoughts and worries.",
+          },
+        ]}
+        quoteText="You are not your thoughts. You are the silent observer behind them."
+        quoteAuthor="Sadguru Sakshi Shree"
+        faqs={[
+          {
+            question: "How to stop overthinking at night?",
+            answer:
+              "Write down your open tasks on paper before bed to clear mental RAM. Then practice 10 minutes of Sakshi Bhav breathing — slow inhales and extended exhales — to shift your nervous system into rest mode.",
+          },
+          {
+            question: "What practical technique breaks a thought loop during the day?",
+            answer:
+              "Try the 5-4-3-2-1 grounding technique: name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This anchors awareness in the body and breaks the thought spiral immediately.",
+          },
+          {
+            question: "When should I seek professional support for chronic overthinking?",
+            answer:
+              "If overthinking is accompanied by persistent anxiety, inability to function at work or in relationships, or feelings of hopelessness, please consult a qualified mental health professional. Spiritual practices work best as a complement to, not a replacement for, appropriate clinical care.",
+          },
+        ]}
+      />
       <SolutionBenefits topic="Overthinking" cards={[
         { title: "Understanding Overthinking", desc: "Notice repetitive thought loops without letting them define your day.", image: "/images/premium-heroes/overthinking.jpeg", icon: "shield" },
         { title: "Overthinking No More: Techniques for Mental Clarity", desc: "Simple awareness tools make space for clearer, calmer decisions.", image: "/images/old-site/pages/overthinking/Overthinking-scaled.webp", icon: "sparkles" },

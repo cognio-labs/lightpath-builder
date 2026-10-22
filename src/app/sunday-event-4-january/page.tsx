@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Calendar, Clock, MapPin, Sparkles, Check, ChevronDown, Award, Star, Play, Users } from "lucide-react";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -311,7 +312,7 @@ export default function Page() {
         <div className="container-page" style={{ maxWidth: "800px" }}>
           <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.8rem", color: "#FFFFFF", marginBottom: "24px" }}>Watch Guruji's Message</h3>
           <div style={{ position: "relative", paddingTop: "56.25%", background: "#000", borderRadius: "24px", overflow: "hidden", boxShadow: "0 20px 50px rgba(0,0,0,0.5)" }}>
-            <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            <YouTubeEmbed id="BWb67JoBpTg" title="Guruji Video Message" className="absolute inset-0" />
           </div>
         </div>
       </section>
@@ -386,7 +387,7 @@ export default function Page() {
             {VIDEOS.map((v, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", border: "1px solid #E2E8F0" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "16px" }}>
                   <h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A" }}>{v.title}</h4>

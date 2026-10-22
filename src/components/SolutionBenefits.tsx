@@ -32,7 +32,7 @@ export default function SolutionBenefits({ topic, cards }: { topic: string; card
                 <div className="h-44 sm:h-48 overflow-hidden bg-amber-50">
                   <img src={card.image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
-                <div className="p-5 sm:p-6 flex-1">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col items-center text-center">
                   <div className="w-12 h-12 rounded-2xl bg-[rgba(212,175,55,0.12)] border border-[rgba(212,175,55,0.3)] flex items-center justify-center mb-4 text-[#D4AF37] group-hover:bg-[#521623] transition-colors"><Icon size={26} /></div>
                   <h3 className="font-serif text-xl font-bold text-[#111827] mb-2">{card.title}</h3>
                   <p className="text-sm leading-relaxed text-slate-600 font-medium">{card.desc}</p>

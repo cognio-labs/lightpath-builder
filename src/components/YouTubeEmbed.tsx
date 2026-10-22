@@ -1,15 +1,50 @@
 "use client";
-export function YouTubeEmbed({ id, title }: { id: string; title: string }) {
+
+import { useState } from "react";
+
+type PlayerProps = { id: string; title: string; className?: string };
+
+/** Loads YouTube only after an explicit play action. */
+export function YouTubeEmbed({ id, title, className = "relative aspect-video rounded-xl shadow-lg" }: PlayerProps) {
+  const [playing, setPlaying] = useState(false);
+
   return (
-    <div className="relative aspect-video rounded-xl overflow-hidden bg-black shadow-lg">
-      <iframe
-        src={`https://www.youtube-nocookie.com/embed/${id}`}
-        title={title}
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className="absolute inset-0 w-full h-full"
-      />
+    <div className={`${className} overflow-hidden bg-[#170d10]`}>
+      {playing ? (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          aria-label={`Play video: ${title}`}
+          className="group absolute inset-0 h-full w-full overflow-hidden bg-[#170d10] text-left"
+        >
+          <img
+            src={`/images/video-posters/${id}.webp`}
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+            }}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <span className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+          <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-[#e2c068] bg-[#521623] text-white transition-transform group-hover:scale-110">
+            <svg viewBox="0 0 24 24" className="ml-1 h-6 w-6 fill-current" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+          <span className="absolute inset-x-4 bottom-3 line-clamp-2 text-center text-sm font-semibold leading-snug text-white">{title}</span>
+        </button>
+      )}
     </div>
   );
 }
@@ -23,15 +58,20 @@ export function YouTubeThumb({ id, title }: { id: string; title: string }) {
       className="group block relative aspect-video rounded-xl overflow-hidden bg-black shadow-lg hover-lift"
     >
       <img
-        src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+        src={`/images/video-posters/${id}.webp`}
+        onError={(event) => {
+          event.currentTarget.onerror = null;
+          event.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+        }}
         alt={title}
         loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       <div className="absolute inset-0 grid place-items-center">
         <div className="w-14 h-14 rounded-full bg-white/95 grid place-items-center group-hover:scale-110 transition-transform">
-          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-primary ml-1">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-primary ml-1" aria-hidden="true">
             <path d="M8 5v14l11-7z" />
           </svg>
         </div>

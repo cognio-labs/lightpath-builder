@@ -42,21 +42,23 @@ export function FastVideoCard({
       <div style={{ position: "relative", paddingTop: "56.25%", background: "#111827", overflow: "hidden" }}>
         {isPlaying ? (
           <iframe
-            src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`}
             title={title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
           />
         ) : (
-          <div
+          <button
+            type="button"
             onClick={() => setIsPlaying(true)}
-            role="button"
             aria-label={`Play video: ${title}`}
             style={{
               position: "absolute",
               inset: 0,
               cursor: "pointer",
+              border: 0,
+              padding: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -65,6 +67,7 @@ export function FastVideoCard({
             <img
               src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
               alt={title}
+              loading="lazy"
               decoding="async"
               style={{
                 width: "100%",
@@ -112,7 +115,7 @@ export function FastVideoCard({
                 }}
               />
             </div>
-          </div>
+          </button>
         )}
       </div>
       <div style={{ padding: "20px" }}>
@@ -183,21 +186,23 @@ export function FastTestimonialCard({
       <div style={{ position: "relative", paddingTop: "56.25%", background: "#111827", overflow: "hidden" }}>
         {isPlaying ? (
           <iframe
-            src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`}
             title={name}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
           />
         ) : (
-          <div
+          <button
+            type="button"
             onClick={() => setIsPlaying(true)}
-            role="button"
             aria-label={`Play testimonial: ${name}`}
             style={{
               position: "absolute",
               inset: 0,
               cursor: "pointer",
+              border: 0,
+              padding: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -206,6 +211,7 @@ export function FastTestimonialCard({
             <img
               src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
               alt={name}
+              loading="lazy"
               decoding="async"
               style={{
                 width: "100%",
@@ -253,7 +259,7 @@ export function FastTestimonialCard({
                 }}
               />
             </div>
-          </div>
+          </button>
         )}
       </div>
       <div style={{ padding: "20px" }}>

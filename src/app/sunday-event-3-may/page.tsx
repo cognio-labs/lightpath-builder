@@ -2,6 +2,7 @@
 
 ﻿import { useState } from "react";
 import { Calendar, Clock, MapPin, Leaf, ChevronDown, Star } from "lucide-react";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -211,7 +212,7 @@ export default function Page() {
                 <div style={{ display: "flex", gap: "10px" }}><MapPin size={16} style={{ color: G, flexShrink: 0, marginTop: "1px" }} /><span>Siddha Sudarshan Sakshi Dham 9, Avanthika Rd, Chiranjiv Vihar, Shastri Nagar, Ghaziabad, UP 201002</span></div>
               </div>
               <div style={{ position: "relative", paddingTop: "56.25%", background: "#000", borderRadius: "16px", overflow: "hidden" }}>
-                <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            <YouTubeEmbed id="BWb67JoBpTg" title="Guruji Video Message" className="absolute inset-0" />
               </div>
             </div>
           </div>
@@ -302,7 +303,7 @@ export default function Page() {
             {VIDEOS.map((v, i) => (
               <div key={i} style={{ background: BG, borderRadius: "16px", overflow: "hidden", border: `1px solid ${BrG}` }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "16px" }}><h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: T, lineHeight: 1.4 }}>{v.title}</h4></div>
               </div>

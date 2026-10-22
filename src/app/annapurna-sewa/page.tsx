@@ -1,14 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, BookOpen, Heart, LockKeyhole, MapPin, Megaphone, ShieldCheck, Soup, UsersRound, Wallet, Handshake } from "lucide-react";
-import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { ArrowRight, BookOpen, Heart, MapPin, Megaphone, Soup, UsersRound, Wallet, Handshake } from "lucide-react";
+import { DonationForm } from "@/components/donation/DonationForm";
 import styles from "./annapurna.module.css";
 
-const amounts = [
-  { value: 501, meals: "10 Meals" }, { value: 1100, meals: "25 Meals" },
-  { value: 5100, meals: "125 Meals" }, { value: 11000, meals: "300 Meals" },
-];
 const pillars = [
   { icon: Soup, title: "Nutritious Meals", body: "for underprivileged children" },
   { icon: UsersRound, title: "Support Slum Communities", body: "in cities and villages" },
@@ -123,10 +119,6 @@ const help = [
 ];
 
 export default function AnnapurnaSewaPage() {
-  const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
-  const [amount, setAmount] = useState<number | "custom">(1100);
-  const [customAmount, setCustomAmount] = useState("");
-  const customInvalid = amount === "custom" && (!Number.isFinite(Number(customAmount)) || Number(customAmount) < 1);
   const goToDonation = () => document.getElementById("make-contribution")?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   return <div className={`annapurna-redesign ${styles.page}`}>
@@ -167,9 +159,7 @@ export default function AnnapurnaSewaPage() {
 
         {/* Interactive "DONATE NOW" button overlay positioned precisely over the graphic button */}
         <a
-          href={RAZORPAY_DONATION_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#make-contribution"
           className="absolute rounded-full cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F5C75A] focus:ring-offset-2 focus:ring-offset-[#270407] group"
           style={{
             left: "17.14%",
@@ -191,35 +181,39 @@ export default function AnnapurnaSewaPage() {
     <section className={styles.pillars} aria-label="Annapurna Sewa values">{pillars.map(({icon: Icon, title, body}) => <div className={styles.pillar} key={title}><Icon aria-hidden size={31}/><h3>{title}</h3><p>{body}</p></div>)}</section>
 
     <section className={styles.intro} id="why-annapurna">
-      <div className={styles.introText}><h2>WHY<br/>ANNAPURNA SEWA?</h2>
-        <p>Every child deserves a nutritious meal. Through Annapurna Sewa, we provide wholesome and balanced food to children living in jhuggi jhopdi (slums) and other underserved communities.</p>
-        <p>A simple meal brings health, happiness and the strength to study, learn and build a better future.</p>
-        <blockquote><span>“</span><p>When a child is well nourished, their mind can learn, their heart can dream and their future can be brighter.</p><cite>— Sadguru Sakshi Shree</cite></blockquote>
-      </div>
-      <div
-        className={styles.introPhoto}
-        style={{
-          backgroundImage: "url('/images/initiatives/annapurna-sewa-serving.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 25%",
-        }}
-        role="img"
-        aria-label="Children enjoying nourishing meals together"
-      />
-      <div className={styles.contribution} id="make-contribution"><h2>MAKE A CONTRIBUTION</h2><p>Help us serve nutritious meals to underprivileged children.</p>
-        <div className={styles.donationPanel}>
-          <div className={styles.frequency} role="group" aria-label="Donation type">
-            <button type="button" aria-pressed={frequency === "one-time"} className={frequency === "one-time" ? styles.active : ""} onClick={() => setFrequency("one-time")}>One-time Donation</button>
-            <button type="button" aria-pressed={frequency === "monthly"} className={frequency === "monthly" ? styles.active : ""} onClick={() => setFrequency("monthly")}>Monthly Donation</button>
-          </div>
-          <div className={styles.amountGrid} role="group" aria-label="Donation amount">
-            {amounts.map(tier => <button key={tier.value} type="button" aria-pressed={amount === tier.value} className={amount === tier.value ? styles.selected : ""} onClick={() => setAmount(tier.value)}><strong>₹{tier.value.toLocaleString("en-IN")}</strong><span>{tier.meals}</span></button>)}
-            <label className={`${styles.customAmount} ${amount === "custom" ? styles.selected : ""}`}><span>₹ &nbsp;Other Amount</span><input type="number" min="1" inputMode="numeric" placeholder="Enter amount of your choice" value={customAmount} onFocus={() => setAmount("custom")} onChange={(event) => {setCustomAmount(event.target.value); setAmount("custom");}} aria-label="Other donation amount in rupees"/></label>
-          </div>
-          {customInvalid && <p className={styles.validation}>Enter an amount of at least ₹1 to continue.</p>}
-          <a className={`${styles.secureButton} ${customInvalid ? styles.disabled : ""}`} href={customInvalid ? undefined : RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer" aria-disabled={customInvalid} onClick={customInvalid ? (event) => event.preventDefault() : undefined}><LockKeyhole size={16}/> DONATE SECURELY <ArrowRight size={18}/></a>
-          <div className={styles.paymentBenefits}><span><ShieldCheck/>100% Secure<br/>Payments</span><span><Wallet/>Instant<br/>Confirmation</span><span><Heart/>Support a Child&apos;s<br/>Future</span></div>
+      {/* Combined Card 1: Text + Photo together in Landscape format */}
+      <article className={styles.whyAnnapurnaCard}>
+        <div className={styles.introText}>
+          <h2>WHY<br/>ANNAPURNA SEWA?</h2>
+          <p>Every child deserves a nutritious meal. Through Annapurna Sewa, we provide wholesome and balanced food to children living in jhuggi jhopdi (slums) and other underserved communities.</p>
+          <p>A simple meal brings health, happiness and the strength to study, learn and build a better future.</p>
+          <blockquote>
+            <span>“</span>
+            <p>When a child is well nourished, their mind can learn, their heart can dream and their future can be brighter.</p>
+            <cite>— Sadguru Sakshi Shree</cite>
+          </blockquote>
         </div>
+        <div
+          className={styles.introPhoto}
+          style={{
+            backgroundImage: "url('/images/initiatives/annapurna-sewa-serving.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 25%",
+          }}
+          role="img"
+          aria-label="Children enjoying nourishing meals together"
+        />
+      </article>
+
+      {/* Card 2: Donation Form in the same section line */}
+      <div className={styles.contribution}>
+        <DonationForm
+          id="make-contribution"
+          title="Make a Contribution"
+          subtitle="Help us serve nutritious meals to underprivileged children."
+          purpose="Annapurna Sewa"
+          trustMessage="Support a Child's Future"
+        />
       </div>
     </section>
 
@@ -251,8 +245,8 @@ export default function AnnapurnaSewaPage() {
                   loading="lazy"
                 />
               </div>
-              <div className="p-4 sm:p-5 flex items-start gap-3.5 flex-1">
-                <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#D47024] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+              <div className="p-4 sm:p-5 flex flex-col items-center text-center flex-1">
+                <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#D47024] text-white flex items-center justify-center shrink-0 shadow-sm mb-3">
                   <Icon size={20} strokeWidth={2.2} className="text-white" />
                 </span>
                 <div className="space-y-1.5 flex-1 min-w-0">

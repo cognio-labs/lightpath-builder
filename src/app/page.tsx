@@ -911,14 +911,12 @@ export default async function Page() {
                   Science Divine provides free schooling for underprivileged children, aiming to
                   shape brighter futures and break the cycle of poverty through quality education.
                 </p>
-                <a
-                  href={RAZORPAY_DONATION_LINK}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  href="/shiksha-sewa"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -947,14 +945,12 @@ export default async function Page() {
                   Annapurna Bhog initiative offers free meals to ensure no one goes hungry,
                   fostering unity and compassion within communities.
                 </p>
-                <a
-                  href={RAZORPAY_DONATION_LINK}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  href="/annapurna-sewa"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -962,7 +958,7 @@ export default async function Page() {
             <div className="card-premium rounded-2xl overflow-hidden flex flex-col">
               <div className="aspect-[16/10] overflow-hidden">
                 <LensImage
-                  src="/images/initiatives/nirman-sewa-mandir.png"
+                  src="/images/nirman-sewa/vrindavan-ashram-building.webp"
                   alt="Nirman Sewa - Spiritual Retreat & Meditation Ashrams"
                 />
               </div>
@@ -983,14 +979,12 @@ export default async function Page() {
                   Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan)
                   where thousands come to meditate, heal, and experience spiritual awakening.
                 </p>
-                <a
-                  href={RAZORPAY_DONATION_LINK}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  href="/nirman-sewa"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1018,14 +1012,12 @@ export default async function Page() {
                 <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
                   Bringing the practical wisdom of the Bhagavad Gita into modern daily life through guided meditations, enlightening discourses, and self-realization workshops.
                 </p>
-                <a
-                  href={RAZORPAY_DONATION_LINK}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  href="/living-the-gita"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
-                </a>
+                </Link>
               </div>
             </div>
           </div>

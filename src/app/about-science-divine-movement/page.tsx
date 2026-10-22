@@ -558,6 +558,7 @@ export default function Page() {
                   border: `1px solid ${p.border}`,
                   borderRadius: "24px",
                   padding: "32px 28px",
+                  textAlign: "center",
                   transition: "transform 0.25s, box-shadow 0.25s",
                 }}
                 onMouseEnter={e => {
@@ -576,6 +577,7 @@ export default function Page() {
                     fontSize: "2.5rem",
                     marginBottom: "20px",
                     lineHeight: 1,
+                    textAlign: "center",
                   }}
                 >
                   {p.icon}

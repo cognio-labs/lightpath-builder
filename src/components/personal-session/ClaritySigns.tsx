@@ -38,8 +38,8 @@ export default function ClaritySigns() {
               {claritySigns.map((sign, i) => {
                 const Icon = ICONS[sign.icon];
                 return (
-                  <Reveal as="li" key={sign.label} delay={i * 70} className="group">
-                    <IconBadge size="md" className="group-hover:border-gold-500/70 group-hover:bg-gold-50">
+                  <Reveal as="li" key={sign.label} delay={i * 70} className="group text-center">
+                    <IconBadge size="md" className="mx-auto group-hover:border-gold-500/70 group-hover:bg-gold-50">
                       <Icon className="h-5 w-5" strokeWidth={1.3} />
                     </IconBadge>
                     <p className="mt-3 text-[12px] leading-[1.45] text-ink-700 transition-colors duration-300 group-hover:text-ink-900">

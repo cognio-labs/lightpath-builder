@@ -518,6 +518,9 @@
 .facilityCard > div {
   text-align: center;
   padding: 12px 9px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .facilityCard svg {
@@ -531,10 +534,10 @@
 }
 
 .facilityCard h3 {
-  display: inline;
+  display: block;
   color: #8b2920;
   font-size: 0.9rem;
-  margin-left: 5px;
+  margin: 7px 0 0;
 }
 
 .facilityCard p {
@@ -559,8 +562,10 @@
 
 .membershipGrid article {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 17px;
+  text-align: center;
+  gap: 9px;
   min-height: 93px;
   padding: 15px 20px;
   border: 1px solid #ecd7b4;
@@ -615,6 +620,10 @@
   text-align: center;
   padding: 5px 16px;
   border-right: 1px solid #dabd95;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .highlights article:last-child {
@@ -625,12 +634,14 @@
   color: #a34c1c;
   width: 33px;
   height: 33px;
+  flex: 0 0 auto;
 }
 
 .highlights p {
   font-size: 1rem;
   line-height: 1.05;
   margin-top: 5px;
+  margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -1036,36 +1047,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: start;
 }
 
 .visionPicture {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .visionImage {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
 }
 
 /* Vision and contribution belong to one shared desktop section in one line. */
 .visionContribution {
-  width: min(1560px, 100%);
+  width: min(1680px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 36px clamp(16px, 3.5vw, 44px) 44px;
+  padding: 32px clamp(12px, 2.5vw, 36px) 44px;
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 0.95fr);
-  gap: 28px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.82fr) minmax(360px, 440px);
+  gap: clamp(18px, 2vw, 28px);
+  align-items: center;
   background: var(--cream);
+}
+
+.visionLargeCard {
+  position: relative;
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(71, 14, 9, 0.12);
+  border: 1.5px solid #ebd8be;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+}
+
+.visionPicture {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.visionImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .donationInline {
   display: flex;
+  min-width: 0;
+  width: 100%;
+  align-self: center;
+  justify-content: center;
 }
 
 .donationInline .donationCard {
@@ -1075,10 +1119,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(24px, 3vw, 38px);
+  padding: clamp(20px, 2.5vw, 32px);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .visionContribution {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -1109,70 +1153,119 @@
 }
 
 .bottomCardsSection {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 24px clamp(16px, 4vw, 48px) 56px;
+  padding: 24px clamp(16px, 3.5vw, 40px) 56px;
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.heroDonateHotspot,
-.transformationDonateHotspot,
-.finalDonateHotspot {
+.referenceVisualSecond {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  /* Keep the supplied wide artwork prominent without cropping its built-in copy. */
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1.5px solid #ebd8be;
+  box-shadow: 0 8px 28px rgba(91, 18, 15, 0.08);
+  background: #fffdf8;
+}
+
+.referenceVisualSecond > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+}
+
+/* Real working, sleek CTA buttons covering the painted buttons without looking oversized */
+.transformationCta,
+.finalCtaButton {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f5ba3b, #fbd574);
+  color: #521623 !important;
+  font: 800 clamp(11px, 0.95vw, 13px)/1 'Playfair Display', Georgia, serif;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(60, 12, 8, 0.16);
+  border: 1px solid #ffd87d;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.transformationCta:hover,
+.finalCtaButton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.transformationCta:active,
+.finalCtaButton:active {
+  transform: translateY(0);
+}
+
+.transformationCta {
+  left: 6%;
+  top: 59%;
+  min-height: clamp(32px, 3.2vw, 40px);
+}
+
+.finalCtaButton {
+  left: 12%;
+  top: 57%;
+  min-height: clamp(32px, 3.2vw, 40px);
+}
+
+@media (max-width: 640px) {
+  .transformationCta {
+    left: 4.5%;
+    top: 56.5%;
+    padding: 4px 10px;
+    font-size: 8.5px;
+    min-height: 24px;
+    gap: 4px;
+  }
+  .finalCtaButton {
+    left: 10%;
+    top: 56%;
+    padding: 4px 10px;
+    font-size: 8.5px;
+    min-height: 24px;
+    gap: 4px;
+  }
+}
+
+.heroDonateHotspot {
   position: absolute;
   display: block;
   z-index: 2;
   border-radius: 999px;
   cursor: pointer;
-  animation: donatePulse 2.4s ease-in-out infinite;
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-.heroDonateHotspot::after,
-.transformationDonateHotspot::after,
-.finalDonateHotspot::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border: 2px solid rgba(255, 215, 103, 0.92);
-  border-radius: inherit;
-  opacity: 0;
-  animation: donateRipple 2.4s ease-out infinite;
-}
-
-.heroDonateHotspot {
   left: 12.5%;
   top: 72%;
   width: 17%;
   height: 11%;
+  transition: transform 180ms ease, filter 180ms ease;
 }
 
-.transformationDonateHotspot {
-  left: 5.5%;
-  top: 59%;
-  width: 23%;
-  height: 13%;
-}
-
-.finalDonateHotspot {
-  left: 11.5%;
-  top: 58%;
-  width: 18%;
-  height: 11%;
-}
-
-.heroDonateHotspot:hover,
-.transformationDonateHotspot:hover,
-.finalDonateHotspot:hover {
-  animation-play-state: paused;
+.heroDonateHotspot:hover {
   transform: scale(1.045) translateY(-2px);
   filter: brightness(1.08);
 }
 
-.heroDonateHotspot:active,
-.transformationDonateHotspot:active,
-.finalDonateHotspot:active {
+.heroDonateHotspot:active {
   transform: scale(0.97);
 }
 

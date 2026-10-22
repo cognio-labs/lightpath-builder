@@ -5,7 +5,9 @@ import InspirationalQuotesSection from "@/components/InspirationalQuotesSection"
 import VideoCard from "@/components/VideoCard";
 import SolutionBenefits from "@/components/SolutionBenefits";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
+import TopicSections from "@/components/TopicSections";
 import { useState, useCallback } from "react";
+
 import {
   BookOpen,
   Quote,
@@ -596,6 +598,42 @@ export default function Page() {
         </div>
       </section>
 
+      <TopicSections
+        symptomsIntro="If you experience any of these daily struggles, Sakshi Shree's guided Sadhna offers a direct, gentle path to resolution."
+        symptoms={[
+          {
+            title: "Racing Thoughts & Heartbeat",
+            desc: "Feeling tightness in chest or rapid pulse during stressful triggers.",
+          },
+          {
+            title: "Restlessness & Anticipatory Worry",
+            desc: "Constant apprehension about what might go wrong next.",
+          },
+          {
+            title: "Shortness of Breath",
+            desc: "Shallow, rapid breathing when feeling nervous, overwhelmed, or before a stressful event.",
+          },
+        ]}
+        quoteText="Fear lives in the future; peace lives right now. Return to the present moment."
+        quoteAuthor="Sadguru Sakshi Shree"
+        faqs={[
+          {
+            question: "How can I calm a panic attack quickly?",
+            answer:
+              "Focus on slow, deep belly exhales — exhaling twice as long as you inhale. Practice Sakshi Bhav: observe sensations without fighting them. Grounding your attention on the soles of your feet also dissolves panic rapidly.",
+          },
+          {
+            question: "What daily practice helps reduce anxiety over time?",
+            answer:
+              "Sanjeevni Kriya breathwork practiced for 15 minutes each morning steadily lowers your baseline nervous-system arousal. Combine it with an evening Sakshi Bhav sit to release the day's accumulated tension.",
+          },
+          {
+            question: "Should I see a professional alongside this practice?",
+            answer:
+              "Yes. Spiritual practices powerfully complement clinical care. If anxiety significantly disrupts daily life, sleep, or work, please consult a qualified mental health professional alongside your Sadhna.",
+          },
+        ]}
+      />
       <SolutionBenefits topic="Anxiety" cards={[
         { title: "Understanding Anxiety", desc: "Recognize worry patterns with kindness instead of judgment.", image: "/images/premium-heroes/anxiety.jpeg", icon: "shield" },
         { title: "Beating Anxiety Together: Simple Steps to Calm", desc: "Use small, practical tools to slow the body and steady the mind.", image: "/images/old-site/pages/anxiety/Anxiety-scaled.webp", icon: "sparkles" },

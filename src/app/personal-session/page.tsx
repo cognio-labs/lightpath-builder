@@ -6,6 +6,7 @@ import { submitForm } from "@/lib/admin.functions";
 import { RAZORPAY_PERSONAL_SESSION_LINK } from "@/lib/payment-links";
 import { Sparkles, Compass, Heart, Check, X, ChevronDown, ArrowRight, Phone, Mail, MapPin, ShieldCheck, Video, Users, Calendar, Award } from "lucide-react";
 import { LEADERS } from "@/data/content";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -363,7 +364,7 @@ export default function Page() {
             {VIDEOS.map((v, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.03)", border: "1px solid #E2E8F0" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "16px" }}>
                   <h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.4 }}>{v.title}</h4>

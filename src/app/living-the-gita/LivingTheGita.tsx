@@ -4,22 +4,17 @@ import { useState } from "react";
 import {
   ArrowRight,
   BookOpen,
-  Check,
-  CreditCard,
   Flower2,
   GraduationCap,
-  Heart,
   Landmark,
-  LockKeyhole,
   MonitorPlay,
-  ShieldCheck,
   Users,
   Globe2,
   MapPin,
   Download,
   Presentation,
 } from "lucide-react";
-import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { DonationForm } from "@/components/donation/DonationForm";
 import styles from "./living-the-gita.module.css";
 
 const vision = [
@@ -103,8 +98,8 @@ const faqs = [
     a: "Your contribution supports Gita learning sessions, educational resources, youth outreach, digital content and community initiatives.",
   },
   {
-    q: "Can I contribute monthly?",
-    a: "Yes. Select Monthly Contribution to express your preference. Please check the available recurring payment options on the secure payment page.",
+    q: "Can I make a one-time contribution?",
+    a: "Yes. Choose a preset or custom amount and complete your one-time contribution through secure Razorpay Checkout.",
   },
   {
     q: "Will I receive a receipt?",
@@ -132,21 +127,7 @@ const faqs = [
   },
 ];
 
-const amounts = [
-  { value: 501, label: "₹501", description: "Supports one learning session" },
-  { value: 1100, label: "₹1,100", description: "Helps create learning resources" },
-  { value: 5100, label: "₹5,100", description: "Supports youth and community programs" },
-  { value: 11000, label: "₹11,000", description: "Helps reach more cities and villages" },
-];
-
 export default function LivingTheGita() {
-  const [type, setType] = useState<"once" | "monthly">("once");
-  const [amount, setAmount] = useState<number | "other">(1100);
-  const [customAmount, setCustomAmount] = useState("");
-
-  const selectedAmount = amount === "other" ? Number(customAmount) : amount;
-  const donationReady = amount !== "other" || selectedAmount > 0;
-
   return (
     <div className={`${styles.page} gita-page`}>
       {/* 1. HERO SECTION — Full Panoramic Banner matching reference design with audience & Guruji */}
@@ -164,13 +145,12 @@ export default function LivingTheGita() {
           </p>
         </div>
 
-        <div className="relative w-full max-w-[1920px] mx-auto select-none">
+        <div className={styles.heroArtwork}>
           <picture>
-            <source srcSet="/images/living-the-moment/living-the-gita-hero-2x.webp" type="image/webp" />
             <img
-              src="/images/living-the-moment/living-the-gita-hero-2x.png"
+              src="/images/living-the-moment/living-the-gita-hero-clean.webp"
               alt="Help the Gita Reach Every Home — Living the Gita Movement with Sadguru Sakshi Shree addressing a massive audience"
-              className="w-full h-auto block object-cover"
+              className={styles.heroBannerImage}
               width={2048}
               height={768}
               loading="eager"
@@ -178,25 +158,21 @@ export default function LivingTheGita() {
             />
           </picture>
 
+          <div className={styles.mobileHeroCopy}>
+            <span>Timeless wisdom · Brighter tomorrow</span>
+            <h2>Help the Gita reach every home</h2>
+            <p>Take practical Gita wisdom and learning programs to communities everywhere.</p>
+          </div>
+
           {/* Interactive "DONATE NOW" button hotspot directly over the graphic button */}
           <a
-            href={RAZORPAY_DONATION_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute rounded-full cursor-pointer transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F5C75A] focus:ring-offset-2 focus:ring-offset-[#240407] group"
-            style={{
-              left: "7.03%",
-              top: "68.10%",
-              width: "19.78%",
-              height: "16.67%",
-            }}
+            href="#gita-contribution"
+            className={styles.heroDonateCta}
             aria-label="Donate Now to Living the Gita Movement"
             title="Donate Now to Living the Gita Movement"
           >
-            {/* Subtle hover golden sheen */}
-            <span className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/20 transition-all duration-300 shadow-none group-hover:shadow-[0_0_24px_rgba(247,207,103,0.85)] group-active:scale-95" />
-            {/* Expanded touch target for mobile devices */}
-            <span className="absolute -inset-2.5 sm:-inset-1 pointer-events-auto rounded-full" />
+            <span>Donate now</span>
+            <ArrowRight size={17} aria-hidden="true" />
           </a>
         </div>
       </section>
@@ -281,109 +257,20 @@ export default function LivingTheGita() {
                 </div>
                 <a
                   className={styles.supportDonateBtn}
-                  href={RAZORPAY_DONATION_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#gita-contribution"
                 >
                   DONATE NOW <ArrowRight size={18} />
                 </a>
               </div>
             </article>
 
-            {/* Right Column: Donation Card */}
-            <div className={styles.donationCard}>
-              <h2>MAKE A DIFFERENCE TODAY</h2>
-              <p className={styles.donationSub}>
-                Choose an amount and be a part of this noble movement.
-              </p>
-
-              <div className={styles.typeToggle} role="group" aria-label="Contribution type">
-                <button
-                  type="button"
-                  className={type === "once" ? styles.selected : ""}
-                  onClick={() => setType("once")}
-                >
-                  One-time Contribution
-                </button>
-                <button
-                  type="button"
-                  className={type === "monthly" ? styles.selected : ""}
-                  onClick={() => setType("monthly")}
-                >
-                  Monthly Contribution
-                </button>
-              </div>
-
-              <div className={styles.amountGrid}>
-                {amounts.map(({ value, label, description }) => (
-                  <button
-                    key={value}
-                    type="button"
-                    className={`${styles.amountCard} ${amount === value ? styles.amountSelected : ""}`}
-                    onClick={() => setAmount(value)}
-                    aria-pressed={amount === value}
-                  >
-                    {amount === value && <Check className={styles.amountCheck} size={16} />}
-                    <strong>{label}</strong>
-                    <span>{description}</span>
-                  </button>
-                ))}
-
-                <label
-                  className={`${styles.amountCard} ${styles.otherAmount} ${amount === "other" ? styles.amountSelected : ""}`}
-                >
-                  <input
-                    type="radio"
-                    name="gita-amount"
-                    checked={amount === "other"}
-                    onChange={() => setAmount("other")}
-                  />
-                  <strong>₹ Other Amount</strong>
-                  <span>Enter amount of your choice</span>
-                  <input
-                    className={styles.customInput}
-                    type="number"
-                    min="1"
-                    placeholder="Enter amount in ₹"
-                    value={customAmount}
-                    onFocus={() => setAmount("other")}
-                    onChange={(event) => {
-                      setAmount("other");
-                      setCustomAmount(event.target.value);
-                    }}
-                    aria-label="Other donation amount in rupees"
-                  />
-                </label>
-              </div>
-
-              <a
-                className={`${styles.donateButton} ${!donationReady ? styles.donateDisabled : ""}`}
-                href={donationReady ? RAZORPAY_DONATION_LINK : undefined}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-disabled={!donationReady}
-                onClick={(event) => {
-                  if (!donationReady) event.preventDefault();
-                }}
-              >
-                <LockKeyhole size={17} /> DONATE SECURELY <ArrowRight size={19} />
-              </a>
-
-              <div className={styles.paymentBenefits}>
-                <span>
-                  <ShieldCheck size={20} />
-                  100% Secure<br />Payments
-                </span>
-                <span>
-                  <CreditCard size={20} />
-                  Instant<br />Confirmation
-                </span>
-                <span>
-                  <Heart size={20} />
-                  Support a Larger<br />Social Purpose
-                </span>
-              </div>
-            </div>
+            <DonationForm
+              id="gita-contribution"
+              title="Make a Contribution"
+              subtitle="Choose an amount and help take the practical wisdom of the Gita to every home."
+              purpose="Living the Gita Movement"
+              trustMessage="Support Timeless Wisdom"
+            />
           </div>
         </div>
       </section>
@@ -413,7 +300,7 @@ export default function LivingTheGita() {
               </article>
             ))}
           </div>
-          <a className={styles.initiativesDonate} href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer">DONATE NOW <ArrowRight size={19} /></a>
+          <a className={styles.initiativesDonate} href="#gita-contribution">DONATE NOW <ArrowRight size={19} /></a>
         </div>
       </section>
 
@@ -505,7 +392,7 @@ export default function LivingTheGita() {
             Your support helps spread the timeless wisdom of the Gita to more people,<br />
             more communities and every home.
           </p>
-          <a className={styles.goldButton} href={RAZORPAY_DONATION_LINK} target="_blank" rel="noopener noreferrer">
+          <a className={styles.goldButton} href="#gita-contribution">
             MAKE YOUR CONTRIBUTION <ArrowRight size={18} />
           </a>
         </div>

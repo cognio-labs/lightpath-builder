@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import { Providers } from "./providers";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
 import { QuickActionBar } from "@/components/QuickActionBar";
-import { BookingModalHost } from "@/components/personal-session/BookingModal";
+import { DeferredBookingModalHost } from "@/components/DeferredBookingModalHost";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -110,16 +109,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        />
         {/* Organization + WebSite structured data — global across all pages */}
         <script
           key="structured-data"
@@ -147,26 +136,24 @@ export default function RootLayout({
           data-website-id={process.env.NEXT_PUBLIC_DATAFAST_WEBSITE_ID || "dfid_SM28U0HshmRfiuXSjfwKe"}
           data-domain={process.env.NEXT_PUBLIC_DATAFAST_DOMAIN || "sciencedivine.org"}
           data-allow-localhost={process.env.NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST || "true"}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         {/* Microsoft Clarity */}
-        <Script id="clarity" strategy="afterInteractive">
+        <Script id="clarity" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "yregp2mxge");`}
         </Script>
-        <Providers>
-          <div className="flex min-h-dvh flex-col bg-white">
-            <SiteNav />
-            <main className="flex-1 w-full bg-white pb-6 lg:pb-0">{children}</main>
-            <QuickActionBar />
-            <SiteFooter />
-            <MahaMantrasPopup />
-            <BookingModalHost />
-          </div>
-        </Providers>
+        <div className="flex min-h-dvh flex-col bg-white">
+          <SiteNav />
+          <main className="flex-1 w-full bg-white pb-6 lg:pb-0">{children}</main>
+          <QuickActionBar />
+          <SiteFooter />
+          <MahaMantrasPopup />
+          <DeferredBookingModalHost />
+        </div>
       </body>
     </html>
   );

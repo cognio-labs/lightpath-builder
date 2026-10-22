@@ -100,15 +100,15 @@
   gap: 12px;
   font: 700 13.5px Georgia, serif;
   letter-spacing: 0.05em;
-  box-shadow: 0 6px 20px rgba(200, 130, 30, 0.38), 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: none !important;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s, box-shadow 0.2s;
-  border-radius: 6px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s;
+  border-radius: 9999px;
 }
 .goldButton:hover {
   filter: brightness(1.08);
   transform: translateY(-2px);
-  box-shadow: 0 9px 24px rgba(220, 150, 40, 0.48), 0 3px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: none !important;
 }
 .goldButton:active {
   transform: translateY(0);
@@ -162,76 +162,125 @@
 
 .intro {
   display: grid;
-  grid-template-columns: 1.05fr 0.85fr 1.15fr;
-  gap: 24px;
-  padding: 36px max(24px, calc((100% - 1320px) / 2));
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.2vw, 26px);
+  padding: 36px max(20px, calc((100% - 1340px) / 2));
   background: radial-gradient(circle at 7% 20%, #f7e4c977, transparent 24%), #fffaf1;
-  align-items: start;
+  align-items: stretch;
 }
-.introText h2, .contribution h2, .sectionHeading h2, .finalCta h2 {
-  font-size: clamp(25px, 2.3vw, 34px);
-  line-height: 1.08;
-  margin: 0 0 12px;
+
+/* Combined Card 1: Text + Photo together in Landscape format */
+.whyAnnapurnaCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(14px, 1.8vw, 22px);
+  background: #ffffff;
+  border: 1.5px solid #ebd8be;
+  border-radius: 32px;
+  padding: clamp(20px, 2.5vw, 28px);
+  box-shadow: 0 10px 30px rgba(91, 18, 15, 0.08);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.introText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.introText h2, .sectionHeading h2, .finalCta h2 {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.1;
+  margin: 0 0 10px;
   color: #741e23;
   font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif;
 }
+
 .introText p {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  color: #55443e;
 }
+
 .introText blockquote {
-  margin: 16px 0 0;
+  margin: 10px 0 0;
   border: 1px solid #eadac3;
+  border-left: 3px solid #d28c43;
   background: #fffefa;
-  padding: 16px 18px 16px 42px;
+  padding: 12px 14px 12px 34px;
   position: relative;
-  box-shadow: 0 4px 14px #6e2a1410;
-  border-radius: 4px;
+  box-shadow: 0 4px 12px #6e2a1410;
+  border-radius: 18px;
 }
+
 .introText blockquote span {
   position: absolute;
-  left: 10px;
-  top: 4px;
+  left: 8px;
+  top: 2px;
   color: #d28c43;
-  font-size: 48px;
+  font-size: 38px;
+  line-height: 1;
 }
+
 .introText blockquote p {
-  font-size: 14px;
+  font-size: 13px;
   font-style: italic;
-  line-height: 1.45;
-  margin-bottom: 8px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  color: #4a1714;
 }
+
 .introText cite {
-  font: bold 12px Georgia, serif;
+  font: bold 11.5px Georgia, serif;
   color: #712022;
   font-style: normal;
+  display: block;
 }
+
 .introPhoto {
-  min-height: 360px;
+  min-height: 260px;
   height: 100%;
-  border-radius: 6px;
-  background: url('/images/annapurna-sewa/nano-children.webp') 58% center/cover no-repeat;
-  box-shadow: 0 4px 20px #542b141f;
+  border-radius: 24px;
+  background-position: center 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 20px rgba(84, 43, 20, 0.12);
+  min-width: 0;
 }
+
 .contribution {
-  background: linear-gradient(155deg, #681b22, #3d0e13);
-  padding: 18px;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px #4d111030;
+  background: transparent;
+  min-width: 0;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  border-radius: 32px;
+  box-shadow: none;
   scroll-margin-top: 100px;
+  display: flex;
+  align-items: stretch;
 }
-.contribution h2 {
-  color: #f5cf80;
-  font-size: 23px;
-  margin: 0 0 4px;
+
+@media (max-width: 1024px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
 }
-.contribution > p {
-  font-size: 12px;
-  margin: 0 0 12px;
-  color: #fff4e5;
+
+@media (max-width: 640px) {
+  .whyAnnapurnaCard {
+    grid-template-columns: 1fr;
+    padding: 18px 16px;
+    border-radius: 24px;
+  }
+  .introPhoto {
+    min-height: 220px;
+    border-radius: 18px;
+  }
 }
 .donationPanel {
   background: #fffaf3;
@@ -411,8 +460,10 @@
 }
 .supportCardBody {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 9px;
   padding: 14px 12px 18px;
   min-height: 96px;
 }
@@ -426,6 +477,7 @@
   display: grid;
   place-items: center;
 }
+.supportCardBody > div:last-child { width: 100%; }
 .supportCard h3 {
   font-size: 13px;
   margin: 0 0 5px;
@@ -562,6 +614,8 @@
 .helpCard svg {
   color: #d07a32;
   fill: #d07a3230;
+  display: block;
+  margin: 0 auto 7px;
 }
 .helpCard h3 {
   font-size: 13.5px;

@@ -1,6 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -58,7 +59,7 @@ export default function Page() {
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 10px 30px rgba(0,0,0,0.02)"; }}
               >
                 <div style={{ position: "relative", paddingTop: "56.25%", background: "#0F172A" }}>
-                  <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={t.id} title={t.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "24px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>

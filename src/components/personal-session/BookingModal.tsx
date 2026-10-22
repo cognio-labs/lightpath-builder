@@ -7,16 +7,9 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { HandHeart, X } from "lucide-react";
 import { brand, donation } from "./content";
 import SessionRequestForm from "./SessionRequestForm";
+import { BOOKING_OPEN_EVENT, openBookingModal } from "./booking-events";
 
-const OPEN_EVENT = "sd:open-booking";
-
-/**
- * Opens the site-wide Personal Session booking popup (mounted once in the root layout).
- * Pass the clicked element so focus can return to it on close.
- */
-export function openBookingModal(trigger?: HTMLElement | null) {
-  window.dispatchEvent(new CustomEvent<HTMLElement | null>(OPEN_EVENT, { detail: trigger ?? null }));
-}
+export { openBookingModal };
 
 /** Mount once, in the root layout. Opens whenever openBookingModal() is called from any page. */
 export function BookingModalHost() {
@@ -32,8 +25,8 @@ export function BookingModalHost() {
       returnFocus.current = trigger ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
       setOpen(true);
     };
-    window.addEventListener(OPEN_EVENT, onOpen);
-    return () => window.removeEventListener(OPEN_EVENT, onOpen);
+    window.addEventListener(BOOKING_OPEN_EVENT, onOpen);
+    return () => window.removeEventListener(BOOKING_OPEN_EVENT, onOpen);
   }, []);
 
   const close = useCallback(() => {
@@ -48,7 +41,7 @@ export function BookingModalHost() {
   );
 }
 
-function BookingModal({ open, onClose, source }: { open: boolean; onClose: () => void; source: string }) {
+export function BookingModal({ open, onClose, source }: { open: boolean; onClose: () => void; source: string }) {
   const reduce = useReducedMotion();
   const titleId = useId();
 
