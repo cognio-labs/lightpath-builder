@@ -78,17 +78,17 @@ export const metadata: Metadata = {
       "Awaken your true potential with Science Divine Movement. Meditation and spiritual guidance by enlightened master Sakshi Shree.",
     images: [
       {
-        url: "/images/guruji-meditation-hd.webp",
+        url: "/images/science-divine-og.png",
         width: 1200,
         height: 630,
-        alt: "Science Divine Foundation — Sakshi Shree",
+        alt: "Science Divine logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@gurusakshishree",
-    images: ["/images/guruji-meditation-hd.webp"],
+    images: ["/images/science-divine-og.png"],
   },
   icons: {
     icon: "/favicon.ico",

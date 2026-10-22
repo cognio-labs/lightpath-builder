@@ -598,7 +598,7 @@ export default function Page() {
         </div>
       </section>
 
-      <SolutionBenefits topic="Anxiety" cards={[
+      <SolutionBenefits topic="Anxiety Solution" cards={[
         { title: "Understanding Anxiety", desc: "Recognize worry patterns with kindness instead of judgment.", image: "/images/premium-heroes/anxiety.jpeg", icon: "shield" },
         { title: "Beating Anxiety Together: Simple Steps to Calm", desc: "Use small, practical tools to slow the body and steady the mind.", image: "/images/old-site/pages/anxiety/Anxiety-scaled.webp", icon: "sparkles" },
         { title: "Find Your Inner Peace", desc: "Return to a calm, grounded awareness in the present moment.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },

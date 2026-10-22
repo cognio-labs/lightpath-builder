@@ -512,7 +512,7 @@ export default function Page() {
         </div>
       </section>
 
-      <SolutionBenefits topic="Overthinking" cards={[
+      <SolutionBenefits topic="Overthinking Solution" cards={[
         { title: "Understanding Overthinking", desc: "Notice repetitive thought loops without letting them define your day.", image: "/images/premium-heroes/overthinking.jpeg", icon: "shield" },
         { title: "Overthinking No More: Techniques for Peace of Mind", desc: "Simple awareness tools make space for clearer, calmer decisions.", image: "/images/old-site/pages/overthinking/Overthinking-scaled.webp", icon: "sparkles" },
         { title: "Quiet Your Mind", desc: "Learn to rest attention in the stillness behind passing thoughts.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },

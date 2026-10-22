@@ -369,7 +369,7 @@ export default function Page() {
         </div>
       </section>
 
-      <SolutionBenefits topic="Addiction Recovery" cards={[
+      <SolutionBenefits topic="Addiction Solution" cards={[
         { title: "Understanding Addiction", desc: "See the patterns beneath compulsive behavior with honesty and care.", image: "/images/premium-heroes/addictions.jpeg", icon: "shield" },
         { title: "Find Your Freedom: Overcoming Addiction", desc: "Discover compassionate support for choosing freedom one day at a time.", image: "/images/old-site/pages/addictions/Addictions-scaled.webp", icon: "sparkles" },
         { title: "Breaking Unhealthy Habits", desc: "Replace automatic cycles with mindful, nourishing choices.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },

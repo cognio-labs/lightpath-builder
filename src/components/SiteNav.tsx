@@ -448,7 +448,7 @@ export function SiteNav() {
               </Link>
 
               {/* Mobile Accordions */}
-              <MobileGroup label="About Movement & Master">
+              <MobileGroup label="About">
                 {aboutLinks.map((l) => (
                   <Link
                     key={l.href}
