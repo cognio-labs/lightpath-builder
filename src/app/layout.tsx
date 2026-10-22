@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
 import { QuickActionBar } from "@/components/QuickActionBar";
 import { DeferredBookingModalHost } from "@/components/DeferredBookingModalHost";
+import { DeferredAnalytics } from "@/components/DeferredAnalytics";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -118,34 +118,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white">
-        {/* Google tag (gtag.js) — GA4 */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SQT5YHQSLK"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-SQT5YHQSLK');`}
-        </Script>
-        {/* DataFast analytics */}
-        <Script
-          id="datafast"
-          src="https://datafa.st/js/script.js"
-          data-website-id={process.env.NEXT_PUBLIC_DATAFAST_WEBSITE_ID || "dfid_SM28U0HshmRfiuXSjfwKe"}
-          data-domain={process.env.NEXT_PUBLIC_DATAFAST_DOMAIN || "sciencedivine.org"}
-          data-allow-localhost={process.env.NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST || "true"}
-          strategy="lazyOnload"
-        />
-        {/* Microsoft Clarity */}
-        <Script id="clarity" strategy="lazyOnload">
-          {`(function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "yregp2mxge");`}
-        </Script>
         <div className="flex min-h-dvh flex-col bg-white">
           <SiteNav />
           <main className="flex-1 w-full bg-white pb-6 lg:pb-0">{children}</main>
@@ -153,6 +125,7 @@ export default function RootLayout({
           <SiteFooter />
           <MahaMantrasPopup />
           <DeferredBookingModalHost />
+          <DeferredAnalytics />
         </div>
       </body>
     </html>

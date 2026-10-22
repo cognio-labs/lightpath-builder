@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 import { DonationForm } from "@/components/donation/DonationForm";
 import {
@@ -297,17 +296,16 @@ function LegacyNirmanSewaPage() {
   );
 }
 
-const heroReferenceImage = "/images/nirman-sewa/sakshi-dham-hero-reference.png";
-const visionReferenceImage = "/images/nirman-sewa/sakshi-dham-vision-reference.png";
-const transformationReferenceImage = "/images/nirman-sewa/sakshi-dham-transformation-clean.png";
-const donateReferenceImage = "/images/nirman-sewa/sakshi-dham-donate-clean.png";
+const heroReferenceImage = "/images/nirman-sewa/sakshi-dham-hero-responsive.webp";
+const transformationReferenceImage = "/images/nirman-sewa/sakshi-dham-transformation-responsive.webp";
+const donateReferenceImage = "/images/nirman-sewa/sakshi-dham-donate-responsive.webp";
 
 const plannedFacilities = [
-  { title: "Temple & Prayer Halls", description: "A serene space for meditation, reflection, spiritual learning, and gatherings.", image: "/images/nirman-sewa/facility-temple-human.jpg", icon: Landmark },
-  { title: "Accommodation", description: "Comfortable accommodation facilities for seekers, volunteers, and retreat participants.", image: "/images/nirman-sewa/facility-accommodation-human.jpg", icon: Building2 },
-  { title: "Learning & Retreat Spaces", description: "Dedicated spaces for Gita classes, meditation sessions, workshops, and retreats.", image: "/images/nirman-sewa/facility-learning-human.jpg", icon: BookOpen },
-  { title: "Sustainable & Green Campus", description: "A peaceful, eco-friendly environment designed for conscious living and connection with nature.", image: "/images/nirman-sewa/facility-campus-human.jpg", icon: Leaf },
-  { title: "Community Facilities", description: "Essential shared spaces for ashram activities, dining, gatherings, and community living.", image: "/images/nirman-sewa/facility-community-human.jpg", icon: UsersRound },
+  { title: "Temple & Prayer Halls", description: "A serene space for meditation, reflection, spiritual learning, and gatherings.", image: "/images/nirman-sewa/facility-temple-human.webp", icon: Landmark },
+  { title: "Accommodation", description: "Comfortable accommodation facilities for seekers, volunteers, and retreat participants.", image: "/images/nirman-sewa/facility-accommodation-human.webp", icon: Building2 },
+  { title: "Learning & Retreat Spaces", description: "Dedicated spaces for Gita classes, meditation sessions, workshops, and retreats.", image: "/images/nirman-sewa/facility-learning-human.webp", icon: BookOpen },
+  { title: "Sustainable & Green Campus", description: "A peaceful, eco-friendly environment designed for conscious living and connection with nature.", image: "/images/nirman-sewa/facility-campus-human.webp", icon: Leaf },
+  { title: "Community Facilities", description: "Essential shared spaces for ashram activities, dining, gatherings, and community living.", image: "/images/nirman-sewa/facility-community-human.webp", icon: UsersRound },
 ];
 
 const membershipPlans = [
@@ -322,7 +320,7 @@ export default function NirmanSewaPage() {
   return <div className={`${styles.page} sakshi-dham-page`}>
     <section className={styles.referenceHero} aria-labelledby="nirman-title">
       <h1 id="nirman-title" className={styles.srOnly}>Sakshi Dham International</h1>
-      <img src={heroReferenceImage} alt="Sakshi Dham International at sunset" />
+      <Image src={heroReferenceImage} alt="Sakshi Dham International at sunset" width={1600} height={596} sizes="100vw" preload />
       <a className={styles.heroDonateHotspot} href="#contribute" aria-label="Donate now to Sakshi Dham International" />
     </section>
     {/* ── OUR VISION: A Global Spiritual Center (Large Showcase Card) ── */}
@@ -332,14 +330,15 @@ export default function NirmanSewaPage() {
           Our vision: a global spiritual center in the heart of Vrindavan
         </h2>
         <picture className={styles.visionPicture}>
-          <source srcSet="/images/nirman-sewa/sakshi-dham-vision-2x.webp" type="image/webp" />
-          <img
-            src="/images/nirman-sewa/sakshi-dham-vision-2x.png"
+          <Image
+            src="/images/nirman-sewa/sakshi-dham-vision-responsive.webp"
             alt="Our vision: A Global Spiritual Center in the heart of Vrindavan — Sakshi Dham International"
             className={styles.visionImage}
             loading="eager"
-            width={3200}
-            height={1792}
+            fetchPriority="high"
+            sizes="(max-width: 1120px) calc(100vw - 56px), calc(100vw - 520px)"
+            width={1600}
+            height={896}
           />
         </picture>
       </div>
@@ -354,13 +353,13 @@ export default function NirmanSewaPage() {
       />
     </div>
     </section>
-    <section className={styles.support}><div className={styles.centerHeading}><h2>WHAT YOUR SUPPORT WILL HELP CREATE</h2><p>Your contribution will help us build and develop this divine ashram with essential facilities for spiritual learning, meditation, retreats, and community living.</p></div><div className={styles.facilityGrid}>{plannedFacilities.map(({ title, description, image, icon: Icon }) => <article className={styles.facilityCard} key={title}><img src={image} alt={`${title} proposed design`} /><div><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></div></article>)}</div></section>
+    <section className={styles.support}><div className={styles.centerHeading}><h2>WHAT YOUR SUPPORT WILL HELP CREATE</h2><p>Your contribution will help us build and develop this divine ashram with essential facilities for spiritual learning, meditation, retreats, and community living.</p></div><div className={styles.facilityGrid}>{plannedFacilities.map(({ title, description, image, icon: Icon }) => <article className={styles.facilityCard} key={title}><Image src={image} alt={`${title} proposed design`} width={720} height={538} sizes="(max-width: 680px) 46vw, (max-width: 1100px) 30vw, 20vw" /><div><Icon aria-hidden="true" /><h3>{title}</h3><p>{description}</p></div></article>)}</div></section>
     <section className={styles.membership}><div className={styles.centerHeading}><h2>MEMBERSHIP DETAILS</h2><p>Become a valued member and support the creation of Sakshi Dham International.<br />Membership is available at the following contribution amounts:</p></div><div className={styles.membershipGrid}>{membershipPlans.map(({ title, amount: membershipAmount, icon: Icon }) => <article key={title}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{membershipAmount}</strong></div></article>)}</div></section>
     <section className={styles.highlights}><div className={styles.centerHeading}><h2>PROJECT HIGHLIGHTS</h2></div><div>{projectHighlights.map(({ label, icon: Icon }) => <article key={label}><Icon aria-hidden="true" /><p>{label}</p></article>)}</div></section>
     <div className={styles.bottomCardsSection}>
       <section className={styles.referenceVisual} aria-labelledby="transformation-title">
         <h2 id="transformation-title" className={styles.srOnly}>A place for inner transformation</h2>
-        <img src={transformationReferenceImage} alt="Sakshi Dham International, a place for inner transformation" />
+        <Image src={transformationReferenceImage} alt="Sakshi Dham International, a place for inner transformation" width={1280} height={484} sizes="(max-width: 1400px) calc(100vw - 32px), 1280px" />
         <a className={styles.transformationCta} href="#contribute" aria-label="Donate now to Sakshi Dham">
           DONATE NOW <ArrowRight size={15} />
         </a>
@@ -368,7 +367,7 @@ export default function NirmanSewaPage() {
 
       <section className={styles.referenceVisualSecond} aria-labelledby="build-title">
         <h2 id="build-title" className={styles.srOnly}>Let us build a sacred space for a more conscious world</h2>
-        <img src={donateReferenceImage} alt="Support Sakshi Dham International and help build a sacred space" />
+        <Image src={donateReferenceImage} alt="Support Sakshi Dham International and help build a sacred space" width={1280} height={480} sizes="(max-width: 1400px) calc(100vw - 32px), 1280px" />
         <a className={styles.finalCtaButton} href="#contribute" aria-label="Donate now to Sakshi Dham">
           DONATE NOW <ArrowRight size={15} />
         </a>
