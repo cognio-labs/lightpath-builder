@@ -86,6 +86,7 @@ export default function Page() {
       {/* Solutions Grid */}
       <section className="section-pad" style={{ background: "#FFFFFF" }}>
         <div className="container-page">
+          <h2 className="sr-only">Explore solutions</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "32px" }}>
             {SOLUTIONS.map((s) => (
               <Link

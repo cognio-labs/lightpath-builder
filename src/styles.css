@@ -504,13 +504,6 @@ html.dark footer {
   }
 }
 
-/* ── Ornament divider ───────────────────────────── */
-@utility gold-divider {
-  height: 2px;
-  background: var(--gradient-gold);
-  border-radius: 999px;
-}
-
 /* ── Eyebrow text ───────────────────────────────── */
 @utility eyebrow {
   font-family: var(--font-sans);

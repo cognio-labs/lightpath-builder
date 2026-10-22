@@ -26,10 +26,9 @@ export default function Page() {
       />
       <section className="section-pad bg-white">
         <div className="container-page grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="sr-only">Choose your path</h2>
           {PATHS.map((p) => (
             <Link key={p.title} href={p.href} className="card-premium rounded-2xl p-6 group">
-              <div className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
-                style={{ background: "linear-gradient(90deg, #521623, #D4AF37)" }} />
               <h3 className="font-display font-bold text-gray-900 text-lg mb-2">{p.title}</h3>
               <p className="text-sm text-gray-500 mb-5 leading-relaxed">{p.desc}</p>
               <span className="text-sm font-semibold text-amber-600 inline-flex items-center gap-1">

@@ -172,9 +172,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       <section className="bg-[#FDF0F0] py-12 lg:py-16 border-b border-rose-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="space-y-2">
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1A202C] tracking-tight">
+            <p className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1A202C] tracking-tight">
               Science Divine Foundation
-            </h2>
+            </p>
             <p className="text-sm sm:text-base font-medium text-[#718096] tracking-wide">
               Sound Body | Sound Mind | Self- Realisation
             </p>
@@ -316,9 +316,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <ArrowLeft size={13} className="group-hover:-translate-x-1 transition-transform" />
                 Previous Article
               </span>
-              <h3 className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
+              <p className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
                 {prevPost.title}
-              </h3>
+              </p>
             </Link>
           ) : (
             <div />
@@ -333,9 +333,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Next Article
                 <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
               </span>
-              <h3 className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
+              <p className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
                 {nextPost.title}
-              </h3>
+              </p>
             </Link>
           ) : (
             <div />

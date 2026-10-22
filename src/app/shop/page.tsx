@@ -49,6 +49,7 @@ export default function Page() {
 
       <section className="section-pad bg-white">
         <div className="container-page">
+          <h2 className="sr-only">Spiritual products</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PRODUCTS.map((product) => (
               <div key={product.id} className="card-premium rounded-2xl overflow-hidden group">

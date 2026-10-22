@@ -5,10 +5,6 @@
 .header>span { display:block; color:#a46612; font:700 .64rem/1.2 "Cinzel",serif; letter-spacing:.22em; text-transform:uppercase; margin-bottom:4px; }
 .header h2 { margin:0; color:#5a101d; font:700 clamp(1.35rem,2.2vw,1.75rem)/1.1 "Playfair Display",Georgia,serif; letter-spacing:-.02em; overflow-wrap:anywhere; }
 .header p { margin:4px auto 0; max-width:540px; color:#765c51; font-size:clamp(.78rem,1vw,.88rem); line-height:1.45; overflow-wrap:anywhere; }
-.lotusDivider { display:flex; align-items:center; justify-content:center; gap:8px; margin:8px auto 10px; color:#c9891e; }
-.lotusDivider i { display:block; width:min(80px,18vw); height:1px; background:linear-gradient(90deg,transparent,#d9a94d); }
-.lotusDivider i:last-child { background:linear-gradient(90deg,#d9a94d,transparent); }
-.lotusDivider b { font-size:18px; line-height:1; transform:rotate(180deg); font-weight:400; }
 .frequency { display:flex; align-items:center; justify-content:center; gap:6px; width:fit-content; max-width:100%; margin:0 auto 10px; padding:5px 13px; border:1px solid #e2be75; border-radius:9999px; background:#fffaf0; color:#651522; font-size:.72rem; font-weight:750; text-align:center; }
 .amountFieldset { border:0; padding:0; margin:0; min-width:0; }
 .amountFieldset legend { width:100%; margin:0 0 8px; text-align:center; color:#42131a; font-size:.82rem; font-weight:750; overflow-wrap:anywhere; }

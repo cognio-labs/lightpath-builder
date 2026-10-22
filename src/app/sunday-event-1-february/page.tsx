@@ -258,7 +258,7 @@ export default function Page() {
                   <div key={i} style={{ display: "flex", gap: "12px" }}>
                     <div style={{ width: "24px", height: "24px", borderRadius: "100px", background: "rgba(212,175,55,0.15)", display: "grid", placeItems: "center", color: "#521623", flexShrink: 0 }}><Check size={14} /></div>
                     <div>
-                      <h4 style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>{lp.title}</h4>
+                      <h3 style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>{lp.title}</h3>
                       <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5, marginTop: "4px" }}>{lp.desc}</p>
                     </div>
                   </div>
@@ -356,7 +356,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px" }}>
             {INCLUDED.map((inc, i) => (
               <div key={i} style={{ background: "#FFFDF9", border: "1px solid #F1E9D2", borderRadius: "20px", padding: "32px 24px" }}>
-                <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, color: "#0F172A", marginBottom: "16px" }}>{inc.title}</h4>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, color: "#0F172A", marginBottom: "16px" }}>{inc.title}</h3>
                 <div style={{ marginBottom: "12px" }}>
                   <span style={{ fontSize: "10px", fontWeight: 800, color: "#EF4444", textTransform: "uppercase" }}>Problem</span>
                   <p style={{ color: "#64748B", fontSize: "0.8rem", marginTop: "2px" }}>{inc.prob}</p>
@@ -390,7 +390,7 @@ export default function Page() {
                   <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "16px" }}>
-                  <h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A" }}>{v.title}</h4>
+                  <h3 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A" }}>{v.title}</h3>
                 </div>
               </div>
             ))}

@@ -89,7 +89,6 @@ export default function Page() {
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     We&apos;d love to hear from you. Reach out to us and we&apos;ll get back to you as soon as possible.
                   </p>
-                  <div className="w-12 h-0.5 bg-[#D4AF37] mt-1.5" />
                 </div>
 
                 {submitted ? (

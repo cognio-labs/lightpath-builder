@@ -313,9 +313,9 @@ export default async function Page() {
                   <div className="absolute bottom-2.5 left-[10%] sm:left-[12%] z-20 bg-white/95 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-[#B8860B]/40 shadow-md flex flex-col items-start text-left w-[124px] overflow-hidden">
                     <div className="flex items-center gap-1 w-full">
                       <Heart size={8.5} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
-                      <h4 className="font-serif text-[9.5px] font-bold text-[#521623] leading-tight truncate">
+                      <p className="font-serif text-[9.5px] font-bold text-[#521623] leading-tight truncate">
                         Sadguru Sakshi Shree
-                      </h4>
+                      </p>
                     </div>
                     <p className="text-[7px] text-amber-950/85 font-semibold tracking-tight leading-tight pt-0.5 truncate w-full">
                       Founder, Science Divine Foundation
@@ -350,9 +350,9 @@ export default async function Page() {
               <div className="space-y-0.5 text-left border-b border-[#B8860B]/60 pb-1 w-[145px] sm:w-[155px]">
                 <div className="flex items-center gap-1">
                   <Heart size={11} className="text-[#C79A2E] fill-[#C79A2E] shrink-0" />
-                  <h4 className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
+                  <p className="font-serif text-xs font-semibold text-[#521623] leading-tight whitespace-nowrap">
                     Sadguru Sakshi Shree
-                  </h4>
+                  </p>
                 </div>
                 <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight pl-0.5 whitespace-nowrap">
                   Founder, Science Divine Foundation
@@ -1176,7 +1176,6 @@ export default async function Page() {
 
                 <div className="p-6 flex flex-col flex-1 justify-between">
                   <div>
-                    <div className="w-10 h-0.5 mb-3.5 transition-all group-hover:w-16 bg-gradient-to-r from-amber-500 to-amber-700" />
                     <h3 className="font-serif text-xl font-bold text-[#521623] mb-2.5 leading-tight group-hover:text-[#B8860B] transition-colors">
                       {post.title}
                     </h3>

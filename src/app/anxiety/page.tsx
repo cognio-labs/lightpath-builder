@@ -399,19 +399,6 @@ export default function Page() {
                       el.style.borderColor = "#E5E7EB";
                     }}
                   >
-                    {/* Top gradient accent line */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: "3px",
-                        background: "linear-gradient(90deg, #F59E0B, #D4AF37)",
-                        zIndex: 2,
-                      }}
-                    />
-
                     {/* Image */}
                     <div className="relative aspect-[16/10] overflow-hidden bg-amber-50/40">
                       <img

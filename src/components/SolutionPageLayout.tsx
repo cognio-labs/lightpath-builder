@@ -228,6 +228,7 @@ export function SolutionPageLayout({
           </div>
 
           {/* Second Row: Grid of 4 Cards */}
+          <h2 className="sr-only">Benefits and outcomes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
             {meta.cards.map((card, idx) => {
               const CardIcon = card.icon;
@@ -307,10 +308,6 @@ export function SolutionPageLayout({
                     <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
                       {a.tag || title}
                     </div>
-                    <div
-                      className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
-                      style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }}
-                    />
                     <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug">
                       {a.title}
                     </h3>

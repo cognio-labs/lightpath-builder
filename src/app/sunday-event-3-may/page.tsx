@@ -192,7 +192,7 @@ export default function Page() {
                   <div key={i} style={{ display: "flex", gap: "16px", background: BG, border: `1px solid ${BrG}`, borderRadius: "16px", padding: "20px" }}>
                     <div style={{ fontSize: "1.5rem", flexShrink: 0 }}>{lp.icon}</div>
                     <div>
-                      <h4 style={{ fontWeight: 800, color: T, fontSize: "0.95rem", marginBottom: "6px" }}>{lp.title}</h4>
+                      <h3 style={{ fontWeight: 800, color: T, fontSize: "0.95rem", marginBottom: "6px" }}>{lp.title}</h3>
                       <p style={{ color: TL, fontSize: "0.825rem", lineHeight: 1.6 }}>{lp.desc}</p>
                     </div>
                   </div>
@@ -281,7 +281,7 @@ export default function Page() {
             {INCLUDED.map((inc, i) => (
               <div key={i} style={{ background: W, border: `1px solid ${BrG}`, borderRadius: "20px", padding: "28px 24px" }}>
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{inc.emoji}</div>
-                <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: T, marginBottom: "16px" }}>{inc.title}</h4>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: T, marginBottom: "16px" }}>{inc.title}</h3>
                 <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#EF4444", textTransform: "uppercase" as const }}>Problem</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.prob}</p></div>
                 <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#521623", textTransform: "uppercase" as const }}>Solution</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.sol}</p></div>
                 <div><span style={{ fontSize: "10px", fontWeight: 800, color: Au, textTransform: "uppercase" as const }}>Benefit</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.benefit}</p></div>
@@ -305,7 +305,7 @@ export default function Page() {
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
                   <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
-                <div style={{ padding: "16px" }}><h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: T, lineHeight: 1.4 }}>{v.title}</h4></div>
+                <div style={{ padding: "16px" }}><h3 style={{ fontSize: "0.85rem", fontWeight: 700, color: T, lineHeight: 1.4 }}>{v.title}</h3></div>
               </div>
             ))}
           </div>

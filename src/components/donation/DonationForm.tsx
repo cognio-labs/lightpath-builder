@@ -141,7 +141,6 @@ export function DonationForm({
         <span>Make a difference</span>
         <h2 id={`${inputId}-title`}>{title}</h2>
         <p>{subtitle}</p>
-        <div className={styles.lotusDivider} aria-hidden="true"><i /><b>♧</b><i /></div>
       </header>
 
       <fieldset className={styles.amountFieldset}>

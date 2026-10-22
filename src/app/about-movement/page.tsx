@@ -54,8 +54,7 @@ function Reveal({
 function Eyebrow({ children, light = false, center = false }: { children: ReactNode; light?: boolean; center?: boolean }) {
   const color = light ? "#E9B949" : "#C79A2E";
   return (
-    <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
-      <span className="h-px w-10" style={{ background: color }} />
+    <div className={center ? "text-center" : ""}>
       <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.28em]" style={{ color }}>
         {children}
       </span>
@@ -695,21 +694,12 @@ function LivingTheGita() {
 /* ─────────────────────────── CLOSING CTA ─────────────────────────── */
 
 function JourneyCta() {
-  const reduce = useReducedMotion();
   return (
     <section className="relative overflow-hidden bg-[#FCF8F1] pt-16 sm:pt-20 pb-20 sm:pb-24 text-center">
       <LotusIcon className="absolute left-1/2 -bottom-6 w-40 h-40 -translate-x-1/2 text-[#D4AF37]/15" />
       <div className="container-page relative">
-        <motion.span
-          aria-hidden="true"
-          className="mx-auto block h-px w-12 bg-[#C79A2E]"
-          initial={reduce ? false : { scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: EASE }}
-        />
         <Reveal delay={0.1}>
-          <h2 style={SERIF} className="mt-6 font-medium leading-[1.05] text-[#521623] text-[clamp(2.4rem,5vw,3.75rem)]">
+          <h2 style={SERIF} className="font-medium leading-[1.05] text-[#521623] text-[clamp(2.4rem,5vw,3.75rem)]">
             Begin your journey <span className="italic text-[#B8860B]">within.</span>
           </h2>
         </Reveal>

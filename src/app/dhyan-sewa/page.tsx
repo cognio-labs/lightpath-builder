@@ -132,7 +132,7 @@ export default function Page() {
                 <div>
                   <span style={{ position: "absolute", top: "16px", right: "16px", background: d.highlight ? "#D4AF37" : "#F1F5F9", color: d.highlight ? "#0F172A" : "#64748B", fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "100px", textTransform: "uppercase" }}>{d.badge}</span>
                   <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 900, color: "#4B101B", marginBottom: "6px", marginTop: "12px" }}>{d.amount}</div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#4B101B", marginBottom: "8px" }}>{d.title}</h4>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#4B101B", marginBottom: "8px" }}>{d.title}</h3>
                   <p style={{ color: "#64748B", fontSize: "0.825rem", lineHeight: 1.5, marginBottom: "24px" }}>{d.desc}</p>
                 </div>
                 <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", background: d.highlight ? "linear-gradient(135deg, #4B101B, #721C2C)" : "#FAF9F6", border: d.highlight ? "none" : "1px solid #D2D6DC", color: d.highlight ? "#FFFFFF" : "#4B101B", padding: "12px", borderRadius: "100px", fontWeight: 800, fontSize: "0.85rem", textDecoration: "none", boxShadow: d.highlight ? "0 4px 15px rgba(75,16,27,0.3)" : "none" }}>
@@ -159,7 +159,7 @@ export default function Page() {
             ].map((init, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#4B101B", marginBottom: "8px" }}>{init.title}</h4>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: "#4B101B", marginBottom: "8px" }}>{init.title}</h3>
                   <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.5, marginBottom: "16px" }}>{init.desc}</p>
                 </div>
                 <Link href={init.link} style={{ color: "#4B101B", fontWeight: 700, fontSize: "0.85rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>

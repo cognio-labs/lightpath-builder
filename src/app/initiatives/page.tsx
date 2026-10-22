@@ -169,13 +169,13 @@ export default function Page() {
 
             {/* Right Hero Image (Frameless, blending with background) */}
             <div className="lg:col-span-5 flex justify-center items-center relative">
-              <div className="relative w-full max-w-lg group">
+              <div className="relative w-full max-w-lg group flex justify-center">
                 {/* Ambient Soft Glow background blending */}
-                <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#521623]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute -inset-4 bg-gradient-to-tr from-[#E8C969]/30 via-[#521623]/15 to-[#D4AF37]/35 rounded-full blur-3xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <img loading="lazy" decoding="async"
-                  src="/images/initiatives.png"
+                  src="/images/white-standing-laughing.webp"
                   alt="Science Divine Initiatives - Sadguru Sakshi Shree"
-                  className="relative z-10 w-full h-auto rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="relative z-10 w-auto max-h-[500px] lg:max-h-[580px] object-contain drop-shadow-[0_20px_40px_rgba(82,22,35,0.22)] transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
             </div>

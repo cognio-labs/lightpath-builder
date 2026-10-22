@@ -244,14 +244,6 @@ export default function ShikshaSewaPage() {
           />
         </div>
 
-        {/* Gold bottom accent line */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[3px]"
-          style={{
-            background: "linear-gradient(90deg, #3D0A12 0%, #D4AF37 30%, #EBA528 50%, #D4AF37 70%, #3D0A12 100%)",
-            zIndex: 5,
-          }}
-        />
       </section>
 
       {/* ══════════════════════════════════════════════════════

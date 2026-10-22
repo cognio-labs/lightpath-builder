@@ -28,11 +28,13 @@ export default function Page() {
         subtitle="Real people. Real transformations. In their own words."
       />
       <section className="py-12 bg-[#FAF7F2] border-b border-amber-200/60 overflow-hidden">
+        <h2 className="sr-only">Written testimonials</h2>
         <MarqueeTestimonials />
       </section>
 
       <section className="section-pad bg-white">
         <div className="container-page">
+          <h2 className="sr-only">Video testimonials</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TESTIMONIAL_VIDEOS.map((v) => (
               <YouTubeThumb key={v.id} id={v.id} title={v.title} />

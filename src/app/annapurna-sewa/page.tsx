@@ -178,7 +178,7 @@ export default function AnnapurnaSewaPage() {
       </div>
     </section>
 
-    <section className={styles.pillars} aria-label="Annapurna Sewa values">{pillars.map(({icon: Icon, title, body}) => <div className={styles.pillar} key={title}><Icon aria-hidden size={31}/><h3>{title}</h3><p>{body}</p></div>)}</section>
+    <section className={styles.pillars} aria-label="Annapurna Sewa values"><h2 className="sr-only">Our values</h2>{pillars.map(({icon: Icon, title, body}) => <div className={styles.pillar} key={title}><Icon aria-hidden size={31}/><h3>{title}</h3><p>{body}</p></div>)}</section>
 
     <section className={styles.intro} id="why-annapurna">
       {/* Combined Card 1: Text + Photo together in Landscape format */}

@@ -71,9 +71,9 @@ export default function TopicSections({
                     className="text-[#D4AF37] flex-shrink-0 mt-0.5"
                   />
                   <div>
-                    <h4 className="font-bold text-base text-[#111827]">
+                    <h3 className="font-bold text-base text-[#111827]">
                       {s.title}
-                    </h4>
+                    </h3>
                     <p className="text-sm text-slate-600 mt-1 font-medium">
                       {s.desc}
                     </p>

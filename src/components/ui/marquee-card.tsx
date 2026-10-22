@@ -173,9 +173,9 @@ export function TestimonialCard({
             className="h-12 w-12 object-cover object-center rounded-full border-2 border-amber-400/80 shadow-xs shrink-0"
           />
           <div>
-            <h4 className="font-serif font-bold text-[#521623] text-base leading-tight">
+            <h3 className="font-serif font-bold text-[#521623] text-base leading-tight">
               {testimonial.name}
-            </h4>
+            </h3>
             <p className="text-xs text-[#8B6914] font-medium mt-0.5">{testimonial.role}</p>
           </div>
         </div>
