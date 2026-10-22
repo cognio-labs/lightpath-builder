@@ -369,6 +369,13 @@ export default function Page() {
         </div>
       </section>
 
+      <SolutionBenefits topic="Addiction Recovery" cards={[
+        { title: "Understanding Addiction", desc: "See the patterns beneath compulsive behavior with honesty and care.", image: "/images/premium-heroes/addictions.jpeg", icon: "shield" },
+        { title: "Find Your Freedom: Overcoming Addiction", desc: "Discover compassionate support for choosing freedom one day at a time.", image: "/images/old-site/pages/addictions/Addictions-scaled.webp", icon: "sparkles" },
+        { title: "Breaking Unhealthy Habits", desc: "Replace automatic cycles with mindful, nourishing choices.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
+        { title: "Building a Healthier Lifestyle", desc: "Create rhythms that protect your energy, relationships, and wellbeing.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
+      ]} />
+
       <TopicSections
         symptomsIntro="If you recognise any of these patterns in yourself or a loved one, Sakshi Shree's guided Sadhna offers compassionate, steady support toward lasting freedom."
         symptoms={[
@@ -405,12 +412,6 @@ export default function Page() {
           },
         ]}
       />
-      <SolutionBenefits topic="Addiction Recovery" cards={[
-        { title: "Understanding Addiction", desc: "See the patterns beneath compulsive behavior with honesty and care.", image: "/images/premium-heroes/addictions.jpeg", icon: "shield" },
-        { title: "Find Your Freedom: Overcoming Addiction", desc: "Discover compassionate support for choosing freedom one day at a time.", image: "/images/old-site/pages/addictions/Addictions-scaled.webp", icon: "sparkles" },
-        { title: "Breaking Unhealthy Habits", desc: "Replace automatic cycles with mindful, nourishing choices.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
-        { title: "Building a Healthier Lifestyle", desc: "Create rhythms that protect your energy, relationships, and wellbeing.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
-      ]} />
       <SolutionsCarousel />
 
       {/* CTA */}

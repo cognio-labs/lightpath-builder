@@ -598,6 +598,13 @@ export default function Page() {
         </div>
       </section>
 
+      <SolutionBenefits topic="Anxiety" cards={[
+        { title: "Understanding Anxiety", desc: "Recognize worry patterns with kindness instead of judgment.", image: "/images/premium-heroes/anxiety.jpeg", icon: "shield" },
+        { title: "Beating Anxiety Together: Simple Steps to Calm", desc: "Use small, practical tools to slow the body and steady the mind.", image: "/images/old-site/pages/anxiety/Anxiety-scaled.webp", icon: "sparkles" },
+        { title: "Find Your Inner Peace", desc: "Return to a calm, grounded awareness in the present moment.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
+        { title: "Daily Practices for Emotional Balance", desc: "Build a reliable routine of breath, awareness, and self-care.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
+      ]} />
+
       <TopicSections
         symptomsIntro="If you experience any of these daily struggles, Sakshi Shree's guided Sadhna offers a direct, gentle path to resolution."
         symptoms={[
@@ -634,12 +641,6 @@ export default function Page() {
           },
         ]}
       />
-      <SolutionBenefits topic="Anxiety" cards={[
-        { title: "Understanding Anxiety", desc: "Recognize worry patterns with kindness instead of judgment.", image: "/images/premium-heroes/anxiety.jpeg", icon: "shield" },
-        { title: "Beating Anxiety Together: Simple Steps to Calm", desc: "Use small, practical tools to slow the body and steady the mind.", image: "/images/old-site/pages/anxiety/Anxiety-scaled.webp", icon: "sparkles" },
-        { title: "Find Your Inner Peace", desc: "Return to a calm, grounded awareness in the present moment.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
-        { title: "Daily Practices for Emotional Balance", desc: "Build a reliable routine of breath, awareness, and self-care.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
-      ]} />
       <SolutionsCarousel />
 
       {/* CTA Section */}
