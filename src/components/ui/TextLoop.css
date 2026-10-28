@@ -11,7 +11,7 @@
 }
 
 .text-loop-text {
-  user-select: none;
+  user-select: auto;
 }
 
 .text-loop-measure {

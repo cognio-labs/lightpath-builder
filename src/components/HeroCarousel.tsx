@@ -128,11 +128,11 @@ export function HeroCarousel() {
             />
 
             {/* Gradient Overlays for readable text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#521623] via-[#521623]/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#521623]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#521623] via-[#521623]/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#521623]/80 via-transparent to-transparent pointer-events-none" />
 
             {/* Overlay Text Content */}
-            <div className="absolute inset-0 p-6 sm:p-10 lg:p-14 flex flex-col justify-end items-start max-w-2xl space-y-3.5 z-10">
+            <div className="absolute inset-0 p-6 sm:p-10 lg:p-14 flex flex-col justify-end items-start max-w-2xl space-y-3.5 z-10 pointer-events-none [&>*]:pointer-events-auto">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/70 backdrop-blur-md border border-amber-400/80 text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-sm">
                 <Sparkles size={12} className="text-amber-400" />
                 {current.tag}

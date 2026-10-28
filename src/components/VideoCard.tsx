@@ -329,9 +329,12 @@ export default function VideoCard({
           isVisible && (
             <>
               {/* Poster Image */}
-              <img
+              <Image
                 src={imgSrc}
                 alt={title}
+                fill
+                sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
+                quality={85}
                 loading={isPriority || index < 3 ? "eager" : "lazy"}
                 fetchPriority={isPriority || index === 0 ? "high" : "auto"}
                 className={`vc-poster-img ${imgLoaded ? "loaded" : ""}`}

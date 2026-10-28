@@ -11,8 +11,10 @@ import {
   BookOpen,
 } from "lucide-react";
 import { BlogNewsletterForm } from "@/components/blog/BlogNewsletterForm";
+import { ResponsiveBlogImage } from "@/components/blog/ResponsiveBlogImage";
 import { ShareButton } from "@/components/blog/ShareButton";
 import { getAllPostSummaries, getLegacySlugs, getPostPage } from "@/lib/blog.server";
+import { optimizeTypefloArticleImages } from "@/lib/blog-images";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -84,6 +86,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   const { post, html, toc, faqs } = page;
+  const responsiveArticleHtml = optimizeTypefloArticleImages(html);
   const postIndex = allPosts.findIndex((p) => p.slug === slug);
 
   // Previous & Next navigation (list is newest first)
@@ -258,10 +261,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Featured Cover Image */}
         <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-gray-100 shadow-sm border border-gray-200/80">
-          <img loading="eager" fetchPriority="high" decoding="async"
+          <ResponsiveBlogImage
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
+            sizes="(max-width: 960px) calc(100vw - 32px), 896px"
+            eager
           />
         </div>
 
@@ -285,7 +289,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Full Article Content */}
         <article
           className="blog-article-content pt-2 pb-8 border-b border-gray-100"
-          dangerouslySetInnerHTML={{ __html: html }}
+          dangerouslySetInnerHTML={{ __html: responsiveArticleHtml }}
         />
 
         {/* Tags */}
@@ -366,10 +370,11 @@ export default async function BlogPostPage({ params }: PageProps) {
               >
                 <div>
                   <Link href={`/blog/${related.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-gray-100">
-                    <img loading="lazy" decoding="async"
+                    <ResponsiveBlogImage
                       src={related.image}
                       alt={related.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) calc(100vw - 32px), 300px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </Link>
 

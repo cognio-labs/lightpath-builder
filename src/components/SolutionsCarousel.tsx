@@ -96,7 +96,7 @@ export default function SolutionsCarousel() {
 
   return (
     <section
-      className="w-full relative overflow-hidden pt-6 pb-12 bg-white text-[#4E1321] select-none border-b border-amber-100/80"
+      className="w-full relative overflow-hidden pt-6 pb-12 bg-white text-[#4E1321] border-b border-amber-100/80"
       aria-label="Wellness Solutions Navigation Carousel"
     >
       {/* Soft Ambient Radial Wash */}

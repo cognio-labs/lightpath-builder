@@ -143,7 +143,7 @@ export default function AnnapurnaSewaPage() {
       </div>
 
       {/* Main banner image container matching exact 3:1 reference layout */}
-      <div className="relative w-full max-w-[1920px] mx-auto select-none">
+      <div className="relative w-full max-w-[1920px] mx-auto">
         <picture>
           <source srcSet="/images/annapurna-sewa/annapurna-hero-2x.webp" type="image/webp" />
           <img

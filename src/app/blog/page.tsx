@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Clock, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { BlogNewsletterForm } from "@/components/blog/BlogNewsletterForm";
+import { ResponsiveBlogImage } from "@/components/blog/ResponsiveBlogImage";
 import { getAllPostSummaries, getCategories } from "@/lib/blog.server";
 
 const POSTS_PER_PAGE = 12;
@@ -149,12 +150,11 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
                 <div>
                   {/* Card Image */}
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-gray-100">
-                    <img
-                      loading="lazy"
-                      decoding="async"
+                    <ResponsiveBlogImage
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </Link>
 

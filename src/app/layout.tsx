@@ -6,6 +6,7 @@ import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
 import { QuickActionBar } from "@/components/QuickActionBar";
 import { DeferredBookingModalHost } from "@/components/DeferredBookingModalHost";
 import { DeferredAnalytics } from "@/components/DeferredAnalytics";
+import { cormorantGaramond, inter, playfairDisplay } from "./fonts";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -107,7 +108,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`}
+    >
       <head>
         {/* Organization + WebSite structured data — global across all pages */}
         <script

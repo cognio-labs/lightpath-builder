@@ -65,7 +65,9 @@ export function FastVideoCard({
             }}
           >
             <img
-              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+              srcSet={`https://i.ytimg.com/vi/${id}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${id}/maxresdefault.jpg 1280w`}
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
               alt={title}
               loading="lazy"
               decoding="async"
@@ -75,6 +77,11 @@ export function FastVideoCard({
                 objectFit: "cover",
                 display: "block",
                 transition: "transform 0.4s ease",
+              }}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.srcset = "";
+                event.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
               }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1.04)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
@@ -209,7 +216,9 @@ export function FastTestimonialCard({
             }}
           >
             <img
-              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+              srcSet={`https://i.ytimg.com/vi/${id}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${id}/maxresdefault.jpg 1280w`}
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
               alt={name}
               loading="lazy"
               decoding="async"
@@ -219,6 +228,11 @@ export function FastTestimonialCard({
                 objectFit: "cover",
                 display: "block",
                 transition: "transform 0.4s ease",
+              }}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.srcset = "";
+                event.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
               }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1.04)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}

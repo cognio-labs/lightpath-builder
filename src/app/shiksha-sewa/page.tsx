@@ -20,6 +20,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { DonationForm } from "@/components/donation/DonationForm";
+import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 /* ─────────────────────────────────────────────
    DATA & CONSTANTS
@@ -221,15 +222,26 @@ export default function ShikshaSewaPage() {
               Shiksha Sewa is a non-profit organization dedicated to providing education, vocational training and meditation for a brighter, more compassionate and self-reliant society.
             </p>
 
-            {/* Button */}
-            <div className="pt-1.5 sm:pt-2">
+            {/* Action Buttons */}
+            <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-3 sm:gap-3.5">
+              <a
+                href={process.env.NEXT_PUBLIC_RAZORPAY_URL || RAZORPAY_DONATION_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#EBA528] hover:bg-[#D9941C] text-[#3B0910] font-bold text-xs sm:text-sm shadow-lg shadow-amber-900/40 transition-all duration-200 active:scale-95 hover:scale-105"
+              >
+                <Heart className="w-4 h-4 fill-current text-red-700" />
+                <span>Donate Now</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#EBA528] hover:bg-[#D9941C] text-[#3B0910] font-bold text-xs sm:text-sm shadow-lg shadow-amber-900/40 transition-all duration-200 active:scale-95"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-sm font-semibold text-xs sm:text-sm shadow-md transition-all duration-200 active:scale-95 hover:border-white/40"
               >
-                <Heart className="w-4 h-4 fill-current" />
+                <Heart className="w-4 h-4 text-amber-300" />
                 <span>Join Our Movement</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-white/80" />
               </Link>
             </div>
           </div>
@@ -488,7 +500,7 @@ export default function ShikshaSewaPage() {
                 <img
                   src="/images/shiksha-sewa/donation-left-banner.png"
                   alt="Your Support Builds Their Tomorrow - Give them access to quality education, life skills and a brighter future"
-                  className="w-full h-full min-h-[460px] object-cover rounded-2xl select-none pointer-events-none drop-shadow-md"
+                  className="w-full h-full min-h-[460px] object-cover rounded-2xl drop-shadow-md"
                 />
               </div>
 
@@ -508,7 +520,7 @@ export default function ShikshaSewaPage() {
                 <img
                   src="/images/shiksha-sewa/donation-right-banner.png"
                   alt="Quality Education, Life Skills Development, Better Opportunities, Brighter Futures - Small Support, Big Change"
-                  className="w-full h-full min-h-[460px] object-contain rounded-2xl select-none pointer-events-none drop-shadow-md"
+                  className="w-full h-full min-h-[460px] object-contain rounded-2xl drop-shadow-md"
                 />
               </div>
 

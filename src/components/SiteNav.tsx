@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   Menu,
   X,
@@ -71,6 +72,7 @@ const getSolutionIcon = (slug: string) => {
 
 export function SiteNav() {
   const pathname = usePathname();
+  const prefersReducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -102,6 +104,12 @@ export function SiteNav() {
     setOpen(false);
     setActiveDropdown(null);
   }, [pathname]);
+
+  const menuTransition = prefersReducedMotion
+    ? { duration: 0 }
+    : { type: "spring" as const, stiffness: 380, damping: 30, mass: 0.7 };
+  const buttonHover = prefersReducedMotion ? {} : { y: -1 };
+  const buttonTap = prefersReducedMotion ? {} : { scale: 0.97 };
 
   return (
     <header
@@ -141,7 +149,9 @@ export function SiteNav() {
               setHoveredNav("about");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 pathname.startsWith("/about") || activeDropdown === "about"
                   ? "text-[#521623] bg-amber-100/70"
@@ -156,10 +166,17 @@ export function SiteNav() {
                   activeDropdown === "about" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
+            <AnimatePresence initial={false}>
             {activeDropdown === "about" && (
-                <div className="nav-dropdown absolute top-full left-0 pt-2 z-50 w-72">
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
+                  className="absolute top-full left-0 pt-2 z-50 w-72"
+                >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {aboutLinks.map((item) => {
                       return (
@@ -184,8 +201,9 @@ export function SiteNav() {
                       );
                     })}
                   </div>
-                </div>
+                </motion.div>
             )}
+            </AnimatePresence>
           </div>
 
           {/* Solutions Mega Menu */}
@@ -196,7 +214,9 @@ export function SiteNav() {
               setHoveredNav("solutions");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 pathname.startsWith("/get-solutions-for") || activeDropdown === "solutions"
                   ? "text-[#521623] bg-amber-100/70"
@@ -211,10 +231,17 @@ export function SiteNav() {
                   activeDropdown === "solutions" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
+            <AnimatePresence initial={false}>
             {activeDropdown === "solutions" && (
-                <div className="nav-dropdown absolute top-full -left-20 pt-2 z-50 w-[580px]">
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
+                  className="absolute top-full -left-20 pt-2 z-50 w-[580px]"
+                >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_24px_60px_-12px_rgba(82,22,35,0.22),0_0_25px_rgba(212,175,55,0.15)] border border-amber-300/40 p-5 space-y-4 relative overflow-hidden">
                     <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-amber-400/15 blur-2xl pointer-events-none" />
 
@@ -264,8 +291,9 @@ export function SiteNav() {
                       })}
                     </div>
                   </div>
-                </div>
+                </motion.div>
             )}
+            </AnimatePresence>
           </div>
 
           {/* Practices Dropdown */}
@@ -276,7 +304,9 @@ export function SiteNav() {
               setHoveredNav("practices");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 activeDropdown === "practices"
                   ? "text-[#521623] bg-amber-100/70"
@@ -291,10 +321,17 @@ export function SiteNav() {
                   activeDropdown === "practices" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
+            <AnimatePresence initial={false}>
             {activeDropdown === "practices" && (
-                <div className="nav-dropdown absolute top-full left-0 pt-2 z-50 w-72">
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
+                  className="absolute top-full left-0 pt-2 z-50 w-72"
+                >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2.5 space-y-1">
                     {practiceLinks.map((item) => {
                       const Icon = item.icon;
@@ -320,8 +357,9 @@ export function SiteNav() {
                       );
                     })}
                   </div>
-                </div>
+                </motion.div>
             )}
+            </AnimatePresence>
           </div>
 
           {/* Direct Nav Links */}
@@ -337,7 +375,9 @@ export function SiteNav() {
               setHoveredNav("initiatives");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 pathname.startsWith("/initiatives") || activeDropdown === "initiatives"
                   ? "text-[#521623] bg-amber-100/70"
@@ -352,10 +392,17 @@ export function SiteNav() {
                   activeDropdown === "initiatives" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
+            <AnimatePresence initial={false}>
             {activeDropdown === "initiatives" && (
-                <div className="nav-dropdown absolute top-full left-0 pt-2 z-50 w-80">
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
+                  className="absolute top-full left-0 pt-2 z-50 w-80"
+                >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {/* All Initiatives button placed at the top */}
                     <div className="pb-1.5 mb-1 border-b border-amber-300/50 px-0.5">
@@ -396,8 +443,9 @@ export function SiteNav() {
                       );
                     })}
                   </div>
-                </div>
+                </motion.div>
             )}
+            </AnimatePresence>
           </div>
 
           <NavItem href="/contact" label="Contact" pathname={pathname} />
@@ -422,21 +470,52 @@ export function SiteNav() {
           </Link>
 
           {/* Mobile Hamburger Menu Toggle */}
-          <button
+          <motion.button
+            whileHover={buttonHover}
+            whileTap={buttonTap}
             className="xl:hidden rounded-full w-11 h-11 flex items-center justify-center bg-amber-50 hover:bg-amber-100 text-[#521623] border border-amber-200 shadow-xs transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation menu"
             aria-expanded={open}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <AnimatePresence initial={false} mode="wait">
+              {open ? (
+                <motion.span
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.16 }}
+                >
+                  <X size={22} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.16 }}
+                >
+                  <Menu size={22} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
 
       </div>
 
       {/* Mobile Drawer Menu */}
+      <AnimatePresence initial={false}>
       {open && (
-          <div className="nav-drawer xl:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={menuTransition}
+            className="xl:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl"
+          >
             <div className="container-page py-6 px-4 flex flex-col gap-3 pb-24">
               
               <Link
@@ -565,8 +644,9 @@ export function SiteNav() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -12,8 +12,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
-    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1600, 1920],
-    imageSizes: [32, 48, 64, 96, 128, 256, 384],
+    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1600, 1920, 2048, 2560],
+    imageSizes: [32, 48, 64, 96, 128, 256, 384, 512, 768],
+    qualities: [75, 85],
     remotePatterns: [
       {
         protocol: "https",
@@ -26,6 +27,18 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "i.ytimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.typeflo.io",
+      },
+      {
+        protocol: "https",
+        hostname: "auth.typeflo.io",
+      },
+      {
+        protocol: "https",
+        hostname: "assets.cdn.filesafe.space",
       },
     ],
   },

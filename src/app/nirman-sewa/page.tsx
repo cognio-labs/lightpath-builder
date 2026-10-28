@@ -296,7 +296,7 @@ function LegacyNirmanSewaPage() {
   );
 }
 
-const heroReferenceImage = "/images/nirman-sewa/sakshi-dham-hero-responsive.webp";
+const heroReferenceImage = "/images/nirman-sewa/sakshi-dham-hero-clean.png";
 const transformationReferenceImage = "/images/nirman-sewa/sakshi-dham-transformation-responsive.webp";
 const donateReferenceImage = "/images/nirman-sewa/sakshi-dham-donate-responsive.webp";
 
@@ -319,28 +319,49 @@ const projectHighlights = [
 export default function NirmanSewaPage() {
   return <div className={`${styles.page} sakshi-dham-page`}>
     <section className={styles.referenceHero} aria-labelledby="nirman-title">
-      <h1 id="nirman-title" className={styles.srOnly}>Sakshi Dham International</h1>
       <Image src={heroReferenceImage} alt="Sakshi Dham International at sunset" width={1600} height={596} sizes="100vw" preload />
-      <a className={styles.heroDonateHotspot} href="#contribute" aria-label="Donate now to Sakshi Dham International" />
+      <div className={styles.heroTextOverlay}>
+        <p className={styles.heroEyebrow}>A DIVINE ABODE FOR A BRIGHTER TOMORROW</p>
+        <h1 id="nirman-title" className={styles.heroMainTitle}>SAKSHI DHAM INTERNATIONAL</h1>
+        <p className={styles.heroSubtitle}>A Spiritual Center in Vrindavan for Inner Transformation and a More Conscious World.</p>
+      </div>
+      <a className={styles.heroCtaButton} href="#contribute" aria-label="Donate now to Sakshi Dham International">
+        DONATE NOW <ArrowRight size={18} aria-hidden="true" />
+      </a>
     </section>
     {/* ── OUR VISION: A Global Spiritual Center (Large Showcase Card) ── */}
     <section className={styles.visionContribution} aria-labelledby="vision-title">
       <div className={styles.visionLargeCard}>
-        <h2 id="vision-title" className={styles.srOnly}>
-          Our vision: a global spiritual center in the heart of Vrindavan
-        </h2>
-        <picture className={styles.visionPicture}>
+        <div className={styles.visionCardBody}>
+          <div>
+            <p className={styles.sectionLabel}>OUR VISION</p>
+            <h2 id="vision-title" className={styles.visionMainHeading}>
+              A GLOBAL SPIRITUAL CENTER<br className={styles.desktopBr} /> IN THE HEART OF VRINDAVAN
+            </h2>
+            <p className={styles.visionParagraph}>
+              Sakshi Dham International is being developed as a sacred ashram in Vrindavan to offer a peaceful space for meditation, dhyan, Gita wisdom, retreats, and community living.
+            </p>
+            <p className={styles.visionParagraph}>
+              It will welcome seekers from all walks of life to experience inner transformation and contribute to a more conscious, compassionate and harmonious world.
+            </p>
+          </div>
+          <blockquote className={styles.visionQuote}>
+            <p>
+              Sakshi Dham will be a living example of how spiritual wisdom can create a better individual, a better family and a better society.
+            </p>
+            <cite>— Sadguru Sakshi Shree</cite>
+          </blockquote>
+        </div>
+        <div className={styles.visionMedia}>
           <Image
-            src="/images/nirman-sewa/sakshi-dham-vision-responsive.webp"
-            alt="Our vision: A Global Spiritual Center in the heart of Vrindavan — Sakshi Dham International"
-            className={styles.visionImage}
-            loading="eager"
-            fetchPriority="high"
-            sizes="(max-width: 1120px) calc(100vw - 56px), calc(100vw - 520px)"
-            width={1600}
-            height={896}
+            src="/images/nirman-sewa/vrindavan-ashram-building.webp"
+            alt="Sakshi Dham International Vrindavan ashram building"
+            className={styles.visionCardImage}
+            sizes="(max-width: 760px) calc(100vw - 64px), (max-width: 1024px) 44vw, 38vw"
+            width={1080}
+            height={960}
           />
-        </picture>
+        </div>
       </div>
 
     {/* ── MAKE A CONTRIBUTION (Centered Donation Card) ── */}
@@ -358,16 +379,20 @@ export default function NirmanSewaPage() {
     <section className={styles.highlights}><div className={styles.centerHeading}><h2>PROJECT HIGHLIGHTS</h2></div><div>{projectHighlights.map(({ label, icon: Icon }) => <article key={label}><Icon aria-hidden="true" /><p>{label}</p></article>)}</div></section>
     <div className={styles.bottomCardsSection}>
       <section className={styles.referenceVisual} aria-labelledby="transformation-title">
-        <h2 id="transformation-title" className={styles.srOnly}>A place for inner transformation</h2>
         <Image src={transformationReferenceImage} alt="Sakshi Dham International, a place for inner transformation" width={1280} height={484} sizes="(max-width: 1400px) calc(100vw - 32px), 1280px" />
+        <div className={styles.visualTextOverlay}>
+          <h2 id="transformation-title" className={styles.visualTitleSelectable}>A PLACE FOR INNER TRANSFORMATION</h2>
+        </div>
         <a className={styles.transformationCta} href="#contribute" aria-label="Donate now to Sakshi Dham">
           DONATE NOW <ArrowRight size={15} />
         </a>
       </section>
 
       <section className={styles.referenceVisualSecond} aria-labelledby="build-title">
-        <h2 id="build-title" className={styles.srOnly}>Let us build a sacred space for a more conscious world</h2>
         <Image src={donateReferenceImage} alt="Support Sakshi Dham International and help build a sacred space" width={1280} height={480} sizes="(max-width: 1400px) calc(100vw - 32px), 1280px" />
+        <div className={styles.visualTextOverlaySecond}>
+          <h2 id="build-title" className={styles.visualTitleSelectable}>LET&apos;S BUILD A SACRED SPACE FOR A MORE CONSCIOUS WORLD</h2>
+        </div>
         <a className={styles.finalCtaButton} href="#contribute" aria-label="Donate now to Sakshi Dham">
           DONATE NOW <ArrowRight size={15} />
         </a>

@@ -1084,9 +1084,34 @@
   box-shadow: 0 14px 40px rgba(71, 14, 9, 0.12);
   border: 1.5px solid #ebd8be;
   background: #fffdf8;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  align-items: stretch;
+}
+
+.visionCardBody {
+  min-width: 0;
+  padding: clamp(28px, 3.2vw, 52px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: clamp(18px, 2vw, 28px);
+  text-align: left;
+}
+
+.visionMedia {
+  min-width: 0;
+  min-height: 500px;
+  overflow: hidden;
+  background: #f7e7c9;
+}
+
+.visionCardImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .visionPicture {
@@ -1101,6 +1126,204 @@
   height: auto;
   object-fit: contain;
   object-position: center;
+}
+
+/* Hero Text Selection Overlay */
+.heroTextOverlay {
+  position: absolute;
+  left: 12.5%;
+  top: 18%;
+  max-width: 36%;
+  z-index: 2;
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  pointer-events: auto;
+}
+
+.heroEyebrow,
+.heroMainTitle,
+.heroSubtitle {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+.heroEyebrow {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(0.65rem, 0.85vw, 0.92rem);
+  letter-spacing: 0.12em;
+  color: transparent;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.heroMainTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.heroSubtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(0.8rem, 1.1vw, 1.1rem);
+  line-height: 1.38;
+  color: transparent;
+}
+
+.heroEyebrow::selection,
+.heroMainTitle::selection,
+.heroSubtitle::selection {
+  background: rgba(230, 156, 46, 0.55);
+  color: #ffffff;
+}
+
+/* Vision Card Real Selectable Text Overlay */
+.visionContentOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  padding: clamp(18px, 3.2vw, 42px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.visionContentOverlay .visionCopy {
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+  width: 48%;
+  max-width: 540px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sectionLabel {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(0.72rem, 0.85vw, 0.84rem);
+  letter-spacing: 0.12em;
+  color: #a36830;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionLabel::after {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: #deb887;
+}
+
+.visionMainHeading {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #5b120f;
+  line-height: 1.14;
+  font-size: clamp(1.15rem, 1.85vw, 1.95rem);
+  font-weight: 800;
+  margin: 6px 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.visionParagraph {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(0.85rem, 1.05vw, 1.05rem);
+  line-height: 1.48;
+  color: #431615;
+  font-weight: 600;
+  margin: 6px 0;
+}
+
+.visionQuote {
+  margin-top: 10px !important;
+  padding: 10px 14px 10px 34px;
+  background: #ffffff;
+  border: 1.5px solid #ecd8bf;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(60, 12, 8, 0.06);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+  font-style: italic;
+  line-height: 1.38;
+  position: relative;
+  max-width: 420px;
+  color: #4a1714;
+  font-weight: 600;
+}
+
+.visionQuote::before {
+  content: "“";
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 2.2rem;
+  color: #e69c2e;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.visionQuote p {
+  margin: 0;
+}
+
+.visionQuote cite {
+  display: block;
+  margin-top: 5px;
+  color: #8c211e;
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(0.72rem, 0.82vw, 0.8rem);
+}
+
+/* Bottom Cards Selectable Titles */
+.visualTextOverlay {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  max-width: 38%;
+  z-index: 2;
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  pointer-events: auto;
+}
+
+.visualTextOverlaySecond {
+  position: absolute;
+  left: 8%;
+  top: 18%;
+  max-width: 38%;
+  z-index: 2;
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  pointer-events: auto;
+}
+
+.visualTitleSelectable {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.1rem, 2vw, 2.2rem);
+  font-weight: 800;
+  color: transparent;
+  line-height: 1.15;
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+.visualTitleSelectable::selection {
+  background: rgba(230, 156, 46, 0.55);
+  color: #ffffff;
 }
 
 .donationInline {
@@ -1181,7 +1404,8 @@
   border-radius: 22px;
 }
 
-/* Real working, sleek CTA buttons covering the painted buttons without looking oversized */
+/* Real working, sleek CTA buttons */
+.heroCtaButton,
 .transformationCta,
 .finalCtaButton {
   position: absolute;
@@ -1198,21 +1422,33 @@
   letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
-  box-shadow: 0 4px 14px rgba(60, 12, 8, 0.16);
+  box-shadow: 0 4px 14px rgba(60, 12, 8, 0.2);
   border: 1px solid #ffd87d;
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
+.heroCtaButton:hover,
 .transformationCta:hover,
 .finalCtaButton:hover {
   transform: translateY(-2px);
   filter: brightness(1.08);
 }
 
+.heroCtaButton:active,
 .transformationCta:active,
 .finalCtaButton:active {
   transform: translateY(0);
+}
+
+.heroCtaButton {
+  left: 12.5%;
+  top: 73%;
+  min-height: clamp(40px, 3.4vw, 48px);
+  padding: 10px clamp(22px, 2vw, 30px);
+  gap: 10px;
+  font-size: clamp(12px, 1vw, 15px);
+  box-shadow: 0 7px 20px rgba(60, 12, 8, 0.28);
 }
 
 .transformationCta {
@@ -1228,6 +1464,19 @@
 }
 
 @media (max-width: 640px) {
+  .heroCtaButton {
+    left: 12%;
+    top: 73%;
+    padding: 7px 14px;
+    font-size: 9px;
+    min-height: 30px;
+    gap: 6px;
+  }
+
+  .heroCtaButton svg {
+    width: 14px;
+    height: 14px;
+  }
   .transformationCta {
     left: 4.5%;
     top: 56.5%;
@@ -1244,19 +1493,6 @@
     min-height: 24px;
     gap: 4px;
   }
-}
-
-.heroDonateHotspot {
-  position: absolute;
-  display: block;
-  z-index: 2;
-  border-radius: 999px;
-  cursor: pointer;
-  left: 12.5%;
-  top: 72%;
-  width: 17%;
-  height: 11%;
-  transition: transform 180ms ease, filter 180ms ease;
 }
 
 .heroDonateHotspot:hover {
@@ -1337,6 +1573,36 @@
 
   .visionLargeCard {
     border-radius: 14px;
+    flex-direction: column;
+  }
+
+  .visionContentOverlay {
+    position: relative;
+    inset: auto;
+    padding: 20px 16px;
+    background: #fffdf8;
+  }
+
+  .visionContentOverlay .visionCopy {
+    width: 100%;
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  .sectionLabel::after {
+    display: none;
+  }
+
+  .visionMainHeading {
+    font-size: 1.35rem;
+  }
+
+  .visionParagraph {
+    font-size: 0.95rem;
+  }
+
+  .visionQuote {
+    max-width: 100%;
   }
 
   .donationSection {
@@ -1372,6 +1638,31 @@
 
   .referenceVisual > img {
     border-radius: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .visionLargeCard {
+    grid-template-columns: 1fr;
+  }
+
+  .visionCardBody {
+    padding: 26px 22px 24px;
+    gap: 18px;
+  }
+
+  .visionMedia {
+    min-height: 0;
+  }
+
+  .visionCardImage {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-position: center 45%;
+  }
+
+  .desktopBr {
+    display: none;
   }
 }
 

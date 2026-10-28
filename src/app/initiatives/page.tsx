@@ -127,9 +127,7 @@ export default function Page() {
       {/* 🌟 1. HERO HEADER SECTION (Warm Sacred Ivory & Gold Aura) */}
       {/* ========================================================================= */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#FFFDF9] via-[#FFF8EB] to-[#FFF4DE] text-[#521623] overflow-hidden border-b border-[#E8C969]/40">
-        {/* Background Sacred Aura Orbs & Glow */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-[#521623]/15 rounded-full blur-3xl pointer-events-none" />
+
 
         <div className="container-page relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -170,8 +168,7 @@ export default function Page() {
             {/* Right Hero Image (Frameless, blending with background) */}
             <div className="lg:col-span-5 flex justify-center items-center relative">
               <div className="relative w-full max-w-lg group flex justify-center">
-                {/* Ambient Soft Glow background blending */}
-                <div className="absolute -inset-4 bg-gradient-to-tr from-[#E8C969]/30 via-[#521623]/15 to-[#D4AF37]/35 rounded-full blur-3xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
                 <img loading="lazy" decoding="async"
                   src="/images/white-standing-laughing.webp"
                   alt="Science Divine Initiatives - Sadguru Sakshi Shree"
