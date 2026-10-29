@@ -370,7 +370,7 @@ export default function NirmanSewaPage() {
         id="contribute"
         title="Make a Contribution"
         subtitle="Be a part of this sacred initiative and help create a lasting legacy."
-        purpose="Sakshi Dham International"
+        sewa="nirman"
       />
     </div>
     </section>

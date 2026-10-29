@@ -1,137 +1,80 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { ArrowRight, Check, CreditCard, Heart, LockKeyhole, ShieldCheck } from "lucide-react";
+import { useSewaCheckout } from "@/components/donations/useSewaCheckout";
+import { MIN_MONTHLY_DONATION, SEWAS, type DonationFrequency, type SewaKey } from "@/lib/sewa";
 import styles from "./DonationForm.module.css";
 
 const PRESET_AMOUNTS = [500, 1100, 2100, 3100, 11000, 21000] as const;
 
-type RazorpaySuccess = { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string };
-type RazorpayFailure = { error?: { description?: string } };
-type RazorpayInstance = {
-  open: () => void;
-  on: (event: "payment.failed", callback: (response: RazorpayFailure) => void) => void;
-};
-
-declare global {
-  interface Window {
-    Razorpay?: new (options: Record<string, unknown>) => RazorpayInstance;
-  }
-}
-
 export type DonationFormProps = {
+  /** Which sewa's table the payment is recorded in (see src/lib/sewa.ts). */
+  sewa: SewaKey;
   id?: string;
   title?: string;
   subtitle?: string;
-  purpose?: string;
   trustMessage?: string;
   className?: string;
 };
 
-let razorpayScriptPromise: Promise<void> | null = null;
-
-function loadRazorpay() {
-  if (typeof window === "undefined") return Promise.reject(new Error("Checkout is unavailable."));
-  if (window.Razorpay) return Promise.resolve();
-  if (razorpayScriptPromise) return razorpayScriptPromise;
-  razorpayScriptPromise = new Promise<void>((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("Secure checkout could not be loaded. Please try again."));
-    document.head.appendChild(script);
-  });
-  return razorpayScriptPromise;
-}
-
 export function DonationForm({
+  sewa,
   id,
   title = "Make a Contribution",
   subtitle = "Be a part of this sacred initiative and help create a lasting legacy.",
-  purpose = "Science Divine initiatives",
   trustMessage = "Support a Lasting Legacy",
   className = "",
 }: DonationFormProps) {
   const inputId = useId();
-  const [selected, setSelected] = useState<number | "custom">(1100);
-  const [customAmount, setCustomAmount] = useState("");
+  const checkout = useSewaCheckout();
+  const offersMonthly = Boolean(SEWAS[sewa].subscriptionsTable);
+  const [frequency, setFrequency] = useState<DonationFrequency>("one_time");
+  // Presets write into the amount box, so the donor can also type any amount.
+  const [amountInput, setAmountInput] = useState("1100");
   const [error, setError] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-  const amount = selected === "custom" ? Number(customAmount) : selected;
-  const formattedAmount = Number.isFinite(amount) && amount > 0 ? amount.toLocaleString("en-IN") : "—";
+  const [opening, setOpening] = useState(false);
+  const amount = Number(amountInput);
+  const monthly = frequency === "monthly";
+  const formattedAmount = amount > 0 ? amount.toLocaleString("en-IN") : "—";
+
+  // Coming back from the Razorpay page via Back restores this page from cache.
+  useEffect(() => {
+    const reset = () => setOpening(false);
+    window.addEventListener("pageshow", reset);
+    return () => window.removeEventListener("pageshow", reset);
+  }, []);
 
   const choosePreset = (value: number) => {
-    setSelected(value);
-    setCustomAmount("");
+    setAmountInput(String(value));
     setError("");
-    setStatus("idle");
-  };
-
-  const handleCustomAmount = (value: string) => {
-    setSelected("custom");
-    setCustomAmount(value.replace(/[^0-9]/g, ""));
-    setError("");
-    setStatus("idle");
   };
 
   const startCheckout = async () => {
-    if (status === "loading") return;
-    if (!Number.isSafeInteger(amount) || amount < 1) {
-      setError("Enter a valid contribution amount of at least ₹1.");
+    const minimum = monthly ? MIN_MONTHLY_DONATION : 1;
+    if (!Number.isSafeInteger(amount) || amount < minimum) {
+      setError(`Enter a valid contribution amount of at least ₹${minimum}.`);
       return;
     }
     setError("");
-    setStatus("loading");
-    try {
-      const orderResponse = await fetch("/api/razorpay/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount, purpose }),
-      });
-      const order = await orderResponse.json() as {
-        error?: string; keyId?: string; orderId?: string; amount?: number; currency?: string;
-      };
-      if (!orderResponse.ok || !order.keyId || !order.orderId || !order.amount) {
-        throw new Error(order.error || "Unable to start secure checkout.");
-      }
 
-      await loadRazorpay();
-      if (!window.Razorpay) throw new Error("Secure checkout is unavailable.");
-      const checkout = new window.Razorpay({
-        key: order.keyId,
-        amount: order.amount,
-        currency: order.currency || "INR",
-        name: "Science Divine Foundation",
-        description: purpose,
-        order_id: order.orderId,
-        theme: { color: "#651522" },
-        modal: { ondismiss: () => setStatus("idle"), confirm_close: true },
-        handler: async (payment: RazorpaySuccess) => {
-          try {
-            const verifyResponse = await fetch("/api/razorpay/verify", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payment),
-            });
-            const result = await verifyResponse.json() as { verified?: boolean; error?: string };
-            if (!verifyResponse.ok || !result.verified) throw new Error(result.error || "Payment verification failed.");
-            setStatus("success");
-          } catch (verificationError) {
-            setStatus("idle");
-            setError(verificationError instanceof Error ? verificationError.message : "Payment verification failed. Contact us with your payment ID.");
-          }
-        },
-      });
-      checkout.on("payment.failed", (response) => {
-        setStatus("idle");
-        setError(response.error?.description || "The payment was not completed. Please try again.");
-      });
-      checkout.open();
-    } catch (checkoutError) {
-      setStatus("idle");
-      setError(checkoutError instanceof Error ? checkoutError.message : "Unable to start secure checkout.");
+    // Sewas with their own Razorpay Payment Page open it with the amount
+    // prefilled; the webhook records the payment. Otherwise pay on-site.
+    if (!monthly && SEWAS[sewa].paymentPageEnv) {
+      setOpening(true);
+      try {
+        const res = await fetch(`/api/razorpay/payment-page?sewa=${sewa}&amount=${amount}`);
+        const { url } = (await res.json()) as { url: string | null };
+        if (url) {
+          window.location.assign(url);
+          return;
+        }
+      } catch {
+        // Fall through to on-site checkout.
+      }
+      setOpening(false);
     }
+    checkout.start({ sewa, amount, frequency });
   };
 
   return (
@@ -143,11 +86,33 @@ export function DonationForm({
         <p>{subtitle}</p>
       </header>
 
+      {offersMonthly && (
+        <div className={styles.typeToggle} role="group" aria-label="Contribution type">
+          {([
+            ["one_time", "One-time"],
+            ["monthly", "Monthly Auto-pay"],
+          ] as const).map(([value, label]) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={frequency === value}
+              className={frequency === value ? styles.typeActive : ""}
+              onClick={() => {
+                setFrequency(value);
+                setError("");
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+
       <fieldset className={styles.amountFieldset}>
         <legend>Select or enter contribution amount (₹)</legend>
         <div className={styles.amountGrid}>
           {PRESET_AMOUNTS.map((value) => {
-            const active = selected === value;
+            const active = amount === value;
             return (
               <button key={value} type="button" className={`${styles.amountButton} ${active ? styles.active : ""}`} aria-pressed={active} onClick={() => choosePreset(value)}>
                 <span className={styles.miniLotus} aria-hidden="true">♧</span>
@@ -157,23 +122,39 @@ export function DonationForm({
             );
           })}
         </div>
-        <label className={`${styles.customField} ${selected === "custom" ? styles.customActive : ""}`} htmlFor={inputId}>
+        <label className={`${styles.customField} ${!PRESET_AMOUNTS.includes(amount as never) ? styles.customActive : ""}`} htmlFor={inputId}>
           <span aria-hidden="true">₹</span>
-          <input id={inputId} type="text" inputMode="numeric" autoComplete="off" value={customAmount} onFocus={() => setSelected("custom")} onChange={(event) => handleCustomAmount(event.target.value)} placeholder="Enter amount of your choice" aria-describedby={`${inputId}-selection ${inputId}-error`} />
+          <input
+            id={inputId}
+            type="text"
+            inputMode="numeric"
+            autoComplete="off"
+            value={amountInput}
+            onChange={(event) => {
+              setAmountInput(event.target.value.replace(/[^0-9]/g, ""));
+              setError("");
+            }}
+            placeholder="Enter amount of your choice"
+            aria-describedby={`${inputId}-selection ${inputId}-error`}
+          />
         </label>
       </fieldset>
-      <p id={`${inputId}-selection`} className={styles.selection} aria-live="polite">Selected contribution: <strong>₹{formattedAmount}</strong></p>
+      <p id={`${inputId}-selection`} className={styles.selection} aria-live="polite">
+        Selected contribution: <strong>₹{formattedAmount}{monthly ? " / month" : ""}</strong>
+        {monthly && <><br />Charged automatically every month via UPI Autopay or card. Cancel anytime.</>}
+      </p>
       <p id={`${inputId}-error`} className={styles.error} role="alert">{error}</p>
-      <button type="button" className={styles.donateButton} onClick={startCheckout} disabled={status === "loading"}>
+      <button type="button" className={styles.donateButton} onClick={startCheckout} disabled={opening}>
         <LockKeyhole size={18} aria-hidden="true" />
-        <span>{status === "loading" ? "Opening secure checkout…" : status === "success" ? "Payment verified" : "Donate securely"}</span>
-        {status === "success" ? <Check size={19} aria-hidden="true" /> : <ArrowRight size={19} aria-hidden="true" />}
+        <span>{opening ? "Opening secure payment page…" : "Donate securely"}</span>
+        <ArrowRight size={19} aria-hidden="true" />
       </button>
       <div className={styles.trustGrid} aria-label="Payment assurances">
         <span><ShieldCheck aria-hidden="true" /><b>Secure Payments</b></span>
         <span><CreditCard aria-hidden="true" /><b>Instant Confirmation</b></span>
         <span><Heart aria-hidden="true" /><b>{trustMessage}</b></span>
       </div>
+      {checkout.modal}
     </section>
   );
 }

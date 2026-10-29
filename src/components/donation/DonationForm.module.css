@@ -37,3 +37,6 @@
 .trustGrid b { max-width:130px; line-height:1.2; text-align:left; font-size:.68rem; }
 @media(max-width:640px){.shell{width:100%;margin:0;border-radius:24px;padding:16px 12px 14px}.header h2{font-size:clamp(1.35rem,6vw,1.65rem)}.amountGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.amountButton{min-height:42px;border-radius:9999px}.miniLotus{display:none}.donateButton{min-height:42px;padding-inline:12px;font-size:.74rem;letter-spacing:.06em}.trustGrid{gap:4px}.trustGrid span{flex-direction:column;padding:0 2px;text-align:center;font-size:.6rem}.trustGrid b{text-align:center}.trustGrid svg{width:18px;height:18px}}
 @media(prefers-reduced-motion:reduce){.amountButton,.donateButton{transition:none}}
+.typeToggle { display:grid; grid-template-columns:1fr 1fr; gap:4px; margin:0 auto 10px; padding:4px; border:1px solid #e2be75; border-radius:9999px; background:#fffaf0; }
+.typeToggle button { min-height:34px; border:0; border-radius:9999px; background:transparent; color:#651522; cursor:pointer; font:750 .74rem/1 "Inter",sans-serif; transition:background-color 160ms ease,color 160ms ease; }
+.typeToggle button.typeActive { background:#681522; color:#fff9ec; }

@@ -20,7 +20,6 @@ import {
   MapPin,
 } from "lucide-react";
 import { DonationForm } from "@/components/donation/DonationForm";
-import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 /* ─────────────────────────────────────────────
    DATA & CONSTANTS
@@ -225,9 +224,7 @@ export default function ShikshaSewaPage() {
             {/* Action Buttons */}
             <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-3 sm:gap-3.5">
               <a
-                href={process.env.NEXT_PUBLIC_RAZORPAY_URL || RAZORPAY_DONATION_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#shiksha-contribution"
                 className="inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#EBA528] hover:bg-[#D9941C] text-[#3B0910] font-bold text-xs sm:text-sm shadow-lg shadow-amber-900/40 transition-all duration-200 active:scale-95 hover:scale-105"
               >
                 <Heart className="w-4 h-4 fill-current text-red-700" />
@@ -510,7 +507,7 @@ export default function ShikshaSewaPage() {
                   id="shiksha-contribution"
                   title="Make a Contribution"
                   subtitle="Help give children access to quality education, life skills and a brighter future."
-                  purpose="Jhuggi Jhopadi Shiksha Sewa"
+                  sewa="shiksha"
                   trustMessage="Support a Child's Future"
                 />
               </div>

@@ -912,7 +912,7 @@ export default async function Page() {
                   shape brighter futures and break the cycle of poverty through quality education.
                 </p>
                 <Link
-                  href="/shiksha-sewa"
+                  href="/shiksha-sewa#shiksha-contribution"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
@@ -946,7 +946,7 @@ export default async function Page() {
                   fostering unity and compassion within communities.
                 </p>
                 <Link
-                  href="/annapurna-sewa"
+                  href="/annapurna-sewa#make-contribution"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now
@@ -980,7 +980,7 @@ export default async function Page() {
                   where thousands come to meditate, heal, and experience spiritual awakening.
                 </p>
                 <Link
-                  href="/nirman-sewa"
+                  href="/nirman-sewa#contribute"
                   className="btn-gold rounded-full px-5 py-2.5 text-sm font-semibold flex items-center justify-center text-center w-full mt-auto"
                 >
                   Donate Now

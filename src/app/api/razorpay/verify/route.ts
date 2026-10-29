@@ -1,23 +1,69 @@
-import { createHmac, timingSafeEqual } from "node:crypto";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import {
+  razorpayRequest,
+  verifyOrderSignature,
+  verifySubscriptionSignature,
+  type RazorpayPayment,
+  type RazorpaySubscription,
+} from "@/lib/razorpay.server";
+import { markOrderPaid, recordSubscriptionCharge, syncSubscription } from "@/lib/donations.server";
 
-export const runtime = "nodejs";
+// Called by the browser right after Razorpay Checkout succeeds. Confirms the
+// signature, then records the payment immediately so the donor sees success
+// without waiting for the webhook (which repeats the same idempotent writes).
 
-export async function POST(request: Request) {
+const verifySchema = z.union([
+  z.object({
+    kind: z.literal("order"),
+    razorpay_order_id: z.string().min(1),
+    razorpay_payment_id: z.string().min(1),
+    razorpay_signature: z.string().min(1),
+  }),
+  z.object({
+    kind: z.literal("subscription"),
+    razorpay_subscription_id: z.string().min(1),
+    razorpay_payment_id: z.string().min(1),
+    razorpay_signature: z.string().min(1),
+  }),
+]);
+
+export async function POST(request: NextRequest) {
+  const parsed = verifySchema.safeParse(await request.json().catch(() => null));
+  if (!parsed.success) return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  const body = parsed.data;
+
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = await request.json() as Record<string, unknown>;
-    if (typeof razorpay_order_id !== "string" || typeof razorpay_payment_id !== "string" || typeof razorpay_signature !== "string") {
-      return NextResponse.json({ verified: false, error: "Incomplete payment verification data." }, { status: 400 });
+    if (body.kind === "order") {
+      if (!verifyOrderSignature(body.razorpay_order_id, body.razorpay_payment_id, body.razorpay_signature)) {
+        return NextResponse.json({ error: "Payment verification failed." }, { status: 400 });
+      }
+      const payment = await razorpayRequest<RazorpayPayment>(`/payments/${body.razorpay_payment_id}`);
+      if (payment.status === "captured" || payment.status === "authorized") {
+        await markOrderPaid({ ...payment, order_id: body.razorpay_order_id });
+      }
+      return NextResponse.json({ ok: true, paymentId: payment.id });
     }
-    const keySecret = process.env.RAZORPAY_KEY_SECRET;
-    if (!keySecret) return NextResponse.json({ verified: false, error: "Payment verification is not configured." }, { status: 503 });
-    const expected = createHmac("sha256", keySecret).update(`${razorpay_order_id}|${razorpay_payment_id}`).digest("hex");
-    const expectedBuffer = Buffer.from(expected, "utf8");
-    const receivedBuffer = Buffer.from(razorpay_signature, "utf8");
-    const verified = expectedBuffer.length === receivedBuffer.length && timingSafeEqual(expectedBuffer, receivedBuffer);
-    if (!verified) return NextResponse.json({ verified: false, error: "Payment signature verification failed." }, { status: 400 });
-    return NextResponse.json({ verified: true, paymentId: razorpay_payment_id });
-  } catch {
-    return NextResponse.json({ verified: false, error: "Unable to verify the payment." }, { status: 400 });
+
+    if (
+      !verifySubscriptionSignature(
+        body.razorpay_payment_id,
+        body.razorpay_subscription_id,
+        body.razorpay_signature,
+      )
+    ) {
+      return NextResponse.json({ error: "Auto-pay verification failed." }, { status: 400 });
+    }
+    const [subscription, payment] = await Promise.all([
+      razorpayRequest<RazorpaySubscription>(`/subscriptions/${body.razorpay_subscription_id}`),
+      razorpayRequest<RazorpayPayment>(`/payments/${body.razorpay_payment_id}`),
+    ]);
+    await syncSubscription(subscription);
+    await recordSubscriptionCharge(subscription, payment);
+    return NextResponse.json({ ok: true, paymentId: payment.id });
+  } catch (err) {
+    console.error("[razorpay/verify]", err);
+    // The payment itself went through on Razorpay; the webhook will still record it.
+    return NextResponse.json({ ok: true, pending: true });
   }
 }

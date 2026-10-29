@@ -268,7 +268,7 @@ export default function LivingTheGita() {
               id="gita-contribution"
               title="Make a Contribution"
               subtitle="Choose an amount and help take the practical wisdom of the Gita to every home."
-              purpose="Living the Gita Movement"
+              sewa="gita"
               trustMessage="Support Timeless Wisdom"
             />
           </div>

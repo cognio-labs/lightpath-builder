@@ -6,6 +6,7 @@ import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
 import { QuickActionBar } from "@/components/QuickActionBar";
 import { DeferredBookingModalHost } from "@/components/DeferredBookingModalHost";
 import { DeferredAnalytics } from "@/components/DeferredAnalytics";
+import { HideOnAdmin } from "@/components/HideOnAdmin";
 import { cormorantGaramond, inter, playfairDisplay } from "./fonts";
 
 const BASE_URL = "https://sciencedivine.org";
@@ -123,12 +124,14 @@ export default function RootLayout({
       </head>
       <body className="bg-white">
         <div className="flex min-h-dvh flex-col bg-white">
-          <SiteNav />
+          <HideOnAdmin><SiteNav /></HideOnAdmin>
           <main className="flex-1 w-full bg-white pb-6 lg:pb-0">{children}</main>
-          <QuickActionBar />
-          <SiteFooter />
-          <MahaMantrasPopup />
-          <DeferredBookingModalHost />
+          <HideOnAdmin>
+            <QuickActionBar />
+            <SiteFooter />
+            <MahaMantrasPopup />
+            <DeferredBookingModalHost />
+          </HideOnAdmin>
           <DeferredAnalytics />
         </div>
       </body>

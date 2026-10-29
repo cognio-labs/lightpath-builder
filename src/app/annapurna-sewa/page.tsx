@@ -211,7 +211,7 @@ export default function AnnapurnaSewaPage() {
           id="make-contribution"
           title="Make a Contribution"
           subtitle="Help us serve nutritious meals to underprivileged children."
-          purpose="Annapurna Sewa"
+          sewa="annapurna"
           trustMessage="Support a Child's Future"
         />
       </div>

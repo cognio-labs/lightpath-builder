@@ -13,7 +13,7 @@ import {
   Users,
   CheckCircle2,
 } from "lucide-react";
-import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { SEWAS } from "@/lib/sewa";
 
 const INITIATIVES = [
   {
@@ -22,7 +22,7 @@ const INITIATIVES = [
     tagline: "Har Ghar Shiksha — Young Mind Movement",
     achieved: 300000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.shiksha.donatePath,
     knowMoreSlug: "shiksha-sewa",
     image: "/images/initiatives/shiksha-sewa-study.jpg",
     imagePosition: "center 25%",
@@ -40,7 +40,7 @@ const INITIATIVES = [
     tagline: "Nourishing Communities — Food for All",
     achieved: 350000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.annapurna.donatePath,
     knowMoreSlug: "annapurna-sewa",
     image: "/images/initiatives/annapurna-sewa-serving.jpg",
     imagePosition: "center 20%",
@@ -58,7 +58,7 @@ const INITIATIVES = [
     tagline: "Spiritual Retreat & Meditation Ashrams",
     achieved: 700000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.nirman.donatePath,
     knowMoreSlug: "nirman-sewa",
     image: "/images/nirman-sewa/vrindavan-ashram-building.webp",
     imagePosition: "center center",
@@ -76,7 +76,7 @@ const INITIATIVES = [
     tagline: "Timeless Wisdom for Conscious Living",
     achieved: 450000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.gita.donatePath,
     knowMoreSlug: "living-the-gita",
     image: "/images/initiatives/living-the-gita.jpg",
     imagePosition: "center center",
@@ -317,7 +317,7 @@ export default function Page() {
 
                       <div className="grid grid-cols-2 gap-2.5 pt-1">
                         <Link
-                          href={`/${init.knowMoreSlug}` as any}
+                          href={init.donateUrl as any}
                           className="text-center py-2.5 px-3 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] text-xs font-bold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5"
                         >
                           <Heart size={13} className="fill-[#521623]" />
@@ -394,14 +394,6 @@ export default function Page() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a
-              href={RAZORPAY_DONATION_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-sm shadow-lg transition-all transform hover:scale-105 active:scale-95"
-            >
-              Donate Now
-            </a>
             <Link
               href="/contact"
               className="px-8 py-3.5 rounded-full bg-white hover:bg-[#FFF4CF] text-[#521623] font-bold text-sm border-2 border-[#521623] shadow-sm transition-all"
