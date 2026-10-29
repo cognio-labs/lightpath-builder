@@ -25,7 +25,16 @@ async function planIdFor(sewa: SewaKey, amount: number) {
     .eq("sewa", sewa)
     .eq("amount", amount)
     .maybeSingle();
-  if (existing) return existing.razorpay_plan_id as string;
+  if (existing) {
+    // A saved plan may belong to the other mode (test vs live keys share this
+    // table) or have been deleted in Razorpay — only reuse it if it exists here.
+    try {
+      await razorpayRequest(`/plans/${existing.razorpay_plan_id}`);
+      return existing.razorpay_plan_id as string;
+    } catch {
+      // Fall through and create a plan for the current keys.
+    }
+  }
 
   const plan = await razorpayRequest<{ id: string }>("/plans", {
     method: "POST",
@@ -40,18 +49,9 @@ async function planIdFor(sewa: SewaKey, amount: number) {
       notes: { sewa },
     },
   });
-  // If two donors raced on a new amount, keep whichever plan was stored first.
-  await db.from("razorpay_plans").upsert(
-    { sewa, amount, razorpay_plan_id: plan.id },
-    { onConflict: "sewa,amount", ignoreDuplicates: true },
-  );
-  const { data: stored } = await db
-    .from("razorpay_plans")
-    .select("razorpay_plan_id")
-    .eq("sewa", sewa)
-    .eq("amount", amount)
-    .single();
-  return (stored?.razorpay_plan_id as string) ?? plan.id;
+  // Replace any unusable saved plan with this one.
+  await db.from("razorpay_plans").upsert({ sewa, amount, razorpay_plan_id: plan.id }, { onConflict: "sewa,amount" });
+  return plan.id;
 }
 
 export async function POST(request: NextRequest) {

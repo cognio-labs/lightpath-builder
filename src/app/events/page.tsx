@@ -1,12 +1,61 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { EVENTS } from "@/data/content";
+import { listPublishedEvents } from "@/lib/events.server";
+import { eventStatus, formatEventDate, formatEventTime } from "@/lib/events";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 
-export default function Page() {
+// Admin-added events (site_events) appear alongside the built-in ones. Saving
+// in /admin/events refreshes this page at once; the timer keeps the automatic
+// "Completed" status current.
+export const revalidate = 300;
+
+type EventCard = {
+  key: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  status: "Available Now" | "Completed";
+  image: string;
+  href: string;
+  sortAt: number;
+};
+
+/** "14th December 2025" → timestamp, for ordering the built-in events with the rest. */
+const parseCardDate = (date: string) => Date.parse(date.replace(/(\d+)(st|nd|rd|th)/, "$1")) || 0;
+
+export default async function Page() {
+  const added = await listPublishedEvents();
+  const cards: EventCard[] = [
+    ...EVENTS.map((e) => ({
+      key: e.slug,
+      title: e.title,
+      description: e.description,
+      date: e.date,
+      time: e.time,
+      location: e.location,
+      status: e.status,
+      image: e.image,
+      href: e.link,
+      sortAt: parseCardDate(e.date),
+    })),
+    ...added.map((e) => ({
+      key: e.id,
+      title: e.title,
+      description: e.subtitle || e.description,
+      date: formatEventDate(e.starts_at),
+      time: formatEventTime(e.starts_at),
+      location: e.location ?? "",
+      status: eventStatus(e),
+      image: e.image_url,
+      href: `/events/${e.slug}`,
+      sortAt: Date.parse(e.starts_at),
+    })),
+  ].sort((a, b) => a.sortAt - b.sortAt);
+
   return (
     <>
       <PageHero
@@ -42,9 +91,9 @@ export default function Page() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {EVENTS.map((e, i) => (
+            {cards.map((e) => (
               <div
-                key={i}
+                key={e.key}
                 className="card-premium rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 group"
                 style={{
                   background: "#FFFFFF",
@@ -78,7 +127,7 @@ export default function Page() {
                     <h3 className="font-serif font-bold text-[#521623] text-xl leading-tight group-hover:text-[#B8860B] transition-colors">
                       {e.title}
                     </h3>
-                    
+
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
                       {e.description}
                     </p>
@@ -88,17 +137,19 @@ export default function Page() {
                         <Calendar size={14} className="text-[#8B6914] shrink-0" />
                         <span>{e.date} &nbsp;|&nbsp; {e.time}</span>
                       </div>
-                      <div className="flex items-start gap-2 text-gray-500">
-                        <MapPin size={14} className="text-[#8B6914] shrink-0 mt-0.5" />
-                        <span className="line-clamp-2">{e.location}</span>
-                      </div>
+                      {e.location && (
+                        <div className="flex items-start gap-2 text-gray-500">
+                          <MapPin size={14} className="text-[#8B6914] shrink-0 mt-0.5" />
+                          <span className="line-clamp-2">{e.location}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
 
                 <div className="px-6 pb-6 pt-2">
                   <Link
-                    href={e.link}
+                    href={e.href}
                     className="w-full py-3 rounded-full border border-amber-300/80 bg-amber-50/80 hover:bg-[#521623] text-[#521623] hover:text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                   >
                     <span>{e.status === "Completed" ? "Event Recap" : "Learn More & Register"}</span>

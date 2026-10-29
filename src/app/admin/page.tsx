@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { Download, LogOut, RefreshCw } from "lucide-react";
+import { CalendarDays, Download, LogOut, RefreshCw } from "lucide-react";
 import { requireAdmin } from "@/lib/admin-auth.server";
 import { donationsDb } from "@/lib/donations.server";
 import { MONTHLY_SEWA_KEYS, SEWAS, SEWA_KEYS, formatInr, isSewaKey, type SewaKey } from "@/lib/sewa";
@@ -81,6 +81,9 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
           <p className="text-xs text-[#7A6165]">All payments via Razorpay · times in IST</p>
         </div>
         <div className="flex items-center gap-2">
+          <Link href="/admin/events" className="flex items-center gap-1.5 rounded-full bg-[#B8860B] px-4 py-2 text-xs font-bold text-white hover:bg-[#9A700A]">
+            <CalendarDays size={13} /> Events
+          </Link>
           <Link href={hrefWith(params, {})} className="flex items-center gap-1.5 rounded-full border border-[#E8D6B5] bg-white px-4 py-2 text-xs font-bold text-[#521623] hover:bg-[#FFF4CF]">
             <RefreshCw size={13} /> Refresh
           </Link>

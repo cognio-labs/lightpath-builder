@@ -61,7 +61,7 @@ export const SEWA_KEYS = Object.keys(SEWAS) as SewaKey[];
 export const MONTHLY_SEWA_KEYS = SEWA_KEYS.filter((key) => SEWAS[key].subscriptionsTable);
 
 export const MIN_DONATION = 1;
-export const MIN_MONTHLY_DONATION = 10;
+export const MIN_MONTHLY_DONATION = 11;
 export const MAX_DONATION = 5_000_000;
 
 export function isSewaKey(value: unknown): value is SewaKey {

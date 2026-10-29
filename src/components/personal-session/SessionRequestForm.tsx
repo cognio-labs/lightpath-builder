@@ -57,8 +57,11 @@ export default function SessionRequestForm({
     await submitForm({ type: "book_session", ...donor, message: source }).catch(() => {});
 
     try {
-      const query = new URLSearchParams({ sewa: "session", ...donor });
-      const res = await fetch(`/api/razorpay/payment-page?${query}`);
+      const res = await fetch("/api/razorpay/payment-page", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sewa: "session", ...donor }),
+      });
       const { url } = (await res.json()) as { url: string | null };
       if (url) {
         window.location.assign(url);

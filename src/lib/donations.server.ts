@@ -90,17 +90,61 @@ export async function markOrderPaid(payment: RazorpayPayment) {
 }
 
 /**
- * Which sewa a Razorpay Payment Page payment belongs to. Razorpay doesn't
- * document a page-id field on the payment, so the sewa is matched by its page
- * id (pl_…) appearing anywhere in the webhook payload, or by a "sewa" note.
+ * Razorpay Payment Page payments don't say which page was paid (no page id,
+ * title or receipt in the webhook). So, in order:
+ *   1. a row already holding this Razorpay order (a repeat webhook),
+ *   2. a "sewa" note, or the page id if Razorpay ever includes it,
+ *   3. the "intent" row our donate card saved just before opening the page
+ *      (/api/razorpay/payment-page), matched by email or phone + amount.
  */
-async function sewaForPaymentPage(payment: RazorpayPayment, rawPayload: string) {
+type PageMatch = { sewa: SewaKey; rowId?: string; rowStatus?: string };
+
+const PAGE_SEWAS = SEWA_KEYS.filter((key) => SEWAS[key].paymentPageEnv);
+const INTENT_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
+const last10 = (phone?: string | null) => (phone ?? "").replace(/\D/g, "").slice(-10);
+
+async function matchPaymentPage(db: SupabaseClient, payment: RazorpayPayment, rawPayload: string): Promise<PageMatch | null> {
+  const orderId = payment.order_id ?? payment.id;
+
+  // 1. Already recorded under this order.
+  for (const sewa of PAGE_SEWAS) {
+    const { data } = await db.from(SEWAS[sewa].table).select("id, status").eq("razorpay_order_id", orderId).maybeSingle();
+    if (data) return { sewa, rowId: data.id, rowStatus: data.status };
+  }
+
+  // 2. Told directly.
   const noted = noteValue(payment.notes, "sewa");
-  const pageIds = await Promise.all(SEWA_KEYS.map((key) => paymentPageId(SEWAS[key].paymentPageEnv)));
-  return (
-    SEWA_KEYS.find((_, i) => pageIds[i] !== null && rawPayload.includes(pageIds[i]!)) ??
-    (isSewaKey(noted) ? noted : null)
-  );
+  if (isSewaKey(noted)) return { sewa: noted };
+  const pageIds = await Promise.all(PAGE_SEWAS.map((key) => paymentPageId(SEWAS[key].paymentPageEnv)));
+  const byPage = PAGE_SEWAS.find((_, i) => pageIds[i] !== null && rawPayload.includes(pageIds[i]!));
+  if (byPage) return { sewa: byPage };
+
+  // 3. The donor's intent from our card: same amount, same email or phone, most recent.
+  const donor = paymentPageDonor(payment);
+  const email = donor.donor_email?.trim().toLowerCase();
+  const phone = last10(donor.donor_phone);
+  if (!email && !phone) return null;
+  const since = new Date(Date.now() - INTENT_WINDOW_MS).toISOString();
+
+  let best: { sewa: SewaKey; id: string; status: string; created_at: string } | null = null;
+  for (const sewa of PAGE_SEWAS) {
+    const { data } = await db
+      .from(SEWAS[sewa].table)
+      .select("id, status, created_at, donor_email, donor_phone")
+      .like("razorpay_order_id", "intent_%")
+      .eq("status", "created")
+      .eq("amount", toRupees(payment.amount))
+      .gte("created_at", since)
+      .order("created_at", { ascending: false })
+      .limit(20);
+    const hit = (data ?? []).find(
+      (row) =>
+        (email && row.donor_email?.trim().toLowerCase() === email) ||
+        (phone && last10(row.donor_phone) === phone),
+    );
+    if (hit && (!best || hit.created_at > best.created_at)) best = { sewa, id: hit.id, status: hit.status, created_at: hit.created_at };
+  }
+  return best ? { sewa: best.sewa, rowId: best.id, rowStatus: best.status } : null;
 }
 
 /** Donor details as entered on a Payment Page (prefilled from our card). */
@@ -110,27 +154,29 @@ function paymentPageDonor(payment: RazorpayPayment) {
     donor_name: note("name", "full_name", "donor_name"),
     donor_email: payment.email ?? note("email"),
     donor_phone: payment.contact ?? note("phone", "contact"),
-    donor_pan: note("pan", "pan_number", "pan_card"),
+    donor_pan: note("pan", "pan_no", "pan_number", "pan_card"),
   };
 }
 
-/**
- * Payment made on a sewa's own Razorpay Payment Page (so no row of ours yet).
- * One row per Razorpay order. Returns the sewa it was recorded under, or null.
- */
+/** Payment made on a sewa's own Razorpay Payment Page. Returns the sewa it was recorded under, or null. */
 export async function recordPaymentPagePayment(payment: RazorpayPayment, rawPayload: string) {
-  const sewa = await sewaForPaymentPage(payment, rawPayload);
-  if (!sewa) return null;
-
   const db = await donationsDb();
+  const match = await matchPaymentPage(db, payment, rawPayload);
+  if (!match) return null;
+  const { sewa } = match;
+
   const table = SEWAS[sewa].table;
   const orderId = payment.order_id ?? payment.id;
-  const donor = paymentPageDonor(payment);
+  // Keep the name/email/phone from our card where the page didn't send them.
+  const donor = Object.fromEntries(Object.entries(paymentPageDonor(payment)).filter(([, v]) => v)) as Partial<
+    ReturnType<typeof paymentPageDonor>
+  >;
   const paidAt = fromUnix(payment.created_at) ?? new Date().toISOString();
   const fields = {
     amount: toRupees(payment.amount),
     currency: payment.currency,
     status: "paid",
+    razorpay_order_id: orderId,
     razorpay_payment_id: payment.id,
     payment_method: payment.method ?? null,
     failure_reason: null,
@@ -139,29 +185,29 @@ export async function recordPaymentPagePayment(payment: RazorpayPayment, rawPayl
     notes: payment.notes && !Array.isArray(payment.notes) ? payment.notes : {},
   };
 
-  // An earlier failed attempt on the same order → mark it paid.
-  const { data: updated, error: updateError } = await db
-    .from(table)
-    .update(fields)
-    .eq("razorpay_order_id", orderId)
-    .eq("status", "failed")
-    .select("id");
-  if (updateError) throw new Error(updateError.message);
-
-  let newlyPaid = Boolean(updated?.length);
-  if (!newlyPaid) {
-    // First report of this order; a repeat webhook finds it already there and changes nothing.
-    const { data: inserted, error } = await db
+  let changed: { donor_name: string | null; donor_email: string | null; donor_phone: string | null } | undefined;
+  if (match.rowId) {
+    // Intent row, or an earlier failed attempt on this order → mark it paid (only once).
+    const { data, error } = await db
       .from(table)
-      .upsert({ ...fields, razorpay_order_id: orderId }, { onConflict: "razorpay_order_id", ignoreDuplicates: true })
-      .select("id");
+      .update(fields)
+      .eq("id", match.rowId)
+      .in("status", ["created", "failed"])
+      .select("donor_name, donor_email, donor_phone");
     if (error) throw new Error(error.message);
-    newlyPaid = Boolean(inserted?.length);
+    changed = data?.[0];
+  } else {
+    const { data, error } = await db
+      .from(table)
+      .upsert(fields, { onConflict: "razorpay_order_id", ignoreDuplicates: true })
+      .select("donor_name, donor_email, donor_phone");
+    if (error) throw new Error(error.message);
+    changed = data?.[0];
   }
 
-  if (newlyPaid) {
+  if (changed) {
     await notifyPaid(sewa, {
-      donor: { name: donor.donor_name, email: donor.donor_email, phone: donor.donor_phone },
+      donor: { name: changed.donor_name, email: changed.donor_email, phone: changed.donor_phone },
       amount: toRupees(payment.amount),
       payment,
       paidAt,
@@ -170,34 +216,51 @@ export async function recordPaymentPagePayment(payment: RazorpayPayment, rawPayl
   return sewa;
 }
 
-/** Failed attempt on a Payment Page → one "failed" row per order, and one email. */
+/** Failed attempt on a Payment Page → mark its row failed once, and email the donor. */
 export async function recordPaymentPageFailure(payment: RazorpayPayment, rawPayload: string) {
-  const sewa = await sewaForPaymentPage(payment, rawPayload);
-  if (!sewa) return null;
-
   const db = await donationsDb();
-  const donor = paymentPageDonor(payment);
-  const reason = payment.error_description ?? "Payment failed";
-  const { data: inserted, error } = await db
-    .from(SEWAS[sewa].table)
-    .upsert(
-      {
-        amount: toRupees(payment.amount),
-        currency: payment.currency,
-        status: "failed",
-        razorpay_order_id: payment.order_id ?? payment.id,
-        failure_reason: reason,
-        ...donor,
-      },
-      { onConflict: "razorpay_order_id", ignoreDuplicates: true },
-    )
-    .select("id");
-  if (error) throw new Error(error.message);
+  const match = await matchPaymentPage(db, payment, rawPayload);
+  if (!match) return null;
+  const { sewa } = match;
 
-  if (inserted?.length) {
+  const table = SEWAS[sewa].table;
+  const reason = payment.error_description ?? "Payment failed";
+  const donor = paymentPageDonor(payment);
+
+  let changed: { donor_name: string | null; donor_email: string | null } | undefined;
+  if (match.rowId) {
+    // Tie the intent row to this order so a retry on the same order marks it paid.
+    const { data, error } = await db
+      .from(table)
+      .update({ status: "failed", failure_reason: reason, razorpay_order_id: payment.order_id ?? payment.id })
+      .eq("id", match.rowId)
+      .eq("status", "created")
+      .select("donor_name, donor_email");
+    if (error) throw new Error(error.message);
+    changed = data?.[0];
+  } else {
+    const { data, error } = await db
+      .from(table)
+      .upsert(
+        {
+          amount: toRupees(payment.amount),
+          currency: payment.currency,
+          status: "failed",
+          razorpay_order_id: payment.order_id ?? payment.id,
+          failure_reason: reason,
+          ...donor,
+        },
+        { onConflict: "razorpay_order_id", ignoreDuplicates: true },
+      )
+      .select("donor_name, donor_email");
+    if (error) throw new Error(error.message);
+    changed = data?.[0];
+  }
+
+  if (changed) {
     await sendPaymentFailed({
       sewa,
-      donor: { name: donor.donor_name, email: donor.donor_email },
+      donor: { name: changed.donor_name, email: changed.donor_email ?? donor.donor_email },
       amount: toRupees(payment.amount),
       monthly: false,
       reason,
