@@ -1,7 +1,8 @@
 // Server-only: sends email through Resend's REST API (RESEND_API_KEY).
 // Never throws — a mail problem must not fail a payment or a webhook.
 
-const DEFAULT_FROM = "Science Divine Foundation <donations@sciencedivine.org>";
+// Fixed sender: must be on the domain verified in Resend (science-divine.org).
+const FROM = "Science Divine Foundation <donations@science-divine.org>";
 
 type Email = {
   /** One address, or several separated by commas. */
@@ -28,7 +29,7 @@ export async function sendEmail({ to, subject, html, text, replyTo, internal = f
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL?.trim() || DEFAULT_FROM,
+        from: FROM,
         to: recipients,
         ...(bcc ? { bcc: [bcc] } : {}),
         ...(reply ? { reply_to: reply } : {}),
