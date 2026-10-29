@@ -40,3 +40,9 @@
 .typeToggle { display:grid; grid-template-columns:1fr 1fr; gap:4px; margin:0 auto 10px; padding:4px; border:1px solid #e2be75; border-radius:9999px; background:#fffaf0; }
 .typeToggle button { min-height:34px; border:0; border-radius:9999px; background:transparent; color:#651522; cursor:pointer; font:750 .74rem/1 "Inter",sans-serif; transition:background-color 160ms ease,color 160ms ease; }
 .typeToggle button.typeActive { background:#681522; color:#fff9ec; }
+.donorFields { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.donorFields input { min-width:0; min-height:40px; padding:0 14px; border:1.5px solid #dca73e; border-radius:9999px; background:#fffdfa; color:#4d1820; font:500 .85rem/1.2 "Inter",sans-serif; outline:0; transition:border-color 160ms ease,background-color 160ms ease; }
+.donorFields input:first-child { grid-column:1 / -1; }
+.donorFields input::placeholder { color:#968984; font-weight:450; font-size:.8rem; }
+.donorFields input:focus { border-color:#751827; background:#fff9ec; outline:2px solid rgba(117,24,39,.12); outline-offset:1px; }
+@media(max-width:640px){.donorFields{grid-template-columns:1fr}}

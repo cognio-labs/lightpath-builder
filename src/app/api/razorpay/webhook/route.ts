@@ -9,6 +9,7 @@ import {
   markOrderFailed,
   markOrderPaid,
   markPaymentRefunded,
+  recordPaymentPageFailure,
   recordPaymentPagePayment,
   recordSubscriptionCharge,
   syncSubscription,
@@ -77,7 +78,10 @@ export async function POST(request: NextRequest) {
         }
         break;
       case "payment.failed":
-        if (payment && !payment.invoice_id) await markOrderFailed(payment);
+        if (payment && !payment.invoice_id && !(await markOrderFailed(payment))) {
+          const sewa = await recordPaymentPageFailure(payment, rawBody);
+          if (sewa) await db.from("razorpay_webhook_events").update({ sewa }).eq("event_id", eventId);
+        }
         break;
       case "subscription.authenticated":
       case "subscription.activated":

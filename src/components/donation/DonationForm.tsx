@@ -2,11 +2,20 @@
 
 import { useEffect, useId, useState } from "react";
 import { ArrowRight, Check, CreditCard, Heart, LockKeyhole, ShieldCheck } from "lucide-react";
-import { useSewaCheckout } from "@/components/donations/useSewaCheckout";
+import { useSewaCheckout, type Donor } from "@/components/donations/useSewaCheckout";
 import { MIN_MONTHLY_DONATION, SEWAS, type DonationFrequency, type SewaKey } from "@/lib/sewa";
 import styles from "./DonationForm.module.css";
 
 const PRESET_AMOUNTS = [500, 1100, 2100, 3100, 11000, 21000] as const;
+const DONOR_STORAGE_KEY = "sd-donor-details";
+
+/** Returns an error message, or "" when the donor details are usable. */
+function donorError({ name, email, phone }: Donor) {
+  if (name.trim().length < 2) return "Please enter your full name.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return "Please enter a valid email address.";
+  if (!/^(\+?91)?[6-9]\d{9}$/.test(phone.replace(/[\s-]/g, ""))) return "Please enter a valid 10-digit mobile number.";
+  return "";
+}
 
 export type DonationFormProps = {
   /** Which sewa's table the payment is recorded in (see src/lib/sewa.ts). */
@@ -34,9 +43,18 @@ export function DonationForm({
   const [amountInput, setAmountInput] = useState("1100");
   const [error, setError] = useState("");
   const [opening, setOpening] = useState(false);
+  const [donor, setDonor] = useState<Donor>({ name: "", email: "", phone: "" });
   const amount = Number(amountInput);
   const monthly = frequency === "monthly";
   const formattedAmount = amount > 0 ? amount.toLocaleString("en-IN") : "—";
+
+  // Remember the donor's details on this device for next time.
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(DONOR_STORAGE_KEY);
+      if (saved) setDonor((d) => ({ ...d, ...JSON.parse(saved) }));
+    } catch {}
+  }, []);
 
   // Coming back from the Razorpay page via Back restores this page from cache.
   useEffect(() => {
@@ -56,14 +74,24 @@ export function DonationForm({
       setError(`Enter a valid contribution amount of at least ₹${minimum}.`);
       return;
     }
+    const detailsError = donorError(donor);
+    if (detailsError) {
+      setError(detailsError);
+      return;
+    }
     setError("");
+    const cleanDonor = { name: donor.name.trim(), email: donor.email.trim(), phone: donor.phone.replace(/[\s-]/g, "") };
+    try {
+      localStorage.setItem(DONOR_STORAGE_KEY, JSON.stringify(cleanDonor));
+    } catch {}
 
     // Sewas with their own Razorpay Payment Page open it with the amount
     // prefilled; the webhook records the payment. Otherwise pay on-site.
     if (!monthly && SEWAS[sewa].paymentPageEnv) {
       setOpening(true);
       try {
-        const res = await fetch(`/api/razorpay/payment-page?sewa=${sewa}&amount=${amount}`);
+        const query = new URLSearchParams({ sewa, amount: String(amount), ...cleanDonor });
+        const res = await fetch(`/api/razorpay/payment-page?${query}`);
         const { url } = (await res.json()) as { url: string | null };
         if (url) {
           window.location.assign(url);
@@ -74,7 +102,7 @@ export function DonationForm({
       }
       setOpening(false);
     }
-    checkout.start({ sewa, amount, frequency });
+    checkout.start({ sewa, amount, frequency, donor: cleanDonor });
   };
 
   return (
@@ -139,6 +167,28 @@ export function DonationForm({
           />
         </label>
       </fieldset>
+
+      <div className={styles.donorFields}>
+        {([
+          ["name", "Full name *", "text", "name"],
+          ["email", "Email *", "email", "email"],
+          ["phone", "Mobile number *", "tel", "tel"],
+        ] as const).map(([key, placeholder, type, autoComplete]) => (
+          <input
+            key={key}
+            type={type}
+            inputMode={key === "phone" ? "tel" : undefined}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+            aria-label={placeholder.replace(" *", "")}
+            value={donor[key]}
+            onChange={(event) => {
+              setDonor({ ...donor, [key]: event.target.value });
+              setError("");
+            }}
+          />
+        ))}
+      </div>
       <p id={`${inputId}-selection`} className={styles.selection} aria-live="polite">
         Selected contribution: <strong>₹{formattedAmount}{monthly ? " / month" : ""}</strong>
         {monthly && <><br />Charged automatically every month via UPI Autopay or card. Cancel anytime.</>}
@@ -146,7 +196,13 @@ export function DonationForm({
       <p id={`${inputId}-error`} className={styles.error} role="alert">{error}</p>
       <button type="button" className={styles.donateButton} onClick={startCheckout} disabled={opening}>
         <LockKeyhole size={18} aria-hidden="true" />
-        <span>{opening ? "Opening secure payment page…" : "Donate securely"}</span>
+        <span>
+          {opening
+            ? "Opening secure payment page…"
+            : monthly
+              ? `Start ₹${formattedAmount} / month auto-pay`
+              : "Donate securely"}
+        </span>
         <ArrowRight size={19} aria-hidden="true" />
       </button>
       <div className={styles.trustGrid} aria-label="Payment assurances">
