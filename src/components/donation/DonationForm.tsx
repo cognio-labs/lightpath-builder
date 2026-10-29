@@ -7,7 +7,6 @@ import { MIN_MONTHLY_DONATION, SEWAS, type DonationFrequency, type SewaKey } fro
 import styles from "./DonationForm.module.css";
 
 const PRESET_AMOUNTS = [500, 1100, 2100, 3100, 11000, 21000] as const;
-const DONOR_STORAGE_KEY = "sd-donor-details";
 
 /** Returns an error message, or "" when the donor details are usable. */
 function donorError({ name, email, phone }: Donor) {
@@ -48,14 +47,6 @@ export function DonationForm({
   const monthly = frequency === "monthly";
   const formattedAmount = amount > 0 ? amount.toLocaleString("en-IN") : "—";
 
-  // Remember the donor's details on this device for next time.
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(DONOR_STORAGE_KEY);
-      if (saved) setDonor((d) => ({ ...d, ...JSON.parse(saved) }));
-    } catch {}
-  }, []);
-
   // Coming back from the Razorpay page via Back restores this page from cache.
   useEffect(() => {
     const reset = () => setOpening(false);
@@ -81,9 +72,6 @@ export function DonationForm({
     }
     setError("");
     const cleanDonor = { name: donor.name.trim(), email: donor.email.trim(), phone: donor.phone.replace(/[\s-]/g, "") };
-    try {
-      localStorage.setItem(DONOR_STORAGE_KEY, JSON.stringify(cleanDonor));
-    } catch {}
 
     // Sewas with their own Razorpay Payment Page open it with the amount
     // prefilled; the webhook records the payment. Otherwise pay on-site.
