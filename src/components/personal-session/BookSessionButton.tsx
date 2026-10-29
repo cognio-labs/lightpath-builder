@@ -1,7 +1,7 @@
 "use client";
 
 import type { MouseEvent, ReactNode } from "react";
-import { openBookingModal } from "./BookingModal";
+import { openBookingModal } from "./booking-events";
 import { ButtonInner, goldButtonClass } from "./ui";
 
 /** Hero CTA: opens the booking popup. Without JavaScript it links to the booking section. */

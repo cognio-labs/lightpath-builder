@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Star, Download, Sparkles, BookOpen, User, Briefcase, Heart, ArrowRight } from "lucide-react";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -243,7 +244,7 @@ export default function Page() {
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
               >
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.name} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={t.id} title={t.name} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "20px" }}>
                   <div style={{ display: "flex", gap: "3px", marginBottom: "8px" }}>{Array.from({ length: 5 }).map((_, si) => <Star key={si} size={14} fill="#521623" style={{ color: "#521623" }} />)}</div>

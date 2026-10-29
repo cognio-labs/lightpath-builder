@@ -1,4 +1,26 @@
 @import "tailwindcss";
+
+/* Buttons stay flat and premium across all states; focus remains a true outline. */
+button,
+[role="button"],
+a[class*="btn" i],
+a[class*="button" i],
+button[class*="shadow"],
+a[class*="shadow"],
+button[style*="box-shadow"],
+a[style*="box-shadow"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+a[class*="btn" i]:focus-visible,
+a[class*="button" i]:focus-visible {
+  outline: 3px solid rgba(212, 175, 55, 0.72);
+  outline-offset: 3px;
+}
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *), .dark&);
@@ -11,9 +33,11 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
 
-  --font-display: "Playfair Display", "Cinzel", Georgia, serif;
-  --font-quote: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* next/font self-hosts the brand faces and keeps their metrics stable during swap. */
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", ui-serif, serif;
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", ui-serif, serif;
+  --font-quote: var(--font-cormorant), Georgia, "Times New Roman", ui-serif, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -133,6 +157,16 @@
   --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.08);
 
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Keep the initial viewport responsive even on long, media-rich pages. The
+   browser lays out below-the-fold sections only as they approach the viewport. */
+@supports (content-visibility: auto) {
+  main > section:not(:first-child),
+  main > div > section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
 }
 
 /* ── Dark Mode custom variables ── */
@@ -298,10 +332,15 @@ html.dark footer {
   img,
   svg,
   video,
-  canvas {
+  canvas,
+  iframe {
     max-width: 100%;
   }
   img {
+    display: block;
+  }
+  video,
+  iframe {
     display: block;
   }
   /* High definition text clarity */
@@ -511,13 +550,6 @@ html.dark footer {
     border-color: var(--border);
     color: var(--foreground);
   }
-}
-
-/* ── Ornament divider ───────────────────────────── */
-@utility gold-divider {
-  height: 2px;
-  background: var(--gradient-gold);
-  border-radius: 999px;
 }
 
 /* ── Eyebrow text ───────────────────────────────── */
@@ -853,7 +885,7 @@ div[style*="scrollbarWidth: none"]::-webkit-scrollbar {
    Logo-derived palette only: ivory, saffron-gold and maroon.
 ═══════════════════════════════════════════════════ */
 :root {
-  --background: #fff9ed;
+  --background: #ffffff;
   --foreground: #533c3f;
   --card: #fffdf8;
   --card-foreground: #521623;
@@ -876,13 +908,13 @@ div[style*="scrollbarWidth: none"]::-webkit-scrollbar {
 
 html {
   color-scheme: light;
-  background: #fff9ed;
+  background: #ffffff;
 }
 
 body,
 html.dark,
 html.dark body {
-  background: #fff9ed !important;
+  background: #ffffff !important;
   color: #533c3f !important;
 }
 
@@ -905,9 +937,9 @@ html.dark body {
 }
 
 /* Remap legacy near-black/navy surfaces to the logo's deep maroon. */
-main [class*="bg-black"],
-main [class*="bg-slate-9"],
-main [class*="bg-[#0"],
+main [class~="bg-black"],
+main [class~="bg-slate-900"],
+main [class~="bg-slate-950"],
 main [style*="background: #0F172A"],
 main [style*="background:#0F172A"],
 main [style*="background-color: #0F172A"],
@@ -954,6 +986,34 @@ main img {
   height: auto;
 }
 
+/* Shared media and layout safeguards for legacy and newly built routes. */
+main :is(.grid, .flex) > * {
+  min-width: 0;
+}
+
+main :is(img, video) {
+  object-position: center;
+}
+
+main iframe[src*="youtube"],
+main iframe[src*="youtu.be"] {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+
+.nav-dropdown,
+.nav-drawer,
+.nav-accordion {
+  animation: nav-reveal 160ms ease-out both;
+}
+
+@keyframes nav-reveal {
+  from { opacity: 0; transform: translateY(0.4rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 main :is(.rounded-2xl, .rounded-3xl) {
   border-color: color-mix(in srgb, #d7a316 58%, #fff9ed) !important;
 }
@@ -984,6 +1044,36 @@ main :is(.rounded-2xl, .rounded-3xl) {
 
   main :is(a, button) {
     min-height: 44px;
+  }
+
+  main :is(.rounded-2xl, .rounded-3xl) {
+    border-radius: 1rem;
+  }
+
+  main :is(table, pre) {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Legacy landing pages used desktop-sized inline grid minimums. Force a
+     fluid single column on phones so 260–360px cards never overflow. */
+  main [style*="repeat(auto-fit, minmax("] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  main [style*="padding: 40px"],
+  main [style*="padding: 36px"] {
+    padding: 1.25rem !important;
+  }
+
+  .blog-article-content {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .blog-article-content table {
+    display: block;
+    white-space: nowrap;
   }
 }
 
@@ -1580,3 +1670,14 @@ main .ps-root :is(h1, h2, h3) { font-size: revert-layer; }
 body:has(.annapurna-redesign) .site-quick-actions {
   display: none;
 }
+
+/* Ensure all website headings, text, and images support normal copying and selection */
+:is(h1, h2, h3, h4, h5, h6, p, blockquote, label, span:not([aria-hidden="true"]), li, td, th) {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+img, picture {
+  pointer-events: auto;
+}
+

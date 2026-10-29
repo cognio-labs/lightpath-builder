@@ -83,19 +83,19 @@ export default function Page() {
                 <Link href="/book-session" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "linear-gradient(135deg, #D4AF37, #B8860B)", color: "#2E070F", padding: "14px 28px", borderRadius: "100px", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", boxShadow: "0 4px 20px rgba(212,175,55,0.35)" }}>
                   Book a Session <ArrowRight size={16} />
                 </Link>
-                <a href="#explore" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
-                  Explore Resources <ChevronRight size={16} />
-                </a>
+                <Link href="/events" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)", color: "#FFFFFF", padding: "14px 28px", borderRadius: "100px", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", backdropFilter: "blur(10px)" }}>
+                  Explore Events <ChevronRight size={16} />
+                </Link>
               </div>
             </div>
 
             {/* Right side topic image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
+              <div className="relative w-full max-w-[480px] aspect-square overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20">
                 <img loading="lazy" decoding="async"
-                  src="/images/uploads/2025/01/dhyan-with-happy-face-copy-1-1-896x1024.webp"
+                  src="/images/finding-purpose-hero.jpg"
                   alt="Finding Your Purpose"
-                  className="w-full h-full object-cover object-top transform hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -105,7 +105,7 @@ export default function Page() {
       </section>
 
       {/* Tabs */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map(t => (
@@ -125,24 +125,17 @@ export default function Page() {
             <SectionHeading eyebrow="Read & Reflect" title="Explore Your Life's Purpose" subtitle="Guiding articles from Sakshi Shree on self-discovery, spiritual values, and conscious living." />
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px", marginTop: "40px" }}>
               {ARTICLES.map((a, i) => (
-                <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1px solid rgba(75,16,27,0.18)", borderRadius: "22px", textDecoration: "none", boxShadow: "0 8px 24px rgba(75,16,27,0.06)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", overflow: "hidden" }}
+                <a key={i} href={a.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", border: "1.5px solid rgba(75,16,27,0.15)", borderRadius: "22px", textDecoration: "none", boxShadow: "0 8px 24px rgba(75,16,27,0.06)", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s", position: "relative", padding: "26px 26px 24px" }}
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 16px 40px rgba(75,16,27,0.14)"; el.style.borderColor = "#4B101B"; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 8px 24px rgba(75,16,27,0.06)"; el.style.borderColor = "rgba(75,16,27,0.18)"; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 8px 24px rgba(75,16,27,0.06)"; el.style.borderColor = "rgba(75,16,27,0.15)"; }}
                 >
-                  <div style={{ position: "relative", height: "164px", overflow: "hidden", background: "#F7EEDC" }}>
-                    <img src={a.image} alt={a.alt} loading={i < 3 ? "eager" : "lazy"} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transition: "transform 0.45s ease" }} />
-                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(75,16,27,0.02) 20%, rgba(75,16,27,0.48) 100%)", pointerEvents: "none" }} />
-                    <span style={{ position: "absolute", left: "18px", bottom: "16px", background: "rgba(255,250,240,0.9)", color: "#4B101B", fontSize: "10px", fontWeight: 800, padding: "5px 10px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.12em", backdropFilter: "blur(8px)" }}>{a.tag}</span>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", marginBottom: "16px" }}>
+                    <span style={{ background: "rgba(75,16,27,0.08)", color: "#4B101B", fontSize: "11px", fontWeight: 800, padding: "5px 12px", borderRadius: "999px", textTransform: "uppercase", letterSpacing: "0.08em" }}>{a.tag}</span>
+                    <span style={{ color: "#9CA3AF", fontSize: "12px", fontWeight: 500 }}>{a.readTime} read</span>
                   </div>
-                  <div style={{ padding: "22px 24px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", marginBottom: "12px" }}>
-                    <div style={{ width: "36px", height: "2px", background: "linear-gradient(90deg, #4B101B, #D4AF37)", borderRadius: "999px" }} />
-                    <span style={{ color: "#9CA3AF", fontSize: "12px" }}>{a.readTime} read</span>
-                  </div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, color: "#4B101B", lineHeight: 1.45, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
-                  <p style={{ color: "#6B7280", fontSize: "0.875rem", lineHeight: 1.7, marginBottom: "20px" }}>{a.desc}</p>
-                  <div style={{ paddingTop: "14px", borderTop: "1px solid #F1E6CF", display: "flex", alignItems: "center", gap: "6px", color: "#4B101B", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.03em" }}>Read Article <ArrowRight size={14} /></div>
-                  </div>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, color: "#4B101B", lineHeight: 1.4, marginBottom: "12px", flex: 1 }}>{a.title}</h3>
+                  <p style={{ color: "#6B7280", fontSize: "0.9rem", lineHeight: 1.65, marginBottom: "22px" }}>{a.desc}</p>
+                  <div style={{ paddingTop: "14px", borderTop: "1px solid #F1E6CF", display: "flex", alignItems: "center", gap: "6px", color: "#4B101B", fontWeight: 800, fontSize: "0.82rem", letterSpacing: "0.03em", marginTop: "auto" }}>Read Article <ArrowRight size={14} /></div>
                 </a>
               ))}
             </div>

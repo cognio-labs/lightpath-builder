@@ -657,7 +657,7 @@ export const COURSES = [
     duration: "2 hours",
     level: "Beginner",
     image:
-      "/power-meditation.png",
+      "/power-meditation.webp",
     features: [
       "Manifest Your Dreams",
       "Heightened Creativity",

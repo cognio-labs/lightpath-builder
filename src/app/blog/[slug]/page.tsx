@@ -11,8 +11,10 @@ import {
   BookOpen,
 } from "lucide-react";
 import { BlogNewsletterForm } from "@/components/blog/BlogNewsletterForm";
+import { ResponsiveBlogImage } from "@/components/blog/ResponsiveBlogImage";
 import { ShareButton } from "@/components/blog/ShareButton";
 import { getAllPostSummaries, getLegacySlugs, getPostPage } from "@/lib/blog.server";
+import { optimizeTypefloArticleImages } from "@/lib/blog-images";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -84,6 +86,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   const { post, html, toc, faqs } = page;
+  const responsiveArticleHtml = optimizeTypefloArticleImages(html);
   const postIndex = allPosts.findIndex((p) => p.slug === slug);
 
   // Previous & Next navigation (list is newest first)
@@ -172,9 +175,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       <section className="bg-[#FDF0F0] py-12 lg:py-16 border-b border-rose-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="space-y-2">
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1A202C] tracking-tight">
+            <p className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1A202C] tracking-tight">
               Science Divine Foundation
-            </h2>
+            </p>
             <p className="text-sm sm:text-base font-medium text-[#718096] tracking-wide">
               Sound Body | Sound Mind | Self- Realisation
             </p>
@@ -258,10 +261,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Featured Cover Image */}
         <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-gray-100 shadow-sm border border-gray-200/80">
-          <img loading="eager" fetchPriority="high" decoding="async"
+          <ResponsiveBlogImage
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
+            sizes="(max-width: 960px) calc(100vw - 32px), 896px"
+            eager
           />
         </div>
 
@@ -285,7 +289,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Full Article Content */}
         <article
           className="blog-article-content pt-2 pb-8 border-b border-gray-100"
-          dangerouslySetInnerHTML={{ __html: html }}
+          dangerouslySetInnerHTML={{ __html: responsiveArticleHtml }}
         />
 
         {/* Tags */}
@@ -316,9 +320,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <ArrowLeft size={13} className="group-hover:-translate-x-1 transition-transform" />
                 Previous Article
               </span>
-              <h3 className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
+              <p className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
                 {prevPost.title}
-              </h3>
+              </p>
             </Link>
           ) : (
             <div />
@@ -333,9 +337,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Next Article
                 <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
               </span>
-              <h3 className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
+              <p className="font-serif font-bold text-sm text-gray-800 group-hover:text-[#8B1515] transition-colors line-clamp-2">
                 {nextPost.title}
-              </h3>
+              </p>
             </Link>
           ) : (
             <div />
@@ -366,10 +370,11 @@ export default async function BlogPostPage({ params }: PageProps) {
               >
                 <div>
                   <Link href={`/blog/${related.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-gray-100">
-                    <img loading="lazy" decoding="async"
+                    <ResponsiveBlogImage
                       src={related.image}
                       alt={related.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) calc(100vw - 32px), 300px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </Link>
 

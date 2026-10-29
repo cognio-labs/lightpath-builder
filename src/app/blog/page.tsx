@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Clock, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { BlogNewsletterForm } from "@/components/blog/BlogNewsletterForm";
+import { ResponsiveBlogImage } from "@/components/blog/ResponsiveBlogImage";
 import { getAllPostSummaries, getCategories } from "@/lib/blog.server";
 
 const POSTS_PER_PAGE = 12;
@@ -86,9 +87,9 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
           CATEGORY & SEARCH BAR
       ════════════════════════════════════ */}
       <div id="articles" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 scroll-mt-24">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-gray-100 pb-6">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 border-b border-gray-100 pb-6">
           {/* Category Filter Pills */}
-          <nav aria-label="Blog categories" className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 scrollbar-none">
+          <nav aria-label="Blog categories" className="flex flex-wrap items-center gap-2 sm:gap-2.5 flex-1 min-w-0">
             {categories.map((cat) => {
               const isActive = category === cat.slug;
               return (
@@ -96,10 +97,10 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
                   key={cat.slug}
                   href={`${blogHref({ category: cat.slug, q: query })}#articles`}
                   aria-current={isActive ? "page" : undefined}
-                  className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 ${
+                  className={`shrink-0 inline-flex items-center px-4 py-2 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide whitespace-nowrap transition-all duration-200 ${
                     isActive
-                      ? "bg-[#8B1515] text-white shadow-xs"
-                      : "bg-gray-100/80 text-gray-700 hover:bg-gray-200/80 border border-gray-200/60"
+                      ? "bg-[#8B1515] text-white shadow-sm ring-1 ring-[#8B1515]"
+                      : "bg-gray-100/90 text-gray-700 hover:bg-gray-200 hover:text-gray-900 border border-gray-200/80"
                   }`}
                 >
                   {cat.name}
@@ -109,16 +110,16 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
           </nav>
 
           {/* Search Box — a plain GET form, works without JavaScript */}
-          <form action="/blog#articles" method="get" role="search" className="relative w-full md:w-72 shrink-0">
+          <form action="/blog#articles" method="get" role="search" className="relative w-full lg:w-72 shrink-0">
             {category !== "all" && <input type="hidden" name="category" value={category} />}
-            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
+            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
             <input
               type="search"
               name="q"
               defaultValue={query}
               placeholder="Search articles..."
               aria-label="Search articles"
-              className="w-full pl-9 pr-3 py-2 rounded-full bg-gray-50 border border-gray-200 text-xs font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#8B1515]"
+              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-gray-50 border border-gray-200 text-xs sm:text-sm font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#8B1515] focus:bg-white transition-colors"
             />
           </form>
         </div>
@@ -149,12 +150,11 @@ export default async function BlogListingPage({ searchParams }: PageProps) {
                 <div>
                   {/* Card Image */}
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-gray-100">
-                    <img
-                      loading="lazy"
-                      decoding="async"
+                    <ResponsiveBlogImage
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </Link>
 

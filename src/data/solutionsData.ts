@@ -21,31 +21,31 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "CloudSun",
     tagline: "Awaken Inner Light & Overcome Darkness",
     shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/depression.jpeg",
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
       {
-        title: "Renewed Joy & Purpose",
-        desc: "Reconnect with the natural joy of existing and find meaningful purpose.",
+        title: "Understanding Depression",
+        desc: "Recognize the patterns behind low mood with compassion and clarity.",
         icon: "Sun",
         image: "/images/solutions/depression/benefit-renewed-joy.webp",
       },
       {
-        title: "Emotional Liberation",
-        desc: "Gently release stored grief, trauma, and emotional numbness.",
+        title: "Step by Step: Beating Depression",
+        desc: "Take gentle, practical steps towards steadiness and healing.",
         icon: "Heart",
         image: "/images/solutions/depression/benefit-emotional-liberation.webp",
       },
       {
-        title: "Vital Life Energy",
-        desc: "Awaken dormant energy through pranas and uplifting spiritual community.",
+        title: "Rediscover Joy and Hope",
+        desc: "Reconnect with the moments, people, and practices that lift your spirit.",
         icon: "Sparkles",
         image: "/images/solutions/depression/benefit-vital-energy.webp",
       },
       {
-        title: "Mindful Presence",
-        desc: "Shift away from past regrets and future anxiety into peaceful present awareness.",
+        title: "Building Emotional Strength",
+        desc: "Develop resilience and present-moment awareness for everyday life.",
         icon: "Shield",
         image: "/images/solutions/depression/benefit-mindful-presence.webp",
       },
@@ -91,7 +91,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Brain",
     tagline: "Calm Panic, Release Fear & Rest in Awareness",
     shortDesc: "Overcome racing heartbeat, panic, and persistent worry with Sakshi Bhav and soothing breathwork.",
-    heroImage: "/images/premium-heroes/anxiety-hero.webp",
+    heroImage: "/images/premium-heroes/anxiety.jpeg",
     badge: "ANXIETY RELIEF & PEACE",
     themeColor: "#C79A2E",
     benefits: [
@@ -155,7 +155,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Activity",
     tagline: "Break Thought Swirls & Find Mental Silence",
     shortDesc: "Stop repetitive mental loops and quiet your busy mind with witness consciousness.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/overthinking.jpeg",
     badge: "MENTAL CLARITY & SILENCE",
     themeColor: "#C79A2E",
     benefits: [
@@ -163,7 +163,9 @@ export const SOLUTIONS_LIST: SolutionData[] = [
       { title: "Quiet Internal Noise", desc: "Cultivate quiet mental spaciousness for clear intuition.", icon: "Sun" },
     ],
     symptoms: [
-      { title: "Analysis Paralysis", desc: "Inability to decide due to excessive mental scenarios." },
+      { title: "Analysis Paralysis", desc: "Inability to make decisions because the mind endlessly replays every possible scenario." },
+      { title: "Rumination & Replaying the Past", desc: "Constantly revisiting past conversations or mistakes, draining present-moment energy." },
+      { title: "Bedtime Mind Racing", desc: "Lying awake at night unable to switch off a stream of thoughts and worries." },
     ],
     practices: [
       { title: "Thought Witnessing Sadhna", duration: "15 Mins / Day", desc: "Watch thoughts objectively without getting pulled into stories." },
@@ -173,7 +175,18 @@ export const SOLUTIONS_LIST: SolutionData[] = [
       author: "Sadguru Sakshi Shree",
     },
     faqs: [
-      { question: "How to stop overthinking at night?", answer: "Write down your open tasks on paper, then practice 10 minutes of Sakshi Bhav breathing." },
+      {
+        question: "How to stop overthinking at night?",
+        answer: "Write down your open tasks on paper before bed to clear mental RAM. Then practice 10 minutes of Sakshi Bhav breathing — slow inhales and extended exhales — to shift your nervous system into rest mode.",
+      },
+      {
+        question: "What practical technique breaks a thought loop during the day?",
+        answer: "Try the 5-4-3-2-1 grounding technique: name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This anchors awareness in the body and breaks the thought spiral immediately.",
+      },
+      {
+        question: "When should I seek professional support for chronic overthinking?",
+        answer: "If overthinking is accompanied by persistent anxiety, inability to function at work or in relationships, or feelings of hopelessness, please consult a qualified mental health professional. Spiritual practices work best as a complement to, not a replacement for, appropriate clinical care.",
+      },
     ],
   },
   {
@@ -182,14 +195,14 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Baby",
     tagline: "Conscious & Mindful Parenting for Joyful Homes",
     shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
-    heroImage: "/images/premium-heroes/parenting-hero.webp",
+    heroImage: "/images/premium-heroes/parenting.jpeg",
     badge: "MINDFUL PARENTING",
     themeColor: "#C79A2E",
     benefits: [
-      { title: "Patience & Calmness", desc: "Handle tantrums and childhood stress with calm, gentle authority.", icon: "Heart" },
-      { title: "Deep Parent-Child Bond", desc: "Build lifelong trust and open communication with your children.", icon: "Sparkles" },
-      { title: "Positive Role Modeling", desc: "Lead by example in self-regulation, empathy, and conscious living.", icon: "Sun" },
-      { title: "Stress-Free Household", desc: "Create a peaceful home environment where children thrive happily.", icon: "Shield" },
+      { title: "Conscious Parenting", desc: "Respond with awareness, patience, and a loving presence.", icon: "Heart", image: "/images/premium-heroes/parenting.jpeg" },
+      { title: "Sakshi Shree's Guide to Parenting Through the Ages", desc: "Timeless wisdom for nurturing children through every stage of life.", icon: "Sparkles", image: "/images/old-site/pages/parenting/Parenting-scaled.webp" },
+      { title: "Building Strong Family Bonds", desc: "Create trust, communication, and deeper connection at home.", icon: "Sun", image: "/images/feature-cards/sound-body.webp" },
+      { title: "Raising Emotionally Healthy Children", desc: "Help children grow with confidence, empathy, and inner balance.", icon: "Shield", image: "/images/feature-cards/self-realization.webp" },
     ],
     symptoms: [
       { title: "Frequent Shouting or Frustration", desc: "Losing patience during daily routines or homework." },
@@ -287,7 +300,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Activity",
     tagline: "Find Your Calm & Release Chronic Tension",
     shortDesc: "Transform mental pressure into profound inner composure using Sakshi Bhav (Witness Consciousness) and scientific breathwork.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/stress.jpeg",
     badge: "WELLNESS & STRESS MANAGEMENT",
     themeColor: "#C79A2E",
     benefits: [
@@ -392,7 +405,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "CloudSun",
     tagline: "Awaken Inner Light & Overcome Darkness",
     shortDesc: "Rekindle joy, hope, and life purpose through Sakshi Shree's compassionate guidance and transformative practices.",
-    heroImage: "/images/premium-heroes/depression-hero.webp",
+    heroImage: "/images/premium-heroes/depression.jpeg",
     badge: "EMOTIONAL HEALING & HOPE",
     themeColor: "#C79A2E",
     benefits: [
@@ -567,7 +580,7 @@ export const SOLUTIONS_LIST: SolutionData[] = [
     iconName: "Baby",
     tagline: "Conscious & Mindful Parenting for Joyful Homes",
     shortDesc: "Raise happy, confident children with patience, emotional intelligence, and loving guidance.",
-    heroImage: "/images/premium-heroes/parenting-hero.webp",
+    heroImage: "/images/premium-heroes/parenting.jpeg",
     badge: "MINDFUL PARENTING",
     themeColor: "#C79A2E",
     benefits: [

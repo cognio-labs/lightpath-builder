@@ -18,28 +18,12 @@ import {
   Mail,
   Globe,
   MapPin,
-  Check,
-  Copy,
-  QrCode,
 } from "lucide-react";
+import { DonationForm } from "@/components/donation/DonationForm";
 
 /* ─────────────────────────────────────────────
    DATA & CONSTANTS
 ───────────────────────────────────────────── */
-const MONTHLY_AMOUNTS = [
-  { value: 500, label: "₹500", sub: "/Month" },
-  { value: 1100, label: "₹1100", sub: "/Month" },
-  { value: 2100, label: "₹2100", sub: "/Month" },
-  { value: 0, label: "Other Amount", sub: "" },
-];
-
-const YEARLY_AMOUNTS = [
-  { value: 5100, label: "₹5100", sub: "/Year" },
-  { value: 11000, label: "₹11,000", sub: "/Year" },
-  { value: 21000, label: "₹21,000", sub: "/Year" },
-  { value: 0, label: "Other Amount", sub: "" },
-];
-
 const CHALLENGES = [
   {
     icon: GraduationCap,
@@ -172,20 +156,6 @@ function PillarLotusIcon({ className = "w-8 h-8 text-[#54121E]" }: { className?:
    MAIN SHIKSHA SEWA PAGE
 ───────────────────────────────────────────── */
 export default function ShikshaSewaPage() {
-  const [frequency, setFrequency] = useState<"monthly" | "yearly">("monthly");
-  const [selectedAmount, setSelectedAmount] = useState<number>(500);
-  const [isOther, setIsOther] = useState(false);
-  const [customAmount, setCustomAmount] = useState("");
-  const [copiedField, setCopiedField] = useState<string | null>(null);
-
-  const amounts = frequency === "monthly" ? MONTHLY_AMOUNTS : YEARLY_AMOUNTS;
-
-  const handleCopy = (text: string, field: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedField(field);
-    setTimeout(() => setCopiedField(null), 2500);
-  };
-
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -212,7 +182,7 @@ export default function ShikshaSewaPage() {
           style={{ zIndex: 0 }}
         >
           <img
-            src="/images/shiksha-sewa/hero-small-steps.png"
+            src="/images/shiksha-sewa/hero-small-steps.webp"
             alt="Small Steps, Big Changes - Shiksha Sewa"
             className="h-full w-full object-cover object-left-top"
             style={{ display: "block" }}
@@ -251,16 +221,25 @@ export default function ShikshaSewaPage() {
               Shiksha Sewa is a non-profit organization dedicated to providing education, vocational training and meditation for a brighter, more compassionate and self-reliant society.
             </p>
 
-            {/* Button */}
-            <div className="pt-1.5 sm:pt-2">
-              <button
-                onClick={() => scrollTo("donate")}
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#EBA528] hover:bg-[#D9941C] text-[#3B0910] font-bold text-xs sm:text-sm shadow-lg shadow-amber-900/40 transition-all duration-200 active:scale-95"
+            {/* Action Buttons */}
+            <div className="pt-1.5 sm:pt-2 flex flex-wrap items-center gap-3 sm:gap-3.5">
+              <a
+                href="#shiksha-contribution"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#EBA528] hover:bg-[#D9941C] text-[#3B0910] font-bold text-xs sm:text-sm shadow-lg shadow-amber-900/40 transition-all duration-200 active:scale-95 hover:scale-105"
               >
-                <Heart className="w-4 h-4 fill-current" />
-                <span>Join Our Movement</span>
+                <Heart className="w-4 h-4 fill-current text-red-700" />
+                <span>Donate Now</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-sm font-semibold text-xs sm:text-sm shadow-md transition-all duration-200 active:scale-95 hover:border-white/40"
+              >
+                <Heart className="w-4 h-4 text-amber-300" />
+                <span>Join Our Movement</span>
+                <ArrowRight className="w-4 h-4 text-white/80" />
+              </Link>
             </div>
           </div>
         </div>
@@ -268,20 +247,12 @@ export default function ShikshaSewaPage() {
         {/* Below on mobile: FULL-WIDTH edge-to-edge image without left/right space */}
         <div className="w-full md:hidden relative z-10 pt-2 pb-0">
           <img
-            src="/images/shiksha-sewa/hero-small-steps.png"
+            src="/images/shiksha-sewa/hero-small-steps.webp"
             alt="Small Steps, Big Changes - Shiksha Sewa"
             className="w-full h-auto object-cover block"
           />
         </div>
 
-        {/* Gold bottom accent line */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[3px]"
-          style={{
-            background: "linear-gradient(90deg, #3D0A12 0%, #D4AF37 30%, #EBA528 50%, #D4AF37 70%, #3D0A12 100%)",
-            zIndex: 5,
-          }}
-        />
       </section>
 
       {/* ══════════════════════════════════════════════════════
@@ -327,7 +298,7 @@ export default function ShikshaSewaPage() {
             {/* Right Image — frameless, clean margins */}
             <div className="lg:col-span-6 flex justify-center lg:justify-end">
               <img
-                src="/images/shiksha-sewa/vision-daydream.png"
+                src="/images/shiksha-sewa/vision-daydream.webp"
                 alt="Young girl daydreaming in classroom"
                 className="w-full max-w-[500px] lg:max-w-[620px] h-auto object-contain"
                 style={{ display: "block" }}
@@ -356,89 +327,48 @@ export default function ShikshaSewaPage() {
             </h2>
           </div>
 
-          {/* 3 Pillars Cards — Reference Screenshot Compositions */}
+          {/* 3 Pillars Cards — Replicated to match the reference design */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
 
-            {/* Card 1: EDUCATION (Horizontal on desktop, stacked on mobile; Boy 100% visible with full head and hair) */}
-            <div className="group rounded-3xl bg-[#52121E] text-white overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 flex flex-col sm:flex-row items-center justify-between min-h-[380px] sm:min-h-[400px] lg:min-h-[420px]">
-              {/* Meditating Boy Photo — Full body and head fully visible with generous headroom */}
-              <div className="relative w-full sm:w-[50%] flex items-center justify-center pt-7 pb-2 px-4 sm:p-0 sm:h-full sm:min-h-[320px] flex-shrink-0">
-                <img
-                  src="/images/shiksha-sewa/approach-education.png"
-                  alt="Education"
-                  className="w-auto h-56 sm:h-72 max-h-[280px] sm:max-h-none sm:w-full object-contain object-center sm:object-bottom pointer-events-none drop-shadow-xl"
-                />
-              </div>
-
-              {/* Icon Badge + Heading + Description */}
-              <div className="flex-1 p-5 sm:p-5 lg:p-6 text-left flex flex-col justify-center">
-                {/* Cream Icon Badge */}
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#FCECD8] shadow-md flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300">
-                  <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 text-[#52121E]" strokeWidth={2.2} />
-                </div>
-                <h3 className="font-sans text-lg sm:text-2xl font-bold tracking-wider uppercase text-white mb-2 sm:mb-2.5">
-                  EDUCATION
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal">
-                  Providing access to quality schools, transportation and learning materials for life, especially to those children who live in Jhuggi Jhopadi's and never see the inside of a classroom.
-                </p>
-              </div>
+            {/* Card 1: EDUCATION */}
+            <div className="group rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 bg-transparent flex flex-col">
+              <img
+                src="/images/shiksha-sewa/approach-education-card.png"
+                alt="EDUCATION: Providing access to quality schools, transportation and learning materials for life, especially to those children who live in Jhuggi Jhopadi's and never see the inside of a classroom."
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-500 group-hover:scale-[1.02] shadow-md"
+              />
             </div>
 
-            {/* Card 2: VOCATION (Vertical composition: Schoolchildren top, Pure Golden-Orange bottom, Full Image, Badge on seam) */}
-            <div className="group rounded-3xl bg-[#BF7428] text-white overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[380px] sm:min-h-[400px] lg:min-h-[420px] relative">
-              {/* Top: Schoolchildren Photo covering full width — 16:9 on mobile so sides don't get cut */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-auto sm:h-64 overflow-hidden bg-[#BF7428]">
-                <img
-                  src="/images/shiksha-sewa/approach-vocation.png"
-                  alt="Vocational Training"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              {/* Centered Cream Icon Badge Overlapping Seam */}
-              <div className="absolute top-[40%] sm:top-64 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#FCECD8] shadow-xl flex items-center justify-center border-2 border-[#BF7428] group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-6 h-6 sm:w-7 sm:h-7 text-[#52121E]" strokeWidth={2.2} />
-              </div>
-
-              {/* Bottom: Golden-Orange Content Section — Pure Warm Tone */}
-              <div className="flex-1 bg-[#BF7428] pt-8 sm:pt-10 pb-6 sm:pb-7 px-5 sm:px-7 text-center flex flex-col justify-center items-center">
-                <h3 className="font-sans text-lg sm:text-2xl font-bold tracking-wider uppercase text-white mb-2">
-                  VOCATION
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/95 leading-relaxed font-normal max-w-xs mx-auto">
-                  Age-appropriate skills development preparing children for self-reliance and dignified livelihoods.
-                </p>
-              </div>
+            {/* Card 2: VOCATION */}
+            <div className="group rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 bg-transparent flex flex-col">
+              <img
+                src="/images/shiksha-sewa/approach-vocation-card.png"
+                alt="VOCATION: Age-appropriate skills development preparing children for self-reliance and dignified livelihoods."
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-500 group-hover:scale-[1.02] shadow-md"
+              />
             </div>
 
-            {/* Card 3: MEDITATION (New Group Image: All people clearly visible across width, Lotus Badge + Content) */}
-            <div className="group rounded-3xl bg-[#52121E] text-white overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between min-h-[380px] sm:min-h-[400px] lg:min-h-[420px] relative">
-              {/* Upper Visual Area — Full width showing all children/people meditating */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-auto sm:h-64 overflow-hidden bg-[#52121E]">
-                <img
-                  src="/images/shiksha-sewa/approach-meditation.png"
-                  alt="Meditation"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-
-                {/* Cream Icon Badge on Top-Left */}
-                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#FCECD8] shadow-md flex items-center justify-center border-2 border-white/20 group-hover:scale-105 transition-transform duration-300">
-                  <PillarLotusIcon className="w-6 h-6 sm:w-7 sm:h-7 text-[#52121E]" />
-                </div>
-              </div>
-
-              {/* Content Area */}
-              <div className="px-5 sm:px-7 pb-6 pt-4 sm:pt-5 text-left flex-1 flex flex-col justify-center bg-[#52121E]">
-                <h3 className="font-sans text-lg sm:text-2xl font-bold tracking-wider uppercase text-white mb-2">
-                  MEDITATION
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/90 leading-relaxed font-normal max-w-sm">
-                  Mind power techniques that develop focus, emotional resilience, and inner strength.
-                </p>
-              </div>
+            {/* Card 3: MEDITATION */}
+            <div className="group rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 bg-transparent flex flex-col">
+              <img
+                src="/images/shiksha-sewa/approach-meditation-card.png"
+                alt="MEDITATION: Mind power techniques that develop focus, emotional resilience, and inner strength."
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-500 group-hover:scale-[1.02] shadow-md"
+              />
             </div>
 
+          </div>
+
+          {/* Centered Donate Now Button Below Cards */}
+          <div className="flex justify-center mt-10 sm:mt-12">
+            <a
+              href="#donate"
+              className="inline-flex items-center justify-center gap-2.5 px-8 sm:px-11 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#52121E] via-[#6E1828] to-[#52121E] text-[#FFF8E8] font-bold text-sm sm:text-base tracking-wide uppercase shadow-[0_10px_25px_rgba(82,18,30,0.32)] hover:shadow-[0_14px_34px_rgba(82,18,30,0.45)] hover:scale-105 active:scale-95 border border-amber-400/40 transition-all duration-300 group cursor-pointer"
+            >
+              <Heart className="w-5 h-5 text-amber-300 fill-amber-300 group-hover:scale-110 transition-transform" />
+              <span>Donate Now</span>
+              <ArrowRight className="w-4 h-4 text-amber-300 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </section>
@@ -477,7 +407,7 @@ export default function ShikshaSewaPage() {
             <div className="lg:col-span-4 flex justify-center my-2 lg:my-0">
               <div className="relative w-full max-w-[320px] sm:max-w-[380px] rounded-2xl overflow-hidden shadow-xl transition-transform hover:scale-[1.01] duration-300">
                 <img
-                  src="/images/shiksha-sewa/challenge-children.png"
+                  src="/images/shiksha-sewa/challenge-children.webp"
                   alt="Children in need of education"
                   className="w-full h-auto object-cover"
                 />
@@ -551,221 +481,51 @@ export default function ShikshaSewaPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          7. JOIN OUR MOVEMENT / DONATION SECTION
+          7. JOIN OUR MOVEMENT / DONATION SECTION — Replicated to match Reference Image
       ══════════════════════════════════════════════════════ */}
-      <section id="donate" className="py-14 sm:py-20 lg:py-28 bg-[#FFFDF9] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main Deep Maroon Card Container */}
-          <div className="rounded-3xl bg-[#521623] text-white p-5 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+      <section id="donate" className="py-14 sm:py-20 lg:py-24 bg-[#FAF6F0] relative">
+        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
+          {/* Main Deep Maroon Banner Card */}
+          <div className="rounded-[32px] bg-[#4E0E18] text-white shadow-2xl relative overflow-hidden border border-amber-900/30 p-4 sm:p-6 lg:p-7">
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
+            <div className="flex flex-col lg:flex-row items-stretch justify-center gap-4 lg:gap-5 xl:gap-6 relative z-10">
 
-              {/* Left Column: Boy Photo (Frameless, background se connected) + Quote */}
-              <div className="lg:col-span-3 flex items-center sm:items-end gap-3 sm:gap-4">
-                {/* Image — NO frame card, seamlessly blended into maroon background with radial gradient mask */}
-                <div className="flex-shrink-0 w-32 sm:w-36 lg:w-40 overflow-hidden">
-                  <img
-                    src="/images/shiksha-sewa/donation-schoolboy.png"
-                    alt="Hopeful Schoolboy"
-                    className="w-full h-auto object-contain pointer-events-none select-none"
-                    style={{
-                      display: "block",
-                      maskImage: "radial-gradient(ellipse at 50% 48%, black 42%, transparent 75%)",
-                      WebkitMaskImage: "radial-gradient(ellipse at 50% 48%, black 42%, transparent 75%)",
-                    }}
-                  />
-                </div>
-                <div className="font-serif italic text-amber-300 text-base sm:text-lg lg:text-xl font-bold leading-snug pb-2">
-                  Your<br />Support<br />Builds<br />Their ♡<br />Tomorrow
-                </div>
+              {/* Left Column: Schoolboy Photo + "Your Support Builds Their Tomorrow" + Wave */}
+              <div className="w-full lg:flex-1 lg:max-w-[560px] flex justify-center items-stretch shrink-0">
+                <img
+                  src="/images/shiksha-sewa/donation-left-banner.png"
+                  alt="Your Support Builds Their Tomorrow - Give them access to quality education, life skills and a brighter future"
+                  className="w-full h-full min-h-[460px] object-cover rounded-2xl drop-shadow-md"
+                />
               </div>
 
-              {/* Center Column: Donation Form (Exact match to Image 2) */}
-              <div className="lg:col-span-4 space-y-4">
-                <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">
-                    Join Our Movement
-                  </h3>
-                  <p className="text-xs sm:text-sm text-white/80">
-                    Your contribution creates lasting impact.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <p className="text-xs font-bold text-amber-300 tracking-wider uppercase">
-                    CHOOSE YOUR PREFERRED AMOUNT:
-                  </p>
-
-                  {/* Amount Grid — 2 columns × 2 lines (Pill buttons matching Image 2) */}
-                  <div className="grid grid-cols-2 gap-2.5">
-                    {[
-                      { value: 500, label: "₹500" },
-                      { value: 1100, label: "₹1100" },
-                      { value: 2100, label: "₹2100" },
-                      { value: 0, label: "Other Amount" },
-                    ].map((opt, idx) => {
-                      const isSelected =
-                        opt.value === 0 ? isOther : selectedAmount === opt.value && !isOther;
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => {
-                            if (opt.value === 0) {
-                              setIsOther(true);
-                            } else {
-                              setIsOther(false);
-                              setSelectedAmount(opt.value);
-                            }
-                          }}
-                          className={`py-2.5 px-4 rounded-full text-xs sm:text-sm font-bold border transition-all text-center ${
-                            isSelected
-                              ? "bg-[#EBA528] text-[#3B0910] border-[#EBA528] shadow-md scale-[1.02]"
-                              : "bg-black/25 border-white/20 text-white hover:bg-white/10 hover:border-white/35"
-                          }`}
-                        >
-                          {opt.label}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Custom Amount Input if 'Other Amount' is selected */}
-                  {isOther && (
-                    <div className="pt-0.5">
-                      <div className="relative">
-                        <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/70 font-semibold text-sm">₹</span>
-                        <input
-                          type="number"
-                          value={customAmount}
-                          onChange={(e) => setCustomAmount(e.target.value)}
-                          placeholder="Enter custom amount"
-                          className="w-full pl-8 pr-4 py-2 rounded-full bg-black/30 border border-white/30 text-white text-xs sm:text-sm placeholder-white/50 focus:outline-none focus:border-amber-300"
-                          autoFocus
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Frequency Toggle — Monthly / Yearly in 1 row (Pill buttons matching Image 2) */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-1">
-                    <button
-                      type="button"
-                      onClick={() => setFrequency("monthly")}
-                      className={`py-2.5 px-4 rounded-full text-xs sm:text-sm font-bold transition-all text-center border ${
-                        frequency === "monthly"
-                          ? "bg-[#EBA528] text-[#3B0910] border-[#EBA528] shadow-md scale-[1.02]"
-                          : "bg-black/25 border-white/20 text-white hover:bg-white/10 hover:border-white/35"
-                      }`}
-                    >
-                      Monthly
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFrequency("yearly")}
-                      className={`py-2.5 px-4 rounded-full text-xs sm:text-sm font-bold transition-all text-center border ${
-                        frequency === "yearly"
-                          ? "bg-[#EBA528] text-[#3B0910] border-[#EBA528] shadow-md scale-[1.02]"
-                          : "bg-black/25 border-white/20 text-white hover:bg-white/10 hover:border-white/35"
-                      }`}
-                    >
-                      Yearly
-                    </button>
-                  </div>
-                </div>
+              {/* Center Column: White/Cream Donation Form Card */}
+              <div className="w-full lg:w-[430px] xl:w-[460px] shrink-0 flex items-stretch">
+                <DonationForm
+                  id="shiksha-contribution"
+                  title="Make a Contribution"
+                  subtitle="Help give children access to quality education, life skills and a brighter future."
+                  sewa="shiksha"
+                  trustMessage="Support a Child's Future"
+                />
               </div>
 
-              {/* Right Column: Bank Details + UPI — LANDSCAPE (1 line side-by-side) */}
-              <div className="lg:col-span-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 items-stretch">
-
-                  {/* Bank Details Card */}
-                  <div className="bg-white text-[#2C1810] rounded-2xl p-4 shadow-xl flex flex-col justify-between space-y-2">
-                    <div>
-                      <div className="flex items-center gap-1.5 text-[#4A0E17] font-bold text-sm border-b border-gray-100 pb-2">
-                        <HomeIcon className="w-4 h-4 text-[#4A0E17] flex-shrink-0" />
-                        <span>Bank Details</span>
-                      </div>
-                      <div className="text-[11px] space-y-1.5 text-[#473034] pt-2">
-                        <p className="leading-tight">
-                          <strong className="text-[#2C1810]">Account Name:</strong><br />
-                          Jhuggi Jhopadi Shiksha Sewa Samiti
-                        </p>
-                        <p className="leading-tight">
-                          <strong className="text-[#2C1810]">Bank:</strong> Bank of India<br />
-                          <strong className="text-[#2C1810]">Branch:</strong> Harsuan, Ghaziabad
-                        </p>
-                        <div className="flex items-center justify-between pt-0.5">
-                          <p className="font-mono text-[10px]">
-                            <strong className="text-[#2C1810] font-sans">A/C:</strong> 7111201100000139
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => handleCopy("7111201100000139", "acc")}
-                            className="text-[9px] text-[#5E1522] hover:text-amber-700 flex items-center gap-0.5 font-bold ml-1 px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200"
-                            title="Copy Account Number"
-                          >
-                            {copiedField === "acc" ? (
-                              <><Check className="w-2.5 h-2.5 text-green-600" /> Copied</>
-                            ) : (
-                              <><Copy className="w-2.5 h-2.5" /> Copy</>
-                            )}
-                          </button>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <p className="font-mono text-[10px]">
-                            <strong className="text-[#2C1810] font-sans">IFSC:</strong> BKID0007111
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => handleCopy("BKID0007111", "ifsc")}
-                            className="text-[9px] text-[#5E1522] hover:text-amber-700 flex items-center gap-0.5 font-bold ml-1 px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200"
-                            title="Copy IFSC Code"
-                          >
-                            {copiedField === "ifsc" ? (
-                              <><Check className="w-2.5 h-2.5 text-green-600" /> Copied</>
-                            ) : (
-                              <><Copy className="w-2.5 h-2.5" /> Copy</>
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-[9px] text-[#7A6165] italic pt-1.5 border-t border-gray-100 leading-snug">
-                      80(G) tax-exempt under IT Act 1962.
-                    </p>
-                  </div>
-
-                  {/* Scan & Pay with UPI Card */}
-                  <div className="bg-white text-[#2C1810] rounded-2xl p-4 shadow-xl flex flex-col items-center justify-between text-center space-y-2">
-                    <div className="font-bold text-sm text-[#4A0E17]">
-                      Scan & Pay with UPI
-                    </div>
-                    {/* QR Frame with scan brackets */}
-                    <div className="relative w-28 h-28 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 flex flex-col items-center justify-center p-1.5 group hover:border-[#4A0E17] transition-colors">
-                      <div className="absolute top-1 left-1 w-3.5 h-3.5 border-t-2 border-l-2 border-[#4A0E17]" />
-                      <div className="absolute top-1 right-1 w-3.5 h-3.5 border-t-2 border-r-2 border-[#4A0E17]" />
-                      <div className="absolute bottom-1 left-1 w-3.5 h-3.5 border-b-2 border-l-2 border-[#4A0E17]" />
-                      <div className="absolute bottom-1 right-1 w-3.5 h-3.5 border-b-2 border-r-2 border-[#4A0E17]" />
-                      <QrCode className="w-10 h-10 text-[#4A0E17]/85 mb-0.5" />
-                      <span className="text-[9px] font-bold text-gray-500 uppercase tracking-wide text-center leading-tight">
-                        QR CODE<br />PLACEHOLDER
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-[#6B5357] font-medium leading-tight">
-                      Scan & Pay with any UPI app.
-                    </p>
-                  </div>
-
-                </div>
+              {/* Right Column: 4 Feature Badges + "Small Support, Big Change" */}
+              <div className="w-full lg:w-[240px] xl:w-[270px] flex justify-center items-stretch shrink-0">
+                <img
+                  src="/images/shiksha-sewa/donation-right-banner.png"
+                  alt="Quality Education, Life Skills Development, Better Opportunities, Brighter Futures - Small Support, Big Change"
+                  className="w-full h-full min-h-[460px] object-contain rounded-2xl drop-shadow-md"
+                />
               </div>
 
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

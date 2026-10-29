@@ -336,14 +336,6 @@ export default function InspirationalQuotesSection() {
           text-transform: uppercase;
           margin-bottom: 18px;
         }
-        .iq-eyebrow::before,
-        .iq-eyebrow::after {
-          content: "";
-          display: inline-block;
-          width: 32px;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-        }
         .iq-title {
           font-family: 'Playfair Display', Georgia, serif;
           font-size: clamp(2rem, 4vw, 3.25rem);
@@ -356,13 +348,6 @@ export default function InspirationalQuotesSection() {
         .iq-title span {
           color: #521623;
           font-style: italic;
-        }
-        .iq-gold-line {
-          width: 60px;
-          height: 2px;
-          background: linear-gradient(90deg, #B8860B, #E2C068, #B8860B);
-          margin: 0 auto 20px auto;
-          border-radius: 2px;
         }
         .iq-desc {
           font-family: system-ui, -apple-system, sans-serif;
@@ -518,14 +503,6 @@ export default function InspirationalQuotesSection() {
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
         }
 
-        /* Decorative divider */
-        .iq-divider {
-          width: 48px;
-          height: 1.5px;
-          margin-bottom: 18px;
-          position: relative;
-          z-index: 2;
-        }
 
         /* Card Footer: Author details */
         .iq-card-footer {
@@ -901,7 +878,6 @@ export default function InspirationalQuotesSection() {
         <h2 className="iq-title">
           Words That <span>Inspire.</span> Wisdom That <span>Transforms.</span>
         </h2>
-        <div className="iq-gold-line" />
         <p className="iq-desc">
           Discover timeless insights from Sakshi Shree to bring clarity, purpose, and peace into
           everyday life.
@@ -1309,12 +1285,6 @@ export default function InspirationalQuotesSection() {
                 </div>
               )}
 
-              {/* Decorative Divider */}
-              <div
-                className="iq-divider"
-                style={{ background: item.dividerColor }}
-              />
-
               {/* Card Footer */}
               <div className="iq-card-footer">
                 <div>
@@ -1468,16 +1438,6 @@ export default function InspirationalQuotesSection() {
                   INSPIRATIONAL_QUOTES[activeModalIndex].highlightColor
                 )}
               </p>
-
-              {/* Gold Divider */}
-              <div
-                style={{
-                  width: "60px",
-                  height: "2px",
-                  background: INSPIRATIONAL_QUOTES[activeModalIndex].dividerColor,
-                  margin: "0 auto 20px auto",
-                }}
-              />
 
               {/* Author */}
               <div style={{ textAlign: "center" }}>

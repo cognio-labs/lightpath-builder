@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1600, 1920, 2048, 2560],
+    imageSizes: [32, 48, 64, 96, 128, 256, 384, 512, 768],
+    qualities: [75, 85],
     remotePatterns: [
       {
         protocol: "https",
@@ -23,6 +28,18 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "i.ytimg.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.typeflo.io",
+      },
+      {
+        protocol: "https",
+        hostname: "auth.typeflo.io",
+      },
+      {
+        protocol: "https",
+        hostname: "assets.cdn.filesafe.space",
+      },
     ],
   },
   // Allow requests to external media
@@ -34,6 +51,12 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "X-XSS-Protection", value: "1; mode=block" },
+        ],
+      },
+      {
+        source: "/:path(.*\\.(?:avif|gif|ico|jpg|jpeg|png|svg|webp|mp4|webm))",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];
@@ -51,6 +74,8 @@ const nextConfig: NextConfig = {
       // ─────────────────────────────────────────────
       { source: "/public/dominoqq", destination: "/410", permanent: false },
       { source: "/public/dominoqq/", destination: "/410", permanent: false },
+      { source: "/content", destination: "/contact", permanent: false },
+      { source: "/content/", destination: "/contact", permanent: false },
 
       // ─────────────────────────────────────────────
       // PHASE 3 — Blog Posts: /{slug}/ → /blog/{slug}/

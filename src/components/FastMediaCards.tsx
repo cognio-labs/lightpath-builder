@@ -42,29 +42,34 @@ export function FastVideoCard({
       <div style={{ position: "relative", paddingTop: "56.25%", background: "#111827", overflow: "hidden" }}>
         {isPlaying ? (
           <iframe
-            src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`}
             title={title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
           />
         ) : (
-          <div
+          <button
+            type="button"
             onClick={() => setIsPlaying(true)}
-            role="button"
             aria-label={`Play video: ${title}`}
             style={{
               position: "absolute",
               inset: 0,
               cursor: "pointer",
+              border: 0,
+              padding: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
             <img
-              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+              srcSet={`https://i.ytimg.com/vi/${id}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${id}/maxresdefault.jpg 1280w`}
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
               alt={title}
+              loading="lazy"
               decoding="async"
               style={{
                 width: "100%",
@@ -72,6 +77,11 @@ export function FastVideoCard({
                 objectFit: "cover",
                 display: "block",
                 transition: "transform 0.4s ease",
+              }}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.srcset = "";
+                event.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
               }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1.04)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
@@ -112,7 +122,7 @@ export function FastVideoCard({
                 }}
               />
             </div>
-          </div>
+          </button>
         )}
       </div>
       <div style={{ padding: "20px" }}>
@@ -183,29 +193,34 @@ export function FastTestimonialCard({
       <div style={{ position: "relative", paddingTop: "56.25%", background: "#111827", overflow: "hidden" }}>
         {isPlaying ? (
           <iframe
-            src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`}
             title={name}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
           />
         ) : (
-          <div
+          <button
+            type="button"
             onClick={() => setIsPlaying(true)}
-            role="button"
             aria-label={`Play testimonial: ${name}`}
             style={{
               position: "absolute",
               inset: 0,
               cursor: "pointer",
+              border: 0,
+              padding: 0,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
             <img
-              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+              srcSet={`https://i.ytimg.com/vi/${id}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${id}/maxresdefault.jpg 1280w`}
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
               alt={name}
+              loading="lazy"
               decoding="async"
               style={{
                 width: "100%",
@@ -213,6 +228,11 @@ export function FastTestimonialCard({
                 objectFit: "cover",
                 display: "block",
                 transition: "transform 0.4s ease",
+              }}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.srcset = "";
+                event.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
               }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1.04)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = "scale(1)")}
@@ -253,7 +273,7 @@ export function FastTestimonialCard({
                 }}
               />
             </div>
-          </div>
+          </button>
         )}
       </div>
       <div style={{ padding: "20px" }}>

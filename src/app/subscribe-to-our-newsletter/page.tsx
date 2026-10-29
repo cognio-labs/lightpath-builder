@@ -50,6 +50,7 @@ export default function SubscribeNewsletterPage() {
       />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 space-y-16">
+        <h2 className="sr-only">Newsletter signup and benefits</h2>
         {/* Main Grid: Form + Benefits */}
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Interactive Form */}

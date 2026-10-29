@@ -15,8 +15,8 @@ export default function TrustFooter() {
         {footerTrust.map((item) => {
           const Icon = ICONS[item.icon];
           return (
-            <li key={item.title} className="flex items-start gap-3">
-              <Icon className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" strokeWidth={1.4} />
+            <li key={item.title} className="flex flex-col items-center text-center">
+              <Icon className="mb-2 h-5 w-5 shrink-0 text-gold-600" strokeWidth={1.4} />
               <div className="min-w-0">
                 <p className="text-[12.5px] font-semibold text-ink-900">{item.title}</p>
                 <p className="mt-0.5 text-[11px] leading-snug text-ink-500">{item.body}</p>

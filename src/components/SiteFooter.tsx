@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "@/components/SocialIcons";
 import { LOGO_URL, SOCIALS, COURSES } from "@/data/content";
@@ -20,7 +19,7 @@ export function SiteFooter() {
               className="h-12 sm:h-14 w-auto object-contain"
             />
           </Link>
-          <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-3.5">
+          <p className="text-xs sm:text-sm text-white/85 leading-relaxed mb-3.5">
             Conceptualized by the enlightened master and divine messenger Sakshi Shree,
             The Science Divine Movement takes the message of love, awareness, and meditation to the world.
           </p>
@@ -35,8 +34,8 @@ export function SiteFooter() {
 
         {/* Column 2: Quick Links */}
         <div>
-          <h4 className="font-display font-semibold text-white mb-3 text-base">Quick Links</h4>
-          <ul className="space-y-1.5 text-xs sm:text-sm text-white/70">
+          <h2 className="font-display font-semibold text-white mb-2 text-base">Quick Links</h2>
+          <ul className="text-xs sm:text-sm text-white/85">
             {[
               { to: "/about-movement", label: "About Us" },
               { to: "/about-sakshi-shree", label: "About Sakshi Shree" },
@@ -52,7 +51,7 @@ export function SiteFooter() {
               { to: "/shop", label: "Shop" },
             ].map((l) => (
               <li key={l.to}>
-                <Link href={l.to} className="hover:text-amber-400 transition-colors">
+                <Link href={l.to} className="inline-flex min-h-11 items-center hover:text-amber-300 transition-colors">
                   {l.label}
                 </Link>
               </li>
@@ -62,19 +61,19 @@ export function SiteFooter() {
 
         {/* Column 3: Courses */}
         <div>
-          <h4 className="font-display font-semibold text-white mb-3 text-base">Courses</h4>
-          <ul className="space-y-1.5 text-xs sm:text-sm text-white/70">
+          <h2 className="font-display font-semibold text-white mb-2 text-base">Courses</h2>
+          <ul className="text-xs sm:text-sm text-white/85">
             {COURSES.map((c) => (
               <li key={c.slug}>
-                <Link href={`/${c.slug}` as string} className="hover:text-amber-400 transition-colors">
+                <Link href={`/${c.slug}` as string} className="inline-flex min-h-11 items-center hover:text-amber-300 transition-colors">
                   {c.title}
                 </Link>
               </li>
             ))}
           </ul>
 
-          <h4 className="font-display font-semibold text-white mt-4 mb-2.5 text-base">Solutions</h4>
-          <ul className="space-y-1.5 text-xs sm:text-sm text-white/70">
+          <h2 className="font-display font-semibold text-white mt-4 mb-2 text-base">Solutions</h2>
+          <ul className="text-xs sm:text-sm text-white/85">
             {[
               { to: "/stress", label: "Stress" },
               { to: "/anxiety", label: "Anxiety" },
@@ -83,7 +82,7 @@ export function SiteFooter() {
               { to: "/yoga", label: "Yoga" },
             ].map((l) => (
               <li key={l.to}>
-                <Link href={l.to} className="hover:text-amber-400 transition-colors">{l.label}</Link>
+                <Link href={l.to} className="inline-flex min-h-11 items-center hover:text-amber-300 transition-colors">{l.label}</Link>
               </li>
             ))}
           </ul>
@@ -91,8 +90,8 @@ export function SiteFooter() {
 
         {/* Column 4: Contact */}
         <div>
-          <h4 className="font-display font-semibold text-white mb-3 text-base">Contact</h4>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-white/70">
+          <h2 className="font-display font-semibold text-white mb-3 text-base">Contact</h2>
+          <ul className="space-y-2.5 text-xs sm:text-sm text-white/85">
             <li>
               <p className="text-white/90 font-semibold text-xs uppercase tracking-wider mb-0.5">Siddh Sudarshan Sakshi Dham</p>
               <div className="flex gap-2">
@@ -109,26 +108,26 @@ export function SiteFooter() {
             </li>
             <li className="flex gap-2">
               <Phone size={14} className="shrink-0 mt-0.5 text-amber-400" />
-              <a href="tel:+919315944774" className="hover:text-amber-400 transition-colors">+91 93159 44774</a>
+              <a href="tel:+919315944774" className="inline-flex min-h-11 items-center hover:text-amber-300 transition-colors">+91 93159 44774</a>
             </li>
             <li className="flex gap-2">
               <Mail size={14} className="shrink-0 mt-0.5 text-amber-400" />
-              <a href="mailto:info@sciencedivine.org" className="hover:text-amber-400 transition-colors">info@sciencedivine.org</a>
+              <a href="mailto:info@sciencedivine.org" className="inline-flex min-h-11 items-center hover:text-amber-300 transition-colors">info@sciencedivine.org</a>
             </li>
           </ul>
 
           {/* Newsletter mini-form */}
           <div className="mt-4">
-            <p className="text-xs text-white/50 uppercase tracking-widest mb-2">Subscribe to newsletter</p>
+            <p className="text-xs text-white/80 uppercase tracking-widest mb-2">Subscribe to newsletter</p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 min-w-0 rounded-full bg-white/10 border border-white/20 px-3.5 py-1.5 text-xs sm:text-sm placeholder:text-white/40 focus:outline-none focus:border-amber-400 text-white"
+                className="flex-1 min-w-0 min-h-11 rounded-full bg-white/10 border border-white/30 px-3.5 py-1.5 text-xs sm:text-sm placeholder:text-white/65 focus:outline-none focus:border-amber-300 text-white"
               />
               <button
                 type="submit"
-                className="btn-gold rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold text-black shrink-0 cursor-pointer"
+                className="btn-gold min-h-11 rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold text-black shrink-0 cursor-pointer"
               >
                 Go
               </button>
@@ -139,16 +138,16 @@ export function SiteFooter() {
 
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
+        <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/80">
           <p>© 2026 Science Divine Foundation. All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-5">
-            <Link href="/cancellation-policy" className="hover:text-white transition-colors">
+            <Link href="/cancellation-policy" className="inline-flex min-h-11 items-center hover:text-white transition-colors">
               Cancellation and Refund Policy
             </Link>
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="inline-flex min-h-11 items-center hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms-conditions" className="hover:text-white transition-colors">
+            <Link href="/terms-conditions" className="inline-flex min-h-11 items-center hover:text-white transition-colors">
               Terms and Conditions
             </Link>
           </div>
@@ -175,7 +174,7 @@ function SocialIcon({
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="w-9 h-9 rounded-full grid place-items-center transition-all duration-300 hover:scale-110 hover:brightness-110 shadow-md"
+      className="w-11 h-11 rounded-full grid place-items-center transition-all duration-300 hover:scale-105 hover:brightness-110 shadow-md"
       style={{ background: bg, color: "#FFFFFF" }}
     >
       <Icon size={15} />

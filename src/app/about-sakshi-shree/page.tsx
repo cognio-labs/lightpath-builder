@@ -9,7 +9,13 @@ import SplitText from "@/components/ui/SplitText";
 
 const handleAnimationComplete = () => { };
 
-const INITIATIVES_NUMBERED = [
+const INITIATIVES_NUMBERED: {
+  num: string;
+  title: string;
+  desc: string;
+  href?: string;
+  external?: boolean;
+}[] = [
   {
     num: "01",
     title: "Science Divine Foundation",
@@ -27,7 +33,6 @@ const INITIATIVES_NUMBERED = [
     num: "03",
     title: "Young Mind Movement",
     desc: "Empowering young individuals with the tools and techniques necessary to navigate the challenges of modern life with ease and grace and to help them unleash their true potential.",
-    href: "/initiatives",
   },
 ];
 
@@ -56,7 +61,7 @@ export default function Page() {
     <>
       {/* Hero */}
       <PageHero
-        eyebrow="Guru Profile"
+        eyebrow=""
         title={
           <div className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto">
             <span className="block font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
@@ -270,30 +275,32 @@ export default function Page() {
                   <h3 className="font-display font-bold text-gray-900 text-lg mb-3">{item.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-5">{item.desc}</p>
                 </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{ duration: 1.25, ease: easePower3Out }}
-                >
-                  {item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1 group"
-                    >
-                      Know More <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1 group"
-                    >
-                      Know More <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
-                  )}
-                </motion.div>
+                {item.href && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 1.25, ease: easePower3Out }}
+                  >
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1 group"
+                      >
+                        Know More <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1 group"
+                      >
+                        Know More <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    )}
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </div>

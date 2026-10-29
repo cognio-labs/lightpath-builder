@@ -28,15 +28,11 @@ export default function SessionFlow() {
                 delay={i * 90}
                 className="group relative overflow-hidden rounded-2xl border border-cream-300/70 bg-white p-5 shadow-ps-card hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-[0_18px_40px_-18px_rgba(207,143,34,0.45)]"
               >
-                <span
-                  aria-hidden
-                  className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold-300 to-gold-500 transition-transform duration-500 group-hover:scale-x-100"
-                />
-                <div className="flex items-start gap-3">
+                <div className="flex flex-col items-center gap-3 text-center">
                   <IconBadge size="md" tone="gold-solid">
                     <Icon className="h-5 w-5" strokeWidth={1.4} />
                   </IconBadge>
-                  <p className="pt-0.5">
+                  <p>
                     <span className="block text-[11px] font-bold tracking-[0.14em] text-gold-500">
                       {step.n}
                     </span>
@@ -45,7 +41,7 @@ export default function SessionFlow() {
                     </span>
                   </p>
                 </div>
-                <p className="mt-4 text-[12.5px] leading-relaxed text-ink-500">
+                <p className="mt-4 text-center text-[12.5px] leading-relaxed text-ink-500">
                   {step.body}
                 </p>
               </Reveal>

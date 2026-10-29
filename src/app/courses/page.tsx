@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Clock, ShieldCheck, Sparkles, Star, ArrowRight } from "lucide-react";
 import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 const COURSES_DATA = [
   {
@@ -256,14 +257,7 @@ export default function Page() {
                 className="bg-[#FFFDF9] rounded-2xl overflow-hidden border-2 border-[#E8C969]/35 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="relative pt-[56.25%] bg-slate-900">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${t.id}`}
-                    title={t.name}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full border-0"
-                  />
+                  <YouTubeEmbed id={t.id} title={t.name} className="absolute inset-0" />
                 </div>
                 <div className="p-4 space-y-1.5">
                   <div className="flex gap-1">

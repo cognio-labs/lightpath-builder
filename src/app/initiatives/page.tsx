@@ -13,7 +13,7 @@ import {
   Users,
   CheckCircle2,
 } from "lucide-react";
-import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
+import { SEWAS } from "@/lib/sewa";
 
 const INITIATIVES = [
   {
@@ -22,9 +22,9 @@ const INITIATIVES = [
     tagline: "Har Ghar Shiksha — Young Mind Movement",
     achieved: 300000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.shiksha.donatePath,
     knowMoreSlug: "shiksha-sewa",
-    image: "/images/initiatives/shiksha-sewa.jpeg",
+    image: "/images/initiatives/shiksha-sewa-study.jpg",
     imagePosition: "center 25%",
     desc: "Every child deserves the light of wisdom. Through Shiksha Sewa, we sponsor underprivileged children with free education, books, values, and holistic grooming.",
     bulletPoints: [
@@ -40,9 +40,9 @@ const INITIATIVES = [
     tagline: "Nourishing Communities — Food for All",
     achieved: 350000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.annapurna.donatePath,
     knowMoreSlug: "annapurna-sewa",
-    image: "/images/initiatives/annapurna-sewa.jpeg",
+    image: "/images/initiatives/annapurna-sewa-serving.jpg",
     imagePosition: "center 20%",
     desc: "No soul should sleep hungry. Annapurna Sewa runs community kitchens offering hot, nutritious, hygienic meals to the needy, sadhus, and destitute families.",
     bulletPoints: [
@@ -58,9 +58,9 @@ const INITIATIVES = [
     tagline: "Spiritual Retreat & Meditation Ashrams",
     achieved: 700000,
     goal: 1000000,
-    donateUrl: RAZORPAY_DONATION_LINK,
+    donateUrl: SEWAS.nirman.donatePath,
     knowMoreSlug: "nirman-sewa",
-    image: "/images/initiatives/nirman-sewa.jpg",
+    image: "/images/nirman-sewa/vrindavan-ashram-building.webp",
     imagePosition: "center center",
     desc: "Building and maintaining sacred spaces like Sakshi Dhaam (Ghaziabad & Vrindavan) where thousands come to meditate, heal, and experience spiritual awakening.",
     bulletPoints: [
@@ -68,6 +68,24 @@ const INITIATIVES = [
       "Free stay and accommodation for serious spiritual seekers",
       "Hosting annual spiritual mahotsavs and live satsangs",
       "Sanctuaries of peace, energy, and deep transformation",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Living the Gita movement",
+    tagline: "Timeless Wisdom for Conscious Living",
+    achieved: 450000,
+    goal: 1000000,
+    donateUrl: SEWAS.gita.donatePath,
+    knowMoreSlug: "living-the-gita",
+    image: "/images/initiatives/living-the-gita.jpg",
+    imagePosition: "center center",
+    desc: "Bringing the practical wisdom of the Bhagavad Gita into modern daily life through guided meditations, enlightening discourses, and self-realization workshops.",
+    bulletPoints: [
+      "Spreading practical wisdom of Bhagavad Gita to every household",
+      "Youth & family conscious living workshops and discourses",
+      "Mind-power meditation and self-transformation sessions",
+      "Free distribution of Gita literature & wisdom guides",
     ],
   },
 ];
@@ -109,9 +127,7 @@ export default function Page() {
       {/* 🌟 1. HERO HEADER SECTION (Warm Sacred Ivory & Gold Aura) */}
       {/* ========================================================================= */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#FFFDF9] via-[#FFF8EB] to-[#FFF4DE] text-[#521623] overflow-hidden border-b border-[#E8C969]/40">
-        {/* Background Sacred Aura Orbs & Glow */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-[#521623]/15 rounded-full blur-3xl pointer-events-none" />
+
 
         <div className="container-page relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -151,13 +167,12 @@ export default function Page() {
 
             {/* Right Hero Image (Frameless, blending with background) */}
             <div className="lg:col-span-5 flex justify-center items-center relative">
-              <div className="relative w-full max-w-lg group">
-                {/* Ambient Soft Glow background blending */}
-                <div className="absolute -inset-3 bg-gradient-to-r from-[#E8C969]/30 via-[#521623]/20 to-[#D4AF37]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="relative w-full max-w-lg group flex justify-center">
+
                 <img loading="lazy" decoding="async"
-                  src="/images/initiatives.png"
+                  src="/images/white-standing-laughing.webp"
                   alt="Science Divine Initiatives - Sadguru Sakshi Shree"
-                  className="relative z-10 w-full h-auto rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="relative z-10 w-auto max-h-[500px] lg:max-h-[580px] object-contain drop-shadow-[0_20px_40px_rgba(82,22,35,0.22)] transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
             </div>
@@ -227,7 +242,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
             {INITIATIVES.map((init, idx) => {
               const percent = Math.min(100, Math.round((init.achieved / init.goal) * 100));
               const IconComp = init.icon;
@@ -301,15 +316,13 @@ export default function Page() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-2.5 pt-1">
-                        <a
-                          href={init.donateUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Link
+                          href={init.donateUrl as any}
                           className="text-center py-2.5 px-3 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] text-xs font-bold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5"
                         >
                           <Heart size={13} className="fill-[#521623]" />
-                          <span>Donate</span>
-                        </a>
+                          <span>Donate Now</span>
+                        </Link>
                         <Link
                           href={`/${init.knowMoreSlug}` as any}
                           className="text-center py-2.5 px-3 rounded-full bg-white hover:bg-[#FFF4CF] text-[#521623] text-xs font-bold transition-all border-2 border-[#521623] flex items-center justify-center"
@@ -329,7 +342,7 @@ export default function Page() {
       {/* ========================================================================= */}
       {/* 📸 5. LIVE SEWA GALLERY SLIDER */}
       {/* ========================================================================= */}
-      <section className="py-16 bg-[#FFFDF9] border-y border-[#E8C969]/50">
+      {false && <section className="py-16 bg-[#FFFDF9] border-y border-[#E8C969]/50">
         <div className="container-page">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8">
             <div>
@@ -364,7 +377,7 @@ export default function Page() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ========================================================================= */}
       {/* 🤝 6. CALL TO ACTION BANNER */}
@@ -381,14 +394,6 @@ export default function Page() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a
-              href={RAZORPAY_DONATION_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] font-bold text-sm shadow-lg transition-all transform hover:scale-105 active:scale-95"
-            >
-              Donate Now
-            </a>
             <Link
               href="/contact"
               className="px-8 py-3.5 rounded-full bg-white hover:bg-[#FFF4CF] text-[#521623] font-bold text-sm border-2 border-[#521623] shadow-sm transition-all"

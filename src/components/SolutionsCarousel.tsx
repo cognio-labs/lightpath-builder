@@ -5,37 +5,68 @@ import Link from "next/link";
 import { SOLUTIONS_LIST } from "@/data/solutionsData";
 import { Sparkles } from "lucide-react";
 
-export const CATEGORY_IMAGE_MAP: Record<string, string> = {
-  depression: "/images/category-icons/family-150x150.webp",
-  anxiety: "/images/category-icons/headache-150x150.webp",
-  "sleeping-disorder": "/images/category-icons/sleeping-150x150.webp",
-  overthinking: "/images/category-icons/overthinking-150x150.webp",
-  parenting: "/images/category-icons/child-150x150.webp",
-  wellness: "/images/category-icons/yoga-150x150.webp",
-  relationships: "/images/category-icons/couple-150x150.webp",
-};
+export interface CarouselSolution {
+  slug: string;
+  name: string;
+  href: string;
+  iconSrc: string;
+}
 
-const SEVEN_SLUGS = [
-  "depression",
-  "anxiety",
-  "sleeping-disorder",
-  "overthinking",
-  "parenting",
-  "wellness",
-  "relationships",
+export const SIX_SOLUTIONS: CarouselSolution[] = [
+  {
+    slug: "stress",
+    name: "Stress",
+    href: "/stress",
+    iconSrc: "/images/category-icons/stress-150x150.svg",
+  },
+  {
+    slug: "anxiety",
+    name: "Anxiety",
+    href: "/anxiety",
+    iconSrc: "/images/category-icons/headache-150x150.webp",
+  },
+  {
+    slug: "depression",
+    name: "Depression",
+    href: "/depression",
+    iconSrc: "/images/category-icons/child-150x150.webp",
+  },
+  {
+    slug: "parenting",
+    name: "Parenting",
+    href: "/parenting",
+    iconSrc: "/images/category-icons/family-150x150.webp",
+  },
+  {
+    slug: "addictions",
+    name: "Addictions",
+    href: "/addictions",
+    iconSrc: "/images/category-icons/addictions-150x150.svg",
+  },
+  {
+    slug: "overthinking",
+    name: "Overthinking",
+    href: "/overthinking",
+    iconSrc: "/images/category-icons/overthinking-150x150.webp",
+  },
 ];
 
-export default function SolutionsCarousel() {
-  const filteredList = SOLUTIONS_LIST.filter((item) =>
-    SEVEN_SLUGS.includes(item.slug)
-  );
+export const CATEGORY_IMAGE_MAP: Record<string, string> = {
+  stress: "/images/category-icons/stress-150x150.svg",
+  anxiety: "/images/category-icons/headache-150x150.webp",
+  depression: "/images/category-icons/child-150x150.webp",
+  parenting: "/images/category-icons/family-150x150.webp",
+  addictions: "/images/category-icons/addictions-150x150.svg",
+  overthinking: "/images/category-icons/overthinking-150x150.webp",
+};
 
-  // Clone items 4 times to ensure a completely seamless continuous infinite marquee
+export default function SolutionsCarousel() {
+  // Clone the 6 items 4 times = 24 items for a seamless continuous infinite marquee
   const displayList = [
-    ...filteredList,
-    ...filteredList,
-    ...filteredList,
-    ...filteredList,
+    ...SIX_SOLUTIONS,
+    ...SIX_SOLUTIONS,
+    ...SIX_SOLUTIONS,
+    ...SIX_SOLUTIONS,
   ];
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -61,11 +92,11 @@ export default function SolutionsCarousel() {
 
     animationFrameId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [filteredList]);
+  }, []);
 
   return (
     <section
-      className="relative overflow-hidden pt-6 pb-12 bg-[#FFFDF9] text-[#4E1321] select-none border-b border-amber-100/80"
+      className="w-full relative overflow-hidden pt-6 pb-12 bg-white text-[#4E1321] border-b border-amber-100/80"
       aria-label="Wellness Solutions Navigation Carousel"
     >
       {/* Soft Ambient Radial Wash */}
@@ -111,22 +142,19 @@ export default function SolutionsCarousel() {
             }}
           >
             {displayList.map((item, idx) => {
-              const iconSrc =
-                CATEGORY_IMAGE_MAP[item.slug] || "/images/category-icons/family-150x150.webp";
-
               return (
                 <div
                   key={`${item.slug}-${idx}`}
                   className="carousel-card-item flex-shrink-0"
                 >
                   <Link
-                    href={`/solutions/${item.slug}`}
+                    href={item.href}
                     className="group relative flex flex-col items-center p-3 rounded-2xl w-[120px] sm:w-[135px] md:w-[150px] transition-all duration-300 text-center hover:-translate-y-2 hover:scale-105"
                   >
                     {/* Circle Icon Container */}
                     <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-3 transition-all duration-300 bg-white border-2 border-[#6B1728] shadow-sm group-hover:border-[#B8860B] group-hover:bg-amber-50/70 group-hover:shadow-[0_8px_24px_rgba(184,134,11,0.25)]">
                       <img
-                        src={iconSrc}
+                        src={item.iconSrc}
                         alt={item.name}
                         width={56}
                         height={56}

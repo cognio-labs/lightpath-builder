@@ -1,1 +1,3 @@
-body:has(.gita-page) > div > header.sticky,body:has(.gita-page) .site-quick-actions,body:has(.gita-page) > div > footer:not(.gita-footer){display:none!important}body:has(.gita-page) main.flex-1{padding-bottom:0!important}
+/* Global SiteNav and SiteFooter are enabled */
+body:has(.gita-page) main.flex-1 { padding-bottom: 0 !important; }
+

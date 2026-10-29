@@ -3,7 +3,9 @@ import Link from "next/link";
 
 import { SectionHeading } from "@/components/PageHero";
 import { SolutionHeroImage } from "@/components/SolutionPageLayout";
+import TopicSections from "@/components/TopicSections";
 import { useState } from "react";
+
 import {
   BookOpen,
   Quote,
@@ -20,6 +22,8 @@ import {
   Moon,
 } from "lucide-react";
 import { FastVideoCard, FastTestimonialCard } from "@/components/FastMediaCards";
+import SolutionBenefits from "@/components/SolutionBenefits";
+import SolutionsCarousel from "@/components/SolutionsCarousel";
 
 
 
@@ -191,7 +195,7 @@ export default function Page() {
 
         <div className="container-page relative z-10">
           {/* Top Row: Content & Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
               {/* Eyebrow badge */}
               <div
@@ -229,86 +233,38 @@ export default function Page() {
                 >
                   Book a Session <ArrowRight size={15} />
                 </Link>
-                <a
-                  href="#explore"
-                  className="rounded-full px-8 py-3.5 text-sm font-semibold border hover:bg-black/5 transition-all inline-flex items-center"
+                <Link
+                  href="/events"
+                  className="rounded-full px-8 py-3.5 text-sm font-bold border-2 border-[#521623] bg-white text-[#521623] hover:bg-[#521623] hover:text-white transition-all inline-flex items-center gap-2 shadow-sm hover:scale-105"
                   style={{
-                    borderColor: "rgba(75, 16, 27, 0.3)",
-                    color: "#4B101B",
+                    color: "#521623",
+                    background: "#FFFFFF",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#521623";
+                    e.currentTarget.style.color = "#FFFFFF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFFFFF";
+                    e.currentTarget.style.color = "#521623";
                   }}
                 >
-                  Explore Resources
-                </a>
+                  Explore Events <ChevronRight size={16} />
+                </Link>
               </div>
             </div>
             {/* Right side image */}
             <SolutionHeroImage
-              src="/images/premium-heroes/overthinking-hero.webp"
+              src="/images/premium-heroes/overthinking.jpeg"
               alt="Finding clarity from overthinking"
               themeColor="#4B101B"
             />
-          </div>
-
-          {/* Second Row: Grid of 4 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
-            {[
-              {
-                title: "Thought Witnessing",
-                desc: "Learn to watch your thoughts without being swept away by them.",
-                icon: Brain,
-              },
-              {
-                title: "Mind Reprogramming",
-                desc: "Reprogram the subconscious habits that run repetitive loops.",
-                icon: Compass,
-              },
-              {
-                title: "Present Action",
-                desc: "Shift your mental energy from contemplation into conscious action.",
-                icon: Flower2,
-              },
-              {
-                title: "Daily Protocol",
-                desc: "A structured routine to maintain awareness and prevent spirals.",
-                icon: Sun,
-              },
-            ].map((card, idx) => {
-              const CardIcon = card.icon;
-              return (
-                <div key={idx} className="flex gap-4 items-start group">
-                  <div
-                    className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
-                    style={{
-                      background: "rgba(75, 16, 27, 0.08)",
-                      color: "#4B101B",
-                    }}
-                  >
-                    <CardIcon size={20} />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold text-[#4B101B] text-sm md:text-base">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">{card.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Third Row: Bottom Quote */}
-          <div className="flex items-center justify-center gap-2 py-4">
-            <Flower2 size={16} style={{ color: "#D4AF37" }} />
-            <span className="font-display text-sm md:text-base italic text-amber-800/80 font-medium text-center">
-              Still the Mind, Awaken the Soul
-            </span>
-            <Flower2 size={16} style={{ color: "#D4AF37" }} />
           </div>
         </div>
       </section>
 
       {/* Tabs */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" style={{ background: "#FFFFFF", borderBottom: "1px solid #E5E7EB" }}>
         <div className="container-page">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }}>
             {TABS.map((t) => (
@@ -555,6 +511,51 @@ export default function Page() {
           
         </div>
       </section>
+
+      <SolutionBenefits topic="Overthinking Solution" cards={[
+        { title: "Understanding Overthinking", desc: "Notice repetitive thought loops without letting them define your day.", image: "/images/premium-heroes/overthinking.jpeg", icon: "shield" },
+        { title: "Overthinking No More: Techniques for Peace of Mind", desc: "Simple awareness tools make space for clearer, calmer decisions.", image: "/images/old-site/pages/overthinking/Overthinking-scaled.webp", icon: "sparkles" },
+        { title: "Quiet Your Mind", desc: "Learn to rest attention in the stillness behind passing thoughts.", image: "/images/feature-cards/sound-mind.webp", icon: "heart" },
+        { title: "Simple Practices for Inner Peace", desc: "Bring breath, gratitude, and mindful pauses into each day.", image: "/images/feature-cards/physical-ease.webp", icon: "sun" },
+      ]} />
+
+      <TopicSections
+        symptomsIntro="If you recognise any of these patterns in your daily thinking, Sakshi Shree's guided Sadhna gently shows you how to step back and observe your mind rather than being lost inside it."
+        symptoms={[
+          {
+            title: "Analysis Paralysis",
+            desc: "Inability to make decisions because the mind endlessly replays every possible scenario.",
+          },
+          {
+            title: "Rumination & Replaying the Past",
+            desc: "Constantly revisiting past conversations or mistakes, draining present-moment energy.",
+          },
+          {
+            title: "Bedtime Mind Racing",
+            desc: "Lying awake at night unable to switch off a relentless stream of thoughts and worries.",
+          },
+        ]}
+        quoteText="You are not your thoughts. You are the silent observer behind them."
+        quoteAuthor="Sadguru Sakshi Shree"
+        faqs={[
+          {
+            question: "How to stop overthinking at night?",
+            answer:
+              "Write down your open tasks on paper before bed to clear mental RAM. Then practice 10 minutes of Sakshi Bhav breathing — slow inhales and extended exhales — to shift your nervous system into rest mode.",
+          },
+          {
+            question: "What practical technique breaks a thought loop during the day?",
+            answer:
+              "Try the 5-4-3-2-1 grounding technique: name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This anchors awareness in the body and breaks the thought spiral immediately.",
+          },
+          {
+            question: "When should I seek professional support for chronic overthinking?",
+            answer:
+              "If overthinking is accompanied by persistent anxiety, inability to function at work or in relationships, or feelings of hopelessness, please consult a qualified mental health professional. Spiritual practices work best as a complement to, not a replacement for, appropriate clinical care.",
+          },
+        ]}
+      />
+      <SolutionsCarousel />
 
       {/* CTA */}
       <section

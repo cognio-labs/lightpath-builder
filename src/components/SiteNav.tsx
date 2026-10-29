@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   Menu,
   X,
@@ -35,29 +35,21 @@ const aboutLinks = [
 ];
 
 const initiativeLinks = [
-  { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen, image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=240&q=80&auto=format&fit=crop" },
-  { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils, image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=240&q=80&auto=format&fit=crop" },
-  { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2, image: "/images/initiatives/nirman-sewa.jpg" },
+  { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen },
+  { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils },
+  { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2 },
+  { href: "/living-the-gita", label: "Living the Gita", desc: "Present-moment awareness & Gita wisdom", icon: Sparkles },
 ];
 
 const practiceLinks = [
-  { href: "/meditation", label: "Meditation", icon: Headphones, image: "https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=240&q=80&auto=format&fit=crop", desc: "Guided Sakshi Sadhna & silence" },
-  { href: "/yoga", label: "Yoga", icon: Flower2, image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=240&q=80&auto=format&fit=crop", desc: "Asanas & physical alignment" },
-  { href: "/mindfulness", label: "Mindfulness", icon: Sun, image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=240&q=80&auto=format&fit=crop", desc: "Present-moment awareness in action" },
-  { href: "/gratitude", label: "Gratitude", icon: Heart, image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=240&q=80&auto=format&fit=crop", desc: "Heart opening and appreciation" },
-  { href: "/manifestation", label: "Manifestation", icon: Sparkles, image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=240&q=80&auto=format&fit=crop", desc: "Aligning thoughts with reality" },
-  { href: "/positive-thinking", label: "Positive Thinking", icon: Smile, image: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=240&q=80&auto=format&fit=crop", desc: "Rewiring mind patterns for joy" },
-  { href: "/finding-purpose", label: "Finding Purpose", icon: Compass, image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=240&q=80&auto=format&fit=crop", desc: "Discovering your divine path" },
+  { href: "/meditation", label: "Meditation", icon: Headphones, desc: "Guided Sakshi Sadhna & silence" },
+  { href: "/yoga", label: "Yoga", icon: Flower2, desc: "Asanas & physical alignment" },
+  { href: "/mindfulness", label: "Mindfulness", icon: Sun, desc: "Present-moment awareness in action" },
+  { href: "/gratitude", label: "Gratitude", icon: Heart, desc: "Heart opening and appreciation" },
+  { href: "/manifestation", label: "Manifestation", icon: Sparkles, desc: "Aligning thoughts with reality" },
+  { href: "/positive-thinking", label: "Positive Thinking", icon: Smile, desc: "Rewiring mind patterns for joy" },
+  { href: "/finding-purpose", label: "Finding Purpose", icon: Compass, desc: "Discovering your divine path" },
 ];
-
-const solutionImages: Record<string, string> = {
-  stress: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=240&q=80&auto=format&fit=crop",
-  anxiety: "https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=240&q=80&auto=format&fit=crop",
-  depression: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=240&q=80&auto=format&fit=crop",
-  parenting: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=240&q=80&auto=format&fit=crop",
-  addictions: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=240&q=80&auto=format&fit=crop",
-  overthinking: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=240&q=80&auto=format&fit=crop",
-};
 // Helper icon mapping for solutions mega menu
 const getSolutionIcon = (slug: string) => {
   switch (slug) {
@@ -80,6 +72,7 @@ const getSolutionIcon = (slug: string) => {
 
 export function SiteNav() {
   const pathname = usePathname();
+  const prefersReducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -112,6 +105,12 @@ export function SiteNav() {
     setActiveDropdown(null);
   }, [pathname]);
 
+  const menuTransition = prefersReducedMotion
+    ? { duration: 0 }
+    : { type: "spring" as const, stiffness: 380, damping: 30, mass: 0.7 };
+  const buttonHover = prefersReducedMotion ? {} : { y: -1 };
+  const buttonTap = prefersReducedMotion ? {} : { scale: 0.97 };
+
   return (
     <header
       className={`sticky top-0 z-[100] w-full transition-colors duration-200 py-3 bg-white ${
@@ -133,7 +132,7 @@ export function SiteNav() {
 
         {/* Desktop Navigation Links */}
         <nav
-          className="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-3.5 relative"
+          className="hidden xl:flex items-center gap-1 xl:gap-2.5 2xl:gap-3.5 relative"
           onMouseLeave={() => {
             setHoveredNav(null);
             setActiveDropdown(null);
@@ -150,7 +149,9 @@ export function SiteNav() {
               setHoveredNav("about");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 pathname.startsWith("/about") || activeDropdown === "about"
                   ? "text-[#521623] bg-amber-100/70"
@@ -165,15 +166,15 @@ export function SiteNav() {
                   activeDropdown === "about" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
-            <AnimatePresence>
-              {activeDropdown === "about" && (
+            <AnimatePresence initial={false}>
+            {activeDropdown === "about" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
                   className="absolute top-full left-0 pt-2 z-50 w-72"
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
@@ -201,7 +202,7 @@ export function SiteNav() {
                     })}
                   </div>
                 </motion.div>
-              )}
+            )}
             </AnimatePresence>
           </div>
 
@@ -213,7 +214,9 @@ export function SiteNav() {
               setHoveredNav("solutions");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 pathname.startsWith("/get-solutions-for") || activeDropdown === "solutions"
                   ? "text-[#521623] bg-amber-100/70"
@@ -228,15 +231,15 @@ export function SiteNav() {
                   activeDropdown === "solutions" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
-            <AnimatePresence>
-              {activeDropdown === "solutions" && (
+            <AnimatePresence initial={false}>
+            {activeDropdown === "solutions" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
                   className="absolute top-full -left-20 pt-2 z-50 w-[580px]"
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_24px_60px_-12px_rgba(82,22,35,0.22),0_0_25px_rgba(212,175,55,0.15)] border border-amber-300/40 p-5 space-y-4 relative overflow-hidden">
@@ -270,12 +273,12 @@ export function SiteNav() {
                             key={topic.slug}
                             href={`/${topic.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="flex items-start gap-3 p-3 rounded-xl bg-white/60 hover:bg-gradient-to-r hover:from-amber-100/80 hover:to-amber-50/60 border border-amber-200/50 hover:border-amber-300/80 shadow-xs hover:shadow-md transition-all duration-200 group transform hover:-translate-y-0.5"
+                            className="flex items-center gap-3 p-3 rounded-xl bg-white/60 hover:bg-gradient-to-r hover:from-amber-100/80 hover:to-amber-50/60 border border-amber-200/50 hover:border-amber-300/80 shadow-xs hover:shadow-md transition-all duration-200 group transform hover:-translate-y-0.5"
                           >
-                            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
                               <IconComponent size={16} />
                             </div>
-                            <div className="min-w-0">
+                            <div className="flex-1 min-w-0">
                               <div className="text-xs sm:text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors truncate">
                                 {topic.title}
                               </div>
@@ -283,19 +286,13 @@ export function SiteNav() {
                                 {topic.tagline || "Guided wisdom & practices"}
                               </div>
                             </div>
-                            <img loading="lazy" decoding="async"
-                              src={solutionImages[topic.slug]}
-                              alt=""
-                              aria-hidden="true"
-                              className="w-12 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm"
-                            />
                           </Link>
                         );
                       })}
                     </div>
                   </div>
                 </motion.div>
-              )}
+            )}
             </AnimatePresence>
           </div>
 
@@ -307,7 +304,9 @@ export function SiteNav() {
               setHoveredNav("practices");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 activeDropdown === "practices"
                   ? "text-[#521623] bg-amber-100/70"
@@ -322,15 +321,15 @@ export function SiteNav() {
                   activeDropdown === "practices" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
-            <AnimatePresence>
-              {activeDropdown === "practices" && (
+            <AnimatePresence initial={false}>
+            {activeDropdown === "practices" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
                   className="absolute top-full left-0 pt-2 z-50 w-72"
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2.5 space-y-1">
@@ -343,24 +342,23 @@ export function SiteNav() {
                           onClick={() => setActiveDropdown(null)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] transition-all duration-200">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_8px_rgba(212,175,55,0.22)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] transition-all duration-200">
                             <Icon size={15} />
                           </div>
-                          <div>
+                          <div className="flex-1 min-w-0">
                             <div className="text-xs sm:text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[10px] text-amber-950/70 font-medium leading-none mt-0.5">
+                            <div className="text-[10px] text-amber-950/70 font-medium leading-none mt-0.5 truncate">
                               {item.desc}
                             </div>
                           </div>
-                          <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className="w-11 h-10 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
                   </div>
                 </motion.div>
-              )}
+            )}
             </AnimatePresence>
           </div>
 
@@ -377,7 +375,9 @@ export function SiteNav() {
               setHoveredNav("initiatives");
             }}
           >
-            <button
+            <motion.button
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-sm font-semibold rounded-full transition-colors cursor-pointer relative z-10 whitespace-nowrap ${
                 pathname.startsWith("/initiatives") || activeDropdown === "initiatives"
                   ? "text-[#521623] bg-amber-100/70"
@@ -392,16 +392,16 @@ export function SiteNav() {
                   activeDropdown === "initiatives" ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </motion.button>
 
-            <AnimatePresence>
-              {activeDropdown === "initiatives" && (
+            <AnimatePresence initial={false}>
+            {activeDropdown === "initiatives" && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="absolute top-full left-0 pt-2 z-50 w-72"
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                  transition={menuTransition}
+                  className="absolute top-full left-0 pt-2 z-50 w-80"
                 >
                   <div className="bg-[#FFF8E8] rounded-2xl shadow-[0_20px_50px_-10px_rgba(82,22,35,0.18),0_0_20px_rgba(212,175,55,0.12)] border border-amber-300/40 p-2 space-y-1">
                     {/* All Initiatives button placed at the top */}
@@ -426,12 +426,12 @@ export function SiteNav() {
                           key={item.href}
                           href={item.href}
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
+                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
+                          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FFF4D0] to-[#FFE395] border border-amber-400/40 text-[#521623] flex items-center justify-center shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:from-[#521623] group-hover:to-[#3B0F19] group-hover:text-[#FFF8E8] group-hover:border-amber-500/50 transition-all duration-200">
                             <Icon size={17} />
                           </div>
-                          <div>
+                          <div className="flex-1 min-w-0">
                             <div className="text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">
                               {item.label}
                             </div>
@@ -439,13 +439,12 @@ export function SiteNav() {
                               {item.desc}
                             </div>
                           </div>
-                          <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className="w-11 h-11 rounded-lg object-cover shrink-0 border border-amber-200/70 shadow-sm" />
                         </Link>
                       );
                     })}
                   </div>
                 </motion.div>
-              )}
+            )}
             </AnimatePresence>
           </div>
 
@@ -471,26 +470,51 @@ export function SiteNav() {
           </Link>
 
           {/* Mobile Hamburger Menu Toggle */}
-          <button
-            className="lg:hidden rounded-full w-11 h-11 flex items-center justify-center bg-amber-50 hover:bg-amber-100 text-[#521623] border border-amber-200 shadow-xs transition-colors cursor-pointer"
+          <motion.button
+            whileHover={buttonHover}
+            whileTap={buttonTap}
+            className="xl:hidden rounded-full w-11 h-11 flex items-center justify-center bg-amber-50 hover:bg-amber-100 text-[#521623] border border-amber-200 shadow-xs transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation menu"
             aria-expanded={open}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <AnimatePresence initial={false} mode="wait">
+              {open ? (
+                <motion.span
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.16 }}
+                >
+                  <X size={22} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.16 }}
+                >
+                  <Menu size={22} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
 
       </div>
 
       {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {open && (
+      <AnimatePresence initial={false}>
+      {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={menuTransition}
+            className="xl:hidden fixed left-0 right-0 top-[76px] bottom-0 z-[9999] bg-white overflow-y-auto border-t border-amber-200/80 shadow-2xl"
           >
             <div className="container-page py-6 px-4 flex flex-col gap-3 pb-24">
               
@@ -503,7 +527,7 @@ export function SiteNav() {
               </Link>
 
               {/* Mobile Accordions */}
-              <MobileGroup label="About Movement & Master">
+              <MobileGroup label="About">
                 {aboutLinks.map((l) => (
                   <Link
                     key={l.href}
@@ -621,7 +645,7 @@ export function SiteNav() {
 
             </div>
           </motion.div>
-        )}
+      )}
       </AnimatePresence>
     </header>
   );
@@ -673,19 +697,11 @@ function MobileGroup({
           }`}
         />
       </button>
-      <AnimatePresence>
-        {openGroup && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="px-2 pb-3 flex flex-col gap-1 border-t border-amber-200/60 pt-2"
-          >
+      {openGroup && (
+          <div className="nav-accordion px-2 pb-3 flex flex-col gap-1 border-t border-amber-200/60 pt-2">
             {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+      )}
     </div>
   );
 }

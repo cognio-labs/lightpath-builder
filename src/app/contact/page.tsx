@@ -74,20 +74,11 @@ export default function Page() {
           BALANCED, COMPACT, CENTERED LANDSCAPE CONTACT CARD
       ════════════════════════════════════ */}
       <section className="section-pad bg-gradient-to-b from-[#FFFDF8] via-[#FFF9EE] to-[#FFFDF8] py-6 sm:py-10 overflow-hidden relative">
-        <div className="container-page max-w-5xl mx-auto px-4">
+        <div className="container-page max-w-6xl mx-auto px-4">
           <div className="bg-[#FFFDF9]/98 backdrop-blur-md rounded-2xl border border-amber-200/80 shadow-[0_12px_32px_rgba(82,22,35,0.06)] overflow-hidden flex flex-col lg:flex-row relative items-stretch">
-            
-            {/* Left Image Column */}
-            <div className="w-full lg:w-[280px] xl:w-[310px] shrink-0 relative overflow-hidden min-h-[260px] lg:min-h-full bg-amber-50/50">
-              <img loading="lazy" decoding="async"
-                src="/images/contact-left-woman-cropped.webp"
-                alt="Science Divine Member holding Maha Mantras book"
-                className="w-full h-full object-cover object-top lg:object-center transition-all duration-300"
-              />
-            </div>
 
             {/* Right Content Area: Form on Top + Tagline + 1-Line Info Cards Below */}
-            <div className="flex-1 p-4 sm:p-5 lg:p-6 relative z-10 flex flex-col justify-between space-y-3">
+            <div className="flex-1 p-5 sm:p-7 lg:p-9 relative z-10 flex flex-col justify-between space-y-5">
               
               {/* Form Section (Full Width) */}
               <div className="space-y-3">
@@ -98,7 +89,6 @@ export default function Page() {
                   <p className="text-xs text-gray-600 mt-1 leading-relaxed">
                     We&apos;d love to hear from you. Reach out to us and we&apos;ll get back to you as soon as possible.
                   </p>
-                  <div className="w-12 h-0.5 bg-[#D4AF37] mt-1.5" />
                 </div>
 
                 {submitted ? (

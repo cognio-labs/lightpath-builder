@@ -16,84 +16,102 @@
 }
 
 .hero {
-  min-height: 480px;
+  min-height: 520px;
   width: 100%;
   position: relative;
-  background: url('/images/annapurna-sewa/nano-hero.webp') center 43%/cover no-repeat;
+  background: url('/images/annapurna-sewa/nano-hero.webp') center 36%/cover no-repeat;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 50px 24px;
+  overflow: hidden;
 }
 .heroShade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, #27050720 20%, #260406c0 35%, #280606c0 65%, #20030415 80%, transparent 100%);
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(42, 8, 11, 0.76) 0%, rgba(35, 6, 9, 0.68) 55%, rgba(20, 3, 5, 0.88) 100%),
+    linear-gradient(180deg, rgba(20, 3, 5, 0.35) 0%, rgba(38, 6, 10, 0.45) 50%, rgba(26, 4, 7, 0.82) 100%);
 }
 .heroCopy {
   position: relative;
   z-index: 1;
-  width: min(92%, 620px);
+  width: min(94%, 720px);
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 .eyebrow {
-  font: 700 11px Arial, sans-serif;
-  letter-spacing: 0.25em;
-  color: #f9d89b;
-  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #fae0a2;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 .hindi {
   font-family: Georgia, serif;
-  color: #f6c870;
-  font-size: clamp(42px, 5.8vw, 78px);
+  color: #fad37d;
+  font-size: clamp(38px, 4.4vw, 56px);
   font-weight: 700;
-  line-height: 1.12;
-  margin: 6px 0 2px;
-  text-shadow: 0 2px 14px #1b0506;
+  line-height: 1.15;
+  margin: 4px 0 2px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8), 0 0 30px rgba(231, 174, 78, 0.25);
 }
 .hero h1 {
-  font-size: clamp(30px, 3.4vw, 50px);
-  line-height: 1.05;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.08;
   margin: 0;
   font-weight: 700;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
 .hero h2 {
-  font-size: clamp(14px, 1.45vw, 20px);
-  letter-spacing: 0.04em;
+  font-size: clamp(14px, 1.35vw, 18px);
+  letter-spacing: 0.06em;
   margin: 10px 0 16px;
   font-weight: 600;
+  color: #fce3b8;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
 }
 .heroCopy p {
-  max-width: 440px;
-  margin: 0 auto 22px;
-  line-height: 1.5;
-  font-size: clamp(13px, 1.05vw, 15px);
-  color: #fff8ed;
+  max-width: 540px;
+  margin: 0 auto 24px;
+  line-height: 1.62;
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: #fff8ee;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
 }
 .goldButton {
-  border: 1px solid #f5cc7c;
-  background: linear-gradient(#f8d578, #db9e3e);
-  color: #34160c;
-  padding: 13px 30px;
-  min-width: 180px;
+  border: 1px solid #f9d68c;
+  background: linear-gradient(135deg, #fae08f 0%, #e2a647 50%, #c98528 100%);
+  color: #311308;
+  padding: 13px 32px;
+  min-width: 190px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 13px;
-  font: 700 13px Georgia, serif;
-  letter-spacing: 0.04em;
-  box-shadow: 0 5px 16px #1b040655;
+  gap: 12px;
+  font: 700 13.5px Georgia, serif;
+  letter-spacing: 0.05em;
+  box-shadow: none !important;
   cursor: pointer;
-  transition: transform 0.2s, filter 0.2s;
-  border-radius: 4px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s;
+  border-radius: 9999px;
 }
 .goldButton:hover {
   filter: brightness(1.08);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: none !important;
+}
+.goldButton:active {
+  transform: translateY(0);
 }
 .heroTagline, .finalTagline {
   position: absolute;
@@ -144,76 +162,125 @@
 
 .intro {
   display: grid;
-  grid-template-columns: 1.05fr 0.85fr 1.15fr;
-  gap: 24px;
-  padding: 36px max(24px, calc((100% - 1320px) / 2));
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.2vw, 26px);
+  padding: 36px max(20px, calc((100% - 1340px) / 2));
   background: radial-gradient(circle at 7% 20%, #f7e4c977, transparent 24%), #fffaf1;
-  align-items: start;
+  align-items: stretch;
 }
-.introText h2, .contribution h2, .sectionHeading h2, .finalCta h2 {
-  font-size: clamp(25px, 2.3vw, 34px);
-  line-height: 1.08;
-  margin: 0 0 12px;
+
+/* Combined Card 1: Text + Photo together in Landscape format */
+.whyAnnapurnaCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(14px, 1.8vw, 22px);
+  background: #ffffff;
+  border: 1.5px solid #ebd8be;
+  border-radius: 32px;
+  padding: clamp(20px, 2.5vw, 28px);
+  box-shadow: 0 10px 30px rgba(91, 18, 15, 0.08);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.introText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.introText h2, .sectionHeading h2, .finalCta h2 {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.1;
+  margin: 0 0 10px;
   color: #741e23;
   font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif;
 }
+
 .introText p {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.5;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  color: #55443e;
 }
+
 .introText blockquote {
-  margin: 16px 0 0;
+  margin: 10px 0 0;
   border: 1px solid #eadac3;
+  border-left: 3px solid #d28c43;
   background: #fffefa;
-  padding: 16px 18px 16px 42px;
+  padding: 12px 14px 12px 34px;
   position: relative;
-  box-shadow: 0 4px 14px #6e2a1410;
-  border-radius: 4px;
+  box-shadow: 0 4px 12px #6e2a1410;
+  border-radius: 18px;
 }
+
 .introText blockquote span {
   position: absolute;
-  left: 10px;
-  top: 4px;
+  left: 8px;
+  top: 2px;
   color: #d28c43;
-  font-size: 48px;
+  font-size: 38px;
+  line-height: 1;
 }
+
 .introText blockquote p {
-  font-size: 14px;
+  font-size: 13px;
   font-style: italic;
-  line-height: 1.45;
-  margin-bottom: 8px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  color: #4a1714;
 }
+
 .introText cite {
-  font: bold 12px Georgia, serif;
+  font: bold 11.5px Georgia, serif;
   color: #712022;
   font-style: normal;
+  display: block;
 }
+
 .introPhoto {
-  min-height: 360px;
+  min-height: 260px;
   height: 100%;
-  border-radius: 6px;
-  background: url('/images/annapurna-sewa/nano-children.webp') 58% center/cover no-repeat;
-  box-shadow: 0 4px 20px #542b141f;
+  border-radius: 24px;
+  background-position: center 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 20px rgba(84, 43, 20, 0.12);
+  min-width: 0;
 }
+
 .contribution {
-  background: linear-gradient(155deg, #681b22, #3d0e13);
-  padding: 18px;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px #4d111030;
+  background: transparent;
+  min-width: 0;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  border-radius: 32px;
+  box-shadow: none;
   scroll-margin-top: 100px;
+  display: flex;
+  align-items: stretch;
 }
-.contribution h2 {
-  color: #f5cf80;
-  font-size: 23px;
-  margin: 0 0 4px;
+
+@media (max-width: 1024px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
 }
-.contribution > p {
-  font-size: 12px;
-  margin: 0 0 12px;
-  color: #fff4e5;
+
+@media (max-width: 640px) {
+  .whyAnnapurnaCard {
+    grid-template-columns: 1fr;
+    padding: 18px 16px;
+    border-radius: 24px;
+  }
+  .introPhoto {
+    min-height: 220px;
+    border-radius: 18px;
+  }
 }
 .donationPanel {
   background: #fffaf3;
@@ -388,20 +455,15 @@
 }
 .supportPhoto {
   height: 140px;
-  background-image: url('/images/annapurna-sewa/nano-children.webp');
   background-size: cover;
-}
-.supportCard:nth-child(3) .supportPhoto {
-  background-image: url('/images/annapurna-sewa/nano-learning.webp');
-}
-.supportCard:nth-child(4) .supportPhoto {
-  background-image: url('/images/annapurna-sewa/nano-hero.webp');
-  background-position: 95% center !important;
+  background-position: center;
 }
 .supportCardBody {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 9px;
   padding: 14px 12px 18px;
   min-height: 96px;
 }
@@ -415,6 +477,7 @@
   display: grid;
   place-items: center;
 }
+.supportCardBody > div:last-child { width: 100%; }
 .supportCard h3 {
   font-size: 13px;
   margin: 0 0 5px;
@@ -430,7 +493,7 @@
 .impact {
   padding: 44px max(24px, calc((100% - 1320px) / 2));
   color: #fff;
-  background: linear-gradient(90deg, #2b080ad9, #360b10eb 45%, #370d11a6), url('/images/annapurna-sewa/nano-temple.webp') center/cover no-repeat;
+  background: linear-gradient(135deg, #2b080a 0%, #440e14 50%, #1e0508 100%);
 }
 .impact .sectionHeading {
   text-align: center !important;
@@ -500,11 +563,13 @@
   box-shadow: 0 2px 8px #5a26090e;
 }
 .storyPhoto {
-  width: 92px;
-  flex: 0 0 92px;
-  border-radius: 4px;
-  background-image: url('/images/annapurna-sewa/nano-children.webp');
+  width: 105px;
+  flex: 0 0 105px;
+  min-height: 115px;
+  align-self: stretch;
+  border-radius: 6px;
   background-size: cover;
+  background-position: center;
 }
 .quoteMark {
   font: 44px/0.65 Georgia, serif;
@@ -520,13 +585,6 @@
   font: bold 10.5px Georgia, serif;
   color: #712022;
   font-style: normal;
-}
-.story:nth-child(2) .storyPhoto {
-  background-image: url('/images/annapurna-sewa/nano-learning.webp');
-}
-.story:nth-child(3) .storyPhoto {
-  background-image: url('/images/annapurna-sewa/nano-hero.webp');
-  background-position: 95% center !important;
 }
 
 .help {
@@ -556,6 +614,8 @@
 .helpCard svg {
   color: #d07a32;
   fill: #d07a3230;
+  display: block;
+  margin: 0 auto 7px;
 }
 .helpCard h3 {
   font-size: 13.5px;
@@ -577,7 +637,7 @@
   justify-content: center;
   text-align: center;
   color: white;
-  background: linear-gradient(90deg, #2706078d 0%, #340b0bf0 25%, #340a0cf0 75%, #28070775 100%), url('/images/annapurna-sewa/nano-temple.webp') center/cover no-repeat;
+  background: linear-gradient(90deg, #270607dd 0%, #340b0bf0 35%, #340a0ce0 75%, #280707c0 100%), url('/images/initiatives/annapurna-sewa-serving.jpg') center/cover no-repeat;
   padding: 36px max(24px, calc((100% - 1320px) / 2));
 }
 .finalText {
@@ -605,13 +665,15 @@
 
 @media (max-width: 1100px) {
   .hero {
-    min-height: 420px;
+    min-height: 480px;
+    padding: 44px 20px;
   }
   .heroCopy {
-    width: 65%;
+    width: min(92%, 620px);
   }
   .intro {
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
   .introText {
     grid-column: 1;
@@ -621,92 +683,140 @@
   }
   .contribution {
     grid-column: 1 / -1;
-    max-width: 550px;
+    max-width: 580px;
     width: 100%;
     justify-self: center;
   }
   .supportGrid {
-    gap: 12px;
+    gap: 14px;
   }
   .supportCardBody {
     flex-direction: column;
   }
   .storyPhoto {
-    width: 75px;
-    flex-basis: 75px;
+    width: 80px;
+    flex-basis: 80px;
+  }
+  .heroTagline {
+    right: 2%;
+    bottom: 20px;
+    font-size: 18px;
+    opacity: 0.85;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 520px;
+    min-height: 480px;
     background-color: #2b070a;
     background-size: cover;
-    background-position: center top;
-    align-items: flex-end;
-    padding-bottom: 30px;
+    background-position: center 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 18px 40px;
   }
   .heroShade {
-    background: linear-gradient(0deg, #280509 0%, #280509 40%, #28050999 60%, transparent 80%);
+    background:
+      radial-gradient(circle at center, rgba(38, 6, 9, 0.78) 0%, rgba(26, 4, 7, 0.88) 100%),
+      linear-gradient(180deg, rgba(20, 3, 5, 0.4) 0%, rgba(38, 6, 10, 0.65) 50%, rgba(28, 4, 7, 0.92) 100%);
   }
   .heroCopy {
     width: 100%;
-    max-width: 460px;
-    padding: 0 16px;
+    max-width: 480px;
+    padding: 0;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    margin-bottom: 6px;
   }
   .hindi {
-    font-size: 46px;
+    font-size: clamp(30px, 8vw, 40px);
+    margin: 4px 0 2px;
   }
   .hero h1 {
-    font-size: 32px;
+    font-size: clamp(23px, 6vw, 30px);
+    letter-spacing: 0.03em;
+  }
+  .hero h2 {
+    font-size: clamp(13px, 3.4vw, 15px);
+    letter-spacing: 0.05em;
+    margin: 6px 0 14px;
+  }
+  .heroCopy p {
+    font-size: 14px;
+    line-height: 1.58;
+    max-width: 400px;
+    margin: 0 auto 20px;
+  }
+  .goldButton {
+    min-width: 175px;
+    padding: 12px 26px;
+    font-size: 13px;
   }
   .heroTagline {
     display: none;
   }
   .pillars {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px 0;
-    padding: 24px 16px;
+    gap: 0;
+    padding: 20px 14px;
   }
-  .pillar:nth-child(2) {
-    border: 0;
+  .pillar {
+    padding: 14px 10px;
+    border-right: 1px solid #e6d4b9;
+    border-bottom: 1px solid #e6d4b9;
+  }
+  .pillar:nth-child(2),
+  .pillar:nth-child(4) {
+    border-right: 0;
+  }
+  .pillar:nth-child(3),
+  .pillar:nth-child(4) {
+    border-bottom: 0;
   }
   .pillar h3 {
-    font-size: 13px;
+    font-size: 13.5px;
   }
   .pillar p {
-    font-size: 11px;
+    font-size: 11.5px;
   }
   .intro {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 24px 16px;
+    gap: 20px;
+    padding: 28px 16px;
   }
   .introText, .introPhoto, .contribution {
     grid-column: 1;
+    max-width: 100%;
   }
   .introPhoto {
-    min-height: 260px;
+    min-height: 250px;
   }
   .supportGrid, .helpGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
   .supportPhoto {
     height: 130px;
   }
   .supportCardBody {
     flex-direction: row;
+    padding: 12px;
+    min-height: auto;
   }
   .storyGrid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
   .storyPhoto {
     width: 90px;
     flex-basis: 90px;
   }
   .finalCta {
-    padding: 32px 16px;
-    min-height: 220px;
+    padding: 34px 18px;
+    min-height: 200px;
   }
   .finalTagline {
     display: none;
@@ -715,51 +825,189 @@
 
 @media (max-width: 480px) {
   .hero {
-    min-height: 540px;
+    min-height: auto;
+    padding: 44px 16px 36px;
+    background-position: center 25%;
+  }
+  .heroCopy {
+    max-width: 100%;
+  }
+  .eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+  }
+  .hindi {
+    font-size: clamp(26px, 8.2vw, 34px);
+    margin: 3px 0 2px;
+  }
+  .hero h1 {
+    font-size: clamp(20px, 6.2vw, 25px);
+    letter-spacing: 0.025em;
+  }
+  .hero h2 {
+    font-size: clamp(12px, 3.4vw, 13.5px);
+    letter-spacing: 0.04em;
+    margin: 5px 0 12px;
   }
   .heroCopy p {
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 320px;
+    margin: 0 auto 18px;
   }
-  .supportGrid {
+  .goldButton {
+    min-width: 165px;
+    padding: 11px 22px;
+    font-size: 12.5px;
     gap: 10px;
   }
+  .pillars {
+    padding: 16px 10px;
+  }
+  .pillar {
+    padding: 12px 6px;
+  }
+  .pillar svg {
+    width: 24px;
+    height: 24px;
+  }
+  .pillar h3 {
+    font-size: 12.5px;
+    margin: 4px 0 2px;
+  }
+  .pillar p {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .intro {
+    padding: 22px 14px;
+  }
+  .introText h2 {
+    font-size: 22px;
+  }
+  .introText p {
+    font-size: 13.5px;
+  }
+  .introPhoto {
+    min-height: 200px;
+  }
+  .contribution {
+    padding: 16px 12px;
+  }
+  .contribution h2 {
+    font-size: 20px;
+  }
+  .amountGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .amountGrid > button {
+    min-height: 52px;
+    padding: 6px;
+  }
+  .amountGrid > button strong {
+    font-size: 17px;
+  }
+  .amountGrid > button span {
+    font-size: 10.5px;
+  }
+  .customAmount {
+    grid-column: span 2;
+    min-height: 48px;
+  }
+  .supportGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
   .supportCardBody {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
   }
   .roundIcon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 6px;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
   }
   .roundIcon svg {
     width: 18px;
+    height: 18px;
   }
   .supportCard h3 {
-    font-size: 11.5px;
+    font-size: 12.5px;
   }
   .supportCard p {
-    font-size: 10.5px;
+    font-size: 11.5px;
   }
   .supportPhoto {
-    height: 110px;
+    height: 125px;
   }
   .stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px 0;
+    gap: 16px 0;
+  }
+  .stat {
+    padding: 8px 10px;
+  }
+  .stat strong {
+    font-size: 26px;
+  }
+  .stat span {
+    font-size: 11.5px;
   }
   .stat:nth-child(2) {
-    border: 0;
+    border-right: 0;
   }
-  .helpGrid {
-    gap: 10px;
+  .story {
+    padding: 10px;
+    min-height: auto;
   }
-  .helpCard h3 {
+  .storyPhoto {
+    width: 72px;
+    flex-basis: 72px;
+    min-height: 85px;
+  }
+  .story p {
     font-size: 12px;
   }
+  .helpGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .helpCard {
+    padding: 14px 12px;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 12px;
+  }
+  .helpCard svg {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+  }
+  .helpCard h3 {
+    font-size: 13px;
+    margin: 0 0 2px;
+  }
   .helpCard p {
-    font-size: 10.5px;
+    font-size: 11.5px;
   }
   .sectionHeading h2 {
     font-size: 22px;
+  }
+  .sectionHeading p {
+    font-size: 12.5px;
+  }
+  .finalCta {
+    padding: 28px 14px;
+  }
+  .finalCta h2 {
+    font-size: 21px;
+  }
+  .finalText p {
+    font-size: 12.5px;
+    margin-bottom: 14px;
   }
 }

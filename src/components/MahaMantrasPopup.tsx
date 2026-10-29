@@ -57,7 +57,7 @@ export function MahaMantrasPopup() {
   return (
     <aside
       aria-label="New Book Release Announcement"
-      className={`fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-[110] w-[calc(100vw-24px)] sm:w-[380px] max-w-[380px] pointer-events-auto transition-all duration-400 ease-out select-none ${
+      className={`fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-[110] w-[calc(100vw-24px)] sm:w-[380px] max-w-[380px] pointer-events-auto transition-all duration-400 ease-out ${
         isExiting
           ? "opacity-0 translate-y-4 scale-95 pointer-events-none"
           : "opacity-100 translate-y-0 scale-100"

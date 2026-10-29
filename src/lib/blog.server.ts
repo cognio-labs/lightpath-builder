@@ -43,6 +43,17 @@ function normalizeLegacy(p: BlogPost): BlogPost {
   return mapped ? { ...p, categorySlug: mapped.slug, category: mapped.name } : p;
 }
 
+/** Keep article headings sequential beneath the page's single h1. */
+function normalizeArticleHeadings(html: string): string {
+  let previousLevel = 1;
+  return html.replace(/<h([1-6])([^>]*)>([\s\S]*?)<\/h\1>/gi, (_full, rawLevel: string, attrs: string, inner: string) => {
+    const sourceLevel = Number(rawLevel) === 1 ? 2 : Number(rawLevel);
+    const level = Math.min(sourceLevel, previousLevel + 1);
+    previousLevel = level;
+    return `<h${level}${attrs}>${inner}</h${level}>`;
+  });
+}
+
 const getLegacyPosts = cache(() => BLOG_POSTS.map(normalizeLegacy));
 
 async function typefloSummariesSafe(): Promise<BlogPost[]> {
@@ -86,7 +97,7 @@ export const getPostPage = cache(async (slug: string): Promise<BlogPostPage | nu
       const { html, toc } = renderTypefloHtml(post.contentHtml, faqs);
       return {
         post,
-        html,
+        html: normalizeArticleHeadings(html),
         toc: post.showToc ? toc : [],
         faqs,
         seoTitle: post.seoTitle,
@@ -98,7 +109,7 @@ export const getPostPage = cache(async (slug: string): Promise<BlogPostPage | nu
   if (!legacy) return null;
   return {
     post: legacy,
-    html: legacy.contentHtml,
+    html: normalizeArticleHeadings(legacy.contentHtml),
     toc: [],
     faqs: [],
     seoTitle: legacy.title,

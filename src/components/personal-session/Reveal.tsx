@@ -57,7 +57,6 @@ export default function Reveal({
 
   return (
     <Tag
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ref={ref as any}
       style={state === "hidden" ? undefined : { transitionDelay: `${delay}ms` }}
       className={cn(

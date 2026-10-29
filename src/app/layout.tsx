@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
-import { Providers } from "./providers";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MahaMantrasPopup } from "@/components/MahaMantrasPopup";
 import { QuickActionBar } from "@/components/QuickActionBar";
-import { BookingModalHost } from "@/components/personal-session/BookingModal";
+import { DeferredBookingModalHost } from "@/components/DeferredBookingModalHost";
+import { DeferredAnalytics } from "@/components/DeferredAnalytics";
+import { HideOnAdmin } from "@/components/HideOnAdmin";
+import { cormorantGaramond, inter, playfairDisplay } from "./fonts";
 
 const BASE_URL = "https://sciencedivine.org";
 
@@ -79,17 +80,17 @@ export const metadata: Metadata = {
       "Awaken your true potential with Science Divine Movement. Meditation and spiritual guidance by enlightened master Sakshi Shree.",
     images: [
       {
-        url: "/images/guruji-meditation-hd.webp",
+        url: "/images/science-divine-og.png",
         width: 1200,
         height: 630,
-        alt: "Science Divine Foundation — Sakshi Shree",
+        alt: "Science Divine logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@gurusakshishree",
-    images: ["/images/guruji-meditation-hd.webp"],
+    images: ["/images/science-divine-og.png"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -108,18 +109,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        />
         {/* Organization + WebSite structured data — global across all pages */}
         <script
           key="structured-data"
@@ -128,44 +122,18 @@ export default function RootLayout({
           suppressHydrationWarning
         />
       </head>
-      <body>
-        {/* Google tag (gtag.js) — GA4 */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-SQT5YHQSLK"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-SQT5YHQSLK');`}
-        </Script>
-        {/* DataFast analytics */}
-        <Script
-          id="datafast"
-          src="https://datafa.st/js/script.js"
-          data-website-id="dfid_SM28U0HshmRfiuXSjfwKe"
-          data-domain="sciencedivine.org"
-          strategy="afterInteractive"
-        />
-        {/* Microsoft Clarity */}
-        <Script id="clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "yregp2mxge");`}
-        </Script>
-        <Providers>
-          <div className="flex min-h-dvh flex-col bg-white">
-            <SiteNav />
-            <main className="flex-1 pb-6 lg:pb-0">{children}</main>
+      <body className="bg-white">
+        <div className="flex min-h-dvh flex-col bg-white">
+          <HideOnAdmin><SiteNav /></HideOnAdmin>
+          <main className="flex-1 w-full bg-white pb-6 lg:pb-0">{children}</main>
+          <HideOnAdmin>
             <QuickActionBar />
             <SiteFooter />
             <MahaMantrasPopup />
-            <BookingModalHost />
-          </div>
-        </Providers>
+            <DeferredBookingModalHost />
+          </HideOnAdmin>
+          <DeferredAnalytics />
+        </div>
       </body>
     </html>
   );

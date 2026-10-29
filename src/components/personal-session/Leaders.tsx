@@ -29,10 +29,6 @@ export default function Leaders() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <span
-                aria-hidden
-                className="block h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold-300 to-gold-500 transition-transform duration-500 group-hover:scale-x-100"
-              />
               <div className="px-4 py-3.5">
                 <p className="font-display text-[15px] font-semibold leading-snug text-ink-900">{l.name}</p>
                 <p className="mt-0.5 text-[12px] text-ink-500">{l.title}</p>

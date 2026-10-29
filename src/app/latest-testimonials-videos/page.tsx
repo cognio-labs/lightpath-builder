@@ -1,6 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -51,6 +52,7 @@ export default function Page() {
       {/* Grid of video embeds */}
       <section className="section-pad" style={{ background: "#FAF9F6" }}>
         <div className="container-page">
+          <h2 className="sr-only">Transformation stories</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px" }}>
             {TESTIMONIALS.map((t, i) => (
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.02)", display: "flex", flexDirection: "column", transition: "transform 0.25s, box-shadow 0.25s" }}
@@ -58,7 +60,7 @@ export default function Page() {
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "0 10px 30px rgba(0,0,0,0.02)"; }}
               >
                 <div style={{ position: "relative", paddingTop: "56.25%", background: "#0F172A" }}>
-                  <iframe src={`https://www.youtube.com/embed/${t.id}`} title={t.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={t.id} title={t.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "24px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>

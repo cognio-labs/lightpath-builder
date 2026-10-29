@@ -6,6 +6,7 @@ import { submitForm } from "@/lib/admin.functions";
 import { RAZORPAY_PERSONAL_SESSION_LINK } from "@/lib/payment-links";
 import { Sparkles, Compass, Heart, Check, X, ChevronDown, ArrowRight, Phone, Mail, MapPin, ShieldCheck, Video, Users, Calendar, Award } from "lucide-react";
 import { LEADERS } from "@/data/content";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -243,7 +244,7 @@ export default function Page() {
               <div key={i} style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 15px rgba(0,0,0,0.02)" }}>
                 <img loading="lazy" decoding="async" src={l.image} alt={l.name} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
                 <div style={{ padding: "20px" }}>
-                  <h4 style={{ fontSize: "0.95rem", fontWeight: 800, color: "#0F172A" }}>{l.name}</h4>
+                  <h3 style={{ fontSize: "0.95rem", fontWeight: 800, color: "#0F172A" }}>{l.name}</h3>
                   <p style={{ color: "#64748B", fontSize: "0.75rem", marginTop: "4px" }}>{l.title}</p>
                 </div>
               </div>
@@ -342,7 +343,7 @@ export default function Page() {
                   <div style={{ position: "absolute", top: "12px", left: "12px", background: "#D4AF37", color: "#0F172A", padding: "4px 12px", borderRadius: "100px", fontWeight: 800, fontSize: "11px" }}>{s.step}</div>
                 </div>
                 <div style={{ padding: "24px" }}>
-                  <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 800, color: "#0F172A", marginBottom: "8px" }}>{s.title}</h4>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 800, color: "#0F172A", marginBottom: "8px" }}>{s.title}</h3>
                   <p style={{ color: "#64748B", fontSize: "0.85rem", lineHeight: 1.5 }}>{s.desc}</p>
                 </div>
               </div>
@@ -363,10 +364,10 @@ export default function Page() {
             {VIDEOS.map((v, i) => (
               <div key={i} style={{ background: "#FFFFFF", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.03)", border: "1px solid #E2E8F0" }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
                 <div style={{ padding: "16px" }}>
-                  <h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.4 }}>{v.title}</h4>
+                  <h3 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.4 }}>{v.title}</h3>
                 </div>
               </div>
             ))}

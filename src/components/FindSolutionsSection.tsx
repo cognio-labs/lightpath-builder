@@ -6,48 +6,46 @@ import { ArrowRight } from "lucide-react";
 import {
   DepressionIcon,
   MentalHealthIcon,
-  SleepIcon,
   StressIcon,
   ParentingIcon,
-  WellnessIcon,
-  RelationshipsIcon,
 } from "@/components/ui/CategoryIcons";
 
 const GUIDANCE_CARDS = [
   {
-    name: "Depression",
-    slug: "depression",
-    icon: DepressionIcon,
+    name: "Stress",
+    slug: "stress",
+    icon: StressIcon,
+    image: "/images/premium-heroes/stress.jpeg",
   },
   {
     name: "Anxiety",
-    slug: "mental-health",
+    slug: "anxiety",
     icon: MentalHealthIcon,
+    image: "/images/premium-heroes/anxiety.jpeg",
   },
   {
-    name: "Sleeping Disorder",
-    slug: "sleep",
-    icon: SleepIcon,
-  },
-  {
-    name: "Overthinking",
-    slug: "stress",
-    icon: StressIcon,
+    name: "Depression",
+    slug: "depression",
+    icon: DepressionIcon,
+    image: "/images/premium-heroes/depression.jpeg",
   },
   {
     name: "Parenting",
     slug: "parenting",
     icon: ParentingIcon,
+    image: "/images/premium-heroes/parenting.jpeg",
   },
   {
-    name: "Wellness",
-    slug: "wellness",
-    icon: WellnessIcon,
+    name: "Addictions",
+    slug: "addictions",
+    icon: MentalHealthIcon,
+    image: "/images/premium-heroes/addictions.jpeg",
   },
   {
-    name: "Relationships",
-    slug: "relationships",
-    icon: RelationshipsIcon,
+    name: "Overthinking",
+    slug: "overthinking",
+    icon: StressIcon,
+    image: "/images/premium-heroes/overthinking.jpeg",
   },
 ];
 
@@ -86,15 +84,15 @@ export default function FindSolutionsSection() {
 
             {/* Solution Cards 3-Column Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-              {GUIDANCE_CARDS.map((card, idx) => {
+              {GUIDANCE_CARDS.map((card) => {
                 const IconComponent = card.icon;
                 return (
                   <Link
                     key={card.name}
-                    href={`/solutions/${card.slug}`}
+                    href={`/${card.slug}`}
                     className="group flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/80 shadow-[0_8px_20px_rgba(30,50,80,0.05)] hover:shadow-[0_14px_30px_rgba(30,50,80,0.12)] hover:-translate-y-1.5 transition-all duration-300 text-center"
                   >
-                    <img src={["/images/premium-heroes/depression-hero.webp", "/images/premium-heroes/anxiety-hero.webp", "/images/premium-heroes/sleeping-disorder-hero.webp", "/images/premium-heroes/overthinking-hero.webp", "/images/premium-heroes/parenting-hero.webp", "/images/premium-heroes/wellness-hero.webp", "/images/premium-heroes/relationships-hero.webp"][idx]} alt="" className="mb-3 h-20 w-full rounded-xl object-cover" loading="lazy" />
+                    <img src={card.image} alt={card.name} className="mb-3 h-20 w-full rounded-xl object-cover" loading="lazy" />
                     <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-3 group-hover:bg-amber-50 group-hover:border-amber-200 transition-colors">
                       <IconComponent
                         size={26}
@@ -113,7 +111,7 @@ export default function FindSolutionsSection() {
             <div className="pt-3">
               <Link
                 href="/get-solutions-for"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:opacity-95 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#521623] hover:bg-[#6B1727] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_15px_rgba(82,22,35,0.35)] transition-all hover:scale-105"
               >
                 All Solutions <ArrowRight size={16} />
               </Link>

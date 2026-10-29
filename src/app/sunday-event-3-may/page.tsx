@@ -2,6 +2,7 @@
 
 ﻿import { useState } from "react";
 import { Calendar, Clock, MapPin, Leaf, ChevronDown, Star } from "lucide-react";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 
 
@@ -191,7 +192,7 @@ export default function Page() {
                   <div key={i} style={{ display: "flex", gap: "16px", background: BG, border: `1px solid ${BrG}`, borderRadius: "16px", padding: "20px" }}>
                     <div style={{ fontSize: "1.5rem", flexShrink: 0 }}>{lp.icon}</div>
                     <div>
-                      <h4 style={{ fontWeight: 800, color: T, fontSize: "0.95rem", marginBottom: "6px" }}>{lp.title}</h4>
+                      <h3 style={{ fontWeight: 800, color: T, fontSize: "0.95rem", marginBottom: "6px" }}>{lp.title}</h3>
                       <p style={{ color: TL, fontSize: "0.825rem", lineHeight: 1.6 }}>{lp.desc}</p>
                     </div>
                   </div>
@@ -211,7 +212,7 @@ export default function Page() {
                 <div style={{ display: "flex", gap: "10px" }}><MapPin size={16} style={{ color: G, flexShrink: 0, marginTop: "1px" }} /><span>Siddha Sudarshan Sakshi Dham 9, Avanthika Rd, Chiranjiv Vihar, Shastri Nagar, Ghaziabad, UP 201002</span></div>
               </div>
               <div style={{ position: "relative", paddingTop: "56.25%", background: "#000", borderRadius: "16px", overflow: "hidden" }}>
-                <iframe src="https://www.youtube.com/embed/BWb67JoBpTg" title="Guruji Video Message" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            <YouTubeEmbed id="BWb67JoBpTg" title="Guruji Video Message" className="absolute inset-0" />
               </div>
             </div>
           </div>
@@ -280,7 +281,7 @@ export default function Page() {
             {INCLUDED.map((inc, i) => (
               <div key={i} style={{ background: W, border: `1px solid ${BrG}`, borderRadius: "20px", padding: "28px 24px" }}>
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{inc.emoji}</div>
-                <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: T, marginBottom: "16px" }}>{inc.title}</h4>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, color: T, marginBottom: "16px" }}>{inc.title}</h3>
                 <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#EF4444", textTransform: "uppercase" as const }}>Problem</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.prob}</p></div>
                 <div style={{ marginBottom: "12px" }}><span style={{ fontSize: "10px", fontWeight: 800, color: "#521623", textTransform: "uppercase" as const }}>Solution</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.sol}</p></div>
                 <div><span style={{ fontSize: "10px", fontWeight: 800, color: Au, textTransform: "uppercase" as const }}>Benefit</span><p style={{ color: TL, fontSize: "0.8rem", marginTop: "4px", lineHeight: 1.5 }}>{inc.benefit}</p></div>
@@ -302,9 +303,9 @@ export default function Page() {
             {VIDEOS.map((v, i) => (
               <div key={i} style={{ background: BG, borderRadius: "16px", overflow: "hidden", border: `1px solid ${BrG}` }}>
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe src={`https://www.youtube.com/embed/${v.id}`} title={v.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+                  <YouTubeEmbed id={v.id} title={v.title} className="absolute inset-0" />
                 </div>
-                <div style={{ padding: "16px" }}><h4 style={{ fontSize: "0.85rem", fontWeight: 700, color: T, lineHeight: 1.4 }}>{v.title}</h4></div>
+                <div style={{ padding: "16px" }}><h3 style={{ fontSize: "0.85rem", fontWeight: 700, color: T, lineHeight: 1.4 }}>{v.title}</h3></div>
               </div>
             ))}
           </div>

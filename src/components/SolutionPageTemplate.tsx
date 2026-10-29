@@ -6,6 +6,7 @@ import { SolutionData } from "@/data/solutionsData";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
 import { ARTICLES_BY_TOPIC, VIDEOS_BY_TOPIC } from "@/data/content";
 import { FastVideoCard } from "@/components/FastMediaCards";
+import { SectionHeading } from "@/components/PageHero";
 import {
   ArrowRight,
   CheckCircle2,
@@ -103,116 +104,117 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
     return configs[index % configs.length];
   };
 
-  const getPracticeStyle = (index: number) => {
-    const configs = [
-      {
-        backgroundImage: "url('/images/about-sound-body.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-      },
-      {
-        backgroundImage: "url('/images/about-sound-mind.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-      },
-      {
-        backgroundImage: "url('/images/about-self-realization.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-      },
-    ];
-    return configs[index % configs.length];
-  };
-
   return (
-    <div className="bg-[#FAF8F5] text-slate-800 min-h-screen">
+    <div className="bg-white text-slate-800 min-h-screen">
 
       <section
-        className="relative overflow-hidden min-h-[520px] lg:min-h-[580px] flex items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 text-white"
+        className="relative overflow-hidden min-h-[520px] lg:min-h-[560px] flex items-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6"
         style={{
-          background: "linear-gradient(135deg, #521623 0%, #3D0E18 50%, #521623 100%)",
+          background: "linear-gradient(135deg, #FFFBF0 0%, #FFF8E7 60%, #FFFFFF 100%)",
         }}
       >
         <div
-          className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.14) 0%, transparent 70%)" }}
+          className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10 animate-glow-pulse pointer-events-none"
+          style={{ background: "radial-gradient(circle, #D4AF37, transparent 70%)" }}
         />
         <div
-          className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)" }}
+          className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-10 animate-glow-pulse pointer-events-none"
+          style={{ background: "radial-gradient(circle, #521623, transparent 70%)" }}
         />
 
         <div className="max-w-[1280px] w-full mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-5 sm:space-y-6">
               {/* Breadcrumb */}
-              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-widest">
-                <Link href="/" className="hover:text-white transition-colors">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#8B6914] uppercase tracking-widest">
+                <Link href="/" className="hover:text-[#521623] transition-colors">
                   Home
                 </Link>
                 <span>&bull;</span>
-                <Link href="/#solutions" className="hover:text-white transition-colors">
+                <Link href="/#solutions" className="hover:text-[#521623] transition-colors">
                   Solutions
                 </Link>
                 <span>&bull;</span>
-                <span className="text-white/90">{solution.name}</span>
+                <span className="text-[#521623]">{solution.name}</span>
               </div>
 
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(212,175,55,0.15)] border border-[rgba(212,175,55,0.3)]">
-                <Sparkles size={14} className="text-[#D4AF37]" />
-                <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#D4AF37]">
-                  {solution.badge}
-                </span>
+              <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border"
+                style={{
+                  borderColor: "rgba(212, 175, 55, 0.4)",
+                  color: "#D4AF37",
+                  background: "rgba(75, 16, 27, 0.08)",
+                }}
+              >
+                <Sparkles size={14} />
+                <span>SOLUTIONS · {solution.name}</span>
               </div>
 
               {/* Title */}
-              <h1 className="font-serif text-[clamp(2.25rem,5vw,3.8rem)] font-bold tracking-tight text-white max-w-3xl leading-[1.12]">
+              <h1 className="font-serif text-[clamp(2.25rem,5vw,3.8rem)] font-bold tracking-tight text-[#111827] max-w-3xl leading-[1.12]">
                 {solution.tagline.includes(":") ? (
                   <>
                     {solution.tagline.split(":")[0]}:{" "}
-                    <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">
+                    <span style={{ color: "#4B101B" }}>
                       {solution.tagline.split(":")[1]}
                     </span>
                   </>
                 ) : (
-                  <span className="bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] bg-clip-text text-transparent">
+                  <span style={{ color: "#4B101B" }}>
                     {solution.tagline}
                   </span>
                 )}
               </h1>
 
               {/* Description */}
-              <p className="text-base sm:text-lg text-white/80 font-medium max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl leading-relaxed">
                 {solution.shortDesc}
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="/book-session"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D4AF37] text-[#0F172A] font-bold text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:scale-105 transition-transform"
+                  className="rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center gap-2 shadow-lg hover:scale-105 transition-all text-white"
+                  style={{
+                    background: "linear-gradient(135deg, #4B101B, #6B1727)",
+                    border: "1px solid rgba(212,175,55,0.5)",
+                    boxShadow: "0 6px 25px rgba(75,16,27,0.35)",
+                  }}
                 >
-                  <User size={18} /> Book Personal Session <ArrowRight size={18} />
+                  <User size={16} /> Book Personal Session <ArrowRight size={16} />
                 </Link>
-                <a
-                  href="#explore"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-colors backdrop-blur-md"
+                <Link
+                  href="/events"
+                  className="rounded-full px-8 py-3.5 text-sm font-bold border-2 border-[#521623] bg-white text-[#521623] hover:bg-[#521623] hover:text-white transition-all inline-flex items-center gap-2 shadow-sm hover:scale-105"
+                  style={{
+                    color: "#521623",
+                    background: "#FFFFFF",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#521623";
+                    e.currentTarget.style.color = "#FFFFFF";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFFFFF";
+                    e.currentTarget.style.color = "#521623";
+                  }}
                 >
-                  Explore Resources <ChevronRight size={16} className="text-[#D4AF37]" />
-                </a>
+                  Explore Events <ChevronRight size={16} />
+                </Link>
               </div>
             </div>
 
             {/* Right side hero image */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-white/20 hover:scale-105 transition-transform duration-700">
+              <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40 hover:scale-105 transition-transform duration-700">
                 <img loading="lazy" decoding="async"
                   src={solution.heroImage}
                   alt={solution.name}
                   className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
@@ -222,7 +224,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
       {/* ──────────────────────────────────────────────────────────
           2. NAVIGATION TABS BAR (Articles, Quotes, Videos)
       ────────────────────────────────────────────────────────── */}
-      <section id="explore" style={{ background: "#F8F7F4", borderBottom: "1px solid #E5E7EB" }}>
+      <section id="explore" className="w-full bg-white border-b border-[#E5E7EB]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           <div style={{ display: "flex", gap: "4px", overflowX: "auto", paddingTop: "8px" }} className="scrollbar-none">
             {TABS.map((t) => (
@@ -255,20 +257,15 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
       {/* ──────────────────────────────────────────────────────────
           3. TAB CONTENT (Articles / Quotes / Videos)
       ────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-16 px-4 sm:px-6 max-w-[1280px] mx-auto bg-white">
+      <section className="w-full bg-white py-14 sm:py-16">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {contentTab === "articles" && (
           <div className="space-y-10 animate-fade-in">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
-              <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E]">
-                READ &amp; HEAL
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#111827]">
-                Articles on {solution.name}
-              </h2>
-              <p className="text-slate-600 text-sm md:text-base font-medium">
-                Wisdom-backed articles and spiritual guidance from Sakshi Shree to support your journey towards healing and inner peace.
-              </p>
-            </div>
+            <SectionHeading
+              eyebrow="Read & Heal"
+              title={`Articles on ${solution.name}`}
+              subtitle="Wisdom-backed articles and spiritual guidance from Sakshi Shree to support your journey towards healing and inner peace."
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {articles.map((a, i) => {
@@ -360,17 +357,11 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
 
         {contentTab === "quotes" && (
           <div className="space-y-10 animate-fade-in">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
-              <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E]">
-                WORDS OF WISDOM
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#111827]">
-                Inspirational Quotes on {solution.name}
-              </h2>
-              <p className="text-slate-600 text-sm md:text-base font-medium">
-                Sacred reflections and meditative pearls from Sadguru Sakshi Shree to anchor your mind in profound stillness.
-              </p>
-            </div>
+            <SectionHeading
+              eyebrow="Words of Wisdom"
+              title={`Inspirational Quotes on ${solution.name}`}
+              subtitle="Sacred reflections and meditative pearls from Sadguru Sakshi Shree to anchor your mind in profound stillness."
+            />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 9 }, (_, i) => {
@@ -452,17 +443,11 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
 
         {contentTab === "videos" && (
           <div className="space-y-10 animate-fade-in">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
-              <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#C79A2E]">
-                WATCH &amp; TRANSFORM
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#111827]">
-                Video Teachings on {solution.name}
-              </h2>
-              <p className="text-slate-600 text-sm md:text-base font-medium">
-                Direct guidance, masterclasses, and practical techniques taught by Sadguru Sakshi Shree.
-              </p>
-            </div>
+            <SectionHeading
+              eyebrow="Watch & Transform"
+              title={`Video Teachings on ${solution.name}`}
+              subtitle="Direct guidance, masterclasses, and practical techniques taught by Sadguru Sakshi Shree."
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {videos.map((v, i) => (
@@ -478,12 +463,14 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
             </div>
           </div>
         )}
+        </div>
       </section>
 
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           2. KEY BENEFITS SECTION
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section className="section-pad px-4 sm:px-6 max-w-[1280px] mx-auto">
+      <section className="w-full bg-white section-pad px-4 sm:px-6">
+        <div className="max-w-[1280px] mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
             TRANSFORMATIVE BENEFITS
@@ -536,10 +523,11 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
             </div>
           ))}
         </div>
+        </div>
       </section>
 
       {/* 3. SYMPTOMS & COMMON CHALLENGES */}
-      <section className="section-pad px-4 sm:px-6 bg-[#F8F7F4] border-y border-[#E5E7EB]">
+      <section className="w-full section-pad px-4 sm:px-6 bg-white border-y border-[#E5E7EB]">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 space-y-4">
@@ -562,7 +550,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
                 >
                   <CheckCircle2 size={22} className="text-[#D4AF37] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-base text-[#111827]">{s.title}</h4>
+                    <h3 className="font-bold text-base text-[#111827]">{s.title}</h3>
                     <p className="text-sm text-slate-600 mt-1 font-medium">{s.desc}</p>
                   </div>
                 </div>
@@ -572,63 +560,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         </div>
       </section>
 
-      {/* 4. RECOMMENDED PRACTICES */}
-      <section className="section-pad px-4 sm:px-6 max-w-[1280px] mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
-          <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
-            DAILY SADHNA & ROUTINES
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#111827]">
-            Recommended Practices for {solution.name}
-          </h2>
-          <p className="text-slate-600 text-sm md:text-base font-medium">
-            Perform these simple daily practices to cultivate lasting vitality, inner quietude, and happiness.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
-          {solution.practices.map((p, i) => (
-            <div
-              key={i}
-              className="rounded-3xl bg-white border border-[#E5E7EB] hover:border-[#D4AF37] shadow-sm overflow-hidden flex flex-col"
-            >
-              <div
-                className="h-48 bg-no-repeat overflow-hidden"
-                role="img"
-                aria-label={`${p.title} guided practice`}
-                style={
-                  p.image
-                    ? {
-                        backgroundImage: `url('${p.image}')`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }
-                    : getPracticeStyle(i)
-                }
-              />
-              <div className="p-6 sm:p-7 space-y-4 flex-1">
-                <span className="inline-block px-3 py-1 rounded-full bg-[rgba(212,175,55,0.12)] text-[#521623] font-bold text-xs">
-                  {p.duration}
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-[#111827]">
-                  {p.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600 font-medium">
-                  {p.desc}
-                </p>
-              </div>
-              <div className="px-6 sm:px-7 pb-6">
-                <Link
-                  href="/book-session"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#521623] hover:text-[#B8860B] transition-colors"
-                >
-                  Learn Guided Technique <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
 
 
@@ -659,7 +591,8 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
       {/* ———————————————————————————————————
           6. FAQ SECTION & HEALTH DISCLAIMER
       ——————————————————————————————————— */}
-      <section className="py-20 px-6 max-w-[1000px] mx-auto">
+      <section className="w-full bg-white py-20 px-6">
+        <div className="max-w-[1000px] mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 space-y-3">
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#C79A2E]">
             FREQUENTLY ASKED QUESTIONS
@@ -703,6 +636,7 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
         {/* Responsible Medical Disclaimer Note */}
         <div className="mt-12 p-6 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-950 font-medium leading-relaxed">
           <strong className="font-bold">Medical Disclaimer:</strong> Science Divine practices and Sakshi Sadhna techniques complement overall physical and mental wellbeing. They are not intended as a medical cure or substitute for professional clinical treatment. For medical or psychiatric conditions, please seek appropriate care from qualified healthcare professionals.
+        </div>
         </div>
       </section>
 

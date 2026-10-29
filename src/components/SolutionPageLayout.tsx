@@ -228,6 +228,7 @@ export function SolutionPageLayout({
           </div>
 
           {/* Second Row: Grid of 4 Cards */}
+          <h2 className="sr-only">Benefits and outcomes</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-gray-100/80 shadow-xl shadow-amber-900/5 mb-8">
             {meta.cards.map((card, idx) => {
               const CardIcon = card.icon;
@@ -294,42 +295,50 @@ export function SolutionPageLayout({
           </div>
 
           {tab === "articles" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-              {articles.map((a, i) => (
-                <article key={i} className="card-premium rounded-2xl p-6 group overflow-hidden">
-                  <img src={a.image || cardImages[i % cardImages.length]} alt={a.title} className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] object-cover" loading="lazy" />
-                  <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
-                    {a.tag || title}
-                  </div>
-                  <div
-                    className="w-8 h-0.5 mb-4 transition-all group-hover:w-14"
-                    style={{ background: "linear-gradient(90deg, #F59E0B, #D4AF37)" }}
-                  />
-                  <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug">
-                    {a.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 mb-4 leading-relaxed">{a.excerpt}</p>
-                  {a.href ? (
-                    <a
-                      href={a.href}
-                      target={a.href.startsWith("http") ? "_blank" : undefined}
-                      rel={a.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1"
-                    >
-                      Read More <ArrowRight size={12} />
-                    </a>
-                  ) : (
-                    <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
-                      Read More <ArrowRight size={12} />
-                    </button>
-                  )}
-                </article>
-              ))}
+            <div className="space-y-8 animate-fade-in">
+              <SectionHeading
+                eyebrow="Read & Heal"
+                title={`Articles on ${title}`}
+                subtitle="Wisdom-backed articles and spiritual guidance from Sakshi Shree to support your journey towards healing and inner peace."
+              />
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {articles.map((a, i) => (
+                  <article key={i} className="card-premium rounded-2xl p-6 group overflow-hidden">
+                    <img src={a.image || cardImages[i % cardImages.length]} alt={a.title} className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] object-cover" loading="lazy" />
+                    <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
+                      {a.tag || title}
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-gray-900 mb-3 leading-snug">
+                      {a.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 mb-4 leading-relaxed">{a.excerpt}</p>
+                    {a.href ? (
+                      <a
+                        href={a.href}
+                        target={a.href.startsWith("http") ? "_blank" : undefined}
+                        rel={a.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1"
+                      >
+                        Read More <ArrowRight size={12} />
+                      </a>
+                    ) : (
+                      <button className="text-sm font-semibold text-amber-600 hover:text-amber-700 inline-flex items-center gap-1">
+                        Read More <ArrowRight size={12} />
+                      </button>
+                    )}
+                  </article>
+                ))}
+              </div>
             </div>
           )}
 
           {tab === "quotes" && (
-            <div className="animate-fade-in">
+            <div className="space-y-8 animate-fade-in">
+              <SectionHeading
+                eyebrow="Words of Wisdom"
+                title={`Inspirational Quotes on ${title}`}
+                subtitle="Sacred reflections and meditative pearls from Sadguru Sakshi Shree to anchor your mind in profound stillness."
+              />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {quoteImages.map((src, i) => (
                   <div
@@ -353,10 +362,17 @@ export function SolutionPageLayout({
           )}
 
           {tab === "videos" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-              {videos.map((v) => (
-                <YouTubeThumb key={v.id} id={v.id} title={v.title} />
-              ))}
+            <div className="space-y-8 animate-fade-in">
+              <SectionHeading
+                eyebrow="Watch & Transform"
+                title={`Video Teachings on ${title}`}
+                subtitle="Direct guidance, masterclasses, and practical techniques taught by Sadguru Sakshi Shree."
+              />
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {videos.map((v) => (
+                  <YouTubeThumb key={v.id} id={v.id} title={v.title} />
+                ))}
+              </div>
             </div>
           )}
 
