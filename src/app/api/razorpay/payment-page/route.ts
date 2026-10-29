@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   const page = await paymentPageUrl(SEWAS[sewa].paymentPageEnv);
   if (!page) return NextResponse.json({ url: null });
 
-  const amount = Number(request.nextUrl.searchParams.get("amount"));
+  const amount = SEWAS[sewa].fixedAmount ?? Number(request.nextUrl.searchParams.get("amount"));
   if (Number.isSafeInteger(amount) && amount >= 1 && amount <= MAX_DONATION) {
     page.searchParams.set("amount", String(amount));
   }

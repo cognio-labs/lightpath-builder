@@ -2,19 +2,11 @@
 
 import { useEffect, useId, useState } from "react";
 import { ArrowRight, Check, CreditCard, Heart, LockKeyhole, ShieldCheck } from "lucide-react";
-import { useSewaCheckout, type Donor } from "@/components/donations/useSewaCheckout";
+import { cleanDonor, donorError, useSewaCheckout, type Donor } from "@/components/donations/useSewaCheckout";
 import { MIN_MONTHLY_DONATION, SEWAS, type DonationFrequency, type SewaKey } from "@/lib/sewa";
 import styles from "./DonationForm.module.css";
 
 const PRESET_AMOUNTS = [500, 1100, 2100, 3100, 11000, 21000] as const;
-
-/** Returns an error message, or "" when the donor details are usable. */
-function donorError({ name, email, phone }: Donor) {
-  if (name.trim().length < 2) return "Please enter your full name.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return "Please enter a valid email address.";
-  if (!/^(\+?91)?[6-9]\d{9}$/.test(phone.replace(/[\s-]/g, ""))) return "Please enter a valid 10-digit mobile number.";
-  return "";
-}
 
 export type DonationFormProps = {
   /** Which sewa's table the payment is recorded in (see src/lib/sewa.ts). */
@@ -71,14 +63,14 @@ export function DonationForm({
       return;
     }
     setError("");
-    const cleanDonor = { name: donor.name.trim(), email: donor.email.trim(), phone: donor.phone.replace(/[\s-]/g, "") };
+    const details = cleanDonor(donor);
 
     // Sewas with their own Razorpay Payment Page open it with the amount
     // prefilled; the webhook records the payment. Otherwise pay on-site.
     if (!monthly && SEWAS[sewa].paymentPageEnv) {
       setOpening(true);
       try {
-        const query = new URLSearchParams({ sewa, amount: String(amount), ...cleanDonor });
+        const query = new URLSearchParams({ sewa, amount: String(amount), ...details });
         const res = await fetch(`/api/razorpay/payment-page?${query}`);
         const { url } = (await res.json()) as { url: string | null };
         if (url) {
@@ -90,7 +82,7 @@ export function DonationForm({
       }
       setOpening(false);
     }
-    checkout.start({ sewa, amount, frequency, donor: cleanDonor });
+    checkout.start({ sewa, amount, frequency, donor: details });
   };
 
   return (

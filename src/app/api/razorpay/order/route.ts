@@ -19,8 +19,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Please check the amount and your details." }, { status: 400 });
   }
   const { sewa, donor } = parsed.data;
-  const amount = Math.round(parsed.data.amount * 100) / 100;
   const config = SEWAS[sewa as keyof typeof SEWAS];
+  // Fixed-price payments (Personal Session) always charge their set price.
+  const amount = config.fixedAmount ?? Math.round(parsed.data.amount * 100) / 100;
 
   try {
     const order = await razorpayRequest<{ id: string; amount: number; currency: string }>("/orders", {

@@ -71,23 +71,26 @@ export async function sendDonationReceipt(args: {
   if (!donor.email) return;
   const label = SEWAS[sewa].label;
   const name = escapeHtml(firstName(donor.name));
+  const booking = SEWAS[sewa].kind === "booking";
 
-  const title =
-    kind === "monthly_first"
+  const title = booking
+    ? "Your Personal Session booking is confirmed"
+    : kind === "monthly_first"
       ? `Your monthly support for ${label} has begun`
       : kind === "monthly_renewal"
         ? `Your monthly donation to ${label} was received`
         : `Thank you for supporting ${label}`;
 
-  const intro =
-    kind === "monthly_first"
+  const intro = booking
+    ? `Dear ${name},<br><br>Thank you — we have received your contribution of <strong>${formatInr(amount)}</strong> for your <strong>Personal Session with Sadguru Sakshi Shree</strong>. Your contribution supports the Jhuggi Jhopdi Shiksha Sewa Mission.<br><br><strong>Our team will contact you within 24 hours</strong> on your phone or email to schedule your session.`
+    : kind === "monthly_first"
       ? `Dear ${name},<br><br>Thank you for becoming a monthly supporter of <strong>${escapeHtml(label)}</strong>. Your auto-pay of <strong>${formatInr(amount)} every month</strong> is now active, and your first payment has been received.`
       : kind === "monthly_renewal"
         ? `Dear ${name},<br><br>Your monthly auto-pay donation of <strong>${formatInr(amount)}</strong> to <strong>${escapeHtml(label)}</strong> was received. Thank you for your continued support.`
         : `Dear ${name},<br><br>We have received your contribution of <strong>${formatInr(amount)}</strong> to <strong>${escapeHtml(label)}</strong>. Your generosity makes a real difference.`;
 
   const rows: [string, string][] = [
-    ["Sewa", label],
+    [booking ? "Booking" : "Sewa", label],
     ["Amount", `${formatInr(amount)}${kind === "one_time" ? "" : " / month"}`],
     ["Date", istDate(args.paidAt)],
     ["Payment ID", paymentId],
@@ -112,6 +115,7 @@ export async function sendDonationReceipt(args: {
     `Dear ${firstName(donor.name)},`,
     "",
     title,
+    booking ? "Our team will contact you within 24 hours to schedule your session." : "",
     "",
     ...rows.map(([k, v]) => `${k}: ${v}`),
     "",
@@ -137,17 +141,20 @@ export async function sendPaymentFailed(args: {
   const label = SEWAS[sewa].label;
   const name = escapeHtml(firstName(donor.name));
   const retryUrl = `${SITE_URL}${SEWAS[sewa].donatePath}`;
+  const booking = SEWAS[sewa].kind === "booking";
 
-  const title = monthly
+  const title = booking
+    ? "Your Personal Session payment did not go through"
+    : monthly
     ? `Your monthly donation to ${label} could not be charged`
     : `Your donation to ${label} did not go through`;
 
   const intro = monthly
     ? `Dear ${name},<br><br>We tried to collect your monthly auto-pay donation of <strong>${formatInr(amount)}</strong> to <strong>${escapeHtml(label)}</strong>, but the payment did not go through. Razorpay will retry automatically. If it keeps failing, please check your UPI Autopay or card mandate, or set up your monthly donation again.`
-    : `Dear ${name},<br><br>Your payment of <strong>${formatInr(amount)}</strong> to <strong>${escapeHtml(label)}</strong> could not be completed. <strong>No money has been taken</strong> — if any amount was debited, it will be refunded automatically by your bank.`;
+    : `Dear ${name},<br><br>Your payment of <strong>${formatInr(amount)}</strong> for <strong>${escapeHtml(label)}</strong> could not be completed${booking ? ", so your session is not booked yet" : ""}. <strong>No money has been taken</strong> — if any amount was debited, it will be refunded automatically by your bank.`;
 
   const rows: [string, string][] = [
-    ["Sewa", label],
+    [booking ? "Booking" : "Sewa", label],
     ["Amount", `${formatInr(amount)}${monthly ? " / month" : ""}`],
   ];
   if (args.reason) rows.push(["Reason", args.reason]);
@@ -157,7 +164,7 @@ export async function sendPaymentFailed(args: {
     `<p style="font-size:15px;line-height:1.6;margin:0">${intro}</p>
      ${detailsTable(rows)}
      ${monthly ? "" : `<p style="font-size:13px;color:#5a4448;line-height:1.6">If you retried and your payment went through, you will receive a separate receipt — you can ignore this email.</p>`}
-     ${button(retryUrl, monthly ? "Set up monthly donation again" : "Try again")}`,
+     ${button(retryUrl, booking ? "Book again" : monthly ? "Set up monthly donation again" : "Try again")}`,
   );
 
   const text = [
@@ -176,4 +183,46 @@ export async function sendPaymentFailed(args: {
   ].join("\n");
 
   await sendEmail({ to: donor.email, subject: title, html, text });
+}
+
+/** Team alert for a new paid Personal Session booking → SESSION_EMAIL. */
+export async function sendSessionBookingAlert(args: {
+  donor: Donor & { phone?: string | null };
+  amount: number;
+  paymentId: string;
+  paidAt?: string | null;
+}) {
+  const to = process.env.SESSION_EMAIL?.trim();
+  if (!to) return;
+  const { donor, amount, paymentId } = args;
+  const who = donor.name?.trim() || donor.email || "a visitor";
+  const title = `New Personal Session booking — ${who}`;
+  const adminUrl = `${SITE_URL}/admin?tab=session`;
+
+  const rows: [string, string][] = [
+    ["Name", donor.name?.trim() || "—"],
+    ["Email", donor.email || "—"],
+    ["Phone", donor.phone || "—"],
+    ["Amount", formatInr(amount)],
+    ["Paid on", istDate(args.paidAt)],
+    ["Payment ID", paymentId],
+  ];
+
+  const html = layout(
+    title,
+    `<p style="font-size:15px;line-height:1.6;margin:0">A Personal Session with Sadguru Sakshi Shree has been booked and paid. Please contact them within 24 hours to schedule it — replying to this email goes straight to them.</p>
+     ${detailsTable(rows)}
+     ${button(adminUrl, "Open in admin")}`,
+  );
+  const text = [
+    title,
+    "",
+    "Please contact them within 24 hours to schedule the session. Reply to this email to write to them.",
+    "",
+    ...rows.map(([k, v]) => `${k}: ${v}`),
+    "",
+    `Admin: ${adminUrl}`,
+  ].join("\n");
+
+  await sendEmail({ to, subject: title, html, text, replyTo: donor.email, internal: true });
 }

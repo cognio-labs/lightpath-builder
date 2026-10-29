@@ -17,6 +17,7 @@ const TAB_LABELS: Record<Tab, string> = {
   annapurna: "Annapurna Sewa",
   nirman: "Nirman Sewa",
   gita: "Living the Gita",
+  session: "Personal Session",
   subscriptions: "Monthly Auto-pay",
   webhooks: "Webhook Log",
 };
@@ -66,7 +67,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         <p className="font-bold">Could not load donation data.</p>
         <p className="mt-1">{err instanceof Error ? err.message : String(err)}</p>
         <p className="mt-2 text-red-700">
-          If the tables don&apos;t exist yet, run <code>supabase/donations.sql</code> and then <code>supabase/living-the-gita.sql</code> in the Supabase SQL Editor.
+          If the tables don&apos;t exist yet, run <code>supabase/donations.sql</code>, <code>supabase/living-the-gita.sql</code> and <code>supabase/personal-session.sql</code> in the Supabase SQL Editor.
         </p>
       </div>
     );
@@ -171,7 +172,7 @@ async function Overview({ db }: { db: SupabaseClient }) {
   return (
     <div className="space-y-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat label="Total raised (all sewas)" value={formatInr(grand)} />
+        <Stat label="Total raised (all)" value={formatInr(grand)} />
         <Stat label="Raised this month" value={formatInr(grandMonth)} />
         <Stat label="Active monthly donors" value={String(activeSubs.length)} />
         <Stat label="Monthly auto-pay value" value={`${formatInr(monthlyRecurring)} / mo`} />
@@ -262,6 +263,12 @@ async function DonationsTable({ db, sewa, params }: { db: SupabaseClient; sewa: 
           ["Amount", (r) => <strong>{money(r.amount)}</strong>],
           ...(SEWAS[sewa].subscriptionsTable
             ? ([["Type", (r: Row) => (r.frequency === "monthly" ? "Monthly" : "One-time")]] as const)
+            : []),
+          ...(SEWAS[sewa].kind === "booking"
+            ? ([
+                ["Session", (r: Row) => String(r.session_status ?? "—").replace("_", " ")],
+                ["Scheduled for", (r: Row) => fmtDate(r.session_at)],
+              ] as const)
             : []),
           ["Status", (r) => <StatusBadge status={String(r.status)} />],
           ["Paid at", (r) => fmtDate(r.paid_at)],

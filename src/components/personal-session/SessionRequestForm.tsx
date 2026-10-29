@@ -1,14 +1,22 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState, type FormEvent } from "react";
 import { submitForm } from "@/lib/admin.functions";
+import { cleanDonor, donorError, useSewaCheckout } from "@/components/donations/useSewaCheckout";
+import { SEWAS } from "@/lib/sewa";
 import { GoldSubmitButton } from "./ui";
 
 const inputClass =
   "w-full rounded-xl border border-cream-300 bg-cream-50 px-4 py-3 text-[13px] text-ink-900 placeholder:text-ink-500/70 transition-colors focus:border-gold-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold-300/30";
 
-/** Name / email / mobile fields that file a "book_session" request and go to /thank-you. */
+const SESSION_AMOUNT = SEWAS.session.fixedAmount!;
+
+/**
+ * Name / email / mobile → pay ₹6,100 for a Personal Session.
+ * Opens the RAZORPAY_SESSION Payment Page with these details prefilled (falls
+ * back to on-site checkout if it isn't set); the paid booking lands in
+ * personal_session_bookings via the webhook, and the donor gets a confirmation email.
+ */
 export default function SessionRequestForm({
   source,
   submitLabel,
@@ -18,32 +26,53 @@ export default function SessionRequestForm({
   submitLabel: string;
   autoFocus?: boolean;
 }) {
-  const router = useRouter();
+  const checkout = useSewaCheckout();
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
+  // Coming back from the Razorpay page via Back restores this page from cache.
+  useEffect(() => {
+    const reset = () => setBusy(false);
+    window.addEventListener("pageshow", reset);
+    return () => window.removeEventListener("pageshow", reset);
+  }, []);
+
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const donor = cleanDonor({
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+    });
+    const invalid = donorError(donor);
+    if (invalid) {
+      setErr(invalid);
+      return;
+    }
     setBusy(true);
     setErr(null);
-    const fd = new FormData(e.currentTarget);
+
+    // Keep the enquiry too, so the team can follow up even if payment isn't completed.
+    await submitForm({ type: "book_session", ...donor, message: source }).catch(() => {});
+
     try {
-      await submitForm({
-        type: "book_session",
-        name: String(fd.get("name") ?? ""),
-        email: String(fd.get("email") ?? ""),
-        phone: String(fd.get("phone") ?? ""),
-        message: source,
-      });
-      router.push("/thank-you");
-    } catch (e: unknown) {
-      setErr(e instanceof Error ? e.message : "Something went wrong. Please try again.");
-      setBusy(false);
+      const query = new URLSearchParams({ sewa: "session", ...donor });
+      const res = await fetch(`/api/razorpay/payment-page?${query}`);
+      const { url } = (await res.json()) as { url: string | null };
+      if (url) {
+        window.location.assign(url);
+        return;
+      }
+    } catch {
+      // Fall through to on-site checkout.
     }
+    setBusy(false);
+    checkout.start({ sewa: "session", amount: SESSION_AMOUNT, frequency: "one_time", donor });
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} noValidate>
       <div className="space-y-2.5">
         <input
           required
@@ -74,8 +103,10 @@ export default function SessionRequestForm({
       )}
 
       <GoldSubmitButton size="md" withArrow={false} disabled={busy} className="mt-4 w-full">
-        {busy ? "Sending…" : submitLabel}
+        {busy ? "Opening secure payment…" : submitLabel}
       </GoldSubmitButton>
+
+      {checkout.modal}
     </form>
   );
 }

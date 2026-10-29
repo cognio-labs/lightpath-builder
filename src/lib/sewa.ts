@@ -1,8 +1,8 @@
-// Sewas that accept Razorpay donations. Shared by the donate cards, the
-// /api/razorpay routes and the /admin panel. Table names match
-// supabase/donations.sql and supabase/living-the-gita.sql.
+// Everything that takes a Razorpay payment: the four sewas plus the paid
+// Personal Session booking. Shared by the donate cards, the booking popup, the
+// /api/razorpay routes and the /admin panel. Table names match supabase/*.sql.
 
-export type SewaKey = "shiksha" | "annapurna" | "nirman" | "gita";
+export type SewaKey = "shiksha" | "annapurna" | "nirman" | "gita" | "session";
 export type DonationFrequency = "one_time" | "monthly";
 
 type SewaConfig = {
@@ -15,6 +15,10 @@ type SewaConfig = {
    * donations open that page with the chosen amount prefilled (via /donate/[sewa]).
    */
   paymentPageEnv?: string;
+  /** Fixed price in rupees; the server ignores any other amount sent. */
+  fixedAmount?: number;
+  /** "booking" = a paid service (Personal Session), worded as a booking in emails. */
+  kind?: "donation" | "booking";
   donatePath: string;
 };
 
@@ -42,6 +46,14 @@ export const SEWAS: Record<SewaKey, SewaConfig> = {
     table: "living_the_gita_donations",
     paymentPageEnv: "RAZORPAY_LIVING_GITA_URL",
     donatePath: "/living-the-gita#gita-contribution",
+  },
+  session: {
+    label: "Personal Session",
+    table: "personal_session_bookings",
+    paymentPageEnv: "RAZORPAY_SESSION",
+    fixedAmount: 6100,
+    kind: "booking",
+    donatePath: "/book-session",
   },
 };
 

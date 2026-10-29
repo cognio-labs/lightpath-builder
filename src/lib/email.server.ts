@@ -3,14 +3,25 @@
 
 const DEFAULT_FROM = "Science Divine Foundation <donations@sciencedivine.org>";
 
-type Email = { to: string; subject: string; html: string; text: string };
+type Email = {
+  /** One address, or several separated by commas. */
+  to: string;
+  subject: string;
+  html: string;
+  text: string;
+  replyTo?: string | null;
+  /** Internal team emails skip the DONATION_NOTIFY_EMAIL copy. */
+  internal?: boolean;
+};
 
-export async function sendEmail({ to, subject, html, text }: Email) {
+export async function sendEmail({ to, subject, html, text, replyTo, internal = false }: Email) {
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey || !to) return false;
+  const recipients = to.split(",").map((a) => a.trim()).filter(Boolean);
+  if (!apiKey || !recipients.length) return false;
 
   // Optional: a team inbox that gets a copy of every donor email.
-  const bcc = process.env.DONATION_NOTIFY_EMAIL?.trim();
+  const bcc = internal ? undefined : process.env.DONATION_NOTIFY_EMAIL?.trim();
+  const reply = replyTo?.trim() || process.env.RESEND_REPLY_TO?.trim();
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -18,9 +29,9 @@ export async function sendEmail({ to, subject, html, text }: Email) {
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL?.trim() || DEFAULT_FROM,
-        to: [to],
+        to: recipients,
         ...(bcc ? { bcc: [bcc] } : {}),
-        ...(process.env.RESEND_REPLY_TO?.trim() ? { reply_to: process.env.RESEND_REPLY_TO.trim() } : {}),
+        ...(reply ? { reply_to: reply } : {}),
         subject,
         html,
         text,

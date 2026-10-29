@@ -1,5 +1,5 @@
 import { Clock, UserRound, Wallet } from "lucide-react";
-import { RAZORPAY_PERSONAL_SESSION_LINK } from "@/lib/payment-links";
+import { BookSessionLink } from "./BookSessionButton";
 import { bookingSteps, donation, taxNote } from "./content";
 import { SectionHeading } from "./ui";
 
@@ -30,14 +30,11 @@ export default function BookingSteps() {
                 <p className="mt-3 text-center text-[14px] font-semibold leading-snug text-ink-900">{s.title}</p>
                 <p className="mt-1.5 text-center text-[12px] leading-relaxed text-ink-500">{s.body}</p>
                 {s.icon === "session" && (
-                  <a
-                    href={RAZORPAY_PERSONAL_SESSION_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <BookSessionLink
                     className="mt-3 flex items-center justify-center gap-1 text-[12px] font-semibold text-gold-600 underline decoration-gold-300 underline-offset-4 hover:text-ink-900"
                   >
                     Contribute {donation.amount} →
-                  </a>
+                  </BookSessionLink>
                 )}
               </li>
             );

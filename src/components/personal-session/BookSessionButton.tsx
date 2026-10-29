@@ -17,3 +17,17 @@ export default function BookSessionButton({ children, className }: { children: R
     </a>
   );
 }
+
+/** Inline text link that opens the booking popup (used in the booking steps). */
+export function BookSessionLink({ children, className }: { children: ReactNode; className?: string }) {
+  const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    openBookingModal(e.currentTarget);
+  };
+
+  return (
+    <a href="#book" onClick={onClick} aria-haspopup="dialog" className={className}>
+      {children}
+    </a>
+  );
+}

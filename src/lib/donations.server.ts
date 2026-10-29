@@ -11,7 +11,7 @@ import {
   type RazorpayPayment,
   type RazorpaySubscription,
 } from "@/lib/razorpay.server";
-import { sendDonationReceipt, sendPaymentFailed } from "@/lib/donation-emails.server";
+import { sendDonationReceipt, sendPaymentFailed, sendSessionBookingAlert } from "@/lib/donation-emails.server";
 
 // The generated Database type doesn't include the donation tables, so they are
 // queried through an untyped view of the shared service-role client.
@@ -38,6 +38,22 @@ async function findSewaForOrder(db: SupabaseClient, orderId: string, hint?: stri
   return null;
 }
 
+/** Emails for a newly paid one-time payment: donor receipt, plus a team alert for session bookings. */
+async function notifyPaid(
+  sewa: SewaKey,
+  { donor, amount, payment, paidAt }: {
+    donor: { name?: string | null; email?: string | null; phone?: string | null };
+    amount: number;
+    payment: RazorpayPayment;
+    paidAt: string;
+  },
+) {
+  await sendDonationReceipt({ sewa, donor, amount, kind: "one_time", paymentId: payment.id, paidAt, method: payment.method });
+  if (SEWAS[sewa].kind === "booking") {
+    await sendSessionBookingAlert({ donor, amount, paymentId: payment.id, paidAt });
+  }
+}
+
 /** One-time payment captured → mark its order row paid. */
 export async function markOrderPaid(payment: RazorpayPayment) {
   if (!payment.order_id) return false;
@@ -58,19 +74,16 @@ export async function markOrderPaid(payment: RazorpayPayment) {
     })
     .eq("razorpay_order_id", payment.order_id)
     .in("status", ["created", "failed"])
-    .select("amount, donor_name, donor_email");
+    .select("amount, donor_name, donor_email, donor_phone");
   if (error) throw new Error(error.message);
 
   const row = changed?.[0];
   if (row) {
-    await sendDonationReceipt({
-      sewa,
-      donor: { name: row.donor_name, email: row.donor_email ?? payment.email },
+    await notifyPaid(sewa, {
+      donor: { name: row.donor_name, email: row.donor_email ?? payment.email, phone: row.donor_phone ?? payment.contact },
       amount: Number(row.amount),
-      kind: "one_time",
-      paymentId: payment.id,
+      payment,
       paidAt,
-      method: payment.method,
     });
   }
   return true;
@@ -147,14 +160,11 @@ export async function recordPaymentPagePayment(payment: RazorpayPayment, rawPayl
   }
 
   if (newlyPaid) {
-    await sendDonationReceipt({
-      sewa,
-      donor: { name: donor.donor_name, email: donor.donor_email },
+    await notifyPaid(sewa, {
+      donor: { name: donor.donor_name, email: donor.donor_email, phone: donor.donor_phone },
       amount: toRupees(payment.amount),
-      kind: "one_time",
-      paymentId: payment.id,
+      payment,
       paidAt,
-      method: payment.method,
     });
   }
   return sewa;

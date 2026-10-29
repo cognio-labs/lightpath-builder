@@ -3,19 +3,32 @@
 // On-site donate flow (Shiksha Sewa, and any sewa without a Payment Page):
 //   checkout.start({ sewa, amount, frequency, donor })
 //   → /api/razorpay/order|subscription (saves the donor) → Razorpay Checkout
-//   with amount, email and phone prefilled → /api/razorpay/verify → thank-you.
+//   with amount, email and phone prefilled → /api/razorpay/verify → /thank-you.
 // Render {checkout.modal} once anywhere in the page.
 
 import { useEffect, useState } from "react";
-import { CheckCircle2, LoaderCircle, X, XCircle } from "lucide-react";
+import { LoaderCircle, X, XCircle } from "lucide-react";
 import { SEWAS, formatInr, type DonationFrequency, type SewaKey } from "@/lib/sewa";
 
 export type Donor = { name: string; email: string; phone: string };
+
+/** Returns an error message, or "" when the donor details are usable. */
+export function donorError({ name, email, phone }: Donor) {
+  if (name.trim().length < 2) return "Please enter your full name.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return "Please enter a valid email address.";
+  if (!/^(\+?91)?[6-9]\d{9}$/.test(phone.replace(/[\s-]/g, ""))) return "Please enter a valid 10-digit mobile number.";
+  return "";
+}
+
+export const cleanDonor = ({ name, email, phone }: Donor): Donor => ({
+  name: name.trim(),
+  email: email.trim(),
+  phone: phone.replace(/[\s-]/g, ""),
+});
 type CheckoutRequest = { sewa: SewaKey; amount: number; frequency: DonationFrequency; donor: Donor };
 type Stage =
   | { kind: "idle" }
   | { kind: "processing" }
-  | { kind: "success"; paymentId?: string }
   | { kind: "error"; message: string };
 
 type RazorpayResponse = {
@@ -61,11 +74,9 @@ async function postJson<T>(url: string, body: unknown): Promise<T> {
 }
 
 export function useSewaCheckout() {
-  const [request, setRequest] = useState<CheckoutRequest | null>(null);
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
 
   const start = async (next: CheckoutRequest) => {
-    setRequest(next);
     setStage({ kind: "processing" });
     try {
       const [loaded, created] = await Promise.all([
@@ -92,15 +103,17 @@ export function useSewaCheckout() {
         theme: { color: "#521623" },
         handler: async (res: RazorpayResponse) => {
           setStage({ kind: "processing" });
-          const verified = await postJson<{ paymentId?: string }>("/api/razorpay/verify", {
-            kind: monthly ? "subscription" : "order",
-            ...res,
-          }).catch(() => ({ paymentId: res.razorpay_payment_id }));
-          setStage({ kind: "success", paymentId: verified.paymentId ?? res.razorpay_payment_id });
+          await postJson("/api/razorpay/verify", { kind: monthly ? "subscription" : "order", ...res }).catch(
+            () => {}, // The webhook records the payment even if this call fails.
+          );
+          // Same after-payment page the Razorpay Payment Pages redirect to.
+          const thankYou = new URLSearchParams({ for: next.sewa, payment_id: res.razorpay_payment_id });
+          if (monthly) thankYou.set("monthly", "1");
+          window.location.assign(`/thank-you?${thankYou}`);
         },
         modal: {
           // Closing Razorpay without paying just returns to the form.
-          ondismiss: () => setStage((s) => (s.kind === "success" ? s : { kind: "idle" })),
+          ondismiss: () => setStage((s) => (s.kind === "processing" ? s : { kind: "idle" })),
         },
       });
       rzp.on("payment.failed", (res) =>
@@ -115,23 +128,13 @@ export function useSewaCheckout() {
 
   const close = () => setStage({ kind: "idle" });
 
-  const modal =
-    request && stage.kind !== "idle" ? <StatusModal request={request} stage={stage} onClose={close} /> : null;
+  const modal = stage.kind !== "idle" ? <StatusModal stage={stage} onClose={close} /> : null;
 
   return { start, modal };
 }
 
-function StatusModal({
-  request,
-  stage,
-  onClose,
-}: {
-  request: CheckoutRequest;
-  stage: Exclude<Stage, { kind: "idle" }>;
-  onClose: () => void;
-}) {
-  const monthly = request.frequency === "monthly";
-  const sewa = SEWAS[request.sewa];
+/** "Please wait" while opening Razorpay or confirming, and payment errors. */
+function StatusModal({ stage, onClose }: { stage: Exclude<Stage, { kind: "idle" }>; onClose: () => void }) {
   const busy = stage.kind === "processing";
 
   useEffect(() => {
@@ -159,23 +162,7 @@ function StatusModal({
         {stage.kind === "processing" && (
           <div className="py-6">
             <LoaderCircle className="mx-auto mb-4 animate-spin text-[#521623]" size={40} />
-            <p id="donation-status-title" className="text-sm font-semibold text-[#521623]">Opening secure payment…</p>
-          </div>
-        )}
-
-        {stage.kind === "success" && (
-          <div className="py-4">
-            <CheckCircle2 className="mx-auto mb-4 text-green-600" size={52} />
-            <h2 id="donation-status-title" className="font-serif text-2xl font-bold text-[#521623]">Thank you!</h2>
-            <p className="mt-3 text-sm leading-relaxed text-[#5A4448]">
-              {request.donor.name.split(" ")[0]}, {monthly
-                ? `your monthly auto-pay of ${formatInr(request.amount)} for ${sewa.label} is set up. It will be charged automatically every month — you can cancel anytime by writing to us.`
-                : `your contribution of ${formatInr(request.amount)} to ${sewa.label} has been received. Razorpay will email you a receipt.`}
-            </p>
-            {stage.paymentId && <p className="mt-3 font-mono text-xs text-[#7A6165]">Payment ID: {stage.paymentId}</p>}
-            <button type="button" onClick={onClose} className="mt-6 rounded-full bg-[#521623] px-8 py-2.5 text-sm font-bold text-white hover:bg-[#3B0910]">
-              Done
-            </button>
+            <p id="donation-status-title" className="text-sm font-semibold text-[#521623]">Please wait…</p>
           </div>
         )}
 
