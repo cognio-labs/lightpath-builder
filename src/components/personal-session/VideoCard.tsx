@@ -15,18 +15,18 @@ export default function VideoCard() {
       <Image
         src={images.videoThumb}
         alt={embed ? "" : brand.teacher}
-        width={900}
-        height={900}
-        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+        width={1280}
+        height={720}
+        className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
       />
-      <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-maroon-950/35 via-transparent to-transparent" />
+      <span aria-hidden className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
     </>
   );
 
   return (
     <div className="sd-hairline overflow-hidden rounded-2xl bg-white shadow-ps-card">
       <p className="border-b border-gold-300/40 px-5 py-3 text-center text-[13px] font-semibold tracking-wide text-ink-900">
-        Before You Book, Hear From {brand.shortName}
+        Discover the Basic Course with Sadguru Sakshi Shree
       </p>
 
       <div className="p-3.5">
@@ -64,8 +64,7 @@ export default function VideoCard() {
         </div>
 
         <p className="px-2 pt-4 pb-1 text-center text-[12px] leading-relaxed text-ink-500">
-          A short message from {brand.teacher} about{" "}
-          <strong className="font-semibold text-ink-900">Personal Sessions</strong> and how they can help you.
+          A transformative introduction to the wisdom and teachings of Sadguru Sakshi Shree
         </p>
       </div>
     </div>

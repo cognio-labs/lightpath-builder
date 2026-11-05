@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "audit:images": "node scripts/image-quality-audit.mjs --summary",
+    "audit:images:full": "node scripts/image-quality-audit.mjs"
   },
   "dependencies": {
     "@datafast/ai-crawl": "^1.0.9",

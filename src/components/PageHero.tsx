@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 export function PageHero({
   eyebrow,
   title,
@@ -46,9 +47,14 @@ export function PageHero({
               )}
             </div>
             <div className={`${imageSide === "left" ? "md:order-1" : "md:order-2"} flex justify-center`}>
-              <img loading="eager" fetchPriority="high" decoding="async"
+              <Image
                 src={image}
                 alt="Sakshi Shree"
+                width={1200}
+                height={1200}
+                priority
+                quality={85}
+                sizes="(max-width: 768px) calc(100vw - 32px), 448px"
                 className="w-full max-w-md object-contain drop-shadow-2xl"
                 style={{ mixBlendMode: "multiply", maxHeight: "420px" }}
               />

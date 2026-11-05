@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SolutionData } from "@/data/solutionsData";
 import SolutionsCarousel from "@/components/SolutionsCarousel";
 import { ARTICLES_BY_TOPIC, VIDEOS_BY_TOPIC } from "@/data/content";
@@ -209,9 +210,12 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
             {/* Right side hero image */}
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40 hover:scale-105 transition-transform duration-700">
-                <img loading="lazy" decoding="async"
+                <Image
                   src={solution.heroImage}
                   alt={solution.name}
+                  fill
+                  quality={85}
+                  sizes="(max-width: 1024px) calc(100vw - 48px), 480px"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
@@ -289,18 +293,22 @@ export default function SolutionPageTemplate({ solution }: { solution: SolutionD
                           rel={isExternal ? "noopener noreferrer" : undefined}
                           className="block w-full h-full"
                         >
-                          <img
+                          <Image
                             src={cardImg}
                             alt={a.title}
-                            loading="lazy"
+                            fill
+                            quality={85}
+                            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 46vw, 31vw"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </a>
                       ) : (
-                        <img
+                        <Image
                           src={cardImg}
                           alt={a.title}
-                          loading="lazy"
+                          fill
+                          quality={85}
+                          sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 46vw, 31vw"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       )}
