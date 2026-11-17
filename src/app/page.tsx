@@ -92,9 +92,9 @@ export default async function Page() {
       {/* ════════════════════════════════════
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
-      <section className="hero-sunrise-bg relative overflow-hidden min-h-[540px] sm:min-h-[560px] md:min-h-[600px] pt-8 sm:pt-12 md:pt-14 pb-0 lg:py-0 lg:min-h-[640px] xl:min-h-[670px] flex flex-col justify-between lg:flex-row lg:items-center bg-[#4b1007]">
+      <section className="hero-sunrise-bg relative overflow-hidden min-h-[540px] sm:min-h-[560px] md:min-h-[600px] pt-8 sm:pt-12 md:pt-14 pb-0 lg:py-0 lg:min-h-[640px] xl:min-h-[670px] flex flex-col justify-between lg:flex-row lg:items-center bg-[#fffaf0]">
         <Image
-          src="/images/nirman-sewa/sakshi-dham-hero-hd.webp"
+          src="/images/hero-sunrise-mountains.webp"
           alt=""
           fill
           priority
@@ -111,19 +111,18 @@ export default async function Page() {
           }
           .hero-main-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(34px, 6vw, 76px);
+            font-size: clamp(22px, 5.5vw, 54px);
             line-height: 1.15;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: #F5D27A;
+            font-weight: 600;
+            letter-spacing: -0.02em;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
           }
           .hero-tagline {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            color: rgba(255,255,255,0.95);
-            font-size: clamp(1.1rem, 2.8vw, 1.65rem);
+            color: rgba(93, 59, 54, 0.95);
+            font-size: clamp(1rem, 2.8vw, 1.4rem);
             font-weight: 600;
             line-height: 1.25;
             -webkit-font-smoothing: antialiased;
@@ -185,7 +184,7 @@ export default async function Page() {
             transform: translateY(-2px);
           }
           .hero-sunrise-wash {
-            background: linear-gradient(90deg, rgba(74, 15, 5, 0.72) 0%, rgba(74, 15, 5, 0.5) 46%, rgba(74, 15, 5, 0.12) 100%);
+            background: linear-gradient(90deg, rgba(255,253,247,0.96) 0%, rgba(255,253,247,0.88) 45%, rgba(255,253,247,0.25) 75%, rgba(255,253,247,0.05) 100%);
           }
           @media (max-width: 1023px) {
             .hero-sunrise-bg {
@@ -193,7 +192,7 @@ export default async function Page() {
               background-size: cover !important;
             }
             .hero-sunrise-wash {
-              background: linear-gradient(180deg, rgba(74, 15, 5, 0.68) 0%, rgba(74, 15, 5, 0.34) 55%, rgba(74, 15, 5, 0.08) 100%);
+              background: linear-gradient(180deg, rgba(255,253,247,0.92) 0%, rgba(255,253,247,0.78) 32%, rgba(255,253,247,0.15) 62%, rgba(255,253,247,0.0) 100%);
             }
             .about-section-bg {
               background-position: center bottom !important;
@@ -275,50 +274,44 @@ export default async function Page() {
 
         <div className="hero-sunrise-wash absolute inset-0 pointer-events-none" />
 
-        <div className="container-page pt-6 sm:pt-8 lg:pt-10 lg:pb-12 pb-0 relative z-10 w-full flex items-center justify-center text-center">
-          <div className="grid lg:grid-cols-12 gap-8 items-center justify-items-center w-full">
+        <div className="container-page pt-6 sm:pt-8 lg:pt-10 lg:pb-12 pb-0 relative z-10 w-full flex items-center justify-start">
+          <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
 
             {/* Left Content Column */}
-            <div className="lg:col-span-12 max-w-5xl mx-auto space-y-5 relative z-10 pt-2 lg:pt-4 text-center">
+            <div className="lg:col-span-7 space-y-5 relative z-10 pt-2 lg:pt-4">
 
               {/* Main Heading */}
               <h1 className="hero-main-title">
-                <span className="block lg:whitespace-nowrap">SAKSHI DHAM</span>
-                <span className="block lg:whitespace-nowrap">INTERNATIONAL</span>
+                <span className="block text-[#521623] lg:whitespace-nowrap">Awaken the Divine Within,</span>
+                <span className="block text-[#B8860B] lg:whitespace-nowrap">Transform the World Around.</span>
               </h1>
 
               {/* Subheading / Tagline */}
               <p className="hero-tagline italic">
-                A Spiritual Center in Vrindavan for Inner Transformation and a More Conscious World.
+                The Science of Awareness for a Conscious Life.
               </p>
 
               {/* Body Text */}
-              <p className="hero-copy font-normal hidden">
+              <p className="hero-copy font-normal">
                 Science Divine is a non-profit organisation dedicated to spreading the timeless wisdom of <span className="font-medium text-amber-950">Awareness (Sakshi Bhav)</span> and <span className="font-medium text-amber-950">Bhagavad Gita</span> for a better, conscious & compassionate world.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex justify-center flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full sm:w-auto">
-                <Link href="/nirman-sewa" className="btn-explore w-full sm:w-auto">
-                  DONATE NOW <ArrowRight size={16} />
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full sm:w-auto">
+                <Link href="/courses" className="btn-explore w-full sm:w-auto">
+                  EXPLORE PROGRAM <ArrowRight size={16} />
                 </Link>
-                <Link href="/events" className="btn-experience hidden">
+                <Link href="/events" className="btn-experience w-full sm:w-auto">
                   JOIN AN EVENT <Calendar size={16} className="text-[#B8860B]" />
                 </Link>
               </div>
 
               {/* Mobile Portrait attached flush to bottom edge */}
-              <div className="hidden">
+              <div className="lg:hidden mt-8 flex flex-col items-center w-full">
                 <div className="relative max-w-[360px] sm:max-w-[440px] w-full flex flex-col items-center">
-                  <Image
+                  <img loading="eager" fetchPriority="high" decoding="async"
                     src="/images/sakshi-shree-hero-portrait.webp"
                     alt="Sadguru Sakshi Shree"
-                    width={1205}
-                    height={1306}
-                    priority
-                    quality={85}
-
-                    sizes="(max-width: 640px) calc(100vw - 32px), 440px"
                     className="w-full h-auto max-h-[480px] sm:max-h-[560px] object-contain object-bottom block -mb-1 drop-shadow-[0_16px_22px_rgba(55,35,20,0.18)]"
                   />
                   {/* Founder Badge staying strictly on white cloth, never touching background, text 100% inside card */}
@@ -332,12 +325,9 @@ export default async function Page() {
                     <p className="text-[7px] text-amber-950/85 font-semibold tracking-tight leading-tight pt-0.5 truncate w-full">
                       Founder, Science Divine Foundation
                     </p>
-                    <Image
+                    <img loading="lazy" decoding="async"
                       src="/images/signature.webp"
                       alt="Sakshi Shree Signature"
-                      width={1920}
-                      height={640}
-                      sizes="120px"
                       className="h-3.5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-95"
                     />
                   </div>
@@ -355,15 +345,9 @@ export default async function Page() {
         {/* Desktop Portrait attached flush to section bottom with generous breathing space on the right next to quick actions */}
         <div className="hidden lg:flex absolute bottom-0 right-[104px] lg:right-[116px] xl:right-[130px] 2xl:right-[150px] z-10 items-end pointer-events-none">
           <div className="relative flex items-end max-w-[440px] xl:max-w-[500px] 2xl:max-w-[540px]">
-            <Image
+            <img loading="eager" fetchPriority="high" decoding="async"
               src="/images/sakshi-shree-hero-portrait.webp"
               alt="Sadguru Sakshi Shree"
-              width={1205}
-              height={1306}
-              priority
-              quality={85}
-
-              sizes="(max-width: 1280px) 440px, 540px"
               className="w-full h-auto max-h-[580px] xl:max-h-[640px] 2xl:max-h-[670px] object-contain object-bottom block drop-shadow-[0_16px_24px_rgba(55,35,20,0.18)]"
             />
             {/* Founder Badge Attached directly over lower left white robe, safely clear of hand */}
@@ -378,12 +362,9 @@ export default async function Page() {
                 <p className="text-[9px] text-amber-950/80 font-medium tracking-tight leading-tight pl-0.5 whitespace-nowrap">
                   Founder, Science Divine Foundation
                 </p>
-                <Image
+                <img loading="lazy" decoding="async"
                   src="/images/signature.webp"
                   alt="Sakshi Shree Signature"
-                  width={1920}
-                  height={640}
-                  sizes="160px"
                   className="h-5 w-auto object-contain pt-0.5 mix-blend-multiply opacity-90"
                 />
               </div>
@@ -408,7 +389,8 @@ export default async function Page() {
             {[
               {
                 title: "Awareness",
-                subtitle: "Sakshi Bhav",                icon: (
+                subtitle: "Sakshi Bhav",
+                icon: (
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
                     <circle cx="12" cy="12" r="3" />
@@ -417,11 +399,13 @@ export default async function Page() {
               },
               {
                 title: "Wisdom",
-                subtitle: "Bhagavad Gita",                icon: <BookOpen size={24} className="text-[#4E1321]" />,
+                subtitle: "Bhagavad Gita",
+                icon: <BookOpen size={24} className="text-[#4E1321]" />,
               },
               {
                 title: "Practice",
-                subtitle: "Sakshi Sadhna",                icon: (
+                subtitle: "Sakshi Sadhna",
+                icon: (
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                   </svg>
@@ -429,7 +413,8 @@ export default async function Page() {
               },
               {
                 title: "Purpose",
-                subtitle: "Conscious Living",                icon: (
+                subtitle: "Conscious Living",
+                icon: (
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4E1321" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="5" />
                     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
@@ -438,7 +423,8 @@ export default async function Page() {
               },
               {
                 title: "Seva",
-                subtitle: "Serving Humanity",                icon: <Heart size={24} className="text-[#4E1321]" />,
+                subtitle: "Serving Humanity",
+                icon: <Heart size={24} className="text-[#4E1321]" />,
               },
             ].map((item) => (
               <div
