@@ -17,6 +17,32 @@ import { RAZORPAY_DONATION_LINK } from "@/lib/payment-links";
 
 const INITIATIVES = [
   {
+    icon: Heart,
+    title: "Gau Sewa",
+    tagline: "Nourish. Protect. Care.",
+    achieved: null,
+    goal: null,
+    donateUrl: "/gau-sewa#contribution",
+    knowMoreSlug: "gau-sewa",
+    image: "/images/gau-sewa/support-1.webp",
+    imagePosition: "center center",
+    desc: "Help provide nourishing fodder, veterinary care and a safe place to rest for cows in need.",
+    bulletPoints: ["Nutritious fodder and clean drinking water", "Veterinary check-ups and timely treatment", "Safe, shaded and comfortable shelter", "Compassionate everyday care"],
+  },
+  {
+    icon: Heart,
+    title: "Swasthya Seva",
+    tagline: "Care Closer to Home",
+    achieved: null,
+    goal: null,
+    donateUrl: "/swasthya-seva#contribution",
+    knowMoreSlug: "swasthya-seva",
+    image: "/images/swasthya-seva/support-1.webp",
+    imagePosition: "center center",
+    desc: "Help bring basic health check-ups, health awareness and care guidance closer to communities.",
+    bulletPoints: ["Community health camps and basic check-ups", "Preventive care and health awareness", "Guidance on accessing follow-up care", "Compassionate community health outreach"],
+  },
+  {
     icon: GraduationCap,
     title: "Shiksha Sewa",
     tagline: "Har Ghar Shiksha — Young Mind Movement",
@@ -242,9 +268,9 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
             {INITIATIVES.map((init, idx) => {
-              const percent = Math.min(100, Math.round((init.achieved / init.goal) * 100));
+              const percent = init.goal && init.achieved !== null ? Math.min(100, Math.round((init.achieved / init.goal) * 100)) : 0;
               const IconComp = init.icon;
 
               return (
@@ -301,7 +327,7 @@ export default function Page() {
 
                     {/* Progress Bar & Buttons */}
                     <div className="pt-3 border-t border-[#E8C969]/40 space-y-3">
-                      <div>
+                      {init.achieved !== null && init.goal !== null && <div>
                         <div className="flex justify-between text-[11px] font-bold text-[#521623] mb-1.5">
                           <span>₹{init.achieved.toLocaleString()}</span>
                           <span className="text-[#B8860B]">{percent}%</span>
@@ -313,11 +339,11 @@ export default function Page() {
                             style={{ width: `${percent}%` }}
                           />
                         </div>
-                      </div>
+                      </div>}
 
                       <div className="grid grid-cols-2 gap-2.5 pt-1">
                         <Link
-                          href={`/${init.knowMoreSlug}` as any}
+                          href={`/${init.knowMoreSlug}${init.goal === null ? "#contribution" : ""}`}
                           className="text-center py-2.5 px-3 rounded-full bg-gradient-to-r from-[#D7A316] to-[#C48F0A] hover:from-[#C48F0A] hover:to-[#B8860B] text-[#521623] text-xs font-bold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5"
                         >
                           <Heart size={13} className="fill-[#521623]" />

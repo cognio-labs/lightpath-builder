@@ -36,6 +36,8 @@ const aboutLinks = [
 ];
 
 const initiativeLinks = [
+  { href: "/gau-sewa", label: "Gau Sewa", desc: "Nourishing fodder, veterinary care & safe shelter", icon: Heart },
+  { href: "/swasthya-seva", label: "Swasthya Seva", desc: "Community health camps & preventive care", icon: Activity },
   { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen },
   { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils },
   { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2 },

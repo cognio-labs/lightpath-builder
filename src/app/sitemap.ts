@@ -45,6 +45,8 @@ const P08_PATHS = [
 // Priority 0.7 — Initiatives and supporting pages
 const P07_PATHS = [
   "/initiatives",
+  "/gau-sewa",
+  "/swasthya-seva",
   "/har-ghar-shiksha",
   "/har-ghar-shiksha-volunteers",
   "/har-ghar-shiksha-donation",
