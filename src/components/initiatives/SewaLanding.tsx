@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { loadRazorpay, type RazorpaySuccess } from "@/lib/razorpay-client";
 import { sewaContent } from "./sewa-content";
 import styles from "./sewa.module.css";
 
@@ -14,11 +15,77 @@ export default function SewaLanding({ initiative }: { initiative: keyof typeof s
   const [custom, setCustom] = useState("");
   const [shareStatus, setShareStatus] = useState("");
   const [shareFallback, setShareFallback] = useState("");
+  const [paymentError, setPaymentError] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState<"idle" | "loading" | "success">("idle");
   const amount = custom ? Number(custom) : selected;
-  const valid = Number.isFinite(amount) && amount >= 1 && Number.isInteger(amount);
+  const valid = Number.isSafeInteger(amount) && amount >= 1 && amount <= 10_000_000;
   const assets = `/images/${data.slug}`;
   const email = (subject: string, body: string) => `mailto:info@sciencedivine.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const volunteer = email(`Volunteering for ${data.name}`, `Hello Science Divine Foundation,\n\nI would like to volunteer for ${data.name}. Please share the available opportunities and how I can get involved.\n\nThank you.`);
+
+  async function startCheckout() {
+    if (paymentStatus === "loading") return;
+    if (!valid) {
+      setPaymentError("Enter a valid contribution amount between ₹1 and ₹1,00,00,000.");
+      return;
+    }
+
+    setPaymentError("");
+    setPaymentStatus("loading");
+    try {
+      const orderResponse = await fetch("/api/razorpay/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount, purpose: `${data.name} contribution` }),
+      });
+      const order = await orderResponse.json() as {
+        error?: string;
+        keyId?: string;
+        orderId?: string;
+        amount?: number;
+        currency?: string;
+      };
+      if (!orderResponse.ok || !order.keyId || !order.orderId || !order.amount) {
+        throw new Error(order.error || "Unable to start secure checkout.");
+      }
+
+      await loadRazorpay();
+      if (!window.Razorpay) throw new Error("Secure checkout is unavailable.");
+      const checkout = new window.Razorpay({
+        key: order.keyId,
+        amount: order.amount,
+        currency: order.currency || "INR",
+        name: "Science Divine Foundation",
+        description: `${data.name} contribution`,
+        order_id: order.orderId,
+        theme: { color: "#651522" },
+        modal: { ondismiss: () => setPaymentStatus("idle"), confirm_close: true },
+        handler: async (payment: RazorpaySuccess) => {
+          try {
+            const verifyResponse = await fetch("/api/razorpay/verify", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payment),
+            });
+            const result = await verifyResponse.json() as { verified?: boolean; error?: string };
+            if (!verifyResponse.ok || !result.verified) throw new Error(result.error || "Payment verification failed.");
+            setPaymentStatus("success");
+          } catch (verificationError) {
+            setPaymentStatus("idle");
+            setPaymentError(verificationError instanceof Error ? verificationError.message : "Payment verification failed. Contact us with your payment ID.");
+          }
+        },
+      });
+      checkout.on("payment.failed", (response) => {
+        setPaymentStatus("idle");
+        setPaymentError(response.error?.description || "The payment was not completed. Please try again.");
+      });
+      checkout.open();
+    } catch (checkoutError) {
+      setPaymentStatus("idle");
+      setPaymentError(checkoutError instanceof Error ? checkoutError.message : "Unable to start secure checkout.");
+    }
+  }
 
   async function share() {
     const url = `${window.location.origin}/${data.slug}`;
@@ -32,7 +99,7 @@ export default function SewaLanding({ initiative }: { initiative: keyof typeof s
     }
   }
 
-  return <div className={styles.page}>
+  return <div className={`${styles.page} sewa-page`}>
     <section className={styles.hero} style={{ backgroundImage: `url('${assets}/hero.webp')` }}>
       <div className={styles.heroInner}>
         <p className={styles.eyebrow}>A SCIENCE DIVINE FOUNDATION INITIATIVE</p>
@@ -50,17 +117,15 @@ export default function SewaLanding({ initiative }: { initiative: keyof typeof s
         <div className={styles.visionCopy}><p className={styles.eyebrow}>OUR VISION</p><h2>{data.visionTitle}</h2><p>{data.vision}</p><a href="#support">See what your support can provide</a></div>
         <div className={styles.visionImage}><Image src={`${assets}/vision.webp`} alt={data.visionAlt} fill sizes="(max-width: 650px) 100vw, 30vw" /></div>
       </div>
-      <form id="contribution" className={styles.contribution} onSubmit={event => {
-        event.preventDefault();
-        if (valid) window.location.href = email(`${data.name} donation enquiry — ${money(amount)}`, `Hello Science Divine Foundation,\n\nI would like to contribute ${money(amount)} to ${data.name}. Please share the donation instructions.\n\nThank you.`);
-      }}>
+      <form id="contribution" className={styles.contribution} onSubmit={event => { event.preventDefault(); void startCheckout(); }}>
         <p className={styles.eyebrow}>SUPPORT {data.name.toUpperCase()}</p>
         <h2>Make a Contribution</h2><p>Choose an amount or enter your own.</p>
-        <fieldset><legend>Contribution amount (₹)</legend><div className={styles.amounts}>{amounts.map(value => <button key={value} type="button" aria-pressed={!custom && selected === value} onClick={() => { setSelected(value); setCustom(""); }}>{money(value)}</button>)}</div></fieldset>
+        <fieldset><legend>Contribution amount (₹)</legend><div className={styles.amounts}>{amounts.map(value => <button key={value} type="button" aria-pressed={!custom && selected === value} onClick={() => { setSelected(value); setCustom(""); setPaymentError(""); setPaymentStatus("idle"); }}>{money(value)}</button>)}</div></fieldset>
         <label className={styles.srOnly} htmlFor="custom-amount">Enter a custom amount in rupees</label>
-        <input id="custom-amount" type="number" inputMode="numeric" min="1" step="1" placeholder="Enter a custom amount" value={custom} onChange={event => setCustom(event.target.value)} aria-describedby="selected-amount" />
-        <p id="selected-amount" className={styles.selected} aria-live="polite">{valid ? `Selected contribution ${money(amount)}` : "Enter a whole rupee amount of at least ₹1."}</p>
-        <button className={styles.enquire} type="submit" disabled={!valid}>Enquire About Donating</button>
+        <input id="custom-amount" type="number" inputMode="numeric" min="1" step="1" placeholder="Enter a custom amount" value={custom} onChange={event => { setCustom(event.target.value); setPaymentError(""); setPaymentStatus("idle"); }} aria-describedby="selected-amount" />
+        <p id="selected-amount" className={styles.selected} aria-live="polite">{valid ? `Selected contribution ${money(amount)}` : "Enter a whole rupee amount between ₹1 and ₹1,00,00,000."}</p>
+        {paymentError && <p className={styles.paymentError} role="alert">{paymentError}</p>}
+        <button className={styles.enquire} type="submit" disabled={!valid || paymentStatus === "loading"}>{paymentStatus === "loading" ? "Opening Secure Checkout…" : paymentStatus === "success" ? "Payment Verified" : "Donate Securely"}</button>
         <p className={styles.note}>{data.note}</p>
       </form>
     </section>
