@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { User, Mail, Phone, MessageSquare, ArrowRight, CheckCircle2, Headphones, PlaySquare, FileText, Send, Shield } from "lucide-react";
 
 function LotusIcon({ size = 16, color = "#C9910B", className = "" }: { size?: number; color?: string; className?: string }) {
@@ -68,9 +69,13 @@ export default function ExclusiveContentCard() {
     <section className="exclusive-content-card relative overflow-hidden">
       {/* Left Visual Image Container with S-Wave Divider */}
       <div className="exclusive-content-visual relative">
-        <img loading="lazy" decoding="async"
+        <Image
           src="/images/exclusive-content-user-img.webp"
           alt="Science Divine community practicing yoga at sunrise"
+          fill
+          quality={85}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover"
         />
 
 

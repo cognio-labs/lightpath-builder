@@ -27,16 +27,16 @@ export const video = {
    * Paste the YouTube/Vimeo EMBED url here (e.g. "https://www.youtube.com/embed/XXXXXXXXXXX").
    * While it is empty the card shows the photo only, without a play button.
    */
-  embedUrl: "",
+  embedUrl: "https://www.youtube.com/embed/a77R_EQZfO8",
 };
 
 export const images = {
   /** Sadguru Sakshi Shree seated, cut out on a transparent background. */
-  heroPortrait: "/images/book-session/sakshi-shree-hero.webp",
+  heroPortrait: "/images/book-session/sakshi-shree-hero-cutout.webp",
   /** Temple at sunset behind the hero. */
-  heroBackdrop: "/images/book-session/hero-backdrop.jpg",
-  videoThumb: "/images/uploads/2024/05/aboutsakshishree.webp",
-  childEducation: "/images/uploads/2025/06/Har-Ghar-Shiksha.webp",
+  heroBackdrop: "/images/book-session/varanasi-ghat-sunset.jpg",
+  videoThumb: "/images/book-session/video-thumb.jpg",
+  childEducation: "/images/book-session/child-education.webp",
 };
 
 /** Shown as the avatar stack in the hero's "Trusted by World Leaders" badge. */

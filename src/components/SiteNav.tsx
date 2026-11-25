@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -35,6 +36,8 @@ const aboutLinks = [
 ];
 
 const initiativeLinks = [
+  { href: "/gau-sewa", label: "Gau Sewa", desc: "Nourishing fodder, veterinary care & safe shelter", icon: Heart },
+  { href: "/swasthya-seva", label: "Swasthya Seva", desc: "Community health camps & preventive care", icon: Activity },
   { href: "/shiksha-sewa", label: "Shiksha Sewa", desc: "Free schooling for underprivileged children", icon: BookOpen },
   { href: "/annapurna-sewa", label: "Annapurna Sewa", desc: "Free daily nutritious meals for the needy", icon: Utensils },
   { href: "/nirman-sewa", label: "Nirman Sewa", desc: "Spiritual retreat & ashram infrastructure", icon: Building2 },
@@ -123,9 +126,13 @@ export function SiteNav() {
         
         {/* Brand Logo */}
         <Link href="/" className="flex items-center shrink-0 group py-1 mr-4 lg:mr-6 xl:mr-10">
-          <img loading="eager" fetchPriority="high" decoding="async"
+          <Image
             src={LOGO_URL}
             alt="Science Divine Foundation"
+            width={210}
+            height={96}
+            priority
+            sizes="(max-width: 640px) 126px, (max-width: 1024px) 147px, 168px"
             className="w-auto h-12 sm:h-13 lg:h-14 object-contain transition-transform duration-200 group-hover:scale-102"
           />
         </Link>
@@ -186,8 +193,8 @@ export function SiteNav() {
                           onClick={() => setActiveDropdown(null)}
                           className="flex items-start gap-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-amber-100/70 hover:to-amber-50/40 border border-transparent hover:border-amber-300/50 transition-all duration-200 group transform hover:-translate-y-0.5"
                         >
-                          <div className="w-9 h-9 rounded-xl bg-white border border-amber-400/40 overflow-hidden shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:border-amber-500/70 transition-all duration-200">
-                            <img loading="lazy" decoding="async" src={item.image} alt="" aria-hidden="true" className={`w-full h-full ${item.imageClass}`} />
+                          <div className="relative w-9 h-9 rounded-xl bg-white border border-amber-400/40 overflow-hidden shrink-0 shadow-[0_3px_10px_rgba(212,175,55,0.25)] group-hover:border-amber-500/70 transition-all duration-200">
+                            <Image src={item.image} alt="" aria-hidden="true" fill sizes="64px" className={`w-full h-full ${item.imageClass}`} />
                           </div>
                           <div>
                             <div className="text-sm font-serif font-bold text-[#521623] group-hover:text-[#B8860B] transition-colors">

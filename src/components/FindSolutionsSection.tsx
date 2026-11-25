@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import {
   DepressionIcon,
@@ -92,7 +93,16 @@ export default function FindSolutionsSection() {
                     href={`/${card.slug}`}
                     className="group flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/95 border border-white/80 shadow-[0_8px_20px_rgba(30,50,80,0.05)] hover:shadow-[0_14px_30px_rgba(30,50,80,0.12)] hover:-translate-y-1.5 transition-all duration-300 text-center"
                   >
-                    <img src={card.image} alt={card.name} className="mb-3 h-20 w-full rounded-xl object-cover" loading="lazy" />
+                    <span className="relative mb-3 block h-20 w-full overflow-hidden rounded-xl">
+                      <Image
+                        src={card.image}
+                        alt={card.name}
+                        fill
+                        quality={85}
+                        sizes="(max-width: 640px) 42vw, 220px"
+                        className="object-cover"
+                      />
+                    </span>
                     <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-3 group-hover:bg-amber-50 group-hover:border-amber-200 transition-colors">
                       <IconComponent
                         size={26}
@@ -126,9 +136,13 @@ export default function FindSolutionsSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-100/30 via-sky-50/40 to-transparent pointer-events-none" />
 
               {/* HD Floating Sadguru Sakshi Shree Meditation Portrait */}
-              <img loading="lazy" decoding="async"
+              <Image
                 src="/images/guruji-meditation-hd.webp"
                 alt="Sadguru Sakshi Shree Floating in Meditation"
+                width={1173}
+                height={1341}
+                quality={85}
+                sizes="(max-width: 1024px) calc(100vw - 80px), 432px"
                 className="relative z-10 w-full h-auto max-h-[520px] object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] transition-transform duration-700 group-hover:scale-105"
               />
             </div>

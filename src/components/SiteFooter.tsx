@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "@/components/SocialIcons";
 import { LOGO_URL, SOCIALS, COURSES } from "@/data/content";
@@ -13,9 +14,12 @@ export function SiteFooter() {
         {/* Column 1: Brand + Socials */}
         <div>
           <Link href="/" className="inline-block mb-3 transition-opacity hover:opacity-90">
-            <img loading="lazy" decoding="async"
+            <Image
               src={LOGO_URL}
               alt="Science Divine Foundation"
+              width={210}
+              height={96}
+              sizes="(max-width: 640px) 126px, 147px"
               className="h-12 sm:h-14 w-auto object-contain"
             />
           </Link>
