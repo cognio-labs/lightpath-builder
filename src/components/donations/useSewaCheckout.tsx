@@ -9,6 +9,7 @@
 import { useEffect, useState } from "react";
 import { LoaderCircle, X, XCircle } from "lucide-react";
 import { SEWAS, formatInr, type DonationFrequency, type SewaKey } from "@/lib/sewa";
+import "@/lib/razorpay-client"; // declares the shared Window.Razorpay type
 
 export type Donor = { name: string; email: string; phone: string };
 
@@ -37,13 +38,6 @@ type RazorpayResponse = {
   razorpay_order_id?: string;
   razorpay_subscription_id?: string;
 };
-
-type RazorpayInstance = { open: () => void; on: (event: string, cb: (res: { error?: { description?: string } }) => void) => void };
-declare global {
-  interface Window {
-    Razorpay?: new (options: Record<string, unknown>) => RazorpayInstance;
-  }
-}
 
 const CHECKOUT_SRC = "https://checkout.razorpay.com/v1/checkout.js";
 

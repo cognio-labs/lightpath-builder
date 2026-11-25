@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
-    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1600, 1920, 2048, 2560],
-    imageSizes: [32, 48, 64, 96, 128, 256, 384, 512, 768],
+    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1600, 1920, 2048, 2560, 3840],
+    imageSizes: [32, 48, 64, 96, 128, 256, 320, 384, 512, 768],
     qualities: [75, 85],
     remotePatterns: [
       {
@@ -39,6 +39,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "assets.cdn.filesafe.space",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
     ],
   },

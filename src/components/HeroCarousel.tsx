@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Calendar, Sparkles } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface HeroSlide {
   id: string;
@@ -121,9 +122,13 @@ export function HeroCarousel() {
             className="absolute inset-0"
           >
             {/* Background Image */}
-            <img loading="eager" fetchPriority="high" decoding="async"
+            <Image
               src={current.image}
               alt={current.title}
+              fill
+              priority={currentIndex === 0}
+              quality={85}
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1536px) calc(100vw - 96px), 1440px"
               className="w-full h-full object-cover object-center"
             />
 

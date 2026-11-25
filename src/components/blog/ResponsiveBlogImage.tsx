@@ -19,16 +19,8 @@ export function ResponsiveBlogImage({
   const normalizedSource = unwrapTypefloImageUrl(src);
 
   if (normalizedSource.startsWith("/")) {
-    return (
-      <img
-        src={normalizedSource}
-        alt={alt}
-        loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : "auto"}
-        decoding="async"
-        className={`absolute inset-0 h-full w-full ${className}`}
-      />
-    );
+    return <Image src={normalizedSource} alt={alt} fill sizes={sizes} quality={85}
+      priority={eager} className={className} />;
   }
 
   return (

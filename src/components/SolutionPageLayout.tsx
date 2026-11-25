@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { SectionHeading } from "@/components/PageHero";
 import InspirationalQuotesSection from "@/components/InspirationalQuotesSection";
 import { YouTubeThumb } from "@/components/YouTubeEmbed";
@@ -234,7 +235,9 @@ export function SolutionPageLayout({
               const CardIcon = card.icon;
               return (
                 <div key={idx} className="flex flex-col gap-3 items-start group">
-                  <img src={cardImages[idx]} alt="" className="h-28 w-full rounded-2xl object-cover object-top" loading="lazy" />
+                  <div className="relative h-28 w-full overflow-hidden rounded-2xl">
+                    <Image src={cardImages[idx]} alt="" fill quality={85} sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 1024px) 45vw, 22vw" className="object-cover object-top" />
+                  </div>
                   <div
                     className="p-3 rounded-2xl flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{
@@ -304,7 +307,9 @@ export function SolutionPageLayout({
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {articles.map((a, i) => (
                   <article key={i} className="card-premium rounded-2xl p-6 group overflow-hidden">
-                    <img src={a.image || cardImages[i % cardImages.length]} alt={a.title} className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] object-cover" loading="lazy" />
+                    <div className="relative -mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] overflow-hidden">
+                      <Image src={a.image || cardImages[i % cardImages.length]} alt={a.title} fill quality={85} sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 46vw, 31vw" className="object-cover" />
+                    </div>
                     <div className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">
                       {a.tag || title}
                     </div>
@@ -380,7 +385,9 @@ export function SolutionPageLayout({
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="card-premium rounded-2xl p-6 overflow-hidden">
-                  <img src={cardImages[(i + 1) % cardImages.length]} alt="" className="-mx-6 -mt-6 mb-5 h-32 w-[calc(100%+3rem)] object-cover" loading="lazy" />
+                  <div className="relative -mx-6 -mt-6 mb-5 h-32 w-[calc(100%+3rem)] overflow-hidden">
+                    <Image src={cardImages[(i + 1) % cardImages.length]} alt="" fill quality={85} sizes="(max-width: 768px) calc(100vw - 48px), 46vw" className="object-cover" />
+                  </div>
                   <div className="flex items-center gap-4 mb-4">
                     <div
                       className="w-14 h-14 rounded-xl grid place-items-center text-white flex-shrink-0"
@@ -456,9 +463,12 @@ export function SolutionHeroImage({
   return (
     <div className="lg:col-span-5 flex justify-center relative">
       <div className="relative w-full max-w-[480px] aspect-[4/3] sm:aspect-[1.15] overflow-hidden rounded-3xl shadow-2xl border-4 border-[#D4AF37]/40">
-        <img loading="lazy" decoding="async"
+        <Image
           src={src}
           alt={alt}
+          fill
+          quality={85}
+          sizes="(max-width: 1024px) calc(100vw - 48px), 480px"
           className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
