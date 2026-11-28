@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import {
   CheckCircle2,
   Download,
+  MessageCircle,
   Sparkles,
   Loader2,
   Minus,
@@ -11,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import { EVENT_CONFIG } from "@/lib/mahotsav/event";
+import { normaliseWhatsAppNumber } from "@/lib/mahotsav/phone";
 
 /** One pass covers at most this many people. */
 const MAX_ATTENDEES = 5;
@@ -19,6 +21,7 @@ interface RegistrationSuccess {
   referenceId: string;
   emailSent: boolean;
   whatsappSent: boolean;
+  passUrl: string | null;
   passImage: string | null;
   fullName: string;
   email: string;
@@ -102,6 +105,7 @@ export function RegistrationForm() {
         referenceId: data.referenceId,
         emailSent: Boolean(data.emailSent),
         whatsappSent: Boolean(data.whatsappSent),
+        passUrl: typeof data.passUrl === "string" ? data.passUrl : null,
         passImage: data.passImage ?? null,
         ...data.registration,
       });
@@ -112,6 +116,47 @@ export function RegistrationForm() {
     } finally {
       setSubmitting(false);
     }
+  }
+
+  /**
+   * Free WhatsApp delivery: on phones this opens the share sheet with the pass
+   * image attached; elsewhere it opens WhatsApp with a ready message (and the
+   * pass link) addressed to the visitor's own number.
+   */
+  async function sendToWhatsApp() {
+    if (!confirmation) return;
+    const text = [
+      `Jai Gurudev ${confirmation.fullName} 🙏`,
+      `Your Entry Pass for ${EVENT_CONFIG.festivalName} (${confirmation.attendees} ${confirmation.attendees === 1 ? "person" : "persons"}).`,
+      `📅 ${EVENT_CONFIG.dateDisplay}, ${EVENT_CONFIG.startTime} onwards`,
+      `📍 ${EVENT_CONFIG.venueLocation}`,
+      `Directions: ${EVENT_CONFIG.googleMapsUrl}`,
+      confirmation.passUrl ? `Your pass: ${confirmation.passUrl}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    try {
+      if (confirmation.passImage && typeof navigator.canShare === "function") {
+        const blob = await (await fetch(confirmation.passImage)).blob();
+        const safeName =
+          confirmation.fullName.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "Guest";
+        const file = new File([blob], `Entry-Pass-${safeName}.jpg`, { type: "image/jpeg" });
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], text });
+          return;
+        }
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return; // visitor cancelled
+    }
+
+    const number = normaliseWhatsAppNumber(confirmation.mobile);
+    window.open(
+      `https://wa.me/${number ?? ""}?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   }
 
   if (confirmation) {
@@ -172,6 +217,14 @@ export function RegistrationForm() {
               <Download className="h-4 w-4" />
               Download Pass
             </a>
+            <button
+              type="button"
+              onClick={sendToWhatsApp}
+              className="mt-3 inline-flex w-full max-w-[340px] items-center justify-center gap-2 rounded-full border border-[#D49635] bg-[#FFFCF6] px-6 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[#5E1216] transition-colors hover:bg-[#F6ECDA]"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Send to my WhatsApp
+            </button>
           </>
         ) : (
           <p className="py-10 text-center text-sm text-[#4A362A]">
