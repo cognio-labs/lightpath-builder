@@ -96,7 +96,7 @@ export default function Page() {
         </motion.div>
       </PageHero>
 
-      {/* Bio Section */}
+    
       <section className="section-pad bg-white">
         <div className="container-page grid md:grid-cols-5 gap-12 items-start">
           <motion.div
