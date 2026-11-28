@@ -18,6 +18,7 @@ const MAX_ATTENDEES = 5;
 interface RegistrationSuccess {
   referenceId: string;
   emailSent: boolean;
+  whatsappSent: boolean;
   passImage: string | null;
   fullName: string;
   email: string;
@@ -100,6 +101,7 @@ export function RegistrationForm() {
       setConfirmation({
         referenceId: data.referenceId,
         emailSent: Boolean(data.emailSent),
+        whatsappSent: Boolean(data.whatsappSent),
         passImage: data.passImage ?? null,
         ...data.registration,
       });
@@ -151,6 +153,7 @@ export function RegistrationForm() {
         <p className="mt-2 max-w-md text-center text-sm leading-relaxed text-[#4A362A] sm:text-base">
           Your Entry Pass for {EVENT_CONFIG.festivalName} is ready. We look
           forward to celebrating with you on {EVENT_CONFIG.dateDisplay}.
+          {confirmation.whatsappSent && " We have also sent it to your WhatsApp."}
         </p>
 
         {confirmation.passImage ? (

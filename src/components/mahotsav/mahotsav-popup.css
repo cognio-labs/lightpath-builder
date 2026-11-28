@@ -1,0 +1,203 @@
+/* Home-page announcement popup for the Shiksha Sewa Sankalp Mahotsav. */
+
+.mhp-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  background: rgba(26, 10, 11, 0.7);
+  backdrop-filter: blur(4px);
+  animation: mhp-fade 0.35s ease both;
+}
+
+/* Width is capped so the square poster plus the buttons always fit the screen height. */
+.mhp-wrap {
+  position: relative;
+  width: 100%;
+  max-width: min(30rem, calc(100dvh - 190px));
+  animation: mhp-rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.mhp-card {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 2px solid rgba(212, 150, 53, 0.7);
+  background-color: #fffcf6;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.65);
+  color: #261812;
+}
+
+.mhp-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #d49635;
+  background: #fdf8ef;
+  color: #5e1216;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.mhp-close:hover {
+  background: #f6ecda;
+}
+
+.mhp-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mhp-actions {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.8rem;
+  background: linear-gradient(180deg, #fffcf6, #f6ecda);
+}
+.mhp-btn {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: filter 0.2s ease, background-color 0.2s ease;
+}
+.mhp-btn--primary {
+  background: linear-gradient(90deg, #5e1216, #7a1b1f, #5e1216);
+  color: #fdf8ef;
+}
+.mhp-btn--primary:hover {
+  filter: brightness(1.12);
+}
+.mhp-btn--ghost {
+  border: 1px solid #d49635;
+  background: #fffcf6;
+  color: #5e1216;
+}
+.mhp-btn--ghost:hover {
+  background: #f6ecda;
+}
+
+@keyframes mhp-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes mhp-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mhp-backdrop, .mhp-wrap { animation: none; }
+}
+
+/* Small reminder fixed in the bottom-right corner (visible on every load; the big poster opens over it). */
+.mhp-mini {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 190;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: min(21rem, calc(100vw - 32px));
+  padding: 0.55rem 0.6rem 0.55rem 0.55rem;
+  border-radius: 1rem;
+  border: 1.5px solid rgba(212, 150, 53, 0.75);
+  background: linear-gradient(135deg, #fffcf6, #f6ecda);
+  box-shadow: 0 14px 34px -8px rgba(26, 10, 11, 0.55);
+  color: #261812;
+  animation: mhp-rise 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: bottom 0.3s ease;
+}
+/* While the "Maha Mantras" book popup is on screen, sit above it instead of covering it. */
+body:has(aside[aria-label="New Book Release Announcement"]) .mhp-mini {
+  bottom: 222px;
+}
+.mhp-mini-open {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.mhp-mini-thumb {
+  width: 3.4rem;
+  height: 3.4rem;
+  flex-shrink: 0;
+  border-radius: 0.65rem;
+  object-fit: cover;
+  border: 1px solid rgba(212, 150, 53, 0.6);
+}
+.mhp-mini-text {
+  min-width: 0;
+  line-height: 1.2;
+}
+.mhp-mini-title {
+  display: block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #5e1216;
+}
+.mhp-mini-meta {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 11px;
+  font-weight: 600;
+  color: #9a6213;
+}
+.mhp-mini-cta {
+  flex-shrink: 0;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #5e1216, #7a1b1f);
+  color: #fdf8ef;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mhp-mini-x {
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid #d49635;
+  background: #fdf8ef;
+  color: #5e1216;
+  cursor: pointer;
+}
