@@ -2,6 +2,8 @@ import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { sendPassEmail } from "@/lib/mahotsav/email.server";
 import { renderPass } from "@/lib/mahotsav/pass";
+import { passImageUrl } from "@/lib/mahotsav/pass-link.server";
+import { sendPassWhatsApp } from "@/lib/mahotsav/whatsapp.server";
 import {
   insertRegistration,
   SupabaseError,
@@ -138,11 +140,26 @@ export async function POST(request: Request) {
     }).catch((e) => console.error("Could not mark pass as failed:", e));
   }
 
+  // 3. Also send the pass on WhatsApp (AiSensy). Independent of the email: a failure
+  //    here only gets logged and never affects the registration.
+  let whatsappSent = false;
+  try {
+    whatsappSent = await sendPassWhatsApp({
+      mobile: row.mobile,
+      fullName: row.full_name,
+      attendees: row.attendees,
+      passUrl: passImageUrl(row.id),
+    });
+  } catch (error) {
+    console.error("WhatsApp pass failed:", error);
+  }
+
   return NextResponse.json(
     {
       success: true,
       referenceId: row.reference_id,
       emailSent,
+      whatsappSent,
       passImage: passJpeg
         ? `data:image/jpeg;base64,${passJpeg.toString("base64")}`
         : null,

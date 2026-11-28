@@ -26,6 +26,7 @@ import {
 } from "@/data/content";
 import { ArrowRight, Calendar, MapPin, Clock, Heart, BookOpen, Building2, Sparkles, Users, User, Mail, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Facebook, Youtube, Instagram, Linkedin } from "@/components/SocialIcons";
+import { MahotsavHomePopup } from "@/components/mahotsav/MahotsavHomePopup";
 
 
 
@@ -84,6 +85,9 @@ export default async function Page() {
 
   return (
     <>
+      {/* Announcement popup for Shiksha Sewa Sankalp Mahotsav (once per session) */}
+      <MahotsavHomePopup />
+
       {/* ════════════════════════════════════
           HERO SECTION ,  DIVINE LIVING REDESIGN
       ════════════════════════════════════ */}
