@@ -143,12 +143,14 @@ export async function POST(request: Request) {
   // 3. Also send the pass on WhatsApp (AiSensy). Independent of the email: a failure
   //    here only gets logged and never affects the registration.
   let whatsappSent = false;
+  let passUrl: string | null = null;
   try {
+    passUrl = passImageUrl(row.id);
     whatsappSent = await sendPassWhatsApp({
       mobile: row.mobile,
       fullName: row.full_name,
       attendees: row.attendees,
-      passUrl: passImageUrl(row.id),
+      passUrl,
     });
   } catch (error) {
     console.error("WhatsApp pass failed:", error);
@@ -160,6 +162,7 @@ export async function POST(request: Request) {
       referenceId: row.reference_id,
       emailSent,
       whatsappSent,
+      passUrl,
       passImage: passJpeg
         ? `data:image/jpeg;base64,${passJpeg.toString("base64")}`
         : null,
