@@ -1,0 +1,163 @@
+/*
+ * Styles for the Shiksha Sewa Sankalp Mahotsav page only.
+ * Everything is scoped to `.mahotsav-root` (or a prefixed class) so nothing
+ * leaks into the rest of the website.
+ */
+
+.mahotsav-root {
+  font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  color: #261812;
+  overflow-x: clip;
+  /* warm sacred parchment gradient backdrop */
+  background-color: #fdf8ef;
+  background-image:
+    radial-gradient(at 15% 10%, rgba(242, 201, 125, 0.28) 0px, transparent 50%),
+    radial-gradient(at 88% 18%, rgba(212, 150, 53, 0.16) 0px, transparent 45%),
+    radial-gradient(at 50% 80%, rgba(94, 18, 22, 0.04) 0px, transparent 60%);
+  /* never tile the glow — tiling left hard seams every screen-height */
+  background-repeat: no-repeat;
+}
+
+.font-mahotsav-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+html:has(.mahotsav-root) {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.mahotsav-root) {
+    scroll-behavior: auto;
+  }
+}
+
+/*
+ * lightpath's global.css has unlayered rules that would otherwise override this
+ * page's Tailwind utilities. Hand those properties back to the utilities
+ * (same approach as `.ps-root` in globals.css).
+ */
+main .mahotsav-root p { max-width: revert-layer; }
+main .mahotsav-root img { height: revert-layer; object-position: revert-layer; }
+main .mahotsav-root :is(a, button) { min-height: revert-layer; }
+main .mahotsav-root :is(h1, h2, h3) { font-size: revert-layer; }
+main .mahotsav-root :is(.rounded-2xl, .rounded-3xl) { border-radius: revert-layer; }
+
+/*
+ * globals.css switches every transition and animation off with `!important`
+ * ("still, calm interface"). This page's motion (stage curtain, pulsing dot,
+ * hover effects, sliding register bar) is part of its design, so it is turned
+ * back on here. `.mahotsav-root` makes these win over the global `*` rule.
+ */
+html:has(.mahotsav-root) {
+  scroll-behavior: smooth !important;
+}
+
+.mahotsav-root [class*="transition"] {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform, translate, scale, rotate !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 0.15s !important;
+}
+
+.mahotsav-root .animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+/* Stage curtain: the two velvet panels sweep open, the centre glow fades. */
+.mahotsav-root .mh-curtain-panel {
+  transition-property: transform !important;
+  transition-duration: 3600ms !important;
+  transition-delay: 400ms !important;
+  transition-timing-function: cubic-bezier(0.45, 0, 0.2, 1) !important;
+}
+
+.mahotsav-root .mh-curtain-glow {
+  transition-property: opacity !important;
+  transition-duration: 1500ms !important;
+  transition-delay: 400ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Phone register bar slides up after the hero. */
+.mahotsav-root .mh-register-bar {
+  transition-property: transform !important;
+  transition-duration: 300ms !important;
+}
+
+/* FAQ chevron + modal width + accordion arrow use longer easing. */
+.mahotsav-root [class*="duration-300"] {
+  transition-duration: 0.3s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.mahotsav-root) {
+    scroll-behavior: auto !important;
+  }
+  .mahotsav-root .animate-pulse {
+    animation: none !important;
+  }
+  .mahotsav-root .mh-curtain-panel,
+  .mahotsav-root .mh-curtain-glow {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/*
+ * Hero portrait (desktop): nudged right so it clears the date / time / venue
+ * cards, and anchored to the bottom-right of its box so it sits flush on the
+ * section edge. Lives here (not as Tailwind utilities) so it always applies.
+ */
+.mahotsav-root .mh-hero-portrait {
+  right: -9rem;
+}
+@media (min-width: 1280px) {
+  .mahotsav-root .mh-hero-portrait {
+    right: -10rem;
+  }
+}
+main .mahotsav-root .mh-hero-portrait img {
+  object-position: right bottom;
+}
+
+/*
+ * Desktop hero height: a little shorter than the full screen so there is less
+ * empty space above and below the copy (the portrait scales with it).
+ */
+@media (min-width: 1024px) {
+  .mahotsav-root .mh-hero-grid {
+    min-height: calc(100svh - 125px);
+  }
+}
+
+/*
+ * "A Celebration Filled With…" section: tighter top / bottom spacing (the
+ * section was taller than it needs to be) and a larger portrait on desktop.
+ */
+@media (min-width: 640px) {
+  .mahotsav-root .mh-invite-section {
+    padding-block: 3.5rem;
+  }
+}
+/* Portrait box keeps the picture's own proportions, so the glow behind the head lines up at every size. */
+.mahotsav-root .mh-invite-img {
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  aspect-ratio: 520 / 547;
+}
+@media (min-width: 640px) {
+  .mahotsav-root .mh-invite-img {
+    max-width: 25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .mahotsav-root .mh-invite-section {
+    padding-block: 3rem;
+  }
+  .mahotsav-root .mh-invite-img {
+    width: calc(100% + 3rem);
+    max-width: none;
+    margin-left: -1.5rem;
+  }
+}

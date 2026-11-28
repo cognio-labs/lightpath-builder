@@ -2,14 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { EVENTS } from "@/data/content";
-import { listPublishedEvents } from "@/lib/events.server";
-import { eventStatus, formatEventDate, formatEventTime } from "@/lib/events";
+import { EVENT_CONFIG, PAGE_PATH } from "@/lib/mahotsav/event";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
-
-// Admin-added events (site_events) appear alongside the built-in ones. Saving
-// in /admin/events refreshes this page at once; the timer keeps the automatic
-// "Completed" status current.
-export const revalidate = 300;
 
 type EventCard = {
   key: string;
@@ -21,41 +15,26 @@ type EventCard = {
   status: "Available Now" | "Completed";
   image: string;
   href: string;
-  sortAt: number;
 };
 
-/** "14th December 2025" → timestamp, for ordering the built-in events with the rest. */
-const parseCardDate = (date: string) => Date.parse(date.replace(/(\d+)(st|nd|rd|th)/, "$1")) || 0;
+// This page lists a single event: Shiksha Sewa Sankalp Mahotsav, which opens its
+// own page. Date, time and venue come from that page so the two never disagree.
+const mahotsav = EVENTS.find((e) => e.slug === "birthday-event")!;
+const cards: EventCard[] = [
+  {
+    key: mahotsav.slug,
+    title: EVENT_CONFIG.festivalName,
+    description: mahotsav.description,
+    date: EVENT_CONFIG.dateDisplay,
+    time: EVENT_CONFIG.startTime,
+    location: EVENT_CONFIG.venueLocation,
+    status: "Available Now",
+    image: mahotsav.image,
+    href: PAGE_PATH,
+  },
+];
 
-export default async function Page() {
-  const added = await listPublishedEvents();
-  const cards: EventCard[] = [
-    ...EVENTS.map((e) => ({
-      key: e.slug,
-      title: e.title,
-      description: e.description,
-      date: e.date,
-      time: e.time,
-      location: e.location,
-      status: e.status,
-      image: e.image,
-      href: e.link,
-      sortAt: parseCardDate(e.date),
-    })),
-    ...added.map((e) => ({
-      key: e.id,
-      title: e.title,
-      description: e.subtitle || e.description,
-      date: formatEventDate(e.starts_at),
-      time: formatEventTime(e.starts_at),
-      location: e.location ?? "",
-      status: eventStatus(e),
-      image: e.image_url,
-      href: `/events/${e.slug}`,
-      sortAt: Date.parse(e.starts_at),
-    })),
-  ].sort((a, b) => a.sortAt - b.sortAt);
-
+export default function Page() {
   return (
     <>
       <PageHero

@@ -9,7 +9,7 @@ import { logout } from "./actions";
 export const dynamic = "force-dynamic";
 
 const PAGE_SIZE = 50;
-const TABS = ["overview", ...SEWA_KEYS, "subscriptions", "webhooks"] as const;
+const TABS = ["overview", ...SEWA_KEYS, "subscriptions", "mahotsav", "webhooks"] as const;
 type Tab = (typeof TABS)[number];
 const TAB_LABELS: Record<Tab, string> = {
   overview: "Overview",
@@ -19,6 +19,7 @@ const TAB_LABELS: Record<Tab, string> = {
   gita: "Living the Gita",
   session: "Personal Session",
   subscriptions: "Monthly Auto-pay",
+  mahotsav: "Mahotsav Registrations",
   webhooks: "Webhook Log",
 };
 
@@ -60,6 +61,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     if (tab === "overview") content = await Overview({ db });
     else if (isSewaKey(tab)) content = await DonationsTable({ db, sewa: tab, params });
     else if (tab === "subscriptions") content = await SubscriptionsTable({ db, params });
+    else if (tab === "mahotsav") content = await MahotsavRegistrations({ db, params });
     else content = await WebhookLog({ db });
   } catch (err) {
     content = (
@@ -352,6 +354,111 @@ async function SubscriptionsTable({ db, params }: { db: SupabaseClient; params: 
   );
 }
 
+/* ─────────────── Shiksha Sewa Sankalp Mahotsav registrations ─────────────── */
+
+const PASS_STATUSES = ["sent", "pending", "failed"];
+
+async function MahotsavRegistrations({ db, params }: { db: SupabaseClient; params: Params }) {
+  const page = Math.max(1, Number(params.page) || 1);
+  const status = PASS_STATUSES.includes(params.status ?? "") ? params.status : undefined;
+  const q = cleanSearch(params.q ?? "");
+
+  let query = db.from("mahotsav_registrations").select("*", { count: "exact" });
+  if (status) query = query.eq("pass_email_status", status);
+  if (q) {
+    query = query.or(
+      ["full_name", "email", "mobile", "city"]
+        .map((c) => `${c}.ilike.*${q}*`)
+        .join(","),
+    );
+  }
+  const { data, count, error } = await query
+    .order("created_at", { ascending: false })
+    .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
+  if (error) throw new Error(error.message);
+
+  // Totals across every registration (not just the current page / filter).
+  const { data: all, error: allError } = await db
+    .from("mahotsav_registrations")
+    .select("attendees, pass_email_status")
+    .limit(100_000);
+  if (allError) throw new Error(allError.message);
+  const everyone = (all ?? []) as { attendees: number; pass_email_status: string }[];
+  const attendees = everyone.reduce((s, r) => s + Number(r.attendees), 0);
+
+  return (
+    <section className="space-y-4">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <Stat label="Registrations" value={String(everyone.length)} />
+        <Stat label="Total attendees" value={String(attendees)} />
+        <Stat label="Passes emailed" value={String(everyone.filter((r) => r.pass_email_status === "sent").length)} />
+        <Stat label="Pass email failed" value={String(everyone.filter((r) => r.pass_email_status === "failed").length)} />
+      </div>
+      <div className="rounded-2xl border border-[#E8D6B5] bg-white p-5 shadow-sm">
+        <Toolbar
+          params={params}
+          statuses={PASS_STATUSES}
+          exportKey="mahotsav"
+          exportHref="/admin/mahotsav-export"
+          exportLabel="Download Excel"
+          statusLabel="All pass emails"
+          placeholder="Search name, email, phone, city"
+        />
+        <p className="mb-3 text-xs text-[#7A6165]">
+          {count ?? 0} registrations for Shiksha Sewa Sankalp Mahotsav · 13 December 2026. The Excel file includes everyone.
+        </p>
+        <Table
+          rows={data ?? []}
+          empty="No registrations match."
+          columns={[
+            ["Registered", (r) => fmtDate(r.created_at)],
+            [
+              "Name",
+              (r) => (
+                <div>
+                  <p className="font-semibold">{String(r.full_name ?? "—")}</p>
+                  <p className="text-[11px] text-[#7A6165]">{String(r.city ?? "")}</p>
+                </div>
+              ),
+            ],
+            [
+              "Contact",
+              (r) => (
+                <div>
+                  <p className="text-[11px] text-[#7A6165]">{String(r.email ?? "")}</p>
+                  <p className="text-[11px] text-[#7A6165]">{String(r.mobile ?? "")}</p>
+                </div>
+              ),
+            ],
+            ["Number of Seats", (r) => <strong>{String(r.attendees ?? "—")}</strong>],
+            [
+              "Pass email",
+              (r) => (
+                <div className="space-y-0.5">
+                  <StatusBadge status={String(r.pass_email_status)} />
+                  {r.pass_email_error ? <p className="text-[10px] text-red-700">{String(r.pass_email_error)}</p> : null}
+                </div>
+              ),
+            ],
+            [
+              "Pass",
+              (r) => (
+                <a
+                  href={`/admin/mahotsav-pass/${String(r.id)}`}
+                  className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-[#521623] px-3 py-1.5 text-[11px] font-bold text-[#521623] hover:bg-[#FFF4CF]"
+                >
+                  <Download size={12} /> Download
+                </a>
+              ),
+            ],
+          ]}
+        />
+        <Pager params={params} page={page} total={count ?? 0} />
+      </div>
+    </section>
+  );
+}
+
 /* ─────────────── Webhook log ─────────────── */
 
 async function WebhookLog({ db }: { db: SupabaseClient }) {
@@ -421,6 +528,7 @@ const BADGE: Record<string, string> = {
   paid: "bg-green-100 text-green-800",
   active: "bg-green-100 text-green-800",
   processed: "bg-green-100 text-green-800",
+  sent: "bg-green-100 text-green-800",
   authenticated: "bg-blue-100 text-blue-800",
   created: "bg-gray-100 text-gray-700",
   pending: "bg-amber-100 text-amber-800",
@@ -477,11 +585,18 @@ function Toolbar({
   params,
   statuses,
   exportKey,
+  exportHref,
+  exportLabel = "Export CSV",
+  statusLabel = "All statuses",
   placeholder,
 }: {
   params: Params;
   statuses: string[];
   exportKey: string;
+  /** Overrides the default CSV export link (used for the Excel download). */
+  exportHref?: string;
+  exportLabel?: string;
+  statusLabel?: string;
   placeholder: string;
 }) {
   return (
@@ -499,7 +614,7 @@ function Toolbar({
           defaultValue={params.status ?? ""}
           className="rounded-full border border-[#E8D6B5] bg-white px-4 py-2 text-sm"
         >
-          <option value="">All statuses</option>
+          <option value="">{statusLabel}</option>
           {statuses.map((s) => (
             <option key={s} value={s}>{s === "created" ? "not paid" : s}</option>
           ))}
@@ -507,10 +622,10 @@ function Toolbar({
         <button className="rounded-full bg-[#521623] px-5 py-2 text-xs font-bold text-white">Filter</button>
       </form>
       <a
-        href={`/admin/export?table=${exportKey}`}
+        href={exportHref ?? `/admin/export?table=${exportKey}`}
         className="flex items-center gap-1.5 rounded-full border border-[#521623] px-4 py-2 text-xs font-bold text-[#521623] hover:bg-[#FFF4CF]"
       >
-        <Download size={13} /> Export CSV
+        <Download size={13} /> {exportLabel}
       </a>
     </div>
   );
