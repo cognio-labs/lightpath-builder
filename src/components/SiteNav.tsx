@@ -81,14 +81,29 @@ export function SiteNav() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
 
-  // Monitor scroll for compact animated navbar transition
+  // Monitor scroll for compact animated navbar transition & dismiss dropdowns
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 15);
+      setActiveDropdown(null);
+      setHoveredNav(null);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdowns on outside click/pointerdown
+  useEffect(() => {
+    const handlePointerDown = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target?.closest("header")) {
+        setActiveDropdown(null);
+        setHoveredNav(null);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
   }, []);
 
   // Close mobile drawer on Escape key or route change
@@ -116,6 +131,10 @@ export function SiteNav() {
 
   return (
     <header
+      onMouseLeave={() => {
+        setActiveDropdown(null);
+        setHoveredNav(null);
+      }}
       className={`sticky top-0 z-[100] w-full transition-colors duration-200 py-3 bg-white ${
         scrolled
           ? "border-b border-amber-200/70 shadow-[0_10px_30px_rgba(82,22,35,0.08)]"
@@ -459,11 +478,19 @@ export function SiteNav() {
         </nav>
 
         {/* Right CTA Action Buttons */}
-        <div className="flex items-center gap-2.5 xl:gap-3.5 shrink-0 ml-4 lg:ml-6 xl:ml-10">
+        <div className="flex items-center gap-2 xl:gap-3 shrink-0 ml-3 lg:ml-5 xl:ml-8">
+          {/* Volunteer Button (Styled with Donate Colors) */}
+          <Link
+            href="/volunteer"
+            className="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-[#521623] to-[#3B0F19] hover:from-[#3B0F19] hover:to-[#2A0A12] text-[#FFFDF5] border border-amber-400/40 rounded-full px-4 xl:px-5 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+          >
+            Volunteer
+          </Link>
+
           {/* Donate Button */}
           <Link
             href="/initiatives"
-            className="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-[#521623] to-[#3B0F19] hover:from-[#3B0F19] hover:to-[#2A0A12] text-[#FFFDF5] border border-amber-400/40 rounded-full px-5 xl:px-6 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+            className="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-[#521623] to-[#3B0F19] hover:from-[#3B0F19] hover:to-[#2A0A12] text-[#FFFDF5] border border-amber-400/40 rounded-full px-4 xl:px-5 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
           >
             Donate
           </Link>
@@ -471,7 +498,7 @@ export function SiteNav() {
           {/* Book Session Button */}
           <Link
             href="/book-session"
-            className="hidden md:inline-flex items-center justify-center bg-[#551628] border border-[#551628] text-[#FFF8E8] hover:bg-[#3B0F19] hover:border-[#3B0F19] rounded-full px-5 xl:px-6 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-[0_6px_16px_rgba(85,22,40,0.2)] hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+            className="hidden md:inline-flex items-center justify-center bg-[#551628] border border-[#551628] text-[#FFF8E8] hover:bg-[#3B0F19] hover:border-[#3B0F19] rounded-full px-4 xl:px-5 py-2.5 text-xs xl:text-sm font-bold transition-all shadow-[0_6px_16px_rgba(85,22,40,0.2)] hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
           >
             Book Session
           </Link>
@@ -632,6 +659,7 @@ export function SiteNav() {
                 Contact Us
               </Link>
 
+              <Link href="/volunteer" onClick={() => setOpen(false)} className="px-4 py-3 rounded-2xl bg-amber-50/70 font-bold text-base text-[#521623]">Join as a Volunteer</Link>
               {/* Mobile CTA Buttons */}
               <div className="flex flex-col gap-3 pt-4 border-t border-amber-200/80 mt-2">
                 <Link

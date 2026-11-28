@@ -59,8 +59,14 @@ export async function POST(request: NextRequest) {
         message: data.message ?? null,
         meta: (data.meta as any) ?? null,
       });
-      if (error) console.warn("Supabase insert warning:", error.message);
+      if (error) {
+        if (data.meta?.source === "volunteer_page") throw new Error("Volunteer registration could not be saved");
+        console.warn("Supabase insert warning:", error.message);
+      }
     } catch (dbErr) {
+      if (data.meta?.source === "volunteer_page") {
+        return NextResponse.json({ error: "Registration is temporarily unavailable. Please try again or contact our team." }, { status: 503 });
+      }
       console.warn("Database storage skipped (not configured or offline):", dbErr);
     }
 

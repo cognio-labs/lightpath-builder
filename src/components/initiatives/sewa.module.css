@@ -80,7 +80,7 @@
   flex-direction: column;
   justify-content: center;
   padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 6vw, 6rem);
-  background: linear-gradient(90deg, #560f1b 0%, #560f1b 30%, rgba(86, 15, 27, 0.9) 48%, rgba(86, 15, 27, 0.12) 78%);
+  background: linear-gradient(90deg, #560f1b 0%, #560f1b 26%, rgba(86, 15, 27, 0.85) 42%, rgba(86, 15, 27, 0.2) 60%, rgba(86, 15, 27, 0) 74%);
 }
 
 .page .eyebrow {

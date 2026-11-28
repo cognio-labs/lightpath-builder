@@ -1,0 +1,7 @@
+2026/11/28-11:58:46.769 3484 Reusing MANIFEST D:\lightpath-builder-main\lightpath-builder-main\scratch\volunteer-browser\Default\IndexedDB\http_localhost_3000.indexeddb.leveldb/MANIFEST-000001
+2026/11/28-11:58:46.770 3484 Recovering log #3
+2026/11/28-11:58:46.771 3484 Reusing old log D:\lightpath-builder-main\lightpath-builder-main\scratch\volunteer-browser\Default\IndexedDB\http_localhost_3000.indexeddb.leveldb/000003.log 
+2026/11/28-11:58:48.802 3484 Level-0 table #5: started
+2026/11/28-11:58:48.808 3484 Level-0 table #5: 16371 bytes OK
+2026/11/28-11:58:48.815 3484 Delete type=0 #3
+2026/11/28-11:58:48.816 3484 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
